@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ru" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="generator" content="Hugo 0.26" />
+    <meta name="description" content="">
+
+
+    <title>Руководства :: META</title>
+    <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <link href="https://developers.1ad.ru/meta/css/hybrid.css" rel="stylesheet">
+    <link href="https://developers.1ad.ru/meta/css/horsey.css" rel="stylesheet">
+    <link href="https://developers.1ad.ru/meta/css/theme.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+    <style type="text/css">
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+
+  </head>
+  <body class="" data-url="/guides/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+
+
+<div class="highlightable">
+  <div id="header-wrapper">
+    <div id="header">
+      <img src="https://rwstatic.ru/h/meta/avatar.png" width="25" />
+META Developers
+    </div>
+  </div>
+
+  
+    <ul class="topics">
+        
+            <li data-nav-id="/" class="dd-item">
+            <a href="https://developers.1ad.ru/meta/"><i class="fa fa-fw fa-home"></i></a>
+            </li>
+        
+        
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/guides/" class="dd-item 
+        parent
+        active
+        parent
+        ">
+      <a href="https://developers.1ad.ru/meta/guides/">
+        <span>Руководства</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+          
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/guides/quick_start/" class="dd-item
+     
+      ">
+        <a href="https://developers.1ad.ru/meta/guides/quick_start/">
+        <span>Быстрый старт</span> 
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/guides/request_response_vars/" class="dd-item
+     
+      ">
+        <a href="https://developers.1ad.ru/meta/guides/request_response_vars/">
+        <span>Окружение запроса</span> 
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/guides/template_engines/" class="dd-item
+     
+      ">
+        <a href="https://developers.1ad.ru/meta/guides/template_engines/">
+        <span>Шаблонизация</span> 
+        </a></li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/embedjs/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="https://developers.1ad.ru/meta/embedjs/">
+        <span>Embed JS</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
+          
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/embedjs/analytics/" class="dd-item
+     
+      ">
+        <a href="https://developers.1ad.ru/meta/embedjs/analytics/">
+        <span>Аналитика</span> 
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/embedjs/inject_api/" class="dd-item
+     
+      ">
+        <a href="https://developers.1ad.ru/meta/embedjs/inject_api/">
+        <span>Inject API</span> 
+        </a></li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+        
+
+        
+    </ul>
+    
+     
+    <section id="footer">
+      
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+        
+          <div id="top-bar">
+            
+
+            <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                <span id="sidebar-toggle-span">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                  </a>
+                </span>
+                <span id="toc-menu"><i class="fa fa-list-alt"></i></span>
+                <span class="links">
+                
+
+
+
+
+ <a href='https://developers.1ad.ru/meta/'>META</a> > Руководства
+
+ 
+
+   
+                </span>
+            </div>
+            <div class="progress">
+    <div class="wrapper">
+
+    </div>
+</div>
+
+          </div>
+        
+        
+        <div id="body-inner">
+          
+            <h1>Руководства</h1>
+          
+
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+
+
+	
+
+	<div class="extra-pagination inner">
+	<nav class="pagination" role="navigation">
+	
+	<span class="page-number"> 1  1</span>
+	
+</nav>
+
+	</div>
+
+	
+	   <article class="post guides">
+    <header class="post-header">
+        <h2 class="post-title"><a href="https://developers.1ad.ru/meta/guides/quick_start/">Быстрый старт</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p> </p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post guides">
+    <header class="post-header">
+        <h2 class="post-title"><a href="https://developers.1ad.ru/meta/guides/request_response_vars/">Окружение запроса</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Введение  env - объект-окружение запроса к серверу. vm - объект для удобной работы с ответом клиенту. На лего странцах отдельный vm на каждый script. pvm - только на LEGO-страницах. Отвечает за хранение данных на всех странце, содержит в себе vm script. DataResult - низкоуровневый класс, отвечающий за ответ с данными по EntityPage. Его нельзя получить так как он никуда не передается, существует вне scipt - над ним. Создается вручную при необходимости только в meta/js скриптах. </p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post guides">
+    <header class="post-header">
+        <h2 class="post-title"><a href="https://developers.1ad.ru/meta/guides/template_engines/">Шаблонизация</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Для шаблонизации используется freemarker.org. Отсутствие переменных при шаблонизации сейчас не является фатальной ошибкой, переменная в такой случае будет заменяться пустой строкой.
+Функции Пример вызова:
+ ${t(String)} - Перевод ${to_json(Object)} - Конвертация объекта в json ${sfile(String)} - Получение абсолютной ссылки на статический файл со стораджа ${to_date(String)} - Приведение к дате ${pg_quote_literal(String)} - Экранирование строки для PostgreSQL ${pg_quote_ident(String)} - Экранирование идентификатора (имя столбца, таблицы, схемы) для PostgreSQL  Работа с таблицами ${pager} Добавляет limit/offset в запрос и пагинатор на страницу </p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+
+	<div style="margin-bottom:2rem"></div>
+
+	<nav class="pagination" role="navigation">
+	
+	<span class="page-number"> 1  1</span>
+	
+</nav>
+
+
+
+
+      </div>
+    </div>
+
+
+    </section>
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="https://developers.1ad.ru/meta/js/clipboard.min.js"></script>
+    <script src="https://developers.1ad.ru/meta/js/html5shiv-printshiv.min.js"></script>
+    <script src="https://developers.1ad.ru/meta/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="https://developers.1ad.ru/meta/js/modernizr.custom.71422.js"></script>
+    <script src="https://developers.1ad.ru/meta/js/learn.js"></script>
+    <script src="https://developers.1ad.ru/meta/js/hugo-learn.js"></script>
+
+  </body>
+</html>

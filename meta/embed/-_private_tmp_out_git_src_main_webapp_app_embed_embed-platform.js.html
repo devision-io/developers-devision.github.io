@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Source: /private/tmp/out_git/src/main/webapp/app/embed/embed-platform.js</title>
+    
+    
+    
+    
+    
+    <meta property="og:title" content=""/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content=""/>
+    
+    <meta property="og:url" content=""/>
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <script src="scripts/jquery.min.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/jaguar.css">
+    
+    
+    <script>
+    var config = {"monospaceLinks":true,"cleverLinks":true,"default":{"outputSourceFiles":true},"applicationName":"Demo","disqus":"","googleAnalytics":"","openGraph":{"title":"","type":"website","image":"","site_name":"","url":""},"meta":{"title":"","description":"","keyword":""},"linenums":false};
+    </script>
+    
+
+    
+</head>
+<body>
+<div id="wrap" class="clearfix">
+    
+<div class="navigation">
+    <h3 class="applicationName"><a href="index.html">Demo</a></h3>
+
+    <div class="search">
+        <input id="search" type="text" class="form-control input-sm" placeholder="Search Documentations">
+    </div>
+    <ul class="list">
+    
+        <li class="item" data-name="meta">
+            <span class="title">
+                <a href="meta.html">meta</a>
+                
+                <span class="static">static</span>
+                
+            </span>
+            <ul class="members itemMembers">
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="methods itemMembers">
+            
+            <span class="subtitle">Methods</span>
+            
+                <li data-name="meta.pubApi.applyInjects"><a href="meta.html#.pubApi.applyInjects">pubApi.applyInjects</a></li>
+            
+                <li data-name="meta.pubApi.getUserInfo"><a href="meta.html#.pubApi.getUserInfo">pubApi.getUserInfo</a></li>
+            
+                <li data-name="meta.pubApi.initTracker"><a href="meta.html#.pubApi.initTracker">pubApi.initTracker</a></li>
+            
+                <li data-name="meta.pubApi.load"><a href="meta.html#.pubApi.load">pubApi.load</a></li>
+            
+                <li data-name="meta.pubApi.onEvent"><a href="meta.html#.pubApi.onEvent">pubApi.onEvent</a></li>
+            
+                <li data-name="meta.pubApi.onPopup"><a href="meta.html#.pubApi.onPopup">pubApi.onPopup</a></li>
+            
+                <li data-name="meta.pubApi.onReady"><a href="meta.html#.pubApi.onReady">pubApi.onReady</a></li>
+            
+                <li data-name="meta.pubApi.render"><a href="meta.html#.pubApi.render">pubApi.render</a></li>
+            
+                <li data-name="meta.pubApi.track"><a href="meta.html#.pubApi.track">pubApi.track</a></li>
+            
+            </ul>
+            <ul class="events itemMembers">
+            
+            </ul>
+        </li>
+    
+    </ul>
+</div>
+    <div class="main">
+        <h1 class="page-title" data-filename="-_private_tmp_out_git_src_main_webapp_app_embed_embed-platform.js.html">Source: /private/tmp/out_git/src/main/webapp/app/embed/embed-platform.js</h1>
+        
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source "><code>/**
+ * Динамический скрипт, раздается не со статик сервера, а непосредственно с Java сервисов
+ * так как нужно авторизовать пользователя и подменить PLATFORM_URL
+
+ * @link https://learn.javascript.ru/cross-window-messaging-with-postmessage
+ * @link https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage
+ */
+(function (w, d) {
+
+    function isDefined(value) {
+        return typeof value !== 'undefined';
+    }
+
+    var log = {};
+    // Если консоль неопределена, тогда забиваем, так как
+    // это надо только разработчикам во вменяемых браузерах
+    log.log = consoleLog('log');
+    log.info = consoleLog('info');
+    log.warn = consoleLog('warn');
+    log.error = consoleLog('error');
+
+    // from angular/js
+    function formatError(arg) {
+        if (arg instanceof Error) {
+            if (arg.stack) {
+                arg = (arg.message &amp;&amp; arg.stack.indexOf(arg.message) === -1)
+                    ? 'Error: ' + arg.message + '\n' + arg.stack
+                    : arg.stack;
+            } else if (arg.sourceURL) {
+                arg = arg.message + '\n' + arg.sourceURL + ':' + arg.line;
+            }
+        }
+        return arg;
+    }
+
+    // from angular/js
+    function consoleLog(type) {
+        var console = window.console || {},
+            logFn = console[type] || console.log || noop,
+            hasApply = false;
+
+        // Note: reading logFn.apply throws an error in IE11 in IE8 document mode.
+        // The reason behind this is that console.log has type "object" in IE8...
+        try {
+            hasApply = !!logFn.apply;
+        } catch (e) {
+        }
+
+        if (hasApply) {
+            return function () {
+                var args = [];
+                for (var i = 0; i &lt; arguments.length; i++) {
+                    args.push(formatError(arguments[i]));
+                }
+                return logFn.apply(console, args);
+            };
+        }
+
+        // we are IE which either doesn't have window.console => this is noop and we do nothing,
+        // or we are IE where console.log doesn't have apply so we log at least first 2 args
+        return function (arg1, arg2) {
+            logFn(arg1, arg2 == null ? '' : arg2);
+        };
+    }
+
+    /**
+     * Префикс, который передается от embed iframe до родительсткой страницы
+     * @type {string}
+     */
+    var MSG_ACTION_PREFIX = 'meta:site:';
+
+    /**
+     * Урл, с которого будут грузится данные для iframe.
+     * Подменяется при отдаче embed.js с сервера
+     * @type {string}
+     */
+    var PLATFORM_URL = 'http://localhost:8080';
+
+    /**
+     * Информация о текущем пользователе
+     * @type {{userId: number, companyId: number}}
+     */
+    var userInfo = "%USER_INFO_PLACEHOLDER%";
+
+    /**
+     * Данные сюда попадают через функцию create
+     * @type {object}
+     */
+    var trackerInfo = {};
+
+    /**
+     * Публичный класс меты. Напрямую с них работать не рекомендуется, так как он подгружается ассинхронно и
+     * никто не сможет гарантировать, что он будет в глобальном скойпе на момент вызова.
+     * Рекомендуется работать с ним через функцию me (как ga в Google Analytics, идея взята оттуда)
+     * [MSR-3](http://wiki.lan:8090/pages/viewpage.action?pageId=27886334)
+     *
+     * @namespace meta
+     * @example
+     *
+
+     // Подкючаете скрипт
+     (function (i, s, o, g, r, a, m) {
+        i['MetaEmbedObject'] = r;
+        i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//localhost:8080/static/embed.js?token=DEV_OR_REAL_USER_TOKEN&amp;login=USER_LOGIN', 'me');
+     */
+    var pubApi = {};
+    // Убираем в Window
+    w.MetaEmbed = pubApi;
+
+    /**
+     * Информаия по текущему пользователю
+     *
+     * @memberof meta
+     */
+    pubApi.getUserInfo = function () {
+        return userInfo;
+    };
+
+    /**
+     * Инициализация трекера
+     *
+     * @memberof meta
+     */
+    pubApi.initTracker = function (trackerId, params) {
+        if (!trackerId) {
+            log.error("Не указан trackerId");
+            return;
+        }
+        trackerInfo = $.extend({}, params, {id: trackerId});
+    };
+
+    /**
+     * Отправить событие на сервер
+     *
+     * @link https://developers.google.com/analytics/devguides/collection/analyticsjs/events?hl=ru
+     *
+     * @memberof meta
+     */
+    pubApi.track = function (hitType, params) {
+        if (!trackerInfo || !trackerInfo.id) {
+            log.error("Не указан trackerId. Отправка отменена: " + hitType + '. Используйте initTracker для инициализации счетчика', params);
+            return;
+        }
+
+        var converts = {};
+        var def_ = {};
+        switch (hitType) {
+            case 'pageview':
+                converts = {
+                    "title": "t",
+                    "location": "l",
+                    "page": "p"
+                };
+                def_ = {
+                    "title": document.title,
+                    "location": w.location.href,
+                    "page": w.location.pathname
+                };
+                break;
+            case 'event':
+                converts = {
+                    "category": "c",
+                    "action": "a",
+                    "label": "l",
+                    "value": "v"
+                };
+                break;
+            default:
+                log.error('Данный тип сообщений не поддерживается. Запрос не будет обработан', hitType);
+                return;
+        }
+        var p_ = {};
+        if (def_) {
+            $.each(def_, function (k, v) {
+                if (converts[k] !== undefined) {
+                    p_[converts[k]] = v;
+                }
+            });
+        }
+        if (params) {
+            $.each(params, function (k, v) {
+                if (converts[k] !== undefined) {
+                    p_[converts[k]] = v;
+                }
+            });
+        }
+        var data_ = $.extend(p_, {"uid": userInfo.userId, "cid": userInfo.companyId, "tid": trackerInfo.id});
+
+        $.ajax({
+            url: "https://amp.garpun.com/collect/me_" + hitType,
+            method: "GET",
+            cache: false,
+            data: data_
+        });
+    };
+
+    /**
+     * Подписаться на событие старта meta embed
+     * @param callback
+     *
+     * @memberof meta
+     */
+    pubApi.onReady = function (callback) {
+        if (!callback) {
+            return;
+        }
+        d.addEventListener('DOMContentLoaded', function () {
+            callback();
+        });
+    };
+
+    /**
+     * Запрашивает с сервера данные про инжект-блокам для данной страницы и
+     * выполняет полученные сценарии
+     *
+     * @memberof meta
+     * @example
+     *
+
+     conf_ = {
+            "extractVars": [
+                {
+                    "id": "menuItems",
+                    "selector": "#page-wrapper .me-layout-top-menu > ul.navbar-nav > li",
+                    "map": [
+                        {
+                            "key": "pageId",
+                            "value": {
+                                "type": "attr",
+                                "name": "data-page-id"
+                            }
+                        },
+                        {
+                            "key": "linkName",
+                            "selector": "> a.me-app-menu__link",
+                            "value": {
+                                "type": "text",
+                                "trim": true,
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id":"user",
+                    "selector": ".js-openuserinfo",
+                    "type": "object",
+                    "map": [
+                        {
+                            "key": "first_name",
+                            "selector": ".user-menu__user-name",
+                            "value": {
+                                "type": "text",
+                                "trim": true,
+                            }
+                        },
+                        {
+                            "key": "company_name",
+                            "selector": ".user-menu__company-name",
+                            "value": {
+                                "type": "text",
+                                "trim": true,
+                            }
+                        }
+                    ]
+                }
+            ],
+            "injects": [
+                {
+                    "selector": ".js-main-page-view",
+                    "mode": "append",
+                    "content": {
+                        "type": "bem",
+                        "attrs": {
+                            id: 'metamodule-mp',
+                            cls: 'module toggle-wrap'
+                        },
+                        "content": [
+                            'селекторы на основе БЭМ https://ru.bem.info/platform/bemjson/#content',
+                            '&lt;div id="metamodule-mp_heading" class="mod-header">&lt;ul class="ops">&lt;/ul>&lt;h2 class="toggle-title">Медиапланы&lt;/h2>&lt;/div>',
+                            {
+                                cls: "mod-content",
+                                content: {
+                                    tag: "ul",
+                                    cls:"item-details",
+                                    content:{
+                                        tag:"li",
+                                        content: {
+                                            "type": "meta_embed",
+                                            "elemId": "frame_for_test",
+                                            "appendExtractVars": ["location", "menuItems"],
+                                            "options":  {
+                                                "mode": "full_iframe",
+                                                "appId": 25,
+                                                "pageId": 3887,
+                                                "sizeBy": 'content'
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                }
+            ]
+        };
+     */
+    pubApi.applyInjects = function (callType) {
+        // В chrome расширении jsonp не работает, для этого расширение передает json в аргументе этой функции
+        callType = callType || 'jsonp';
+
+        var injectPostData_ = {
+            "title": document.title,
+            "location": {
+                "href": w.location.href
+            }
+        };
+
+        $.ajax({
+            type: "GET",
+            contentType: "application/json",
+            url: 'https://embed.garpun.com/api/v1/adptools/EmbedInjectService/get',
+            // TODO: Ваще адский хак, так как ACL не дает либо сделать запрос когда X-META-AppId
+            // или не дает логинится если X-META-Allowed-Apps
+            data: {sp: JSON.stringify(injectPostData_), a: 74}, // TODO: Убить хак с a=74
+            dataType: callType,
+            jsonp: callType == 'jsonp' ? "cb" : undefined
+        }).then(function (resp) {
+            if (resp.data &amp;&amp; resp.data.get &amp;&amp; resp.data.get.rows) {
+                var injectsConf = resp.data.get.rows[0];
+                processInjects(injectsConf);
+            }
+        }, function () {
+            log.error('Ошибка подгрузки inject api сценариев');
+        });
+    };
+
+    /**
+     * Подписка на попытку вызова попапа на родительской странице.
+     * Родительская страница должна реализовать функцию обратного вызова, чтобы открывать попапы,
+     * когда МЕТА захочет это сделать.
+     * @param callback
+     *
+     * @memberof meta
+     */
+    pubApi.onPopup = function (callback) {
+        popupCallback = callback;
+    };
+
+    /**
+     * Рендерит в заданый элемент контент
+     * Используется в inline embed режиме для кода, приходящего с сервера
+     * @param elementId
+     * @param content
+     *
+     * @memberof meta
+     */
+    pubApi.render = function (elementId, content) {
+        $('#' + elementId).html(content);
+    };
+
+    /**
+     * Загрузить страницу в элемент
+     * @param elementId
+     * @param options
+     *
+     * @memberof meta
+     *
+     * @example
+     // Загружаете страницу
+     me('load', 'placeholder', {
+         appId: 35,
+         pageId: 3632,
+         sizeBy: 'content'
+     });
+
+     * @example
+     // Можете передать стартовый env (env - это окружение запроса, очень похоже на GET параметры)
+     me('load', 'placeholder', {
+        appId: 35,
+        pageId: 3632,
+        sizeBy: 'content',
+        env: {
+            sp: {
+                order_date: '1996-07-08'
+            }
+        }
+    });
+
+     * @example
+     // Можете открывать главную страницу карточки объекта
+     me('load', 'placeholder', {
+        appId: 35,
+        entityId: 2629,
+        objectId: 4,
+        sizeBy: 'content'
+    });
+
+     * @example
+     // Можете открывать вкладку на карточке объекта
+     me('load', 'placeholder', {
+        appId: 35,
+        entityId: 2630,
+        objectId: 1,
+        pageId: 3313,
+
+        sizeBy: 'content'
+    });
+     */
+    pubApi.load = function (elementId, options) {
+        var mode = options.mode || 'full_iframe';
+
+        switch (mode) {
+            case 'full_iframe':
+                return load_full_iframe(elementId, options);
+                break;
+            case 'cup_iframe':
+                return load_cup_iframe(elementId, options);
+                break;
+            case 'cup_inline':
+                return load_cup_inline(elementId, options);
+                break;
+            default:
+                log.error('Неподерживаемый embed-режим', mode);
+                break;
+        }
+    };
+
+    /**
+     * Легкое встраивание Custom User Page через document write
+     * @param elementId
+     * @param options
+     */
+    function load_cup_inline(elementId, options) {
+        var elemId = getElemId(elementId);
+        var url = PLATFORM_URL + '/p/' + options.app + '/' + options.page + '/' + options.state + '?embed=' + elemId + '&amp;mode=inline';
+        if (options.env &amp;&amp; options.env.sp) {
+            url += '&amp;' + $.param(options.env.sp, true);
+        }
+        var el = $('#' + elementId);
+        el.html('&lt;script src="' + url + '">&lt;/script>');
+        el.on('click', '[me-embed-popup]', function (event) {
+            var that = $(this);
+            openUrl(null, that.attr('href'), 'get', '_popup');
+            event.stopImmediatePropagation();
+            event.preventDefault();
+            return false;
+        });
+    }
+
+    /**
+     * Встраиваение Custom User Page через iframe
+     * @param elementId
+     * @param options
+     */
+    function load_cup_iframe(elementId, options) {
+        var url = PLATFORM_URL + '/p/' + options.app + '/' + options.page + '/' + options.state;
+
+        $('#' + elementId).html('&lt;iframe id="' + getIFrameId(elementId) + '" src="' + url + '" frameborder="0" style="width:100%;height:100%;border:0;">&lt;/iframe>');
+    }
+
+    /**
+     * Полноформатное встраивание через iframe с подгрузкой всех мета скриптов и стилей
+     * @param elementId
+     * @param options
+     * @returns {Element}
+     */
+    function load_full_iframe(elementId, options) {
+        // Генерируем параметры url
+        var method = 'page';
+        var urlParams = [];
+        if (isDefined(options.appId)) {
+            urlParams.push('a=' + options.appId);
+        }
+        if (isDefined(options.pageId)) {
+            urlParams.push('p=' + options.pageId);
+        }
+        if (isDefined(options.entityId)) {
+            urlParams.push('e=' + options.entityId);
+        }
+        if (isDefined(options.objectId)) {
+            // Если передан objectId мы считаем, что хотят открыть карточку
+            method = 'card';
+            // objectId может быть не числом
+            urlParams.push('o=' + encodeURIComponent(options.objectId));
+        }
+
+        if (urlParams) {
+            var url = '/' + method + '?' + urlParams.join('&amp;');
+            if (isDefined(options.env)) {
+                var newEnv = {};
+                // TODO: Пока копипаст логики генерации хеша p_ для страницы
+                newEnv[getPageUrlKey(options)] = options.env;
+                var envUrlPart = encodeURIComponent(JSON.stringify(newEnv));
+                if (envUrlPart) {
+                    url += '&amp;env=' + envUrlPart;
+                }
+            }
+            var elem = newElem(elementId, url, options);
+            $('#' + elementId).html(elem.html());
+            return elem;
+        } else {
+            log.warn('Невозможно загрузить страницу для ' + elementId + ' так как не указаны обятательные поля');
+        }
+    }
+
+    // copy/paste из env.service.js
+    function getPageUrlKey(data) {
+        var key = 'p_' + data.pageId;
+        if (data.entityId) {
+            key += '$e_' + data.entityId;
+        }
+        if (data.objectId) {
+            key += '$o_' + data.objectId;
+        }
+        return key;
+    }
+
+    /**
+     * Подписка на все события по элементу
+     * @param elementId
+     * @param callback
+     *
+     * @memberof meta
+     */
+    pubApi.onEvent = function (elementId, callback) {
+        eventsCallbacks[elementId] = callback;
+    };
+
+    /**
+     * Используется для обнаружения открытых iframe и
+     * определения от какого окна пришло сообщение
+     * @type {number}
+     */
+    var elemCounter = 0;
+
+    /**
+     * Все ранее созданные элементы
+     * @type {{}}
+     */
+    var elements = {};
+
+    /**
+     * Вычисляет ID frame, где находится meta embed элемент
+     * @param elemId
+     * @returns {string}
+     */
+    function getIFrameId(elemId) {
+        return elemId + '-iframe';
+    }
+
+    function getElemId(_elementId) {
+        return _elementId ? _elementId : '_mee' + (++elemCounter);
+    }
+
+    /**
+     * Внутренний класс для упрощения работы в элементами
+     */
+    function Element(_elementId, _url, _options) {
+        var elemId = getElemId(_elementId);
+
+        // TODO: Тут надо проверять урл на знак ?, но пока я не знаю ситуаций,
+        // когда параметров кроме embed не будет вообще
+
+        // Такие случаи обрабатываются
+        // http://localhost:8080/page?a=50&amp;embed=me1&amp;p=3369
+        // http://localhost:8080/page?a=50&amp;embed=me1
+        // http://localhost:8080/page?embed=me1&amp;a=50&amp;p=3369
+        // http://localhost:8080/page?embed=me1
+        _url = _url.replace(/embed=\w+&amp;?/, '');
+
+        var url = PLATFORM_URL + _url + '&amp;embed=' + elemId;
+        var options = _options;
+
+        options.text = "'' \'";
+        var preHtml = [];
+        preHtml.push('&lt;iframe id="' + getIFrameId(elemId) + '" src="' + url + '" frameborder="0" ');
+        //http://stackoverflow.com/questions/7753448/how-do-i-escape-quotes-in-html-attribute-values
+        var optionsAttr = JSON.stringify(options).replace(/'/g, "&amp;#39;");
+        preHtml.push(' data-meta-page=\'' + optionsAttr + '\'');
+        preHtml.push('style="background:transparent;height:1px; width:1px;overflow:hidden;overflow-x:hidden;overflow-y:hidden;min-height:1px">&lt;/iframe>');
+
+        preHtml.push("&lt;script type='text/javascript'>");
+        preHtml.push("$('#" + getIFrameId(elemId) + "').on('load', function() {");
+        preHtml.push('var that = $(this);');
+        preHtml.push('that.width("100%");');
+        preHtml.push('that.height("100%");');
+        preHtml.push('});&lt;/script>');
+
+        var html = preHtml.join('');
+        preHtml = null;
+
+        return {
+            id: function () {
+                return elemId;
+            },
+            html: function () {
+                return html;
+            },
+            option: function (key) {
+                return options[key];
+            }
+        };
+    }
+
+    /**
+     * Внутренняя функция-хелпер для упрощения создания элементов
+     * @param elementId
+     * @param url
+     * @param options
+     * @returns {Element}
+     */
+    function newElem(elementId, url, options) {
+        var elem = new Element(elementId, url, options);
+        elements[elem.id()] = elem;
+        return elem;
+    }
+
+    var popupCallback = function () {
+    };
+    var eventsCallbacks = {};
+
+    /**
+     * Говорит клиентскому коду, что надо открыть попап
+     * Мета не открывает попапы сама потому, что только клиентский код знает как в текущем проекте
+     * идет работа с попапами
+     */
+    function openUrl(elementId, url, method, target) {
+        if (target === '_popup') {
+            var elem = newElem(elementId, url, {sizeBy: 'content'});
+            popupCallback(elem, elem.html());
+        }
+    }
+
+    function callQueueItem(queueItem) {
+        switch (queueItem[0]) {
+            case 'onReady':
+                // onReady уже наступил для асинхронного js
+                queueItem[1]();
+                break;
+
+            case 'changeEnv':
+                var $iframe = $('#' + getIFrameId(queueItem[1]));
+                // А что, если эти страницы в разных вкладках? Не будет ли postMessage отправляться во все открытые владки?
+                // Нет. В chrome, ff работает только на текущей вкладке
+                var page = $iframe.data("meta-page");
+                if (isDefined(page.pageId)) {
+                    queueItem[2].pageId = page.pageId;
+                }
+                if (isDefined(page.entityId)) {
+                    queueItem[2].entityId = page.entityId;
+                }
+                if (isDefined(page.objectId)) {
+                    queueItem[2].objectId = page.objectId;
+                }
+                $iframe[0].contentWindow.postMessage({
+                    action: 'meta:embed:changeEnv',
+                    data: queueItem[2]
+                }, '*');
+                break;
+
+            case 'watchEnvSp':
+                var $iframe = $('#' + getIFrameId(queueItem[1]));
+                $iframe[0].contentWindow.postMessage({
+                    action: 'meta:embed:watchEnvSp',
+                    data: queueItem[2]
+                }, '*');
+                break;
+
+            default:
+                // Запуск любых других функций, кроме объявленных выше
+                if (typeof pubApi[queueItem[0]] == 'function') {
+                    var injectArguments = [];
+                    for (var i = 1; i &lt; queueItem.length; i++) {
+                        injectArguments.push(queueItem[i]);
+                    }
+                    var func = pubApi[queueItem[0]];
+                    func.apply(this, injectArguments);
+                }
+        }
+    }
+
+    // Тут начинается процессинг очереди, набитой через функцию me в клиентоском коде
+    if (isDefined(w['MetaEmbedObject'])) {
+        // Находим в под каким именем идет объект настроек
+        var metaEmbedObject = w['MetaEmbedObject'];
+        if (isDefined(w[metaEmbedObject]) &amp;&amp; isDefined(w[metaEmbedObject].q)) {
+            var meObj = w[metaEmbedObject];
+            // q - очередь заданий
+            for (var i = 0; i &lt; meObj.q.length; i++) {
+                callQueueItem(meObj.q[i]);
+            }
+        }
+
+        // После того, как первый проход на onload сработал переопределяем функцию me
+        // так как если мы уже загрузились, то складывать в очередь нам уже не нужно, надо просто исполнять команды
+        w[metaEmbedObject] = function () {
+            callQueueItem(arguments);
+        };
+    }
+
+    /**
+     * Слушаем сообщения от iframe meta embed
+     * Он может сказать, что произошел ресайз, надо открыть url и так далее
+     */
+    w.addEventListener('message', function (event) {
+        if (!isDefined(event.data)) {
+            return;
+        }
+        var msg = event.data;
+        var data = msg.data;
+        var elemId = msg.elemId;
+        var elem = elements[elemId];
+        switch (msg.action) {
+            case MSG_ACTION_PREFIX + 'openUrl':
+                openUrl(null, data.url, data.method, data.target);
+                break;
+
+            case MSG_ACTION_PREFIX + 'resize':
+                var sizeBy = elem.option('sizeBy');
+                switch (sizeBy) {
+                    case '':
+                    case undefined:
+                        // ignore
+                        break;
+                    case 'content':
+                        $('#' + getIFrameId(elemId)).height(data.document.height + 'px');
+                        break;
+                    default:
+                        log.warn('elemId: ' + elemId + ' sizeBy: ' + sizeBy + ' не поддерживается');
+                }
+                break;
+        }
+        // Если подписка пользователя на событие - вызвать
+        if (typeof eventsCallbacks[elemId] === 'function') {
+            msg.action = msg.action.replace(MSG_ACTION_PREFIX, '');
+
+            var func = eventsCallbacks[elemId];
+            var injectArguments = [elem, msg];
+            func.apply(this, injectArguments);
+        }
+    });
+
+    function processInjectTree(node, exVars) {
+        if ($.type(node) === 'string') {
+            return node;
+        }
+        node.type = node.type || 'bem';
+        var $injEl = null;
+        var returnInnerHtmlOnly = false;
+        switch (node.type) {
+            case 'bem':
+                // Из всего делаем массив
+                node.content = node.content || [];
+                if (!$.isArray(node.content)) {
+                    node.content = [node.content];
+                }
+
+                node.attrs = node.attrs || {};
+                node.cls = node.cls || '';
+                var tag_ = node.tag || 'div';
+                returnInnerHtmlOnly = node.tag === false;
+                $injEl = $('&lt;' + tag_ + '>', node.attrs);
+                $injEl.addClass(node.cls);
+
+                $.each(node.content, function (inj_idx, inj_item) {
+                    $injEl.append(processInjectTree(inj_item, exVars));
+                });
+                break;
+
+            case 'meta_embed':
+                if (node.elemId === null) {
+                    log.warn("ElemId обязателен для встраивания meta_embed в страницы. Элемент пропущен", node);
+                    return;
+                }
+                var opts = node.options || {};
+                opts.env = opts.env || {};
+                opts.env.sp = opts.env.sp || {};
+
+                // Пользователь должет выбрать конкретные переменные среды для передачи на страницу
+                node.appendExtractVars = node.appendExtractVars || [];
+                var appendExtVars = {};
+                $.each(node.appendExtractVars, function (ext_var_idx, ext_var_key) {
+                    if (isDefined(exVars[ext_var_key])) {
+                        appendExtVars[ext_var_key] = exVars[ext_var_key];
+                    }
+                });
+                $.extend(opts.env.sp, appendExtVars);
+
+                $injEl = $('&lt;div>', {id: node.elemId, data_me_embed_options: JSON.stringify(opts)});
+                $injEl.addClass("me-embed-container");
+                break;
+
+            default:
+                log.warn("Неподдерживаемый тип элемента", node);
+                return;
+        }
+
+        if (returnInnerHtmlOnly) {
+            return $injEl.html();
+        } else {
+            return $injEl;
+        }
+    }
+
+    /**
+     * Вставляет в html блоки меты, может вставлять доп пункты меню и пр. сходные вещи
+     * @param injectsConf
+     */
+    function processInjects(injectsConf) {
+        if (!injectsConf) {
+            return;
+        }
+        // Вычленение переменных
+        var extractedVars = {};
+        if (injectsConf.extractVars) {
+            $.each(injectsConf.extractVars, function (idx, item) {
+                item.type = item.type || 'array';
+
+                var $elems = $(item.selector);
+                var itemExtVars = [];
+                $elems.each(function (el_idx, el) {
+                    var $el = $(el);
+
+                    var itemExVars = {};
+                    itemExtVars.push(itemExVars);
+
+                    // обходим key/value
+                    $.each(item.map, function (ev_idx, ev_item) {
+                        var key_ = ev_item.key || null;
+                        var ex_sel_ = ev_item.selector || null;
+                        var ex_value_ = ev_item.value || {"type": "text"};
+                        ex_value_.type = ex_value_.type || "text";
+
+                        // Ищем элемент для извлечения данных
+                        var $exEl;
+                        if (ex_sel_ !== null) {
+                            $exEl = $el.find(ex_sel_);
+                        } else {
+                            $exEl = $el;
+                        }
+
+                        switch (ex_value_.type) {
+                            case 'attr':
+                                itemExVars[key_] = $exEl.attr(ex_value_.name);
+                                break;
+
+                            case 'text':
+                                itemExVars[key_] = $exEl.text();
+                                if (ex_value_.trim) {
+                                    itemExVars[key_] = itemExVars[key_].trim();
+                                }
+                                break;
+
+                            case 'number':
+                                // отпарсить контент как число
+                                var val_ = $exEl.text();
+                                val_ = val_.replace(/[^0-9\\.,]+/g, "");
+                                val_ = parseFloat(val_);
+                                itemExVars[key_] = val_;
+                                break;
+
+                            case 'html':
+                                itemExVars[key_] = $exEl.html();
+                                break;
+                        }
+                    });
+                });
+
+                if (item.type === 'object' &amp;&amp; itemExtVars.length > 0) {
+                    itemExtVars = itemExtVars[0];
+                }
+                extractedVars[item.id] = itemExtVars;
+            });
+        }
+
+        // Обработка инжекто кода в страницы
+        if (injectsConf.injects) {
+            // Глобальные переменные
+            extractedVars.location = {
+                href: w.location.href
+            };
+            $.each(injectsConf.injects, function (idx, item) {
+                var $elems = $(item.selector);
+                $elems.each(function (el_idx, el) {
+                    var $el = $(el);
+
+                    item.mode = item.mode || 'append';
+                    item.selector = item.selector || null;
+                    var inj_val_ = item.content || null;
+                    if (inj_val_ === null) {
+                        log.warn("Не указан content для inject. Элемент пропущен", item);
+                        return;
+                    }
+                    inj_val_ = {type: "bem", tag: false, content: [inj_val_]};
+                    inj_val_.elemId = inj_val_.elemId || null;
+                    var inj_content_ = processInjectTree(inj_val_, extractedVars);
+
+                    switch (item.mode) {
+                        case 'append':
+                            $el.append(inj_content_);
+                            break;
+                        case 'prepend':
+                            $el.prepend(inj_content_);
+                            break;
+                        case 'after':
+                            $el.after(inj_content_);
+                            break;
+                        case 'before':
+                            $el.before(inj_content_);
+                            break;
+                        default:
+                            log.error('Неподдерживаемый Inject Mode', item.mode);
+                            break;
+                    }
+                });
+            });
+        }
+
+        $(".me-embed-container").not(".me-embed-container_loaded").each(function (idx, item) {
+            var $el = $(item);
+            $el.addClass("me-embed-container_loaded");
+            pubApi.load($el.attr('id'), JSON.parse($el.attr("data_me_embed_options")));
+        });
+    }
+})(window, document);
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+
+
+        
+
+        <footer>
+            Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a> on Wed Aug 30 2017 13:21:38 GMT+0300 (MSK)
+        </footer>
+    </div>
+</div>
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+<script src="scripts/main.js"></script>
+</body>
+</html>

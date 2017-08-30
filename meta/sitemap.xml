@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://developers.1ad.ru/meta/embedjs/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.1ad.ru/meta/embedjs/analytics/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.1ad.ru/meta/guides/</loc>
+    <lastmod>2017-04-24T18:36:24+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://developers.1ad.ru/meta/embedjs/inject_api/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.1ad.ru/meta/</loc>
+    <lastmod>2017-04-24T18:36:24+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://developers.1ad.ru/meta/_header/</loc>
+    <lastmod>2017-04-24T18:36:24+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://developers.1ad.ru/meta/guides/quick_start/</loc>
+    <lastmod>2017-04-24T18:36:24+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://developers.1ad.ru/meta/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://developers.1ad.ru/meta/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://developers.1ad.ru/meta/guides/request_response_vars/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.1ad.ru/meta/guides/template_engines/</loc>
+  </url>
+  
+</urlset>

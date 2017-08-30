@@ -7,7 +7,7 @@
     <meta name="description" content="">
 
 
-    <title>Inject API :: META | AdPlatform Developers</title>
+    <title>Типы скриптов :: META | AdPlatform Developers</title>
     <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
@@ -27,7 +27,7 @@
     </style>
 
   </head>
-  <body class="" data-url="/embedjs/inject_api/">
+  <body class="" data-url="/guides/script_types/">
     <nav id="sidebar" class="showVisitedLinks">
 
 
@@ -59,7 +59,7 @@ META Developers
   
     
     <li data-nav-id="/guides/" class="dd-item 
-        
+        parent
         
         parent
         ">
@@ -77,6 +77,8 @@ META Developers
       </a>
       
         <ul>
+          
+          
           
           
           
@@ -128,6 +130,85 @@ META Developers
  
   
     
+    <li data-nav-id="/guides/script_types/" class="dd-item 
+        parent
+        active
+        parent
+        ">
+      <a href="https://developers.1ad.ru/meta/guides/script_types/">
+        <span>Типы скриптов</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+          
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/guides/script_types/sql/" class="dd-item
+     
+      ">
+        <a href="https://developers.1ad.ru/meta/guides/script_types/sql/">
+        <span>meta/sql</span> 
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/guides/script_types/js/" class="dd-item
+     
+      ">
+        <a href="https://developers.1ad.ru/meta/guides/script_types/js/">
+        <span>meta/js</span> 
+        </a></li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
       <li data-nav-id="/guides/template_engines/" class="dd-item
      
       ">
@@ -159,6 +240,25 @@ META Developers
 
             
           
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/guides/db_naming/" class="dd-item
+     
+      ">
+        <a href="https://developers.1ad.ru/meta/guides/db_naming/">
+        <span>Именование сущностей в БД</span> 
+        </a></li>
+     
+  
+ 
+
+            
+          
         
         </ul>
               
@@ -176,7 +276,7 @@ META Developers
     <li data-nav-id="/ui_controls/" class="dd-item 
         
         
-        
+        parent
         ">
       <a href="https://developers.1ad.ru/meta/ui_controls/">
         <span>Пользовательские элементы</span>
@@ -185,7 +285,7 @@ META Developers
         
 
           
-            <i class="fa fa-angle-right fa-lg category-icon"></i>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
           
 
         
@@ -383,19 +483,19 @@ META Developers
  
   
     
-    <li data-nav-id="/embedjs/" class="dd-item 
-        parent
+    <li data-nav-id="/embed_api/" class="dd-item 
+        
         
         
         ">
-      <a href="https://developers.1ad.ru/meta/embedjs/">
-        <span>Embed JS</span>
+      <a href="https://developers.1ad.ru/meta/embed_api/">
+        <span>Embed API</span>
 
         
         
 
           
-            <i class="fa fa-angle-down fa-lg category-icon"></i>
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
           
 
         
@@ -415,10 +515,10 @@ META Developers
  
   
     
-      <li data-nav-id="/embedjs/analytics/" class="dd-item
+      <li data-nav-id="/embed_api/analytics/" class="dd-item
      
       ">
-        <a href="https://developers.1ad.ru/meta/embedjs/analytics/">
+        <a href="https://developers.1ad.ru/meta/embed_api/analytics/">
         <span>Аналитика</span> 
         </a></li>
      
@@ -434,10 +534,10 @@ META Developers
  
   
     
-      <li data-nav-id="/embedjs/inject_api/" class="dd-item
-     active
+      <li data-nav-id="/embed_api/inject_api/" class="dd-item
+     
       ">
-        <a href="https://developers.1ad.ru/meta/embedjs/inject_api/">
+        <a href="https://developers.1ad.ru/meta/embed_api/inject_api/">
         <span>Inject API</span> 
         </a></li>
      
@@ -492,7 +592,7 @@ META Developers
 
 
 
- <a href='https://developers.1ad.ru/meta/'>META</a> > <a href='https://developers.1ad.ru/meta/embedjs/'>Embed JS</a> > Inject API
+ <a href='https://developers.1ad.ru/meta/'>META</a> > <a href='https://developers.1ad.ru/meta/guides/'>Руководства</a> > Типы скриптов
 
  
 
@@ -503,7 +603,18 @@ META Developers
             </div>
             <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#ключевое-слово-internal">Ключевое слово internal</a></li>
+<li><a href="#условия-do-if">Условия do-if</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
     </div>
 </div>
 
@@ -512,24 +623,44 @@ META Developers
         
         <div id="body-inner">
           
-            <h1>Inject API</h1>
+            <h1>Типы скриптов</h1>
           
 
 
 
 
-<p>API для встраивания внешнего html или lego кода на страницу сайта, на которой размещен embed.js
-Данные идут отсюда: <a href="https://meta.realweb.ru/page?p=4122&amp;a=74">https://meta.realweb.ru/page?p=4122&amp;a=74</a></p>
 
-<p>Для запуска применить</p>
 
-<pre><code class="language-html">me('applyInjects');
+<p>Срипты это блоки получения или изменения данных, имеют атрибуты:
+ - type - определяет тип получения данных: sql, js
+ - id - имя данных для меты, используется для последующих обращений к данным.</p>
+
+<h3 id="ключевое-слово-internal">Ключевое слово internal</h3>
+
+<p>Используется для того, чтобы получить данные на серверной стороне и не отправлять их на клиент. Это ускоряет страницу и позволяет 100% защитить программиста от случайно передачи секретной информации на клиент.</p>
+
+<pre><code class="language-html">&lt;script type=&quot;meta/sql&quot; id=&quot;my_data&quot; internal&gt;
+    SELECT 1
+&lt;/script&gt;
+</code></pre>
+
+<h3 id="условия-do-if">Условия do-if</h3>
+
+<p>Используется для условной фильтрации скриптов и элементов на бекенде.
+Скрипты не будет исполняться и будет предотвращать отрисовку связанных элементов. Элементы, при установки do-if на них не будут приходить на фронтенд</p>
+
+<pre><code class="language-html">&lt;script type=&quot;meta/sql&quot; db-alias=&quot;meta&quot; id=&quot;all_activity&quot; do-if=&quot;env.sp.activity_mode=='all'&quot;&gt;
+select now()
+&lt;/script&gt;
+
 </code></pre>
 
 
 <footer class=" footline" >
 	
 </footer>
+
+
 
 
 
@@ -551,4 +682,3 @@ META Developers
 
   </body>
 </html>
-

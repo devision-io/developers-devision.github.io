@@ -17,11 +17,15 @@
   </url>
   
   <url>
-    <loc>https://developers.1ad.ru/meta/guides/template_engines/</loc>
+    <loc>https://developers.1ad.ru/meta/ui_controls/</loc>
   </url>
   
   <url>
-    <loc>https://developers.1ad.ru/meta/ui_controls/</loc>
+    <loc>https://developers.1ad.ru/meta/guides/script_types/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.1ad.ru/meta/guides/template_engines/</loc>
   </url>
   
   <url>
@@ -30,15 +34,27 @@
   </url>
   
   <url>
-    <loc>https://developers.1ad.ru/meta/embedjs/</loc>
+    <loc>https://developers.1ad.ru/meta/embed_api/</loc>
   </url>
   
   <url>
-    <loc>https://developers.1ad.ru/meta/embedjs/analytics/</loc>
+    <loc>https://developers.1ad.ru/meta/embed_api/analytics/</loc>
   </url>
   
   <url>
-    <loc>https://developers.1ad.ru/meta/embedjs/inject_api/</loc>
+    <loc>https://developers.1ad.ru/meta/embed_api/inject_api/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.1ad.ru/meta/guides/db_naming/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.1ad.ru/meta/guides/script_types/sql/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.1ad.ru/meta/guides/script_types/js/</loc>
   </url>
   
   <url>

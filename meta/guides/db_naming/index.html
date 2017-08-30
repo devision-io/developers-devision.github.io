@@ -7,7 +7,7 @@
     <meta name="description" content="">
 
 
-    <title>Аналитика :: META | AdPlatform Developers</title>
+    <title>Именование сущностей в БД :: META | AdPlatform Developers</title>
     <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
@@ -27,7 +27,7 @@
     </style>
 
   </head>
-  <body class="" data-url="/embedjs/analytics/">
+  <body class="" data-url="/guides/db_naming/">
     <nav id="sidebar" class="showVisitedLinks">
 
 
@@ -59,7 +59,7 @@ META Developers
   
     
     <li data-nav-id="/guides/" class="dd-item 
-        
+        parent
         
         parent
         ">
@@ -77,6 +77,8 @@ META Developers
       </a>
       
         <ul>
+          
+          
           
           
           
@@ -128,6 +130,85 @@ META Developers
  
   
     
+    <li data-nav-id="/guides/script_types/" class="dd-item 
+        
+        
+        parent
+        ">
+      <a href="https://developers.1ad.ru/meta/guides/script_types/">
+        <span>Типы скриптов</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+          
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/guides/script_types/sql/" class="dd-item
+     
+      ">
+        <a href="https://developers.1ad.ru/meta/guides/script_types/sql/">
+        <span>meta/sql</span> 
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/guides/script_types/js/" class="dd-item
+     
+      ">
+        <a href="https://developers.1ad.ru/meta/guides/script_types/js/">
+        <span>meta/js</span> 
+        </a></li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
       <li data-nav-id="/guides/template_engines/" class="dd-item
      
       ">
@@ -159,6 +240,25 @@ META Developers
 
             
           
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/guides/db_naming/" class="dd-item
+     active
+      ">
+        <a href="https://developers.1ad.ru/meta/guides/db_naming/">
+        <span>Именование сущностей в БД</span> 
+        </a></li>
+     
+  
+ 
+
+            
+          
         
         </ul>
               
@@ -176,7 +276,7 @@ META Developers
     <li data-nav-id="/ui_controls/" class="dd-item 
         
         
-        
+        parent
         ">
       <a href="https://developers.1ad.ru/meta/ui_controls/">
         <span>Пользовательские элементы</span>
@@ -185,7 +285,7 @@ META Developers
         
 
           
-            <i class="fa fa-angle-right fa-lg category-icon"></i>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
           
 
         
@@ -383,19 +483,19 @@ META Developers
  
   
     
-    <li data-nav-id="/embedjs/" class="dd-item 
-        parent
+    <li data-nav-id="/embed_api/" class="dd-item 
+        
         
         
         ">
-      <a href="https://developers.1ad.ru/meta/embedjs/">
-        <span>Embed JS</span>
+      <a href="https://developers.1ad.ru/meta/embed_api/">
+        <span>Embed API</span>
 
         
         
 
           
-            <i class="fa fa-angle-down fa-lg category-icon"></i>
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
           
 
         
@@ -415,10 +515,10 @@ META Developers
  
   
     
-      <li data-nav-id="/embedjs/analytics/" class="dd-item
-     active
+      <li data-nav-id="/embed_api/analytics/" class="dd-item
+     
       ">
-        <a href="https://developers.1ad.ru/meta/embedjs/analytics/">
+        <a href="https://developers.1ad.ru/meta/embed_api/analytics/">
         <span>Аналитика</span> 
         </a></li>
      
@@ -434,10 +534,10 @@ META Developers
  
   
     
-      <li data-nav-id="/embedjs/inject_api/" class="dd-item
+      <li data-nav-id="/embed_api/inject_api/" class="dd-item
      
       ">
-        <a href="https://developers.1ad.ru/meta/embedjs/inject_api/">
+        <a href="https://developers.1ad.ru/meta/embed_api/inject_api/">
         <span>Inject API</span> 
         </a></li>
      
@@ -492,7 +592,7 @@ META Developers
 
 
 
- <a href='https://developers.1ad.ru/meta/'>META</a> > <a href='https://developers.1ad.ru/meta/embedjs/'>Embed JS</a> > Аналитика
+ <a href='https://developers.1ad.ru/meta/'>META</a> > <a href='https://developers.1ad.ru/meta/guides/'>Руководства</a> > Именование сущностей в БД
 
  
 
@@ -507,11 +607,11 @@ META Developers
 <ul>
 <li>
 <ul>
-<li><a href="#отслеживание-страниц-pageview">Отслеживание страниц - pageview</a>
-<ul>
-<li><a href="#простой-вызов-трекера">Простой вызов трекера</a></li>
-<li><a href="#вызов-трекера-с-передачей-параметров">Вызов трекера с передачей параметров</a></li>
-</ul></li>
+<li><a href="#таблицы-сущностей">Таблицы сущностей</a></li>
+<li><a href="#таблицы-связей">Таблицы связей</a></li>
+<li><a href="#дата-время-без-tz">Дата время (без TZ)</a></li>
+<li><a href="#только-дата">Только дата</a></li>
+<li><a href="#последний-редактировавший-пользователь">Последний редактировавший пользователь</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -523,7 +623,7 @@ META Developers
         
         <div id="body-inner">
           
-            <h1>Аналитика</h1>
+            <h1>Именование сущностей в БД</h1>
           
 
 
@@ -531,83 +631,50 @@ META Developers
 
 
 
-<p>Мета предоставляет сервис отслеживания событий наподобие Google Analytics.</p>
+<p>При разработке новой БД предлагается придерживаться следующих правил. При этом, если у вас есть готовая БД, то вы не должны хотеть полностью переделать ее соглашения, так как это бесполезная работа. Просто продолжайте использовать то, что у вас есть.</p>
 
-<div class="alert 
-alert-warning"
- 
-role="alert"><p><strong>ВАЖНО!</strong> В отличие от простого embed.js встраивания iframe и других мета страниц. Трекер пока что имеет зависимость от Jquery. Поэтому jquery на момент инициализации трекера уже должен быть загружен</p>
-</div>
+<ul>
+<li>Все таблицы должны иметь несоставной первичный ключ, который должен называться id</li>
+<li>Все таблицы, представления, функции, триггерные функции и типы должны иметь комментарий</li>
+<li>Поля таблиц и view должны иметь комментарий. Исключения: поля с внешними ключами, общепонятные поля (первичный ключ, views, clicks, name, title и т.п.), enum-поля</li>
+<li>Последовательности (sequences) одних таблиц нельзя копировать для других, если это дейстивтельно не оправдано. Для новых таблиц используйте serial и bigserial как типы полей с первичным ключем</li>
+<li>Лучше, чтобы названия первичных, уникальных ключей, индексов должна выдавать БД при создании этих объектов - так мы сэкономим время на разбирательствах что и как должно называться, БД сама разберется как это называть.</li>
+<li>Параметры и переменные в хранимых процедурах должны начинаться с &ldquo;_&rdquo; чтобы не перепутать их с полями таблиц и пр.</li>
+<li>Все схемы, таблицы, предстваления, поля, функции, триггеры и пр. должны иметь нотацию lower_camelcase. По возможность избегайте использования зарезервированных имен типа user, domain, table и пр</li>
+</ul>
 
+<h2 id="таблицы-сущностей">Таблицы сущностей</h2>
 
-<p>Подключается код через embed.js скрипт, выглядит это следующим образом:</p>
+<p>Должны иметь свой PK, желательно id</p>
 
-<pre><code class="language-html">&lt;script type=&quot;text/javascript&quot;&gt;
-    // Требует Jquery в момент загрузки
-    (function (i,s,o,g,r,a,m) {
-        i['MetaEmbedObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)}, i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//embed.garpun.com/static/embed.js','me');
- 
-    // Инициализируйте свой трекер
-    me('initTracker', 'YOUR_TRACKER_NAME');
-&lt;/script&gt;
-</code></pre>
+<p>Единственное число. Например client, entity, &ldquo;user&rdquo;, campaign, company, &hellip;</p>
 
-<h2 id="отслеживание-страниц-pageview">Отслеживание страниц - pageview</h2>
+<h2 id="таблицы-связей">Таблицы связей</h2>
 
-<p>Имеет идентичный GA api - <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/pages?hl=ru">https://developers.google.com/analytics/devguides/collection/analyticsjs/pages?hl=ru</a></p>
+<p>Должны иметь свой PK, желательно id</p>
 
-<p>За исключением того, что параметры передаются в виде объекта вторым параметром.</p>
+<p>Один ко многим: единственое_множественное. Например: client_managers</p>
 
-<table>
-<thead>
-<tr>
-<th>Название поля</th>
-<th>Тип значения</th>
-<th>Обязательное</th>
-<th>Описание</th>
-</tr>
-</thead>
+<p>Многие ко многим: client_manager, client_manager_link</p>
 
-<tbody>
-<tr>
-<td>title</td>
-<td>text</td>
-<td>Нет</td>
-<td>Заголовок страницы. Пример: homepage (главная страница).</td>
-</tr>
+<h2 id="дата-время-без-tz">Дата время (без TZ)</h2>
 
-<tr>
-<td>location</td>
-<td>text</td>
-<td>Нет</td>
-<td>URL отслеживаемой страницы.</td>
-</tr>
+<p>Постфикс &ldquo;_time&rdquo;</p>
 
-<tr>
-<td>page</td>
-<td>text</td>
-<td>Нет</td>
-<td>Часть URL, определяющая путь. Значение должно начинаться с косой черты (/).</td>
-</tr>
-</tbody>
-</table>
+<p>Например: creation_time, modification_time</p>
 
-<h3 id="простой-вызов-трекера">Простой вызов трекера</h3>
+<h2 id="только-дата">Только дата</h2>
 
-<p>Вызов передаст Параметры, который заполнит сама мета. Т.е. location и пр. параметры будет заполнено автоматически.</p>
+<p>Если не предполагается хранить время, то поле обязательно должно иметь тип DATE, т.е. не содержать никаких меток времени и не должно быть сохранено в формате unix timestamp.
+Постфикс &ldquo;_date&rdquo;</p>
 
-<pre><code class="language-html">me('track', 'pageview');
-</code></pre>
+<p>Например: creation_date</p>
 
-<h3 id="вызов-трекера-с-передачей-параметров">Вызов трекера с передачей параметров</h3>
+<h2 id="последний-редактировавший-пользователь">Последний редактировавший пользователь</h2>
 
-<p>Вызов передаст title указанный пользовалетем и остальные параметры, заполненные автоматически.
-Т.е. чтобы переопределить все параметры нужно все их указать</p>
+<p>Почти всегда нужен, чтобы триггеры могли писать логи</p>
 
-<pre><code class="language-html">me('track', 'pageview', {&quot;title&quot;:&quot;My title&quot;});
-</code></pre>
+<p>Например: last_user_id</p>
 
 
 <footer class=" footline" >

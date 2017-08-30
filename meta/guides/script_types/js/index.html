@@ -7,7 +7,7 @@
     <meta name="description" content="">
 
 
-    <title>me-lego-list :: META | AdPlatform Developers</title>
+    <title>meta/js :: META | AdPlatform Developers</title>
     <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
@@ -27,7 +27,7 @@
     </style>
 
   </head>
-  <body class="" data-url="/ui_controls/me-lego-list/">
+  <body class="" data-url="/guides/script_types/js/">
     <nav id="sidebar" class="showVisitedLinks">
 
 
@@ -59,7 +59,7 @@ META Developers
   
     
     <li data-nav-id="/guides/" class="dd-item 
-        
+        parent
         
         parent
         ">
@@ -131,7 +131,7 @@ META Developers
   
     
     <li data-nav-id="/guides/script_types/" class="dd-item 
-        
+        parent
         
         parent
         ">
@@ -182,7 +182,7 @@ META Developers
   
     
       <li data-nav-id="/guides/script_types/js/" class="dd-item
-     
+     active
       ">
         <a href="https://developers.1ad.ru/meta/guides/script_types/js/">
         <span>meta/js</span> 
@@ -274,7 +274,7 @@ META Developers
   
     
     <li data-nav-id="/ui_controls/" class="dd-item 
-        parent
+        
         
         parent
         ">
@@ -363,7 +363,7 @@ META Developers
   
     
       <li data-nav-id="/ui_controls/me-lego-list/" class="dd-item
-     active
+     
       ">
         <a href="https://developers.1ad.ru/meta/ui_controls/me-lego-list/">
         <span>me-lego-list</span> 
@@ -592,7 +592,12 @@ META Developers
 
 
 
- <a href='https://developers.1ad.ru/meta/'>META</a> > <a href='https://developers.1ad.ru/meta/ui_controls/'>Пользовательские элементы</a> > me-lego-list
+
+
+
+ <a href='https://developers.1ad.ru/meta/'>META</a> > <a href='https://developers.1ad.ru/meta/guides/'>Руководства</a> > <a href='https://developers.1ad.ru/meta/guides/script_types/'>Типы скриптов</a> > meta/js
+
+ 
 
  
 
@@ -607,7 +612,13 @@ META Developers
 <ul>
 <li>
 <ul>
-<li><a href="#структура">Структура</a></li>
+<li><a href="#логирование">Логирование</a></li>
+<li><a href="#заполнение-env-при-первоначальной-загрузке-страницы">Заполнение Env при первоначальной загрузке страницы</a>
+<ul>
+<li><a href="#пример-заполенения-на-константами">Пример заполенения на константами</a></li>
+<li><a href="#пример-заполенения-env-sp-из-запроса">Пример заполенения env.sp из запроса</a></li>
+</ul></li>
+<li><a href="#datadiffservice">DataDiffService</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -619,7 +630,7 @@ META Developers
         
         <div id="body-inner">
           
-            <h1>me-lego-list</h1>
+            <h1>meta/js</h1>
           
 
 
@@ -627,31 +638,125 @@ META Developers
 
 
 
-<p>Основной элемент-контейнер для рендеринга элементов.
-Рендерится в me-page как основной контейнер, а так же может быть использован внутри  себя и себе подобных контейнеров: me-lego, me-lego-list, me-wizard</p>
+<div class="notices note" ><p><strong>Стоит учесть</strong>
+Дизайн разработки в мете преполагает использование механизмов БД всегда, когда это можно.</p>
 
-<p><strong>@example</strong> - <a href="https://meta.realweb.ru/page?p=3723&amp;a=35">https://meta.realweb.ru/page?p=3723&amp;a=35</a></p>
+<p>Рекомендуется обрабатывать данные внутри БД, а не затаскивать в код приложения, чтобы, например почистить данные или не дай бог просуммировать.
+ PostgreSQL очень хорошо справляется почти со всем задачами по обработке данных.</p>
+</div>
 
-<h2 id="структура">Структура</h2>
 
-<pre><code class="language-json">{
-  &quot;attrs&quot;: {
-    &quot;markDelete&quot;: &quot;(boolean)&quot;
-  },
-  &quot;defaultValue&quot;: &quot;(any)&quot;,
-  &quot;entityId&quot;: &quot;(number)&quot;,
-  &quot;formHorizontal&quot;: &quot;(boolean)&quot;,
-  &quot;help&quot;: &quot;(string)&quot;,
-  &quot;icon&quot;: &quot;(string)&quot;,
-  &quot;id&quot;: &quot;(string)&quot;,
-  &quot;label&quot;: &quot;(string)&quot;,
-  &quot;name&quot;: &quot;me-lego-list&quot;,
-  &quot;offset&quot;: &quot;(number)&quot;,
-  &quot;selfDepends&quot;: &quot;(boolean)&quot;,
-  &quot;span&quot;: &quot;(number)&quot;,
-  &quot;value&quot;: &quot;(string)&quot;
+<p>Обрабатывается через <a href="https://ru.wikipedia.org/wiki/Nashorn_(%D0%B4%D0%B2%D0%B8%D0%B6%D0%BE%D0%BA_JavaScript)">Nashorn</a> поэтому работает не всегда так же как обычный JavaScript</p>
+
+<p>В скриптах выглядит следующим образом:</p>
+
+<pre><code class="language-html">&lt;script type=&quot;meta/js&quot; db-alias=&quot;meta_samples&quot; id=&quot;tbl_with_js_footer&quot; &gt;
+function main() {
+    return DataResult.newBuilder()
+        .field('id', 'id', 'TEXT')
+        .field('name', 'name', 'TEXT')
+        .field('value', 'value', 'LONG')
+     
+        .headerRow({
+            name: {
+                value: '100%',
+                description: &quot;% - это ...&quot;     
+            },
+            value: {
+                value: 2230,
+                description: &quot;Текст описания, возможно достаточно длинный&quot;
+            }
+        })
+        .headerRow({value: {
+            value: '110%'
+        }})
+     
+        .row({id: 1, name: &quot;A&quot;, value: 10})
+        .row({id: 2, name: &quot;B&quot;, value: 20})
+     
+        .footerRow({name: &quot;Первая строка&quot;, value: 2230})
+        .footerRow({name: &quot;Вторая строка&quot;, value: 330})
+        .footerRow({name: &quot;N строка&quot;, value: 2000})
+        .build();
 }
+&lt;/script&gt;
 </code></pre>
+
+<p>Пример со страницы <a href="http://meta.realweb.ru/page?a=35&amp;p=3497">http://meta.realweb.ru/page?a=35&amp;p=3497</a></p>
+
+<p>Функции
+json.to(Object) - объект в json
+json.from(String) - json в объект
+MetaUtils.convert.toDouble(String) - переводит строку в число с плавающей точкой
+MetaUtils.convert.toInt(String) - переводит строку в число int
+MetaUtils.convert.toLong(String) - переводит строку в число bigint
+MetaUtils.meinput.filecontent.readBase64(String) - переводит html base64 строку в строку, пригодную для чтения функиями работы с base64</p>
+
+<h2 id="логирование">Логирование</h2>
+
+<p>На текущий момент известны некоторые проблемы с логированием
+Логов вообще нет
+соединение с бекэндом по websocket-ам было потеряно и не смогло восстановится. F5 скорее всего решит проблему
+META-177 - В режиме разработки логер перестает выбрасывать в браузер логи с бекенда В ОЖИДАНИИ
+Нет конкретного лога
+Не все объекты, прикладываемые в качестве интерполируего аргумента лога могут быть приведены к строке и из-за этого весь лог может пропадать. Попробуйте в этом месте исключить аргументы и посмотреть что будет.</p>
+
+<p>Логирование доступно в js акторах и в js скриптах лего страниц. Чтобы начать логировать вам надо получить (заинжектить) инстанс логера через параметр вашей main функции.
+Для логирования используется slf4j тут можно посмотреть его интерфейсы <a href="http://www.slf4j.org/api/org/slf4j/Logger.html">http://www.slf4j.org/api/org/slf4j/Logger.html</a>
+А вот примеры вызова</p>
+
+<pre><code class="language-html">&lt;script type=&quot;meta/js&quot; id=&quot;my_src&quot; &gt;
+function main(log) {
+    log.info('test info');
+    log.warn('test warning');
+    log.error('test error');
+  
+    var myvar = {a:1};
+    log.info('lalala {}', myvar);
+}
+&lt;/script&gt;
+</code></pre>
+
+<p>Из нюансов стоит выделить, что логи запросов к БД будут пренесены в фильтр дебаг-логов в браузере.</p>
+
+<h2 id="заполнение-env-при-первоначальной-загрузке-страницы">Заполнение Env при первоначальной загрузке страницы</h2>
+
+<p>pvm.initEnvSp заполняет env.sp со стороны сервера первый раз при загрузке страницы.</p>
+
+<h3 id="пример-заполенения-на-константами">Пример заполенения на константами</h3>
+
+<pre><code class="language-html">&lt;script type=&quot;meta/js&quot; id=&quot;my_init_script&quot; &gt;
+    function main(env, pvm) {
+        pvm.initEnvSp(env, {
+            &quot;period&quot;: {&quot;from&quot;:&quot;${ref.now.withDayOfMonth(1)?date}&quot;, &quot;to&quot;:&quot;${ref.now?date}&quot;}
+        });
+    }
+&lt;/script&gt;
+</code></pre>
+
+<h3 id="пример-заполенения-env-sp-из-запроса">Пример заполенения env.sp из запроса</h3>
+
+<pre><code class="language-html">&lt;script type=&quot;meta/sql&quot; id=&quot;my_init_info&quot; internal&gt;
+SELECT ........
+&lt;/script&gt;
+  
+&lt;script type=&quot;meta/js&quot; id=&quot;my_init_script&quot; &gt;
+    function main(env, pvm) {
+        var init_info = pvm.data.my_init_info.rows[0];
+        pvm.initEnvSp(env, {
+            &quot;period&quot;: {&quot;from&quot;:init_info.start_date, &quot;to&quot;:init_info.end_date}
+        });
+    }
+&lt;/script&gt;
+</code></pre>
+
+<h2 id="datadiffservice">DataDiffService</h2>
+
+<p>Сервис по вычислению разницы между двумя DataResult.
+В 99% случаев работает сравнимо по скорости с вариантами сравнения сложных данных через запрос в БД, но
+ при этом код сравнения на порядок проще, чем тоже самое на SQL.</p>
+
+<p><a href="https://meta.realweb.ru/page?p=4363&amp;a=35">https://meta.realweb.ru/page?p=4363&amp;a=35</a></p>
 
 
 <footer class=" footline" >

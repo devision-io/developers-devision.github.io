@@ -81,6 +81,8 @@ META Developers
           
           
           
+          
+          
         
           
             
@@ -128,6 +130,85 @@ META Developers
  
   
     
+    <li data-nav-id="/guides/script_types/" class="dd-item 
+        
+        
+        parent
+        ">
+      <a href="https://developers.1ad.ru/meta/guides/script_types/">
+        <span>Типы скриптов</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+          
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/guides/script_types/sql/" class="dd-item
+     
+      ">
+        <a href="https://developers.1ad.ru/meta/guides/script_types/sql/">
+        <span>meta/sql</span> 
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/guides/script_types/js/" class="dd-item
+     
+      ">
+        <a href="https://developers.1ad.ru/meta/guides/script_types/js/">
+        <span>meta/js</span> 
+        </a></li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
       <li data-nav-id="/guides/template_engines/" class="dd-item
      
       ">
@@ -159,6 +240,25 @@ META Developers
 
             
           
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/guides/db_naming/" class="dd-item
+     
+      ">
+        <a href="https://developers.1ad.ru/meta/guides/db_naming/">
+        <span>Именование сущностей в БД</span> 
+        </a></li>
+     
+  
+ 
+
+            
+          
         
         </ul>
               
@@ -176,7 +276,7 @@ META Developers
     <li data-nav-id="/ui_controls/" class="dd-item 
         
         
-        
+        parent
         ">
       <a href="https://developers.1ad.ru/meta/ui_controls/">
         <span>Пользовательские элементы</span>
@@ -185,7 +285,7 @@ META Developers
         
 
           
-            <i class="fa fa-angle-right fa-lg category-icon"></i>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
           
 
         
@@ -383,13 +483,13 @@ META Developers
  
   
     
-    <li data-nav-id="/embedjs/" class="dd-item 
+    <li data-nav-id="/embed_api/" class="dd-item 
         
         
         
         ">
-      <a href="https://developers.1ad.ru/meta/embedjs/">
-        <span>Embed JS</span>
+      <a href="https://developers.1ad.ru/meta/embed_api/">
+        <span>Embed API</span>
 
         
         
@@ -415,10 +515,10 @@ META Developers
  
   
     
-      <li data-nav-id="/embedjs/analytics/" class="dd-item
+      <li data-nav-id="/embed_api/analytics/" class="dd-item
      
       ">
-        <a href="https://developers.1ad.ru/meta/embedjs/analytics/">
+        <a href="https://developers.1ad.ru/meta/embed_api/analytics/">
         <span>Аналитика</span> 
         </a></li>
      
@@ -434,10 +534,10 @@ META Developers
  
   
     
-      <li data-nav-id="/embedjs/inject_api/" class="dd-item
+      <li data-nav-id="/embed_api/inject_api/" class="dd-item
      
       ">
-        <a href="https://developers.1ad.ru/meta/embedjs/inject_api/">
+        <a href="https://developers.1ad.ru/meta/embed_api/inject_api/">
         <span>Inject API</span> 
         </a></li>
      
@@ -538,7 +638,8 @@ META Developers
         <h2 class="post-title"><a href="https://developers.1ad.ru/meta/guides/quick_start/">Быстрый старт</a></h2>
     </header>
     <section class="post-excerpt">
-        <p> </p>
+        <p>Для успешного начала работы вам стоит ознакомится с документацией из этого списка:
+ Типы скриптов Шаблонизация Окружение запроса Зайти в МЕТА Примеры   </p>
     </section>
     <footer class=" footline" >
          
@@ -606,6 +707,28 @@ META Developers
         <p>Являются элементами me-chart. Работают на основе google charts. Примеры тут: http://meta.realweb.ru/page?a=35&amp;p=3623
 Имеют опцию &ldquo;nativeOptions&rdquo; для передачи нативных параметров. Не рекомендуется это использоваться просто так из-за невозможности поддержки возможности смены графиков или более легкого обновления версии при отсутствии обратной совместимости.
 nativeOptions можно использовать как вариант для тестирования и с последующим запросом впиливания опции как мета параметр графиков. </p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post guides">
+    <header class="post-header">
+        <h2 class="post-title"><a href="https://developers.1ad.ru/meta/guides/db_naming/">Именование сущностей в БД</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>При разработке новой БД предлагается придерживаться следующих правил. При этом, если у вас есть готовая БД, то вы не должны хотеть полностью переделать ее соглашения, так как это бесполезная работа. Просто продолжайте использовать то, что у вас есть.
+ Все таблицы должны иметь несоставной первичный ключ, который должен называться id Все таблицы, представления, функции, триггерные функции и типы должны иметь комментарий Поля таблиц и view должны иметь комментарий. Исключения: поля с внешними ключами, общепонятные поля (первичный ключ, views, clicks, name, title и т. </p>
     </section>
     <footer class=" footline" >
          

@@ -7,7 +7,7 @@
     <meta name="description" content="">
 
 
-    <title>me-lego-list :: META | AdPlatform Developers</title>
+    <title>meta/sql :: META | AdPlatform Developers</title>
     <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
@@ -27,7 +27,7 @@
     </style>
 
   </head>
-  <body class="" data-url="/ui_controls/me-lego-list/">
+  <body class="" data-url="/guides/script_types/sql/">
     <nav id="sidebar" class="showVisitedLinks">
 
 
@@ -59,7 +59,7 @@ META Developers
   
     
     <li data-nav-id="/guides/" class="dd-item 
-        
+        parent
         
         parent
         ">
@@ -131,7 +131,7 @@ META Developers
   
     
     <li data-nav-id="/guides/script_types/" class="dd-item 
-        
+        parent
         
         parent
         ">
@@ -163,7 +163,7 @@ META Developers
   
     
       <li data-nav-id="/guides/script_types/sql/" class="dd-item
-     
+     active
       ">
         <a href="https://developers.1ad.ru/meta/guides/script_types/sql/">
         <span>meta/sql</span> 
@@ -274,7 +274,7 @@ META Developers
   
     
     <li data-nav-id="/ui_controls/" class="dd-item 
-        parent
+        
         
         parent
         ">
@@ -363,7 +363,7 @@ META Developers
   
     
       <li data-nav-id="/ui_controls/me-lego-list/" class="dd-item
-     active
+     
       ">
         <a href="https://developers.1ad.ru/meta/ui_controls/me-lego-list/">
         <span>me-lego-list</span> 
@@ -592,7 +592,12 @@ META Developers
 
 
 
- <a href='https://developers.1ad.ru/meta/'>META</a> > <a href='https://developers.1ad.ru/meta/ui_controls/'>Пользовательские элементы</a> > me-lego-list
+
+
+
+ <a href='https://developers.1ad.ru/meta/'>META</a> > <a href='https://developers.1ad.ru/meta/guides/'>Руководства</a> > <a href='https://developers.1ad.ru/meta/guides/script_types/'>Типы скриптов</a> > meta/sql
+
+ 
 
  
 
@@ -603,14 +608,7 @@ META Developers
             </div>
             <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#структура">Структура</a></li>
-</ul></li>
-</ul>
-</nav>
+
     </div>
 </div>
 
@@ -619,38 +617,41 @@ META Developers
         
         <div id="body-inner">
           
-            <h1>me-lego-list</h1>
+            <h1>meta/sql</h1>
           
 
 
 
 
+<p>Основной способ получения данных, рекомендуется вибирать именно его, а не meta/js в пробладающем кол-во вслучаев.
+Исполняется на указанной в db-alias базе данных
+Выполняет SQL с синтактисом указанной БД без магических модификаций</p>
 
+<p>Существуют макросы для упрощения жизни разработчика:</p>
 
-<p>Основной элемент-контейнер для рендеринга элементов.
-Рендерится в me-page как основной контейнер, а так же может быть использован внутри  себя и себе подобных контейнеров: me-lego, me-lego-list, me-wizard</p>
+<p><strong>${pager}</strong> - для вставки пагинатора</p>
 
-<p><strong>@example</strong> - <a href="https://meta.realweb.ru/page?p=3723&amp;a=35">https://meta.realweb.ru/page?p=3723&amp;a=35</a></p>
+<p><strong>${sort}</strong> - для вставки сортировки</p>
 
-<h2 id="структура">Структура</h2>
-
-<pre><code class="language-json">{
-  &quot;attrs&quot;: {
-    &quot;markDelete&quot;: &quot;(boolean)&quot;
-  },
-  &quot;defaultValue&quot;: &quot;(any)&quot;,
-  &quot;entityId&quot;: &quot;(number)&quot;,
-  &quot;formHorizontal&quot;: &quot;(boolean)&quot;,
-  &quot;help&quot;: &quot;(string)&quot;,
-  &quot;icon&quot;: &quot;(string)&quot;,
-  &quot;id&quot;: &quot;(string)&quot;,
-  &quot;label&quot;: &quot;(string)&quot;,
-  &quot;name&quot;: &quot;me-lego-list&quot;,
-  &quot;offset&quot;: &quot;(number)&quot;,
-  &quot;selfDepends&quot;: &quot;(boolean)&quot;,
-  &quot;span&quot;: &quot;(number)&quot;,
-  &quot;value&quot;: &quot;(string)&quot;
-}
+<pre><code class="language-html">&lt;script type=&quot;meta/sql&quot; db-alias=&quot;meta_samples&quot; id=&quot;tableWithFooterWithoutPagerTotal&quot; 
+        label=&quot;Таблица с футером, но без расширенного пагинатора&quot; span=&quot;4&quot; order=&quot;71&quot;&gt;
+WITH empls AS (
+SELECT (generate_series || employee.&quot;employeeId&quot;::text)::int as seq,
+employee.*
+FROM &quot;public&quot;.&quot;employee&quot;, generate_series(1, 50)
+)
+SELECT
+    empls.seq, empls.&quot;employeeId&quot;, empls.name, empls.salary,
+    json_build_object(
+        'footerRows', json_build_array(
+            json_build_object('name', 'Ср. зарплата', 'salary', (avg(empls.salary) over())),
+            json_build_object('name', 'Итого', 'salary', (sum(empls.salary) over()))
+        )
+    ) as table_props_field
+FROM empls
+order by ${sort}, 1
+${pager}
+&lt;/script&gt;
 </code></pre>
 
 

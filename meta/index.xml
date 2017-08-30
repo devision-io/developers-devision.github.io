@@ -12,6 +12,37 @@
     
     
     <item>
+      <title>Окружение запроса</title>
+      <link>https://developers.1ad.ru/meta/guides/request_response_vars/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.1ad.ru/meta/guides/request_response_vars/</guid>
+      <description>Введение  env - объект-окружение запроса к серверу. vm - объект для удобной работы с ответом клиенту. На лего странцах отдельный vm на каждый script. pvm - только на LEGO-страницах. Отвечает за хранение данных на всех странце, содержит в себе vm script. DataResult - низкоуровневый класс, отвечающий за ответ с данными по EntityPage. Его нельзя получить так как он никуда не передается, существует вне scipt - над ним. Создается вручную при необходимости только в meta/js скриптах.</description>
+    </item>
+    
+    <item>
+      <title>Шаблонизация</title>
+      <link>https://developers.1ad.ru/meta/guides/template_engines/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.1ad.ru/meta/guides/template_engines/</guid>
+      <description>Для шаблонизации используется freemarker.org. Отсутствие переменных при шаблонизации сейчас не является фатальной ошибкой, переменная в такой случае будет заменяться пустой строкой.
+Функции Пример вызова:
+ ${t(String)} - Перевод ${to_json(Object)} - Конвертация объекта в json ${sfile(String)} - Получение абсолютной ссылки на статический файл со стораджа ${to_date(String)} - Приведение к дате ${pg_quote_literal(String)} - Экранирование строки для PostgreSQL ${pg_quote_ident(String)} - Экранирование идентификатора (имя столбца, таблицы, схемы) для PostgreSQL  Работа с таблицами ${pager} Добавляет limit/offset в запрос и пагинатор на страницу</description>
+    </item>
+    
+    <item>
+      <title>Графики</title>
+      <link>https://developers.1ad.ru/meta/guides/charts/</link>
+      <pubDate>Mon, 24 Apr 2017 18:36:24 +0200</pubDate>
+      
+      <guid>https://developers.1ad.ru/meta/guides/charts/</guid>
+      <description>Являются элементами me-chart. Работают на основе google charts. Примеры тут: http://meta.realweb.ru/page?a=35&amp;amp;p=3623
+Имеют опцию &amp;ldquo;nativeOptions&amp;rdquo; для передачи нативных параметров. Не рекомендуется это использоваться просто так из-за невозможности поддержки возможности смены графиков или более легкого обновления версии при отсутствии обратной совместимости.
+nativeOptions можно использовать как вариант для тестирования и с последующим запросом впиливания опции как мета параметр графиков.</description>
+    </item>
+    
+    <item>
       <title>Аналитика</title>
       <link>https://developers.1ad.ru/meta/embedjs/analytics/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -50,26 +81,6 @@ me(&#39;applyInjects&#39;);  </description>
       
       <guid>https://developers.1ad.ru/meta/guides/quick_start/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>Окружение запроса</title>
-      <link>https://developers.1ad.ru/meta/guides/request_response_vars/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://developers.1ad.ru/meta/guides/request_response_vars/</guid>
-      <description>Введение  env - объект-окружение запроса к серверу. vm - объект для удобной работы с ответом клиенту. На лего странцах отдельный vm на каждый script. pvm - только на LEGO-страницах. Отвечает за хранение данных на всех странце, содержит в себе vm script. DataResult - низкоуровневый класс, отвечающий за ответ с данными по EntityPage. Его нельзя получить так как он никуда не передается, существует вне scipt - над ним. Создается вручную при необходимости только в meta/js скриптах.</description>
-    </item>
-    
-    <item>
-      <title>Шаблонизация</title>
-      <link>https://developers.1ad.ru/meta/guides/template_engines/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://developers.1ad.ru/meta/guides/template_engines/</guid>
-      <description>Для шаблонизации используется freemarker.org. Отсутствие переменных при шаблонизации сейчас не является фатальной ошибкой, переменная в такой случае будет заменяться пустой строкой.
-Функции Пример вызова:
- ${t(String)} - Перевод ${to_json(Object)} - Конвертация объекта в json ${sfile(String)} - Получение абсолютной ссылки на статический файл со стораджа ${to_date(String)} - Приведение к дате ${pg_quote_literal(String)} - Экранирование строки для PostgreSQL ${pg_quote_ident(String)} - Экранирование идентификатора (имя столбца, таблицы, схемы) для PostgreSQL  Работа с таблицами ${pager} Добавляет limit/offset в запрос и пагинатор на страницу</description>
     </item>
     
   </channel>

@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://developers.1ad.ru/meta/guides/quick_start/</loc>
+    <lastmod>2017-04-24T18:36:24+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://developers.1ad.ru/meta/guides/request_response_vars/</loc>
   </url>
   
@@ -33,17 +38,16 @@
   </url>
   
   <url>
+    <loc>https://developers.1ad.ru/meta/ui_controls/</loc>
+  </url>
+  
+  <url>
     <loc>https://developers.1ad.ru/meta/</loc>
     <lastmod>2017-04-24T18:36:24+02:00</lastmod>
   </url>
   
   <url>
     <loc>https://developers.1ad.ru/meta/_header/</loc>
-    <lastmod>2017-04-24T18:36:24+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://developers.1ad.ru/meta/guides/quick_start/</loc>
     <lastmod>2017-04-24T18:36:24+02:00</lastmod>
   </url>
   
@@ -55,6 +59,42 @@
   <url>
     <loc>https://developers.1ad.ru/meta/tags/</loc>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://developers.1ad.ru/meta/ui_controls/me-chart/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.1ad.ru/meta/ui_controls/me-input/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.1ad.ru/meta/ui_controls/me-lego/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.1ad.ru/meta/ui_controls/me-lego-list/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.1ad.ru/meta/ui_controls/me-pivot/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.1ad.ru/meta/ui_controls/me-submit/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.1ad.ru/meta/ui_controls/me-table/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.1ad.ru/meta/ui_controls/me-tabs/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.1ad.ru/meta/ui_controls/me-wizard/</loc>
   </url>
   
 </urlset>

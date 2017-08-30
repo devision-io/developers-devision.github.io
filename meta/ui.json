@@ -87,7 +87,7 @@
 							},
 							"comment": {
 								"shortText": "Зависимости от других элементов. При изменении зависимых элементов, при условии, что заполнены все значения из depends\nделается автоматический переапрос refPvmData и depends будут переданы в env.sp как {key: value}",
-								"text": "Для зависимостей me-lego-list в одной строке используется нотация с [], например filled[].orgId, где filled - шв me-lego-list, orgId - id элемента\n\nНапример: [\"filled[].orgId as orgId\"] - переименовать для env.sp. Придет как env.sp.orgId\nНапример: [\"mode\", \"clientId\"] - Придет как env.sp.mode, env.sp.clientId\n",
+								"text": "Для зависимостей me-lego-list в одной строке используется нотация с [], например filled[].orgId, где filled - шв me-lego-list, orgId - id элемента\n\nНапример: [ \"filled[].orgId as orgId\" ] - переименовать для env.sp. Придет как env.sp.orgId\nНапример: [ \"mode\", \"clientId\" ] - Придет как env.sp.mode, env.sp.clientId\n",
 								"tags": [
 									{
 										"tag": "example",
@@ -281,7 +281,7 @@
 							],
 							"type": {
 								"type": "intrinsic",
-								"name": "any"
+								"name": "string"
 							},
 							"inheritedFrom": {
 								"type": "reference",
@@ -771,7 +771,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Стилизовать блок под размер\nПоддерживаются значения: sm, ПУСТО"
+								"shortText": "Стилизовать блок под размер",
+								"tags": [
+									{
+										"tag": "enums",
+										"text": "( sm )\n"
+									}
+								]
 							},
 							"sources": [
 								{
@@ -916,7 +922,7 @@
 							},
 							"comment": {
 								"shortText": "Зависимости от других элементов. При изменении зависимых элементов, при условии, что заполнены все значения из depends\nделается автоматический переапрос refPvmData и depends будут переданы в env.sp как {key: value}",
-								"text": "Для зависимостей me-lego-list в одной строке используется нотация с [], например filled[].orgId, где filled - шв me-lego-list, orgId - id элемента\n\nНапример: [\"filled[].orgId as orgId\"] - переименовать для env.sp. Придет как env.sp.orgId\nНапример: [\"mode\", \"clientId\"] - Придет как env.sp.mode, env.sp.clientId\n",
+								"text": "Для зависимостей me-lego-list в одной строке используется нотация с [], например filled[].orgId, где filled - шв me-lego-list, orgId - id элемента\n\nНапример: [ \"filled[].orgId as orgId\" ] - переименовать для env.sp. Придет как env.sp.orgId\nНапример: [ \"mode\", \"clientId\" ] - Придет как env.sp.mode, env.sp.clientId\n",
 								"tags": [
 									{
 										"tag": "example",
@@ -1110,7 +1116,7 @@
 							],
 							"type": {
 								"type": "intrinsic",
-								"name": "any"
+								"name": "string"
 							},
 							"inheritedFrom": {
 								"type": "reference",
@@ -1586,7 +1592,7 @@
 							},
 							"comment": {
 								"shortText": "Зависимости от других элементов. При изменении зависимых элементов, при условии, что заполнены все значения из depends\nделается автоматический переапрос refPvmData и depends будут переданы в env.sp как {key: value}",
-								"text": "Для зависимостей me-lego-list в одной строке используется нотация с [], например filled[].orgId, где filled - шв me-lego-list, orgId - id элемента\n\nНапример: [\"filled[].orgId as orgId\"] - переименовать для env.sp. Придет как env.sp.orgId\nНапример: [\"mode\", \"clientId\"] - Придет как env.sp.mode, env.sp.clientId\n",
+								"text": "Для зависимостей me-lego-list в одной строке используется нотация с [], например filled[].orgId, где filled - шв me-lego-list, orgId - id элемента\n\nНапример: [ \"filled[].orgId as orgId\" ] - переименовать для env.sp. Придет как env.sp.orgId\nНапример: [ \"mode\", \"clientId\" ] - Придет как env.sp.mode, env.sp.clientId\n",
 								"tags": [
 									{
 										"tag": "example",
@@ -1780,7 +1786,7 @@
 							],
 							"type": {
 								"type": "intrinsic",
-								"name": "any"
+								"name": "string"
 							},
 							"inheritedFrom": {
 								"type": "reference",
@@ -2225,7 +2231,7 @@
 							},
 							"comment": {
 								"shortText": "Зависимости от других элементов. При изменении зависимых элементов, при условии, что заполнены все значения из depends\nделается автоматический переапрос refPvmData и depends будут переданы в env.sp как {key: value}",
-								"text": "Для зависимостей me-lego-list в одной строке используется нотация с [], например filled[].orgId, где filled - шв me-lego-list, orgId - id элемента\n\nНапример: [\"filled[].orgId as orgId\"] - переименовать для env.sp. Придет как env.sp.orgId\nНапример: [\"mode\", \"clientId\"] - Придет как env.sp.mode, env.sp.clientId\n",
+								"text": "Для зависимостей me-lego-list в одной строке используется нотация с [], например filled[].orgId, где filled - шв me-lego-list, orgId - id элемента\n\nНапример: [ \"filled[].orgId as orgId\" ] - переименовать для env.sp. Придет как env.sp.orgId\nНапример: [ \"mode\", \"clientId\" ] - Придет как env.sp.mode, env.sp.clientId\n",
 								"tags": [
 									{
 										"tag": "example",
@@ -2419,7 +2425,7 @@
 							],
 							"type": {
 								"type": "intrinsic",
-								"name": "any"
+								"name": "string"
 							},
 							"inheritedFrom": {
 								"type": "reference",
@@ -2839,7 +2845,7 @@
 							},
 							"comment": {
 								"shortText": "Зависимости от других элементов. При изменении зависимых элементов, при условии, что заполнены все значения из depends\nделается автоматический переапрос refPvmData и depends будут переданы в env.sp как {key: value}",
-								"text": "Для зависимостей me-lego-list в одной строке используется нотация с [], например filled[].orgId, где filled - шв me-lego-list, orgId - id элемента\n\nНапример: [\"filled[].orgId as orgId\"] - переименовать для env.sp. Придет как env.sp.orgId\nНапример: [\"mode\", \"clientId\"] - Придет как env.sp.mode, env.sp.clientId\n",
+								"text": "Для зависимостей me-lego-list в одной строке используется нотация с [], например filled[].orgId, где filled - шв me-lego-list, orgId - id элемента\n\nНапример: [ \"filled[].orgId as orgId\" ] - переименовать для env.sp. Придет как env.sp.orgId\nНапример: [ \"mode\", \"clientId\" ] - Придет как env.sp.mode, env.sp.clientId\n",
 								"tags": [
 									{
 										"tag": "example",
@@ -3006,7 +3012,7 @@
 							],
 							"type": {
 								"type": "intrinsic",
-								"name": "any"
+								"name": "string"
 							},
 							"inheritedFrom": {
 								"type": "reference",
@@ -3517,7 +3523,7 @@
 								"tags": [
 									{
 										"tag": "enums",
-										"text": "[line, pie, column, bar, area, table, calendar, geo, treemap, bubble]\n"
+										"text": "( line | pie | column | bar | area | table | calendar | geo | treemap | bubble )\n"
 									}
 								]
 							},
@@ -3703,7 +3709,7 @@
 							},
 							"comment": {
 								"shortText": "Зависимости от других элементов. При изменении зависимых элементов, при условии, что заполнены все значения из depends\nделается автоматический переапрос refPvmData и depends будут переданы в env.sp как {key: value}",
-								"text": "Для зависимостей me-lego-list в одной строке используется нотация с [], например filled[].orgId, где filled - шв me-lego-list, orgId - id элемента\n\nНапример: [\"filled[].orgId as orgId\"] - переименовать для env.sp. Придет как env.sp.orgId\nНапример: [\"mode\", \"clientId\"] - Придет как env.sp.mode, env.sp.clientId\n",
+								"text": "Для зависимостей me-lego-list в одной строке используется нотация с [], например filled[].orgId, где filled - шв me-lego-list, orgId - id элемента\n\nНапример: [ \"filled[].orgId as orgId\" ] - переименовать для env.sp. Придет как env.sp.orgId\nНапример: [ \"mode\", \"clientId\" ] - Придет как env.sp.mode, env.sp.clientId\n",
 								"tags": [
 									{
 										"tag": "example",
@@ -3870,7 +3876,7 @@
 							],
 							"type": {
 								"type": "intrinsic",
-								"name": "any"
+								"name": "string"
 							},
 							"inheritedFrom": {
 								"type": "reference",
@@ -4199,7 +4205,7 @@
 								"tags": [
 									{
 										"tag": "inputtypes",
-										"text": "[select]"
+										"text": "[ select ]"
 									},
 									{
 										"tag": "example",
@@ -4233,7 +4239,7 @@
 								"tags": [
 									{
 										"tag": "enums",
-										"text": "[left, right]\n"
+										"text": "( left | right )\n"
 									}
 								]
 							},
@@ -4266,7 +4272,7 @@
 									},
 									{
 										"tag": "inputtypes",
-										"text": "[submit, button]\n"
+										"text": "[ submit, button ]\n"
 									}
 								]
 							},
@@ -4295,7 +4301,7 @@
 								"tags": [
 									{
 										"tag": "inputtypes",
-										"text": "[select]\n"
+										"text": "[ select ]\n"
 									}
 								]
 							},
@@ -4324,7 +4330,7 @@
 								"tags": [
 									{
 										"tag": "inputtypes",
-										"text": "[code]\n"
+										"text": "[ code ]\n"
 									}
 								]
 							},
@@ -4525,11 +4531,11 @@
 								"tags": [
 									{
 										"tag": "enums",
-										"text": "[JSON, JSON_OBJECT, HTML, SQL]"
+										"text": "( JSON | JSON_OBJECT | HTML | SQL )"
 									},
 									{
 										"tag": "inputtypes",
-										"text": "[code]\n"
+										"text": "[ code ]\n"
 									}
 								]
 							},
@@ -4581,7 +4587,7 @@
 								"tags": [
 									{
 										"tag": "inputtypes",
-										"text": "[schedule]\n"
+										"text": "[ schedule ]\n"
 									}
 								]
 							},
@@ -4732,7 +4738,7 @@
 								"tags": [
 									{
 										"tag": "inputtypes",
-										"text": "[textarea]\n"
+										"text": "[ textarea ]\n"
 									}
 								]
 							},
@@ -4761,7 +4767,7 @@
 								"tags": [
 									{
 										"tag": "inputtypes",
-										"text": "[textarea]\n"
+										"text": "[ textarea ]\n"
 									}
 								]
 							},
@@ -4834,7 +4840,7 @@
 								"tags": [
 									{
 										"tag": "enums",
-										"text": "[text, select, duallist, submit, textarea, checkbox, radio, me-link-radio, me-summary-btn, me-tabs, filecontent, url, tel, email, percent]"
+										"text": "( text | select | duallist | submit | textarea | checkbox | radio | me-link-radio | me-summary-btn | me-tabs | filecontent | url | tel | email | percent )"
 									},
 									{
 										"tag": "default",
@@ -4867,7 +4873,7 @@
 								"tags": [
 									{
 										"tag": "inputtypes",
-										"text": "[me-submit]\n"
+										"text": "[ me-submit ]\n"
 									}
 								]
 							},
@@ -4896,7 +4902,7 @@
 								"tags": [
 									{
 										"tag": "inputtypes",
-										"text": "[select]"
+										"text": "[ select ]"
 									},
 									{
 										"tag": "example",
@@ -4929,7 +4935,7 @@
 								"tags": [
 									{
 										"tag": "enums",
-										"text": "[xs, sm, lg, ПУСТО]\n"
+										"text": "( xs | sm | lg )\n"
 									}
 								]
 							},
@@ -5707,7 +5713,7 @@
 							},
 							"comment": {
 								"shortText": "Зависимости от других элементов. При изменении зависимых элементов, при условии, что заполнены все значения из depends\nделается автоматический переапрос refPvmData и depends будут переданы в env.sp как {key: value}",
-								"text": "Для зависимостей me-lego-list в одной строке используется нотация с [], например filled[].orgId, где filled - шв me-lego-list, orgId - id элемента\n\nНапример: [\"filled[].orgId as orgId\"] - переименовать для env.sp. Придет как env.sp.orgId\nНапример: [\"mode\", \"clientId\"] - Придет как env.sp.mode, env.sp.clientId\n",
+								"text": "Для зависимостей me-lego-list в одной строке используется нотация с [], например filled[].orgId, где filled - шв me-lego-list, orgId - id элемента\n\nНапример: [ \"filled[].orgId as orgId\" ] - переименовать для env.sp. Придет как env.sp.orgId\nНапример: [ \"mode\", \"clientId\" ] - Придет как env.sp.mode, env.sp.clientId\n",
 								"tags": [
 									{
 										"tag": "example",
@@ -5874,7 +5880,7 @@
 							],
 							"type": {
 								"type": "intrinsic",
-								"name": "any"
+								"name": "string"
 							},
 							"inheritedFrom": {
 								"type": "reference",
@@ -6383,7 +6389,7 @@
 							},
 							"comment": {
 								"shortText": "Зависимости от других элементов. При изменении зависимых элементов, при условии, что заполнены все значения из depends\nделается автоматический переапрос refPvmData и depends будут переданы в env.sp как {key: value}",
-								"text": "Для зависимостей me-lego-list в одной строке используется нотация с [], например filled[].orgId, где filled - шв me-lego-list, orgId - id элемента\n\nНапример: [\"filled[].orgId as orgId\"] - переименовать для env.sp. Придет как env.sp.orgId\nНапример: [\"mode\", \"clientId\"] - Придет как env.sp.mode, env.sp.clientId\n",
+								"text": "Для зависимостей me-lego-list в одной строке используется нотация с [], например filled[].orgId, где filled - шв me-lego-list, orgId - id элемента\n\nНапример: [ \"filled[].orgId as orgId\" ] - переименовать для env.sp. Придет как env.sp.orgId\nНапример: [ \"mode\", \"clientId\" ] - Придет как env.sp.mode, env.sp.clientId\n",
 								"tags": [
 									{
 										"tag": "example",
@@ -6550,7 +6556,7 @@
 							],
 							"type": {
 								"type": "intrinsic",
-								"name": "any"
+								"name": "string"
 							},
 							"inheritedFrom": {
 								"type": "reference",
@@ -6982,7 +6988,7 @@
 							},
 							"comment": {
 								"shortText": "Зависимости от других элементов. При изменении зависимых элементов, при условии, что заполнены все значения из depends\nделается автоматический переапрос refPvmData и depends будут переданы в env.sp как {key: value}",
-								"text": "Для зависимостей me-lego-list в одной строке используется нотация с [], например filled[].orgId, где filled - шв me-lego-list, orgId - id элемента\n\nНапример: [\"filled[].orgId as orgId\"] - переименовать для env.sp. Придет как env.sp.orgId\nНапример: [\"mode\", \"clientId\"] - Придет как env.sp.mode, env.sp.clientId\n",
+								"text": "Для зависимостей me-lego-list в одной строке используется нотация с [], например filled[].orgId, где filled - шв me-lego-list, orgId - id элемента\n\nНапример: [ \"filled[].orgId as orgId\" ] - переименовать для env.sp. Придет как env.sp.orgId\nНапример: [ \"mode\", \"clientId\" ] - Придет как env.sp.mode, env.sp.clientId\n",
 								"tags": [
 									{
 										"tag": "example",
@@ -7189,7 +7195,7 @@
 							],
 							"type": {
 								"type": "intrinsic",
-								"name": "any"
+								"name": "string"
 							},
 							"inheritedFrom": {
 								"type": "reference",
@@ -8053,7 +8059,7 @@
 									},
 									{
 										"tag": "enums",
-										"text": "[right, bottom]\n"
+										"text": "( right | bottom )\n"
 									}
 								]
 							},
@@ -8353,7 +8359,7 @@
 							},
 							"comment": {
 								"shortText": "Зависимости от других элементов. При изменении зависимых элементов, при условии, что заполнены все значения из depends\nделается автоматический переапрос refPvmData и depends будут переданы в env.sp как {key: value}",
-								"text": "Для зависимостей me-lego-list в одной строке используется нотация с [], например filled[].orgId, где filled - шв me-lego-list, orgId - id элемента\n\nНапример: [\"filled[].orgId as orgId\"] - переименовать для env.sp. Придет как env.sp.orgId\nНапример: [\"mode\", \"clientId\"] - Придет как env.sp.mode, env.sp.clientId\n",
+								"text": "Для зависимостей me-lego-list в одной строке используется нотация с [], например filled[].orgId, где filled - шв me-lego-list, orgId - id элемента\n\nНапример: [ \"filled[].orgId as orgId\" ] - переименовать для env.sp. Придет как env.sp.orgId\nНапример: [ \"mode\", \"clientId\" ] - Придет как env.sp.mode, env.sp.clientId\n",
 								"tags": [
 									{
 										"tag": "example",
@@ -8547,7 +8553,7 @@
 							],
 							"type": {
 								"type": "intrinsic",
-								"name": "any"
+								"name": "string"
 							},
 							"inheritedFrom": {
 								"type": "reference",
@@ -10155,7 +10161,7 @@
 							"sources": [
 								{
 									"fileName": "helpers/i.common.ts",
-									"line": 61,
+									"line": 60,
 									"character": 12
 								}
 							],
@@ -10177,14 +10183,14 @@
 								"tags": [
 									{
 										"tag": "enums",
-										"text": "[xs, sm, lg, ПУСТО]\n"
+										"text": "[ xs, sm, lg ]\n"
 									}
 								]
 							},
 							"sources": [
 								{
 									"fileName": "helpers/i.common.ts",
-									"line": 73,
+									"line": 72,
 									"character": 13
 								}
 							],
@@ -10205,19 +10211,15 @@
 								"shortText": "Тип открытия старницы\nПУСТО - новая страница",
 								"tags": [
 									{
-										"tag": "default",
-										"text": "ПУСТО"
-									},
-									{
 										"tag": "enums",
-										"text": "[modal, ПУСТО]\n"
+										"text": "[ modal]\n"
 									}
 								]
 							},
 							"sources": [
 								{
 									"fileName": "helpers/i.common.ts",
-									"line": 51,
+									"line": 50,
 									"character": 8
 								}
 							],
@@ -10240,7 +10242,7 @@
 							"sources": [
 								{
 									"fileName": "helpers/i.common.ts",
-									"line": 67,
+									"line": 66,
 									"character": 10
 								}
 							],
@@ -10263,7 +10265,7 @@
 							"sources": [
 								{
 									"fileName": "helpers/i.common.ts",
-									"line": 56,
+									"line": 55,
 									"character": 9
 								}
 							],
@@ -10283,7 +10285,7 @@
 							"sources": [
 								{
 									"fileName": "helpers/i.common.ts",
-									"line": 75,
+									"line": 74,
 									"character": 11
 								}
 							],
@@ -10595,7 +10597,7 @@
 							},
 							"comment": {
 								"shortText": "Зависимости от других элементов. При изменении зависимых элементов, при условии, что заполнены все значения из depends\nделается автоматический переапрос refPvmData и depends будут переданы в env.sp как {key: value}",
-								"text": "Для зависимостей me-lego-list в одной строке используется нотация с [], например filled[].orgId, где filled - шв me-lego-list, orgId - id элемента\n\nНапример: [\"filled[].orgId as orgId\"] - переименовать для env.sp. Придет как env.sp.orgId\nНапример: [\"mode\", \"clientId\"] - Придет как env.sp.mode, env.sp.clientId\n",
+								"text": "Для зависимостей me-lego-list в одной строке используется нотация с [], например filled[].orgId, где filled - шв me-lego-list, orgId - id элемента\n\nНапример: [ \"filled[].orgId as orgId\" ] - переименовать для env.sp. Придет как env.sp.orgId\nНапример: [ \"mode\", \"clientId\" ] - Придет как env.sp.mode, env.sp.clientId\n",
 								"tags": [
 									{
 										"tag": "example",
@@ -10737,7 +10739,7 @@
 							],
 							"type": {
 								"type": "intrinsic",
-								"name": "any"
+								"name": "string"
 							}
 						},
 						{
@@ -11073,7 +11075,7 @@
 							},
 							"comment": {
 								"shortText": "Зависимости от других элементов. При изменении зависимых элементов, при условии, что заполнены все значения из depends\nделается автоматический переапрос refPvmData и depends будут переданы в env.sp как {key: value}",
-								"text": "Для зависимостей me-lego-list в одной строке используется нотация с [], например filled[].orgId, где filled - шв me-lego-list, orgId - id элемента\n\nНапример: [\"filled[].orgId as orgId\"] - переименовать для env.sp. Придет как env.sp.orgId\nНапример: [\"mode\", \"clientId\"] - Придет как env.sp.mode, env.sp.clientId\n",
+								"text": "Для зависимостей me-lego-list в одной строке используется нотация с [], например filled[].orgId, где filled - шв me-lego-list, orgId - id элемента\n\nНапример: [ \"filled[].orgId as orgId\" ] - переименовать для env.sp. Придет как env.sp.orgId\nНапример: [ \"mode\", \"clientId\" ] - Придет как env.sp.mode, env.sp.clientId\n",
 								"tags": [
 									{
 										"tag": "example",
@@ -11262,7 +11264,7 @@
 							],
 							"type": {
 								"type": "intrinsic",
-								"name": "any"
+								"name": "string"
 							},
 							"inheritedFrom": {
 								"type": "reference",

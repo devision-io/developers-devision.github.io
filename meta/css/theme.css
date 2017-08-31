@@ -33,7 +33,7 @@
 }
 
 body {
-    font-size: 16px !important;
+    font-size: 15px !important;
     color: #323232 !important;
 }
 
@@ -158,7 +158,7 @@ body {
     font-family: 'Open Sans', sans-serif;
     font-weight: normal;
     line-height: 1.6;
-    font-size: 16px !important;
+    font-size: 15px !important;
 }
 
 h2, h3, h4, h5, h6 {
@@ -174,12 +174,12 @@ h1 {
     font-family: 'Open Sans', sans-serif;
     color: #222;
     font-weight: 200;
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin-bottom: 1.5rem;
 }
 
 h2 {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     line-height: 110% !important;
     margin: 2rem 0 1rem 0;
 }

@@ -708,9 +708,17 @@ META Developers
 Значение элемента по умолчанию
 Для некоторых элементов
 
+
+
+
 <h3 id="depends_75">depends (string)</h3>
 Зависимости от других элементов. При изменении зависимых элементов, при условии, что заполнены все значения из depends
 делается автоматический переапрос refPvmData и depends будут переданы в env.sp как {key: value}
+
+**@example** https://meta.realweb.ru/page?p=4329&a=35
+
+**@example** https://meta.realweb.ru/page?p=3597&a=35
+
 
 <h3 id="elems_63">elems [object Object]</h3>
 
@@ -728,6 +736,8 @@ Meta EntityId
 <p><h3 id="icon_70">icon (string)</h3>
 Иконка Font Awesome
 Например fa-bicycle</p>
+
+<p><strong>@link</strong> <a href="http://ui.adplatform.lan/Static_Full_Version/icons.html">http://ui.adplatform.lan/Static_Full_Version/icons.html</a></p>
 
 <p><h3 id="id_65">id (string)</h3>
 ID данных элемента
@@ -747,12 +757,20 @@ ID данных элемента
 <p><h3 id="refPvmData_74">refPvmData </h3>
 Инструкции по получению данных для [[IMeInputAttrs.options]] или таблицы</p>
 
+<p><strong>@example</strong> <a href="https://meta.realweb.ru/page?p=3570&amp;a=35">https://meta.realweb.ru/page?p=3570&amp;a=35</a></p>
+
+<p><strong>@example</strong> <a href="https://meta.realweb.ru/page?p=3597&amp;a=35">https://meta.realweb.ru/page?p=3597&amp;a=35</a></p>
+
 <p><h3 id="refPvmValidator_73">refPvmValidator </h3>
 Пользовательская валидация</p>
+
+<p><strong>@example</strong> <a href="https://meta.realweb.ru/page?p=3359&amp;a=30">https://meta.realweb.ru/page?p=3359&amp;a=30</a></p>
 
 <p><h3 id="selfDepends_76">selfDepends (boolean)</h3>
 Зависимость от себя самого, нужно для editable [[IMeTable]]
 и прототип для поиска [[IMeInputAttrs.options]] в me-input для частичной подгрузки данных</p>
+
+<p><strong>@beta</strong></p>
 
 <p><h3 id="span_68">span (number)</h3>
 Размер по сетке справа от 0 до12</p>

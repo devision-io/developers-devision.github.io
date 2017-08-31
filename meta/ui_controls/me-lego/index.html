@@ -305,163 +305,11 @@ META Developers
  
   
     
-      <li data-nav-id="/ui_controls/me-chart/" class="dd-item
-     
-      ">
-        <a href="https://developers.1ad.ru/meta/ui_controls/me-chart/">
-        <span>me-chart</span> 
-        </a></li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/ui_controls/me-input/" class="dd-item
-     
-      ">
-        <a href="https://developers.1ad.ru/meta/ui_controls/me-input/">
-        <span>me-input</span> 
-        </a></li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
       <li data-nav-id="/ui_controls/me-lego/" class="dd-item
      active
       ">
         <a href="https://developers.1ad.ru/meta/ui_controls/me-lego/">
         <span>me-lego</span> 
-        </a></li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/ui_controls/me-lego-list/" class="dd-item
-     
-      ">
-        <a href="https://developers.1ad.ru/meta/ui_controls/me-lego-list/">
-        <span>me-lego-list</span> 
-        </a></li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/ui_controls/me-pivot/" class="dd-item
-     
-      ">
-        <a href="https://developers.1ad.ru/meta/ui_controls/me-pivot/">
-        <span>me-pivot</span> 
-        </a></li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/ui_controls/me-submit/" class="dd-item
-     
-      ">
-        <a href="https://developers.1ad.ru/meta/ui_controls/me-submit/">
-        <span>me-submit</span> 
-        </a></li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/ui_controls/me-table/" class="dd-item
-     
-      ">
-        <a href="https://developers.1ad.ru/meta/ui_controls/me-table/">
-        <span>me-table</span> 
-        </a></li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/ui_controls/me-tabs/" class="dd-item
-     
-      ">
-        <a href="https://developers.1ad.ru/meta/ui_controls/me-tabs/">
-        <span>me-tabs</span> 
-        </a></li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/ui_controls/me-wizard/" class="dd-item
-     
-      ">
-        <a href="https://developers.1ad.ru/meta/ui_controls/me-wizard/">
-        <span>me-wizard</span> 
         </a></li>
      
   
@@ -607,7 +455,26 @@ META Developers
 <ul>
 <li>
 <ul>
-<li><a href="#структура">Структура</a></li>
+<li><a href="#структура">Структура</a>
+<ul>
+<li><a href="#attrs-object-object">attrs [object Object]</a></li>
+<li><a href="#defaultvalue-any">defaultValue (any)</a></li>
+<li><a href="#depends">depends</a></li>
+<li><a href="#elems">elems</a></li>
+<li><a href="#entityid-number">entityId (number)</a></li>
+<li><a href="#formhorizontal-boolean">formHorizontal (boolean)</a></li>
+<li><a href="#help-string">help (string)</a></li>
+<li><a href="#icon-string">icon (string)</a></li>
+<li><a href="#id-string">id (string)</a></li>
+<li><a href="#label-string">label (string)</a></li>
+<li><a href="#name-string">name (string)</a></li>
+<li><a href="#offset-number">offset (number)</a></li>
+<li><a href="#refpvmdata">refPvmData</a></li>
+<li><a href="#refpvmvalidator">refPvmValidator</a></li>
+<li><a href="#selfdepends-boolean">selfDepends (boolean)</a></li>
+<li><a href="#span-number">span (number)</a></li>
+<li><a href="#value-string">value (string)</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </nav>
@@ -656,6 +523,73 @@ META Developers
   &quot;value&quot;: &quot;(string)&quot;
 }
 </code></pre>
+
+<h3 id="attrs-object-object">attrs [object Object]</h3>
+
+<h3 id="defaultvalue-any">defaultValue (any)</h3>
+
+<p>Значение элемента по умолчанию
+Для некоторых элементов</p>
+
+<h3 id="depends">depends</h3>
+
+<p>Зависимости от других элементов. При изменении зависимых элементов, при условии, что заполнены все значения из depends
+делается автоматический переапрос refPvmData и depends будут переданы в env.sp как {key: value}</p>
+
+<h3 id="elems">elems</h3>
+
+<h3 id="entityid-number">entityId (number)</h3>
+
+<p>Meta EntityId
+Для некоторых элементов, напрмиер [[IMeInput]], [[IMeTable]]</p>
+
+<h3 id="formhorizontal-boolean">formHorizontal (boolean)</h3>
+
+<p>Если элемента поддерживает, вывести его в стиле формы ключ, значение. Чтобы заголовок был на уровне элемента</p>
+
+<h3 id="help-string">help (string)</h3>
+
+<p>Доп информация, рисуется под label или под элментом
+Зависит от типа элемента</p>
+
+<h3 id="icon-string">icon (string)</h3>
+
+<p>Иконка Font Awesome
+Например fa-bicycle</p>
+
+<h3 id="id-string">id (string)</h3>
+
+<h3 id="label-string">label (string)</h3>
+
+<p>Заголовок элемента
+Обычно над элементом, на некоторых не рисуется вообще</p>
+
+<h3 id="name-string">name (string)</h3>
+
+<h3 id="offset-number">offset (number)</h3>
+
+<p>Отстут по сетке справа от 0 до12</p>
+
+<h3 id="refpvmdata">refPvmData</h3>
+
+<p>Инструкции по получению данных для [[IMeInputAttrs.options]] или таблицы</p>
+
+<h3 id="refpvmvalidator">refPvmValidator</h3>
+
+<p>Пользовательская валидация</p>
+
+<h3 id="selfdepends-boolean">selfDepends (boolean)</h3>
+
+<p>Зависимость от себя самого, нужно для editable [[IMeTable]]
+и прототип для поиска [[IMeInputAttrs.options]] в me-input для частичной подгрузки данных</p>
+
+<h3 id="span-number">span (number)</h3>
+
+<p>Размер по сетке справа от 0 до12</p>
+
+<h3 id="value-string">value (string)</h3>
+
+<p>для некоторых элементов</p>
 
 
 <footer class=" footline" >

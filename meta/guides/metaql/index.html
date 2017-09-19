@@ -7,7 +7,7 @@
     <meta name="description" content="">
 
 
-    <title>Типы скриптов :: META | AdPlatform Developers</title>
+    <title>Язык запросов META (METAQL) :: META | AdPlatform Developers</title>
     <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -23,7 +23,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
   </head>
-  <body class="" data-url="/guides/script_types/">
+  <body class="" data-url="/guides/metaql/">
     
 
 
@@ -124,8 +124,8 @@
             
             
             <li data-nav-id="/guides/script_types/" class="devsite-nav-item devsite-nav-item-main
-                        parent
-                        active
+                        
+                        
                         parent
                         ">
                 <a href="https://developers.1ad.ru/meta/guides/script_types/" class="devsite-nav-title devsite-nav-item-main-title">
@@ -235,7 +235,7 @@
             
             
             
-            <li data-nav-id="/guides/metaql/" class="devsite-nav-item dd-item ">
+            <li data-nav-id="/guides/metaql/" class="devsite-nav-item dd-item active">
                 <a href="https://developers.1ad.ru/meta/guides/metaql/" class="devsite-nav-title">
                     <span>Язык запросов META (METAQL)</span>
                 </a>
@@ -590,7 +590,7 @@
 
 
 
- <a href='https://developers.1ad.ru/meta/'>META</a> > <a href='https://developers.1ad.ru/meta/guides/'>Руководства</a> > Типы скриптов
+ <a href='https://developers.1ad.ru/meta/'>META</a> > <a href='https://developers.1ad.ru/meta/guides/'>Руководства</a> > Язык запросов META (METAQL)
 
 
 
@@ -604,43 +604,83 @@
         
         <div id="body-inner">
           
-            <h1>Типы скриптов</h1>
+            <h1>Язык запросов META (METAQL)</h1>
           
 
 
 
 
 
-<p>Срипты это блоки получения или изменения данных, имеют атрибуты:
- - type - определяет тип получения данных: sql, js
- - id - имя данных для меты, используется для последующих обращений к данным.</p>
+<p>METAQL - Это защищенный SQL для запросов к данным меты. Основан на синтаксисах Oracle + PostgreSQL.</p>
 
-<h3 id="ключевое-слово-internal">Ключевое слово internal</h3>
+<h2 id="особенности">Особенности</h2>
 
-<p>Используется для того, чтобы получить данные на серверной стороне и не отправлять их на клиент. Это ускоряет страницу и позволяет 100% защитить программиста от случайно передачи секретной информации на клиент.</p>
+<ul>
+<li>Поддерживаются только SELECT запросы</li>
+<li>Поддерживается только AND условия</li>
+<li>Нельзя называть поля или алясы зарезарвированными именами: date</li>
+<li>Нет прообразований типов</li>
+<li>JOIN пока не поддерживаются</li>
+</ul>
 
-<pre><code class="language-html">&lt;script type=&quot;meta/sql&quot; id=&quot;my_data&quot; internal&gt;
-    SELECT 1
-&lt;/script&gt;
+<h2 id="функции">Функции</h2>
+
+<p>В METAQL разрешены не все функции, ниже представлен список доступных на текущий момент</p>
+
+<h3 id="функции-агрегации">Функции агрегации</h3>
+
+<ul>
+<li>MIN, MAX, SUM, AGV</li>
+<li>COUNT(*), COUNT(DISTINCT поле)</li>
+</ul>
+
+<h3 id="функции-преобразований">Функции преобразований</h3>
+
+<ul>
+<li>ROUND</li>
+<li>CONCAT</li>
+<li>NULLIF</li>
+<li>COALESCE</li>
+</ul>
+
+<h2 id="фильтрация-where">Фильтрация WHERE</h2>
+
+<p>Работают операторы сравнения:</p>
+
+<ul>
+<li>=, !=, &gt;, &lt;, &gt;=, &lt;=</li>
+<li>IN, NOT IN</li>
+<li>LIKE, NOT LIKE</li>
+<li>ILIKE, NOT ILIKE</li>
+<li>BETWEEN</li>
+</ul>
+
+<h2 id="как-сделать-таблицу-доступной-через-metaql-api">Как сделать таблицу доступной через METAQL API ?</h2>
+
+<p>Выполните следующие действия:</p>
+
+<p><strong>1) Добавьте новую Сущность для своей таблицы (если нужно)</strong></p>
+
+<p>Обязательно укажите alias. Alias должен быть указан в формате lower_camel_case.
+Добавить можно здесь: <a href="https://meta.realweb.ru/page?p=62&amp;a=1">https://meta.realweb.ru/page?p=62&amp;a=1</a></p>
+
+<p>Опционально укажите metaql_where
+Это поле отвечает за безусловную фильтрацию данных при любом запросе к METAQL.
+Например для статистики хорошо фильтровать по доступным клиентам:</p>
+
+<pre><code class="language-sql">#table.client_id in (select client_id from get_user_clients(${env.userId?number}) )
 </code></pre>
 
-<h3 id="условия-do-if">Условия do-if</h3>
+<p>&rsquo;#table&rsquo; - это плейсхолдер metaql таблицы. он будет заменен на реальное имы при компиляции запроса</p>
 
-<p>Используется для условной фильтрации скриптов и элементов на бекенде.
-Скрипты не будет исполняться и будет предотвращать отрисовку связанных элементов. Элементы, при установки do-if на них не будут приходить на фронтенд</p>
+<p><strong>2) Заполните поля Сущности</strong></p>
 
-<pre><code class="language-html">&lt;script type=&quot;meta/sql&quot; db-alias=&quot;meta&quot; id=&quot;all_activity&quot; do-if=&quot;env.sp.activity_mode=='all'&quot;&gt;
-select now()
-&lt;/script&gt;
-
-</code></pre>
+<p>Обязательно укажите alias. Alias должен быть указан в формате lower_camel_case.</p>
 
 
 <footer class=" footline" >
 	
 </footer>
-
-
 
 
 
@@ -653,11 +693,14 @@ select now()
 <ul>
 <li>
 <ul>
-<li>
+<li><a href="#особенности">Особенности</a></li>
+<li><a href="#функции">Функции</a>
 <ul>
-<li><a href="#ключевое-слово-internal">Ключевое слово internal</a></li>
-<li><a href="#условия-do-if">Условия do-if</a></li>
+<li><a href="#функции-агрегации">Функции агрегации</a></li>
+<li><a href="#функции-преобразований">Функции преобразований</a></li>
 </ul></li>
+<li><a href="#фильтрация-where">Фильтрация WHERE</a></li>
+<li><a href="#как-сделать-таблицу-доступной-через-metaql-api">Как сделать таблицу доступной через METAQL API ?</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -681,3 +724,4 @@ select now()
 
   </body>
 </html>
+

@@ -76,6 +76,17 @@ me(&#39;applyInjects&#39;);  </description>
     </item>
     
     <item>
+      <title>Язык запросов META (METAQL)</title>
+      <link>https://developers.1ad.ru/meta/guides/metaql/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.1ad.ru/meta/guides/metaql/</guid>
+      <description>METAQL - Это защищенный SQL для запросов к данным меты. Основан на синтаксисах Oracle + PostgreSQL.
+Особенности  Поддерживаются только SELECT запросы Поддерживается только AND условия Нельзя называть поля или алясы зарезарвированными именами: date Нет прообразований типов JOIN пока не поддерживаются  Функции В METAQL разрешены не все функции, ниже представлен список доступных на текущий момент
+Функции агрегации  MIN, MAX, SUM, AGV COUNT(*), COUNT(DISTINCT поле)  Функции преобразований  ROUND CONCAT NULLIF COALESCE  Фильтрация WHERE Работают операторы сравнения:</description>
+    </item>
+    
+    <item>
       <title>Именование сущностей в БД</title>
       <link>https://developers.1ad.ru/meta/guides/db_naming/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -121,7 +132,7 @@ ${sort} - для вставки сортировки
     </item>
     
     <item>
-      <title>me-chart</title>
+      <title>Элемент me-chart</title>
       <link>https://developers.1ad.ru/meta/ui_controls/me-chart/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -133,7 +144,7 @@ ${sort} - для вставки сортировки
     </item>
     
     <item>
-      <title>me-input</title>
+      <title>Элемент me-input</title>
       <link>https://developers.1ad.ru/meta/ui_controls/me-input/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -144,7 +155,7 @@ ${sort} - для вставки сортировки
     </item>
     
     <item>
-      <title>me-lego</title>
+      <title>Элемент me-lego</title>
       <link>https://developers.1ad.ru/meta/ui_controls/me-lego/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -154,7 +165,7 @@ ${sort} - для вставки сортировки
     </item>
     
     <item>
-      <title>me-lego-list</title>
+      <title>Элемент me-lego-list</title>
       <link>https://developers.1ad.ru/meta/ui_controls/me-lego-list/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -165,7 +176,7 @@ ${sort} - для вставки сортировки
     </item>
     
     <item>
-      <title>me-pivot</title>
+      <title>Элемент me-pivot</title>
       <link>https://developers.1ad.ru/meta/ui_controls/me-pivot/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -177,7 +188,7 @@ ${sort} - для вставки сортировки
     </item>
     
     <item>
-      <title>me-submit</title>
+      <title>Элемент me-submit</title>
       <link>https://developers.1ad.ru/meta/ui_controls/me-submit/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -187,7 +198,7 @@ ${sort} - для вставки сортировки
     </item>
     
     <item>
-      <title>me-table</title>
+      <title>Элемент me-table</title>
       <link>https://developers.1ad.ru/meta/ui_controls/me-table/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -197,7 +208,7 @@ ${sort} - для вставки сортировки
     </item>
     
     <item>
-      <title>me-tabs</title>
+      <title>Элемент me-tabs</title>
       <link>https://developers.1ad.ru/meta/ui_controls/me-tabs/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -209,7 +220,7 @@ ${sort} - для вставки сортировки
     </item>
     
     <item>
-      <title>me-wizard</title>
+      <title>Элемент me-wizard</title>
       <link>https://developers.1ad.ru/meta/ui_controls/me-wizard/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       

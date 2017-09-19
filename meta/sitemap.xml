@@ -17,11 +17,11 @@
   </url>
   
   <url>
-    <loc>https://developers.1ad.ru/meta/ui_controls/</loc>
+    <loc>https://developers.1ad.ru/meta/guides/script_types/</loc>
   </url>
   
   <url>
-    <loc>https://developers.1ad.ru/meta/guides/script_types/</loc>
+    <loc>https://developers.1ad.ru/meta/ui_controls/</loc>
   </url>
   
   <url>
@@ -43,6 +43,10 @@
   
   <url>
     <loc>https://developers.1ad.ru/meta/embed_api/inject_api/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.1ad.ru/meta/guides/metaql/</loc>
   </url>
   
   <url>

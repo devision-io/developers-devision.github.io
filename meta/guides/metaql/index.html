@@ -32,7 +32,7 @@
         <div class="mdl-layout__header-row">
             
             <span class="mdl-layout-title">
-                <a href="https://developers.1ad.ru/meta/47" class="header-logo-link">
+                <a href='https://developers.1ad.ru/meta/' class="header-logo-link">
                     <img src="https://rwstatic.ru/h/meta/avatar.png" width="30" />
                     META Developers
                 </a>
@@ -611,7 +611,8 @@
 
 
 
-<p>METAQL - Это защищенный SQL для запросов к данным меты. Основан на синтаксисах Oracle + PostgreSQL.</p>
+<p>METAQL - Это защищенный SQL для запросов к данным меты. Основан на синтаксисах Oracle + PostgreSQL.
+Призван дать хороший и безопасный API к данным таблиц или views ваших БД.</p>
 
 <h2 id="особенности">Особенности</h2>
 
@@ -625,7 +626,7 @@
 
 <h2 id="функции">Функции</h2>
 
-<p>В METAQL разрешены не все функции, ниже представлен список доступных на текущий момент</p>
+<p>В METAQL разрешены не все функции, ниже представлен список доступных на текущий момент.</p>
 
 <h3 id="функции-агрегации">Функции агрегации</h3>
 
@@ -677,6 +678,82 @@
 
 <p>Обязательно укажите alias. Alias должен быть указан в формате lower_camel_case.</p>
 
+<h2 id="использование">Использование</h2>
+
+<h3 id="lego">LEGO</h3>
+
+<p>MetaQL можно использовать в lego формах для того, чтобы не делать отдельные script</p>
+
+<p>Например это активно используется в тикетной системе, где из-за высокого уровня абстракции нет возможности хардкодить отдельные script-ы для получения данных</p>
+
+<p>Обратите внимание, что доступна фильтрация metaql по depends (&ldquo;env.sp.org_id&rdquo; из примера).
+Пример тут: <a href="https://meta.realweb.ru/page?p=4528&amp;a=35">https://meta.realweb.ru/page?p=4528&amp;a=35</a></p>
+
+<pre><code class="language-js">var elems = [
+    // ...
+    {
+        id:&quot;epl_list&quot;,
+        span: 4,
+        label: &quot;Сотрудники&quot;,
+        depends:[&quot;org_id&quot;],
+        refPvmData: {id:&quot;$metaql&quot;, sp:{&quot;dbQuery&quot;: {
+            command:&quot; \
+                SELECT id, name, salary \
+                FROM meta_samples.employee \
+                WHERE organization_id = :env.sp.org_id \ 
+                ORDER BY name DESC \
+                &quot;
+        }}},
+    },
+    {
+        id:&quot;epls_graph2&quot;,
+        label: &quot;Стата&quot;,
+        name:&quot;me-chart&quot;,
+        attrs: {&quot;type&quot;:[&quot;line&quot;, &quot;table&quot;], &quot;nativeOptions&quot;:{&quot;vAxis&quot;:{&quot;logScale&quot;:true}} },
+        refPvmData: {id:&quot;$metaql&quot;, sp:{&quot;dbQuery&quot;: {
+            command:&quot; \
+                SELECT \
+                  stat_date, \
+                  SUM(impressions) as impressions, \
+                  SUM(clicks) as clicks, \
+                  SUM(cost) as cost \
+                FROM adplatform.campaign_stats_report \
+                WHERE client_id = 15759 \
+                AND stat_date BETWEEN '2017-03-01' AND '2017-04-01' \
+                GROUP BY stat_date \
+                ORDER BY stat_date \
+            &quot;
+        }}},
+    },
+    // ...
+]
+</code></pre>
+
+<h3 id="sdk">SDK</h3>
+
+<h3 id="запрос-к-статистике-adhands">Запрос к статистике AdHands</h3>
+
+<pre><code class="language-sql">SELECT
+  engine as platform,
+  campaign_remote_id,
+  SUM(impressions) as impressions,
+  SUM(clicks) as clicks,
+  ROUND(SUM(cost), 3) as cost
+FROM adplatform.campaign_stats_report
+WHERE stat_date BETWEEN '2017-02-01' AND '2017-03-31'
+AND engine = 'banner'
+AND client_id IN (1, 2)
+GROUP BY platform, campaign_remote_id
+ORDER BY platform, campaign_remote_id
+</code></pre>
+
+<h3 id="запрос-к-шардированным-данным-системы-garpun">Запрос к шардированным данным системы Garpun</h3>
+
+<pre><code class="language-sql">SELECT match_type, count(id) as cnt
+FROM garpun_storage.keyword#{account_id}
+group by match_type
+</code></pre>
+
 
 <footer class=" footline" >
 	
@@ -701,6 +778,13 @@
 </ul></li>
 <li><a href="#фильтрация-where">Фильтрация WHERE</a></li>
 <li><a href="#как-сделать-таблицу-доступной-через-metaql-api">Как сделать таблицу доступной через METAQL API ?</a></li>
+<li><a href="#использование">Использование</a>
+<ul>
+<li><a href="#lego">LEGO</a></li>
+<li><a href="#sdk">SDK</a></li>
+<li><a href="#запрос-к-статистике-adhands">Запрос к статистике AdHands</a></li>
+<li><a href="#запрос-к-шардированным-данным-системы-garpun">Запрос к шардированным данным системы Garpun</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </nav>

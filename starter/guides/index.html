@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ru" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.26" />
+    <meta name="description" content="">
+
+
+    <title>Руководства :: Запускатор | AdPlatform Developers</title>
+    <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue_grey-pink.min.css" />
+
+      <link href="https://developers.1ad.ru/starter/css/hybrid.css" rel="stylesheet">
+    <link href="https://developers.1ad.ru/starter/css/horsey.css" rel="stylesheet">
+    <link href="https://developers.1ad.ru/starter/css/theme.css" rel="stylesheet">
+    <link href="https://developers.1ad.ru/starter/css/dev-theme.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  </head>
+  <body class="" data-url="/guides/">
+    
+
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+            
+            <span class="mdl-layout-title">
+                <a href='https://developers.1ad.ru/starter/' class="header-logo-link">
+                    <img src="" width="30" />
+                    Запускатор
+                </a>
+            </span>
+        </div>
+    </header>
+
+    <main class="mdl-layout__content">
+        <div class="page-content">
+            <div class="mdl-grid devsite-full-site-width">
+                <div class="devsite-nav mdl-cell mdl-cell--3-col mdl-cell--3-col-tablet mdl-cell--12-col-phone">
+                    <nav class="devsite-section-nav">
+                        <ul class="devsite-section-nav-main">
+                            
+                              
+            
+            
+            
+            
+            
+            <li data-nav-id="/guides/" class="devsite-nav-item devsite-nav-item-main
+                        parent
+                        active
+                        parent
+                        ">
+                <a href="https://developers.1ad.ru/starter/guides/" class="devsite-nav-title devsite-nav-item-main-title">
+                    <span>Руководства</span>
+
+                    
+                    
+
+                    
+                    
+                    
+
+                    
+                </a>
+                
+                <ul class="devsite-nav-expandable">
+                    
+                    
+                    
+
+
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/guides/installation/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.1ad.ru/starter/guides/installation/" class="devsite-nav-title">
+                    <span>Установка</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/guides/configs/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.1ad.ru/starter/guides/configs/" class="devsite-nav-title">
+                    <span>Конфигурационные файлы</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/guides/public_api_methods/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.1ad.ru/starter/guides/public_api_methods/" class="devsite-nav-title">
+                    <span>Публичное API</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                </ul>
+                
+            </li>
+            
+            
+            
+                            
+                        </ul>
+                    </nav>
+            
+            
+
+    </div>
+    <div class="mdl-cell mdl-cell--7-col mdl-cell--9-col-tablet mdl-cell--12-col-phone">
+        <section>
+        <div id="overlay"></div>
+        <div class=" ">
+        
+          <div>
+            <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                <span class="links">
+                
+
+
+
+
+ <a href='https://developers.1ad.ru/starter/'>Запускатор</a> > Руководства
+
+
+
+
+                </span>
+            </div>
+          </div>
+        
+        
+        <div id="body-inner">
+          
+            <h1>Руководства</h1>
+          
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+
+
+	
+
+	<div class="extra-pagination inner">
+	<nav class="pagination" role="navigation">
+	
+	<span class="page-number"> 1  1</span>
+	
+</nav>
+
+	</div>
+
+	
+	   <article class="post guides">
+    <header class="post-header">
+        <h2 class="post-title"><a href="https://developers.1ad.ru/starter/guides/installation/">Установка</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>В данный момент проводятся работы по облегчению запуска Запускатора в Docker Swarm
+Ручная установка По адресу http://starter.harpoon.lan/ расположены архивы с последними версиями приложения. Приведу пример с установкой сервера на prod и stagging серверах, для агента будет аналогично.
+ Устанавливаем java8 от oracle или openjdk Качаем и разархивируем архив Файлы кладем в /opt/starter-server/2.0/* (учитываем номер версии) Для упрощения и стандартизации места хранения конфигов, делаем symlink папки /opt/starter-server/2.0/*/config на /etc/starter-server В папку конфигов кладем конфиг приложения с проставленными параметрами, даем конфигу имя например &ldquo;myapp. </p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post guides">
+    <header class="post-header">
+        <h2 class="post-title"><a href="https://developers.1ad.ru/starter/guides/configs/">Конфигурационные файлы</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Сервер { // то, что будет подставлено в заголовок дашборда. ОПЦИОНАЛЬНО &quot;title&quot;: &quot;My App&quot;, // порт, на котором запустится сервер запускатора &quot;port&quot;: &quot;28341&quot;, // порт брокера для связи агент-сервер. ОПЦИОНАЛЬНО. Если не указывать, будет выбран 61616 по умолчанию &quot;brokerBackendPort&quot;: 61616, // порт брокера для пользователей запускатора. ОПЦИОНАЛЬНО. Если не указывать, порт вообще не будет открыт. По сути это экспериментальный порт для сокетов через запускатор &quot;brokerFrontendPort&quot;: 61613, &quot;storage&quot;: { // Админские права нужны, так как запускатор сам создает схемы, таблицы, индексы, хранимки, накладывает патчи на свои таблицы и т. </p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post guides">
+    <header class="post-header">
+        <h2 class="post-title"><a href="https://developers.1ad.ru/starter/guides/public_api_methods/">Публичное API</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>POST /services/{serviceId}/tasks Добавляет задачу в очередь
+Пример вызова
+curl -X POST 'http://build.myapp.lan:28346/services/Core.ImportAccountAndCampaignsYandexDirect/tasks' -H 'Accept: application/json' -H 'Content-Type: application/json' --data '{&quot;serviceId&quot;:&quot;Core.ImportAccountAndCampaignsYandexDirect&quot;, &quot;data&quot;:{&quot;agencyLocalId&quot;:381}}'  serviceId - имя зарегистрированного сервиса data - пользователький набор данных для задачи
+GET /configurations Отдает все настройки сервисов
+POST /configurations Заставляет перезагрузить конфигурацию
+GET /services/{serviceId}/statistics Возвращает информацию по статистике использования сервиса с последнего запуска </p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+
+	<div style="margin-bottom:2rem"></div>
+
+	<nav class="pagination" role="navigation">
+	
+	<span class="page-number"> 1  1</span>
+	
+</nav>
+
+
+
+
+
+
+</section>
+</div>
+<div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
+    
+</div>
+
+</div>
+</main>
+
+
+</div>
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="https://developers.1ad.ru/starter/js/clipboard.min.js"></script>
+    <script src="https://developers.1ad.ru/starter/js/html5shiv-printshiv.min.js"></script>
+    <script src="https://developers.1ad.ru/starter/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="https://developers.1ad.ru/starter/js/modernizr.custom.71422.js"></script>
+    <script src="https://developers.1ad.ru/starter/js/learn.js"></script>
+    <script src="https://developers.1ad.ru/starter/js/hugo-learn.js"></script>
+
+  </body>
+</html>

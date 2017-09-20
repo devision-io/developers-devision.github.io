@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ru" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.26" />
+    <meta name="description" content="">
+
+
+    <title>Установка :: Запускатор | AdPlatform Developers</title>
+    <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue_grey-pink.min.css" />
+
+      <link href="https://developers.1ad.ru/starter/css/hybrid.css" rel="stylesheet">
+    <link href="https://developers.1ad.ru/starter/css/horsey.css" rel="stylesheet">
+    <link href="https://developers.1ad.ru/starter/css/theme.css" rel="stylesheet">
+    <link href="https://developers.1ad.ru/starter/css/dev-theme.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  </head>
+  <body class="" data-url="/guides/installation/">
+    
+
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+            
+            <span class="mdl-layout-title">
+                <a href='https://developers.1ad.ru/starter/' class="header-logo-link">
+                    <img src="" width="30" />
+                    Запускатор
+                </a>
+            </span>
+        </div>
+    </header>
+
+    <main class="mdl-layout__content">
+        <div class="page-content">
+            <div class="mdl-grid devsite-full-site-width">
+                <div class="devsite-nav mdl-cell mdl-cell--3-col mdl-cell--3-col-tablet mdl-cell--12-col-phone">
+                    <nav class="devsite-section-nav">
+                        <ul class="devsite-section-nav-main">
+                            
+                              
+            
+            
+            
+            
+            
+            <li data-nav-id="/guides/" class="devsite-nav-item devsite-nav-item-main
+                        parent
+                        
+                        parent
+                        ">
+                <a href="https://developers.1ad.ru/starter/guides/" class="devsite-nav-title devsite-nav-item-main-title">
+                    <span>Руководства</span>
+
+                    
+                    
+
+                    
+                    
+                    
+
+                    
+                </a>
+                
+                <ul class="devsite-nav-expandable">
+                    
+                    
+                    
+
+
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/guides/installation/" class="devsite-nav-item dd-item active">
+                <a href="https://developers.1ad.ru/starter/guides/installation/" class="devsite-nav-title">
+                    <span>Установка</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/guides/configs/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.1ad.ru/starter/guides/configs/" class="devsite-nav-title">
+                    <span>Конфигурационные файлы</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/guides/public_api_methods/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.1ad.ru/starter/guides/public_api_methods/" class="devsite-nav-title">
+                    <span>Публичное API</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                </ul>
+                
+            </li>
+            
+            
+            
+                            
+                        </ul>
+                    </nav>
+            
+            
+
+    </div>
+    <div class="mdl-cell mdl-cell--7-col mdl-cell--9-col-tablet mdl-cell--12-col-phone">
+        <section>
+        <div id="overlay"></div>
+        <div class=" ">
+        
+          <div>
+            <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                <span class="links">
+                
+
+
+
+
+
+
+
+ <a href='https://developers.1ad.ru/starter/'>Запускатор</a> > <a href='https://developers.1ad.ru/starter/guides/'>Руководства</a> > Установка
+
+
+
+
+
+
+                </span>
+            </div>
+          </div>
+        
+        
+        <div id="body-inner">
+          
+            <h1>Установка</h1>
+          
+
+
+
+
+
+<p>В данный момент проводятся работы по облегчению запуска Запускатора в Docker Swarm</p>
+
+<h2 id="ручная-установка">Ручная установка</h2>
+
+<p>По адресу <a href="http://starter.harpoon.lan/">http://starter.harpoon.lan/</a> расположены архивы с последними версиями приложения.
+Приведу пример с установкой сервера на prod и stagging серверах, для агента будет аналогично.</p>
+
+<ul>
+<li>Устанавливаем java8 от oracle или openjdk</li>
+<li>Качаем и разархивируем архив</li>
+<li>Файлы кладем в /opt/starter-server/2.0/* (учитываем номер версии)</li>
+<li>Для упрощения и стандартизации места хранения конфигов, делаем symlink папки /opt/starter-server/2.0/*/config на /etc/starter-server</li>
+<li>В папку конфигов кладем конфиг приложения с проставленными параметрами, даем конфигу имя например &ldquo;myapp.json&rdquo;. В проекте Гарпун конфиг находится в config/starter/server.json (для агента config/starter/agent.json). Порт Запускатора 28341. Параметр [BUILD_NAME] можно заменить на все, что угодно, это просто имя БД, которая создастся в монге</li>
+<li>Запускаем сервер /usr/bin/java -Duser.dir=/opt/starter-server/2.0 -Dstarter_logs=/opt/starter-server/2.0/logs/myapp -Dconfig=/opt/starter-server/2.0/config/myapp.json -jar /opt/starter-server/2.0/bin/starter-server.jar</li>
+<li>Запускаем агент /usr/bin/java -server -Xms16m -Xmx2g -XX:+UseParallelGC -XX:+AggressiveOpts -XX:+UseFastAccessorMethods -Duser.dir=/opt/starter-agent -Dstarter_logs=/var/log/starter-agent -Dconfig=/etc/starter-agent.conf.json -jar /opt/starter-agent/bin/starter-agent.jar</li>
+</ul>
+
+
+<footer class=" footline" >
+	
+</footer>
+
+
+
+
+
+</section>
+</div>
+<div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#ручная-установка">Ручная установка</a></li>
+</ul></li>
+</ul>
+</nav>
+</div>
+
+</div>
+</main>
+
+
+</div>
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="https://developers.1ad.ru/starter/js/clipboard.min.js"></script>
+    <script src="https://developers.1ad.ru/starter/js/html5shiv-printshiv.min.js"></script>
+    <script src="https://developers.1ad.ru/starter/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="https://developers.1ad.ru/starter/js/modernizr.custom.71422.js"></script>
+    <script src="https://developers.1ad.ru/starter/js/learn.js"></script>
+    <script src="https://developers.1ad.ru/starter/js/hugo-learn.js"></script>
+
+  </body>
+</html>
+

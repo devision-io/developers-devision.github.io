@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ru" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.26" />
+    <meta name="description" content="">
+
+
+    <title>Конфигурационные файлы :: Запускатор | AdPlatform Developers</title>
+    <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue_grey-pink.min.css" />
+
+      <link href="https://developers.1ad.ru/starter/css/hybrid.css" rel="stylesheet">
+    <link href="https://developers.1ad.ru/starter/css/horsey.css" rel="stylesheet">
+    <link href="https://developers.1ad.ru/starter/css/theme.css" rel="stylesheet">
+    <link href="https://developers.1ad.ru/starter/css/dev-theme.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  </head>
+  <body class="" data-url="/guides/configs/">
+    
+
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+            
+            <span class="mdl-layout-title">
+                <a href='https://developers.1ad.ru/starter/' class="header-logo-link">
+                    <img src="" width="30" />
+                    Запускатор
+                </a>
+            </span>
+        </div>
+    </header>
+
+    <main class="mdl-layout__content">
+        <div class="page-content">
+            <div class="mdl-grid devsite-full-site-width">
+                <div class="devsite-nav mdl-cell mdl-cell--3-col mdl-cell--3-col-tablet mdl-cell--12-col-phone">
+                    <nav class="devsite-section-nav">
+                        <ul class="devsite-section-nav-main">
+                            
+                              
+            
+            
+            
+            
+            
+            <li data-nav-id="/guides/" class="devsite-nav-item devsite-nav-item-main
+                        parent
+                        
+                        parent
+                        ">
+                <a href="https://developers.1ad.ru/starter/guides/" class="devsite-nav-title devsite-nav-item-main-title">
+                    <span>Руководства</span>
+
+                    
+                    
+
+                    
+                    
+                    
+
+                    
+                </a>
+                
+                <ul class="devsite-nav-expandable">
+                    
+                    
+                    
+
+
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/guides/installation/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.1ad.ru/starter/guides/installation/" class="devsite-nav-title">
+                    <span>Установка</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/guides/configs/" class="devsite-nav-item dd-item active">
+                <a href="https://developers.1ad.ru/starter/guides/configs/" class="devsite-nav-title">
+                    <span>Конфигурационные файлы</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/guides/public_api_methods/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.1ad.ru/starter/guides/public_api_methods/" class="devsite-nav-title">
+                    <span>Публичное API</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                </ul>
+                
+            </li>
+            
+            
+            
+                            
+                        </ul>
+                    </nav>
+            
+            
+
+    </div>
+    <div class="mdl-cell mdl-cell--7-col mdl-cell--9-col-tablet mdl-cell--12-col-phone">
+        <section>
+        <div id="overlay"></div>
+        <div class=" ">
+        
+          <div>
+            <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                <span class="links">
+                
+
+
+
+
+
+
+
+ <a href='https://developers.1ad.ru/starter/'>Запускатор</a> > <a href='https://developers.1ad.ru/starter/guides/'>Руководства</a> > Конфигурационные файлы
+
+
+
+
+
+
+                </span>
+            </div>
+          </div>
+        
+        
+        <div id="body-inner">
+          
+            <h1>Конфигурационные файлы</h1>
+          
+
+
+
+
+
+<h2 id="сервер">Сервер</h2>
+
+<pre><code class="language-json">{
+    // то, что будет подставлено в заголовок дашборда. ОПЦИОНАЛЬНО
+    &quot;title&quot;: &quot;My App&quot;,
+    // порт, на котором запустится сервер запускатора
+    &quot;port&quot;: &quot;28341&quot;,
+    // порт брокера для связи агент-сервер. ОПЦИОНАЛЬНО. Если не указывать, будет выбран 61616 по умолчанию
+    &quot;brokerBackendPort&quot;: 61616,
+    // порт брокера для пользователей запускатора. ОПЦИОНАЛЬНО. Если не указывать, порт вообще не будет открыт. По сути это экспериментальный порт для сокетов через запускатор
+    &quot;brokerFrontendPort&quot;: 61613,
+    &quot;storage&quot;: {
+        // Админские права нужны, так как запускатор сам создает схемы, таблицы, индексы, хранимки, накладывает патчи на свои таблицы и т.д.
+ 
+        // Время ожидания подключения в БД. По умолчанию 30, даже если не задано. Если не сможет подключится, сервис выключается
+        &quot;readyWaitingSeconds&quot;: 30,
+        // имя БД. БД должна быть создана
+        &quot;databaseName&quot;: &quot;myapp.myapp_starter&quot;,
+        // Будет АВТОМАТИЧЕСКИ создана в БД если отсутствует Схема для хранения списка служб, задач и лога патчей.
+        &quot;schemaName&quot;: &quot;job&quot;,
+        // хост PG
+        &quot;host&quot;: &quot;build.myapp.lan&quot;,
+        // порт БД,
+        &quot;port&quot;: &quot;5432&quot;,
+        // логин/пароль СУПЕРПОЛЬЗОАВТЕЛЯ
+        &quot;username&quot;: &quot;myapp&quot;,
+        &quot;password&quot;: &quot;123&quot;
+    },
+    &quot;services&quot;: [
+        {
+            // информация по типу ServiceConfig (http://wiki.lan:8090/pages/viewpage.action?pageId=23298662#id-СправочникпоAPI-ServiceConfig)
+            &quot;serviceId&quot;: &quot;Core.LoadVkontakteSuggestions&quot;,
+            &quot;workersCount&quot;: 1,
+            &quot;tasksPerBlock&quot;: 1
+        },
+        {
+            &quot;serviceId&quot;: &quot;Core.ImportAccountAndCampaignsYandexDirect&quot;,
+            &quot;workersCount&quot;: 20,
+            &quot;tasksPerBlock&quot;: 1,
+            // если нужно временно приостановить службу
+            &quot;status&quot;: &quot;STOPPED&quot;,
+            &quot;uniqueFields&quot;: [
+                &quot;agencyLocalId&quot;
+            ],
+            // поддерживаются значения: auto, XXXs, XXXm, XXXh. Где XXX - кол-во, например 5s = 5 секунд. auto - формула разброса группы тасков так, чтобы они не стартанули в одно время
+            &quot;renewOnFailTimeout&quot;: &quot;5s&quot;,
+            // макс. кол-во попыток
+            &quot;renewOnFailMaxAttempts&quot;: 2,
+        }
+    ],
+    &quot;agents&quot;: {
+        // Раздел про выделенные серверы для выполенения отдельного стека задач
+        &quot;dedicatedRoutes&quot;: [
+            {
+                &quot;description&quot;: &quot;Например мы делаем тяжелые долгие задачи одного агентства на отдельных тачках, но все остальные задачи службы делаем на всех остальных тачках&quot;,
+                &quot;servicePredicates&quot;: [
+                    {
+                        &quot;key&quot;: &quot;serviceId&quot;,
+                        &quot;operator&quot;: &quot;IN&quot;,
+                        &quot;values&quot;: [
+                            &quot;service0&quot;,
+                            &quot;service2&quot;
+                        ]
+                    }
+                ],
+                &quot;routes&quot;: [
+                    {
+                        &quot;agentLabelPredicates&quot;: [
+                            {
+                                &quot;key&quot;: &quot;dedict_company&quot;,
+                                &quot;operator&quot;: &quot;IN&quot;,
+                                &quot;values&quot;: [
+                                    &quot;rw&quot;
+                                ]
+                            }
+                        ],
+                        &quot;taskDataPredicates&quot;: [
+                            {
+                                &quot;key&quot;: &quot;company_id&quot;,
+                                &quot;operator&quot;: &quot;IN&quot;,
+                                &quot;values&quot;: [
+                                    &quot;42&quot;
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        &quot;agentLabelPredicates&quot;: [
+                            {
+                                &quot;key&quot;: &quot;dedict_company&quot;,
+                                &quot;operator&quot;: &quot;IN&quot;,
+                                &quot;values&quot;: [
+                                    &quot;efimov&quot;
+                                ]
+                            }
+                        ],
+                        &quot;taskDataPredicates&quot;: [
+                            {
+                                &quot;key&quot;: &quot;company_id&quot;,
+                                &quot;operator&quot;: &quot;IN&quot;,
+                                &quot;values&quot;: [
+                                    &quot;111111&quot;
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                &quot;description&quot;: &quot;Например мы выделяем под отдульную задачу целый стек машин&quot;,
+                &quot;servicePredicates&quot;: [
+                    {
+                        &quot;key&quot;: &quot;serviceId&quot;,
+                        &quot;operator&quot;: &quot;IN&quot;,
+                        &quot;values&quot;: [
+                            &quot;renew_on_fail&quot;
+                        ]
+                    }
+                ],
+                &quot;routes&quot;: [
+                    {
+                        &quot;agentLabelPredicates&quot;: [
+                            {
+                                &quot;key&quot;: &quot;dedict_renew_on_fail&quot;,
+                                &quot;operator&quot;: &quot;IN&quot;,
+                                &quot;values&quot;: [
+                                    &quot;renew_on_fail&quot;
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                &quot;description&quot;: &quot;Например мы не хотим засорять выделенные сервера мелкими задачами любых других агентств&quot;,
+                &quot;routes&quot;: [
+                    {
+                        &quot;agentLabelPredicates&quot;: [
+                            {
+                                &quot;key&quot;: &quot;dedict_company&quot;,
+                                &quot;operator&quot;: &quot;IN&quot;,
+                                &quot;values&quot;: [
+                                    &quot;all&quot;
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
+</code></pre>
+
+<h2 id="агент">Агент</h2>
+
+<pre><code class="language-json">{
+    &quot;agentName&quot;: &quot;PHP Agent&quot;,
+    // адрес сервера запускатора
+    &quot;server&quot;: &quot;http://127.0.0.1:28341/&quot;,
+    // скрипт, который будет вызывать агент для выполнения задач,
+    &quot;script&quot;: &quot;php /var/www/myapp/WorkerStarter.php&quot;,
+    // метки для определение dedicated routes
+    &quot;labels&quot;: {
+        &quot;mylabel&quot;: &quot;qwerty&quot;,
+        &quot;dedict_company&quot;: &quot;all&quot;,
+        &quot;dedict_renew_on_fail&quot;: &quot;renew_on_fail&quot;
+    }
+}
+</code></pre>
+
+
+<footer class=" footline" >
+	
+</footer>
+
+
+
+
+
+</section>
+</div>
+<div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#сервер">Сервер</a></li>
+<li><a href="#агент">Агент</a></li>
+</ul></li>
+</ul>
+</nav>
+</div>
+
+</div>
+</main>
+
+
+</div>
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="https://developers.1ad.ru/starter/js/clipboard.min.js"></script>
+    <script src="https://developers.1ad.ru/starter/js/html5shiv-printshiv.min.js"></script>
+    <script src="https://developers.1ad.ru/starter/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="https://developers.1ad.ru/starter/js/modernizr.custom.71422.js"></script>
+    <script src="https://developers.1ad.ru/starter/js/learn.js"></script>
+    <script src="https://developers.1ad.ru/starter/js/hugo-learn.js"></script>
+
+  </body>
+</html>
+

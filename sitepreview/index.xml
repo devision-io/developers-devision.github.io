@@ -11,5 +11,15 @@
 	<atom:link href="http://developers.realweb.ru/sitepreview/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title>FAQ</title>
+      <link>http://developers.realweb.ru/sitepreview/faq/</link>
+      <pubDate>Wed, 20 Sep 2017 18:36:24 +0200</pubDate>
+      
+      <guid>http://developers.realweb.ru/sitepreview/faq/</guid>
+      <description> Изображение или фон не растягивается на всю ширину или баннер имеет отступы сверху/снизу Скорее всего вам надо сбросить отступы для body и html тегов
+&amp;lt;html style=&amp;quot;background: blue&amp;quot;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;style type=&amp;quot;text/css&amp;quot;&amp;gt; html, body { padding: 0; margin: 0; } &amp;lt;/style&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;div style=&amp;quot;background: red; width: 100%; height: 100px;&amp;quot;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt;  </description>
+    </item>
+    
   </channel>
 </rss>

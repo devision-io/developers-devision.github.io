@@ -76,13 +76,13 @@
 
 <p>Сервис позволяет просто распозновать qr коды на изображениях и в pdf файлах</p>
 
-<h2 id="get-read-url-string-checkqrcontent-string">GET /read?url=STRING&amp;checkQrContent=STRING</h2>
+<h2 id="get-read">GET /read</h2>
 
 <h3 id="параметры-запроса">Параметры запроса</h3>
 
 <ul>
-<li>url - источник данных, например meta media api url + access_token</li>
-<li>checkQrContent - встроенная проверка по подстроке при поиске qrcode, чтобы отсечь неправильные распознование и  повысить качество поиска. Например если вы знаете, что там должно быть название домена.</li>
+<li>url (string) - источник данных, например meta media api url + access_token</li>
+<li>checkQrContent (string) - встроенная проверка по подстроке при поиске qrcode, чтобы отсечь неправильные распознование и  повысить качество поиска. Например если вы знаете, что там должно быть название домена.</li>
 </ul>
 
 <h3 id="пример">Пример</h3>
@@ -111,7 +111,7 @@ CF-RAY: 3a244fe14c8e4ec0-DME
 <ul>
 <li><a href="#qr-code-api">QR Code API</a>
 <ul>
-<li><a href="#get-read-url-string-checkqrcontent-string">GET /read?url=STRING&amp;checkQrContent=STRING</a>
+<li><a href="#get-read">GET /read</a>
 <ul>
 <li><a href="#параметры-запроса">Параметры запроса</a></li>
 <li><a href="#пример">Пример</a></li>

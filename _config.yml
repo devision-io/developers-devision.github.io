@@ -1,1 +1,1 @@
-include: ["meta/ui_controls/typedoc/modules/_container_i_me_wizard_.html", "meta/ui_controls/typedoc/interfaces/*.*"]
+include: ['meta/ui_controls/typedoc/modules', 'meta/ui_controls/typedoc/interfaces']

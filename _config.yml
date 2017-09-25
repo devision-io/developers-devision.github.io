@@ -1,5 +1,7 @@
 # _config.yml
 
 include:
-  - "meta/ui_controls/typedoc/modules/_container_i_me_tabs_.html"
-  - "meta/ui_controls/typedoc/interfaces"
+  - "meta"
+  - "ui_controls"
+  - "typedoc"
+  - "modules"

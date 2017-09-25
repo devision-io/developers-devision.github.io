@@ -5,3 +5,6 @@
 [Запускатор](/starter) - сервис распределенного выполнения задач
 
 [SitePreviewAPI](/sitepreview)
+
+[QrCodeAPI](/qrcode)
+

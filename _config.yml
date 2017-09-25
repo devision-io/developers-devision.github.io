@@ -1,1 +1,1 @@
-include: [meta/ui_controls/typedoc/modules, meta/ui_controls/typedoc/interfaces]
+include: [/meta/ui_controls/typedoc/modules/, /meta/ui_controls/typedoc/interfaces/]

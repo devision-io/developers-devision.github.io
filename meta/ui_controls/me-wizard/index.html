@@ -633,12 +633,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <h2 id="структура">Структура</h2>
 
 <pre><code class="language-json">{
+  &quot;bindAttrs&quot;: [
+    {
+      &quot;source&quot;: &quot;(string)&quot;,
+      &quot;target&quot;: &quot;(string)&quot;
+    }
+  ],
   &quot;defaultValue&quot;: &quot;(any)&quot;,
   &quot;depends&quot;: [
     &quot;(string)&quot;
   ],
   &quot;elems&quot;: [
     {
+      &quot;bindAttrs&quot;: [
+        {
+          &quot;source&quot;: &quot;(string)&quot;,
+          &quot;target&quot;: &quot;(string)&quot;
+        }
+      ],
       &quot;defaultValue&quot;: &quot;(any)&quot;,
       &quot;depends&quot;: [
         &quot;(string)&quot;
@@ -653,7 +665,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       &quot;offset&quot;: &quot;(number)&quot;,
       &quot;selfDepends&quot;: &quot;(boolean)&quot;,
       &quot;span&quot;: &quot;(number)&quot;,
-      &quot;value&quot;: &quot;(string)&quot;
+      &quot;value&quot;: &quot;(string)&quot;,
+      &quot;visible&quot;: &quot;(boolean)&quot;
     }
   ],
   &quot;entityId&quot;: &quot;(number)&quot;,
@@ -666,18 +679,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   &quot;offset&quot;: &quot;(number)&quot;,
   &quot;selfDepends&quot;: &quot;(boolean)&quot;,
   &quot;span&quot;: &quot;(number)&quot;,
-  &quot;value&quot;: &quot;(string)&quot;
+  &quot;value&quot;: &quot;(string)&quot;,
+  &quot;visible&quot;: &quot;(boolean)&quot;
 }
 </code></pre>
 
-<h3 id="defaultValue_134">defaultValue (any)</h3>
+<h3 id="bindAttrs_159">bindAttrs [object Object]</h3>
+Когда нужно подписаться на изменение данные в pvm и заполнять какие-то поля элемента
+Например, менять elems в me-lego динамически или запонять me-input[type=text] расчетным значением
+
+
+
+
+<h3 id="defaultValue_155">defaultValue (any)</h3>
 Значение элемента по умолчанию
 Для некоторых элементов
 
 
 
 
-<h3 id="depends_132">depends (string)</h3>
+<h3 id="depends_153">depends (string)</h3>
 Зависимости от других элементов. При изменении зависимых элементов, при условии, что заполнены все значения из depends
 делается автоматический переапрос refPvmData и depends будут переданы в env.sp как {key: value}
 
@@ -686,63 +707,77 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 **@example** https://meta.realweb.ru/page?p=3597&a=35
 
 
-<h3 id="elems_120">elems [object Object]</h3>
+<h3 id="elems_141">elems [object Object]</h3>
 
-<p><h3 id="entityId_135">entityId (number)</h3>
+<p><h3 id="entityId_156">entityId (number)</h3>
 Meta EntityId
 Для некоторых элементов, напрмиер [[IMeInput]], [[IMeTable]]</p>
 
-<p><h3 id="formHorizontal_129">formHorizontal (boolean)</h3>
+<p><h3 id="exist_157">exist </h3>
+Angular expression от рута vm страницы
+Расчет идет на стороне браузера
+Например: &lsquo;editGroup.card.name == &ldquo;exist&rdquo; || editGroup.card.name == &ldquo;exist23&rdquo;&rsquo;</p>
+
+<p><strong>@example</strong> <a href="https://meta.realweb.ru/page?p=3570&amp;a=35">https://meta.realweb.ru/page?p=3570&amp;a=35</a></p>
+
+<p><h3 id="formHorizontal_150">formHorizontal (boolean)</h3>
 Если элемента поддерживает, вывести его в стиле формы ключ, значение. Чтобы заголовок был на уровне элемента</p>
 
-<p><h3 id="help_124">help (string)</h3>
+<p><h3 id="help_145">help (string)</h3>
 Доп информация, рисуется под label или под элментом
 Зависит от типа элемента</p>
 
-<p><h3 id="icon_127">icon (string)</h3>
+<p><h3 id="icon_148">icon (string)</h3>
 Иконка Font Awesome
 Например fa-bicycle</p>
 
 <p><strong>@link</strong> <a href="http://ui.adplatform.lan/Static_Full_Version/icons.html">http://ui.adplatform.lan/Static_Full_Version/icons.html</a></p>
 
-<p><h3 id="id_122">id (string)</h3>
+<p><h3 id="id_143">id (string)</h3>
 ID данных элемента
 Будет доступно в env.sp.{ID} или как вложенная структура, если это [[IMeElemContainer]]</p>
 
-<p><h3 id="label_123">label (string)</h3>
+<p><h3 id="label_144">label (string)</h3>
 Заголовок элемента
 Обычно над элементом, на некоторых не рисуется вообще</p>
 
-<p><h3 id="name_121">name (string)</h3>
+<p><h3 id="name_142">name (string)</h3>
 Название элемента
 Например: me-lego, me-input</p>
 
-<p><h3 id="offset_126">offset (number)</h3>
+<p><h3 id="offset_147">offset (number)</h3>
 Отстут по сетке справа от 0 до12</p>
 
-<p><h3 id="refPvmData_131">refPvmData </h3>
+<p><h3 id="refPvmData_152">refPvmData </h3>
 Инструкции по получению данных для [[IMeInputAttrs.options]] или таблицы</p>
 
 <p><strong>@example</strong> <a href="https://meta.realweb.ru/page?p=3570&amp;a=35">https://meta.realweb.ru/page?p=3570&amp;a=35</a></p>
 
 <p><strong>@example</strong> <a href="https://meta.realweb.ru/page?p=3597&amp;a=35">https://meta.realweb.ru/page?p=3597&amp;a=35</a></p>
 
-<p><h3 id="refPvmValidator_130">refPvmValidator </h3>
+<p><h3 id="refPvmValidator_151">refPvmValidator </h3>
 Пользовательская валидация</p>
 
 <p><strong>@example</strong> <a href="https://meta.realweb.ru/page?p=3359&amp;a=30">https://meta.realweb.ru/page?p=3359&amp;a=30</a></p>
 
-<p><h3 id="selfDepends_133">selfDepends (boolean)</h3>
+<p><h3 id="selfDepends_154">selfDepends (boolean)</h3>
 Зависимость от себя самого, нужно для editable [[IMeTable]]
 и прототип для поиска [[IMeInputAttrs.options]] в me-input для частичной подгрузки данных</p>
 
 <p><strong>@beta</strong></p>
 
-<p><h3 id="span_125">span (number)</h3>
+<p><h3 id="span_146">span (number)</h3>
 Размер по сетке справа от 0 до12</p>
 
-<p><h3 id="value_128">value (string)</h3>
+<p><h3 id="value_149">value (string)</h3>
 для некоторых элементов</p>
+
+<p><h3 id="visible_158">visible (boolean)</h3>
+Angular expression от рута vm страницы
+Расчет идет на стороне браузера
+Например: &lsquo;editGroup.card.name == &ldquo;visible&rdquo;&rsquo;</p>
+
+<p><strong>@example</strong> <a href="https://meta.realweb.ru/page?p=3570&amp;a=35">https://meta.realweb.ru/page?p=3570&amp;a=35</a></p>
 
 
 <footer class=" footline" >

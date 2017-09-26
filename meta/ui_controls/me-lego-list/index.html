@@ -637,12 +637,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   &quot;attrs&quot;: {
     &quot;markDelete&quot;: &quot;(boolean)&quot;
   },
+  &quot;bindAttrs&quot;: [
+    {
+      &quot;source&quot;: &quot;(string)&quot;,
+      &quot;target&quot;: &quot;(string)&quot;
+    }
+  ],
   &quot;defaultValue&quot;: &quot;(any)&quot;,
   &quot;depends&quot;: [
     &quot;(string)&quot;
   ],
   &quot;elems&quot;: [
     {
+      &quot;bindAttrs&quot;: [
+        {
+          &quot;source&quot;: &quot;(string)&quot;,
+          &quot;target&quot;: &quot;(string)&quot;
+        }
+      ],
       &quot;defaultValue&quot;: &quot;(any)&quot;,
       &quot;depends&quot;: [
         &quot;(string)&quot;
@@ -657,7 +669,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       &quot;offset&quot;: &quot;(number)&quot;,
       &quot;selfDepends&quot;: &quot;(boolean)&quot;,
       &quot;span&quot;: &quot;(number)&quot;,
-      &quot;value&quot;: &quot;(string)&quot;
+      &quot;value&quot;: &quot;(string)&quot;,
+      &quot;visible&quot;: &quot;(boolean)&quot;
     }
   ],
   &quot;entityId&quot;: &quot;(number)&quot;,
@@ -670,20 +683,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   &quot;offset&quot;: &quot;(number)&quot;,
   &quot;selfDepends&quot;: &quot;(boolean)&quot;,
   &quot;span&quot;: &quot;(number)&quot;,
-  &quot;value&quot;: &quot;(string)&quot;
+  &quot;value&quot;: &quot;(string)&quot;,
+  &quot;visible&quot;: &quot;(boolean)&quot;
 }
 </code></pre>
 
-<h3 id="attrs_51">attrs [object Object]</h3>
+<h3 id="attrs_63">attrs [object Object]</h3>
 
-<h3 id="defaultValue_66">defaultValue (any)</h3>
+<h3 id="bindAttrs_82">bindAttrs [object Object]</h3>
+Когда нужно подписаться на изменение данные в pvm и заполнять какие-то поля элемента
+Например, менять elems в me-lego динамически или запонять me-input[type=text] расчетным значением
+
+
+
+
+<h3 id="defaultValue_78">defaultValue (any)</h3>
 Значение элемента по умолчанию
 Для некоторых элементов
 
 
 
 
-<h3 id="depends_64">depends (string)</h3>
+<h3 id="depends_76">depends (string)</h3>
 Зависимости от других элементов. При изменении зависимых элементов, при условии, что заполнены все значения из depends
 делается автоматический переапрос refPvmData и depends будут переданы в env.sp как {key: value}
 
@@ -692,63 +713,77 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 **@example** https://meta.realweb.ru/page?p=3597&a=35
 
 
-<h3 id="elems_52">elems [object Object]</h3>
+<h3 id="elems_64">elems [object Object]</h3>
 
-<p><h3 id="entityId_67">entityId (number)</h3>
+<p><h3 id="entityId_79">entityId (number)</h3>
 Meta EntityId
 Для некоторых элементов, напрмиер [[IMeInput]], [[IMeTable]]</p>
 
-<p><h3 id="formHorizontal_61">formHorizontal (boolean)</h3>
+<p><h3 id="exist_80">exist </h3>
+Angular expression от рута vm страницы
+Расчет идет на стороне браузера
+Например: &lsquo;editGroup.card.name == &ldquo;exist&rdquo; || editGroup.card.name == &ldquo;exist23&rdquo;&rsquo;</p>
+
+<p><strong>@example</strong> <a href="https://meta.realweb.ru/page?p=3570&amp;a=35">https://meta.realweb.ru/page?p=3570&amp;a=35</a></p>
+
+<p><h3 id="formHorizontal_73">formHorizontal (boolean)</h3>
 Если элемента поддерживает, вывести его в стиле формы ключ, значение. Чтобы заголовок был на уровне элемента</p>
 
-<p><h3 id="help_56">help (string)</h3>
+<p><h3 id="help_68">help (string)</h3>
 Доп информация, рисуется под label или под элментом
 Зависит от типа элемента</p>
 
-<p><h3 id="icon_59">icon (string)</h3>
+<p><h3 id="icon_71">icon (string)</h3>
 Иконка Font Awesome
 Например fa-bicycle</p>
 
 <p><strong>@link</strong> <a href="http://ui.adplatform.lan/Static_Full_Version/icons.html">http://ui.adplatform.lan/Static_Full_Version/icons.html</a></p>
 
-<p><h3 id="id_54">id (string)</h3>
+<p><h3 id="id_66">id (string)</h3>
 ID данных элемента
 Будет доступно в env.sp.{ID} или как вложенная структура, если это [[IMeElemContainer]]</p>
 
-<p><h3 id="label_55">label (string)</h3>
+<p><h3 id="label_67">label (string)</h3>
 Заголовок элемента
 Обычно над элементом, на некоторых не рисуется вообще</p>
 
-<p><h3 id="name_53">name (string)</h3>
+<p><h3 id="name_65">name (string)</h3>
 Название элемента
 Например: me-lego, me-input</p>
 
-<p><h3 id="offset_58">offset (number)</h3>
+<p><h3 id="offset_70">offset (number)</h3>
 Отстут по сетке справа от 0 до12</p>
 
-<p><h3 id="refPvmData_63">refPvmData </h3>
+<p><h3 id="refPvmData_75">refPvmData </h3>
 Инструкции по получению данных для [[IMeInputAttrs.options]] или таблицы</p>
 
 <p><strong>@example</strong> <a href="https://meta.realweb.ru/page?p=3570&amp;a=35">https://meta.realweb.ru/page?p=3570&amp;a=35</a></p>
 
 <p><strong>@example</strong> <a href="https://meta.realweb.ru/page?p=3597&amp;a=35">https://meta.realweb.ru/page?p=3597&amp;a=35</a></p>
 
-<p><h3 id="refPvmValidator_62">refPvmValidator </h3>
+<p><h3 id="refPvmValidator_74">refPvmValidator </h3>
 Пользовательская валидация</p>
 
 <p><strong>@example</strong> <a href="https://meta.realweb.ru/page?p=3359&amp;a=30">https://meta.realweb.ru/page?p=3359&amp;a=30</a></p>
 
-<p><h3 id="selfDepends_65">selfDepends (boolean)</h3>
+<p><h3 id="selfDepends_77">selfDepends (boolean)</h3>
 Зависимость от себя самого, нужно для editable [[IMeTable]]
 и прототип для поиска [[IMeInputAttrs.options]] в me-input для частичной подгрузки данных</p>
 
 <p><strong>@beta</strong></p>
 
-<p><h3 id="span_57">span (number)</h3>
+<p><h3 id="span_69">span (number)</h3>
 Размер по сетке справа от 0 до12</p>
 
-<p><h3 id="value_60">value (string)</h3>
+<p><h3 id="value_72">value (string)</h3>
 для некоторых элементов</p>
+
+<p><h3 id="visible_81">visible (boolean)</h3>
+Angular expression от рута vm страницы
+Расчет идет на стороне браузера
+Например: &lsquo;editGroup.card.name == &ldquo;visible&rdquo;&rsquo;</p>
+
+<p><strong>@example</strong> <a href="https://meta.realweb.ru/page?p=3570&amp;a=35">https://meta.realweb.ru/page?p=3570&amp;a=35</a></p>
 
 
 <footer class=" footline" >

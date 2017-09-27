@@ -229,7 +229,7 @@ zoomFactor = 1
 w *= zoomFactor
 h *= zoomFactor
 img_format = &quot;png&quot;
-resp = requests.post('http://sitepreview.garpun.com/', json.dumps({
+resp = requests.post('http://apis.garpun.com/sitepreview/v1/render', json.dumps({
     &quot;dataProvider&quot;: {
         &quot;type&quot;: &quot;url&quot;,
         &quot;source&quot;: &quot;http://ya.ru&quot;,

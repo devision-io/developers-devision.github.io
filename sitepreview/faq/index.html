@@ -142,6 +142,68 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 &lt;/html&gt;
 </code></pre>
 
+<h2 id="генерация-pdf-для-печати-например-счет-или-справка">Генерация PDF для печати. Например счет или справка</h2>
+
+<pre><code class="language-python">import base64
+import json
+
+import requests
+
+resp = requests.post('http://apis.garpun.com/sitepreview/v1/render', json.dumps({
+    &quot;dataProvider&quot;: {
+        &quot;type&quot;: &quot;template&quot;,
+        &quot;source&quot;: &quot;&quot;&quot;
+        &lt;!DOCTYPE html&gt;
+        &lt;html&gt;
+        
+        &lt;head&gt;
+            &lt;meta charset=&quot;utf-8&quot;&gt;
+            &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+            &lt;link href=&quot;https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&amp;amp;subset=cyrillic,cyrillic-ext&quot; rel=&quot;stylesheet&quot;&gt;
+            &lt;style&gt;
+                body, html {
+                    padding: 0;
+                    margin: 0;
+                    width: 595px;
+                    height: 842px;
+                    font-size: 13px;
+                    font-family: 'Roboto', sans-serif;
+                }
+            &lt;/style&gt;
+        &lt;/head&gt;
+        
+        &lt;body&gt;
+        &lt;div class=&quot;wrapper&quot;&gt;
+            &lt;h1&gt;Hello, {{name}}&lt;/h1&gt;
+        &lt;/div&gt;
+        &lt;/body&gt;
+        
+        &lt;/html&gt;
+        &quot;&quot;&quot;,
+        &quot;context&quot;: {
+            &quot;name&quot;: &quot;Misha&quot;
+        }
+    },
+    &quot;timeout&quot;: 1000,
+    &quot;format&quot;: &quot;pdf&quot;,
+    &quot;zoomFactor&quot;: 1,
+    &quot;paperSize&quot;: {
+        &quot;format&quot;: &quot;A4&quot;,
+        &quot;orientation&quot;: &quot;partrait&quot;,
+        &quot;border&quot;: &quot;0px&quot;,
+        &quot;margin&quot;: &quot;0px&quot;
+    },
+}), headers={&quot;Content-Type&quot;: &quot;application/json&quot;})
+api_resp = resp.json()
+
+load_success = api_resp['base64Content']
+bytes_ = base64.b64decode(load_success)
+
+f = open(&quot;out.pdf&quot;, &quot;wb&quot;)
+f.write(bytes_)
+f.close()
+</code></pre>
+
 
 <footer class=" footline" >
 	
@@ -161,6 +223,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li>
 <ul>
 <li><a href="#изображение-или-фон-не-растягивается-на-всю-ширину-или-баннер-имеет-отступы-сверху-снизу">Изображение или фон не растягивается на всю ширину или баннер имеет отступы сверху/снизу</a></li>
+<li><a href="#генерация-pdf-для-печати-например-счет-или-справка">Генерация PDF для печати. Например счет или справка</a></li>
 </ul></li>
 </ul>
 </nav>

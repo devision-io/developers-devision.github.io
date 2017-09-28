@@ -659,6 +659,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 ORDER BY ${sort}, id, name
 </code></pre>
 
+<h2 id="работа-с-датой-и-временем-и-локализация">Работа с датой и временем и локализация</h2>
+
+<p>Мета использует Java 8 DateTime API
+Пример: <a href="https://meta.realweb.ru/page?p=3750&amp;a=35">https://meta.realweb.ru/page?p=3750&amp;a=35</a></p>
+
+<h3 id="начало-предыдущенго-месяца">Начало предыдущенго месяца</h3>
+
+<pre><code>${ref.now.withDayOfMonth(1).minusMonths(1)?date}
+</code></pre>
+
+<h3 id="локализация-даты-ru-ru">Локализация даты ru_RU</h3>
+
+<p><a href="http://freemarker.org/docs/ref_builtins_date.html">http://freemarker.org/docs/ref_builtins_date.html</a></p>
+
+<p><a href="http://freemarker.org/docs/pgui_config_settings.html">http://freemarker.org/docs/pgui_config_settings.html</a></p>
+
+<pre><code>[#setting locale=&quot;ru_RU&quot; /]
+${to_date('1988-07-03')?date?string.medium}
+</code></pre>
+
 
 <footer class=" footline" >
 	
@@ -680,6 +700,11 @@ ORDER BY ${sort}, id, name
 <ul>
 <li><a href="#pager">${pager}</a></li>
 <li><a href="#sort">${sort}</a></li>
+</ul></li>
+<li><a href="#работа-с-датой-и-временем-и-локализация">Работа с датой и временем и локализация</a>
+<ul>
+<li><a href="#начало-предыдущенго-месяца">Начало предыдущенго месяца</a></li>
+<li><a href="#локализация-даты-ru-ru">Локализация даты ru_RU</a></li>
 </ul></li>
 </ul></li>
 </ul>

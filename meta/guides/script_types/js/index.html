@@ -685,6 +685,23 @@ MetaUtils.convert.toInt(String) - переводит строку в число 
 MetaUtils.convert.toLong(String) - переводит строку в число bigint
 MetaUtils.meinput.filecontent.readBase64(String) - переводит html base64 строку в строку, пригодную для чтения функиями работы с base64</p>
 
+<h2 id="popup-changestate">Popup, ChangeState</h2>
+
+<p>Типичный код после UPDATE/INSERT в карточке объекта. Кидает попап, переводит состояние страницы в default с очисткой параметров env.sp
+А так же логирует действие с объектом.</p>
+
+<pre><code class="language-html">&lt;script type=&quot;meta/js&quot; elem=&quot;hidden&quot; states=&quot;save&quot;&gt;
+function main(pvm, vm, env, ObjectLogService) {
+  var  objectId = MetaUtils.convert.toLong(env.object_id);
+
+  pvm.popup = {level: &quot;success&quot;, message: &quot;Объект сохранен&quot;};
+  pvm.setEnvSp({});  
+  pvm.changeState('default');
+  ObjectLogService.logValue(env.entity_id, objectId, 'SET', env.sp.obj);
+}
+&lt;/script&gt;
+</code></pre>
+
 <h2 id="логирование">Логирование</h2>
 
 <p>На текущий момент известны некоторые проблемы с логированием
@@ -767,6 +784,7 @@ SELECT ........
 <ul>
 <li>
 <ul>
+<li><a href="#popup-changestate">Popup, ChangeState</a></li>
 <li><a href="#логирование">Логирование</a></li>
 <li><a href="#заполнение-env-при-первоначальной-загрузке-страницы">Заполнение Env при первоначальной загрузке страницы</a>
 <ul>

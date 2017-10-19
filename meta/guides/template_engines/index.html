@@ -642,6 +642,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li><strong>${pg_quote_ident(String)}</strong> - Экранирование идентификатора (имя столбца, таблицы, схемы) для PostgreSQL</li>
 </ul>
 
+<p><strong>Полезно знать!</strong>
+Есть простой способ привести переменную-объект из env.sp к json строке.
+Обрабатываются такие случаи: &ldquo;:env.sp.obj.schedules$to_json::jsonb&rdquo;, эта запись эквивалентна &lsquo;${pg_quote_literal(to_json(env.sp.obj.schedules))}&rsquo;::jsonb.
+Данне из pvm пока не обрабатывается таким образом.</p>
+
 <h2 id="работа-с-таблицами">Работа с таблицами</h2>
 
 <h3 id="pager">${pager}</h3>

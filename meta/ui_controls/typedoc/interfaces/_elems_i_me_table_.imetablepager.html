@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IMeTableCellNotes | META UI Components</title>
+	<title>IMeTablePager | META UI Components</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -57,34 +57,21 @@
 					<a href="../modules/_elems_i_me_table_.html">&quot;elems/i.me-table&quot;</a>
 				</li>
 				<li>
-					<a href="_elems_i_me_table_.imetablecellnotes.html">IMeTableCellNotes</a>
+					<a href="_elems_i_me_table_.imetablepager.html">IMeTablePager</a>
 				</li>
 			</ul>
-			<h1>Interface IMeTableCellNotes</h1>
+			<h1>Interface IMeTablePager</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Как Excel комментарии к ячейке.
-						При выгрузке таблицы в excel выгружаются как комментарии к ячейке</p>
-					</div>
-					<dl class="tsd-comment-tags">
-						<dt>example</dt>
-						<dd><p><a href="https://meta.realweb.ru/page?p=3629&amp;a=35">https://meta.realweb.ru/page?p=3629&amp;a=35</a></p>
-						</dd>
-					</dl>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">IMeTableCellNotes</span>
+						<span class="target">IMeTablePager</span>
 					</li>
 				</ul>
 			</section>
@@ -95,7 +82,7 @@
 						<section class="tsd-index-section tsd-is-not-exported">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_elems_i_me_table_.imetablecellnotes.html#value" class="tsd-kind-icon">value</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_elems_i_me_table_.imetablepager.html#total" class="tsd-kind-icon">total</a></li>
 							</ul>
 						</section>
 					</div>
@@ -104,18 +91,19 @@
 			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-					<a name="value" class="tsd-anchor"></a>
-					<h3>value</h3>
-					<div class="tsd-signature tsd-kind-icon">value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="total" class="tsd-anchor"></a>
+					<h3>total</h3>
+					<div class="tsd-signature tsd-kind-icon">total<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in elems/i.me-table.ts:398</li>
+							<li>Defined in elems/i.me-table.ts:238</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Просто текст.
-							НЕ ПОДДЕРЖИВАЕТ HTML</p>
+							<p>Общее кол-во записей без учета пагинации
+								Обычно так в Postgres:
+							json_build_object( &#39;pager&#39;, json_build_object(&#39;total&#39;, count(*) over()) ) as table_props_field</p>
 						</div>
 					</div>
 				</section>
@@ -191,18 +179,9 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
 						<a href="_elems_i_me_table_.imetablecelllego.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Cell<wbr>Lego</a>
 					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
 						<a href="_elems_i_me_table_.imetablecellnotes.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Cell<wbr>Notes</a>
-						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-								<a href="_elems_i_me_table_.imetablecellnotes.html#value" class="tsd-kind-icon">value</a>
-							</li>
-						</ul>
 					</li>
-				</ul>
-				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
 						<a href="_elems_i_me_table_.imetablecellprogressbar.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Cell<wbr>Progress<wbr>Bar</a>
 					</li>
@@ -221,9 +200,18 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
 						<a href="_elems_i_me_table_.imetableheader.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Header</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
 						<a href="_elems_i_me_table_.imetablepager.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Pager</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="_elems_i_me_table_.imetablepager.html#total" class="tsd-kind-icon">total</a>
+							</li>
+						</ul>
 					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
 						<a href="_elems_i_me_table_.imetableplugineditable.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Plugin<wbr>Editable</a>
 					</li>

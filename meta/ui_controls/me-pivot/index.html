@@ -638,6 +638,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <h2 id="структура">Структура</h2>
 
 <pre><code class="language-json">{
+  &quot;___tid&quot;: &quot;(any)&quot;,
   &quot;attrs&quot;: {
     &quot;native&quot;: &quot;(any)&quot;,
     &quot;skipColGrandTotals&quot;: &quot;(boolean)&quot;,
@@ -659,8 +660,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   &quot;icon&quot;: &quot;(string)&quot;,
   &quot;id&quot;: &quot;(string)&quot;,
   &quot;label&quot;: &quot;(string)&quot;,
+  &quot;listen&quot;: [
+    {
+      &quot;$promise&quot;: &quot;(any)&quot;,
+      &quot;code&quot;: [
+        &quot;( ADD | SET, REMOVE )&quot;
+      ],
+      &quot;entityId&quot;: &quot;(number)&quot;,
+      &quot;refreshRefPvmData&quot;: &quot;(any)&quot;,
+      &quot;reload&quot;: &quot;(any)&quot;
+    }
+  ],
   &quot;name&quot;: &quot;me-pivot&quot;,
   &quot;offset&quot;: &quot;(number)&quot;,
+  &quot;order&quot;: &quot;(number)&quot;,
+  &quot;refPvmData&quot;: {
+    &quot;additionalPartialLoad&quot;: [
+      &quot;(string)&quot;
+    ],
+    &quot;dataId&quot;: &quot;(string)&quot;,
+    &quot;id&quot;: &quot;(string)&quot;
+  },
+  &quot;refPvmValidator&quot;: {
+    &quot;additionalPartialLoad&quot;: [
+      &quot;(string)&quot;
+    ],
+    &quot;dataId&quot;: &quot;(string)&quot;,
+    &quot;id&quot;: &quot;(string)&quot;
+  },
   &quot;selfDepends&quot;: &quot;(boolean)&quot;,
   &quot;span&quot;: &quot;(number)&quot;,
   &quot;value&quot;: &quot;(string)&quot;,
@@ -668,17 +695,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 }
 </code></pre>
 
-<h3 id="attrs_285">attrs [object Object]</h3>
+<h3 id="___tid_337">___tid (any)</h3>
+Автоматически генерируемое приватное поле
 
-<p><h3 id="bindAttrs_303">bindAttrs [object Object]</h3>
+
+
+
+<h3 id="attrs_316">attrs [object Object]</h3>
+
+<p><h3 id="bindAttrs_335">bindAttrs [object Object]</h3>
 Когда нужно подписаться на изменение данные в pvm и заполнять какие-то поля элемента
 Например, менять elems в me-lego динамически или запонять me-input[type=text] расчетным значением</p>
 
-<p><h3 id="defaultValue_299">defaultValue (any)</h3>
+<p><h3 id="defaultValue_331">defaultValue (any)</h3>
 Значение элемента по умолчанию
 Для некоторых элементов</p>
 
-<p><h3 id="depends_297">depends (string)</h3>
+<p><h3 id="depends_329">depends (string)</h3>
 Зависимости от других элементов. При изменении зависимых элементов, при условии, что заполнены все значения из depends
 делается автоматический переапрос refPvmData и depends будут переданы в env.sp как {key: value}</p>
 
@@ -686,70 +719,78 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <p><strong>@example</strong> <a href="https://meta.realweb.ru/page?p=3597&amp;a=35">https://meta.realweb.ru/page?p=3597&amp;a=35</a></p>
 
-<p><h3 id="entityId_300">entityId (number)</h3>
+<p><h3 id="entityId_332">entityId (number)</h3>
 Meta EntityId
 Для некоторых элементов, напрмиер [[IMeInput]], [[IMeTable]]</p>
 
-<p><h3 id="exist_301">exist </h3>
+<p><h3 id="exist_333">exist </h3>
 Angular expression от рута vm страницы
 Расчет идет на стороне браузера
 Например: &lsquo;editGroup.card.name == &ldquo;exist&rdquo; || editGroup.card.name == &ldquo;exist23&rdquo;&rsquo;</p>
 
 <p><strong>@example</strong> <a href="https://meta.realweb.ru/page?p=3570&amp;a=35">https://meta.realweb.ru/page?p=3570&amp;a=35</a></p>
 
-<p><h3 id="formHorizontal_294">formHorizontal (boolean)</h3>
+<p><h3 id="formHorizontal_326">formHorizontal (boolean)</h3>
 Если элемента поддерживает, вывести его в стиле формы ключ, значение. Чтобы заголовок был на уровне элемента</p>
 
-<p><h3 id="help_289">help (string)</h3>
+<p><h3 id="help_320">help (string)</h3>
 Доп информация, рисуется под label или под элментом
 Зависит от типа элемента</p>
 
-<p><h3 id="icon_292">icon (string)</h3>
+<p><h3 id="icon_324">icon (string)</h3>
 Иконка Font Awesome
 Например fa-bicycle</p>
 
 <p><strong>@link</strong> <a href="http://ui.adplatform.lan/Static_Full_Version/icons.html">http://ui.adplatform.lan/Static_Full_Version/icons.html</a></p>
 
-<p><h3 id="id_287">id (string)</h3>
+<p><h3 id="id_318">id (string)</h3>
 ID данных элемента
 Будет доступно в env.sp.{ID} или как вложенная структура, если это [[IMeElemContainer]]</p>
 
-<p><h3 id="label_288">label (string)</h3>
+<p><h3 id="label_319">label (string)</h3>
 Заголовок элемента
 Обычно над элементом, на некоторых не рисуется вообще</p>
 
-<p><h3 id="name_286">name (string)</h3>
+<p><h3 id="listen_336">listen [object Object]</h3>
+Подписка на изменения объектов. Пока работает только для изменений вызваных в модальном окне
+Например у вас таблица со списоком аккуантов и в &ldquo;+ Аккаунт&rdquo; вы можете добавить или привязать аккаунт,
+а после сохранения в модальном окне, родительская таблциа должна пересчитаться</p>
+
+<p><h3 id="name_317">name (string)</h3>
 Название элемента
 Например: me-lego, me-input</p>
 
-<p><h3 id="offset_291">offset (number)</h3>
+<p><h3 id="offset_322">offset (number)</h3>
 Отстут по сетке справа от 0 до12</p>
 
-<p><h3 id="refPvmData_296">refPvmData </h3>
+<p><h3 id="order_323">order (number)</h3>
+Прзиция элемента в сетке, чем меньше значение, тем элемент выше и левее</p>
+
+<p><h3 id="refPvmData_328">refPvmData [object Object]</h3>
 Инструкции по получению данных для [[IMeInputAttrs.options]] или таблицы</p>
 
 <p><strong>@example</strong> <a href="https://meta.realweb.ru/page?p=3570&amp;a=35">https://meta.realweb.ru/page?p=3570&amp;a=35</a></p>
 
 <p><strong>@example</strong> <a href="https://meta.realweb.ru/page?p=3597&amp;a=35">https://meta.realweb.ru/page?p=3597&amp;a=35</a></p>
 
-<p><h3 id="refPvmValidator_295">refPvmValidator </h3>
+<p><h3 id="refPvmValidator_327">refPvmValidator [object Object]</h3>
 Пользовательская валидация</p>
 
-<p><strong>@example</strong> <a href="https://meta.realweb.ru/page?p=3359&amp;a=30">https://meta.realweb.ru/page?p=3359&amp;a=30</a></p>
+<p><strong>@example</strong> <a href="https://meta.realweb.ru/page?p=3443&amp;a=35">https://meta.realweb.ru/page?p=3443&amp;a=35</a></p>
 
-<p><h3 id="selfDepends_298">selfDepends (boolean)</h3>
+<p><h3 id="selfDepends_330">selfDepends (boolean)</h3>
 Зависимость от себя самого, нужно для editable [[IMeTable]]
 и прототип для поиска [[IMeInputAttrs.options]] в me-input для частичной подгрузки данных</p>
 
 <p><strong>@beta</strong></p>
 
-<p><h3 id="span_290">span (number)</h3>
+<p><h3 id="span_321">span (number)</h3>
 Размер по сетке справа от 0 до12</p>
 
-<p><h3 id="value_293">value (string)</h3>
+<p><h3 id="value_325">value (string)</h3>
 для некоторых элементов</p>
 
-<p><h3 id="visible_302">visible (boolean)</h3>
+<p><h3 id="visible_334">visible (boolean)</h3>
 Angular expression от рута vm страницы
 Расчет идет на стороне браузера
 Например: &lsquo;editGroup.card.name == &ldquo;visible&rdquo;&rsquo;</p>

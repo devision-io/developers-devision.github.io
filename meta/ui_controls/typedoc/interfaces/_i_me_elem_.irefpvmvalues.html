@@ -83,6 +83,7 @@
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_i_me_elem_.irefpvmvalues.html#additionalpartialload" class="tsd-kind-icon">additional<wbr>Partial<wbr>Load</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_i_me_elem_.irefpvmvalues.html#dataid" class="tsd-kind-icon">data<wbr>Id</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_i_me_elem_.irefpvmvalues.html#id" class="tsd-kind-icon">id</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_i_me_elem_.irefpvmvalues.html#sp" class="tsd-kind-icon">sp</a></li>
 							</ul>
@@ -98,7 +99,7 @@
 					<div class="tsd-signature tsd-kind-icon">additional<wbr>Partial<wbr>Load<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in i.me-elem.ts:198</li>
+							<li>Defined in i.me-elem.ts:247</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -109,12 +110,51 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="dataid" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> data<wbr>Id</h3>
+					<div class="tsd-signature tsd-kind-icon">data<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in i.me-elem.ts:277</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Назвать данные в pvm data таким образом
+							Хорошо, когда есть bindAttrs на данные с refPvmData, где есть sp</p>
+						</div>
+						<p>Например:
+							{
+							id: &quot;issue_type_form_data&quot;,
+							name: &quot;me-data-object&quot;,
+							refPvmData: {&quot;dataId&quot;: &quot;issue_type_form&quot;, &quot;id&quot;: &quot;issue_type_form&quot;, &quot;sp&quot;:{&quot;issue_ref_key&quot;:issue_ref_key}},
+							depends: [&quot;issue_type_id&quot;, &quot;object_id&quot;, &quot;entity_id&quot;],
+							},
+							{
+							id:&quot;form_data&quot;,
+							name:&quot;me-lego&quot;,
+							data: [],
+							elems: [],
+							bindAttrs: [
+							{
+							&quot;source&quot;: &quot;pvm.data.issue_type_form.rows[0].lego.elems&quot;,
+							&quot;target&quot;: &quot;elems&quot;
+							},
+							{
+							&quot;source&quot;: &quot;pvm.data.issue_type_form.rows[0].lego.data&quot;,
+							&quot;target&quot;: &quot;data&quot;
+							}
+							]
+						},</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
 					<a name="id" class="tsd-anchor"></a>
 					<h3>id</h3>
 					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in i.me-elem.ts:183</li>
+							<li>Defined in i.me-elem.ts:232</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -131,7 +171,7 @@
 					<div class="tsd-signature tsd-kind-icon">sp<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> | </span><a href="_i_me_elem_.irefpvmvaluesmetaql.html" class="tsd-signature-type">IRefPvmValuesMetaQL</a><span class="tsd-signature-symbol"> | </span><a href="_i_me_elem_.irefpvmvaluespagepreset.html" class="tsd-signature-type">IRefPvmValuesPagePreset</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in i.me-elem.ts:192</li>
+							<li>Defined in i.me-elem.ts:241</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -209,6 +249,9 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
 						<a href="_i_me_elem_.imeelemexistsetting.html" class="tsd-kind-icon">IMe<wbr>Elem<wbr>Exist<wbr>Setting</a>
 					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
+						<a href="_i_me_elem_.imeelemlistenitem.html" class="tsd-kind-icon">IMe<wbr>Elem<wbr>Listen<wbr>Item</a>
+					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
@@ -216,6 +259,9 @@
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
 								<a href="_i_me_elem_.irefpvmvalues.html#additionalpartialload" class="tsd-kind-icon">additional<wbr>Partial<wbr>Load</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="_i_me_elem_.irefpvmvalues.html#dataid" class="tsd-kind-icon">data<wbr>Id</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
 								<a href="_i_me_elem_.irefpvmvalues.html#id" class="tsd-kind-icon">id</a>

@@ -635,6 +635,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <h2 id="структура">Структура</h2>
 
 <pre><code class="language-json">{
+  &quot;___tid&quot;: &quot;(any)&quot;,
   &quot;attrs&quot;: {
     &quot;removable&quot;: &quot;(boolean)&quot;
   },
@@ -650,6 +651,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   ],
   &quot;elems&quot;: [
     {
+      &quot;___tid&quot;: &quot;(any)&quot;,
       &quot;bindAttrs&quot;: [
         {
           &quot;source&quot;: &quot;(string)&quot;,
@@ -666,8 +668,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       &quot;icon&quot;: &quot;(string)&quot;,
       &quot;id&quot;: &quot;(string)&quot;,
       &quot;label&quot;: &quot;(string)&quot;,
+      &quot;listen&quot;: [
+        {
+          &quot;$promise&quot;: &quot;(any)&quot;,
+          &quot;code&quot;: [
+            &quot;( ADD | SET, REMOVE )&quot;
+          ],
+          &quot;entityId&quot;: &quot;(number)&quot;,
+          &quot;refreshRefPvmData&quot;: &quot;(any)&quot;,
+          &quot;reload&quot;: &quot;(any)&quot;
+        }
+      ],
       &quot;name&quot;: &quot;(string)&quot;,
       &quot;offset&quot;: &quot;(number)&quot;,
+      &quot;order&quot;: &quot;(number)&quot;,
+      &quot;refPvmData&quot;: {
+        &quot;additionalPartialLoad&quot;: [
+          &quot;(string)&quot;
+        ],
+        &quot;dataId&quot;: &quot;(string)&quot;,
+        &quot;id&quot;: &quot;(string)&quot;
+      },
+      &quot;refPvmValidator&quot;: {
+        &quot;additionalPartialLoad&quot;: [
+          &quot;(string)&quot;
+        ],
+        &quot;dataId&quot;: &quot;(string)&quot;,
+        &quot;id&quot;: &quot;(string)&quot;
+      },
       &quot;selfDepends&quot;: &quot;(boolean)&quot;,
       &quot;span&quot;: &quot;(number)&quot;,
       &quot;value&quot;: &quot;(string)&quot;,
@@ -680,8 +708,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   &quot;icon&quot;: &quot;(string)&quot;,
   &quot;id&quot;: &quot;(string)&quot;,
   &quot;label&quot;: &quot;(string)&quot;,
+  &quot;listen&quot;: [
+    {
+      &quot;$promise&quot;: &quot;(any)&quot;,
+      &quot;code&quot;: [
+        &quot;( ADD | SET, REMOVE )&quot;
+      ],
+      &quot;entityId&quot;: &quot;(number)&quot;,
+      &quot;refreshRefPvmData&quot;: &quot;(any)&quot;,
+      &quot;reload&quot;: &quot;(any)&quot;
+    }
+  ],
   &quot;name&quot;: &quot;me-tabs&quot;,
   &quot;offset&quot;: &quot;(number)&quot;,
+  &quot;order&quot;: &quot;(number)&quot;,
+  &quot;refPvmData&quot;: {
+    &quot;additionalPartialLoad&quot;: [
+      &quot;(string)&quot;
+    ],
+    &quot;dataId&quot;: &quot;(string)&quot;,
+    &quot;id&quot;: &quot;(string)&quot;
+  },
+  &quot;refPvmValidator&quot;: {
+    &quot;additionalPartialLoad&quot;: [
+      &quot;(string)&quot;
+    ],
+    &quot;dataId&quot;: &quot;(string)&quot;,
+    &quot;id&quot;: &quot;(string)&quot;
+  },
   &quot;selfDepends&quot;: &quot;(boolean)&quot;,
   &quot;span&quot;: &quot;(number)&quot;,
   &quot;value&quot;: &quot;(string)&quot;,
@@ -689,23 +743,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 }
 </code></pre>
 
-<h3 id="attrs_117">attrs [object Object]</h3>
+<h3 id="___tid_158">___tid (any)</h3>
+Автоматически генерируемое приватное поле
 
-<h3 id="bindAttrs_136">bindAttrs [object Object]</h3>
+
+
+
+<h3 id="attrs_136">attrs [object Object]</h3>
+
+<h3 id="bindAttrs_156">bindAttrs [object Object]</h3>
 Когда нужно подписаться на изменение данные в pvm и заполнять какие-то поля элемента
 Например, менять elems в me-lego динамически или запонять me-input[type=text] расчетным значением
 
 
 
 
-<h3 id="defaultValue_132">defaultValue (any)</h3>
+<h3 id="defaultValue_152">defaultValue (any)</h3>
 Значение элемента по умолчанию
 Для некоторых элементов
 
 
 
 
-<h3 id="depends_130">depends (string)</h3>
+<h3 id="depends_150">depends (string)</h3>
 Зависимости от других элементов. При изменении зависимых элементов, при условии, что заполнены все значения из depends
 делается автоматический переапрос refPvmData и depends будут переданы в env.sp как {key: value}
 
@@ -714,72 +774,80 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 **@example** https://meta.realweb.ru/page?p=3597&a=35
 
 
-<h3 id="elems_118">elems [object Object]</h3>
+<h3 id="elems_137">elems [object Object]</h3>
 
-<p><h3 id="entityId_133">entityId (number)</h3>
+<p><h3 id="entityId_153">entityId (number)</h3>
 Meta EntityId
 Для некоторых элементов, напрмиер [[IMeInput]], [[IMeTable]]</p>
 
-<p><h3 id="exist_134">exist </h3>
+<p><h3 id="exist_154">exist </h3>
 Angular expression от рута vm страницы
 Расчет идет на стороне браузера
 Например: &lsquo;editGroup.card.name == &ldquo;exist&rdquo; || editGroup.card.name == &ldquo;exist23&rdquo;&rsquo;</p>
 
 <p><strong>@example</strong> <a href="https://meta.realweb.ru/page?p=3570&amp;a=35">https://meta.realweb.ru/page?p=3570&amp;a=35</a></p>
 
-<p><h3 id="formHorizontal_127">formHorizontal (boolean)</h3>
+<p><h3 id="formHorizontal_147">formHorizontal (boolean)</h3>
 Если элемента поддерживает, вывести его в стиле формы ключ, значение. Чтобы заголовок был на уровне элемента</p>
 
-<p><h3 id="help_122">help (string)</h3>
+<p><h3 id="help_141">help (string)</h3>
 Доп информация, рисуется под label или под элментом
 Зависит от типа элемента</p>
 
-<p><h3 id="icon_125">icon (string)</h3>
+<p><h3 id="icon_145">icon (string)</h3>
 Иконка Font Awesome
 Например fa-bicycle</p>
 
 <p><strong>@link</strong> <a href="http://ui.adplatform.lan/Static_Full_Version/icons.html">http://ui.adplatform.lan/Static_Full_Version/icons.html</a></p>
 
-<p><h3 id="id_120">id (string)</h3>
+<p><h3 id="id_139">id (string)</h3>
 ID данных элемента
 Будет доступно в env.sp.{ID} или как вложенная структура, если это [[IMeElemContainer]]</p>
 
-<p><h3 id="label_121">label (string)</h3>
+<p><h3 id="label_140">label (string)</h3>
 Заголовок элемента
 Обычно над элементом, на некоторых не рисуется вообще</p>
 
-<p><h3 id="name_119">name (string)</h3>
+<p><h3 id="listen_157">listen [object Object]</h3>
+Подписка на изменения объектов. Пока работает только для изменений вызваных в модальном окне
+Например у вас таблица со списоком аккуантов и в &ldquo;+ Аккаунт&rdquo; вы можете добавить или привязать аккаунт,
+а после сохранения в модальном окне, родительская таблциа должна пересчитаться</p>
+
+<p><h3 id="name_138">name (string)</h3>
 Название элемента
 Например: me-lego, me-input</p>
 
-<p><h3 id="offset_124">offset (number)</h3>
+<p><h3 id="offset_143">offset (number)</h3>
 Отстут по сетке справа от 0 до12</p>
 
-<p><h3 id="refPvmData_129">refPvmData </h3>
+<p><h3 id="order_144">order (number)</h3>
+Прзиция элемента в сетке, чем меньше значение, тем элемент выше и левее</p>
+
+<p><h3 id="refPvmData_149">refPvmData [object Object]</h3>
 Инструкции по получению данных для [[IMeInputAttrs.options]] или таблицы</p>
 
 <p><strong>@example</strong> <a href="https://meta.realweb.ru/page?p=3570&amp;a=35">https://meta.realweb.ru/page?p=3570&amp;a=35</a></p>
 
 <p><strong>@example</strong> <a href="https://meta.realweb.ru/page?p=3597&amp;a=35">https://meta.realweb.ru/page?p=3597&amp;a=35</a></p>
 
-<p><h3 id="refPvmValidator_128">refPvmValidator </h3>
+<p><h3 id="refPvmValidator_148">refPvmValidator [object Object]</h3>
 Пользовательская валидация</p>
 
-<p><strong>@example</strong> <a href="https://meta.realweb.ru/page?p=3359&amp;a=30">https://meta.realweb.ru/page?p=3359&amp;a=30</a></p>
+<p><strong>@example</strong> <a href="https://meta.realweb.ru/page?p=3443&amp;a=35">https://meta.realweb.ru/page?p=3443&amp;a=35</a></p>
 
-<p><h3 id="selfDepends_131">selfDepends (boolean)</h3>
+<p><h3 id="selfDepends_151">selfDepends (boolean)</h3>
 Зависимость от себя самого, нужно для editable [[IMeTable]]
 и прототип для поиска [[IMeInputAttrs.options]] в me-input для частичной подгрузки данных</p>
 
 <p><strong>@beta</strong></p>
 
-<p><h3 id="span_123">span (number)</h3>
+<p><h3 id="span_142">span (number)</h3>
 Размер по сетке справа от 0 до12</p>
 
-<p><h3 id="value_126">value (string)</h3>
+<p><h3 id="value_146">value (string)</h3>
 для некоторых элементов</p>
 
-<p><h3 id="visible_135">visible (boolean)</h3>
+<p><h3 id="visible_155">visible (boolean)</h3>
 Angular expression от рута vm страницы
 Расчет идет на стороне браузера
 Например: &lsquo;editGroup.card.name == &ldquo;visible&rdquo;&rsquo;</p>

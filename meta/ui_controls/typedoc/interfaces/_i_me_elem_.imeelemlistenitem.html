@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IMeElemExistSetting | META UI Components</title>
+	<title>IMeElemListenItem | META UI Components</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -57,10 +57,10 @@
 					<a href="../modules/_i_me_elem_.html">&quot;i.me-elem&quot;</a>
 				</li>
 				<li>
-					<a href="_i_me_elem_.imeelemexistsetting.html">IMeElemExistSetting</a>
+					<a href="_i_me_elem_.imeelemlistenitem.html">IMeElemListenItem</a>
 				</li>
 			</ul>
-			<h1>Interface IMeElemExistSetting</h1>
+			<h1>Interface IMeElemListenItem</h1>
 		</div>
 	</div>
 </header>
@@ -71,7 +71,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">IMeElemExistSetting</span>
+						<span class="target">IMeElemListenItem</span>
 					</li>
 				</ul>
 			</section>
@@ -82,8 +82,11 @@
 						<section class="tsd-index-section tsd-is-not-exported">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_i_me_elem_.imeelemexistsetting.html#erasevalue" class="tsd-kind-icon">erase<wbr>Value</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_i_me_elem_.imeelemexistsetting.html#path" class="tsd-kind-icon">path</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-private tsd-is-not-exported"><a href="_i_me_elem_.imeelemlistenitem.html#_promise" class="tsd-kind-icon">$promise</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_i_me_elem_.imeelemlistenitem.html#code" class="tsd-kind-icon">code</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_i_me_elem_.imeelemlistenitem.html#entityid" class="tsd-kind-icon">entity<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_i_me_elem_.imeelemlistenitem.html#refreshrefpvmdata" class="tsd-kind-icon">refresh<wbr>Ref<wbr>Pvm<wbr>Data</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_i_me_elem_.imeelemlistenitem.html#reload" class="tsd-kind-icon">reload</a></li>
 							</ul>
 						</section>
 					</div>
@@ -91,40 +94,80 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-					<a name="erasevalue" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> erase<wbr>Value</h3>
-					<div class="tsd-signature tsd-kind-icon">erase<wbr>Value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-private tsd-is-not-exported">
+					<a name="_promise" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> <span class="tsd-flag ts-flagPrivate">Private</span> $promise</h3>
+					<div class="tsd-signature tsd-kind-icon">$promise<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in i.me-elem.ts:191</li>
+							<li>Defined in i.me-elem.ts:175</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="code" class="tsd-anchor"></a>
+					<h3>code</h3>
+					<div class="tsd-signature tsd-kind-icon">code<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in i.me-elem.ts:155</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Удалять выбранные значения зависимого элемента из скоупа данных если элемент будет скрыт?</p>
+							<p>Какие события ObjectLogService отслеживаем</p>
 						</div>
 						<dl class="tsd-comment-tags">
-							<dt>default</dt>
-							<dd><p>false</p>
+							<dt>enums</dt>
+							<dd><p>( ADD | SET, REMOVE )</p>
 							</dd>
 						</dl>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-					<a name="path" class="tsd-anchor"></a>
-					<h3>path</h3>
-					<div class="tsd-signature tsd-kind-icon">path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="entityid" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> entity<wbr>Id</h3>
+					<div class="tsd-signature tsd-kind-icon">entity<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in i.me-elem.ts:185</li>
+							<li>Defined in i.me-elem.ts:160</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Angular expression от рута vm страницы
-								Расчет идет на стороне браузера
-							Например: &#39;editGroup.card.name == &quot;lalala&quot;&#39;</p>
+							<p>Id сущности</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="refreshrefpvmdata" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> refresh<wbr>Ref<wbr>Pvm<wbr>Data</h3>
+					<div class="tsd-signature tsd-kind-icon">refresh<wbr>Ref<wbr>Pvm<wbr>Data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in i.me-elem.ts:170</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Указывайте, если нужно обновить refPvmData опции в me-input, например</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="reload" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> reload</h3>
+					<div class="tsd-signature tsd-kind-icon">reload<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in i.me-elem.ts:165</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Указывайте, если нужно делать перезагрузку всей страницы</p>
 						</div>
 					</div>
 				</section>
@@ -185,24 +228,33 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
 						<a href="_i_me_elem_.imeelemcontainer.html" class="tsd-kind-icon">IMe<wbr>Elem<wbr>Container</a>
 					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
+						<a href="_i_me_elem_.imeelemexistsetting.html" class="tsd-kind-icon">IMe<wbr>Elem<wbr>Exist<wbr>Setting</a>
+					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_i_me_elem_.imeelemexistsetting.html" class="tsd-kind-icon">IMe<wbr>Elem<wbr>Exist<wbr>Setting</a>
+						<a href="_i_me_elem_.imeelemlistenitem.html" class="tsd-kind-icon">IMe<wbr>Elem<wbr>Listen<wbr>Item</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-								<a href="_i_me_elem_.imeelemexistsetting.html#erasevalue" class="tsd-kind-icon">erase<wbr>Value</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-private tsd-is-not-exported">
+								<a href="_i_me_elem_.imeelemlistenitem.html#_promise" class="tsd-kind-icon">$promise</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-								<a href="_i_me_elem_.imeelemexistsetting.html#path" class="tsd-kind-icon">path</a>
+								<a href="_i_me_elem_.imeelemlistenitem.html#code" class="tsd-kind-icon">code</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="_i_me_elem_.imeelemlistenitem.html#entityid" class="tsd-kind-icon">entity<wbr>Id</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="_i_me_elem_.imeelemlistenitem.html#refreshrefpvmdata" class="tsd-kind-icon">refresh<wbr>Ref<wbr>Pvm<wbr>Data</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="_i_me_elem_.imeelemlistenitem.html#reload" class="tsd-kind-icon">reload</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_i_me_elem_.imeelemlistenitem.html" class="tsd-kind-icon">IMe<wbr>Elem<wbr>Listen<wbr>Item</a>
-					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
 						<a href="_i_me_elem_.irefpvmvalues.html" class="tsd-kind-icon">IRef<wbr>Pvm<wbr>Values</a>
 					</li>

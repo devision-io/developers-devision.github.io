@@ -629,6 +629,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
+
+
 <p>Основной способ получения данных, рекомендуется вибирать именно его, а не meta/js в пробладающем кол-во вслучаев.
 Исполняется на указанной в db-alias базе данных
 Выполняет SQL с синтактисом указанной БД без магических модификаций</p>
@@ -660,6 +662,21 @@ ${pager}
 &lt;/script&gt;
 </code></pre>
 
+<h3 id="чтение-и-обновление-данных">Чтение и Обновление данных</h3>
+
+<p>По-умолчанию script выполняет функция query() в сервисе запросов к БД.
+Функция query ожидает, что запрос вернет результат, поэтому c SELECT все будет хорошо, а для INSERT, UPDATE, DELETE и пр
+ нужно делать RETURNING если это Postgres, либо ставить no-result на скрипте. Это будет вызывать функцию update(),
+ которая ждет, что ничего не будет возвращено и будет ругаться, если что-то вернется</p>
+
+<p>Пример: <a href="https://meta.realweb.ru/page?p=4105&amp;a=35">https://meta.realweb.ru/page?p=4105&amp;a=35</a></p>
+
+<pre><code class="language-html">&lt;script type=&quot;meta/sql&quot; db-alias=&quot;meta_samples&quot; id=&quot;upd&quot;
+		no-result&gt;
+UPDATE counters SET inc = inc + 1 WHERE name='md_source_update'
+&lt;/script&gt;
+</code></pre>
+
 
 <footer class=" footline" >
 	
@@ -672,7 +689,17 @@ ${pager}
 </section>
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
-    
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#чтение-и-обновление-данных">Чтение и Обновление данных</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
 </div>
 
 </div>

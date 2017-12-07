@@ -640,6 +640,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li><strong>${to_date(String)}</strong> - Приведение к дате</li>
 <li><strong>${pg_quote_literal(String)}</strong> - Экранирование строки для PostgreSQL</li>
 <li><strong>${pg_quote_ident(String)}</strong> - Экранирование идентификатора (имя столбца, таблицы, схемы) для PostgreSQL</li>
+<li><strong>${crypt_encode(String)}</strong> - Шифрование через CryptService.encode</li>
+<li><strong>${crypt_decode(String)}</strong> - Дешифрование через CryptService.decode</li>
 </ul>
 
 <p><strong>Полезно знать!</strong>

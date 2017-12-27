@@ -89,29 +89,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <p>Сервис позволяет просто распозновать qr коды на изображениях и в pdf файлах</p>
 
-<h2 id="get-read">GET /read</h2>
+<h2 id="post-read">POST /read</h2>
+
+<p>Body: {&ldquo;url&rdquo;:&ldquo;http://&hellip;&ldquo;, &ldquo;allowedQrContents&rdquo;:[&ldquo;&rdquo;]}</p>
 
 <h3 id="параметры-запроса">Параметры запроса</h3>
 
 <ul>
 <li>url (string) - источник данных, например meta media api url + access_token</li>
-<li>checkQrContent (string) - встроенная проверка по подстроке при поиске qrcode, чтобы отсечь неправильные распознование и  повысить качество поиска. Например если вы знаете, что там должно быть название домена.</li>
+<li>allowedQrContents (string[]) - встроенная проверка по подстроке при поиске qrcode, чтобы отсечь неправильные распознование и  повысить качество поиска. Например если вы знаете, что там должно быть название домена.</li>
 </ul>
-
-<h3 id="пример">Пример</h3>
-
-<pre><code class="language-bash">realweb:~ arturgspb$ curl -i &quot;https://apis.garpun.com/qrcode/v1/read?access_token=YOUR_TOKEN&amp;url=https://i.stack.imgur.com/o7nhP.png&quot;
-HTTP/1.1 200 OK
-Date: Fri, 22 Sep 2017 09:42:03 GMT
-Content-Type: text/html;charset=utf-8
-Transfer-Encoding: chunked
-Connection: keep-alive
-Set-Cookie: __cfduid=d872857d30967b50560bb753292d263111506073323; expires=Sat, 22-Sep-18 09:42:03 GMT; path=/; domain=.garpun.com; HttpOnly
-Server: cloudflare-nginx
-CF-RAY: 3a244fe14c8e4ec0-DME
-
-{&quot;mime&quot;:&quot;image/png&quot;,&quot;content&quot;:&quot;MECARD:N:Somefamily, Somename;ADR:Somestreet, 42, 12345, Noland;TEL:555555-5555;EMAIL:a@n.l;;&quot;,&quot;date&quot;:&quot;Sep 22, 2017 9:42:03 AM&quot;}
-</code></pre>
 	
   
 
@@ -124,10 +111,9 @@ CF-RAY: 3a244fe14c8e4ec0-DME
 <ul>
 <li><a href="#qr-code-api">QR Code API</a>
 <ul>
-<li><a href="#get-read">GET /read</a>
+<li><a href="#post-read">POST /read</a>
 <ul>
 <li><a href="#параметры-запроса">Параметры запроса</a></li>
-<li><a href="#пример">Пример</a></li>
 </ul></li>
 </ul></li>
 </ul>

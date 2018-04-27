@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Запускатор on Запускатор | Devision Developers</title>
-    <link>http://developers.devision.ru/starter/</link>
+    <link>http://developers.devision.io/starter/</link>
     <description>Recent content in Запускатор on Запускатор | Devision Developers</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <lastBuildDate>Mon, 24 Apr 2017 18:36:24 +0200</lastBuildDate>
     
-	<atom:link href="http://developers.devision.ru/starter/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://developers.devision.io/starter/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Установка</title>
-      <link>http://developers.devision.ru/starter/guides/installation/</link>
+      <link>http://developers.devision.io/starter/guides/installation/</link>
       <pubDate>Mon, 24 Apr 2017 18:36:24 +0200</pubDate>
       
-      <guid>http://developers.devision.ru/starter/guides/installation/</guid>
+      <guid>http://developers.devision.io/starter/guides/installation/</guid>
       <description>В данный момент проводятся работы по облегчению запуска Запускатора в Docker Swarm
 Ручная установка По адресу http://starter.harpoon.lan/ расположены архивы с последними версиями приложения. Приведу пример с установкой сервера на prod и stagging серверах, для агента будет аналогично.
  Устанавливаем java8 от oracle или openjdk Качаем и разархивируем архив Файлы кладем в /opt/starter-server/2.0/* (учитываем номер версии) Для упрощения и стандартизации места хранения конфигов, делаем symlink папки /opt/starter-server/2.0/*/config на /etc/starter-server В папку конфигов кладем конфиг приложения с проставленными параметрами, даем конфигу имя например &amp;ldquo;myapp.</description>
@@ -24,10 +24,10 @@
     
     <item>
       <title>Конфигурационные файлы</title>
-      <link>http://developers.devision.ru/starter/guides/configs/</link>
+      <link>http://developers.devision.io/starter/guides/configs/</link>
       <pubDate>Mon, 24 Apr 2017 18:36:24 +0200</pubDate>
       
-      <guid>http://developers.devision.ru/starter/guides/configs/</guid>
+      <guid>http://developers.devision.io/starter/guides/configs/</guid>
       <description>Сервер О Dedicated Agents
 Это не работает так, что мы сказали, что такой-то агент обрабатывает только это. По умолчанию все агенты выполняют все, но можно зароутить некоторые службы на конкретных агентов по лейблам агентов и по taskData признакам Это сделано для поддержки отказоустойчивости по умолчанию. Типа все везде в кластере, а если не так, то пишешь для чего конкретно и где.
 Однако можно создать последнюю секцию без servicePredicates но с роутом по лейблам агентов и там указать агента или группу агентов на которых будет запущено все то, что не подошло верхним роутам</description>
@@ -35,10 +35,10 @@
     
     <item>
       <title>Публичное API</title>
-      <link>http://developers.devision.ru/starter/guides/public_api_methods/</link>
+      <link>http://developers.devision.io/starter/guides/public_api_methods/</link>
       <pubDate>Mon, 24 Apr 2017 18:36:24 +0200</pubDate>
       
-      <guid>http://developers.devision.ru/starter/guides/public_api_methods/</guid>
+      <guid>http://developers.devision.io/starter/guides/public_api_methods/</guid>
       <description>POST /services/{serviceId}/tasks Добавляет задачу в очередь
 Пример вызова
 curl -X POST &#39;http://build.myapp.lan:28346/services/Core.ImportAccountAndCampaignsYandexDirect/tasks&#39; -H &#39;Accept: application/json&#39; -H &#39;Content-Type: application/json&#39; --data &#39;{&amp;quot;serviceId&amp;quot;:&amp;quot;Core.ImportAccountAndCampaignsYandexDirect&amp;quot;, &amp;quot;data&amp;quot;:{&amp;quot;agencyLocalId&amp;quot;:381}}&#39;  serviceId - имя зарегистрированного сервиса data - пользователький набор данных для задачи

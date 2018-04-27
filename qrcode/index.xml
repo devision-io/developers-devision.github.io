@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>QRCode API on QRCode API | AdPlatform Developers</title>
-    <link>http://developers.realweb.ru/qrcode/</link>
+    <link>https://developers.devision.io/qrcode/</link>
     <description>Recent content in QRCode API on QRCode API | AdPlatform Developers</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <lastBuildDate>Mon, 24 Apr 2017 18:36:24 +0200</lastBuildDate>
     
-	<atom:link href="http://developers.realweb.ru/qrcode/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://developers.devision.io/qrcode/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>header</title>
-      <link>http://developers.realweb.ru/qrcode/_header/</link>
+      <link>https://developers.devision.io/qrcode/_header/</link>
       <pubDate>Mon, 24 Apr 2017 18:36:24 +0200</pubDate>
       
-      <guid>http://developers.realweb.ru/qrcode/_header/</guid>
+      <guid>https://developers.devision.io/qrcode/_header/</guid>
       <description>META</description>
     </item>
     

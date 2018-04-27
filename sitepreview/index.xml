@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>SitePreview API on SitePreview | AdPlatform Developers</title>
-    <link>http://developers.realweb.ru/sitepreview/</link>
-    <description>Recent content in SitePreview API on SitePreview | AdPlatform Developers</description>
+    <title>SitePreview API on SitePreview | Devision Developers</title>
+    <link>https://developers.devision.io/sitepreview/</link>
+    <description>Recent content in SitePreview API on SitePreview | Devision Developers</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <lastBuildDate>Wed, 20 Sep 2017 18:36:24 +0200</lastBuildDate>
     
-	<atom:link href="http://developers.realweb.ru/sitepreview/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://developers.devision.io/sitepreview/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

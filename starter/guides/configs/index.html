@@ -372,6 +372,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         &quot;mylabel&quot;: &quot;qwerty&quot;,
         &quot;dedict_company&quot;: &quot;all&quot;,
         &quot;dedict_renew_on_fail&quot;: &quot;renew_on_fail&quot;
+    },
+    // правила пулинга docker images
+    //  агент будет пытаться пулить их каждую минуту
+    &quot;pullImages&quot;: {
+        &quot;images&quot;: [&quot;apisgarpun/apis:garpun-worker-latest&quot;]
     }
 }
 </code></pre>

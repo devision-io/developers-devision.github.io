@@ -28,21 +28,6 @@
   </url>
   
   <url>
-    <loc>https://developers.devision.io/code-conventions/php/_header/</loc>
-    <lastmod>2017-04-24T18:36:24+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://developers.devision.io/code-conventions/python/_header/</loc>
-    <lastmod>2017-04-24T18:36:24+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://developers.devision.io/code-conventions/sql/_header/</loc>
-    <lastmod>2017-04-24T18:36:24+02:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://developers.devision.io/code-conventions/categories/</loc>
     <priority>0</priority>
   </url>

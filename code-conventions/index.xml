@@ -20,32 +20,5 @@
       <description>Code Conventions</description>
     </item>
     
-    <item>
-      <title>header</title>
-      <link>https://developers.devision.io/code-conventions/php/_header/</link>
-      <pubDate>Mon, 24 Apr 2017 18:36:24 +0200</pubDate>
-      
-      <guid>https://developers.devision.io/code-conventions/php/_header/</guid>
-      <description>PHP</description>
-    </item>
-    
-    <item>
-      <title>header</title>
-      <link>https://developers.devision.io/code-conventions/python/_header/</link>
-      <pubDate>Mon, 24 Apr 2017 18:36:24 +0200</pubDate>
-      
-      <guid>https://developers.devision.io/code-conventions/python/_header/</guid>
-      <description>Python</description>
-    </item>
-    
-    <item>
-      <title>header</title>
-      <link>https://developers.devision.io/code-conventions/sql/_header/</link>
-      <pubDate>Mon, 24 Apr 2017 18:36:24 +0200</pubDate>
-      
-      <guid>https://developers.devision.io/code-conventions/sql/_header/</guid>
-      <description>SQL</description>
-    </item>
-    
   </channel>
 </rss>

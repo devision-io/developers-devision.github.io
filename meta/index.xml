@@ -77,10 +77,10 @@ me(&#39;applyInjects&#39;);  </description>
     
     <item>
       <title>Простейший отчет с фильтрами</title>
-      <link>https://developers.devision.io/meta/guides/examples/report_with_filters/</link>
+      <link>https://developers.devision.io/meta/samples/pages/report_with_filters/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://developers.devision.io/meta/guides/examples/report_with_filters/</guid>
+      <guid>https://developers.devision.io/meta/samples/pages/report_with_filters/</guid>
       <description>Типичная задача META - вывод списка обхектов в виде отчета с фильтрами.
 Обычно отчет представляет из себя одну таблицу с фильтрами. Script id такой основной таблицы рекомендуется называть &amp;ldquo;res&amp;rdquo;, чтобы другим разработчикам было привычнее читать ваш код.
 Код примера &amp;lt;!-- Фильтрация --&amp;gt; &amp;lt;script type=&amp;quot;meta/sql&amp;quot; db-alias=&amp;quot;meta_samples&amp;quot; label=&amp;quot;Организация&amp;quot; id=&amp;quot;org_ids&amp;quot; elem=&amp;quot;me-select&amp;quot; order=&amp;quot;1&amp;quot; span=&amp;quot;4&amp;quot; elem-attrs=&#39;{&amp;quot;multiple&amp;quot;:true}&#39; page-search&amp;gt; SELECT &amp;quot;organizationId&amp;quot; as id, name as name FROM &amp;quot;organization&amp;quot; order by name &amp;lt;/script&amp;gt; &amp;lt;script type=&amp;quot;meta/sql&amp;quot; db-alias=&amp;quot;meta_samples&amp;quot; label=&amp;quot;Статус&amp;quot; id=&amp;quot;active_mode&amp;quot; elem=&amp;quot;me-select&amp;quot; default=&amp;quot;all&amp;quot; order=&amp;quot;1&amp;quot; span=&amp;quot;4&amp;quot; page-search&amp;gt; SELECT t.</description>

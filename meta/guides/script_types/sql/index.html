@@ -48,7 +48,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             <span class="mdl-layout-title">
                 <a href='https://developers.devision.io/meta/' class="header-logo-link">
-                    <img src="https://rwstatic.ru/h/meta/avatar.png" width="30" />
+                    <img src="https://storage.googleapis.com/metawww/avatar.png" width="30" />
                     META
                 </a>
             </span>
@@ -126,6 +126,64 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </a>
             </li>
             
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/guides/examples/" class="devsite-nav-item devsite-nav-item-main
+                        
+                        
+                        parent
+                        ">
+                <a href="https://developers.devision.io/meta/guides/examples/" class="devsite-nav-title devsite-nav-item-main-title">
+                    <span>Примеры</span>
+
+                    
+                    
+
+                    
+                    
+                    
+
+                    
+                </a>
+                
+                <ul class="devsite-nav-expandable">
+                    
+                    
+                    
+
+
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/guides/examples/report_with_filters/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/guides/examples/report_with_filters/" class="devsite-nav-title">
+                    <span>Простейший отчет с фильтрами</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                </ul>
+                
+            </li>
             
             
             
@@ -662,6 +720,16 @@ ${pager}
 &lt;/script&gt;
 </code></pre>
 
+<h3 id="лимит-строк">Лимит строк</h3>
+
+<p>По-умолчанию 50 000 строк данных будет нормально возвращаться для скрипта или любого другого запроса в БД.
+Если строк придет больше, то скрипт вернет ошибку и не вернет результатов.
+Если вам не хватает значения 50к - вы можете увеличить его атрибутом скрипта</p>
+
+<pre><code class="language-html">&lt;script ... max-rows=&quot;999999&quot;&gt;
+...
+</code></pre>
+
 <h3 id="чтение-и-обновление-данных">Чтение и Обновление данных</h3>
 
 <p>По-умолчанию script выполняет функция query() в сервисе запросов к БД.
@@ -695,6 +763,7 @@ UPDATE counters SET inc = inc + 1 WHERE name='md_source_update'
 <ul>
 <li>
 <ul>
+<li><a href="#лимит-строк">Лимит строк</a></li>
 <li><a href="#чтение-и-обновление-данных">Чтение и Обновление данных</a></li>
 </ul></li>
 </ul></li>

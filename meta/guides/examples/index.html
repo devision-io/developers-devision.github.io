@@ -9,7 +9,7 @@
     <meta name="description" content="">
 
 
-    <title>Элемент me-submit :: META | Devision Developers</title>
+    <title>Примеры :: META | Devision Developers</title>
     <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/ui_controls/me-submit/">
+  <body class="" data-url="/guides/examples/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -69,7 +69,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="/guides/" class="devsite-nav-item devsite-nav-item-main
-                        
+                        parent
                         
                         parent
                         ">
@@ -139,8 +139,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="/guides/examples/" class="devsite-nav-item devsite-nav-item-main
-                        
-                        
+                        parent
+                        active
                         parent
                         ">
                 <a href="https://developers.devision.io/meta/guides/examples/" class="devsite-nav-title devsite-nav-item-main-title">
@@ -351,7 +351,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="/ui_controls/" class="devsite-nav-item devsite-nav-item-main
-                        parent
+                        
                         
                         parent
                         ">
@@ -472,7 +472,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/ui_controls/me-submit/" class="devsite-nav-item dd-item active">
+            <li data-nav-id="/ui_controls/me-submit/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/ui_controls/me-submit/" class="devsite-nav-title">
                     <span>Элемент me-submit</span>
                 </a>
@@ -663,7 +663,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
- <a href='https://developers.devision.io/meta/'>META</a> > <a href='https://developers.devision.io/meta/ui_controls/'>Элементы UI</a> > Элемент me-submit
+ <a href='https://developers.devision.io/meta/'>META</a> > <a href='https://developers.devision.io/meta/guides/'>Руководства</a> > Примеры
 
 
 
@@ -677,289 +677,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <div id="body-inner">
           
-            <h1>Элемент me-submit</h1>
+            <h1>Примеры</h1>
           
 
 
 
-
-
-<p>Использует все от [[IMeInput]] и просто рефрешит форму при нажатии</p>
-
-<h2 id="структура">Структура</h2>
-
-<pre><code class="language-json">{
-  &quot;___tid&quot;: &quot;(any)&quot;,
-  &quot;align&quot;: &quot;(string)&quot;,
-  &quot;attrs&quot;: {
-    &quot;addObjectButton&quot;: {
-      &quot;disabled&quot;: &quot;(boolean)&quot;,
-      &quot;modalSize&quot;: &quot;( xs, sm, lg )&quot;,
-      &quot;mode&quot;: &quot;[ modal]&quot;,
-      &quot;pageId&quot;: &quot;(number)&quot;,
-      &quot;title&quot;: &quot;(string)&quot;,
-      &quot;tooltip&quot;: {
-        &quot;content&quot;: &quot;(string)&quot;,
-        &quot;label&quot;: &quot;(string)&quot;
-      }
-    },
-    &quot;align&quot;: &quot;( left | right )&quot;,
-    &quot;contextualClass&quot;: &quot;(string)&quot;,
-    &quot;create&quot;: &quot;(boolean)&quot;,
-    &quot;ctrlEnterApply&quot;: &quot;(boolean)&quot;,
-    &quot;disabled&quot;: &quot;(boolean)&quot;,
-    &quot;enterSubmit&quot;: &quot;(boolean)&quot;,
-    &quot;formInputName&quot;: &quot;(string)&quot;,
-    &quot;groupAddon&quot;: {
-      &quot;text&quot;: &quot;(string)&quot;
-    },
-    &quot;inlineElements&quot;: &quot;(boolean)&quot;,
-    &quot;inlineLabel&quot;: &quot;(boolean)&quot;,
-    &quot;max&quot;: &quot;(number)&quot;,
-    &quot;maxHeight&quot;: &quot;(string)&quot;,
-    &quot;min&quot;: &quot;(number)&quot;,
-    &quot;mode&quot;: &quot;( JSON | JSON_OBJECT | HTML | SQL )&quot;,
-    &quot;multiple&quot;: &quot;(boolean)&quot;,
-    &quot;native&quot;: &quot;(any)&quot;,
-    &quot;options&quot;: [
-      {
-        &quot;date&quot;: &quot;(string)&quot;,
-        &quot;description&quot;: &quot;(string)&quot;,
-        &quot;icon&quot;: &quot;(string)&quot;,
-        &quot;icon_image&quot;: &quot;(string)&quot;,
-        &quot;id&quot;: &quot;(any)&quot;,
-        &quot;image&quot;: &quot;(string)&quot;,
-        &quot;link&quot;: {
-          &quot;modalSize&quot;: &quot;( xs, sm, lg, normal, max )&quot;,
-          &quot;target&quot;: &quot;(string)&quot;,
-          &quot;type&quot;: &quot;(string)&quot;,
-          &quot;value&quot;: &quot;(object)&quot;
-        },
-        &quot;mentio&quot;: [
-          {
-            &quot;date&quot;: &quot;(string)&quot;,
-            &quot;description&quot;: &quot;(string)&quot;,
-            &quot;id&quot;: &quot;(any)&quot;,
-            &quot;items&quot;: [
-              {
-                &quot;date&quot;: &quot;(string)&quot;,
-                &quot;description&quot;: &quot;(string)&quot;,
-                &quot;id&quot;: &quot;(any)&quot;,
-                &quot;name&quot;: &quot;(string)&quot;,
-                &quot;section&quot;: &quot;(string)&quot;,
-                &quot;title&quot;: &quot;(string)&quot;
-              }
-            ],
-            &quot;name&quot;: &quot;(string)&quot;,
-            &quot;section&quot;: &quot;(string)&quot;,
-            &quot;title&quot;: &quot;(string)&quot;,
-            &quot;triggerChar&quot;: &quot;(string)&quot;
-          }
-        ],
-        &quot;name&quot;: &quot;(string)&quot;,
-        &quot;section&quot;: &quot;(string)&quot;,
-        &quot;title&quot;: &quot;(string)&quot;,
-        &quot;tooltip&quot;: {
-          &quot;content&quot;: &quot;(string)&quot;,
-          &quot;label&quot;: &quot;(string)&quot;
-        },
-        &quot;value&quot;: {
-          &quot;unit&quot;: {
-            &quot;value&quot;: &quot;(string)&quot;
-          },
-          &quot;value&quot;: &quot;(any)&quot;
-        }
-      }
-    ],
-    &quot;pattern&quot;: &quot;(string)&quot;,
-    &quot;placeholder&quot;: &quot;(string)&quot;,
-    &quot;readonly&quot;: &quot;(boolean)&quot;,
-    &quot;required&quot;: &quot;(boolean)&quot;,
-    &quot;rows&quot;: &quot;(number)&quot;,
-    &quot;scaleByContent&quot;: &quot;(boolean)&quot;,
-    &quot;step&quot;: &quot;(number)&quot;,
-    &quot;timePicker&quot;: &quot;(boolean)&quot;,
-    &quot;tooltip&quot;: {
-      &quot;content&quot;: &quot;(string)&quot;,
-      &quot;label&quot;: &quot;(string)&quot;
-    },
-    &quot;type&quot;: &quot;( text | select | duallist | submit | textarea | checkbox | radio | me-link-radio | me-summary-btn | me-tabs | filecontent | url | tel | email | percent )&quot;,
-    &quot;value&quot;: &quot;(string)&quot;,
-    &quot;verticalColumns&quot;: &quot;(boolean)&quot;,
-    &quot;viewSize&quot;: &quot;( xs | sm | lg )&quot;
-  },
-  &quot;bindAttrs&quot;: [
-    {
-      &quot;source&quot;: &quot;(string)&quot;,
-      &quot;target&quot;: &quot;(string)&quot;
-    }
-  ],
-  &quot;defaultValue&quot;: &quot;(any)&quot;,
-  &quot;depends&quot;: [
-    &quot;(string)&quot;
-  ],
-  &quot;entityId&quot;: &quot;(number)&quot;,
-  &quot;formHorizontal&quot;: &quot;(boolean)&quot;,
-  &quot;help&quot;: &quot;(string)&quot;,
-  &quot;icon&quot;: &quot;(string)&quot;,
-  &quot;id&quot;: &quot;(string)&quot;,
-  &quot;label&quot;: &quot;(string)&quot;,
-  &quot;listen&quot;: [
-    {
-      &quot;$promise&quot;: &quot;(any)&quot;,
-      &quot;code&quot;: [
-        &quot;( ADD | SET, REMOVE )&quot;
-      ],
-      &quot;entityId&quot;: &quot;(number)&quot;,
-      &quot;objectId&quot;: &quot;(string)&quot;,
-      &quot;pubSubChannel&quot;: [
-        &quot;(string)&quot;
-      ],
-      &quot;refreshRefPvmData&quot;: &quot;(any)&quot;,
-      &quot;reload&quot;: &quot;(any)&quot;
-    }
-  ],
-  &quot;name&quot;: &quot;me-submit&quot;,
-  &quot;offset&quot;: &quot;(number)&quot;,
-  &quot;order&quot;: &quot;(number)&quot;,
-  &quot;refPvmData&quot;: {
-    &quot;additionalPartialLoad&quot;: [
-      &quot;(string)&quot;
-    ],
-    &quot;dataId&quot;: &quot;(string)&quot;,
-    &quot;id&quot;: &quot;(string)&quot;
-  },
-  &quot;refPvmValidator&quot;: {
-    &quot;additionalPartialLoad&quot;: [
-      &quot;(string)&quot;
-    ],
-    &quot;dataId&quot;: &quot;(string)&quot;,
-    &quot;id&quot;: &quot;(string)&quot;
-  },
-  &quot;selfDepends&quot;: &quot;(boolean)&quot;,
-  &quot;span&quot;: &quot;(number)&quot;,
-  &quot;tooltip&quot;: {
-    &quot;content&quot;: &quot;(string)&quot;,
-    &quot;label&quot;: &quot;(string)&quot;
-  },
-  &quot;value&quot;: &quot;(string)&quot;,
-  &quot;visible&quot;: &quot;(boolean)&quot;
-}
-</code></pre>
-
-<h3 id="___tid_403">___tid (any)</h3>
-Автоматически генерируемое приватное поле
-
-
-
-
-<h3 id="align_388">align (string)</h3>
-Позиционирование элемента в ячейке серки
-
-**@default** "left"
-
-
-<h3 id="attrs_381">attrs [object Object]</h3>
-
-<p><h3 id="bindAttrs_401">bindAttrs [object Object]</h3>
-Когда нужно подписаться на изменение данные в pvm и заполнять какие-то поля элемента
-Например, менять elems в me-lego динамически или запонять me-input[type=text] расчетным значением</p>
-
-<p><h3 id="defaultValue_397">defaultValue (any)</h3>
-Значение элемента по умолчанию
-Для некоторых элементов</p>
-
-<p><h3 id="depends_395">depends (string)</h3>
-Зависимости от других элементов. При изменении зависимых элементов, при условии, что заполнены все значения из depends
-делается автоматический переапрос refPvmData и depends будут переданы в env.sp как {key: value}</p>
-
-<p><strong>@example</strong> <a href="https://meta.realweb.ru/page?p=4329&amp;a=35">https://meta.realweb.ru/page?p=4329&amp;a=35</a></p>
-
-<p><strong>@example</strong> <a href="https://meta.realweb.ru/page?p=3597&amp;a=35">https://meta.realweb.ru/page?p=3597&amp;a=35</a></p>
-
-<p><h3 id="entityId_398">entityId (number)</h3>
-Meta EntityId
-Для некоторых элементов, напрмиер [[IMeInput]], [[IMeTable]]</p>
-
-<p><h3 id="exist_399">exist </h3>
-Angular expression от рута vm страницы
-Расчет идет на стороне браузера
-Например: &lsquo;editGroup.card.name == &ldquo;exist&rdquo; || editGroup.card.name == &ldquo;exist23&rdquo;&rsquo;
-Для me-lego-list можно использовать нотацию [] для получения доступа в элементу списка, например MyForm.out.card.filled[].deadline_enabled === true, где filled - id me-lego-list</p>
-
-<p><strong>@example</strong> <a href="https://meta.realweb.ru/page?p=3570&amp;a=35">https://meta.realweb.ru/page?p=3570&amp;a=35</a></p>
-
-<p><strong>@example</strong> <a href="https://meta.realweb.ru/page?p=4329&amp;a=35">https://meta.realweb.ru/page?p=4329&amp;a=35</a></p>
-
-<p><h3 id="formHorizontal_392">formHorizontal (boolean)</h3>
-Если элемента поддерживает, вывести его в стиле формы ключ, значение. Чтобы заголовок был на уровне элемента</p>
-
-<p><h3 id="help_385">help (string)</h3>
-Доп информация, рисуется под label или под элментом
-Зависит от типа элемента</p>
-
-<p><h3 id="icon_390">icon (string)</h3>
-Иконка Font Awesome
-Например fa-bicycle</p>
-
-<p><strong>@link</strong> <a href="http://ui.adplatform.lan/Static_Full_Version/icons.html">http://ui.adplatform.lan/Static_Full_Version/icons.html</a></p>
-
-<p><h3 id="id_383">id (string)</h3>
-ID данных элемента
-Будет доступно в env.sp.{ID} или как вложенная структура, если это [[IMeElemContainer]]</p>
-
-<p><h3 id="label_384">label (string)</h3>
-Заголовок элемента
-Обычно над элементом, на некоторых не рисуется вообще</p>
-
-<p><h3 id="listen_402">listen [object Object]</h3>
-Подписка на изменения объектов. Пока работает только для изменений вызваных в модальном окне
-Например у вас таблица со списоком аккуантов и в &ldquo;+ Аккаунт&rdquo; вы можете добавить или привязать аккаунт,
-а после сохранения в модальном окне, родительская таблциа должна пересчитаться</p>
-
-<p><h3 id="name_382">name (string)</h3>
-Название элемента
-Например: me-lego, me-input</p>
-
-<p><h3 id="offset_387">offset (number)</h3>
-Отстут по сетке справа от 0 до12</p>
-
-<p><h3 id="order_389">order (number)</h3>
-Прзиция элемента в сетке, чем меньше значение, тем элемент выше и левее</p>
-
-<p><h3 id="refPvmData_394">refPvmData [object Object]</h3>
-Инструкции по получению данных для [[IMeInputAttrs.options]] или таблицы</p>
-
-<p><strong>@example</strong> <a href="https://meta.realweb.ru/page?p=3570&amp;a=35">https://meta.realweb.ru/page?p=3570&amp;a=35</a></p>
-
-<p><strong>@example</strong> <a href="https://meta.realweb.ru/page?p=3597&amp;a=35">https://meta.realweb.ru/page?p=3597&amp;a=35</a></p>
-
-<p><h3 id="refPvmValidator_393">refPvmValidator [object Object]</h3>
-Пользовательская валидация</p>
-
-<p><strong>@example</strong> <a href="https://meta.realweb.ru/page?p=3443&amp;a=35">https://meta.realweb.ru/page?p=3443&amp;a=35</a></p>
-
-<p><h3 id="selfDepends_396">selfDepends (boolean)</h3>
-Зависимость от себя самого, нужно для editable [[IMeTable]]
-и прототип для поиска [[IMeInputAttrs.options]] в me-input для частичной подгрузки данных</p>
-
-<p><strong>@beta</strong></p>
-
-<p><h3 id="span_386">span (number)</h3>
-Размер по сетке справа от 0 до12</p>
-
-<p><h3 id="tooltip_404">tooltip [object Object]</h3>
-Стандартный мета тултип</p>
-
-<p><h3 id="value_391">value (string)</h3>
-для некоторых элементов</p>
-
-<p><h3 id="visible_400">visible (boolean)</h3>
-Angular expression от рута vm страницы
-Расчет идет на стороне браузера
-Например: &lsquo;editGroup.card.name == &ldquo;visible&rdquo;&rsquo;</p>
-
-<p><strong>@example</strong> <a href="https://meta.realweb.ru/page?p=3570&amp;a=35">https://meta.realweb.ru/page?p=3570&amp;a=35</a></p>
 
 
 <footer class=" footline" >
@@ -968,19 +690,59 @@ Angular expression от рута vm страницы
 
 
 
+	
+
+	<div class="extra-pagination inner">
+	<nav class="pagination" role="navigation">
+	
+	<span class="page-number"> 1  1</span>
+	
+</nav>
+
+	</div>
+
+	
+	   <article class="post guides">
+    <header class="post-header">
+        <h2 class="post-title"><a href="https://developers.devision.io/meta/guides/examples/report_with_filters/">Простейший отчет с фильтрами</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Типичная задача META - вывод списка обхектов в виде отчета с фильтрами.
+Обычно отчет представляет из себя одну таблицу с фильтрами. Script id такой основной таблицы рекомендуется называть &ldquo;res&rdquo;, чтобы другим разработчикам было привычнее читать ваш код.
+Код примера &lt;!-- Фильтрация --&gt; &lt;script type=&quot;meta/sql&quot; db-alias=&quot;meta_samples&quot; label=&quot;Организация&quot; id=&quot;org_ids&quot; elem=&quot;me-select&quot; order=&quot;1&quot; span=&quot;4&quot; elem-attrs='{&quot;multiple&quot;:true}' page-search&gt; SELECT &quot;organizationId&quot; as id, name as name FROM &quot;organization&quot; order by name &lt;/script&gt; &lt;script type=&quot;meta/sql&quot; db-alias=&quot;meta_samples&quot; label=&quot;Статус&quot; id=&quot;active_mode&quot; elem=&quot;me-select&quot; default=&quot;all&quot; order=&quot;1&quot; span=&quot;4&quot; page-search&gt; SELECT t. </p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+
+	<div style="margin-bottom:2rem"></div>
+
+	<nav class="pagination" role="navigation">
+	
+	<span class="page-number"> 1  1</span>
+	
+</nav>
+
+
+
+
 
 
 </section>
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
-    <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#структура">Структура</a></li>
-</ul></li>
-</ul>
-</nav>
+    
 </div>
 
 </div>
@@ -1001,4 +763,3 @@ Angular expression от рута vm страницы
 
   </body>
 </html>
-

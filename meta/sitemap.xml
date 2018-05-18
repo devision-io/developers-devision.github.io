@@ -12,6 +12,10 @@
   </url>
   
   <url>
+    <loc>https://developers.devision.io/meta/guides/examples/</loc>
+  </url>
+  
+  <url>
     <loc>https://developers.devision.io/meta/guides/</loc>
     <lastmod>2017-04-24T18:36:24+02:00</lastmod>
   </url>
@@ -43,6 +47,10 @@
   
   <url>
     <loc>https://developers.devision.io/meta/embed_api/inject_api/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.devision.io/meta/guides/examples/report_with_filters/</loc>
   </url>
   
   <url>

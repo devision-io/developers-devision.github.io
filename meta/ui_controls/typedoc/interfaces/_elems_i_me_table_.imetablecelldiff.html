@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IMeTableCellDescription | META UI Components</title>
+	<title>IMeTableCellDiff | META UI Components</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -57,21 +57,28 @@
 					<a href="../modules/_elems_i_me_table_.html">&quot;elems/i.me-table&quot;</a>
 				</li>
 				<li>
-					<a href="_elems_i_me_table_.imetablecelldescription.html">IMeTableCellDescription</a>
+					<a href="_elems_i_me_table_.imetablecelldiff.html">IMeTableCellDiff</a>
 				</li>
 			</ul>
-			<h1>Interface IMeTableCellDescription</h1>
+			<h1>Interface IMeTableCellDiff</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Отображение разницы в ячейке</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">IMeTableCellDescription</span>
+						<span class="target">IMeTableCellDiff</span>
 					</li>
 				</ul>
 			</section>
@@ -82,9 +89,10 @@
 						<section class="tsd-index-section tsd-is-not-exported">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_elems_i_me_table_.imetablecelldescription.html#allowhtml" class="tsd-kind-icon">allow<wbr>Html</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_elems_i_me_table_.imetablecelldescription.html#placement" class="tsd-kind-icon">placement</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_elems_i_me_table_.imetablecelldescription.html#value" class="tsd-kind-icon">value</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_elems_i_me_table_.imetablecelldiff.html#diffvalue" class="tsd-kind-icon">diff<wbr>Value</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_elems_i_me_table_.imetablecelldiff.html#inversekpi" class="tsd-kind-icon">inverse<wbr>Kpi</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_elems_i_me_table_.imetablecelldiff.html#oldvalue" class="tsd-kind-icon">old<wbr>Value</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_elems_i_me_table_.imetablecelldiff.html#percvalue" class="tsd-kind-icon">perc<wbr>Value</a></li>
 							</ul>
 						</section>
 					</div>
@@ -93,17 +101,32 @@
 			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-					<a name="allowhtml" class="tsd-anchor"></a>
-					<h3>allow<wbr>Html</h3>
-					<div class="tsd-signature tsd-kind-icon">allow<wbr>Html<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<a name="diffvalue" class="tsd-anchor"></a>
+					<h3>diff<wbr>Value</h3>
+					<div class="tsd-signature tsd-kind-icon">diff<wbr>Value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in elems/i.me-table.ts:413</li>
+							<li>Defined in elems/i.me-table.ts:278</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Разрешать печатать HTML без экранирования</p>
+							<p>Значение разницы. Должно расчитываться на бекенде, чтоб исключить двойныйе подсчеты округлений и пр.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="inversekpi" class="tsd-anchor"></a>
+					<h3>inverse<wbr>Kpi</h3>
+					<div class="tsd-signature tsd-kind-icon">inverse<wbr>Kpi<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in elems/i.me-table.ts:295</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Если значение идет на уменьшение, то хорошо</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt>default</dt>
@@ -113,40 +136,33 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-					<a name="placement" class="tsd-anchor"></a>
-					<h3>placement</h3>
-					<div class="tsd-signature tsd-kind-icon">placement<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="oldvalue" class="tsd-anchor"></a>
+					<h3>old<wbr>Value</h3>
+					<div class="tsd-signature tsd-kind-icon">old<wbr>Value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in elems/i.me-table.ts:407</li>
+							<li>Defined in elems/i.me-table.ts:289</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>С какой стророны печатать описание</p>
+							<p>Значение, от которого считается разница</p>
 						</div>
-						<dl class="tsd-comment-tags">
-							<dt>default</dt>
-							<dd><p>bottom</p>
-							</dd>
-							<dt>enums</dt>
-							<dd><p>( right | bottom )</p>
-							</dd>
-						</dl>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-					<a name="value" class="tsd-anchor"></a>
-					<h3>value</h3>
-					<div class="tsd-signature tsd-kind-icon">value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="percvalue" class="tsd-anchor"></a>
+					<h3>perc<wbr>Value</h3>
+					<div class="tsd-signature tsd-kind-icon">perc<wbr>Value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in elems/i.me-table.ts:400</li>
+							<li>Defined in elems/i.me-table.ts:284</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Текст описания</p>
+							<p>Процент отклонения. Так же считается на бекенде, чтоюы не дублировать логику, когда напрмиер:
+							было 0, стало 2 - сколько процентов отклонения</p>
 						</div>
 					</div>
 				</section>
@@ -207,27 +223,30 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
 						<a href="_elems_i_me_table_.imetableattrssearch.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Attrs<wbr>Search</a>
 					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
+						<a href="_elems_i_me_table_.imetablecelldescription.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Cell<wbr>Description</a>
+					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_elems_i_me_table_.imetablecelldescription.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Cell<wbr>Description</a>
+						<a href="_elems_i_me_table_.imetablecelldiff.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Cell<wbr>Diff</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-								<a href="_elems_i_me_table_.imetablecelldescription.html#allowhtml" class="tsd-kind-icon">allow<wbr>Html</a>
+								<a href="_elems_i_me_table_.imetablecelldiff.html#diffvalue" class="tsd-kind-icon">diff<wbr>Value</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-								<a href="_elems_i_me_table_.imetablecelldescription.html#placement" class="tsd-kind-icon">placement</a>
+								<a href="_elems_i_me_table_.imetablecelldiff.html#inversekpi" class="tsd-kind-icon">inverse<wbr>Kpi</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-								<a href="_elems_i_me_table_.imetablecelldescription.html#value" class="tsd-kind-icon">value</a>
+								<a href="_elems_i_me_table_.imetablecelldiff.html#oldvalue" class="tsd-kind-icon">old<wbr>Value</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="_elems_i_me_table_.imetablecelldiff.html#percvalue" class="tsd-kind-icon">perc<wbr>Value</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_elems_i_me_table_.imetablecelldiff.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Cell<wbr>Diff</a>
-					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
 						<a href="_elems_i_me_table_.imetablecelleditor.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Cell<wbr>Editor</a>
 					</li>

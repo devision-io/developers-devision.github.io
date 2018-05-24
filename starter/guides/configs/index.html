@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.26" />
+    <meta name="generator" content="Hugo 0.40.3" />
     <meta name="description" content="">
 
 
@@ -208,176 +208,224 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p>Однако можно создать последнюю секцию без servicePredicates но с роутом по лейблам агентов и там указать агента или группу агентов на которых будет запущено все то, что не подошло верхним роутам</p>
 
 <pre><code class="language-json">{
-    // то, что будет подставлено в заголовок дашборда. ОПЦИОНАЛЬНО
-    &quot;title&quot;: &quot;My App&quot;,
-    // порт, на котором запустится сервер запускатора
-    &quot;port&quot;: &quot;28341&quot;,
-    // порт брокера для связи агент-сервер. ОПЦИОНАЛЬНО. Если не указывать, будет выбран 61616 по умолчанию
-    &quot;brokerBackendPort&quot;: 61616,
-    // порт брокера для пользователей запускатора. ОПЦИОНАЛЬНО. Если не указывать, порт вообще не будет открыт. По сути это экспериментальный порт для сокетов через запускатор
-    &quot;brokerFrontendPort&quot;: 61613,
-    &quot;storage&quot;: {
-        // Админские права нужны, так как запускатор сам создает схемы, таблицы, индексы, хранимки, накладывает патчи на свои таблицы и т.д.
+  // то, что будет подставлено в заголовок дашборда. ОПЦИОНАЛЬНО
+  &quot;title&quot;: &quot;My App&quot;,
+  // порт, на котором запустится сервер запускатора
+  &quot;port&quot;: &quot;28341&quot;,
+  // порт брокера для связи агент-сервер. ОПЦИОНАЛЬНО. Если не указывать, будет выбран 61616 по умолчанию
+  &quot;brokerBackendPort&quot;: 61616,
+  // порт брокера для пользователей запускатора. ОПЦИОНАЛЬНО. Если не указывать, порт вообще не будет открыт. По сути это экспериментальный порт для сокетов через запускатор
+  &quot;brokerFrontendPort&quot;: 61613,
+  &quot;storage&quot;: {
+    // Админские права нужны, так как запускатор сам создает схемы, таблицы, индексы, хранимки, накладывает патчи на свои таблицы и т.д.
  
-        // Время ожидания подключения в БД. По умолчанию 30, даже если не задано. Если не сможет подключится, сервис выключается
-        &quot;readyWaitingSeconds&quot;: 30,
-        // имя БД. БД должна быть создана
-        &quot;databaseName&quot;: &quot;myapp.myapp_starter&quot;,
-        // Будет АВТОМАТИЧЕСКИ создана в БД если отсутствует Схема для хранения списка служб, задач и лога патчей.
-        &quot;schemaName&quot;: &quot;job&quot;,
-        // хост PG
-        &quot;host&quot;: &quot;build.myapp.lan&quot;,
-        // порт БД,
-        &quot;port&quot;: &quot;5432&quot;,
-        // логин/пароль СУПЕРПОЛЬЗОАВТЕЛЯ
-        &quot;username&quot;: &quot;myapp&quot;,
-        &quot;password&quot;: &quot;123&quot;
+    // Время ожидания подключения в БД. По умолчанию 30, даже если не задано. Если не сможет подключится, сервис выключается
+    &quot;readyWaitingSeconds&quot;: 30,
+    // имя БД. БД должна быть создана
+    &quot;databaseName&quot;: &quot;myapp.myapp_starter&quot;,
+    // Будет АВТОМАТИЧЕСКИ создана в БД если отсутствует Схема для хранения списка служб, задач и лога патчей.
+    &quot;schemaName&quot;: &quot;job&quot;,
+    // хост PG
+    &quot;host&quot;: &quot;build.myapp.lan&quot;,
+    // порт БД,
+    &quot;port&quot;: &quot;5432&quot;,
+    // логин/пароль СУПЕРПОЛЬЗОАВТЕЛЯ
+    &quot;username&quot;: &quot;myapp&quot;,
+    &quot;password&quot;: &quot;123&quot;
+  },
+  &quot;services&quot;: [
+    {
+      // информация по типу ServiceConfig (http://wiki.lan:8090/pages/viewpage.action?pageId=23298662#id-СправочникпоAPI-ServiceConfig)
+      &quot;serviceId&quot;: &quot;Core.LoadVkontakteSuggestions&quot;,
+      &quot;workersCount&quot;: 1,
+      &quot;tasksPerBlock&quot;: 1
     },
-    &quot;services&quot;: [
-        {
-            // информация по типу ServiceConfig (http://wiki.lan:8090/pages/viewpage.action?pageId=23298662#id-СправочникпоAPI-ServiceConfig)
-            &quot;serviceId&quot;: &quot;Core.LoadVkontakteSuggestions&quot;,
-            &quot;workersCount&quot;: 1,
-            &quot;tasksPerBlock&quot;: 1
-        },
-        {
-            &quot;serviceId&quot;: &quot;Core.ImportAccountAndCampaignsYandexDirect&quot;,
-            &quot;workersCount&quot;: 20,
-            &quot;tasksPerBlock&quot;: 1,
-            // если нужно временно приостановить службу
-            &quot;status&quot;: &quot;STOPPED&quot;,
-            &quot;uniqueFields&quot;: [
-                &quot;agencyLocalId&quot;
-            ],
-            // поддерживаются значения: auto, XXXs, XXXm, XXXh. Где XXX - кол-во, например 5s = 5 секунд. auto - формула разброса группы тасков так, чтобы они не стартанули в одно время
-            &quot;renewOnFailTimeout&quot;: &quot;5s&quot;,
-            // макс. кол-во попыток
-            &quot;renewOnFailMaxAttempts&quot;: 2,
-        }
-    ],
-    &quot;agents&quot;: {
-        // Раздел про выделенные серверы для выполенения отдельного стека задач
-        &quot;dedicatedRoutes&quot;: [
-            {
-                &quot;description&quot;: &quot;Например мы делаем тяжелые долгие задачи одного агентства на отдельных тачках, но все остальные задачи службы делаем на всех остальных тачках&quot;,
-                &quot;servicePredicates&quot;: [
-                    {
-                        &quot;key&quot;: &quot;serviceId&quot;,
-                        &quot;operator&quot;: &quot;IN&quot;,
-                        &quot;values&quot;: [
-                            &quot;service0&quot;,
-                            &quot;service2&quot;
-                        ]
-                    }
+    {
+      &quot;serviceId&quot;: &quot;Core.ImportAccountAndCampaignsYandexDirect&quot;,
+      &quot;workersCount&quot;: 20,
+      &quot;tasksPerBlock&quot;: 1,
+      // если нужно временно приостановить службу
+      &quot;status&quot;: &quot;STOPPED&quot;,
+      &quot;uniqueFields&quot;: [
+        &quot;agencyLocalId&quot;
+      ],
+      // поддерживаются значения: auto, XXXs, XXXm, XXXh. Где XXX - кол-во, например 5s = 5 секунд. auto - формула разброса группы тасков так, чтобы они не стартанули в одно время
+      &quot;renewOnFailTimeout&quot;: &quot;5s&quot;,
+      // макс. кол-во попыток
+      &quot;renewOnFailMaxAttempts&quot;: 2,
+      &quot;subQueues&quot;: {
+        &quot;causes&quot;: [
+          {
+            &quot;filters&quot;: [
+              {
+                &quot;taskDataPredicates&quot;: [
+                  {
+                    &quot;key&quot;: &quot;foo&quot;,
+                    &quot;operator&quot;: &quot;IN&quot;,
+                    &quot;values&quot;: [
+                      &quot;777&quot;
+                    ]
+                  }
                 ],
-                &quot;routes&quot;: [
-                    {
-                        &quot;agentLabelPredicates&quot;: [
-                            {
-                                &quot;key&quot;: &quot;dedict_company&quot;,
-                                &quot;operator&quot;: &quot;IN&quot;,
-                                &quot;values&quot;: [
-                                    &quot;rw&quot;
-                                ]
-                            }
-                        ],
-                        &quot;taskDataPredicates&quot;: [
-                            {
-                                &quot;key&quot;: &quot;company_id&quot;,
-                                &quot;operator&quot;: &quot;IN&quot;,
-                                &quot;values&quot;: [
-                                    &quot;42&quot;
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        &quot;agentLabelPredicates&quot;: [
-                            {
-                                &quot;key&quot;: &quot;dedict_company&quot;,
-                                &quot;operator&quot;: &quot;IN&quot;,
-                                &quot;values&quot;: [
-                                    &quot;efimov&quot;
-                                ]
-                            }
-                        ],
-                        &quot;taskDataPredicates&quot;: [
-                            {
-                                &quot;key&quot;: &quot;company_id&quot;,
-                                &quot;operator&quot;: &quot;IN&quot;,
-                                &quot;values&quot;: [
-                                    &quot;111111&quot;
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                &quot;description&quot;: &quot;Например мы выделяем под отдульную задачу целый стек машин&quot;,
-                &quot;servicePredicates&quot;: [
-                    {
-                        &quot;key&quot;: &quot;serviceId&quot;,
-                        &quot;operator&quot;: &quot;IN&quot;,
-                        &quot;values&quot;: [
-                            &quot;renew_on_fail&quot;
-                        ]
-                    }
+                &quot;workersCount&quot;: 2 // где task.data-&gt;foo==777 максимум 2 параллельных потока
+              },
+              {
+                &quot;taskDataPredicates&quot;: [
+                  {
+                    &quot;key&quot;: &quot;foo&quot;,
+                    &quot;operator&quot;: &quot;IN&quot;,
+                    &quot;values&quot;: [
+                      &quot;42&quot;
+                    ]
+                  }
                 ],
-                &quot;routes&quot;: [
-                    {
-                        &quot;agentLabelPredicates&quot;: [
-                            {
-                                &quot;key&quot;: &quot;dedict_renew_on_fail&quot;,
-                                &quot;operator&quot;: &quot;IN&quot;,
-                                &quot;values&quot;: [
-                                    &quot;renew_on_fail&quot;
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                &quot;description&quot;: &quot;Например мы не хотим засорять выделенные сервера мелкими задачами любых других агентств&quot;,
-                &quot;routes&quot;: [
-                    {
-                        &quot;agentLabelPredicates&quot;: [
-                            {
-                                &quot;key&quot;: &quot;dedict_company&quot;,
-                                &quot;operator&quot;: &quot;IN&quot;,
-                                &quot;values&quot;: [
-                                    &quot;all&quot;
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            }
+                &quot;workersCount&quot;: 1 // где task.data-&gt;foo==42 максимум 1 параллельный поток
+              }
+            ]
+          },
+          {
+            &quot;filters&quot;: [
+              {
+                &quot;taskDataPredicates&quot;: [
+                  {
+                    &quot;key&quot;: &quot;speed&quot;,
+                    &quot;operator&quot;: &quot;IN&quot;,
+                    &quot;values&quot;: [
+                      &quot;slow&quot;
+                    ]
+                  }
+                ],
+                &quot;workersCount&quot;: 10
+              }
+            ]
+          }
         ]
+      }
     }
+  ],
+  &quot;agents&quot;: {
+    // Раздел про выделенные серверы для выполенения отдельного стека задач
+    &quot;dedicatedRoutes&quot;: [
+      {
+        &quot;description&quot;: &quot;Например мы делаем тяжелые долгие задачи одного агентства на отдельных тачках, но все остальные задачи службы делаем на всех остальных тачках&quot;,
+        &quot;servicePredicates&quot;: [
+          {
+            &quot;key&quot;: &quot;serviceId&quot;,
+            &quot;operator&quot;: &quot;IN&quot;,
+            &quot;values&quot;: [
+              &quot;service0&quot;,
+              &quot;service2&quot;
+            ]
+          }
+        ],
+        &quot;routes&quot;: [
+          {
+            &quot;agentLabelPredicates&quot;: [
+              {
+                &quot;key&quot;: &quot;dedict_company&quot;,
+                &quot;operator&quot;: &quot;IN&quot;,
+                &quot;values&quot;: [
+                  &quot;rw&quot;
+                ]
+              }
+            ],
+            &quot;taskDataPredicates&quot;: [
+              {
+                &quot;key&quot;: &quot;company_id&quot;,
+                &quot;operator&quot;: &quot;IN&quot;,
+                &quot;values&quot;: [
+                  &quot;42&quot;
+                ]
+              }
+            ]
+          },
+          {
+            &quot;agentLabelPredicates&quot;: [
+              {
+                &quot;key&quot;: &quot;dedict_company&quot;,
+                &quot;operator&quot;: &quot;IN&quot;,
+                &quot;values&quot;: [
+                  &quot;efimov&quot;
+                ]
+              }
+            ],
+            &quot;taskDataPredicates&quot;: [
+              {
+                &quot;key&quot;: &quot;company_id&quot;,
+                &quot;operator&quot;: &quot;IN&quot;,
+                &quot;values&quot;: [
+                  &quot;111111&quot;
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        &quot;description&quot;: &quot;Например мы выделяем под отдульную задачу целый стек машин&quot;,
+        &quot;servicePredicates&quot;: [
+          {
+            &quot;key&quot;: &quot;serviceId&quot;,
+            &quot;operator&quot;: &quot;IN&quot;,
+            &quot;values&quot;: [
+              &quot;renew_on_fail&quot;
+            ]
+          }
+        ],
+        &quot;routes&quot;: [
+          {
+            &quot;agentLabelPredicates&quot;: [
+              {
+                &quot;key&quot;: &quot;dedict_renew_on_fail&quot;,
+                &quot;operator&quot;: &quot;IN&quot;,
+                &quot;values&quot;: [
+                  &quot;renew_on_fail&quot;
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        &quot;description&quot;: &quot;Например мы не хотим засорять выделенные сервера мелкими задачами любых других агентств&quot;,
+        &quot;routes&quot;: [
+          {
+            &quot;agentLabelPredicates&quot;: [
+              {
+                &quot;key&quot;: &quot;dedict_company&quot;,
+                &quot;operator&quot;: &quot;IN&quot;,
+                &quot;values&quot;: [
+                  &quot;all&quot;
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
 }
 </code></pre>
 
 <h2 id="агент">Агент</h2>
 
 <pre><code class="language-json">{
-    &quot;agentName&quot;: &quot;PHP Agent&quot;,
-    // адрес сервера запускатора
-    &quot;server&quot;: &quot;http://127.0.0.1:28341/&quot;,
-    // скрипт, который будет вызывать агент для выполнения задач,
-    &quot;script&quot;: &quot;php /var/www/myapp/WorkerStarter.php&quot;,
-    // метки для определение dedicated routes
-    &quot;labels&quot;: {
-        &quot;mylabel&quot;: &quot;qwerty&quot;,
-        &quot;dedict_company&quot;: &quot;all&quot;,
-        &quot;dedict_renew_on_fail&quot;: &quot;renew_on_fail&quot;
-    },
-    // правила пулинга docker images
-    //  агент будет пытаться пулить их каждую минуту
-    &quot;pullImages&quot;: {
-        &quot;images&quot;: [&quot;apisgarpun/apis:garpun-worker-latest&quot;]
-    }
+  &quot;agentName&quot;: &quot;PHP Agent&quot;,
+  // адрес сервера запускатора
+  &quot;server&quot;: &quot;http://127.0.0.1:28341/&quot;,
+  // скрипт, который будет вызывать агент для выполнения задач,
+  &quot;script&quot;: &quot;php /var/www/myapp/WorkerStarter.php&quot;,
+  // метки для определение dedicated routes
+  &quot;labels&quot;: {
+    &quot;mylabel&quot;: &quot;qwerty&quot;,
+    &quot;dedict_company&quot;: &quot;all&quot;,
+    &quot;dedict_renew_on_fail&quot;: &quot;renew_on_fail&quot;
+  },
+  // правила пулинга docker images
+  //  агент будет пытаться пулить их каждую минуту
+  &quot;pullImages&quot;: {
+    &quot;images&quot;: [&quot;apisgarpun/apis:garpun-worker-latest&quot;]
+  }
 }
 </code></pre>
 

@@ -122,7 +122,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             <li data-nav-id="/guides/understanding_env_states/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/guides/understanding_env_states/" class="devsite-nav-title">
-                    <span>Понимание стостояние страниц</span>
+                    <span>Состояния страниц</span>
                 </a>
             </li>
             
@@ -737,10 +737,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	
 	   <article class="post guides">
     <header class="post-header">
-        <h2 class="post-title"><a href="https://developers.devision.io/meta/guides/understanding_env_states/">Понимание стостояние страниц</a></h2>
+        <h2 class="post-title"><a href="https://developers.devision.io/meta/guides/understanding_env_states/">Состояния страниц</a></h2>
     </header>
     <section class="post-excerpt">
-        <p> Код примера &lt;elem&gt; &lt;tpl&gt; &lt;a ng-click=&quot;changeState('first', {'foo':1})&quot;&gt;to first&lt;/a&gt; | &lt;a ng-click=&quot;changeState('two', {'bar':2})&quot;&gt;to two&lt;/a&gt; | &lt;a ng-click=&quot;changeState('three', env.sp)&quot;&gt;to three&lt;/a&gt; | &lt;hr&gt;	state: {{env.state}} &lt;br&gt; &lt;pre&gt;{{env.sp|json}}&lt;/pre&gt; &lt;/tpl&gt; &lt;/elem&gt; &lt;script type=&quot;meta/sql&quot; db-alias=&quot;adplatform&quot; span=&quot;4&quot; states=&quot;first&quot;&gt; select 1 &lt;/script&gt; &lt;script type=&quot;meta/sql&quot; db-alias=&quot;adplatform&quot; span=&quot;4&quot; states=&quot;two&quot;&gt; select 2 &lt;/script&gt; &lt;script type=&quot;meta/sql&quot; db-alias=&quot;adplatform&quot; span=&quot;4&quot; states=&quot;first, two&quot;&gt; select 3 &lt;/script&gt; &lt;script type=&quot;meta/js&quot; id=&quot;w&quot; states=&quot;three&quot;&gt; function main(vm, pvm, env) { pvm.toInitialState(); } &lt;/script&gt;   </p>
+        <p>Введение env.state - id текущего состояния страницы. Это можно сравнить с action в контроллере MVC. По умолчанию default env.sp - параметры состояния
+Код примера Вотпростой код для примера. Тут три ссылки, которые меняют состояние страницы. В script-ах указаны states, в которых script будет участвовать (будет выполняться). Если states для script или elem не указан, то script или elem участвует во всех state
+&lt;elem&gt; &lt;tpl&gt; &lt;a ng-click=&quot;changeState('first', {'foo':1})&quot;&gt;to first&lt;/a&gt; | &lt;a ng-click=&quot;changeState('two', {'bar':2})&quot;&gt;to two&lt;/a&gt; | &lt;a ng-click=&quot;changeState('three', env. </p>
     </section>
     <footer class=" footline" >
          

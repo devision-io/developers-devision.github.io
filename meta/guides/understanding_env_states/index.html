@@ -9,7 +9,7 @@
     <meta name="description" content="">
 
 
-    <title>Руководства :: META | Devision Developers</title>
+    <title>Понимание стостояние страниц :: META | Devision Developers</title>
     <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/guides/">
+  <body class="" data-url="/guides/understanding_env_states/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -70,7 +70,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             <li data-nav-id="/guides/" class="devsite-nav-item devsite-nav-item-main
                         parent
-                        active
+                        
                         parent
                         ">
                 <a href="https://developers.devision.io/meta/guides/" class="devsite-nav-title devsite-nav-item-main-title">
@@ -120,7 +120,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/guides/understanding_env_states/" class="devsite-nav-item dd-item ">
+            <li data-nav-id="/guides/understanding_env_states/" class="devsite-nav-item dd-item active">
                 <a href="https://developers.devision.io/meta/guides/understanding_env_states/" class="devsite-nav-title">
                     <span>Понимание стостояние страниц</span>
                 </a>
@@ -676,7 +676,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
- <a href='https://developers.devision.io/meta/'>META</a> > Руководства
+
+
+
+ <a href='https://developers.devision.io/meta/'>META</a> > <a href='https://developers.devision.io/meta/guides/'>Руководства</a> > Понимание стостояние страниц
+
+
 
 
 
@@ -688,11 +693,46 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <div id="body-inner">
           
-            <h1>Руководства</h1>
+            <h1>Понимание стостояние страниц</h1>
           
 
 
 
+
+
+<h2 id="код-примера">Код примера</h2>
+
+<pre><code class="language-html">&lt;elem&gt;
+    &lt;tpl&gt;
+	    &lt;a ng-click=&quot;changeState('first', {'foo':1})&quot;&gt;to first&lt;/a&gt; | 
+		&lt;a ng-click=&quot;changeState('two', {'bar':2})&quot;&gt;to two&lt;/a&gt; |
+		&lt;a ng-click=&quot;changeState('three', env.sp)&quot;&gt;to three&lt;/a&gt; |
+		&lt;hr&gt;	
+		state: {{env.state}}
+		&lt;br&gt;
+		&lt;pre&gt;{{env.sp|json}}&lt;/pre&gt;
+	&lt;/tpl&gt;
+&lt;/elem&gt;
+
+&lt;script type=&quot;meta/sql&quot; db-alias=&quot;adplatform&quot; span=&quot;4&quot; states=&quot;first&quot;&gt;
+select 1
+&lt;/script&gt;
+
+&lt;script type=&quot;meta/sql&quot; db-alias=&quot;adplatform&quot; span=&quot;4&quot; states=&quot;two&quot;&gt;
+select 2
+&lt;/script&gt;
+
+
+&lt;script type=&quot;meta/sql&quot; db-alias=&quot;adplatform&quot; span=&quot;4&quot; states=&quot;first, two&quot;&gt;
+select 3
+&lt;/script&gt;
+
+&lt;script type=&quot;meta/js&quot; id=&quot;w&quot; states=&quot;three&quot;&gt;
+	function main(vm, pvm, env) {
+		pvm.toInitialState();
+	}
+&lt;/script&gt;
+</code></pre>
 
 
 <footer class=" footline" >
@@ -701,190 +741,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-	
-
-	<div class="extra-pagination inner">
-	<nav class="pagination" role="navigation">
-	
-	<span class="page-number"> 1  1</span>
-	
-</nav>
-
-	</div>
-
-	
-	   <article class="post guides">
-    <header class="post-header">
-        <h2 class="post-title"><a href="https://developers.devision.io/meta/guides/quick_start/">Быстрый старт</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Для успешного начала работы вам стоит ознакомится с документацией из этого списка:
- Типы скриптов Шаблонизация Окружение запроса Зайти в МЕТА Примеры   </p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post guides">
-    <header class="post-header">
-        <h2 class="post-title"><a href="https://developers.devision.io/meta/guides/understanding_env_states/">Понимание стостояние страниц</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p> Код примера &lt;elem&gt; &lt;tpl&gt; &lt;a ng-click=&quot;changeState('first', {'foo':1})&quot;&gt;to first&lt;/a&gt; | &lt;a ng-click=&quot;changeState('two', {'bar':2})&quot;&gt;to two&lt;/a&gt; | &lt;a ng-click=&quot;changeState('three', env.sp)&quot;&gt;to three&lt;/a&gt; | &lt;hr&gt;	state: {{env.state}} &lt;br&gt; &lt;pre&gt;{{env.sp|json}}&lt;/pre&gt; &lt;/tpl&gt; &lt;/elem&gt; &lt;script type=&quot;meta/sql&quot; db-alias=&quot;adplatform&quot; span=&quot;4&quot; states=&quot;first&quot;&gt; select 1 &lt;/script&gt; &lt;script type=&quot;meta/sql&quot; db-alias=&quot;adplatform&quot; span=&quot;4&quot; states=&quot;two&quot;&gt; select 2 &lt;/script&gt; &lt;script type=&quot;meta/sql&quot; db-alias=&quot;adplatform&quot; span=&quot;4&quot; states=&quot;first, two&quot;&gt; select 3 &lt;/script&gt; &lt;script type=&quot;meta/js&quot; id=&quot;w&quot; states=&quot;three&quot;&gt; function main(vm, pvm, env) { pvm.toInitialState(); } &lt;/script&gt;   </p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post guides">
-    <header class="post-header">
-        <h2 class="post-title"><a href="https://developers.devision.io/meta/guides/request_response_vars/">Окружение запроса</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Введение  env - объект-окружение запроса к серверу. vm - объект для удобной работы с ответом клиенту. На лего странцах отдельный vm на каждый script. pvm - только на LEGO-страницах. Отвечает за хранение данных на всех странце, содержит в себе vm script. DataResult - низкоуровневый класс, отвечающий за ответ с данными по EntityPage. Его нельзя получить так как он никуда не передается, существует вне scipt - над ним. Создается вручную при необходимости только в meta/js скриптах. </p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post guides">
-    <header class="post-header">
-        <h2 class="post-title"><a href="https://developers.devision.io/meta/guides/template_engines/">Шаблонизация</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Для шаблонизации используется freemarker.org. Отсутствие переменных при шаблонизации сейчас не является фатальной ошибкой, переменная в такой случае будет заменяться пустой строкой.
-Функции Пример вызова:
- ${t(String)} - Перевод ${to_json(Object)} - Конвертация объекта в json ${sfile(String)} - Получение абсолютной ссылки на статический файл со стораджа ${to_date(String)} - Приведение к дате ${pg_quote_literal(String)} - Экранирование строки для PostgreSQL ${pg_quote_ident(String)} - Экранирование идентификатора (имя столбца, таблицы, схемы) для PostgreSQL ${crypt_encode(String)} - Шифрование через CryptService. </p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post guides">
-    <header class="post-header">
-        <h2 class="post-title"><a href="https://developers.devision.io/meta/guides/charts/">Графики</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Являются элементами me-chart. Работают на основе google charts. Примеры тут: http://meta.realweb.ru/page?a=35&amp;p=3623
-Имеют опцию &ldquo;nativeOptions&rdquo; для передачи нативных параметров. Не рекомендуется это использоваться просто так из-за невозможности поддержки возможности смены графиков или более легкого обновления версии при отсутствии обратной совместимости.
-nativeOptions можно использовать как вариант для тестирования и с последующим запросом впиливания опции как мета параметр графиков. </p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post guides">
-    <header class="post-header">
-        <h2 class="post-title"><a href="https://developers.devision.io/meta/guides/metaql/">Язык запросов META (METAQL)</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>METAQL - Это защищенный SQL для запросов к данным меты. Основан на синтаксисах Oracle + PostgreSQL. Призван дать хороший и безопасный API к данным таблиц или views ваших БД.
-Особенности  Поддерживаются только SELECT запросы Поддерживается только AND условия Нельзя называть поля или алясы зарезарвированными именами: date Нет прообразований типов JOIN пока не поддерживаются  Функции В METAQL разрешены не все функции, ниже представлен список доступных на текущий момент. </p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post guides">
-    <header class="post-header">
-        <h2 class="post-title"><a href="https://developers.devision.io/meta/guides/db_naming/">Именование сущностей в БД</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>При разработке новой БД предлагается придерживаться следующих правил. При этом, если у вас есть готовая БД, то вы не должны хотеть полностью переделать ее соглашения, так как это бесполезная работа. Просто продолжайте использовать то, что у вас есть.
- Все таблицы должны иметь несоставной первичный ключ, который должен называться id Все таблицы, представления, функции, триггерные функции и типы должны иметь комментарий Поля таблиц и view должны иметь комментарий. Исключения: поля с внешними ключами, общепонятные поля (первичный ключ, views, clicks, name, title и т. </p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
-
-	<nav class="pagination" role="navigation">
-	
-	<span class="page-number"> 1  1</span>
-	
-</nav>
-
-
-
-
 
 
 </section>
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
-    
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#код-примера">Код примера</a></li>
+</ul></li>
+</ul>
+</nav>
 </div>
 
 </div>
@@ -905,3 +774,4 @@ nativeOptions можно использовать как вариант для �
 
   </body>
 </html>
+

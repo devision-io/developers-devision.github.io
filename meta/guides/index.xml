@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Руководства on META | Devision Developers</title>
+    <link>https://developers.devision.io/meta/guides/</link>
+    <description>Recent content in Руководства on META | Devision Developers</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <lastBuildDate>Mon, 24 Apr 2017 18:36:24 +0200</lastBuildDate>
+    
+	<atom:link href="https://developers.devision.io/meta/guides/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Быстрый старт</title>
+      <link>https://developers.devision.io/meta/guides/quick_start/</link>
+      <pubDate>Mon, 24 Apr 2017 18:36:24 +0200</pubDate>
+      
+      <guid>https://developers.devision.io/meta/guides/quick_start/</guid>
+      <description>Для успешного начала работы вам стоит ознакомится с документацией из этого списка:
+ Типы скриптов Шаблонизация Окружение запроса Зайти в МЕТА Примеры  </description>
+    </item>
+    
+    <item>
+      <title>Понимание стостояние страниц</title>
+      <link>https://developers.devision.io/meta/guides/understanding_env_states/</link>
+      <pubDate>Mon, 24 Apr 2017 18:36:24 +0200</pubDate>
+      
+      <guid>https://developers.devision.io/meta/guides/understanding_env_states/</guid>
+      <description> Код примера &amp;lt;elem&amp;gt; &amp;lt;tpl&amp;gt; &amp;lt;a ng-click=&amp;quot;changeState(&#39;first&#39;, {&#39;foo&#39;:1})&amp;quot;&amp;gt;to first&amp;lt;/a&amp;gt; | &amp;lt;a ng-click=&amp;quot;changeState(&#39;two&#39;, {&#39;bar&#39;:2})&amp;quot;&amp;gt;to two&amp;lt;/a&amp;gt; | &amp;lt;a ng-click=&amp;quot;changeState(&#39;three&#39;, env.sp)&amp;quot;&amp;gt;to three&amp;lt;/a&amp;gt; | &amp;lt;hr&amp;gt;	state: {{env.state}} &amp;lt;br&amp;gt; &amp;lt;pre&amp;gt;{{env.sp|json}}&amp;lt;/pre&amp;gt; &amp;lt;/tpl&amp;gt; &amp;lt;/elem&amp;gt; &amp;lt;script type=&amp;quot;meta/sql&amp;quot; db-alias=&amp;quot;adplatform&amp;quot; span=&amp;quot;4&amp;quot; states=&amp;quot;first&amp;quot;&amp;gt; select 1 &amp;lt;/script&amp;gt; &amp;lt;script type=&amp;quot;meta/sql&amp;quot; db-alias=&amp;quot;adplatform&amp;quot; span=&amp;quot;4&amp;quot; states=&amp;quot;two&amp;quot;&amp;gt; select 2 &amp;lt;/script&amp;gt; &amp;lt;script type=&amp;quot;meta/sql&amp;quot; db-alias=&amp;quot;adplatform&amp;quot; span=&amp;quot;4&amp;quot; states=&amp;quot;first, two&amp;quot;&amp;gt; select 3 &amp;lt;/script&amp;gt; &amp;lt;script type=&amp;quot;meta/js&amp;quot; id=&amp;quot;w&amp;quot; states=&amp;quot;three&amp;quot;&amp;gt; function main(vm, pvm, env) { pvm.toInitialState(); } &amp;lt;/script&amp;gt;  </description>
+    </item>
+    
+    <item>
+      <title>Окружение запроса</title>
+      <link>https://developers.devision.io/meta/guides/request_response_vars/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/guides/request_response_vars/</guid>
+      <description>Введение  env - объект-окружение запроса к серверу. vm - объект для удобной работы с ответом клиенту. На лего странцах отдельный vm на каждый script. pvm - только на LEGO-страницах. Отвечает за хранение данных на всех странце, содержит в себе vm script. DataResult - низкоуровневый класс, отвечающий за ответ с данными по EntityPage. Его нельзя получить так как он никуда не передается, существует вне scipt - над ним. Создается вручную при необходимости только в meta/js скриптах.</description>
+    </item>
+    
+    <item>
+      <title>Шаблонизация</title>
+      <link>https://developers.devision.io/meta/guides/template_engines/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/guides/template_engines/</guid>
+      <description>Для шаблонизации используется freemarker.org. Отсутствие переменных при шаблонизации сейчас не является фатальной ошибкой, переменная в такой случае будет заменяться пустой строкой.
+Функции Пример вызова:
+ ${t(String)} - Перевод ${to_json(Object)} - Конвертация объекта в json ${sfile(String)} - Получение абсолютной ссылки на статический файл со стораджа ${to_date(String)} - Приведение к дате ${pg_quote_literal(String)} - Экранирование строки для PostgreSQL ${pg_quote_ident(String)} - Экранирование идентификатора (имя столбца, таблицы, схемы) для PostgreSQL ${crypt_encode(String)} - Шифрование через CryptService.</description>
+    </item>
+    
+    <item>
+      <title>Графики</title>
+      <link>https://developers.devision.io/meta/guides/charts/</link>
+      <pubDate>Mon, 24 Apr 2017 18:36:24 +0200</pubDate>
+      
+      <guid>https://developers.devision.io/meta/guides/charts/</guid>
+      <description>Являются элементами me-chart. Работают на основе google charts. Примеры тут: http://meta.realweb.ru/page?a=35&amp;amp;p=3623
+Имеют опцию &amp;ldquo;nativeOptions&amp;rdquo; для передачи нативных параметров. Не рекомендуется это использоваться просто так из-за невозможности поддержки возможности смены графиков или более легкого обновления версии при отсутствии обратной совместимости.
+nativeOptions можно использовать как вариант для тестирования и с последующим запросом впиливания опции как мета параметр графиков.</description>
+    </item>
+    
+    <item>
+      <title>Язык запросов META (METAQL)</title>
+      <link>https://developers.devision.io/meta/guides/metaql/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/guides/metaql/</guid>
+      <description>METAQL - Это защищенный SQL для запросов к данным меты. Основан на синтаксисах Oracle + PostgreSQL. Призван дать хороший и безопасный API к данным таблиц или views ваших БД.
+Особенности  Поддерживаются только SELECT запросы Поддерживается только AND условия Нельзя называть поля или алясы зарезарвированными именами: date Нет прообразований типов JOIN пока не поддерживаются  Функции В METAQL разрешены не все функции, ниже представлен список доступных на текущий момент.</description>
+    </item>
+    
+    <item>
+      <title>Именование сущностей в БД</title>
+      <link>https://developers.devision.io/meta/guides/db_naming/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/guides/db_naming/</guid>
+      <description>При разработке новой БД предлагается придерживаться следующих правил. При этом, если у вас есть готовая БД, то вы не должны хотеть полностью переделать ее соглашения, так как это бесполезная работа. Просто продолжайте использовать то, что у вас есть.
+ Все таблицы должны иметь несоставной первичный ключ, который должен называться id Все таблицы, представления, функции, триггерные функции и типы должны иметь комментарий Поля таблиц и view должны иметь комментарий. Исключения: поля с внешними ключами, общепонятные поля (первичный ключ, views, clicks, name, title и т.</description>
+    </item>
+    
+  </channel>
+</rss>

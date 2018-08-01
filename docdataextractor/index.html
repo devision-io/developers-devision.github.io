@@ -1,0 +1,262 @@
+
+
+<!DOCTYPE html>
+<html lang="ru" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.42.1" />
+    <meta name="description" content="">
+
+
+    <title>DocDataExtractor API :: DocDataExtractor | Devision Developers</title>
+    <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue_grey-pink.min.css" />
+
+      <link href="https://developers.devision.io/docdataextractor/css/hybrid.css" rel="stylesheet">
+    <link href="https://developers.devision.io/docdataextractor/css/horsey.css" rel="stylesheet">
+    <link href="https://developers.devision.io/docdataextractor/css/theme.css" rel="stylesheet">
+    <link href="https://developers.devision.io/docdataextractor/css/dev-theme.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+    
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
+
+  </head>
+  <body class="" data-url="/">
+    
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+
+    
+
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+            
+            <span class="mdl-layout-title">
+                <a href='https://developers.devision.io/docdataextractor/' class="header-logo-link">
+                    <img src="https://image.ibb.co/dKyTdo/b4_j1.jpg" width="30" />
+                    DocDataExtractor
+                </a>
+            </span>
+        </div>
+    </header>
+
+    <main class="mdl-layout__content">
+        <div class="page-content">
+            <div class="mdl-grid devsite-full-site-width">
+                <div class="devsite-nav mdl-cell mdl-cell--3-col mdl-cell--3-col-tablet mdl-cell--12-col-phone">
+                    <nav class="devsite-section-nav">
+                        <ul class="devsite-section-nav-main">
+                            
+                        </ul>
+                    </nav>
+            
+            
+
+    </div>
+    <div class="mdl-cell mdl-cell--7-col mdl-cell--9-col-tablet mdl-cell--12-col-phone">
+        <section>
+        <div id="overlay"></div>
+        <div class=" ">
+        
+        
+        <div id="body-inner">
+          
+
+
+<span id="sidebar-toggle-span">
+<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fa fa-bars"></i> navigation</a>
+</span>
+
+ 
+
+
+<h1 id="docdataextractor-api">DocDataExtractor API</h1>
+
+<p>Сервис позволяет извлекать данные из различных файлов, загруженных в мету</p>
+
+<p>Принимает список айдишников файлов в мете и список шаблонов.
+Сначала из файлов, в зависиомсти от их типа, извлекается текст
+(на данный момент поддерживается pdf и jpg/jpeg). Затем, с помощью keywords
+из списка шаблонов выбирается первый подходящий шаблон. Далее происходит
+поиск полей с помощью регулярных выражений из шаблона.
+Если файл - многостраничный (многостраничный pdf, несколько картинок, архив
+(в данный момент не поддерживается)), то итерационно будут проверены
+все страницы, пока не найдутся все поля. После того, как все поля будут
+найдены, на оставшихся страницах будет произведён такой же поиск заново.
+Таким образом можно получить один набор данных из текста, разделённого
+на несколько страниц документа или несколько наборов данных, если несколько
+разных текстов были объединены в один многостраничный документ.</p>
+
+<h2 id="post-extract">POST /extract</h2>
+
+<p>Body: {&ldquo;files_ids&rdquo;:[&ldquo;&rdquo;], &ldquo;templates&rdquo;:[{}]}</p>
+
+<h3 id="параметры-запроса">Параметры запроса</h3>
+
+<ul>
+<li>files_ids ([str]) - список айдишников файлов в мете</li>
+<li>templates ([{}]) -  список шаблонов для извлечения данных
+<br /></li>
+</ul>
+
+<h3 id="template">Template</h3>
+
+<ul>
+<li>keywords ([str]) - список ключевых слова. Если в тексте встречаются
+все слова из списка, для извлечения данных будет применён этот шаблон
+(иначе - слудующий из списка шаблонов)</li>
+<li>fields ({str: str}) - поля для извлечения. Ключ - название поля,
+значение - список регулярных выражений для поиска.</li>
+<li>remove_whitespaces (bool) - удалить пробелы из извлечённого текста
+при извлечении данных</li>
+<li>to_lowercase (bool) - перевести весь извлечённый текст в нижний регистр
+при извлечении данных</li>
+<li>replace ({}) - список символов для замены в извлечённом тексте перед
+извлечением данных</li>
+<li>languages ([str]) - список языков документа
+(используется для извлечения дат)</li>
+<li>decimal_separator (str) - десятичный разделитель для дробных чисел</li>
+<li>date_formats ([str]) - список форматов дат.
+Будет применён первый подошедший</li>
+</ul>
+
+<h3 id="пример-запроса">Пример запроса:</h3>
+
+<pre><code>{
+    &quot;files_ids&quot;: [&quot;ca62d8e9-7be5-4ecd-a913-e7683a4f2428&quot;],
+    &quot;templates&quot;:
+    [
+        {
+            &quot;keywords&quot;: [&quot;инн&quot;],
+            &quot;fields&quot;: {
+                &quot;header_inn&quot;: [
+                  &quot;[^ ]инн[ \\t]+(\\d{10,12})[^,]&quot;,
+                  &quot;инн[ \\t]+получателя[:]?[ \\t]+(\\d{10,12})&quot;
+                ],
+              &quot;all_inn&quot;: &quot;инн[:]?[ \\t]+(\\d{10,12})&quot;,
+              &quot;header_kpp&quot;: &quot;кпп[ \\t]+(\\d{9})[^,]&quot;,
+              &quot;all_kpp&quot;: [
+                  &quot;кпп[ \\t]+(\\d{9})&quot;,
+                  &quot;кпп[ \\t]+получателя[:]?[ \\t]+(\\d{9})&quot;
+              ],
+              &quot;amount&quot;: [
+              &quot;всего к оплате:?[ \\t]+([\\d{3} ]*\\d{3},\\d{2})&quot;,
+              &quot;всего[ \\t]+услуг[ \\t]+на[ \\t]+сумму:?[ \\t]+([[\\d]{1, 3} ]*[\\d]{1,3}.[\\d]{2})&quot;,
+              &quot;на[ \\t]+сумму[ \\t]+([\\d{3} ]*\\d{3},\\d{2})&quot;
+              ],
+              &quot;date&quot;: &quot;от[ \\t]+([\\d]{1,2} [а-я]{3,8} [\\d]{4})&quot;,
+              &quot;invoice_number&quot;: [
+                  &quot;сч[её]т[ \\t]+на[ \\t]+оплату[ \\t]+№[ \\t]+(\\d+)&quot;,
+                  &quot;сч[её]т[ \\t]+№[ \\t]+(\\d+)&quot;,
+                  &quot;сч[её]т[ \\t]+на[ \\t]+оплату[ \\t]+№[ \\t]+([\\dа-я/ ]+) от&quot;,
+                  &quot;сч[её]т[ \\t]+[а-я]*[ \\t]+(\\d+)&quot;,
+                  &quot;сч[её]т[ \\t]+№[ \\t]+([\\dа-я/ ]+) от&quot;
+              ]
+            },
+            &quot;remove_whitespaces&quot;: false,
+            &quot;to_lowercase&quot;: true,
+            &quot;replace&quot;: {&quot;г.&quot;: &quot;&quot;, &quot;.&quot;: &quot;,&quot;, &quot;\\&quot;: &quot;/&quot;, &quot;//&quot;: &quot;/&quot;},
+            &quot;languages&quot;: [&quot;ru&quot;],
+            &quot;decimal_separator&quot;: &quot;,&quot;,
+            &quot;date_formats&quot;: [&quot;%d %B %Y&quot;]
+        }
+    ]
+}
+</code></pre>
+
+<h3 id="пример-ответа">Пример ответа</h3>
+
+<pre><code>{
+    &quot;result&quot;: 
+        [
+            [
+                {
+                    &quot;header_inn&quot;: [&quot;7813323882&quot;],
+                    &quot;all_inn&quot;: [&quot;7813475980&quot;, &quot;7813323882&quot;],
+                    &quot;header_kpp&quot;: [&quot;785150001&quot;],
+                    &quot;all_kpp&quot;: [&quot;785150001&quot;],
+                    &quot;amount&quot;: [406355.6],
+                    &quot;date&quot;: [{&quot;$date&quot;: 1529625600000}],
+                    &quot;invoice_number&quot;: [&quot;2781&quot;]
+                }
+            ]
+        ],
+    &quot;error&quot;: null
+}
+</code></pre>
+
+<h2 id="todo">TODO</h2>
+
+<ul>
+<li>Разделить поля в шаблоне на обязательные и необязвтельные,
+чтобы при обработке многостраничных файлов можно было обозначить
+конец документа, даже если не были найдены все данные</li>
+<li>Если установлен перевод текста в нижний регистр - переводить и
+регулярные выражения. Аналогично с пробелами.</li>
+<li>Поддержка других форматов документов (doc/docx, xls/xlsx, rtf, zip, rar)</li>
+<li>Поддержка опций извлечения текста
+(язык, списки извлекаторов, автоматическая ориентация)</li>
+<li>Стриминговое скачиваение и обработка файлов для экономии памяти</li>
+<li>Метод API, возвращающий только текст (без извлечения данных по шаблону)</li>
+<li>Тесты на большем количестве примеров счетов</li>
+<li>Тесты на документах другого типа</li>
+</ul>
+	
+  
+
+
+
+</section>
+</div>
+<div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#docdataextractor-api">DocDataExtractor API</a>
+<ul>
+<li><a href="#post-extract">POST /extract</a>
+<ul>
+<li><a href="#параметры-запроса">Параметры запроса</a></li>
+<li><a href="#template">Template</a></li>
+<li><a href="#пример-запроса">Пример запроса:</a></li>
+<li><a href="#пример-ответа">Пример ответа</a></li>
+</ul></li>
+<li><a href="#todo">TODO</a></li>
+</ul></li>
+</ul>
+</nav>
+</div>
+
+</div>
+</main>
+
+
+</div>
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="https://developers.devision.io/docdataextractor/js/clipboard.min.js"></script>
+    <script src="https://developers.devision.io/docdataextractor/js/html5shiv-printshiv.min.js"></script>
+    <script src="https://developers.devision.io/docdataextractor/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="https://developers.devision.io/docdataextractor/js/modernizr.custom.71422.js"></script>
+    <script src="https://developers.devision.io/docdataextractor/js/learn.js"></script>
+    <script src="https://developers.devision.io/docdataextractor/js/hugo-learn.js"></script>
+
+  </body>
+</html>
+

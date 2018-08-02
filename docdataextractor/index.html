@@ -102,14 +102,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 на несколько страниц документа или несколько наборов данных, если несколько
 разных текстов были объединены в один многостраничный документ.</p>
 
-<h2 id="post-extract">POST /extract</h2>
+<h2 id="post-extract-texts">POST /extract-texts</h2>
 
-<p>Body: {&ldquo;files_ids&rdquo;:[&ldquo;&rdquo;], &ldquo;templates&rdquo;:[{}]}</p>
+<p>Body: {&ldquo;media_ids&rdquo;:[&ldquo;&rdquo;]}</p>
 
 <h3 id="параметры-запроса">Параметры запроса</h3>
 
 <ul>
-<li>files_ids ([str]) - список айдишников файлов в мете</li>
+<li>media_ids ([str]) - список айдишников файлов в мете</li>
+</ul>
+
+<h2 id="post-extract-data">POST /extract-data</h2>
+
+<p>Body: {&ldquo;media_ids&rdquo;:[&ldquo;&rdquo;], &ldquo;templates&rdquo;:[{}]}</p>
+
+<h3 id="параметры-запроса-1">Параметры запроса</h3>
+
+<ul>
+<li>media_ids ([str]) - список айдишников файлов в мете</li>
 <li>templates ([{}]) -  список шаблонов для извлечения данных
 <br /></li>
 </ul>
@@ -138,7 +148,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <h3 id="пример-запроса">Пример запроса:</h3>
 
 <pre><code>{
-    &quot;files_ids&quot;: [&quot;ca62d8e9-7be5-4ecd-a913-e7683a4f2428&quot;],
+    &quot;media_ids&quot;: [&quot;ca62d8e9-7be5-4ecd-a913-e7683a4f2428&quot;],
     &quot;templates&quot;:
     [
         {
@@ -228,9 +238,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <ul>
 <li><a href="#docdataextractor-api">DocDataExtractor API</a>
 <ul>
-<li><a href="#post-extract">POST /extract</a>
+<li><a href="#post-extract-texts">POST /extract-texts</a>
 <ul>
 <li><a href="#параметры-запроса">Параметры запроса</a></li>
+</ul></li>
+<li><a href="#post-extract-data">POST /extract-data</a>
+<ul>
+<li><a href="#параметры-запроса-1">Параметры запроса</a></li>
 <li><a href="#template">Template</a></li>
 <li><a href="#пример-запроса">Пример запроса:</a></li>
 <li><a href="#пример-ответа">Пример ответа</a></li>

@@ -3,7 +3,31 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://developers.devision.io/apiproxy/calltouch/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.devision.io/apiproxy/comagic/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.devision.io/apiproxy/criteo_report/</loc>
+  </url>
+  
+  <url>
     <loc>https://developers.devision.io/apiproxy/facebook_ads/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.devision.io/apiproxy/google_adwords/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.devision.io/apiproxy/google_analytics/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.devision.io/apiproxy/queue_manager/</loc>
   </url>
   
   <url>

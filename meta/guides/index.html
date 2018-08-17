@@ -156,6 +156,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
+            <li data-nav-id="/guides/entity_listeners/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/guides/entity_listeners/" class="devsite-nav-title">
+                    <span>Отслеживание изменений сущностей</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
             <li data-nav-id="/guides/script_types/" class="devsite-nav-item devsite-nav-item-main
                         
                         
@@ -764,6 +782,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </header>
     <section class="post-excerpt">
         <p>Введение  env - объект-окружение запроса к серверу. vm - объект для удобной работы с ответом клиенту. На лего странцах отдельный vm на каждый script. pvm - только на LEGO-страницах. Отвечает за хранение данных на всех странце, содержит в себе vm script. DataResult - низкоуровневый класс, отвечающий за ответ с данными по EntityPage. Его нельзя получить так как он никуда не передается, существует вне scipt - над ним. Создается вручную при необходимости только в meta/js скриптах. </p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post guides">
+    <header class="post-header">
+        <h2 class="post-title"><a href="https://developers.devision.io/meta/guides/entity_listeners/">Отслеживание изменений сущностей</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Мотивация Бывают случаи, когда у вас есть форма создания/редактирования объекта и в ней есть инпут с выбором объекта другого типа. Например: вы добавляете товар и выбираете его категорию, а если категории нет, то вы хотите прямо здесь ее создать.
+В этом случае у инпута выбора категории нужно добавить кнопку создания объекта через &ldquo;addObjectButton&rdquo; и добавить прослушку событий по объектам указаного типа через &ldquo;listen&rdquo; чтобы после создания объект появлвлся в выпадающем списке. </p>
     </section>
     <footer class=" footline" >
          

@@ -9,7 +9,7 @@
     <meta name="description" content="">
 
 
-    <title>Categories :: META | Devision Developers</title>
+    <title>Отслеживание изменений сущностей :: META | Devision Developers</title>
     <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/categories/">
+  <body class="" data-url="/guides/entity_listeners/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -69,7 +69,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="/guides/" class="devsite-nav-item devsite-nav-item-main
-                        
+                        parent
                         
                         parent
                         ">
@@ -156,7 +156,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/guides/entity_listeners/" class="devsite-nav-item dd-item ">
+            <li data-nav-id="/guides/entity_listeners/" class="devsite-nav-item dd-item active">
                 <a href="https://developers.devision.io/meta/guides/entity_listeners/" class="devsite-nav-title">
                     <span>Отслеживание изменений сущностей</span>
                 </a>
@@ -691,7 +691,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <span class="links">
                 
 
- Categories
+
+
+
+
+
+
+ <a href='https://developers.devision.io/meta/'>META</a> > <a href='https://developers.devision.io/meta/guides/'>Руководства</a> > Отслеживание изменений сущностей
+
+
+
+
 
 
                 </span>
@@ -701,11 +711,92 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <div id="body-inner">
           
-            <h1>Categories</h1>
+            <h1>Отслеживание изменений сущностей</h1>
           
 
 
 
+
+
+<h2 id="мотивация">Мотивация</h2>
+
+<p>Бывают случаи, когда у вас есть форма создания/редактирования объекта и в ней есть инпут с выбором объекта другого типа.
+Например: вы добавляете товар и выбираете его категорию, а если категории нет, то вы хотите прямо здесь ее создать.</p>
+
+<p>В этом случае у инпута выбора категории нужно добавить кнопку создания объекта через &ldquo;addObjectButton&rdquo; и добавить прослушку событий по объектам указаного типа через &ldquo;listen&rdquo;
+чтобы после создания объект появлвлся в выпадающем списке.</p>
+
+<p>На форме, где у вас будет инпут обязательно добавьте секции:
+- attrs.addObjectButton
+- listen</p>
+
+<pre><code class="language-json">{
+  &quot;id&quot;: &quot;mylego&quot;,
+  &quot;name&quot;: &quot;me-lego&quot;,
+  &quot;elems&quot;: [
+      {
+        &quot;id&quot;: &quot;ex_access_id&quot;,
+        &quot;name&quot;: &quot;me-input&quot;,
+        &quot;entityId&quot;: 2830,
+        &quot;attrs&quot;: {
+          &quot;type&quot;: &quot;select&quot;, // говорим, что  у нас выпадающий селектбокс
+          &quot;required&quot;: true,
+          &quot;addObjectButton&quot;: { // говорим, что у нас есть кнопка создания объектов указанного entity_id
+            &quot;env&quot;: {
+              &quot;sp&quot;: { // если вам нужно перезать что-то на страницу создания объекта, при нажатии на кнопку создания объекта сделайте это тут
+                &quot;obj&quot;: {
+                  &quot;mode&quot;: &quot;feed&quot;,
+                  &quot;ex_system_id&quot;: &quot;google_adwords&quot;
+                }
+              }
+            },
+            &quot;title&quot;: &quot;Подключить аккаунт&quot;
+          }
+        },
+        &quot;listen&quot;: [
+          {
+           // Тут мы гвоорим, что хотим отслеживать изменения сущности при операция добавление и изменения
+            &quot;code&quot;: [
+              &quot;ADD&quot;,
+              &quot;SET&quot;
+            ],
+            &quot;entityId&quot;: 2830,
+            &quot;refreshRefPvmData&quot;: {},  // Говорим, что хотим обновлять список опшенов me-input
+            &quot;objectId&quot;: 0
+          }
+        ],
+        
+        // Это просто для полноценности примера
+        &quot;label&quot;: &quot;Укажите аккаунт для получения данных или добавьте новый&quot;,
+        &quot;refPvmData&quot;: {
+          &quot;id&quot;: &quot;$metaql&quot;,
+          &quot;sp&quot;: {
+            // Кстати, это хороший пример использования защищенного языка запросов к данным. Это не полноценный SQL
+            // Тут работает общий ACL и нет ничего, кроме простых SELECT заппросов
+            &quot;dbQuery&quot;: {
+              &quot;command&quot;: &quot;SELECT id,name FROM meta.ex_access WHERE ex_system_id = 'google_adwords' and user_status='ENABLED' ORDER BY name&quot;
+            }
+          }
+        }
+      }
+  ]
+}
+</code></pre>
+
+<p>На стороне страницы создания/редактирования объекта сущности нужно обязательно залогировать добавление или изменение вызовом ObjectLogService.logValue</p>
+
+<pre><code class="language-html">&lt;script type=&quot;meta/js&quot; elem=&quot;hidden&quot; states=&quot;save&quot;&gt;
+	function main(pvm, vm, env, ObjectLogService) {
+		var isNew = false;
+		var objectId = env.object_id;
+		pvm.resetToInitialState();
+		pvm.closeModal();
+		pvm.changeState('default');
+		pvm.popup = {level: &quot;success&quot;, message: &quot;Сохранено&quot;};
+		ObjectLogService.logValue(env.entityId, objectId, isNew ? 'ADD' : 'SET', env.sp.obj);
+	}
+&lt;/script&gt; 
+</code></pre>
 
 
 <footer class=" footline" >
@@ -714,36 +805,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-	
-
-	<div class="extra-pagination inner">
-	<nav class="pagination" role="navigation">
-	
-	<span class="page-number"> 1  0</span>
-	
-</nav>
-
-	</div>
-
-	
-
-	<div style="margin-bottom:2rem"></div>
-
-	<nav class="pagination" role="navigation">
-	
-	<span class="page-number"> 1  0</span>
-	
-</nav>
-
-
-
-
 
 
 </section>
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
-    
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#мотивация">Мотивация</a></li>
+</ul></li>
+</ul>
+</nav>
 </div>
 
 </div>
@@ -764,3 +838,4 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   </body>
 </html>
+

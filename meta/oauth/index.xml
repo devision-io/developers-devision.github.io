@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>OAuth on META | Devision Developers</title>
+    <link>https://developers.devision.io/meta/oauth/</link>
+    <description>Recent content in OAuth on META | Devision Developers</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    
+	<atom:link href="https://developers.devision.io/meta/oauth/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Вход через META</title>
+      <link>https://developers.devision.io/meta/oauth/login_with_meta/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/oauth/login_with_meta/</guid>
+      <description>Вход через мету
+1) Регистрируете приложение
+Вы можете добавить доверенное приложение, в таком случае мета не станет спрашивать у пользователя подтверждения в выдаче токена. Это полезно, когда вы делаете вход для своих внутренних сервисов.  2) Перебрасываете пользователя на url меты:
+``` http://YOUR-META-URL/oauth2/authorize?response_type=code client_id=&amp;lt;идентификатор приложения&amp;gt; &amp;amp; redirect_uri=&amp;lt;адрес перенаправления&amp;gt; &amp;amp; state=&amp;lt;произвольная строка&amp;gt; &amp;amp; scope=&amp;lt;запрашиваемые необходимые права&amp;gt; ```  3) После подтверждения в мете пользователя перебрасывает на указанный вами redirect_uri с добавлением GET параметра code</description>
+    </item>
+    
+  </channel>
+</rss>

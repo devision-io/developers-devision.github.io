@@ -9,7 +9,7 @@
     <meta name="description" content="">
 
 
-    <title>Tags :: ApiProxy | Devision Developers</title>
+    <title>Save Call :: ApiProxy | Devision Developers</title>
     <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/tags/">
+  <body class="" data-url="/helpers/save_call/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -70,7 +70,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             <li data-nav-id="/engine/" class="devsite-nav-item devsite-nav-item-main
                         
-                        active
+                        
                         
                         ">
                 <a href="https://developers.devision.io/apiproxy/engine/" class="devsite-nav-title devsite-nav-item-main-title">
@@ -269,8 +269,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="/helpers/" class="devsite-nav-item devsite-nav-item-main
+                        parent
                         
-                        active
                         
                         ">
                 <a href="https://developers.devision.io/apiproxy/helpers/" class="devsite-nav-title devsite-nav-item-main-title">
@@ -318,7 +318,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/helpers/save_call/" class="devsite-nav-item dd-item ">
+            <li data-nav-id="/helpers/save_call/" class="devsite-nav-item dd-item active">
                 <a href="https://developers.devision.io/apiproxy/helpers/save_call/" class="devsite-nav-title">
                     <span>Save Call</span>
                 </a>
@@ -352,7 +352,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <span class="links">
                 
 
- Tags
+
+
+
+
+
+
+ <a href='https://developers.devision.io/apiproxy/'>Api Proxy</a> > <a href='https://developers.devision.io/apiproxy/helpers/'>Helpers</a> > Save Call
+
+
+
+
 
 
                 </span>
@@ -362,11 +372,66 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <div id="body-inner">
           
-            <h1>Tags</h1>
+            <h1>Save Call</h1>
           
 
 
 
+
+
+<h2 id="общее">Общее</h2>
+
+<p>Этот скрипт содержит в себе декоратор для сохранения результата работы любой функции в базу.
+Оборачивает любую функцию, и принимает параметры &ldquo;request_id&rdquo;, &ldquo;uniq&rdquo;, &ldquo;file_type&rdquo;.</p>
+
+<p>Принцип работы:
+Генерирует unique_id по имени функции и переданным в нее параметрам.
+Делает SELECT из таблицы adplatform.api.request_log по request_id и проверяет наличие там unique_id.
+Если есть десерелизует уже записанный результат и возвращает его.
+Если нет, то выполняет функцию, серелизует результат её работы и записывает в базу вместе с параметрами с которыми она была вызвана.</p>
+
+<h2 id="параметры-вызова">Параметры вызова</h2>
+
+<p>&ldquo;request_id&rdquo; - Тип uuid. Уникальный id операции.<br />
+Если не передан, декоратор просто вернет результат работы без записи в базу.</p>
+
+<p>&ldquo;uniq&rdquo; - Тип list. Определяет какие ключи словаря kwargs записывать как уникальный идентификатор вызова функции.</p>
+
+<p>&ldquo;file_type&rdquo; - Тип str. Определяет какой формат возвращает функция, приводит этот формат к JSON, для дальнейшей записи в базу.
+Если не передан, то конвертации не произойдет и будет попытка записать в базу &ldquo;как есть&rdquo;.
+ВНИМАНИЕ! В базу не может быть записан не JSON.
+Поддерживаемые форматы: &lsquo;suds&rsquo;, &lsquo;zeep&rsquo;, &lsquo;text&rsquo;, &lsquo;fc_obj(facebook_object)&rsquo;</p>
+
+<h2 id="примеры">Примеры</h2>
+
+<h3 id="пример-1">Пример 1</h3>
+
+<p>Получение статистики за месяц.</p>
+
+<pre><code class="language-python">
+import requests
+
+from src.engine.save_call import save_call
+
+url = 'http://book.pythontips.com/en/latest/lambdas.html'
+
+
+@save_call(request_id='32d14289-5f83-4829-a87f-e83cc51a7020', uniq=['url', ])
+def save_requests_get(*args, **kwargs):
+    res = requests.get(*args, **kwargs)
+    return res.text
+
+
+s = save_requests_get(url=url)
+r = requests.get(url=url).text
+
+print(type(s))
+print(type(r))
+print(r == s)
+
+
+
+</code></pre>
 
 
 <footer class=" footline" >
@@ -375,36 +440,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-	
-
-	<div class="extra-pagination inner">
-	<nav class="pagination" role="navigation">
-	
-	<span class="page-number"> 1  0</span>
-	
-</nav>
-
-	</div>
-
-	
-
-	<div style="margin-bottom:2rem"></div>
-
-	<nav class="pagination" role="navigation">
-	
-	<span class="page-number"> 1  0</span>
-	
-</nav>
-
-
-
-
 
 
 </section>
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
-    
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#общее">Общее</a></li>
+<li><a href="#параметры-вызова">Параметры вызова</a></li>
+<li><a href="#примеры">Примеры</a>
+<ul>
+<li><a href="#пример-1">Пример 1</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
 </div>
 
 </div>
@@ -425,3 +478,4 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   </body>
 </html>
+

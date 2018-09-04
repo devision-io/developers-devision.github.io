@@ -9,7 +9,7 @@
     <meta name="description" content="">
 
 
-    <title>Tags :: ApiProxy | Devision Developers</title>
+    <title>Yandex Direct Report :: ApiProxy | Devision Developers</title>
     <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/tags/">
+  <body class="" data-url="/engine/yandex_direct_report/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -69,8 +69,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="/engine/" class="devsite-nav-item devsite-nav-item-main
+                        parent
                         
-                        active
                         
                         ">
                 <a href="https://developers.devision.io/apiproxy/engine/" class="devsite-nav-title devsite-nav-item-main-title">
@@ -226,7 +226,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/engine/yandex_direct_report/" class="devsite-nav-item dd-item ">
+            <li data-nav-id="/engine/yandex_direct_report/" class="devsite-nav-item dd-item active">
                 <a href="https://developers.devision.io/apiproxy/engine/yandex_direct_report/" class="devsite-nav-title">
                     <span>Yandex Direct Report</span>
                 </a>
@@ -270,7 +270,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             <li data-nav-id="/helpers/" class="devsite-nav-item devsite-nav-item-main
                         
-                        active
+                        
                         
                         ">
                 <a href="https://developers.devision.io/apiproxy/helpers/" class="devsite-nav-title devsite-nav-item-main-title">
@@ -352,7 +352,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <span class="links">
                 
 
- Tags
+
+
+
+
+
+
+ <a href='https://developers.devision.io/apiproxy/'>Api Proxy</a> > <a href='https://developers.devision.io/apiproxy/engine/'>Engines</a> > Yandex Direct Report
+
+
+
+
 
 
                 </span>
@@ -362,11 +372,85 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <div id="body-inner">
           
-            <h1>Tags</h1>
+            <h1>Yandex Direct Report</h1>
           
 
 
 
+
+
+<h2 id="общее">Общее</h2>
+
+<p>Этот engine предоставляет доступ к отчетам Яндект Директа (ЯД).
+Для справочников существует отдельный engine apiproxy так как и у ЯД это отдельная служба.</p>
+
+<p><a href="https://tech.yandex.ru/direct/doc/reports/reports-docpage/">Дока Директа</a></p>
+
+<h2 id="payload">payload</h2>
+
+<ul>
+<li>access_token - токен ЯД</li>
+<li>version - версия апи ЯД. Новое пишется с v5</li>
+<li>account_name - название аккаунта клиента ЯД. В некоторых методах, это необязательное поле. Например Clients.get<br /></li>
+<li>method_params - параметры <a href="https://tech.yandex.ru/direct/doc/reports/report-format-docpage/">отчета апи</a></li>
+<li>request_headers - Смотреть <a href="https://tech.yandex.ru/direct/doc/reports/headers-docpage/">тут</a></li>
+<li>return_as_is - False по умолчанию. Если True будет возвращены TSV данные</li>
+</ul>
+
+<h2 id="примеры">Примеры</h2>
+
+<h3 id="пример-1">Пример 1</h3>
+
+<p>Получить отчет</p>
+
+<pre><code class="language-python">import requests
+import json
+access_token = &quot;YOUR_TOKEN&quot;
+
+ret = requests.post(&quot;${HOST}/native_call&quot;, json.dumps(body = {
+    &quot;engine&quot;: &quot;yandex_direct_report&quot;,
+    &quot;payload&quot;: {
+        &quot;access_token&quot;: access_token,
+        &quot;version&quot;: &quot;v5&quot;,
+        &quot;account_name&quot;: &quot;myyandexdirectaccount&quot;,
+        &quot;method_params&quot;: {
+            &quot;DateRangeType&quot;: &quot;CUSTOM_DATE&quot;,
+            &quot;SelectionCriteria&quot;: {
+                &quot;DateFrom&quot;: &quot;2018-01-01&quot;,
+                &quot;DateTo&quot;: &quot;2018-03-01&quot;,
+            },
+            &quot;FieldNames&quot;: [
+                &quot;Date&quot;,
+                &quot;CampaignId&quot;,
+                &quot;CampaignName&quot;,
+                &quot;CampaignType&quot;,
+                &quot;AdId&quot;,
+                &quot;AdFormat&quot;,
+                &quot;AdGroupId&quot;,
+                &quot;AdGroupName&quot;,
+
+                &quot;AdNetworkType&quot;,
+                &quot;Age&quot;,
+                &quot;Device&quot;,
+                &quot;Gender&quot;,
+                &quot;LocationOfPresenceName&quot;,
+                &quot;Placement&quot;,
+                &quot;TargetingLocationName&quot;,
+
+                &quot;Clicks&quot;,
+                &quot;Impressions&quot;,
+                &quot;Cost&quot;,
+
+            ],
+            &quot;OrderBy&quot;: [{&quot;Field&quot;: &quot;Date&quot;}],
+            &quot;ReportType&quot;: &quot;AD_PERFORMANCE_REPORT&quot;,
+            &quot;IncludeVAT&quot;: &quot;YES&quot;,
+            &quot;IncludeDiscount&quot;: &quot;NO&quot;
+        }
+    }
+}))
+print(u&quot;ret = %s&quot; % str(ret.text))
+</code></pre>
 
 
 <footer class=" footline" >
@@ -375,36 +459,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-	
-
-	<div class="extra-pagination inner">
-	<nav class="pagination" role="navigation">
-	
-	<span class="page-number"> 1  0</span>
-	
-</nav>
-
-	</div>
-
-	
-
-	<div style="margin-bottom:2rem"></div>
-
-	<nav class="pagination" role="navigation">
-	
-	<span class="page-number"> 1  0</span>
-	
-</nav>
-
-
-
-
 
 
 </section>
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
-    
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#общее">Общее</a></li>
+<li><a href="#payload">payload</a></li>
+<li><a href="#примеры">Примеры</a>
+<ul>
+<li><a href="#пример-1">Пример 1</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
 </div>
 
 </div>
@@ -425,3 +497,4 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   </body>
 </html>
+

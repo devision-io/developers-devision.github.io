@@ -3,43 +3,47 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://developers.devision.io/apiproxy/calltouch/</loc>
+    <loc>https://developers.devision.io/apiproxy/engine/calltouch/</loc>
   </url>
   
   <url>
-    <loc>https://developers.devision.io/apiproxy/comagic/</loc>
+    <loc>https://developers.devision.io/apiproxy/engine/comagic/</loc>
   </url>
   
   <url>
-    <loc>https://developers.devision.io/apiproxy/criteo_report/</loc>
+    <loc>https://developers.devision.io/apiproxy/engine/criteo/</loc>
   </url>
   
   <url>
-    <loc>https://developers.devision.io/apiproxy/facebook_ads/</loc>
+    <loc>https://developers.devision.io/apiproxy/engine/facebook_ads/</loc>
   </url>
   
   <url>
-    <loc>https://developers.devision.io/apiproxy/google_adwords/</loc>
+    <loc>https://developers.devision.io/apiproxy/engine/google_adwords/</loc>
   </url>
   
   <url>
-    <loc>https://developers.devision.io/apiproxy/google_analytics/</loc>
+    <loc>https://developers.devision.io/apiproxy/engine/google_analytics/</loc>
   </url>
   
   <url>
-    <loc>https://developers.devision.io/apiproxy/queue_manager/</loc>
+    <loc>https://developers.devision.io/apiproxy/helpers/queue_manager/</loc>
   </url>
   
   <url>
-    <loc>https://developers.devision.io/apiproxy/yandex_direct/</loc>
+    <loc>https://developers.devision.io/apiproxy/helpers/save_call/</loc>
   </url>
   
   <url>
-    <loc>https://developers.devision.io/apiproxy/yandex_direct_report/</loc>
+    <loc>https://developers.devision.io/apiproxy/engine/yandex_direct/</loc>
   </url>
   
   <url>
-    <loc>https://developers.devision.io/apiproxy/yandex_market/</loc>
+    <loc>https://developers.devision.io/apiproxy/engine/yandex_direct_report/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.devision.io/apiproxy/engine/yandex_market/</loc>
   </url>
   
   <url>
@@ -54,6 +58,16 @@
   
   <url>
     <loc>https://developers.devision.io/apiproxy/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://developers.devision.io/apiproxy/engine/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://developers.devision.io/apiproxy/helpers/</loc>
     <priority>0</priority>
   </url>
   

@@ -9,7 +9,7 @@
     <meta name="description" content="">
 
 
-    <title>Tags :: ApiProxy | Devision Developers</title>
+    <title>Yandex Market :: ApiProxy | Devision Developers</title>
     <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/tags/">
+  <body class="" data-url="/engine/yandex_market/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -69,8 +69,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="/engine/" class="devsite-nav-item devsite-nav-item-main
+                        parent
                         
-                        active
                         
                         ">
                 <a href="https://developers.devision.io/apiproxy/engine/" class="devsite-nav-title devsite-nav-item-main-title">
@@ -244,7 +244,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/engine/yandex_market/" class="devsite-nav-item dd-item ">
+            <li data-nav-id="/engine/yandex_market/" class="devsite-nav-item dd-item active">
                 <a href="https://developers.devision.io/apiproxy/engine/yandex_market/" class="devsite-nav-title">
                     <span>Yandex Market</span>
                 </a>
@@ -270,7 +270,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             <li data-nav-id="/helpers/" class="devsite-nav-item devsite-nav-item-main
                         
-                        active
+                        
                         
                         ">
                 <a href="https://developers.devision.io/apiproxy/helpers/" class="devsite-nav-title devsite-nav-item-main-title">
@@ -352,7 +352,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <span class="links">
                 
 
- Tags
+
+
+
+
+
+
+ <a href='https://developers.devision.io/apiproxy/'>Api Proxy</a> > <a href='https://developers.devision.io/apiproxy/engine/'>Engines</a> > Yandex Market
+
+
+
+
 
 
                 </span>
@@ -362,11 +372,49 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <div id="body-inner">
           
-            <h1>Tags</h1>
+            <h1>Yandex Market</h1>
           
 
 
 
+
+
+<h2 id="общее">Общее</h2>
+
+<p>Этот engine предоставляет доступ к справочникам Яндект Директа (ЯМ).
+<a href="https://tech.yandex.ru/market/partner/doc/dg/concepts/about-docpage/">Дока Маркета</a></p>
+
+<h2 id="payload">payload</h2>
+
+<ul>
+<li>access_token - токен ЯМ.</li>
+<li>version - версия апи ЯМ. Новое пишется с v2</li>
+<li>method - метод апи. Например <a href="https://tech.yandex.ru/market/partner/doc/dg/reference/get-campaigns-id-stats-offers-docpage/">get</a></li>
+
+<li><p>method_params - параметры метода апи</p>
+
+<h2 id="примеры">Примеры</h2></li>
+</ul>
+
+<h3 id="пример-1">Пример 1</h3>
+
+<p>Получить список кампаний</p>
+
+<pre><code class="language-python">import requests
+import json
+
+rsp = requests.post(&quot;http://localhost:9998/native_call&quot;, json.dumps({
+    &quot;engine&quot;: &quot;yandex_market_partner&quot;,
+    &quot;payload&quot;: {
+        &quot;version&quot;: &quot;2&quot;,
+        &quot;access_token&quot;: &quot;AQAAAAAVDLtlAAHkQafBUG5pQU99s6_sWNG_nHg&quot;,
+        &quot;method&quot;: &quot;campaigns&quot;,
+        &quot;method_params&quot;: {}
+    }
+}))
+
+print(&quot;{} {}&quot;.format(rsp.status_code, rsp.text))
+</code></pre>
 
 
 <footer class=" footline" >
@@ -375,36 +423,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-	
-
-	<div class="extra-pagination inner">
-	<nav class="pagination" role="navigation">
-	
-	<span class="page-number"> 1  0</span>
-	
-</nav>
-
-	</div>
-
-	
-
-	<div style="margin-bottom:2rem"></div>
-
-	<nav class="pagination" role="navigation">
-	
-	<span class="page-number"> 1  0</span>
-	
-</nav>
-
-
-
-
 
 
 </section>
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
-    
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#общее">Общее</a></li>
+<li><a href="#payload">payload</a></li>
+<li><a href="#примеры">Примеры</a>
+<ul>
+<li><a href="#пример-1">Пример 1</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
 </div>
 
 </div>
@@ -425,3 +461,4 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   </body>
 </html>
+

@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Api Proxy on ApiProxy | Devision Developers</title>
-    <link>https://developers.devision.io/apiproxy/</link>
-    <description>Recent content in Api Proxy on ApiProxy | Devision Developers</description>
+    <title>Engines on ApiProxy | Devision Developers</title>
+    <link>https://developers.devision.io/apiproxy/engine/</link>
+    <description>Recent content in Engines on ApiProxy | Devision Developers</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
-    <lastBuildDate>Mon, 24 Apr 2017 18:36:24 +0200</lastBuildDate>
     
-	<atom:link href="https://developers.devision.io/apiproxy/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://developers.devision.io/apiproxy/engine/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -81,27 +80,6 @@ import json import pprint import requests from metaappscriptsdk import MetaApp M
     </item>
     
     <item>
-      <title>Queue Manager</title>
-      <link>https://developers.devision.io/apiproxy/helpers/queue_manager/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://developers.devision.io/apiproxy/helpers/queue_manager/</guid>
-      <description>Общее Простой менеджер очереди для редис который умеет ставить в очередь по уникальным параметрам запроса.
-Параметры  size - размер очереди unique_keys - список путей до уникальных ключей в параметрах (формата &amp;lsquo;method_params.account_id&amp;rsquo;) wait_time - максимальное время ожидание постановки задачи в очередь (по умолчанию 5 секунд)  Примеры Пример 1 Использование в коде
-@redis_queue(5, [&#39;refresh_token&#39;]) def google_analytics_nc(META: MetaApp, version, refresh_token, method, method_params, data_format=None, http_response=None):  Пример 2 Использование в коде с другим временем ожидания</description>
-    </item>
-    
-    <item>
-      <title>Save Call</title>
-      <link>https://developers.devision.io/apiproxy/helpers/save_call/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://developers.devision.io/apiproxy/helpers/save_call/</guid>
-      <description>Общее Этот скрипт содержит в себе декоратор для сохранения результата работы любой функции в базу. Оборачивает любую функцию, и принимает параметры &amp;ldquo;request_id&amp;rdquo;, &amp;ldquo;uniq&amp;rdquo;, &amp;ldquo;file_type&amp;rdquo;.
-Принцип работы: Генерирует unique_id по имени функции и переданным в нее параметрам. Делает SELECT из таблицы adplatform.api.request_log по request_id и проверяет наличие там unique_id. Если есть десерелизует уже записанный результат и возвращает его. Если нет, то выполняет функцию, серелизует результат её работы и записывает в базу вместе с параметрами с которыми она была вызвана.</description>
-    </item>
-    
-    <item>
       <title>Yandex Direct</title>
       <link>https://developers.devision.io/apiproxy/engine/yandex_direct/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -135,15 +113,6 @@ payload  access_token - токен ЯД version - версия апи ЯД. Но
 payload  access_token - токен ЯМ. version - версия апи ЯМ. Новое пишется с v2 method - метод апи. Например get method_params - параметры метода апи
 Примеры  Пример 1 Получить список кампаний
 import requests import json rsp = requests.post(&amp;quot;http://localhost:9998/native_call&amp;quot;, json.dumps({ &amp;quot;engine&amp;quot;: &amp;quot;yandex_market_partner&amp;quot;, &amp;quot;payload&amp;quot;: { &amp;quot;version&amp;quot;: &amp;quot;2&amp;quot;, &amp;quot;access_token&amp;quot;: &amp;quot;AQAAAAAVDLtlAAHkQafBUG5pQU99s6_sWNG_nHg&amp;quot;, &amp;quot;method&amp;quot;: &amp;quot;campaigns&amp;quot;, &amp;quot;method_params&amp;quot;: {} } })) print(&amp;quot;{} {}&amp;quot;.format(rsp.status_code, rsp.</description>
-    </item>
-    
-    <item>
-      <title>header</title>
-      <link>https://developers.devision.io/apiproxy/_header/</link>
-      <pubDate>Tue, 24 Apr 2018 18:36:24 +0200</pubDate>
-      
-      <guid>https://developers.devision.io/apiproxy/_header/</guid>
-      <description>Api Proxy</description>
     </item>
     
   </channel>

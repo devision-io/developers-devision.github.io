@@ -9,7 +9,7 @@
     <meta name="description" content="">
 
 
-    <title>Tags :: ApiProxy | Devision Developers</title>
+    <title>Google AdWords :: ApiProxy | Devision Developers</title>
     <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/tags/">
+  <body class="" data-url="/engine/google_adwords/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -69,8 +69,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="/engine/" class="devsite-nav-item devsite-nav-item-main
+                        parent
                         
-                        active
                         
                         ">
                 <a href="https://developers.devision.io/apiproxy/engine/" class="devsite-nav-title devsite-nav-item-main-title">
@@ -172,7 +172,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/engine/google_adwords/" class="devsite-nav-item dd-item ">
+            <li data-nav-id="/engine/google_adwords/" class="devsite-nav-item dd-item active">
                 <a href="https://developers.devision.io/apiproxy/engine/google_adwords/" class="devsite-nav-title">
                     <span>Google AdWords</span>
                 </a>
@@ -270,7 +270,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             <li data-nav-id="/helpers/" class="devsite-nav-item devsite-nav-item-main
                         
-                        active
+                        
                         
                         ">
                 <a href="https://developers.devision.io/apiproxy/helpers/" class="devsite-nav-title devsite-nav-item-main-title">
@@ -352,7 +352,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <span class="links">
                 
 
- Tags
+
+
+
+
+
+
+ <a href='https://developers.devision.io/apiproxy/'>Api Proxy</a> > <a href='https://developers.devision.io/apiproxy/engine/'>Engines</a> > Google AdWords
+
+
+
+
 
 
                 </span>
@@ -362,11 +372,63 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <div id="body-inner">
           
-            <h1>Tags</h1>
+            <h1>Google AdWords</h1>
           
 
 
 
+
+
+<h2 id="общее">Общее</h2>
+
+<p>Этот engine предоставляет доступ к статистике сервиса criteo.com
+<a href="https://support.criteo.com/hc/en-us/articles/209273149-How-do-I-call-the-reporting-information-using-the-Criteo-API-">Дока</a></p>
+
+<h2 id="payload">payload</h2>
+
+<p>&ldquo;version&rdquo; - Версия API AdWords. Например v201806
+&ldquo;refresh_token&rdquo; - refresh токен гугла
+&ldquo;customer_id&rdquo; - ID клиента Google Ads
+&ldquo;service&rdquo; - Имя службы. Например <a href="https://developers.google.com/adwords/api/docs/reference/v201806/AdGroupService">AdGroupService</a>
+&ldquo;method&rdquo; - Имя метода службы: get, mutate и пр. Например <a href="https://developers.google.com/adwords/api/docs/reference/v201806/AdGroupService#mutate">mutate</a>
+&ldquo;method_params&rdquo; - параметры метода апи
+&ldquo;partial_failure&rdquo; - По умолчанию False. Включает функцию частичного отказа операций. Например при добавлении 10 объявлений 2 из них могут не добавиться, но это не вызовет проблем с добавленим остальных 8-ми. <a href="https://developers.google.com/adwords/api/docs/guides/partial-failure">Подробнее</a></p>
+
+<h3 id="пример">Пример</h3>
+
+<pre><code class="language-python">import requests
+import json
+
+to_proxy = json.dumps({
+     &quot;engine&quot;: &quot;google_adwords&quot;,
+     &quot;payload&quot;: {
+        &quot;refresh_token&quot;: &quot;XXXXX&quot;,
+        &quot;version&quot;: &quot;v201806&quot;,
+        &quot;customer_id&quot;: &quot;XXXXXXX&quot;,
+        &quot;service&quot;: &quot;AdService&quot;,
+        &quot;method&quot;: &quot;mutate&quot;,
+        &quot;method_params&quot;: {
+            &quot;operations&quot;: [
+                {
+                    &quot;operator&quot;: &quot;SET&quot;,
+                    &quot;operand&quot;: {
+                        'xsi_type'      :'ExpandedTextAd',
+                        'id'            :286782508257,
+                        &quot;headlinePart1&quot; :'Купить Бадлон',
+                        &quot;headlinePart2&quot; :'текст222233333444',
+                        &quot;description&quot;   :'MY DESC 123',
+                        &quot;finalUrls&quot;     :['http://example.com']
+                    }
+                }
+
+            ]
+        }
+    }
+})
+
+res = requests.post(API_HOST + &quot;/native_call&quot;, to_proxy)
+auth_token = res.json().get('result')
+</code></pre>
 
 
 <footer class=" footline" >
@@ -375,36 +437,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-	
-
-	<div class="extra-pagination inner">
-	<nav class="pagination" role="navigation">
-	
-	<span class="page-number"> 1  0</span>
-	
-</nav>
-
-	</div>
-
-	
-
-	<div style="margin-bottom:2rem"></div>
-
-	<nav class="pagination" role="navigation">
-	
-	<span class="page-number"> 1  0</span>
-	
-</nav>
-
-
-
-
 
 
 </section>
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
-    
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#общее">Общее</a></li>
+<li><a href="#payload">payload</a>
+<ul>
+<li><a href="#пример">Пример</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
 </div>
 
 </div>
@@ -425,3 +474,4 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   </body>
 </html>
+

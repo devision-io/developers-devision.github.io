@@ -9,7 +9,7 @@
     <meta name="description" content="">
 
 
-    <title>Tags :: ApiProxy | Devision Developers</title>
+    <title>Helpers :: ApiProxy | Devision Developers</title>
     <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/tags/">
+  <body class="" data-url="/helpers/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -269,7 +269,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="/helpers/" class="devsite-nav-item devsite-nav-item-main
-                        
+                        parent
                         active
                         
                         ">
@@ -352,7 +352,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <span class="links">
                 
 
- Tags
+
+
+
+ <a href='https://developers.devision.io/apiproxy/'>Api Proxy</a> > Helpers
+
+
 
 
                 </span>
@@ -362,7 +367,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <div id="body-inner">
           
-            <h1>Tags</h1>
+            <h1>Helpers</h1>
           
 
 
@@ -380,11 +385,56 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	<div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
-	<span class="page-number"> 1  0</span>
+	<span class="page-number"> 1  1</span>
 	
 </nav>
 
 	</div>
+
+	
+	   <article class="post helpers">
+    <header class="post-header">
+        <h2 class="post-title"><a href="https://developers.devision.io/apiproxy/helpers/queue_manager/">Queue Manager</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Общее Простой менеджер очереди для редис который умеет ставить в очередь по уникальным параметрам запроса.
+Параметры  size - размер очереди unique_keys - список путей до уникальных ключей в параметрах (формата &lsquo;method_params.account_id&rsquo;) wait_time - максимальное время ожидание постановки задачи в очередь (по умолчанию 5 секунд)  Примеры Пример 1 Использование в коде
+@redis_queue(5, ['refresh_token']) def google_analytics_nc(META: MetaApp, version, refresh_token, method, method_params, data_format=None, http_response=None):  Пример 2 Использование в коде с другим временем ожидания </p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post helpers">
+    <header class="post-header">
+        <h2 class="post-title"><a href="https://developers.devision.io/apiproxy/helpers/save_call/">Save Call</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Общее Этот скрипт содержит в себе декоратор для сохранения результата работы любой функции в базу. Оборачивает любую функцию, и принимает параметры &ldquo;request_id&rdquo;, &ldquo;uniq&rdquo;, &ldquo;file_type&rdquo;.
+Принцип работы: Генерирует unique_id по имени функции и переданным в нее параметрам. Делает SELECT из таблицы adplatform.api.request_log по request_id и проверяет наличие там unique_id. Если есть десерелизует уже записанный результат и возвращает его. Если нет, то выполняет функцию, серелизует результат её работы и записывает в базу вместе с параметрами с которыми она была вызвана. </p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+        
+
+    </footer>
+</article>
+
+
+
 
 	
 
@@ -392,7 +442,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 	<nav class="pagination" role="navigation">
 	
-	<span class="page-number"> 1  0</span>
+	<span class="page-number"> 1  1</span>
 	
 </nav>
 

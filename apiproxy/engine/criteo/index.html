@@ -9,7 +9,7 @@
     <meta name="description" content="">
 
 
-    <title>Tags :: ApiProxy | Devision Developers</title>
+    <title>Criteo Report :: ApiProxy | Devision Developers</title>
     <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/tags/">
+  <body class="" data-url="/engine/criteo/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -69,8 +69,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="/engine/" class="devsite-nav-item devsite-nav-item-main
+                        parent
                         
-                        active
                         
                         ">
                 <a href="https://developers.devision.io/apiproxy/engine/" class="devsite-nav-title devsite-nav-item-main-title">
@@ -136,7 +136,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/engine/criteo/" class="devsite-nav-item dd-item ">
+            <li data-nav-id="/engine/criteo/" class="devsite-nav-item dd-item active">
                 <a href="https://developers.devision.io/apiproxy/engine/criteo/" class="devsite-nav-title">
                     <span>Criteo Report</span>
                 </a>
@@ -270,7 +270,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             <li data-nav-id="/helpers/" class="devsite-nav-item devsite-nav-item-main
                         
-                        active
+                        
                         
                         ">
                 <a href="https://developers.devision.io/apiproxy/helpers/" class="devsite-nav-title devsite-nav-item-main-title">
@@ -352,7 +352,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <span class="links">
                 
 
- Tags
+
+
+
+
+
+
+ <a href='https://developers.devision.io/apiproxy/'>Api Proxy</a> > <a href='https://developers.devision.io/apiproxy/engine/'>Engines</a> > Criteo Report
+
+
+
+
 
 
                 </span>
@@ -362,11 +372,81 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <div id="body-inner">
           
-            <h1>Tags</h1>
+            <h1>Criteo Report</h1>
           
 
 
 
+
+
+<h2 id="общее">Общее</h2>
+
+<p>Этот engine предоставляет доступ к статистике сервиса criteo.com
+<a href="https://support.criteo.com/hc/en-us/articles/209273149-How-do-I-call-the-reporting-information-using-the-Criteo-API-">Дока</a></p>
+
+<h2 id="payload">payload</h2>
+
+<p>&ldquo;user&rdquo; - пользователь, нужен для авторизации и получения auth_token
+&ldquo;password&rdquo; - аналогично пользователю
+&ldquo;app_token&rdquo; - токен приложения
+&ldquo;auth_token&rdquo; - используется для отправки запросов
+&ldquo;factory_type&rdquo; - тип wsdl-объекта, используется не всегда, посмотреть нужный тип можно в доке, в зависимости от используемого запроса.
+&ldquo;method&rdquo; - запрос который будет использоваться
+&ldquo;method_params&rdquo; - данные которыми заполняется wsdl-объект, и которые передаються в criteo</p>
+
+<h2 id="примеры">Примеры</h2>
+
+<h3 id="пример-1">Пример 1</h3>
+
+<p>Пример заполнения запроса.</p>
+
+<h1 id="отправляем-запрос-на-состовление-отчета-по-метрикам">Отправляем запрос на состовление отчета по Метрикам</h1>
+
+<p>method_params = {&lsquo;reportType&rsquo;: &lsquo;Campaign&rsquo;,
+       &lsquo;reportSelector&rsquo;: {},
+       &lsquo;startDate&rsquo;: START_DATE.strftime(&ldquo;%Y-%m-%d&rdquo;),
+       &lsquo;endDate&rsquo;: END_DATE.strftime(&ldquo;%Y-%m-%d&rdquo;),
+       &lsquo;isResultGzipped&rsquo;: False,
+       &lsquo;aggregationType&rsquo;: &lsquo;Daily&rsquo;,
+       }</p>
+
+<p>to_proxy = json.dumps({
+     &ldquo;engine&rdquo;: &ldquo;criteo_report&rdquo;,
+     &ldquo;payload&rdquo;: {
+        &ldquo;user&rdquo;: USER,
+        &ldquo;password&rdquo;: PWD,
+        &ldquo;app_token&rdquo;: TOKEN,
+        &ldquo;auth_token&rdquo;: auth_token,
+        &ldquo;factory_type&rdquo;: &ldquo;ReportJob&rdquo;,
+        &ldquo;method&rdquo;: &ldquo;scheduleReportJob&rdquo;,
+        &ldquo;method_params&rdquo;: method_params,
+     }
+})</p>
+
+<h3 id="пример-2">Пример 2</h3>
+
+<p>Регистрация в сервисе, в ответ получим auth_token</p>
+
+<pre><code class="language-python">import requests
+import json
+
+
+# Получаем auth_token
+to_proxy = json.dumps({
+     &quot;engine&quot;: &quot;criteo_report&quot;,
+     &quot;payload&quot;: {
+        &quot;user&quot;: USER,
+        &quot;password&quot;: PWD,
+        &quot;app_token&quot;: TOKEN,
+        &quot;auth_token&quot;: False,
+     }
+})
+
+res = requests.post(API_HOST + &quot;/native_call&quot;, to_proxy)
+auth_token = res.json().get('result')
+
+
+</code></pre>
 
 
 <footer class=" footline" >
@@ -375,36 +455,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-	
-
-	<div class="extra-pagination inner">
-	<nav class="pagination" role="navigation">
-	
-	<span class="page-number"> 1  0</span>
-	
-</nav>
-
-	</div>
-
-	
-
-	<div style="margin-bottom:2rem"></div>
-
-	<nav class="pagination" role="navigation">
-	
-	<span class="page-number"> 1  0</span>
-	
-</nav>
-
-
-
-
 
 
 </section>
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
-    
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#общее">Общее</a></li>
+<li><a href="#payload">payload</a></li>
+<li><a href="#примеры">Примеры</a>
+<ul>
+<li><a href="#пример-1">Пример 1</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#отправляем-запрос-на-состовление-отчета-по-метрикам">Отправляем запрос на состовление отчета по Метрикам</a>
+<ul>
+<li>
+<ul>
+<li><a href="#пример-2">Пример 2</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
 </div>
 
 </div>
@@ -425,3 +500,4 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   </body>
 </html>
+

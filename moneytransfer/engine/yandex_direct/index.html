@@ -198,41 +198,57 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <ul>
 <li>&ldquo;AccountManagement.Limits&rdquo; - получение остатков по аккаунтам
-<code>python
-&quot;accounts&quot; - список аккаунтов по которым надо получить статитсику
-</code></li>
-<li>&ldquo;Campaign.CreditLimits&rdquo; - получение остатка кредитного лимита
-<code>python
-для данной операции ничего указывать не надо
-</code></li>
-<li>&ldquo;Campaign.PayCampaigns&rdquo; - внесение денег на кампанию
-<code>python
-'currency' - валюта зачисления
-'amount' - сумма в валюте
-'campaign' - идентификатор кампании
-</code></li>
-<li>&ldquo;Campaign.TransferMoney&rdquo; - перевод между кампаниями
-<code>python
-'currency' - валюта операции
-'amount' - сумма в валюте
-'campaign_from' - идентификатор кампании с которой осуществляется перевод
-'campaigns_to' - список объектов на которые требуется перевести средства
-структура налаогична &quot;Campaign.PayCampaigns&quot;
-</code></li>
-<li>&ldquo;AccountManagement.Deposit&rdquo; - внесение денег на аккаунт
-<code>python
-'currency' - валюта операции
-'amount' - сумма в валюте
-'account': - идентификатор аккаунта
-</code></li>
-<li>&ldquo;AccountManagement.TransferMoney&rdquo; - перевод денег между аккаунтами
-<code>python
-'currency' - валюта операции
-'amount' - сумма в валюте
-'account' - идентификатор аккаунта куда
-'account_from' - идентификатор аккаунта откуда 
-</code></li>
+```</li>
 </ul>
+
+<p>&ldquo;accounts&rdquo; - список аккаунтов по которым надо получить статитсику</p>
+
+<pre><code>-  &quot;Campaign.CreditLimits&quot; - получение остатка кредитного лимита
+</code></pre>
+
+<p>для данной операции ничего указывать не надо</p>
+
+<pre><code>- &quot;Campaign.PayCampaigns&quot; - внесение денег на кампанию
+</code></pre>
+
+<p>&lsquo;currency&rsquo; - валюта зачисления</p>
+
+<p>&lsquo;amount&rsquo; - сумма в валюте</p>
+
+<p>&lsquo;campaign&rsquo; - идентификатор кампании</p>
+
+<pre><code>- &quot;Campaign.TransferMoney&quot; - перевод между кампаниями
+</code></pre>
+
+<p>&lsquo;currency&rsquo; - валюта операции</p>
+
+<p>&lsquo;amount&rsquo; - сумма в валюте</p>
+
+<p>&lsquo;campaign_from&rsquo; - идентификатор кампании с которой осуществляется перевод</p>
+
+<p>&lsquo;campaigns_to&rsquo; - список объектов на которые требуется перевести средства структура налаогична &ldquo;Campaign.PayCampaigns&rdquo;</p>
+
+<pre><code>- &quot;AccountManagement.Deposit&quot; - внесение денег на аккаунт
+</code></pre>
+
+<p>&lsquo;currency&rsquo; - валюта операции</p>
+
+<p>&lsquo;amount&rsquo; - сумма в валюте</p>
+
+<p>&lsquo;account&rsquo;: - идентификатор аккаунта</p>
+
+<pre><code>- &quot;AccountManagement.TransferMoney&quot; - перевод денег между аккаунтами
+</code></pre>
+
+<p>&lsquo;currency&rsquo; - валюта операции</p>
+
+<p>&lsquo;amount&rsquo; - сумма в валюте</p>
+
+<p>&lsquo;account&rsquo; - идентификатор аккаунта куда</p>
+
+<p>&lsquo;account_from&rsquo; - идентификатор аккаунта откуда</p>
+
+<p>```</p>
 
 
 <footer class=" footline" >

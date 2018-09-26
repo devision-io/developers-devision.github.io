@@ -9,7 +9,7 @@
     <meta name="description" content="">
 
 
-    <title>Engines :: API MoneyTransfer| Devision Developers</title>
+    <title>Yandex Direct finance opartions :: API MoneyTransfer| Devision Developers</title>
     <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/engine/">
+  <body class="" data-url="/engine/yandex_direct/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -70,7 +70,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             <li data-nav-id="/engine/" class="devsite-nav-item devsite-nav-item-main
                         parent
-                        active
+                        
                         
                         ">
                 <a href="https://developers.devision.io/moneytransfer/engine/" class="devsite-nav-title devsite-nav-item-main-title">
@@ -118,7 +118,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/engine/yandex_direct/" class="devsite-nav-item dd-item ">
+            <li data-nav-id="/engine/yandex_direct/" class="devsite-nav-item dd-item active">
                 <a href="https://developers.devision.io/moneytransfer/engine/yandex_direct/" class="devsite-nav-title">
                     <span>Yandex Direct finance opartions</span>
                 </a>
@@ -155,7 +155,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
- <a href='https://developers.devision.io/moneytransfer/'>Api MoneyTransfer Bootstrap</a> > Engines
+
+
+
+ <a href='https://developers.devision.io/moneytransfer/'>Api MoneyTransfer Bootstrap</a> > <a href='https://developers.devision.io/moneytransfer/engine/'>Engines</a> > Yandex Direct finance opartions
+
+
 
 
 
@@ -167,11 +172,67 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <div id="body-inner">
           
-            <h1>Engines</h1>
+            <h1>Yandex Direct finance opartions</h1>
           
 
 
 
+
+
+<h2 id="общее">Общее</h2>
+
+<p>Этот engine предоставляет доступ к финансовым операциям для работы с yandex direct
+<a href="https://tech.yandex.ru/direct/doc/dg-v4/reference/_AllMethods-docpage/">Дока</a></p>
+
+<h2 id="payload">payload</h2>
+
+<p>&ldquo;engine&rdquo; - используется для определения что мы будем использовать</p>
+
+<p>&ldquo;company&rdquo; - идентификатор компании в системе для определения кред для подключения</p>
+
+<p>&ldquo;operation&rdquo; - имя операции (описание ниже)</p>
+
+<p>&ldquo;method_params&rdquo; - параметры запроса зависят от выбранной операции (описание ниже)</p>
+
+<h2 id="operation-method-params">operation &amp; method_params</h2>
+
+<ul>
+<li>&ldquo;AccountManagement.Limits&rdquo; - получение остатков по аккаунтам
+<code>text
+&quot;accounts&quot; - список аккаунтов по которым надо получить статитсику
+</code></li>
+<li>&ldquo;Campaign.CreditLimits&rdquo; - получение остатка кредитного лимита
+<code>text
+для данной операции ничего указывать не надо
+</code></li>
+<li>&ldquo;Campaign.PayCampaigns&rdquo; - внесение денег на кампанию
+<code>text
+'currency' - валюта зачисления
+'amount' - сумма в валюте
+'campaign' - идентификатор кампании
+</code></li>
+<li>&ldquo;Campaign.TransferMoney&rdquo; - перевод между кампаниями
+<code>text
+'currency' - валюта операции
+'amount' - сумма в валюте
+'campaign_from' - идентификатор кампании с которой осуществляется перевод
+'campaigns_to' - список объектов на которые требуется перевести средства
+структура налаогична &quot;Campaign.PayCampaigns&quot;
+</code></li>
+<li>&ldquo;AccountManagement.Deposit&rdquo; - внесение денег на аккаунт
+<code>text
+'currency' - валюта операции
+'amount' - сумма в валюте
+'account': - идентификатор аккаунта
+</code></li>
+<li>&ldquo;AccountManagement.TransferMoney&rdquo; - перевод денег между аккаунтами
+<code>text
+'currency' - валюта операции
+'amount' - сумма в валюте
+'account' - идентификатор аккаунта куда
+'account_from' - идентификатор аккаунта откуда 
+</code></li>
+</ul>
 
 
 <footer class=" footline" >
@@ -180,88 +241,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-	
-
-	<div class="extra-pagination inner">
-	<nav class="pagination" role="navigation">
-	
-	<span class="page-number"> 1  1</span>
-	
-</nav>
-
-	</div>
-
-	
-	   <article class="post engine">
-    <header class="post-header">
-        <h2 class="post-title"><a href="https://developers.devision.io/moneytransfer/engine/google_ads/">Google Ads finance operations</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p> Общее Этот engine предоставляет доступ к финансовым операциям для работы с google adwords Дока
-payload &ldquo;engine&rdquo; - используется для определения что мы будем использовать
-&ldquo;company&rdquo; - идентификатор компании в системе для определения кред для подключения
-&ldquo;operation&rdquo; - имя операции (описание ниже)
-&ldquo;method_params&rdquo; - параметры запроса зависят от выбранной операции (описание ниже)
-operation &amp; method_params  AddBudget - добавление нового бюджета, если был старый то он закрывается и открывается новый text 'account' - идентификатор аккаунта 'billing_id' - номер счета с которого ведется зачисление 'amount' - сумма в валюте 'end_date - дата закрытия старого бюджета без времени в формате yyyy-mm-dd  Limits - получение информации о бюджете text 'account' - идентификатор аккаунта  Spendings - получение трат бюджета text 'account' - идентификатор аккаунта    </p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post engine">
-    <header class="post-header">
-        <h2 class="post-title"><a href="https://developers.devision.io/moneytransfer/engine/yandex_direct/">Yandex Direct finance opartions</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Общее Этот engine предоставляет доступ к финансовым операциям для работы с yandex direct Дока
-payload &ldquo;engine&rdquo; - используется для определения что мы будем использовать
-&ldquo;company&rdquo; - идентификатор компании в системе для определения кред для подключения
-&ldquo;operation&rdquo; - имя операции (описание ниже)
-&ldquo;method_params&rdquo; - параметры запроса зависят от выбранной операции (описание ниже)
-operation &amp; method_params  &ldquo;AccountManagement.Limits&rdquo; - получение остатков по аккаунтам text &quot;accounts&quot; - список аккаунтов по которым надо получить статитсику  &ldquo;Campaign. </p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
-
-	<nav class="pagination" role="navigation">
-	
-	<span class="page-number"> 1  1</span>
-	
-</nav>
-
-
-
-
 
 
 </section>
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
-    
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#общее">Общее</a></li>
+<li><a href="#payload">payload</a></li>
+<li><a href="#operation-method-params">operation &amp; method_params</a></li>
+</ul></li>
+</ul>
+</nav>
 </div>
 
 </div>
@@ -282,3 +276,4 @@ operation &amp; method_params  &ldquo;AccountManagement.Limits&rdquo; - полу
 
   </body>
 </html>
+

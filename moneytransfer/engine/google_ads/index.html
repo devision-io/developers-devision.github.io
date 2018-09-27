@@ -229,6 +229,68 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </code></pre>
 
+<h2 id="примеры">Примеры</h2>
+
+<h3 id="пример-1">Пример 1</h3>
+
+<p>Получение трат</p>
+
+<pre><code class="language-python">
+payload = {
+    'engine': 'google_ads',
+    'company': 1,
+    'operation': 'Spendings',
+    'payload': {
+        'account': '123-456-789'
+    }
+}
+
+result = requests.post(URL, json.dumps(payload))
+print(result.json())
+
+</code></pre>
+
+<h3 id="пример-2">Пример 2</h3>
+
+<p>Получение информации о бюджете</p>
+
+<pre><code class="language-python">
+payload = {
+    'engine': 'google_ads',
+    'company': 1,
+    'operation': 'Limits',
+    'payload': {
+        'account': '123-456-789'
+    }
+}
+
+result = requests.post(URL, json.dumps(payload))
+print(result.json())
+
+</code></pre>
+
+<h3 id="пример-3">Пример 3</h3>
+
+<p>Создание бюджета</p>
+
+<pre><code class="language-python">
+payload = {
+    'engine': 'google_ads',
+    'company': 1,
+    'operation': 'AddBudget',
+    'payload': {
+        'account': '123-456-789',
+        'billing_id': '123-456-789',
+        'amount': 1000,
+        'end_date': '2018-01-01'
+    }
+}
+
+result = requests.post(URL, json.dumps(payload))
+print(result.json())
+
+</code></pre>
+
 
 <footer class=" footline" >
 	
@@ -248,6 +310,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li><a href="#общее">Общее</a></li>
 <li><a href="#payload">payload</a></li>
 <li><a href="#operation-method-params">operation &amp; method_params</a></li>
+<li><a href="#примеры">Примеры</a>
+<ul>
+<li><a href="#пример-1">Пример 1</a></li>
+<li><a href="#пример-2">Пример 2</a></li>
+<li><a href="#пример-3">Пример 3</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </nav>

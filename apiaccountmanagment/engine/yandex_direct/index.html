@@ -163,53 +163,53 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <h2 id="общее">Общее</h2>
 
-<p>Этот engine предоставляет возможность для создания аккаунта в яндекс директе.</p>
+<p>Этот &ldquo;engine&rdquo; предоставляет возможность создания аккаунта в Яндекс.Директ.</p>
 
-<p><a href="https://tech.yandex.ru/direct/doc/ref-v5/agencyclients/add-docpage/">Документация Яндекса Метод add</a></p>
+<p><a href="https://tech.yandex.ru/direct/doc/ref-v5/agencyclients/add-docpage/">Документация Яндекса на метод add</a></p>
 
 <h2 id="payload">payload</h2>
 
-<h3 id="параметры-которые-хранятся-в-method-params-передаются-в-яндекс-без-изменений">Параметры которые хранятся в method_params, передаются в Яндекс без изменений.</h3>
+<p><strong>Параметры которые хранятся в method_params, передаются в Яндекс без изменений.</strong></p>
 
 <ul>
-<li>access - словарь для передачи параметров, по которым из базы будет получен access_token.
-Передать необходимо оба параметра: client_id и client_login.</li>
-<li>Login - Логин пользователя Директа — главного представителя рекламодателя.</li>
-<li>FirstName - Имя пользователя (не более 20 символов). Не допускаются символы &amp;=&lt;&gt;.</li>
-<li>LastName - Фамилия пользователя (не более 20 символов). Не допускаются символы &amp;=&lt;&gt;.</li>
-<li>Currency - Валюта рекламодателя.</li>
-<li>header_client_login - Название аккаунта клиента ЯД. Этот параметр добавляется в headers как параметр Client-Login.</li>
-<li>notification_email - Адрес электронной почты для отправки уведомлений, связанных с аккаунтом. В документации Яндекса соответствует Notification.Email</li>
-<li>notifications_list - Настройки SMS- и email-уведомлений для главного представителя рекламодателя. Здесь списком перечисляются параметры из Notification.EmailSubscriptions.Option.</li>
-<li>settings_list - Настройки рекламодателя. Здесь списком перечисляются параметры из Settings.Option (см. документацию Яндекса)</li>
-<li>grants_list - Полномочия рекламодателя по управлению кампаниями. Здесь списком перечисляются параметры из Grants.Privilege (см. документацию Яндекса)</li>
+<li><strong>access</strong> - словарь для передачи параметров, по которым из базы будет получен access_token. Передать необходимо оба параметра: client_id и client_login.</li>
+<li><strong>Login</strong> - Логин пользователя Директа — главного представителя рекламодателя.</li>
+<li><strong>FirstName</strong> - Имя пользователя (не более 20 символов). Не допускаются символы &amp;=&lt;&gt;.</li>
+<li><strong>LastName</strong> - Фамилия пользователя (не более 20 символов). Не допускаются символы &amp;=&lt;&gt;.</li>
+<li><strong>Currency</strong> - Валюта рекламодателя.</li>
+<li><strong>header_client_login</strong> - Название аккаунта клиента ЯД. Этот параметр добавляется в headers как параметр Client-Login.</li>
+<li><strong>notification_email</strong> - Адрес электронной почты для отправки уведомлений, связанных с аккаунтом. В документации Яндекса соответствует Notification.Email.</li>
+<li><strong>notifications_list</strong> - Настройки SMS и email-уведомлений для главного представителя рекламодателя. Здесь списком перечисляются параметры из Notification.EmailSubscriptions.Option.</li>
+<li><strong>settings_list</strong> - Настройки рекламодателя. Здесь списком перечисляются параметры из Settings.Option (см. документацию Яндекса).</li>
+<li><strong>grants_list</strong> - Полномочия рекламодателя по управлению кампаниями. Здесь списком перечисляются параметры из Grants.Privilege (см. документацию Яндекса).</li>
 </ul>
 
 <h2 id="пример">Пример</h2>
 
+<p><strong>Чтобы повторить этот запрос через какое-либо приложение необходимо на API_HOST послать body отформатированный как JSON.</strong></p>
+
 <pre><code class="language-python">import json
 import requests
 
-API_HOST = 'http://accmanager.apis.kb.1ad.ru:80'
-
+API_HOST = &quot;http://accmanager.apis.kb.1ad.ru/account_manager&quot;
 
 body = {&quot;engine&quot;: &quot;yandex_account&quot;,
         &quot;payload&quot;: {
-            &quot;method&quot;: 'add',
-            &quot;access&quot;: {'client_id': '1234', 
-                       'client_login': 'test_client'},
-            &quot;method_params&quot;: {'Login':    'test_Login',
-                              'FirstName':'test_FirstName',
-                              'LastName': 'test_LastName',
-                              'Currency': 'RUB'
+            &quot;method&quot;: &quot;add&quot;,
+            &quot;access&quot;: {&quot;client_id&quot;: &quot;1234&quot;, 
+                       &quot;client_login&quot;: &quot;test_client&quot;},
+            &quot;method_params&quot;: {&quot;Login&quot;:    &quot;test_Login&quot;,
+                              &quot;FirstName&quot;:&quot;test_FirstName&quot;,
+                              &quot;LastName&quot;: &quot;test_LastName&quot;,
+                              &quot;Currency&quot;: &quot;RUB&quot;
                               },
-            'params_modifier': {'header_client_login': None,
-                                'notification_email': 'test@realweb.ru',
-                                'notifications_list': [&quot;RECEIVE_RECOMMENDATIONS&quot;, 
+            &quot;params_modifier&quot;: {&quot;header_client_login&quot;: None,
+                                &quot;notification_email&quot;: &quot;test@realweb.ru&quot;,
+                                &quot;notifications_list&quot;: [&quot;RECEIVE_RECOMMENDATIONS&quot;, 
                                                        &quot;TRACK_POSITION_CHANGES&quot;],
-                                'settings_list': [&quot;CORRECT_TYPOS_AUTOMATICALLY&quot;, 
+                                &quot;settings_list&quot;: [&quot;CORRECT_TYPOS_AUTOMATICALLY&quot;, 
                                                   &quot;DISPLAY_STORE_RATING&quot;],
-                                'grants_list': [&quot;EDIT_CAMPAIGNS&quot;, 
+                                &quot;grants_list&quot;: [&quot;EDIT_CAMPAIGNS&quot;, 
                                                 &quot;IMPORT_XLS&quot;, 
                                                 &quot;TRANSFER_MONEY&quot;],
                                 }
@@ -217,7 +217,7 @@ body = {&quot;engine&quot;: &quot;yandex_account&quot;,
         }
 
 print(body)
-res = requests.post(API_HOST + &quot;/account_manager&quot;,  data=json.dumps(body))
+res = requests.post(API_HOST,  data=json.dumps(body))
 print(res.json())
 
 
@@ -240,10 +240,7 @@ print(res.json())
 <li>
 <ul>
 <li><a href="#общее">Общее</a></li>
-<li><a href="#payload">payload</a>
-<ul>
-<li><a href="#параметры-которые-хранятся-в-method-params-передаются-в-яндекс-без-изменений">Параметры которые хранятся в method_params, передаются в Яндекс без изменений.</a></li>
-</ul></li>
+<li><a href="#payload">payload</a></li>
 <li><a href="#пример">Пример</a></li>
 </ul></li>
 </ul>

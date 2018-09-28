@@ -169,7 +169,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <h2 id="payload">payload</h2>
 
-<h5 id="параметры-которые-хранятся-в-method-params-передаются-в-яндекс-без-изменений">Параметры которые хранятся в method_params, передаются в Яндекс без изменений.</h5>
+<h3 id="параметры-которые-хранятся-в-method-params-передаются-в-яндекс-без-изменений">Параметры которые хранятся в method_params, передаются в Яндекс без изменений.</h3>
 
 <ul>
 <li>access - словарь для передачи параметров, по которым из базы будет получен access_token.
@@ -205,9 +205,13 @@ body = {&quot;engine&quot;: &quot;yandex_account&quot;,
                               },
             'params_modifier': {'header_client_login': None,
                                 'notification_email': 'test@realweb.ru',
-                                'notifications_list': [&quot;RECEIVE_RECOMMENDATIONS&quot;, &quot;TRACK_POSITION_CHANGES&quot;],
-                                'settings_list': [&quot;CORRECT_TYPOS_AUTOMATICALLY&quot;, &quot;DISPLAY_STORE_RATING&quot;],
-                                'grants_list': [&quot;EDIT_CAMPAIGNS&quot;, &quot;IMPORT_XLS&quot;, &quot;TRANSFER_MONEY&quot;],
+                                'notifications_list': [&quot;RECEIVE_RECOMMENDATIONS&quot;, 
+                                                       &quot;TRACK_POSITION_CHANGES&quot;],
+                                'settings_list': [&quot;CORRECT_TYPOS_AUTOMATICALLY&quot;, 
+                                                  &quot;DISPLAY_STORE_RATING&quot;],
+                                'grants_list': [&quot;EDIT_CAMPAIGNS&quot;, 
+                                                &quot;IMPORT_XLS&quot;, 
+                                                &quot;TRANSFER_MONEY&quot;],
                                 }
         }
         }
@@ -238,13 +242,7 @@ print(res.json())
 <li><a href="#общее">Общее</a></li>
 <li><a href="#payload">payload</a>
 <ul>
-<li>
-<ul>
-<li>
-<ul>
 <li><a href="#параметры-которые-хранятся-в-method-params-передаются-в-яндекс-без-изменений">Параметры которые хранятся в method_params, передаются в Яндекс без изменений.</a></li>
-</ul></li>
-</ul></li>
 </ul></li>
 <li><a href="#пример">Пример</a></li>
 </ul></li>

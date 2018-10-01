@@ -193,7 +193,7 @@ import requests
 
 API_HOST = &quot;http://accmanager.apis.kb.1ad.ru/account_manager&quot;
 
-body = {&quot;engine&quot;: &quot;yandex_account&quot;,
+body = {&quot;engine&quot;: &quot;yandex_direct&quot;,
         &quot;payload&quot;: {
             &quot;method&quot;: &quot;add&quot;,
             &quot;access&quot;: {&quot;client_id&quot;: &quot;1234&quot;, 
@@ -219,8 +219,33 @@ body = {&quot;engine&quot;: &quot;yandex_account&quot;,
 print(body)
 res = requests.post(API_HOST,  data=json.dumps(body))
 print(res.json())
+</code></pre>
 
+<p><strong>Пример ответа на успешный запрос</strong></p>
 
+<pre><code>{
+  &quot;result&quot;:{
+    &quot;Login&quot;:&quot;test_Login&quot;,
+    &quot;Password&quot;:&quot;psoO7KyF&quot;, # Одноразовый пароль.
+    &quot;Email&quot;:&quot;test_Login@yandex.ru&quot;,
+    &quot;ClientId&quot;:49175263
+  },
+  &quot;error&quot;:&quot;None&quot;
+}
+</code></pre>
+
+<p><strong>Пример ответа на неуспешный запрос</strong></p>
+
+<pre><code>{
+  &quot;result&quot;:&quot;None&quot;,
+  &quot;error&quot;:{
+    &quot;request_id&quot;:&quot;1677931648958651260&quot;,
+    &quot;error_code&quot;:5200,
+    &quot;error_detail&quot;:&quot;&quot;,
+    &quot;error_string&quot;:&quot;Логин уже используется&quot;
+  }
+}
+}
 </code></pre>
 
 

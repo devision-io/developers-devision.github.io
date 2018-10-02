@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Engines on ApiProxy | Devision Developers</title>
+    <link>https://developers.devision.io/accountmanager/engine/</link>
+    <description>Recent content in Engines on ApiProxy | Devision Developers</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    
+	<atom:link href="https://developers.devision.io/accountmanager/engine/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Yandex Direct</title>
+      <link>https://developers.devision.io/accountmanager/engine/yandex_direct/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/accountmanager/engine/yandex_direct/</guid>
+      <description>Общее Этот &amp;ldquo;engine&amp;rdquo; предоставляет возможность создания аккаунта в Яндекс.Директ.
+Документация Яндекса на метод add
+payload Параметры которые хранятся в method_params, передаются в Яндекс без изменений.
+ access - словарь для передачи параметров, по которым из базы будет получен access_token. Передать необходимо оба параметра: client_id и client_login. Login - Логин пользователя Директа — главного представителя рекламодателя. FirstName - Имя пользователя (не более 20 символов). Не допускаются символы &amp;amp;=&amp;lt;&amp;gt;. LastName - Фамилия пользователя (не более 20 символов).</description>
+    </item>
+    
+  </channel>
+</rss>

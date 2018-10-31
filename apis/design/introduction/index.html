@@ -9,7 +9,7 @@
     <meta name="description" content="">
 
 
-    <title>Designs :: Endpoints | Devision Developers</title>
+    <title>Вступление :: Endpoints | Devision Developers</title>
     <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/design/">
+  <body class="" data-url="/design/introduction/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -70,7 +70,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             <li data-nav-id="/design/" class="devsite-nav-item devsite-nav-item-main
                         parent
-                        active
+                        
                         
                         ">
                 <a href="https://developers.devision.io/apis/design/" class="devsite-nav-title devsite-nav-item-main-title">
@@ -100,7 +100,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/design/introduction/" class="devsite-nav-item dd-item ">
+            <li data-nav-id="/design/introduction/" class="devsite-nav-item dd-item active">
                 <a href="https://developers.devision.io/apis/design/introduction/" class="devsite-nav-title">
                     <span>Вступление</span>
                 </a>
@@ -155,7 +155,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
- <a href='https://developers.devision.io/apis/'>Endpoints</a> > Designs
+
+
+
+ <a href='https://developers.devision.io/apis/'>Endpoints</a> > <a href='https://developers.devision.io/apis/design/'>Designs</a> > Вступление
+
+
 
 
 
@@ -167,11 +172,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <div id="body-inner">
           
-            <h1>Designs</h1>
+            <h1>Вступление</h1>
           
 
 
 
+
+
+<h1 id="руководство-по-проектированию-api">Руководство по проектированию API</h1>
+
+<h2 id="вступление">Вступление</h2>
+
+<p>Это общее руководство по проектированию API служб.
+За основу взят документ <a href="https://cloud.google.com/apis/design/">Google API Design Guide</a></p>
+
+<p>Данное руководство относится как к REST API, так и к RPC API, с особым упором на API gRPC. gRPC API используют <a href="https://cloud.google.com/apis/design/proto3">Protocol Buffers</a> для определения их API. Функции сопоставления HTTP используются Cloud Endpoints gRPC APIs для JSON/HTTP в Protocol Buffers/RPC <a href="https://cloud.google.com/endpoints/docs/transcoding">перекодировки</a> .</p>
+
+<p>Это руководство не является неоспоримым догматом и может быть исправлено со временем, когда будут приняты и одобрены новые стили т шаблоны дизайна. Поэтому нельзя считать его абсолютно полным, всегда будет место для улучшений и дополнений.</p>
+
+<h2 id="соглашения-используемые-в-этом-документе">Соглашения, используемые в этом документе</h2>
+
+<p>Ключевое слово уровня требований:
+-  «НЕОБХОДИМО», «ТРЕБУЕТСЯ», «ДОЛЖНО»
+- «НЕДОПУСТИМО», «НЕ ДОЛЖНО»
+- «СЛЕДУЕТ», «РЕКОМЕНДУЕТСЯ»
+- «НЕ СЛЕДУЕТ», «НЕ РЕКОМЕНДУЕТСЯ»
+- «ВОЗМОЖНО»
+- «НЕ ОБЯЗАТЕЛЬНО»</p>
+
+<p>Документ должен интерпретироваться, как описано в <a href="http://rfc.com.ru/rfc2119.htm">RFC 2119</a> .</p>
 
 
 <footer class=" footline" >
@@ -180,82 +209,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-	
-
-	<div class="extra-pagination inner">
-	<nav class="pagination" role="navigation">
-	
-	<span class="page-number"> 1  1</span>
-	
-</nav>
-
-	</div>
-
-	
-	   <article class="post design">
-    <header class="post-header">
-        <h2 class="post-title"><a href="https://developers.devision.io/apis/design/introduction/">Вступление</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Руководство по проектированию API Вступление Это общее руководство по проектированию API служб. За основу взят документ Google API Design Guide
-Данное руководство относится как к REST API, так и к RPC API, с особым упором на API gRPC. gRPC API используют Protocol Buffers для определения их API. Функции сопоставления HTTP используются Cloud Endpoints gRPC APIs для JSON/HTTP в Protocol Buffers/RPC перекодировки .
-Это руководство не является неоспоримым догматом и может быть исправлено со временем, когда будут приняты и одобрены новые стили т шаблоны дизайна. </p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post design">
-    <header class="post-header">
-        <h2 class="post-title"><a href="https://developers.devision.io/apis/design/file_structure/">Файловая структура</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Файловая структура API gRPC должны быть определены в .proto файлах с использованием proto3 IDL.
-Структура файла должна содержать более высокоуровневые и более важные определения до более низкого уровня и менее важных элементов. В каждом proto-файле соответствующие разделы должны быть в следующем порядке:
- Авторские права и лицензии, если необходимо. Proto syntax, package, option и import в таком порядке Обзорная документация API, которая подготавливает читателей к остальной части файла Определения API proto service в порядке убывания важности Определения запроса и ответа RPC message в том же порядке соответствующих методов. </p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
-
-	<nav class="pagination" role="navigation">
-	
-	<span class="page-number"> 1  1</span>
-	
-</nav>
-
-
-
-
 
 
 </section>
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
-    
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#руководство-по-проектированию-api">Руководство по проектированию API</a>
+<ul>
+<li><a href="#вступление">Вступление</a></li>
+<li><a href="#соглашения-используемые-в-этом-документе">Соглашения, используемые в этом документе</a></li>
+</ul></li>
+</ul>
+</nav>
 </div>
 
 </div>
@@ -276,3 +243,4 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   </body>
 </html>
+

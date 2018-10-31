@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Вступление on Endpoints | Devision Developers</title>
+    <title>Designs on Endpoints | Devision Developers</title>
     <link>https://developers.devision.io/apis/design/</link>
-    <description>Recent content in Вступление on Endpoints | Devision Developers</description>
+    <description>Recent content in Designs on Endpoints | Devision Developers</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     
 	<atom:link href="https://developers.devision.io/apis/design/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Вступление</title>
+      <link>https://developers.devision.io/apis/design/introduction/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/apis/design/introduction/</guid>
+      <description>Руководство по проектированию API Вступление Это общее руководство по проектированию API служб. За основу взят документ Google API Design Guide
+Данное руководство относится как к REST API, так и к RPC API, с особым упором на API gRPC. gRPC API используют Protocol Buffers для определения их API. Функции сопоставления HTTP используются Cloud Endpoints gRPC APIs для JSON/HTTP в Protocol Buffers/RPC перекодировки .
+Это руководство не является неоспоримым догматом и может быть исправлено со временем, когда будут приняты и одобрены новые стили т шаблоны дизайна.</description>
+    </item>
     
     <item>
       <title>Файловая структура</title>

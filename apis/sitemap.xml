@@ -23,12 +23,17 @@
   </url>
   
   <url>
+    <loc>https://developers.devision.io/apis/design/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://developers.devision.io/apis/tags/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://developers.devision.io/apis/design/</loc>
+    <loc>https://developers.devision.io/apis/design/introduction/</loc>
   </url>
   
   <url>

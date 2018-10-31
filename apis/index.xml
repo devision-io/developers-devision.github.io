@@ -30,6 +30,17 @@
     </item>
     
     <item>
+      <title>Вступление</title>
+      <link>https://developers.devision.io/apis/design/introduction/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/apis/design/introduction/</guid>
+      <description>Руководство по проектированию API Вступление Это общее руководство по проектированию API служб. За основу взят документ Google API Design Guide
+Данное руководство относится как к REST API, так и к RPC API, с особым упором на API gRPC. gRPC API используют Protocol Buffers для определения их API. Функции сопоставления HTTP используются Cloud Endpoints gRPC APIs для JSON/HTTP в Protocol Buffers/RPC перекодировки .
+Это руководство не является неоспоримым догматом и может быть исправлено со временем, когда будут приняты и одобрены новые стили т шаблоны дизайна.</description>
+    </item>
+    
+    <item>
       <title>Файловая структура</title>
       <link>https://developers.devision.io/apis/design/file_structure/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

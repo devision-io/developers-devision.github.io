@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Endpoints on Endpoints | Devision Developers</title>
+    <link>https://developers.devision.io/meta-endpoints/</link>
+    <description>Recent content in Endpoints on Endpoints | Devision Developers</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <lastBuildDate>Mon, 24 Apr 2017 18:36:24 +0200</lastBuildDate>
+    
+	<atom:link href="https://developers.devision.io/meta-endpoints/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>header</title>
+      <link>https://developers.devision.io/meta-endpoints/_header/</link>
+      <pubDate>Tue, 24 Apr 2018 18:36:24 +0200</pubDate>
+      
+      <guid>https://developers.devision.io/meta-endpoints/_header/</guid>
+      <description>Endpoints</description>
+    </item>
+    
+    <item>
+      <title>Endpoints</title>
+      <link>https://developers.devision.io/meta-endpoints/get_started/</link>
+      <pubDate>Mon, 24 Apr 2017 18:36:24 +0200</pubDate>
+      
+      <guid>https://developers.devision.io/meta-endpoints/get_started/</guid>
+      <description> Как начать </description>
+    </item>
+    
+    <item>
+      <title>Файловая структура</title>
+      <link>https://developers.devision.io/meta-endpoints/design/file_structure/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta-endpoints/design/file_structure/</guid>
+      <description>Файловая структура API gRPC должны быть определены в .proto файлах с использованием proto3 IDL.
+Структура файла должна содержать более высокоуровневые и более важные определения до более низкого уровня и менее важных элементов. В каждом proto-файле соответствующие разделы должны быть в следующем порядке:
+ Авторские права и лицензии, если необходимо. Proto syntax, package, option и import в таком порядке Обзорная документация API, которая подготавливает читателей к остальной части файла Определения API proto service в порядке убывания важности Определения запроса и ответа RPC message в том же порядке соответствующих методов.</description>
+    </item>
+    
+  </channel>
+</rss>

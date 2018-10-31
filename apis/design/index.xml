@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Вступление on Endpoints | Devision Developers</title>
+    <link>https://developers.devision.io/apis/design/</link>
+    <description>Recent content in Вступление on Endpoints | Devision Developers</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    
+	<atom:link href="https://developers.devision.io/apis/design/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Файловая структура</title>
+      <link>https://developers.devision.io/apis/design/file_structure/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/apis/design/file_structure/</guid>
+      <description>Файловая структура API gRPC должны быть определены в .proto файлах с использованием proto3 IDL.
+Структура файла должна содержать более высокоуровневые и более важные определения до более низкого уровня и менее важных элементов. В каждом proto-файле соответствующие разделы должны быть в следующем порядке:
+ Авторские права и лицензии, если необходимо. Proto syntax, package, option и import в таком порядке Обзорная документация API, которая подготавливает читателей к остальной части файла Определения API proto service в порядке убывания важности Определения запроса и ответа RPC message в том же порядке соответствующих методов.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://developers.devision.io/accountmanagement/_header/</loc>
+    <loc>https://developers.devision.io/accountmanagement/api/api_v1beta1/</loc>
     <lastmod>2018-04-24T18:36:24+02:00</lastmod>
   </url>
   
@@ -13,21 +13,13 @@
   </url>
   
   <url>
-    <loc>https://developers.devision.io/accountmanagement/reference/rest/v1beta1/</loc>
+    <loc>https://developers.devision.io/accountmanagement/api/</loc>
+    <lastmod>2018-04-24T18:36:24+02:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://developers.devision.io/accountmanagement/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://developers.devision.io/accountmanagement/reference/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://developers.devision.io/accountmanagement/reference/rest/</loc>
     <priority>0</priority>
   </url>
   

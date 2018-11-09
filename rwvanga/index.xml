@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Account Management on RWVanga | Devision Developers</title>
+    <title>RWVanga | Devision Developers</title>
     <link>https://developers.devision.io/rwvanga/</link>
-    <description>Recent content in Account Management on RWVanga | Devision Developers</description>
+    <description>Recent content on RWVanga | Devision Developers</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
-    <lastBuildDate>Mon, 24 Apr 2017 18:36:24 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 24 Apr 2018 18:36:24 +0200</lastBuildDate>
     
 	<atom:link href="https://developers.devision.io/rwvanga/index.xml" rel="self" type="application/rss+xml" />
     

@@ -13,11 +13,6 @@
   </url>
   
   <url>
-    <loc>https://developers.devision.io/apis/get_started/</loc>
-    <lastmod>2017-04-24T18:36:24+02:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://developers.devision.io/apis/categories/</loc>
     <priority>0</priority>
   </url>
@@ -34,6 +29,18 @@
   
   <url>
     <loc>https://developers.devision.io/apis/design/introduction/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.devision.io/apis/design/resources/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.devision.io/apis/get_started/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.devision.io/apis/design/directory_structure/</loc>
   </url>
   
   <url>

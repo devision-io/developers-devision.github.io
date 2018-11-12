@@ -9,7 +9,7 @@
     <meta name="description" content="">
 
 
-    <title>Файловая структура :: Endpoints | Devision Developers</title>
+    <title>Структура каталога :: Endpoints | Devision Developers</title>
     <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/design/file_structure/">
+  <body class="" data-url="/design/directory_structure/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -136,7 +136,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/design/directory_structure/" class="devsite-nav-item dd-item ">
+            <li data-nav-id="/design/directory_structure/" class="devsite-nav-item dd-item active">
                 <a href="https://developers.devision.io/apis/design/directory_structure/" class="devsite-nav-title">
                     <span>Структура каталога</span>
                 </a>
@@ -154,7 +154,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/design/file_structure/" class="devsite-nav-item dd-item active">
+            <li data-nav-id="/design/file_structure/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/apis/design/file_structure/" class="devsite-nav-title">
                     <span>Файловая структура</span>
                 </a>
@@ -194,7 +194,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
- <a href='https://developers.devision.io/apis/'>Endpoints</a> > <a href='https://developers.devision.io/apis/design/'>Designs</a> > Файловая структура
+ <a href='https://developers.devision.io/apis/'>Endpoints</a> > <a href='https://developers.devision.io/apis/design/'>Designs</a> > Структура каталога
 
 
 
@@ -208,47 +208,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <div id="body-inner">
           
-            <h1>Файловая структура</h1>
+            <h1>Структура каталога</h1>
           
 
 
 
-<p>API gRPC <strong>должны</strong> быть определены в <code>.proto</code> файлах с использованием <a href="https://cloud.google.com/apis/design/proto3">proto3</a> IDL.</p>
+<p>Сервисы API обычно используют .proto файлы для определения API и .yaml файлов для настройки службы API.
+Каждая служба API <strong>должна</strong> иметь внутри репозитория каталог <em>api</em>, который содержит файлы определений.</p>
 
-<p>Структура файла <strong>должна</strong> содержать более высокоуровневые и более важные определения до более низкого уровня и менее важных элементов. В каждом proto-файле соответствующие разделы <strong>должны</strong> быть в следующем порядке:</p>
+<p>Посмотрите <a href="https://github.com/devision-io/API-Example-GRPC-Python">пример на GitHub</a> для лучшего понимания.</p>
 
 <ul>
-<li>Авторские права и лицензии, если необходимо.</li>
-<li>Proto <code>syntax</code>, <code>package</code>, <code>option</code> и <code>import</code> в таком порядке</li>
-<li>Обзорная документация API, которая подготавливает читателей к остальной части файла</li>
-<li>Определения API proto  <code>service</code> в порядке убывания важности</li>
-<li>Определения запроса и ответа RPC <code>message</code> в том же порядке соответствующих методов. Каждое сообщение запроса <strong>должно</strong> предшествовать соответствующему ответному сообщению, если оно есть</li>
-<li>Определения ресурсов <code>message</code>. Родительский ресурс <strong>должен</strong> быть определен до его дочерних ресурсов</li>
-<li>ДЛя всех пролей без исключения нужно написать документацию. Помните, что ее будут читать не те, кто делает этот API. Постарайтесь емко и по сути дать описание полю.</li>
+<li>api
+
+<ul>
+<li>{service}.yaml - Файл конфигурации, представляющий собой представление YAML google.api.Service proto message.</li>
+<li>v[0-9]/* - Каждый такой каталог содержит proto-файлы с описанием API.</li>
+</ul></li>
+<li>docs/* - Файлы технической документации. Они <strong>должны</strong> быть в формате Markdown. Каталог содержит стукруту папок для шаблонизатора <a href="https://gohugo.io/">hugo</a></li>
+<li>README.md</li>
+<li>Makefile
+
+<ul>
+<li>init - цель сборки для инициализации библиотек и авторизации в Google Cloud</li>
+<li>esp - генерация заглушек исходного кода и деплой конфигурации api в Google Cloud</li>
+<li>dev - старт nginx ESP proxy. Как раз для него важно авторизация, которую делаем через init, а так же наличие ключа test-esp-service-account-creds.json в каталоге ~/.rwmeta</li>
+</ul></li>
 </ul>
-
-<p>Если один proto-файл содержит всё API, он <strong>должен</strong> быть назван в честь API.</p>
-
-<table>
-<thead>
-<tr>
-<th>API</th>
-<th>Proto</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>Library</td>
-<td>library.proto</td>
-</tr>
-
-<tr>
-<td>AccountManager</td>
-<td>accountmanager.proto</td>
-</tr>
-</tbody>
-</table>
 
 
 

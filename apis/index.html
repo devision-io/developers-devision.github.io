@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.42.1" />
+    <meta name="generator" content="Hugo 0.50" />
     <meta name="description" content="">
 
 
@@ -118,6 +118,42 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
+            <li data-nav-id="/design/resources/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/apis/design/resources/" class="devsite-nav-title">
+                    <span>Ресурсно-ориентированный дизайн</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/design/directory_structure/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/apis/design/directory_structure/" class="devsite-nav-title">
+                    <span>Структура каталога</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
             <li data-nav-id="/design/file_structure/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/apis/design/file_structure/" class="devsite-nav-title">
                     <span>Файловая структура</span>
@@ -161,7 +197,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <h1 id="endpoints">Endpoints</h1>
 
-<p>Постоение API сервисов на основе GRPC + Google cloud Endpoints</p>
+<p>Постоение API сервисов на основе gRPC + Google cloud Endpoints</p>
+
+<h2 id="мотивация">Мотивация</h2>
+
+<p>Если несколько основных проблемных точек, если у вас много API.</p>
+
+<ul>
+<li>API сервисов и их документация могут быть очень разнородными.</li>
+<li>Поддержка документации в коде и отдельном документе так же может отнимать значительное количество времени.</li>
+<li>Выдача и проверка прав доступа может быть неявной или непонятной</li>
+</ul>
+
+<p>Именно поэтому предлагается использовать дизайн API, в котором учтены эти проблемы.</p>
+
+<h3 id="protobuf">Protobuf</h3>
+
+<p>Протокол API и документация к свойствам, методам и сервисам описывается в proto файлах согласно <a href="design">design guide</a>.</p>
+
+<p>Это позволяет автоматически генерировать структурированныую документацию.
+Потенциально генерировать клиентские биьлиотеки для испоьлзования api сторонними разработчиками.</p>
+
+<h3 id="oauth2">OAuth2</h3>
+
+<p>Используется OAuth2 авторизация c refresh_token и scopes.</p>
+
+<p>Токены выдаются и учитываются отдельной службой, в коде конкретного api нужно лишь порставить
+аннотации со списоком скоупов к методам. ESP nginx автоматически декодирует access_token,
+валидирует его и не пропускает запрос в код api, что снижает излишнюю нагрузку на код апи.</p>
+
+<p>Фактически само приложение независимо от языка особо ничего про авторизацию не знает.</p>
+
+<p>Применение refresh_token + access_token с JWT позволяет убрать необходимость использования кешируеюего слоя с хранением access_token, что
+положительно сказывается на расходе RAM и CPU.</p>
 	
   
 
@@ -172,7 +240,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#endpoints">Endpoints</a></li>
+<li><a href="#endpoints">Endpoints</a>
+<ul>
+<li><a href="#мотивация">Мотивация</a>
+<ul>
+<li><a href="#protobuf">Protobuf</a></li>
+<li><a href="#oauth2">OAuth2</a></li>
+</ul></li>
+</ul></li>
 </ul>
 </nav>
 </div>

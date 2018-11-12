@@ -5,11 +5,11 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.42.1" />
+    <meta name="generator" content="Hugo 0.50" />
     <meta name="description" content="">
 
 
-    <title>Endpoints :: Endpoints | Devision Developers</title>
+    <title>С чего начать :: Endpoints | Devision Developers</title>
     <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -118,6 +118,42 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
+            <li data-nav-id="/design/resources/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/apis/design/resources/" class="devsite-nav-title">
+                    <span>Ресурсно-ориентированный дизайн</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/design/directory_structure/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/apis/design/directory_structure/" class="devsite-nav-title">
+                    <span>Структура каталога</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
             <li data-nav-id="/design/file_structure/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/apis/design/file_structure/" class="devsite-nav-title">
                     <span>Файловая структура</span>
@@ -155,7 +191,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
- <a href='https://developers.devision.io/apis/'>Endpoints</a> > Endpoints
+ <a href='https://developers.devision.io/apis/'>Endpoints</a> > С чего начать
 
 
 
@@ -167,19 +203,54 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <div id="body-inner">
           
-            <h1>Endpoints</h1>
+            <h1>С чего начать</h1>
           
 
 
 
 
 
-<h1 id="как-начать">Как начать</h1>
+<h2 id="если-у-вас-новый-проект">Если у вас новый проект</h2>
+
+<p>Если у вас уже есть проект, то пропускайпе этот подраздел.</p>
+
+<p>Установите [cookiecutter]()<a href="https://cookiecutter.readthedocs.io/en/latest/installation.html)">https://cookiecutter.readthedocs.io/en/latest/installation.html)</a></p>
+
+<pre><code class="language-bash">cookiecutter https://github.com/devision-io/devision-apis-skeleton.git
+</code></pre>
+
+<p>Укажите имя вашего нового API, его версию и сжатое емкое описание на английском языке в одно два предложения.
+Скрипт сам заменит нужные данные в скелете проекта и вы сможете начать.</p>
+
+<p>В итоге вы получите директорию с примерно таким содержимым: <a href="https://github.com/devision-io/API-Example-GRPC-Python">https://github.com/devision-io/API-Example-GRPC-Python</a></p>
+
+<h2 id="ознакомьтесь-с-design-guide">Ознакомьтесь с Design Guide</h2>
+
+<p>Прежде чам начать вам <strong>необходимо</strong> <a href="design">ознакомится с принципами дизайна</a>, которыми мы руководствуемся при проектированиии и разработке API.</p>
+
+<h2 id="запуск">Запуск</h2>
+
+<p>Разработка с gRPC + HTTP Transcoding сопровождается некоторыми необходимыми процессами.</p>
+
+<p>Если вы меняете proto файл, то вы должны выполнить <code>make esp</code> в корне проекта.
+Когда вы это сделаете в проекте автоматически создадуться файлы загрушек gRPC сервера, а так же настроки передадутся в Google Cloud.</p>
+
+<p>После этого запустите или перезапустите команду <code>make dev</code> - она запускает прокси nginx, который превращает http запрос в ваше api в бинарный протокол gRPC,
+который непосредственно принимается кодом вашей вебслужбы.
+Кроме этого esp nginx декодирует и валидирует access_token, который передается query прараметром в api.
+Это позволяет не проверять авторизацию непосредственно в коде API.</p>
+
+<h2 id="итог">Итог</h2>
+
+<p>В сухом остатке работа с gRPC сводится к:
+ - проектированию proto-файла с интерфейсами вашего api.
+ - запуске <code>make esp</code>
+ - запуске <code>make dev</code>
+ - расставления аннотаций проверки скоупов в коде
+ - реализации бизнес логики</p>
 
 
-<footer class=" footline" >
-	
-</footer>
+
 
 
 
@@ -190,7 +261,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#как-начать">Как начать</a></li>
+<li>
+<ul>
+<li><a href="#если-у-вас-новый-проект">Если у вас новый проект</a></li>
+<li><a href="#ознакомьтесь-с-design-guide">Ознакомьтесь с Design Guide</a></li>
+<li><a href="#запуск">Запуск</a></li>
+<li><a href="#итог">Итог</a></li>
+</ul></li>
 </ul>
 </nav>
 </div>

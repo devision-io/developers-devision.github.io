@@ -22,12 +22,34 @@
     </item>
     
     <item>
+      <title>Ресурсно-ориентированный дизайн</title>
+      <link>https://developers.devision.io/apis/design/resources/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/apis/design/resources/</guid>
+      <description>Цель этого руководства по дизайну - помочь разработчикам разработать простые, последовательные и простые в использовании API.
+API RPC часто разрабатываются с точки зрения интерфейсов и методов. Поскольку все больше и больше фич добавляются со временем, в конечном итиоге API может быть очень запутанным, разработчики должны будут изучать каждый метод индивидуально. Очевидно, это будет тратить много время и будет приводить к ошибкам.
+Проектирование API Предлагается выполнить следующие шаги при разработке API-интерфейсов, ориентированных на ресурсы:</description>
+    </item>
+    
+    <item>
+      <title>Структура каталога</title>
+      <link>https://developers.devision.io/apis/design/directory_structure/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/apis/design/directory_structure/</guid>
+      <description>Сервисы API обычно используют .proto файлы для определения API и .yaml файлов для настройки службы API. Каждая служба API должна иметь внутри репозитория каталог api, который содержит файлы определений.
+Посмотрите пример на GitHub для лучшего понимания.
+ api  {service}.yaml - Файл конфигурации, представляющий собой представление YAML google.api.Service proto message. v[0-9]/* - Каждый такой каталог содержит proto-файлы с описанием API.  docs/* - Файлы технической документации. Они должны быть в формате Markdown.</description>
+    </item>
+    
+    <item>
       <title>Файловая структура</title>
       <link>https://developers.devision.io/apis/design/file_structure/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/apis/design/file_structure/</guid>
-      <description>Файловая структура API gRPC должны быть определены в .proto файлах с использованием proto3 IDL.
+      <description>API gRPC должны быть определены в .proto файлах с использованием proto3 IDL.
 Структура файла должна содержать более высокоуровневые и более важные определения до более низкого уровня и менее важных элементов. В каждом proto-файле соответствующие разделы должны быть в следующем порядке:
  Авторские права и лицензии, если необходимо. Proto syntax, package, option и import в таком порядке Обзорная документация API, которая подготавливает читателей к остальной части файла Определения API proto service в порядке убывания важности Определения запроса и ответа RPC message в том же порядке соответствующих методов.</description>
     </item>

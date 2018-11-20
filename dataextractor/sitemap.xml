@@ -3,12 +3,23 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://developers.devision.io/dataextractor/categories/</loc>
+    <loc>https://developers.devision.io/dataextractor/</loc>
+    <lastmod>2018-11-09T18:36:24+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://developers.devision.io/dataextractor/api/v1/</loc>
+    <lastmod>2018-04-24T18:36:24+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://developers.devision.io/dataextractor/api/</loc>
+    <lastmod>2018-04-24T18:36:24+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://developers.devision.io/dataextractor/</loc>
+    <loc>https://developers.devision.io/dataextractor/categories/</loc>
     <priority>0</priority>
   </url>
   

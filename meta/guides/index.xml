@@ -28,7 +28,7 @@
       
       <guid>https://developers.devision.io/meta/guides/understanding_env_states/</guid>
       <description>Введение env.state - id текущего состояния страницы. Это можно сравнить с action в контроллере MVC. По умолчанию default env.sp - параметры состояния
-Код примера Вотпростой код для примера. Тут три ссылки, которые меняют состояние страницы. В script-ах указаны states, в которых script будет участвовать (будет выполняться). Если states для script или elem не указан, то script или elem участвует во всех state
+Код примера Вот простой код для примера. Тут три ссылки, которые меняют состояние страницы. В script-ах указаны states, в которых script будет участвовать (будет выполняться). Если states для script или elem не указан, то script или elem участвует во всех state
 &amp;lt;elem&amp;gt; &amp;lt;tpl&amp;gt; &amp;lt;a ng-click=&amp;quot;changeState(&#39;first&#39;, {&#39;foo&#39;:1})&amp;quot;&amp;gt;to first&amp;lt;/a&amp;gt; | &amp;lt;a ng-click=&amp;quot;changeState(&#39;two&#39;, {&#39;bar&#39;:2})&amp;quot;&amp;gt;to two&amp;lt;/a&amp;gt; | &amp;lt;a ng-click=&amp;quot;changeState(&#39;three&#39;, env.</description>
     </item>
     
@@ -71,6 +71,17 @@
       <description>Являются элементами me-chart. Работают на основе google charts. Примеры тут: http://meta.realweb.ru/page?a=35&amp;amp;p=3623
 Имеют опцию &amp;ldquo;nativeOptions&amp;rdquo; для передачи нативных параметров. Не рекомендуется это использоваться просто так из-за невозможности поддержки возможности смены графиков или более легкого обновления версии при отсутствии обратной совместимости.
 nativeOptions можно использовать как вариант для тестирования и с последующим запросом впиливания опции как мета параметр графиков.</description>
+    </item>
+    
+    <item>
+      <title>Построение URL</title>
+      <link>https://developers.devision.io/meta/guides/build_url/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/guides/build_url/</guid>
+      <description>При программировании в Мете во всех случаях стройте ссылки стандартными функциями, всегда стройте относительные ссылки (без имени домена).
+Стандартные механизмы В мете уже есть стандартные средства генерации url на карточку объекта или на обычную страницу. Используйте для этого:
+ LinkBuildService для meta/js $root.buildEnvUrl для html шаблонов (https://apps.devision.io/page?p=3788&amp;amp;a=35) Стройте ссылки в таблице запросом через hreffield или entity_linkfield (https://apps.devision.io/page?p=3292&amp;amp;a=35)  Параметры  a - applicationId p - pageId e - entityId. ID типа сущности.</description>
     </item>
     
     <item>

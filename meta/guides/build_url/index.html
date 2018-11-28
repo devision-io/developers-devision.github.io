@@ -9,7 +9,7 @@
     <meta name="description" content="">
 
 
-    <title>Состояния страниц :: META | Devision Developers</title>
+    <title>Построение URL :: META | Devision Developers</title>
     <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/guides/understanding_env_states/">
+  <body class="" data-url="/guides/build_url/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -120,7 +120,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/guides/understanding_env_states/" class="devsite-nav-item dd-item active">
+            <li data-nav-id="/guides/understanding_env_states/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/guides/understanding_env_states/" class="devsite-nav-title">
                     <span>Состояния страниц</span>
                 </a>
@@ -286,7 +286,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/guides/build_url/" class="devsite-nav-item dd-item ">
+            <li data-nav-id="/guides/build_url/" class="devsite-nav-item dd-item active">
                 <a href="https://developers.devision.io/meta/guides/build_url/" class="devsite-nav-title">
                     <span>Построение URL</span>
                 </a>
@@ -771,7 +771,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
- <a href='https://developers.devision.io/meta/'>META</a> > <a href='https://developers.devision.io/meta/guides/'>Руководства</a> > Состояния страниц
+ <a href='https://developers.devision.io/meta/'>META</a> > <a href='https://developers.devision.io/meta/guides/'>Руководства</a> > Построение URL
 
 
 
@@ -785,55 +785,85 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <div id="body-inner">
           
-            <h1>Состояния страниц</h1>
+            <h1>Построение URL</h1>
           
 
 
 
 
 
-<h2 id="введение">Введение</h2>
+<p>При программировании в Мете во всех случаях стройте ссылки стандартными функциями, всегда стройте относительные ссылки (без имени домена).</p>
 
-<p>env.state - id текущего состояния страницы. Это можно сравнить с action в контроллере MVC. По умолчанию default
-env.sp - параметры состояния</p>
+<h2 id="стандартные-механизмы">Стандартные механизмы</h2>
 
-<h2 id="код-примера">Код примера</h2>
+<p>В мете уже есть стандартные средства генерации url на карточку объекта или на обычную страницу.
+Используйте для этого:</p>
 
-<p>Вот простой код для примера. Тут три ссылки, которые меняют состояние страницы.
-В script-ах указаны states, в которых script будет участвовать (будет выполняться).
-Если states для script или elem не указан, то script или elem участвует во всех state</p>
+<ul>
+<li>LinkBuildService для meta/js</li>
+<li>$root.buildEnvUrl для html шаблонов (<a href="https://apps.devision.io/page?p=3788&amp;a=35">https://apps.devision.io/page?p=3788&amp;a=35</a>)</li>
+<li>Стройте ссылки в таблице запросом через href<em>field</em> или entity_link<em>field</em> (<a href="https://apps.devision.io/page?p=3292&amp;a=35">https://apps.devision.io/page?p=3292&amp;a=35</a>)</li>
+</ul>
 
-<pre><code class="language-html">&lt;elem&gt;
-&lt;tpl&gt;
-    &lt;a ng-click=&quot;changeState('first', {'foo':1})&quot;&gt;to first&lt;/a&gt; | 
-    &lt;a ng-click=&quot;changeState('two', {'bar':2})&quot;&gt;to two&lt;/a&gt; |
-    &lt;a ng-click=&quot;changeState('three', env.sp)&quot;&gt;to three&lt;/a&gt; |
+<h2 id="параметры">Параметры</h2>
 
-    &lt;hr&gt;    
-    state: {{env.state}}
-    &lt;br&gt;
-    &lt;pre&gt;{{env.sp|json}}&lt;/pre&gt;
+<ul>
+<li>a - applicationId</li>
+<li>p - pageId</li>
+<li>e - entityId. ID типа сущности.</li>
+<li>o - objectId. PrimaryKey в таблице сущности</li>
+<li>env - environment params. JSON закодированный в base64 Тут все фильтры, сортировки и пр.</li>
+</ul>
 
-&lt;/tpl&gt;
-&lt;/elem&gt;
+<h2 id="ручная-генерация-ссылок">Ручная генерация ссылок</h2>
 
-&lt;script type=&quot;meta/sql&quot; db-alias=&quot;adplatform&quot; span=&quot;4&quot; states=&quot;first&quot;&gt;
-select 1
-&lt;/script&gt;
+<p>Когда вам нужно построить правильную ссылку на страницу Меты из другого проекта
+и эта ссылка должна содержать фильтры или параметры страниц вы должны следовать этому алгоритму генерации.</p>
 
-&lt;script type=&quot;meta/sql&quot; db-alias=&quot;adplatform&quot; span=&quot;4&quot; states=&quot;two&quot;&gt;
-select 2
-&lt;/script&gt;
+<p>Например у нас есть ссылка:</p>
 
-&lt;script type=&quot;meta/sql&quot; db-alias=&quot;adplatform&quot; span=&quot;4&quot; states=&quot;first, two&quot;&gt;
-select 3
-&lt;/script&gt;
+<pre><code>/page?p=onec_doc_info&amp;env=eyJwX29uZWNfZG9jX2luZm8iOnsic3AiOnsiYWN0aXZlX21vZGUiOiJhbGwiLCJvcmdfaWRzIjpbM119fX0&amp;a=58
+</code></pre>
 
-&lt;script type=&quot;meta/js&quot; id=&quot;w&quot; states=&quot;three&quot;&gt;
-function main(vm, pvm, env) {
-    pvm.toInitialState();
+<ul>
+<li>onec_doc_info - будет означать вполне конкретную страницу. Вы должны знать этот ID</li>
+<li>a - будет означать id приложения. Вы должны знать этот ID</li>
+</ul>
+
+<p>Раскодированный env будет выглядеть так:</p>
+
+<pre><code class="language-json">{
+  &quot;p_onec_doc_info&quot;: {
+    &quot;sp&quot;: { /* StateParams. Фактически параметры страницы. Зависят от конкретной страницы */
+      &quot;active_mode&quot;: &quot;all&quot;,
+      &quot;org_ids&quot;: [
+        3
+      ]
+    },
+    &quot;search&quot;: { /* Это фильтры общего поиска и сортировки таблиц, скорее всего они вам не понадобятся */
+      &quot;offset&quot;: 0,
+      &quot;limit&quot;: 20,
+      &quot;orderByField&quot;: 5,
+      &quot;orderBySort&quot;: &quot;DESC&quot;
+    }
+  }
 }
-&lt;/script&gt;
+</code></pre>
+
+<p>Ключ в словаре строится по шаблону &ldquo;p_{PAGE<em>ID}$e</em>{ENTIRY<em>ID}$o</em>{OBJECT<em>ID}&ldquo;.
+При этом если entityId или objectId нет, то и $e</em>* b $o_* не должны присутствовать в url.
+Скорее, лучше всего алгоритм пояснит код на JavaScript:</p>
+
+<pre><code class="language-javascript">function getPageUrlKey(data) {
+    let key = 'p_' + data.pageId;
+    if (data.entityId) {
+        key += '$e_' + data.entityId;
+    }
+    if (typeof data.objectId !== 'undefined') {
+        key += '$o_' + data.objectId;
+    }
+    return key;
+}
 </code></pre>
 
 
@@ -850,8 +880,9 @@ function main(vm, pvm, env) {
 <ul>
 <li>
 <ul>
-<li><a href="#введение">Введение</a></li>
-<li><a href="#код-примера">Код примера</a></li>
+<li><a href="#стандартные-механизмы">Стандартные механизмы</a></li>
+<li><a href="#параметры">Параметры</a></li>
+<li><a href="#ручная-генерация-ссылок">Ручная генерация ссылок</a></li>
 </ul></li>
 </ul>
 </nav>

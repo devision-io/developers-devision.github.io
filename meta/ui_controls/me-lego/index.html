@@ -286,6 +286,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
+            <li data-nav-id="/guides/build_url/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/guides/build_url/" class="devsite-nav-title">
+                    <span>Построение URL</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
             <li data-nav-id="/guides/metaql/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/guides/metaql/" class="devsite-nav-title">
                     <span>Язык запросов META (METAQL)</span>
@@ -832,7 +850,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           &quot;code&quot;: [
             &quot;( ADD | SET, REMOVE )&quot;
           ],
-          &quot;entityId&quot;: &quot;(number)&quot;,
+          &quot;entityId&quot;: &quot;(string)&quot;,
           &quot;objectId&quot;: &quot;(string)&quot;,
           &quot;pubSubChannel&quot;: [
             &quot;(string)&quot;
@@ -880,7 +898,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       &quot;code&quot;: [
         &quot;( ADD | SET, REMOVE )&quot;
       ],
-      &quot;entityId&quot;: &quot;(number)&quot;,
+      &quot;entityId&quot;: &quot;(string)&quot;,
       &quot;objectId&quot;: &quot;(string)&quot;,
       &quot;pubSubChannel&quot;: [
         &quot;(string)&quot;
@@ -949,9 +967,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 Зависимости от других элементов. При изменении зависимых элементов, при условии, что заполнены все значения из depends
 делается автоматический переапрос refPvmData и depends будут переданы в env.sp как {key: value}
 
-**@example** https://meta.realweb.ru/page?p=4329&a=35
+**@example** https://apps.devision.io/page?p=4329&a=35
 
-**@example** https://meta.realweb.ru/page?p=3597&a=35
+**@example** https://apps.devision.io/page?p=3597&a=35
 
 
 <h3 id="elems_114">elems [object Object]</h3>
@@ -966,9 +984,9 @@ Angular expression от рута vm страницы
 Например: &lsquo;editGroup.card.name == &ldquo;exist&rdquo; || editGroup.card.name == &ldquo;exist23&rdquo;&rsquo;
 Для me-lego-list можно использовать нотацию [] для получения доступа в элементу списка, например MyForm.out.card.filled[].deadline_enabled === true, где filled - id me-lego-list</p>
 
-<p><strong>@example</strong> <a href="https://meta.realweb.ru/page?p=3570&amp;a=35">https://meta.realweb.ru/page?p=3570&amp;a=35</a></p>
+<p><strong>@example</strong> <a href="https://apps.devision.io/page?p=3570&amp;a=35">https://apps.devision.io/page?p=3570&amp;a=35</a></p>
 
-<p><strong>@example</strong> <a href="https://meta.realweb.ru/page?p=4329&amp;a=35">https://meta.realweb.ru/page?p=4329&amp;a=35</a></p>
+<p><strong>@example</strong> <a href="https://apps.devision.io/page?p=4329&amp;a=35">https://apps.devision.io/page?p=4329&amp;a=35</a></p>
 
 <p><h3 id="formHorizontal_125">formHorizontal (boolean)</h3>
 Если элемента поддерживает, вывести его в стиле формы ключ, значение. Чтобы заголовок был на уровне элемента</p>
@@ -1009,14 +1027,14 @@ ID данных элемента
 <p><h3 id="refPvmData_127">refPvmData [object Object]</h3>
 Инструкции по получению данных для [[IMeInputAttrs.options]] или таблицы</p>
 
-<p><strong>@example</strong> <a href="https://meta.realweb.ru/page?p=3570&amp;a=35">https://meta.realweb.ru/page?p=3570&amp;a=35</a></p>
+<p><strong>@example</strong> <a href="https://apps.devision.io/page?p=3570&amp;a=35">https://apps.devision.io/page?p=3570&amp;a=35</a></p>
 
-<p><strong>@example</strong> <a href="https://meta.realweb.ru/page?p=3597&amp;a=35">https://meta.realweb.ru/page?p=3597&amp;a=35</a></p>
+<p><strong>@example</strong> <a href="https://apps.devision.io/page?p=3597&amp;a=35">https://apps.devision.io/page?p=3597&amp;a=35</a></p>
 
 <p><h3 id="refPvmValidator_126">refPvmValidator [object Object]</h3>
 Пользовательская валидация</p>
 
-<p><strong>@example</strong> <a href="https://meta.realweb.ru/page?p=3443&amp;a=35">https://meta.realweb.ru/page?p=3443&amp;a=35</a></p>
+<p><strong>@example</strong> <a href="https://apps.devision.io/page?p=3443&amp;a=35">https://apps.devision.io/page?p=3443&amp;a=35</a></p>
 
 <p><h3 id="selfDepends_129">selfDepends (boolean)</h3>
 Зависимость от себя самого, нужно для editable [[IMeTable]]
@@ -1038,12 +1056,10 @@ Angular expression от рута vm страницы
 Расчет идет на стороне браузера
 Например: &lsquo;editGroup.card.name == &ldquo;visible&rdquo;&rsquo;</p>
 
-<p><strong>@example</strong> <a href="https://meta.realweb.ru/page?p=3570&amp;a=35">https://meta.realweb.ru/page?p=3570&amp;a=35</a></p>
+<p><strong>@example</strong> <a href="https://apps.devision.io/page?p=3570&amp;a=35">https://apps.devision.io/page?p=3570&amp;a=35</a></p>
 
 
-<footer class=" footline" >
-	
-</footer>
+
 
 
 

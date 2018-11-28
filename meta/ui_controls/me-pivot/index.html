@@ -286,6 +286,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
+            <li data-nav-id="/guides/build_url/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/guides/build_url/" class="devsite-nav-title">
+                    <span>Построение URL</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
             <li data-nav-id="/guides/metaql/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/guides/metaql/" class="devsite-nav-title">
                     <span>Язык запросов META (METAQL)</span>
@@ -781,7 +799,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <p><strong>@link</strong> <a href="https://pivottable.js.org">https://pivottable.js.org</a></p>
 
-<p><strong>@example</strong> <a href="https://meta.realweb.ru/page?p=4230&amp;a=35">https://meta.realweb.ru/page?p=4230&amp;a=35</a></p>
+<p><strong>@example</strong> <a href="https://apps.devision.io/page?p=4230&amp;a=35">https://apps.devision.io/page?p=4230&amp;a=35</a></p>
 
 <h2 id="структура">Структура</h2>
 
@@ -816,7 +834,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       &quot;code&quot;: [
         &quot;( ADD | SET, REMOVE )&quot;
       ],
-      &quot;entityId&quot;: &quot;(number)&quot;,
+      &quot;entityId&quot;: &quot;(string)&quot;,
       &quot;objectId&quot;: &quot;(string)&quot;,
       &quot;pubSubChannel&quot;: [
         &quot;(string)&quot;
@@ -853,124 +871,122 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 }
 </code></pre>
 
-<h3 id="__tid_372">__tid (any)</h3>
+<h3 id="__tid_373">__tid (any)</h3>
 Автоматически генерируемое приватное поле
 
 
 
 
-<h3 id="align_357">align (string)</h3>
+<h3 id="align_358">align (string)</h3>
 Позиционирование элемента в ячейке серки
 
 **@default** "left"
 
 
-<h3 id="attrs_350">attrs [object Object]</h3>
+<h3 id="attrs_351">attrs [object Object]</h3>
 
-<p><h3 id="bindAttrs_370">bindAttrs [object Object]</h3>
+<p><h3 id="bindAttrs_371">bindAttrs [object Object]</h3>
 Когда нужно подписаться на изменение данные в pvm и заполнять какие-то поля элемента
 Например, менять elems в me-lego динамически или запонять me-input[type=text] расчетным значением</p>
 
-<p><h3 id="defaultValue_366">defaultValue (any)</h3>
+<p><h3 id="defaultValue_367">defaultValue (any)</h3>
 Значение элемента по умолчанию
 Для некоторых элементов</p>
 
-<p><h3 id="depends_364">depends (string)</h3>
+<p><h3 id="depends_365">depends (string)</h3>
 Зависимости от других элементов. При изменении зависимых элементов, при условии, что заполнены все значения из depends
 делается автоматический переапрос refPvmData и depends будут переданы в env.sp как {key: value}</p>
 
-<p><strong>@example</strong> <a href="https://meta.realweb.ru/page?p=4329&amp;a=35">https://meta.realweb.ru/page?p=4329&amp;a=35</a></p>
+<p><strong>@example</strong> <a href="https://apps.devision.io/page?p=4329&amp;a=35">https://apps.devision.io/page?p=4329&amp;a=35</a></p>
 
-<p><strong>@example</strong> <a href="https://meta.realweb.ru/page?p=3597&amp;a=35">https://meta.realweb.ru/page?p=3597&amp;a=35</a></p>
+<p><strong>@example</strong> <a href="https://apps.devision.io/page?p=3597&amp;a=35">https://apps.devision.io/page?p=3597&amp;a=35</a></p>
 
-<p><h3 id="entityId_367">entityId (number)</h3>
+<p><h3 id="entityId_368">entityId (number)</h3>
 Meta EntityId
 Для некоторых элементов, напрмиер [[IMeInput]], [[IMeTable]]</p>
 
-<p><h3 id="exist_368">exist </h3>
+<p><h3 id="exist_369">exist </h3>
 Angular expression от рута vm страницы
 Расчет идет на стороне браузера
 Например: &lsquo;editGroup.card.name == &ldquo;exist&rdquo; || editGroup.card.name == &ldquo;exist23&rdquo;&rsquo;
 Для me-lego-list можно использовать нотацию [] для получения доступа в элементу списка, например MyForm.out.card.filled[].deadline_enabled === true, где filled - id me-lego-list</p>
 
-<p><strong>@example</strong> <a href="https://meta.realweb.ru/page?p=3570&amp;a=35">https://meta.realweb.ru/page?p=3570&amp;a=35</a></p>
+<p><strong>@example</strong> <a href="https://apps.devision.io/page?p=3570&amp;a=35">https://apps.devision.io/page?p=3570&amp;a=35</a></p>
 
-<p><strong>@example</strong> <a href="https://meta.realweb.ru/page?p=4329&amp;a=35">https://meta.realweb.ru/page?p=4329&amp;a=35</a></p>
+<p><strong>@example</strong> <a href="https://apps.devision.io/page?p=4329&amp;a=35">https://apps.devision.io/page?p=4329&amp;a=35</a></p>
 
-<p><h3 id="formHorizontal_361">formHorizontal (boolean)</h3>
+<p><h3 id="formHorizontal_362">formHorizontal (boolean)</h3>
 Если элемента поддерживает, вывести его в стиле формы ключ, значение. Чтобы заголовок был на уровне элемента</p>
 
-<p><h3 id="help_354">help (string)</h3>
+<p><h3 id="help_355">help (string)</h3>
 Доп информация, рисуется под label или под элментом
 Зависит от типа элемента</p>
 
-<p><h3 id="icon_359">icon (string)</h3>
+<p><h3 id="icon_360">icon (string)</h3>
 Иконка Font Awesome
 Например fa-bicycle</p>
 
 <p><strong>@link</strong> <a href="http://ui.adplatform.lan/Static_Full_Version/icons.html">http://ui.adplatform.lan/Static_Full_Version/icons.html</a></p>
 
-<p><h3 id="id_352">id (string)</h3>
+<p><h3 id="id_353">id (string)</h3>
 ID данных элемента
 Будет доступно в env.sp.{ID} или как вложенная структура, если это [[IMeElemContainer]]</p>
 
-<p><h3 id="label_353">label (string)</h3>
+<p><h3 id="label_354">label (string)</h3>
 Заголовок элемента
 Обычно над элементом, на некоторых не рисуется вообще</p>
 
-<p><h3 id="listen_371">listen [object Object]</h3>
+<p><h3 id="listen_372">listen [object Object]</h3>
 Подписка на изменения объектов. Пока работает только для изменений вызваных в модальном окне
 Например у вас таблица со списоком аккуантов и в &ldquo;+ Аккаунт&rdquo; вы можете добавить или привязать аккаунт,
 а после сохранения в модальном окне, родительская таблциа должна пересчитаться</p>
 
-<p><h3 id="name_351">name (string)</h3>
+<p><h3 id="name_352">name (string)</h3>
 Название элемента
 Например: me-lego, me-input</p>
 
-<p><h3 id="offset_356">offset (number)</h3>
+<p><h3 id="offset_357">offset (number)</h3>
 Отстут по сетке справа от 0 до12</p>
 
-<p><h3 id="order_358">order (number)</h3>
+<p><h3 id="order_359">order (number)</h3>
 Прзиция элемента в сетке, чем меньше значение, тем элемент выше и левее</p>
 
-<p><h3 id="refPvmData_363">refPvmData [object Object]</h3>
+<p><h3 id="refPvmData_364">refPvmData [object Object]</h3>
 Инструкции по получению данных для [[IMeInputAttrs.options]] или таблицы</p>
 
-<p><strong>@example</strong> <a href="https://meta.realweb.ru/page?p=3570&amp;a=35">https://meta.realweb.ru/page?p=3570&amp;a=35</a></p>
+<p><strong>@example</strong> <a href="https://apps.devision.io/page?p=3570&amp;a=35">https://apps.devision.io/page?p=3570&amp;a=35</a></p>
 
-<p><strong>@example</strong> <a href="https://meta.realweb.ru/page?p=3597&amp;a=35">https://meta.realweb.ru/page?p=3597&amp;a=35</a></p>
+<p><strong>@example</strong> <a href="https://apps.devision.io/page?p=3597&amp;a=35">https://apps.devision.io/page?p=3597&amp;a=35</a></p>
 
-<p><h3 id="refPvmValidator_362">refPvmValidator [object Object]</h3>
+<p><h3 id="refPvmValidator_363">refPvmValidator [object Object]</h3>
 Пользовательская валидация</p>
 
-<p><strong>@example</strong> <a href="https://meta.realweb.ru/page?p=3443&amp;a=35">https://meta.realweb.ru/page?p=3443&amp;a=35</a></p>
+<p><strong>@example</strong> <a href="https://apps.devision.io/page?p=3443&amp;a=35">https://apps.devision.io/page?p=3443&amp;a=35</a></p>
 
-<p><h3 id="selfDepends_365">selfDepends (boolean)</h3>
+<p><h3 id="selfDepends_366">selfDepends (boolean)</h3>
 Зависимость от себя самого, нужно для editable [[IMeTable]]
 и прототип для поиска [[IMeInputAttrs.options]] в me-input для частичной подгрузки данных</p>
 
 <p><strong>@beta</strong></p>
 
-<p><h3 id="span_355">span (number)</h3>
+<p><h3 id="span_356">span (number)</h3>
 Размер по сетке справа от 0 до12</p>
 
-<p><h3 id="tooltip_373">tooltip [object Object]</h3>
+<p><h3 id="tooltip_374">tooltip [object Object]</h3>
 Стандартный мета тултип</p>
 
-<p><h3 id="value_360">value (string)</h3>
+<p><h3 id="value_361">value (string)</h3>
 для некоторых элементов</p>
 
-<p><h3 id="visible_369">visible (boolean)</h3>
+<p><h3 id="visible_370">visible (boolean)</h3>
 Angular expression от рута vm страницы
 Расчет идет на стороне браузера
 Например: &lsquo;editGroup.card.name == &ldquo;visible&rdquo;&rsquo;</p>
 
-<p><strong>@example</strong> <a href="https://meta.realweb.ru/page?p=3570&amp;a=35">https://meta.realweb.ru/page?p=3570&amp;a=35</a></p>
+<p><strong>@example</strong> <a href="https://apps.devision.io/page?p=3570&amp;a=35">https://apps.devision.io/page?p=3570&amp;a=35</a></p>
 
 
-<footer class=" footline" >
-	
-</footer>
+
 
 
 

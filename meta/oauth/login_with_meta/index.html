@@ -838,6 +838,62 @@ Content-Length: &lt;длина тела запроса&gt;
     &amp; client_secret=&lt;пароль приложения&gt;
 </code></pre>
 
+<h2 id="формат-ответа-с-токеном">Формат ответа с токеном</h2>
+
+<pre><code class="language-json">{
+  &quot;scopes&quot;: [
+    &quot;userinfo.profile&quot;
+  ],
+  &quot;token_type&quot;: &quot;bearer&quot;,
+  &quot;expires&quot;: 300,
+  &quot;access_token&quot;: &quot;eyJraWQiOiJhZWRiYmZlN2NjZjA3YzRiZWZkNDUwOTAxNTAxYjgzNzg3Njg1ZWNmIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYifQ.eyJhdWQiOiJhcGlzLmRldmlzaW9uLmlvIiwic3ViIjoiMTAxOTEiLCJpdWlkIjowLCJzY29wZSI6InVzZXJpbmZvLnByb2ZpbGUiLCJpc3MiOiJ0b2tlbi1pc3N1ZXIuZGV2aXNpb24uaW8iLCJleHAiOjE1NDQ1NDY0NjYsImlhdCI6MTU0NDU0NjE2Nn0.kztLoOpqCSomQklGkORtkHS1Zg50SgIFn__79FNTZZJMLPrg0jj57aWQEcJwknWIN7yakUVq9RlEq8JL_k_LwNhFlZshaVCFDiOsXa3e6-U1l4z8ZRYOPcbT0imWdajHB34pU95Q-_OQWlsAhvWTqGd04maUil0EbubwDOuaLZlOpXbgjn2paGe_E0augK9DJk4XVHC24RD8ZKluzJLE0PO22AzI44tJu2WgB_P_alT6Z6R6ur8-yWhEjCEHyUb9a9Elq-qNcDnxg4Td9GP4nFsfCak4zZd6jWE0ITfpDsYuczINIQsYCgQIfeDB2plDqBMuzTEycOb5i1EmxzLEqw&quot;,
+  &quot;refresh_token&quot;: &quot;da6e4c37987447312311a59fbc9d5b421&quot;,
+  &quot;user_id&quot;: 10191,
+  &quot;company_id&quot;: 1
+}
+</code></pre>
+
+<ul>
+<li>scopes: Скоупы, доступные этому токену</li>
+<li>token_type: Тип выданного токена. Всегда принимает значение «bearer»</li>
+<li>expires: Время жизни токена в секундах</li>
+<li>access_token: OAuth-токен с запрошенными правами</li>
+<li>refresh_token: Токен, который можно использовать <strong>только</strong> для продления срока жизни соответствующего OAuth-токена&rdquo;&rsquo;</li>
+</ul>
+
+<p>Время жизни refresh-токена совпадает с временем жизни OAuth-токена.</p>
+
+<p>Если выдать токен не удалось, то ответ содержит описание ошибки:</p>
+
+<pre><code class="language-json">{
+  &quot;token_type&quot;: &quot;bearer&quot;,
+  &quot;error&quot;: &quot;&lt;код ошибки&gt;&quot;,
+  &quot;error_description&quot;: &quot;&lt;описание ошибки&gt;&quot;
+}
+</code></pre>
+
+<h2 id="обновить-токен">Обновить токен</h2>
+
+<p>Получение токена в обмен на refresh-токен:</p>
+
+<ul>
+<li>Приложение отправляет POST-запрос с refresh-токеном.</li>
+<li>META.OAuth возвращает новый access_token в теле ответа.</li>
+</ul>
+
+<pre><code>POST /oauth2/token HTTP/1.1
+Host: YOUR-META-URL
+Content-type: application/x-www-form-urlencoded
+Content-Length: &lt;длина тела запроса&gt;
+
+    grant_type=refresh_token
+    &amp; refresh_token=&lt;refresh_token&gt;
+    &amp; client_id=&lt;идентификатор приложения&gt;
+    &amp; client_secret=&lt;пароль приложения&gt;
+</code></pre>
+
+<p>В теле ответа вы получите такую ще структуру, как и в случае получения токена по authorization_code</p>
+
 
 
 
@@ -856,6 +912,8 @@ Content-Length: &lt;длина тела запроса&gt;
 <li><a href="#запрос-кода-подтверждения">Запрос кода подтверждения</a></li>
 <li><a href="#получение-кода-подтверждения-из-url">Получение кода подтверждения из URL</a></li>
 <li><a href="#обмен-кода-подтверждения-на-токен">Обмен кода подтверждения на токен</a></li>
+<li><a href="#формат-ответа-с-токеном">Формат ответа с токеном</a></li>
+<li><a href="#обновить-токен">Обновить токен</a></li>
 </ul></li>
 </ul>
 </nav>

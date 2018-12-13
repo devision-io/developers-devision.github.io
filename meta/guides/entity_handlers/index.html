@@ -9,7 +9,7 @@
     <meta name="description" content="">
 
 
-    <title>Простейший отчет с фильтрами :: META | Devision Developers</title>
+    <title>Обработчики событий сущностей :: META | Devision Developers</title>
     <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/samples/pages/report_with_filters/">
+  <body class="" data-url="/guides/entity_handlers/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -69,7 +69,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="/guides/" class="devsite-nav-item devsite-nav-item-main
-                        
+                        parent
                         
                         parent
                         ">
@@ -174,7 +174,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/guides/entity_handlers/" class="devsite-nav-item dd-item ">
+            <li data-nav-id="/guides/entity_handlers/" class="devsite-nav-item dd-item active">
                 <a href="https://developers.devision.io/meta/guides/entity_handlers/" class="devsite-nav-title">
                     <span>Обработчики событий сущностей</span>
                 </a>
@@ -365,7 +365,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="/samples/" class="devsite-nav-item devsite-nav-item-main
-                        parent
+                        
                         
                         parent
                         ">
@@ -396,7 +396,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/samples/pages/report_with_filters/" class="devsite-nav-item dd-item active">
+            <li data-nav-id="/samples/pages/report_with_filters/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/samples/pages/report_with_filters/" class="devsite-nav-title">
                     <span>Простейший отчет с фильтрами</span>
                 </a>
@@ -789,7 +789,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
- <a href='https://developers.devision.io/meta/'>META</a> > <a href='https://developers.devision.io/meta/samples/'>Примеры</a> > Простейший отчет с фильтрами
+ <a href='https://developers.devision.io/meta/'>META</a> > <a href='https://developers.devision.io/meta/guides/'>Руководства</a> > Обработчики событий сущностей
 
 
 
@@ -803,74 +803,76 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <div id="body-inner">
           
-            <h1>Простейший отчет с фильтрами</h1>
+            <h1>Обработчики событий сущностей</h1>
           
 
 
 
 
 
-<p>Типичная задача META - вывод списка обхектов в виде отчета с фильтрами.</p>
+<h2 id="мотивация">Мотивация</h2>
 
-<p>Обычно отчет представляет из себя одну таблицу с фильтрами. Script id такой основной таблицы рекомендуется называть &ldquo;res&rdquo;, чтобы другим разработчикам было привычнее читать ваш код.</p>
+<p>Часто хочется иметь middleware функцию проверки доступа к конкретному объекту на карточке объекта для того,
+чтобы не делать проверку досупа на каждой странице сущности.</p>
 
-<h2 id="код-примера">Код примера</h2>
+<p>Чтобы сделать обработчик вам нужно:</p>
 
-<pre><code class="language-html">&lt;!-- Фильтрация --&gt;
-&lt;script type=&quot;meta/sql&quot; db-alias=&quot;meta_samples&quot; label=&quot;Организация&quot; id=&quot;org_ids&quot; elem=&quot;me-select&quot; order=&quot;1&quot; span=&quot;4&quot; elem-attrs='{&quot;multiple&quot;:true}' page-search&gt;
-SELECT &quot;organizationId&quot; as id, name as name FROM &quot;organization&quot; order by name
-&lt;/script&gt;
+<ul>
+<li><p>Сделать страницы с ролью &ldquo;Обработчики событий сущности&rdquo;</p></li>
 
-&lt;script type=&quot;meta/sql&quot; db-alias=&quot;meta_samples&quot; label=&quot;Статус&quot; id=&quot;active_mode&quot; elem=&quot;me-select&quot; default=&quot;all&quot; order=&quot;1&quot; span=&quot;4&quot; page-search&gt;
-SELECT t.* FROM (VALUES ('all', 'Все'), ('active', 'Активные'), ('no_active', 'Неактивные')) as t(id,name);
-&lt;/script&gt;
+<li><p>Сделать скрипт cо state и id равному типу обработчика.</p></li>
+</ul>
 
+<p>Например:</p>
 
-&lt;!-- Основная таблица --&gt;
-&lt;script type=&quot;meta/sql&quot; db-alias=&quot;meta_samples&quot; id=&quot;res&quot; entity-id=&quot;2629&quot; label=&quot;Шаблон страницы по умолчанию&quot;
-        elem-attrs='{&quot;addObjectButton&quot;:{&quot;title&quot;:&quot;Сотрудник&quot;, &quot;mode&quot;:&quot;modal&quot;}}' order=&quot;100500&quot; &gt;
-SELECT
-	-- Выбираемые поля
-	&quot;employeeId&quot;,
-	employee.&quot;name&quot;,
-	&quot;isActive&quot;,
-	&quot;creationTime&quot;,
-	organization.name as org_name,
-	organization.&quot;workAfter&quot; as org_work_after,
-	(CASE WHEN &quot;isActive&quot; THEN '' ELSE 'ЗАБЛОКИРОВАН' END) as &quot;статус&quot;,
-	&quot;salary&quot;::int8,
-	-- Системная колонка - добавляет total в пагинатор и применяет параметры к колонкам
-	json_build_object(
-		'pager', json_build_object('total', count(*) over()),
-		'headers', json_build_array(
-			json_build_object('name', 'name', 'displayName', 'Имя'),
-			json_build_object('name', 'creationTime', 'displayName', 'Добавлен', 'parentColumn', 'name'),
-			json_build_object('name', 'isActive', 'displayName', 'Активный', 'parentColumn', 'name'),
-			json_build_object('name', 'статус', 'parentColumn', 'name', 'hideNameInParentColumn', true),
-			json_build_object('name', 'org_name', 'displayName', 'Организация'),
-			json_build_object('name', 'org_work_after', 'displayName', 'Время работы', 'parentColumn', 'org_name'),
-			json_build_object('name', 'salary', 'displayName', 'ЗП')
-		)
-	) as table_props_field
-FROM &quot;public&quot;.&quot;employee&quot;
-inner join organization ON organization.&quot;organizationId&quot; = employee.&quot;organizationId&quot;
-WHERE employee.name ILIKE ${env.search_text}
--- Фильтрация данных таблицы
-[#if env.sp.org_ids?size&gt;0]
-	AND employee.&quot;organizationId&quot; IN ( :env.sp.org_ids )
-[/#if]
-[#if env.sp.active_mode?has_content]
-	[#if env.sp.active_mode = 'active']
-		AND employee.&quot;isActive&quot;
-	[/#if]
-	[#if env.sp.active_mode = 'no_active']
-		AND NOT employee.&quot;isActive&quot;
-	[/#if]
-[/#if]
-ORDER BY ${sort}, &quot;creationTime&quot; DESC
-${pager}
-&lt;/script&gt;
+<pre><code class="language-html">&lt;scipt type=&quot;...&quot; id=&quot;check_access&quot; state=&quot;check_access&quot;&gt;
+
+&lt;/scipt&gt;
 </code></pre>
+
+<p>Обратите внимание, что на один state вы можете сделать несколько скриптов,
+которые выполнятся последовательно согласно их положению на странице. Это может быть удобно,
+когда вам надо что-то сделать в разных бд или sql + javascript. В этом случае скрипт с id равному типу обработчика должен стоять последним.</p>
+
+<p>Например:</p>
+
+<pre><code class="language-html">&lt;scipt type=&quot;...&quot; id=&quot;get_anything&quot; state=&quot;check_access&quot;&gt;
+    SELECT myvar 
+    FROM ...
+    LIMIT 1 
+&lt;/scipt&gt;
+
+&lt;scipt type=&quot;...&quot; id=&quot;check_access&quot; state=&quot;check_access&quot;&gt;
+    SELECT ... 
+    FROM ... 
+    WHERE id IN ( :pvm.data.get_anything.rows[0].myvar )
+&lt;/scipt&gt;
+</code></pre>
+
+<h2 id="обработчик-check-access">Обработчик: check_access</h2>
+
+<p>Используется для проверки доступа к конкретному объекту сущности.
+Например в вашем приложении есть список клиентов, но не каждому пользователю доступен каждый клиент.
+В этом случае удобно будет сделать проверку на карточке один раз и не проверять на каждой странице.</p>
+
+<div class="notices info" ><p>Проверка на карточке объекта не отменяет отдельные проверки на списке объектов.
+Пока что в Мете нет способа быстро и просто проверять доступность данных на списках через встроенные механизмы.
+Мы рекомендуем делать хранимые процедуры базы данных для быстрой проверки доступа.</p>
+</div>
+
+
+<p>Метод может вернуть всего одну строку с параметром &ldquo;status_code&rdquo; (тип int) или вернуть ноль строк.
+Для простоты коды соответсвуют <a href="https://ru.wikipedia.org/wiki/Список_кодов_состояния_HTTP">HTTP кодам состояния</a></p>
+
+<p>На текущий момент реализована обработка этих кодов:</p>
+
+<ul>
+<li>200 - доступ есть</li>
+<li>403 - доступ запрещен</li>
+<li>404 или если метод не вернет ни одной строки это будет - отсутствие обхекта</li>
+</ul>
+
+<p>Если будет возвращен иной код состояния это будет воспринято как ошибка старницы и дальнейшая загрузка объета будет преравана.</p>
 
 
 
@@ -886,7 +888,8 @@ ${pager}
 <ul>
 <li>
 <ul>
-<li><a href="#код-примера">Код примера</a></li>
+<li><a href="#мотивация">Мотивация</a></li>
+<li><a href="#обработчик-check-access">Обработчик: check_access</a></li>
 </ul></li>
 </ul>
 </nav>

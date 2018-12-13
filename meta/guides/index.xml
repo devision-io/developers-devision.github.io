@@ -52,6 +52,20 @@
     </item>
     
     <item>
+      <title>Обработчики событий сущностей</title>
+      <link>https://developers.devision.io/meta/guides/entity_handlers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/guides/entity_handlers/</guid>
+      <description>Мотивация Часто хочется иметь middleware функцию проверки доступа к конкретному объекту на карточке объекта для того, чтобы не делать проверку досупа на каждой странице сущности.
+Чтобы сделать обработчик вам нужно:
+ Сделать страницы с ролью &amp;ldquo;Обработчики событий сущности&amp;rdquo;
+ Сделать скрипт cо state и id равному типу обработчика.
+  Например:
+&amp;lt;scipt type=&amp;quot;...&amp;quot; id=&amp;quot;check_access&amp;quot; state=&amp;quot;check_access&amp;quot;&amp;gt; &amp;lt;/scipt&amp;gt;  Обратите внимание, что на один state вы можете сделать несколько скриптов, которые выполнятся последовательно согласно их положению на странице.</description>
+    </item>
+    
+    <item>
       <title>Шаблонизация</title>
       <link>https://developers.devision.io/meta/guides/template_engines/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

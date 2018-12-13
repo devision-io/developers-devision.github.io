@@ -62,7 +62,7 @@
  Сделать страницы с ролью &amp;ldquo;Обработчики событий сущности&amp;rdquo;
  Сделать скрипт cо state и id равному типу обработчика.
   Например:
-&amp;lt;scipt type=&amp;quot;...&amp;quot; id=&amp;quot;check_access&amp;quot; state=&amp;quot;check_access&amp;quot;&amp;gt; &amp;lt;/scipt&amp;gt;  Обратите внимание, что на один state вы можете сделать несколько скриптов, которые выполнятся последовательно согласно их положению на странице.</description>
+&amp;lt;script type=&amp;quot;...&amp;quot; id=&amp;quot;check_access&amp;quot; state=&amp;quot;check_access&amp;quot;&amp;gt; SELECT (CASE WHEN author_user_id = :env.userId THEN 200 ELSE 403 END) as status_code FROM pubic.</description>
     </item>
     
     <item>

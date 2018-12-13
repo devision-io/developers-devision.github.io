@@ -825,9 +825,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <p>Например:</p>
 
-<pre><code class="language-html">&lt;scipt type=&quot;...&quot; id=&quot;check_access&quot; state=&quot;check_access&quot;&gt;
-
-&lt;/scipt&gt;
+<pre><code class="language-html">&lt;script type=&quot;...&quot; id=&quot;check_access&quot; state=&quot;check_access&quot;&gt;
+SELECT 
+    (CASE WHEN author_user_id = :env.userId THEN 200 ELSE 403 END) as status_code
+FROM pubic.myobject
+WHERE id = :env.objectId::text 
+LIMIT 1
+&lt;/script&gt;
 </code></pre>
 
 <p>Обратите внимание, что на один state вы можете сделать несколько скриптов,
@@ -836,17 +840,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <p>Например:</p>
 
-<pre><code class="language-html">&lt;scipt type=&quot;...&quot; id=&quot;get_anything&quot; state=&quot;check_access&quot;&gt;
+<pre><code class="language-html">&lt;script type=&quot;...&quot; id=&quot;get_anything&quot; state=&quot;check_access&quot;&gt;
     SELECT myvar 
     FROM ...
     LIMIT 1 
-&lt;/scipt&gt;
+&lt;/script&gt;
 
-&lt;scipt type=&quot;...&quot; id=&quot;check_access&quot; state=&quot;check_access&quot;&gt;
+&lt;script type=&quot;...&quot; id=&quot;check_access&quot; state=&quot;check_access&quot;&gt;
     SELECT ... 
     FROM ... 
     WHERE id IN ( :pvm.data.get_anything.rows[0].myvar )
-&lt;/scipt&gt;
+&lt;/script&gt;
 </code></pre>
 
 <h2 id="обработчик-check-access">Обработчик: check_access</h2>
@@ -872,7 +876,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li>404 или если метод не вернет ни одной строки это будет - отсутствие обхекта</li>
 </ul>
 
-<p>Если будет возвращен иной код состояния это будет воспринято как ошибка старницы и дальнейшая загрузка объета будет преравана.</p>
+<p>Если будет возвращен иной код состояния это будет воспринято как ошибка страницы и дальнейшая загрузка объекта будет преравана.</p>
 
 
 

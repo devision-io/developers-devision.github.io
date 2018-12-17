@@ -3,7 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://developers.devision.io/cloud/get_started/</loc>
+    <loc>https://developers.devision.io/cloud/guides/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.devision.io/cloud/guides/get_started/</loc>
   </url>
   
   <url>

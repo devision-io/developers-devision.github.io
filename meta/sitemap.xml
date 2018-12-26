@@ -91,11 +91,19 @@
   </url>
   
   <url>
+    <loc>https://developers.devision.io/meta/guides/ticket/</loc>
+  </url>
+  
+  <url>
     <loc>https://developers.devision.io/meta/guides/script_types/sql/</loc>
   </url>
   
   <url>
     <loc>https://developers.devision.io/meta/guides/script_types/js/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.devision.io/meta/guides/java_api/</loc>
   </url>
   
   <url>
@@ -114,8 +122,56 @@
   </url>
   
   <url>
+    <loc>https://developers.devision.io/meta/guides/java_api/cryptservice/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.devision.io/meta/guides/java_api/datadiffservice/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.devision.io/meta/guides/java_api/datatransformservice/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.devision.io/meta/guides/java_api/htmlservice/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.devision.io/meta/guides/java_api/legotomarkdownservice/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.devision.io/meta/guides/java_api/linkbuildservice/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.devision.io/meta/guides/java_api/markdownservice/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.devision.io/meta/guides/java_api/mediaservice/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.devision.io/meta/guides/java_api/metadatabaseservice/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.devision.io/meta/guides/java_api/objectlogservice/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.devision.io/meta/guides/java_api/tablecolumnservice/</loc>
+  </url>
+  
+  <url>
     <loc>https://developers.devision.io/meta/tags/</loc>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://developers.devision.io/meta/guides/java_api/userrecoveryservice/</loc>
   </url>
   
   <url>

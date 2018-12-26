@@ -73,7 +73,7 @@
       <guid>https://developers.devision.io/meta/guides/template_engines/</guid>
       <description>Для шаблонизации используется freemarker.org. Отсутствие переменных при шаблонизации сейчас не является фатальной ошибкой, переменная в такой случае будет заменяться пустой строкой.
 Функции Пример вызова:
- ${t(String)} - Перевод ${to_json(Object)} - Конвертация объекта в json ${sfile(String)} - Получение абсолютной ссылки на статический файл со стораджа ${to_date(String)} - Приведение к дате ${pg_quote_literal(String)} - Экранирование строки для PostgreSQL ${pg_quote_ident(String)} - Экранирование идентификатора (имя столбца, таблицы, схемы) для PostgreSQL ${crypt_encode(String)} - Шифрование через CryptService.</description>
+ ${get_bean(String)} - Получение инстанса Java сервиса ${to_json(Object)} - Конвертация объекта в json ${to_date(String)} - Приведение к дате ${pg_quote_literal(String)} - Экранирование строки для PostgreSQL ${pg_quote_ident(String)} - Экранирование идентификатора (имя столбца, таблицы, схемы) для PostgreSQL  Полезно знать! Есть простой способ привести переменную-объект из env.sp к json строке.</description>
     </item>
     
     <item>
@@ -163,6 +163,15 @@ me(&#39;applyInjects&#39;);  </description>
     </item>
     
     <item>
+      <title>Тикеты</title>
+      <link>https://developers.devision.io/meta/guides/ticket/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/guides/ticket/</guid>
+      <description>Таблицы  issue: Непосредственно сами тикеты. Основная таблица issue_entity: Сущности, доступные для выбора &amp;ldquo;категории&amp;rdquo; тикета при создании. Тип объекта, в рамках которого делается тикет. Например тикет может быть по клиенту, медиаплану, сотруднику issue_field: Доп. поля, которые можно навешивать потом на типы тикетов issue_logwork: Трекинг времени по тикетам issue_msg: Комментарии к тикетам, приложенные файлы issue_priority: Справочник приоритетов тикетов issue_status: Справочник статусов тикетов issue_type: Справочник типов тикетов, Тут настраивается доступность типов тикетов для issue_entity, доступность основных или доп полей  Управляющие функции БД Пользовательские функции для изменения бизнес логики отмечены жирным шрифтом.</description>
+    </item>
+    
+    <item>
       <title>meta/sql</title>
       <link>https://developers.devision.io/meta/guides/script_types/sql/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -195,6 +204,114 @@ ${sort} - для вставки сортировки
       
       <guid>https://developers.devision.io/meta/_header/</guid>
       <description>META</description>
+    </item>
+    
+    <item>
+      <title>CryptService</title>
+      <link>https://developers.devision.io/meta/guides/java_api/cryptservice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/guides/java_api/cryptservice/</guid>
+      <description>   Метод и описание Возвращаемый тип     decode ( str: String) String   encode ( str: String) String   encode ( str: String, expiresAt: Date) String   encodeJSONObj ( obj: Object, validTime: String) String   encodeJSONObj ( obj: Object) String   checkJWTExpire ( decodedJWT: DecodedJWT) void   decodeJSONObj ( str: String, clazz: Class) Object    </description>
+    </item>
+    
+    <item>
+      <title>DataDiffService</title>
+      <link>https://developers.devision.io/meta/guides/java_api/datadiffservice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/guides/java_api/datadiffservice/</guid>
+      <description>   Метод и описание Возвращаемый тип     diff ( oldV: DataResult, newV: DataResult, conf: DiffConfig) DataResult   diff ( a: DataResult, b: DataResult, config: ScriptObjectMirror) DataResult    </description>
+    </item>
+    
+    <item>
+      <title>DataTransformService</title>
+      <link>https://developers.devision.io/meta/guides/java_api/datatransformservice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/guides/java_api/datatransformservice/</guid>
+      <description>   Метод и описание Возвращаемый тип     sum ( o1: Object, o2: Object) Object   pivot ( in: DataResult, conf: ScriptObjectMirror) DataResult   pivot ( in: DataResult, conf: PivotConfig) DataResult    </description>
+    </item>
+    
+    <item>
+      <title>HtmlService</title>
+      <link>https://developers.devision.io/meta/guides/java_api/htmlservice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/guides/java_api/htmlservice/</guid>
+      <description>   Метод и описание Возвращаемый тип     html2text ( html: String) String    </description>
+    </item>
+    
+    <item>
+      <title>LegoToMarkdownService</title>
+      <link>https://developers.devision.io/meta/guides/java_api/legotomarkdownservice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/guides/java_api/legotomarkdownservice/</guid>
+      <description>   Метод и описание Возвращаемый тип     init ( ) void   toMarkdown ( legoForm: Object, formData: Object) String    </description>
+    </item>
+    
+    <item>
+      <title>LinkBuildService</title>
+      <link>https://developers.devision.io/meta/guides/java_api/linkbuildservice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/guides/java_api/linkbuildservice/</guid>
+      <description>   Метод и описание Возвращаемый тип     getHtmlLink ( content: String, entityId: String, objectId: String, pageId: String) String   getHtmlLink ( content: String, entityId: String, objectId: String) String   getFullUrl ( entityId: String, objectId: String, pageId: String) String   getPageFullUrl ( pageId: String, sp: Map) String   build ( href: String, content: String) String    </description>
+    </item>
+    
+    <item>
+      <title>MarkdownService</title>
+      <link>https://developers.devision.io/meta/guides/java_api/markdownservice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/guides/java_api/markdownservice/</guid>
+      <description>   Метод и описание Возвращаемый тип     render ( markdownText: String, siteUrl: String) String   render ( markdownText: Object) String   render ( markdownText: Object, siteUrl: String) String   render ( markdownText: String) String    </description>
+    </item>
+    
+    <item>
+      <title>MediaService</title>
+      <link>https://developers.devision.io/meta/guides/java_api/mediaservice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/guides/java_api/mediaservice/</guid>
+      <description>   Метод и описание Возвращаемый тип     get ( env: Env, mediaId: String) MediaFile   persist ( env: Env, fileBase64Content: String, filename: String, extension: String, mime: String, isPrivate: boolean, origin: String) MediaFile   persist ( env: Env, fileBase64Content: String, filename: String, extension: String, mime: String, isPrivate: boolean) MediaFile   upsert ( req: UpsertRequest) MediaFile   getDownloadUrlPart ( id: String) String   prepareFileName ( env: Env, filename: String) String   sendFileToResponse ( response: HttpServletResponse, media: MediaFile, fname: String, removeAfterSend: boolean, addHeadersForDownload: boolean) void   getViewUrlPart ( id: String) String   getFilesBase64ZipArchive ( files: List) String   sendHeaders ( response: HttpServletResponse, contentType: String, fname: String, addHeadersForDownload: boolean) void    </description>
+    </item>
+    
+    <item>
+      <title>MetaDatabaseService</title>
+      <link>https://developers.devision.io/meta/guides/java_api/metadatabaseservice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/guides/java_api/metadatabaseservice/</guid>
+      <description>   Метод и описание Возвращаемый тип     createMetaDataSourceInstance ( db: CDatabase) MetaDataSource   eraseDBPool ( ) void   getRedis ( ) RedissonClient   getMetaJdbcTemplate ( ) JdbcTemplate   getMetaDS ( ) JdbcMetaDataSource   getDatabaseType ( dbAlias: String) DatabaseType   getMDSource ( dbAlias: String) MetaDataSource    </description>
+    </item>
+    
+    <item>
+      <title>ObjectLogService</title>
+      <link>https://developers.devision.io/meta/guides/java_api/objectlogservice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/guides/java_api/objectlogservice/</guid>
+      <description>   Метод и описание Возвращаемый тип     log ( entityId: String, objectId: Object, code: Code) void   log ( entityId: String, objectId: Object, code: String) void   log ( objectLog: Log) void   coreEventTrack ( action: String, label: String) void   coreEventTrack ( action: String, label: String, value: Long) void   logValue ( entityId: String, objectId: Object, code: String, value: Object) void   logValue ( entityId: String, objectId: Object, code: Code, value: Object) void   logValue ( entityId: String, objectId: Object, code: Code, value: Object, form: String) void   logValue ( entityId: String, objectId: Object, code: String, value: Object, form: String) void   buildLog ( ) Log   coreErrorEventTrack ( action: String, label: String, value: Long) void    </description>
+    </item>
+    
+    <item>
+      <title>TableColumnService</title>
+      <link>https://developers.devision.io/meta/guides/java_api/tablecolumnservice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/guides/java_api/tablecolumnservice/</guid>
+      <description>   Метод и описание Возвращаемый тип     getMetricsFromExpr ( in: String) Set   escapeDivisionByZero ( text: String, escapePrefix: String, escapePostfix: String) String   extractTableParams ( columns: DataResult, dimensions: List, metrics: List) TableSettings   buildFn ( aggFn: AggFn, expr: String) String    </description>
+    </item>
+    
+    <item>
+      <title>UserRecoveryService</title>
+      <link>https://developers.devision.io/meta/guides/java_api/userrecoveryservice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/guides/java_api/userrecoveryservice/</guid>
+      <description>   Метод и описание Возвращаемый тип     sendNotice ( login: String, appAlias: String, state: String) SendNoticeResponse   getDoublePasswordHash ( login: String) String    </description>
     </item>
     
     <item>

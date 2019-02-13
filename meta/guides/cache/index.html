@@ -9,7 +9,7 @@
     <meta name="description" content="">
 
 
-    <title>CryptService :: META | Devision Developers</title>
+    <title>Кеширование :: META | Devision Developers</title>
     <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/guides/java_api/cryptservice/">
+  <body class="" data-url="/guides/cache/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -322,7 +322,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/guides/cache/" class="devsite-nav-item dd-item ">
+            <li data-nav-id="/guides/cache/" class="devsite-nav-item dd-item active">
                 <a href="https://developers.devision.io/meta/guides/cache/" class="devsite-nav-title">
                     <span>Кеширование</span>
                 </a>
@@ -413,7 +413,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="/guides/java_api/" class="devsite-nav-item devsite-nav-item-main
-                        parent
+                        
                         
                         
                         ">
@@ -444,7 +444,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/guides/java_api/cryptservice/" class="devsite-nav-item dd-item active">
+            <li data-nav-id="/guides/java_api/cryptservice/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/guides/java_api/cryptservice/" class="devsite-nav-title">
                     <span>CryptService</span>
                 </a>
@@ -1117,12 +1117,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-
-
-
- <a href='https://developers.devision.io/meta/'>META</a> > <a href='https://developers.devision.io/meta/guides/'>Руководства</a> > <a href='https://developers.devision.io/meta/guides/java_api/'>Java API</a> > CryptService
-
-
+ <a href='https://developers.devision.io/meta/'>META</a> > <a href='https://developers.devision.io/meta/guides/'>Руководства</a> > Кеширование
 
 
 
@@ -1136,56 +1131,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <div id="body-inner">
           
-            <h1>CryptService</h1>
+            <h1>Кеширование</h1>
           
 
 
 
-<table>
-<thead>
-<tr>
-<th>Метод и описание</th>
-<th>Возвращаемый тип</th>
-</tr>
-</thead>
 
-<tbody>
-<tr>
-<td>checkJWTExpire ( decodedJWT: DecodedJWT)</td>
-<td>void</td>
-</tr>
 
-<tr>
-<td>decode ( str: String)</td>
-<td>String</td>
-</tr>
+<p>Многие системы имеют встроенные механизмы кеширование и META не исключение.</p>
 
-<tr>
-<td>decodeJSONObj ( str: String, clazz: Class)</td>
-<td>Object</td>
-</tr>
+<p>В META есть два вида кеша - пользовательский и глобальный. Кеш зависит от env (applicationId, objectId, stateParams, &hellip;)</p>
 
-<tr>
-<td>encode ( str: String)</td>
-<td>String</td>
-</tr>
+<p>У скрипта есть два атрибута:</p>
 
-<tr>
-<td>encode ( str: String, expiresAt: Date)</td>
-<td>String</td>
-</tr>
+<ol>
+<li>&ldquo;cache&rdquo; - время жизни кеша в формате 10s - секунды, 10m - минуты, 10h часы.</li>
+<li>&ldquo;cache-global&rdquo; - добавляется к настройке &ldquo;cache&rdquo; и говорит о том, что кеш глобальный и не зависит от пользователя. Без &ldquo;cache&rdquo; не работает. Не может принимать значения true/false</li>
+</ol>
 
-<tr>
-<td>encodeJSONObj ( obj: Object)</td>
-<td>String</td>
-</tr>
+<h3 id="пользовательский-кеш">Пользовательский кеш</h3>
 
-<tr>
-<td>encodeJSONObj ( obj: Object, validTime: String)</td>
-<td>String</td>
-</tr>
-</tbody>
-</table>
+<p>В примере указан только атрибут &ldquo;cache&rdquo;, что говорит, что кеш есть, он на 5 минут и он зависит от пользователя</p>
+
+<pre><code class="language-html">&lt;script type=&quot;meta/sql&quot; id=&quot;res&quot; cache=&quot;5m&quot;&gt;
+SELECT ...
+&lt;/script&gt;
+</code></pre>
+
+<h3 id="глобальный-кеш">Глобальный кеш</h3>
+
+<pre><code class="language-html">&lt;script type=&quot;meta/sql&quot; id=&quot;res&quot; cache=&quot;5m&quot; cache-global&gt;
+SELECT ...
+&lt;/script&gt;
+</code></pre>
 
 
 
@@ -1197,7 +1175,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
-    
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#пользовательский-кеш">Пользовательский кеш</a></li>
+<li><a href="#глобальный-кеш">Глобальный кеш</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
 </div>
 
 </div>

@@ -1140,7 +1140,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <p>Многие системы имеют встроенные механизмы кеширование и META не исключение.</p>
 
-<p>В META есть два вида кеша - пользовательский и глобальный. Кеш зависит от env (applicationId, objectId, stateParams, &hellip;)</p>
+<p>В META есть два вида кеша - пользовательский и глобальный.</p>
 
 <p>У скрипта есть два атрибута:</p>
 
@@ -1151,7 +1151,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <h3 id="пользовательский-кеш">Пользовательский кеш</h3>
 
-<p>В примере указан только атрибут &ldquo;cache&rdquo;, что говорит, что кеш есть, он на 5 минут и он зависит от пользователя</p>
+<p>В примере указан только атрибут &ldquo;cache&rdquo;, что говорит, что кеш есть, он на 5 минут и он зависит от пользователя
+Зависит от: applicationId, objectId, objectId, stateParams, state, limit/offset и userId</p>
 
 <pre><code class="language-html">&lt;script type=&quot;meta/sql&quot; id=&quot;res&quot; cache=&quot;5m&quot;&gt;
 SELECT ...
@@ -1159,6 +1160,8 @@ SELECT ...
 </code></pre>
 
 <h3 id="глобальный-кеш">Глобальный кеш</h3>
+
+<p>Зависит от: applicationId, objectId, objectId, stateParams, state, limit/offset</p>
 
 <pre><code class="language-html">&lt;script type=&quot;meta/sql&quot; id=&quot;res&quot; cache=&quot;5m&quot; cache-global&gt;
 SELECT ...

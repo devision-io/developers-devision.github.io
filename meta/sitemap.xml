@@ -13,6 +13,10 @@
   </url>
   
   <url>
+    <loc>https://developers.devision.io/meta/guides/google_sheets/</loc>
+  </url>
+  
+  <url>
     <loc>https://developers.devision.io/meta/guides/request_response_vars/</loc>
   </url>
   
@@ -76,6 +80,10 @@
   
   <url>
     <loc>https://developers.devision.io/meta/samples/pages/report_with_filters/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.devision.io/meta/samples/pages/simple_entity/</loc>
   </url>
   
   <url>

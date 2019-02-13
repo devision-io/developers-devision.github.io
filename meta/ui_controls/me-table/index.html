@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.42.2" />
+    <meta name="generator" content="Hugo 0.42.1" />
     <meta name="description" content="">
 
 
@@ -123,6 +123,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <li data-nav-id="/guides/understanding_env_states/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/guides/understanding_env_states/" class="devsite-nav-title">
                     <span>Состояния страниц</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/guides/google_sheets/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/guides/google_sheets/" class="devsite-nav-title">
+                    <span>Google Sheets</span>
                 </a>
             </li>
             
@@ -681,6 +699,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
                     
                     
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/samples/pages/simple_entity/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/samples/pages/simple_entity/" class="devsite-nav-title">
+                    <span>Список и редактирование сущности</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
                 </ul>
                 
             </li>
@@ -1151,6 +1187,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     &quot;(string)&quot;
   ],
   &quot;entityId&quot;: &quot;(number)&quot;,
+  &quot;errors&quot;: [
+    {
+      &quot;id&quot;: &quot;(string)&quot;,
+      &quot;name&quot;: &quot;(string)&quot;
+    }
+  ],
   &quot;exportable&quot;: &quot;(boolean)&quot;,
   &quot;filterable&quot;: &quot;(boolean)&quot;,
   &quot;formHorizontal&quot;: &quot;(boolean)&quot;,
@@ -1201,35 +1243,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 }
 </code></pre>
 
-<h3 id="__tid_433">__tid (any)</h3>
+<h3 id="__tid_446">__tid (any)</h3>
 Автоматически генерируемое приватное поле
 
 
 
 
-<h3 id="align_418">align (string)</h3>
+<h3 id="align_431">align (string)</h3>
 Позиционирование элемента в ячейке серки
 
 **@default** "left"
 
 
-<h3 id="analyzable_411">analyzable (boolean)</h3>
+<h3 id="analyzable_424">analyzable (boolean)</h3>
 Будет ли работать бежим "Анализ данных" на таблице
 
 
 
 
-<h3 id="attrs_408">attrs [object Object]</h3>
+<h3 id="attrs_421">attrs [object Object]</h3>
 
-<p><h3 id="bindAttrs_431">bindAttrs [object Object]</h3>
+<p><h3 id="bindAttrs_444">bindAttrs [object Object]</h3>
 Когда нужно подписаться на изменение данные в pvm и заполнять какие-то поля элемента
 Например, менять elems в me-lego динамически или запонять me-input[type=text] расчетным значением</p>
 
-<p><h3 id="defaultValue_427">defaultValue (any)</h3>
+<p><h3 id="defaultValue_440">defaultValue (any)</h3>
 Значение элемента по умолчанию
 Для некоторых элементов</p>
 
-<p><h3 id="depends_425">depends (string)</h3>
+<p><h3 id="depends_438">depends (string)</h3>
 Зависимости от других элементов. При изменении зависимых элементов, при условии, что заполнены все значения из depends
 делается автоматический переапрос refPvmData и depends будут переданы в env.sp как {key: value}</p>
 
@@ -1237,11 +1279,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <p><strong>@example</strong> <a href="https://apps.devision.io/page?p=3597&amp;a=35">https://apps.devision.io/page?p=3597&amp;a=35</a></p>
 
-<p><h3 id="entityId_428">entityId (number)</h3>
+<p><h3 id="entityId_441">entityId (number)</h3>
 Meta EntityId
 Для некоторых элементов, напрмиер [[IMeInput]], [[IMeTable]]</p>
 
-<p><h3 id="exist_429">exist </h3>
+<p><h3 id="errors_448">errors [object Object]</h3>
+Список ошибок элемента пока только валидации, но определенно все ошибки будут тут</p>
+
+<p><h3 id="exist_442">exist </h3>
 Angular expression от рута vm страницы. Обратите внимание, что пути абсотюлтные, в отличие от &ldquo;depends&rdquo; в элементах
 Расчет идет на стороне браузера
 Например: &lsquo;editGroup.card.name == &ldquo;exist&rdquo; || editGroup.card.name == &ldquo;exist23&rdquo;&rsquo;
@@ -1251,77 +1296,77 @@ Angular expression от рута vm страницы. Обратите вним�
 
 <p><strong>@example</strong> <a href="https://apps.devision.io/page?p=4329&amp;a=35">https://apps.devision.io/page?p=4329&amp;a=35</a></p>
 
-<p><h3 id="exportable_410">exportable (boolean)</h3>
+<p><h3 id="exportable_423">exportable (boolean)</h3>
 Можно ли экспортировать таблицу</p>
 
-<p><h3 id="filterable_409">filterable (boolean)</h3>
+<p><h3 id="filterable_422">filterable (boolean)</h3>
 Тех. настройка для автофильторв
 Только для разработчиков</p>
 
-<p><h3 id="formHorizontal_422">formHorizontal (boolean)</h3>
+<p><h3 id="formHorizontal_435">formHorizontal (boolean)</h3>
 Если элемента поддерживает, вывести его в стиле формы ключ, значение. Чтобы заголовок был на уровне элемента</p>
 
-<p><h3 id="help_415">help (string)</h3>
+<p><h3 id="help_428">help (string)</h3>
 Доп информация, рисуется под label или под элментом
 Зависит от типа элемента</p>
 
-<p><h3 id="icon_420">icon (string)</h3>
+<p><h3 id="icon_433">icon (string)</h3>
 Иконка Font Awesome
 Например fa-bicycle</p>
 
 <p><strong>@link</strong> <a href="http://ui.adplatform.lan/Static_Full_Version/icons.html">http://ui.adplatform.lan/Static_Full_Version/icons.html</a></p>
 
-<p><h3 id="id_413">id (string)</h3>
+<p><h3 id="id_426">id (string)</h3>
 ID данных элемента
 Будет доступно в env.sp.{ID} или как вложенная структура, если это [[IMeElemContainer]]</p>
 
-<p><h3 id="label_414">label (string)</h3>
+<p><h3 id="label_427">label (string)</h3>
 Заголовок элемента
 Обычно над элементом, на некоторых не рисуется вообще</p>
 
-<p><h3 id="listen_432">listen [object Object]</h3>
+<p><h3 id="listen_445">listen [object Object]</h3>
 Подписка на изменения объектов. Пока работает только для изменений вызваных в модальном окне
 Например у вас таблица со списоком аккуантов и в &ldquo;+ Аккаунт&rdquo; вы можете добавить или привязать аккаунт,
 а после сохранения в модальном окне, родительская таблциа должна пересчитаться</p>
 
-<p><h3 id="name_412">name (string)</h3>
+<p><h3 id="name_425">name (string)</h3>
 Название элемента
 Например: me-lego, me-input</p>
 
-<p><h3 id="offset_417">offset (number)</h3>
+<p><h3 id="offset_430">offset (number)</h3>
 Отстут по сетке справа от 0 до12</p>
 
-<p><h3 id="order_419">order (number)</h3>
+<p><h3 id="order_432">order (number)</h3>
 Прзиция элемента в сетке, чем меньше значение, тем элемент выше и левее</p>
 
-<p><h3 id="refPvmData_424">refPvmData [object Object]</h3>
+<p><h3 id="refPvmData_437">refPvmData [object Object]</h3>
 Инструкции по получению данных для [[IMeInputAttrs.options]] или таблицы</p>
 
 <p><strong>@example</strong> <a href="https://apps.devision.io/page?p=3570&amp;a=35">https://apps.devision.io/page?p=3570&amp;a=35</a></p>
 
 <p><strong>@example</strong> <a href="https://apps.devision.io/page?p=3597&amp;a=35">https://apps.devision.io/page?p=3597&amp;a=35</a></p>
 
-<p><h3 id="refPvmValidator_423">refPvmValidator [object Object]</h3>
+<p><h3 id="refPvmValidator_436">refPvmValidator [object Object]</h3>
 Пользовательская валидация</p>
 
 <p><strong>@example</strong> <a href="https://apps.devision.io/page?p=3443&amp;a=35">https://apps.devision.io/page?p=3443&amp;a=35</a></p>
 
-<p><h3 id="selfDepends_426">selfDepends (boolean)</h3>
+<p><h3 id="selfDepends_439">selfDepends (boolean)</h3>
 Зависимость от себя самого, нужно для editable [[IMeTable]]
 и прототип для поиска [[IMeInputAttrs.options]] в me-input для частичной подгрузки данных</p>
 
 <p><strong>@beta</strong></p>
 
-<p><h3 id="span_416">span (number)</h3>
+<p><h3 id="span_429">span (number)</h3>
 Размер по сетке справа от 0 до12</p>
 
-<p><h3 id="tooltip_434">tooltip [object Object]</h3>
+<p><h3 id="tooltip_447">tooltip [object Object]</h3>
 Стандартный мета тултип</p>
 
-<p><h3 id="value_421">value (string)</h3>
+<p><h3 id="value_434">value (string)</h3>
 для некоторых элементов</p>
 
-<p><h3 id="visible_430">visible (boolean)</h3>
+<p><h3 id="visible_443">visible (boolean)</h3>
 Angular expression от рута vm страницы. Обратите внимание, что пути абсотюлтные, в отличие от &ldquo;depends&rdquo; в элементах
 Расчет идет на стороне браузера
 Например: &lsquo;editGroup.card.name == &ldquo;visible&rdquo;&rsquo;</p>

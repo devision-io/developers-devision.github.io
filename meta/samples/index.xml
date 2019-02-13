@@ -16,9 +16,21 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/samples/pages/report_with_filters/</guid>
-      <description>Типичная задача META - вывод списка обхектов в виде отчета с фильтрами.
+      <description>Типичная задача META - вывод списка объектов в виде отчета с фильтрами.
 Обычно отчет представляет из себя одну таблицу с фильтрами. Script id такой основной таблицы рекомендуется называть &amp;ldquo;res&amp;rdquo;, чтобы другим разработчикам было привычнее читать ваш код.
 Код примера &amp;lt;!-- Фильтрация --&amp;gt; &amp;lt;script type=&amp;quot;meta/sql&amp;quot; db-alias=&amp;quot;meta_samples&amp;quot; label=&amp;quot;Организация&amp;quot; id=&amp;quot;org_ids&amp;quot; elem=&amp;quot;me-select&amp;quot; order=&amp;quot;1&amp;quot; span=&amp;quot;4&amp;quot; elem-attrs=&#39;{&amp;quot;multiple&amp;quot;:true}&#39; page-search&amp;gt; SELECT &amp;quot;organizationId&amp;quot; as id, name as name FROM &amp;quot;organization&amp;quot; order by name &amp;lt;/script&amp;gt; &amp;lt;script type=&amp;quot;meta/sql&amp;quot; db-alias=&amp;quot;meta_samples&amp;quot; label=&amp;quot;Статус&amp;quot; id=&amp;quot;active_mode&amp;quot; elem=&amp;quot;me-select&amp;quot; default=&amp;quot;all&amp;quot; order=&amp;quot;1&amp;quot; span=&amp;quot;4&amp;quot; page-search&amp;gt; SELECT t.</description>
+    </item>
+    
+    <item>
+      <title>Список и редактирование сущности</title>
+      <link>https://developers.devision.io/meta/samples/pages/simple_entity/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/samples/pages/simple_entity/</guid>
+      <description>Типичная задача META - вывод списка объектов и их редактирование
+Регистрация Entity Чтобы начать работать с новой сущностью добавьте ее в репозиторий META AppContent. В списке полей обычно достаточно указать primary key и поле, которе будет считаться именем объекта сущности. Для примера попробуем зарегистрировать таблицу example_entity из БД с meta id &amp;ldquo;meta_samples&amp;rdquo;.
+В репозитории AppContent в директории /entity/meta_samples создайте файл example_entity___public.example_entity.yaml.
+Такое название файла надо читать так: {ENTITY_ID}___{DB_SCHEMA}.{DB_TABLE}.yaml Это именование позволяет быстро и легко искать файлы через IDE поиском по имени файла и пока что не влияет на парсер конфига, но будет влиять.</description>
     </item>
     
   </channel>

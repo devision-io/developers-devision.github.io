@@ -9,7 +9,7 @@
     <meta name="description" content="">
 
 
-    <title>Аналитика :: META | Devision Developers</title>
+    <title>Google Sheets :: META | Devision Developers</title>
     <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/embed_api/analytics/">
+  <body class="" data-url="/guides/google_sheets/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -69,7 +69,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="/guides/" class="devsite-nav-item devsite-nav-item-main
-                        
+                        parent
                         
                         parent
                         ">
@@ -138,7 +138,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/guides/google_sheets/" class="devsite-nav-item dd-item ">
+            <li data-nav-id="/guides/google_sheets/" class="devsite-nav-item dd-item active">
                 <a href="https://developers.devision.io/meta/guides/google_sheets/" class="devsite-nav-title">
                     <span>Google Sheets</span>
                 </a>
@@ -931,7 +931,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="/embed_api/" class="devsite-nav-item devsite-nav-item-main
-                        parent
+                        
                         
                         
                         ">
@@ -962,7 +962,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/embed_api/analytics/" class="devsite-nav-item dd-item active">
+            <li data-nav-id="/embed_api/analytics/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/embed_api/analytics/" class="devsite-nav-title">
                     <span>Аналитика</span>
                 </a>
@@ -1099,7 +1099,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
- <a href='https://developers.devision.io/meta/'>META</a> > <a href='https://developers.devision.io/meta/embed_api/'>Embed API</a> > Аналитика
+ <a href='https://developers.devision.io/meta/'>META</a> > <a href='https://developers.devision.io/meta/guides/'>Руководства</a> > Google Sheets
 
 
 
@@ -1113,89 +1113,46 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <div id="body-inner">
           
-            <h1>Аналитика</h1>
+            <h1>Google Sheets</h1>
           
 
 
 
 
 
-<p>Мета предоставляет сервис отслеживания событий наподобие Google Analytics.</p>
+<h2 id="мотивация">Мотивация</h2>
 
-<div class="alert 
-alert-warning"
- 
-role="alert"><p><strong>ВАЖНО!</strong> В отличие от простого embed.js встраивания iframe и других мета страниц. Трекер пока что имеет зависимость от Jquery. Поэтому jquery на момент инициализации трекера уже должен быть загружен</p>
-</div>
+<p>Иногда пользователи хотят управлять отчетами через интеграцию с Google Sheets</p>
 
+<p>Документация по query language: <a href="https://developers.google.com/chart/interactive/docs/querylanguage#language-clauses">https://developers.google.com/chart/interactive/docs/querylanguage#language-clauses</a></p>
 
-<p>Подключается код через embed.js скрипт, выглядит это следующим образом:</p>
+<h1 id="административные-настройки-сервера">Административные настройки сервера</h1>
 
-<pre><code class="language-html">&lt;script type=&quot;text/javascript&quot;&gt;
-    // Требует Jquery в момент загрузки
-    (function (i,s,o,g,r,a,m) {
-        i['MetaEmbedObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)}, i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//embed.garpun.com/static/embed.js','me');
- 
-    // Инициализируйте свой трекер
-    me('initTracker', 'YOUR_TRACKER_NAME');
+<p>Для того, чтобы это заработало в основном конфигурационном файле меты должен быть заполнен блок googleShareAccount,
+где нужно вписать google service account настройки из формата json в формате yaml.
+После указания ваши пользователи смогут расшаривать файлы на ваш сервисный аккаунт и мета будет получать к ним доступ.</p>
+
+<p>например у нас это аккаунт - robot-valera@devision-io.iam.gserviceaccount.com</p>
+
+<h1 id="что-нужно-сделать">Что нужно сделать</h1>
+
+<p>Вы должны использовать БД &ldquo;gsheet&rdquo;.
+В ShardKey укажите id документа, через решетку имя листа, если имя листа не указано, то скорее всго будет взят первый созданный лист gid=0.
+Будте аккуратны, так как МЕТА не гарантирует, что google не изменит api и не станет отдавать другой лист по умолчанию.</p>
+
+<p>Не забудьте, что пользователь должен либо сделать документ публичным, либо расшарить его на ваш сервисный аккаунт.</p>
+
+<h1 id="ограничения">Ограничения</h1>
+
+<p>${pager}, ${sort} и комментирование строк как в БД не работают в скриптах google sheet</p>
+
+<h1 id="пример">Пример</h1>
+
+<p>Получение всего контента листа с названием &ldquo;Мой лист&rdquo;</p>
+
+<pre><code class="language-html">&lt;script id=&quot;res&quot; type=&quot;meta/sql&quot; db-alias=&quot;gsheet&quot; shard-key=&quot;1Wn2mET2s5hkhMvEJHXAXJu20wahJFgf11HxXYfBos8c#Мой лист&quot;&gt;
+select *
 &lt;/script&gt;
-</code></pre>
-
-<h2 id="отслеживание-страниц-pageview">Отслеживание страниц - pageview</h2>
-
-<p>Имеет идентичный GA api - <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/pages?hl=ru">https://developers.google.com/analytics/devguides/collection/analyticsjs/pages?hl=ru</a></p>
-
-<p>За исключением того, что параметры передаются в виде объекта вторым параметром.</p>
-
-<table>
-<thead>
-<tr>
-<th>Название поля</th>
-<th>Тип значения</th>
-<th>Обязательное</th>
-<th>Описание</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>title</td>
-<td>text</td>
-<td>Нет</td>
-<td>Заголовок страницы. Пример: homepage (главная страница).</td>
-</tr>
-
-<tr>
-<td>location</td>
-<td>text</td>
-<td>Нет</td>
-<td>URL отслеживаемой страницы.</td>
-</tr>
-
-<tr>
-<td>page</td>
-<td>text</td>
-<td>Нет</td>
-<td>Часть URL, определяющая путь. Значение должно начинаться с косой черты (/).</td>
-</tr>
-</tbody>
-</table>
-
-<h3 id="простой-вызов-трекера">Простой вызов трекера</h3>
-
-<p>Вызов передаст Параметры, который заполнит сама мета. Т.е. location и пр. параметры будет заполнено автоматически.</p>
-
-<pre><code class="language-html">me('track', 'pageview');
-</code></pre>
-
-<h3 id="вызов-трекера-с-передачей-параметров">Вызов трекера с передачей параметров</h3>
-
-<p>Вызов передаст title указанный пользовалетем и остальные параметры, заполненные автоматически.
-Т.е. чтобы переопределить все параметры нужно все их указать</p>
-
-<pre><code class="language-html">me('track', 'pageview', {&quot;title&quot;:&quot;My title&quot;});
 </code></pre>
 
 
@@ -1212,12 +1169,12 @@ role="alert"><p><strong>ВАЖНО!</strong> В отличие от просто
 <ul>
 <li>
 <ul>
-<li><a href="#отслеживание-страниц-pageview">Отслеживание страниц - pageview</a>
-<ul>
-<li><a href="#простой-вызов-трекера">Простой вызов трекера</a></li>
-<li><a href="#вызов-трекера-с-передачей-параметров">Вызов трекера с передачей параметров</a></li>
+<li><a href="#мотивация">Мотивация</a></li>
 </ul></li>
-</ul></li>
+<li><a href="#административные-настройки-сервера">Административные настройки сервера</a></li>
+<li><a href="#что-нужно-сделать">Что нужно сделать</a></li>
+<li><a href="#ограничения">Ограничения</a></li>
+<li><a href="#пример">Пример</a></li>
 </ul>
 </nav>
 </div>

@@ -109,6 +109,7 @@
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_container_i_me_wizard_.imewizard.html#depends" class="tsd-kind-icon">depends</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_container_i_me_wizard_.imewizard.html#elems" class="tsd-kind-icon">elems</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_container_i_me_wizard_.imewizard.html#entityid" class="tsd-kind-icon">entity<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_container_i_me_wizard_.imewizard.html#errors" class="tsd-kind-icon">errors</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_container_i_me_wizard_.imewizard.html#exist" class="tsd-kind-icon">exist</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_container_i_me_wizard_.imewizard.html#formhorizontal" class="tsd-kind-icon">form<wbr>Horizontal</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_container_i_me_wizard_.imewizard.html#help" class="tsd-kind-icon">help</a></li>
@@ -173,7 +174,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported">
 					<a name="attrs" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> attrs</h3>
-					<div class="tsd-signature tsd-kind-icon">attrs<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<div class="tsd-signature tsd-kind-icon">attrs<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> | </span><a href="_elems_i_me_input_.imeinputattrs.html" class="tsd-signature-type">IMeInputAttrs</a></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_i_me_elem_.imeelem.html">IMeElem</a>.<a href="_i_me_elem_.imeelem.html#attrs">attrs</a></p>
 						<ul>
@@ -255,7 +256,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_i_me_elem_.imeelemcontainer.html">IMeElemContainer</a>.<a href="_i_me_elem_.imeelemcontainer.html#elems">elems</a></p>
 						<ul>
-							<li>Defined in i.me-elem.ts:355</li>
+							<li>Defined in i.me-elem.ts:373</li>
 						</ul>
 					</aside>
 				</section>
@@ -273,6 +274,22 @@
 						<div class="lead">
 							<p>Meta EntityId
 							Для некоторых элементов, напрмиер <a href="_elems_i_me_input_.imeinput.html">IMeInput</a>, <a href="_elems_i_me_table_.imetable.html">IMeTable</a></p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported">
+					<a name="errors" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> errors</h3>
+					<div class="tsd-signature tsd-kind-icon">errors<span class="tsd-signature-symbol">:</span> <a href="_i_me_elem_.imeelemerror.html" class="tsd-signature-type">IMeElemError</a><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="_i_me_elem_.imeelem.html">IMeElem</a>.<a href="_i_me_elem_.imeelem.html#errors">errors</a></p>
+						<ul>
+							<li>Defined in i.me-elem.ts:171</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Список ошибок элемента пока только валидации, но определенно все ошибки будут тут</p>
 						</div>
 					</div>
 				</section>
@@ -670,6 +687,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported">
 								<a href="_container_i_me_wizard_.imewizard.html#entityid" class="tsd-kind-icon">entity<wbr>Id</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported">
+								<a href="_container_i_me_wizard_.imewizard.html#errors" class="tsd-kind-icon">errors</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported">
 								<a href="_container_i_me_wizard_.imewizard.html#exist" class="tsd-kind-icon">exist</a>

@@ -9,7 +9,7 @@
     <meta name="description" content="">
 
 
-    <title>Аналитика :: META | Devision Developers</title>
+    <title>Список и редактирование сущности :: META | Devision Developers</title>
     <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/embed_api/analytics/">
+  <body class="" data-url="/samples/pages/simple_entity/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -657,7 +657,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="/samples/" class="devsite-nav-item devsite-nav-item-main
-                        
+                        parent
                         
                         parent
                         ">
@@ -706,7 +706,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/samples/pages/simple_entity/" class="devsite-nav-item dd-item ">
+            <li data-nav-id="/samples/pages/simple_entity/" class="devsite-nav-item dd-item active">
                 <a href="https://developers.devision.io/meta/samples/pages/simple_entity/" class="devsite-nav-title">
                     <span>Список и редактирование сущности</span>
                 </a>
@@ -931,7 +931,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="/embed_api/" class="devsite-nav-item devsite-nav-item-main
-                        parent
+                        
                         
                         
                         ">
@@ -962,7 +962,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/embed_api/analytics/" class="devsite-nav-item dd-item active">
+            <li data-nav-id="/embed_api/analytics/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/embed_api/analytics/" class="devsite-nav-title">
                     <span>Аналитика</span>
                 </a>
@@ -1099,7 +1099,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
- <a href='https://developers.devision.io/meta/'>META</a> > <a href='https://developers.devision.io/meta/embed_api/'>Embed API</a> > Аналитика
+ <a href='https://developers.devision.io/meta/'>META</a> > <a href='https://developers.devision.io/meta/samples/'>Примеры</a> > Список и редактирование сущности
 
 
 
@@ -1113,89 +1113,181 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <div id="body-inner">
           
-            <h1>Аналитика</h1>
+            <h1>Список и редактирование сущности</h1>
           
 
 
 
 
 
-<p>Мета предоставляет сервис отслеживания событий наподобие Google Analytics.</p>
+<p>Типичная задача META - вывод списка объектов и их редактирование</p>
 
-<div class="alert 
-alert-warning"
- 
-role="alert"><p><strong>ВАЖНО!</strong> В отличие от простого embed.js встраивания iframe и других мета страниц. Трекер пока что имеет зависимость от Jquery. Поэтому jquery на момент инициализации трекера уже должен быть загружен</p>
-</div>
+<h2 id="регистрация-entity">Регистрация Entity</h2>
 
+<p>Чтобы начать работать с новой сущностью добавьте ее в репозиторий META AppContent.
+В списке полей обычно достаточно указать primary key и поле, которе будет считаться именем объекта сущности.
+Для примера попробуем зарегистрировать таблицу example_entity из БД с meta id &ldquo;meta_samples&rdquo;.</p>
 
-<p>Подключается код через embed.js скрипт, выглядит это следующим образом:</p>
+<p>В репозитории AppContent в директории <strong>/entity/meta_samples</strong> создайте файл <strong>example_entity___public.example_entity.yaml</strong>.</p>
 
-<pre><code class="language-html">&lt;script type=&quot;text/javascript&quot;&gt;
-    // Требует Jquery в момент загрузки
-    (function (i,s,o,g,r,a,m) {
-        i['MetaEmbedObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)}, i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//embed.garpun.com/static/embed.js','me');
- 
-    // Инициализируйте свой трекер
-    me('initTracker', 'YOUR_TRACKER_NAME');
+<p>Такое название файла надо читать так: {ENTITY_ID}___{DB_SCHEMA}.{DB_TABLE}.yaml
+Это именование позволяет быстро и легко искать файлы через IDE поиском по имени файла и пока что не влияет на парсер конфига, но будет влиять.</p>
+
+<p>Контент файла:</p>
+
+<pre><code class="language-yaml">id: 'example_entity'
+name: Пример
+db_alias: meta_samples
+schema: public
+table: example_entity
+fields:
+- alias: id # для metaql
+  db_type: uuid
+  is_primary: true # говорит, что поле - первичный ключ
+  name: id # название поля в БД
+- alias: name
+  db_type: text
+  is_title: true # говорит, что поле - является именем объекта сущности, например как users.full_name будет использовано для автоматического получения для названия объекта в хлебных крошках
+  name: name
+</code></pre>
+
+<h2 id="добавьте-новую-страницу-список-сущностей-в-таблице">Добавьте новую страницу: Список сущностей в таблице</h2>
+
+<pre><code class="language-html">&lt;script type=&quot;meta/sql&quot; db-alias=&quot;meta_samples&quot; id=&quot;res&quot; entity-id=&quot;example_entity&quot;
+        elem-attrs='{&quot;addObjectButton&quot;:{&quot;title&quot;:&quot;Entity&quot;, &quot;mode&quot;:&quot;modal&quot;, &quot;modalSize&quot;:&quot;lg&quot;, &quot;env&quot;:{&quot;sp&quot;:{&quot;obj&quot;:{&quot;name&quot;:&quot;test&quot;}}} }}' order=&quot;1000&quot;&gt;
+SELECT
+	ee.id,
+	ee.name,
+	ee.creation_time,
+
+	json_build_object(
+			'pager', json_build_object('total', count(*) over()),
+			'headers', json_build_array(
+				json_build_object('name', 'id', 'isVisible', false),
+				json_build_object('name', 'name', 'displayName', 'Имя'),
+				json_build_object('name', 'creation_time', 'displayName', 'Добавлено')
+			)
+		) as table_props_field
+FROM example_entity ee
+ORDER BY ${sort}
+${pager}
 &lt;/script&gt;
 </code></pre>
 
-<h2 id="отслеживание-страниц-pageview">Отслеживание страниц - pageview</h2>
+<h2 id="добавьте-новую-страницу-редактирование-объекта-в-карточке">Добавьте новую страницу: Редактирование объекта в карточке</h2>
 
-<p>Имеет идентичный GA api - <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/pages?hl=ru">https://developers.google.com/analytics/devguides/collection/analyticsjs/pages?hl=ru</a></p>
+<p>Зайдите на страницу на своем домене: /card?e=example_entity&amp;o=1&amp;a=ВАШ_APP_ID
+o=1 - нужно чтобы мета показала левое меню сущности, чтобы мы могли добавить первую страницу
+a= - id выашего приложения</p>
 
-<p>За исключением того, что параметры передаются в виде объекта вторым параметром.</p>
+<p>Итак, добавьте новую страницу и зайдите в ее параметры:</p>
 
-<table>
-<thead>
-<tr>
-<th>Название поля</th>
-<th>Тип значения</th>
-<th>Обязательное</th>
-<th>Описание</th>
-</tr>
-</thead>
+<ul>
+<li>Роль: &ldquo;Основная страница создания/редактирования/просмотра объекта&rdquo;</li>
+<li>Снимите галку с &ldquo;Сохранять состояние в URL&rdquo;. Для редактирование карточек это скорее плохо, а для страниц с отчетами это позволяет не думать о сохранении параметров фильтор в url</li>
+</ul>
 
-<tbody>
-<tr>
-<td>title</td>
-<td>text</td>
-<td>Нет</td>
-<td>Заголовок страницы. Пример: homepage (главная страница).</td>
-</tr>
+<p>Далее работаем с контентом страницы:</p>
 
-<tr>
-<td>location</td>
-<td>text</td>
-<td>Нет</td>
-<td>URL отслеживаемой страницы.</td>
-</tr>
+<ul>
+<li>Вставьте контент</li>
+<li>Замените db-alias на свой</li>
+<li>Замените название таблицы и список полей на свои</li>
+</ul>
 
-<tr>
-<td>page</td>
-<td>text</td>
-<td>Нет</td>
-<td>Часть URL, определяющая путь. Значение должно начинаться с косой черты (/).</td>
-</tr>
-</tbody>
-</table>
+<pre><code class="language-html">&lt;script id=&quot;project_id_validator&quot; type=&quot;meta/sql&quot; db-alias=&quot;meta_samples&quot; depends=&quot;id&quot;&gt;
+SELECT 'project_id_not_unique' as id, 'Идентификатор проекта уже используется' as name FROM public.example_entity cp WHERE cp.id = :env.sp.id LIMIT 1
+&lt;/script&gt;
 
-<h3 id="простой-вызов-трекера">Простой вызов трекера</h3>
+&lt;script type=&quot;meta/sql&quot; db-alias=&quot;meta_samples&quot; id=&quot;info&quot; elem=&quot;hidden&quot;&gt;
+SELECT id, name, creation_time, last_user_id
+FROM public.example_entity
+WHERE id=NULLIF(:env.objectId, '0')::uuid
+LIMIT 1
+&lt;/script&gt;
 
-<p>Вызов передаст Параметры, который заполнит сама мета. Т.е. location и пр. параметры будет заполнено автоматически.</p>
+&lt;elem states=&quot;default&quot; order=&quot;190&quot;&gt;
+    &lt;template&gt;
+        &lt;form name=&quot;editGroupForm&quot; ng-submit=&quot;changeState('save', {obj:env.sp.obj})&quot;&gt;
+            &lt;me-lego elems=&quot;editCard.elems&quot; output=&quot;env.sp.obj&quot;&gt;&lt;/me-lego&gt;
+            &lt;div ng-if=&quot;$root.isDebugMode&quot;&gt;
+                &lt;pre&gt;{{env.sp.obj|json}}&lt;/pre&gt;
+            &lt;/div&gt;
+        &lt;/form&gt;
+    &lt;/template&gt;
+&lt;/elem&gt;
 
-<pre><code class="language-html">me('track', 'pageview');
-</code></pre>
+&lt;script type=&quot;meta/js&quot; id=&quot;editCard&quot; elem=&quot;hidden&quot; states=&quot;default&quot;&gt;
+	function main(vm, pvm, env) {
+		var info = pvm.data.info.notEmpty ? pvm.data.info.rows[0] : {};
+	    pvm.initEnvSp(env, {obj: info});
 
-<h3 id="вызов-трекера-с-передачей-параметров">Вызов трекера с передачей параметров</h3>
+		vm.elems = [
+			{
+				id: &quot;id&quot;,
+				label: &quot;Идентификатор проекта. Его нельзя будет изменить позже&quot;,
+				span: 12,
+				name: &quot;me-input&quot;,
+				help: &quot;Идентификатор проекта может содержать только английские строчные буквы, цифры или дефисы и должен начинаться с буквы.&quot;,
+				refPvmValidator: {id: &quot;project_id_validator&quot;},
+				attrs: {
+					required: true,
+					disabled: !!info.id,
+					placeholder: 'Например: my-project',
+					pattern:&quot;^[a-z][a-z0-9-]+$&quot;,
+					min: 6,
+					max: 30
+				}
+			},
+			{
+				id: &quot;name&quot;,
+				label: &quot;Название проекта&quot;,
+				span: 12,
+				name: &quot;me-input&quot;,
+				attrs: {
+					required: true,
+					min: 4,
+					max: 30
+				}
+			},
+			{name: &quot;newrow&quot;},
+			{
+				id: &quot;submit&quot;,
+				name: &quot;me-submit&quot;,
+				attrs: {
+					value: &quot;Сохранить&quot;
+				}
+			}
+		];
+	}
+&lt;/script&gt;
 
-<p>Вызов передаст title указанный пользовалетем и остальные параметры, заполненные автоматически.
-Т.е. чтобы переопределить все параметры нужно все их указать</p>
+&lt;script type=&quot;meta/sql&quot; db-alias=&quot;meta_samples&quot; elem=&quot;hidden&quot; states=&quot;save&quot; id=&quot;upsert&quot;&gt;
+INSERT INTO example_entity (id, name, last_user_id)
+SELECT :env.sp.obj.id, :env.sp.obj.name, :env.userId
+ON CONFLICT (id) DO UPDATE SET
+	name = EXCLUDED.name
+RETURNING id;
+&lt;/script&gt;
 
-<pre><code class="language-html">me('track', 'pageview', {&quot;title&quot;:&quot;My title&quot;});
+
+&lt;script type=&quot;meta/js&quot; elem=&quot;hidden&quot; states=&quot;save&quot;&gt;
+function main(pvm, vm, env, ObjectLogService) {
+    var isNew = env.objectId == &quot;0&quot;;
+    var objectId = isNew ? pvm.data.upsert.rows[0].id : env.objectId;
+	if (isNew) {
+		pvm.redirect = {
+			url: &quot;/card?e=&quot; + env.entityId + &quot;&amp;o=&quot; + objectId + &quot;&amp;a=&quot; + env.applicationId
+		};
+	} else {
+		pvm.changeState('default');
+		pvm.resetToInitialState();
+		pvm.closeModal();
+	}
+	pvm.popup = {level: &quot;success&quot;, message: &quot;Сохранено&quot;};
+	ObjectLogService.logValue(env.entityId, objectId, isNew ? 'ADD' : 'SET', env.sp.obj);
+}
+&lt;/script&gt;
 </code></pre>
 
 
@@ -1212,11 +1304,9 @@ role="alert"><p><strong>ВАЖНО!</strong> В отличие от просто
 <ul>
 <li>
 <ul>
-<li><a href="#отслеживание-страниц-pageview">Отслеживание страниц - pageview</a>
-<ul>
-<li><a href="#простой-вызов-трекера">Простой вызов трекера</a></li>
-<li><a href="#вызов-трекера-с-передачей-параметров">Вызов трекера с передачей параметров</a></li>
-</ul></li>
+<li><a href="#регистрация-entity">Регистрация Entity</a></li>
+<li><a href="#добавьте-новую-страницу-список-сущностей-в-таблице">Добавьте новую страницу: Список сущностей в таблице</a></li>
+<li><a href="#добавьте-новую-страницу-редактирование-объекта-в-карточке">Добавьте новую страницу: Редактирование объекта в карточке</a></li>
 </ul></li>
 </ul>
 </nav>

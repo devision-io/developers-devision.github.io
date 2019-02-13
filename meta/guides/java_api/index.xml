@@ -16,7 +16,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/guides/java_api/cryptservice/</guid>
-      <description>   Метод и описание Возвращаемый тип     decode ( str: String) String   encode ( str: String) String   encode ( str: String, expiresAt: Date) String   encodeJSONObj ( obj: Object, validTime: String) String   encodeJSONObj ( obj: Object) String   checkJWTExpire ( decodedJWT: DecodedJWT) void   decodeJSONObj ( str: String, clazz: Class) Object    </description>
+      <description>   Метод и описание Возвращаемый тип     checkJWTExpire ( decodedJWT: DecodedJWT) void   decode ( str: String) String   decodeJSONObj ( str: String, clazz: Class) Object   encode ( str: String) String   encode ( str: String, expiresAt: Date) String   encodeJSONObj ( obj: Object) String   encodeJSONObj ( obj: Object, validTime: String) String    </description>
     </item>
     
     <item>
@@ -25,7 +25,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/guides/java_api/datadiffservice/</guid>
-      <description>   Метод и описание Возвращаемый тип     diff ( oldV: DataResult, newV: DataResult, conf: DiffConfig) DataResult   diff ( a: DataResult, b: DataResult, config: ScriptObjectMirror) DataResult    </description>
+      <description>   Метод и описание Возвращаемый тип     diff ( a: DataResult, b: DataResult, config: ScriptObjectMirror) DataResult   diff ( oldV: DataResult, newV: DataResult, conf: DiffConfig) DataResult    </description>
     </item>
     
     <item>
@@ -34,7 +34,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/guides/java_api/datatransformservice/</guid>
-      <description>   Метод и описание Возвращаемый тип     sum ( o1: Object, o2: Object) Object   pivot ( in: DataResult, conf: ScriptObjectMirror) DataResult   pivot ( in: DataResult, conf: PivotConfig) DataResult    </description>
+      <description>   Метод и описание Возвращаемый тип     pivot ( in: DataResult, conf: PivotConfig) DataResult   pivot ( in: DataResult, conf: ScriptObjectMirror) DataResult   sum ( o1: Object, o2: Object) Object    </description>
     </item>
     
     <item>
@@ -61,7 +61,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/guides/java_api/linkbuildservice/</guid>
-      <description>   Метод и описание Возвращаемый тип     getHtmlLink ( content: String, entityId: String, objectId: String, pageId: String) String   getHtmlLink ( content: String, entityId: String, objectId: String) String   getFullUrl ( entityId: String, objectId: String, pageId: String) String   getPageFullUrl ( pageId: String, sp: Map) String   build ( href: String, content: String) String    </description>
+      <description>   Метод и описание Возвращаемый тип     build ( href: String, content: String) String   getFullUrl ( entityId: String, objectId: String, pageId: String) String   getHtmlLink ( content: String, entityId: String, objectId: String) String   getHtmlLink ( content: String, entityId: String, objectId: String, pageId: String) String   getPageFullUrl ( pageId: String, sp: Map) String    </description>
     </item>
     
     <item>
@@ -70,7 +70,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/guides/java_api/markdownservice/</guid>
-      <description>   Метод и описание Возвращаемый тип     render ( markdownText: String, siteUrl: String) String   render ( markdownText: Object) String   render ( markdownText: Object, siteUrl: String) String   render ( markdownText: String) String    </description>
+      <description>   Метод и описание Возвращаемый тип     render ( markdownText: Object) String   render ( markdownText: Object, siteUrl: String) String   render ( markdownText: String) String   render ( markdownText: String, siteUrl: String) String    </description>
     </item>
     
     <item>
@@ -79,7 +79,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/guides/java_api/mediaservice/</guid>
-      <description>   Метод и описание Возвращаемый тип     get ( env: Env, mediaId: String) MediaFile   persist ( env: Env, fileBase64Content: String, filename: String, extension: String, mime: String, isPrivate: boolean, origin: String) MediaFile   persist ( env: Env, fileBase64Content: String, filename: String, extension: String, mime: String, isPrivate: boolean) MediaFile   upsert ( req: UpsertRequest) MediaFile   getDownloadUrlPart ( id: String) String   prepareFileName ( env: Env, filename: String) String   sendFileToResponse ( response: HttpServletResponse, media: MediaFile, fname: String, removeAfterSend: boolean, addHeadersForDownload: boolean) void   getViewUrlPart ( id: String) String   getFilesBase64ZipArchive ( files: List) String   sendHeaders ( response: HttpServletResponse, contentType: String, fname: String, addHeadersForDownload: boolean) void    </description>
+      <description>   Метод и описание Возвращаемый тип     get ( env: Env, mediaId: String) MediaFile   getDownloadUrlPart ( id: String) String   getFilesBase64ZipArchive ( files: List) String   getViewUrlPart ( id: String) String   persist ( env: Env, fileBase64Content: String, filename: String, extension: String, mime: String, isPrivate: boolean) MediaFile   persist ( env: Env, fileBase64Content: String, filename: String, extension: String, mime: String, isPrivate: boolean, origin: String) MediaFile   prepareFileName ( env: Env, filename: String) String   sendFileToResponse ( response: HttpServletResponse, media: MediaFile, fname: String, removeAfterSend: boolean, addHeadersForDownload: boolean) void   sendHeaders ( response: HttpServletResponse, contentType: String, fname: String, addHeadersForDownload: boolean) void   upsert ( req: UpsertRequest) MediaFile    </description>
     </item>
     
     <item>
@@ -88,7 +88,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/guides/java_api/metadatabaseservice/</guid>
-      <description>   Метод и описание Возвращаемый тип     createMetaDataSourceInstance ( db: CDatabase) MetaDataSource   eraseDBPool ( ) void   getRedis ( ) RedissonClient   getMetaJdbcTemplate ( ) JdbcTemplate   getMetaDS ( ) JdbcMetaDataSource   getDatabaseType ( dbAlias: String) DatabaseType   getMDSource ( dbAlias: String) MetaDataSource    </description>
+      <description>   Метод и описание Возвращаемый тип     createMetaDataSourceInstance ( db: CDatabase) MetaDataSource   eraseDBPool ( ) void   getDatabaseType ( dbAlias: String) DatabaseType   getMDSource ( dbAlias: String) MetaDataSource   getMetaDS ( ) JdbcMetaDataSource   getMetaJdbcTemplate ( ) JdbcTemplate   getRedis ( ) RedissonClient    </description>
     </item>
     
     <item>
@@ -97,7 +97,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/guides/java_api/objectlogservice/</guid>
-      <description>   Метод и описание Возвращаемый тип     log ( entityId: String, objectId: Object, code: Code) void   log ( entityId: String, objectId: Object, code: String) void   log ( objectLog: Log) void   coreEventTrack ( action: String, label: String) void   coreEventTrack ( action: String, label: String, value: Long) void   logValue ( entityId: String, objectId: Object, code: String, value: Object) void   logValue ( entityId: String, objectId: Object, code: Code, value: Object) void   logValue ( entityId: String, objectId: Object, code: Code, value: Object, form: String) void   logValue ( entityId: String, objectId: Object, code: String, value: Object, form: String) void   buildLog ( ) Log   coreErrorEventTrack ( action: String, label: String, value: Long) void    </description>
+      <description>   Метод и описание Возвращаемый тип     buildLog ( ) Log   coreErrorEventTrack ( action: String, label: String, value: Long) void   coreEventTrack ( action: String, label: String) void   coreEventTrack ( action: String, label: String, value: Long) void   log ( entityId: String, objectId: Object, code: Code) void   log ( entityId: String, objectId: Object, code: String) void   log ( objectLog: Log) void   logValue ( entityId: String, objectId: Object, code: Code, value: Object) void   logValue ( entityId: String, objectId: Object, code: Code, value: Object, form: String) void   logValue ( entityId: String, objectId: Object, code: String, value: Object) void   logValue ( entityId: String, objectId: Object, code: String, value: Object, form: String) void    </description>
     </item>
     
     <item>
@@ -106,7 +106,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/guides/java_api/tablecolumnservice/</guid>
-      <description>   Метод и описание Возвращаемый тип     getMetricsFromExpr ( in: String) Set   escapeDivisionByZero ( text: String, escapePrefix: String, escapePostfix: String) String   extractTableParams ( columns: DataResult, dimensions: List, metrics: List) TableSettings   buildFn ( aggFn: AggFn, expr: String) String    </description>
+      <description>   Метод и описание Возвращаемый тип     buildFn ( aggFn: AggFn, expr: String) String   escapeDivisionByZero ( text: String, escapePrefix: String, escapePostfix: String) String   extractTableParams ( columns: DataResult, dimensions: List, metrics: List) TableSettings   getMetricsFromExpr ( in: String) Set    </description>
     </item>
     
     <item>
@@ -115,7 +115,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/guides/java_api/userrecoveryservice/</guid>
-      <description>   Метод и описание Возвращаемый тип     sendNotice ( login: String, appAlias: String, state: String) SendNoticeResponse   getDoublePasswordHash ( login: String) String    </description>
+      <description>   Метод и описание Возвращаемый тип     getDoublePasswordHash ( login: String) String   sendNotice ( login: String, appAlias: String, state: String) SendNoticeResponse    </description>
     </item>
     
   </channel>

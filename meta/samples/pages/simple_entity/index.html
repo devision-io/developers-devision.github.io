@@ -1199,7 +1199,9 @@ a= - id выашего приложения</p>
 SELECT 'name_validator_unique' as id, 'Имя уже используется' as name FROM public.example_entity WHERE name = :env.sp.name LIMIT 1
 &lt;/script&gt;
 
-&lt;script type=&quot;meta/sql&quot; db-alias=&quot;meta_samples&quot; id=&quot;info&quot; elem=&quot;hidden&quot;&gt;
+&lt;script type=&quot;meta/sql&quot; db-alias=&quot;meta_samples&quot; id=&quot;info&quot; internal&gt;
+-- выбирайте только те поля, которые вам нужны
+
 SELECT id, name, creation_time, last_user_id
 FROM public.example_entity
 WHERE id=NULLIF(:env.objectId, '0')::uuid
@@ -1221,6 +1223,7 @@ LIMIT 1
 	function main(vm, pvm, env) {
 		// Получаем инфу из бд, если редактирвание или указываем здачение по умолчанию
 		var info = pvm.data.info.notEmpty ? pvm.data.info.rows[0] : {};
+		// Не добавляейте в env секретные поля - эти данные уйдут в интерфейс
 		pvm.initEnvSp(env, {obj: info});
 
 		vm.elems = [

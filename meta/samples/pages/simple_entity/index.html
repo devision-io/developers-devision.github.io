@@ -1154,20 +1154,20 @@ fields:
 <h2 id="добавьте-новую-страницу-список-сущностей-в-таблице">Добавьте новую страницу: Список сущностей в таблице</h2>
 
 <pre><code class="language-html">&lt;script type=&quot;meta/sql&quot; db-alias=&quot;meta_samples&quot; id=&quot;res&quot; entity-id=&quot;example_entity&quot;
-		elem-attrs='{&quot;addObjectButton&quot;:{&quot;title&quot;:&quot;Entity&quot;, &quot;mode&quot;:&quot;modal&quot;, &quot;modalSize&quot;:&quot;lg&quot;, &quot;env&quot;:{&quot;sp&quot;:{&quot;obj&quot;:{&quot;name&quot;:&quot;test&quot;}}} }}' order=&quot;1000&quot;&gt;
+        elem-attrs='{&quot;addObjectButton&quot;:{&quot;title&quot;:&quot;Entity&quot;, &quot;mode&quot;:&quot;modal&quot;, &quot;modalSize&quot;:&quot;lg&quot;, &quot;env&quot;:{&quot;sp&quot;:{&quot;obj&quot;:{&quot;name&quot;:&quot;test&quot;}}} }}' order=&quot;1000&quot;&gt;
 SELECT
-	ee.id,
-	ee.name,
-	ee.creation_time,
-	
-	json_build_object(
-			'pager', json_build_object('total', count(*) over()),
-			'headers', json_build_array(
-				json_build_object('name', 'id', 'isVisible', false),
-				json_build_object('name', 'name', 'displayName', 'Имя'),
-				json_build_object('name', 'creation_time', 'displayName', 'Добавлено')
-			)
-		) as table_props_field
+    ee.id,
+    ee.name,
+    ee.creation_time,
+    
+    json_build_object(
+            'pager', json_build_object('total', count(*) over()),
+            'headers', json_build_array(
+                json_build_object('name', 'id', 'isVisible', false),
+                json_build_object('name', 'name', 'displayName', 'Имя'),
+                json_build_object('name', 'creation_time', 'displayName', 'Добавлено')
+            )
+        ) as table_props_field
 FROM example_entity ee
 ORDER BY ${sort}
 ${pager}
@@ -1220,42 +1220,42 @@ LIMIT 1
 &lt;/elem&gt;
 
 &lt;script type=&quot;meta/js&quot; id=&quot;editCard&quot; elem=&quot;hidden&quot; states=&quot;default&quot;&gt;
-	function main(vm, pvm, env) {
-		// Получаем инфу из бд, если редактирвание или указываем здачение по умолчанию
-		var info = pvm.data.info.notEmpty ? pvm.data.info.rows[0] : {};
-		// Не добавляейте в env секретные поля - эти данные уйдут в интерфейс
-		pvm.initEnvSp(env, {obj: info});
+    function main(vm, pvm, env) {
+        // Получаем инфу из бд, если редактирвание или указываем здачение по умолчанию
+        var info = pvm.data.info.notEmpty ? pvm.data.info.rows[0] : {};
+        // Не добавляейте в env секретные поля - эти данные уйдут в интерфейс
+        pvm.initEnvSp(env, {obj: info});
 
-		vm.elems = [
-			{
-				id: &quot;name&quot;,
-				label: &quot;Название&quot;,
-				span: 12,
-				name: &quot;me-input&quot;,
-				refPvmValidator: {id: &quot;name_validator&quot;},
-				attrs: {
-					required: true,
-					min: 2,
-					max: 30
-				}
-			},
-			{name: &quot;newrow&quot;},
-			{
-				id: &quot;submit&quot;,
-				name: &quot;me-submit&quot;,
-				attrs: {
-					value: &quot;Сохранить&quot;
-				}
-			}
-		];
-	}
+        vm.elems = [
+            {
+                id: &quot;name&quot;,
+                label: &quot;Название&quot;,
+                span: 12,
+                name: &quot;me-input&quot;,
+                refPvmValidator: {id: &quot;name_validator&quot;},
+                attrs: {
+                    required: true,
+                    min: 2,
+                    max: 30
+                }
+            },
+            {name: &quot;newrow&quot;},
+            {
+                id: &quot;submit&quot;,
+                name: &quot;me-submit&quot;,
+                attrs: {
+                    value: &quot;Сохранить&quot;
+                }
+            }
+        ];
+    }
 &lt;/script&gt;
 
 &lt;script type=&quot;meta/sql&quot; db-alias=&quot;meta_samples&quot; elem=&quot;hidden&quot; states=&quot;save&quot; id=&quot;upsert&quot;&gt;
 INSERT INTO example_entity (id, name, last_user_id)
 VALUES ( COALESCE(NULLIF(:env.objectId, '0')::uuid, uuid_generate_v4()), :env.sp.obj.name, :env.userId )
 ON CONFLICT (id) DO UPDATE SET
-	name = EXCLUDED.name
+    name = EXCLUDED.name
 RETURNING id;
 &lt;/script&gt;
 
@@ -1265,17 +1265,17 @@ function main(pvm, vm, env, ObjectLogService) {
   var isNew = env.objectId == &quot;0&quot;;
   var objectId = isNew ? pvm.data.upsert.rows[0].id : env.objectId;
 
-	if (isNew) {
-		pvm.redirect = {
-			url: &quot;/card?e=&quot; + env.entityId + &quot;&amp;o=&quot; + objectId + &quot;&amp;a=&quot; + env.applicationId
-		};
-	} else {
-		pvm.changeState('default');
-		pvm.resetToInitialState();
-		pvm.closeModal();
-	}
-	pvm.popup = {level: &quot;success&quot;, message: &quot;Сохранено&quot;};
-	ObjectLogService.logValue(env.entityId, objectId, isNew ? 'ADD' : 'SET', env.sp.obj);
+    if (isNew) {
+        pvm.redirect = {
+            url: &quot;/card?e=&quot; + env.entityId + &quot;&amp;o=&quot; + objectId + &quot;&amp;a=&quot; + env.applicationId
+        };
+    } else {
+        pvm.changeState('default');
+        pvm.resetToInitialState();
+        pvm.closeModal();
+    }
+    pvm.popup = {level: &quot;success&quot;, message: &quot;Сохранено&quot;};
+    ObjectLogService.logValue(env.entityId, objectId, isNew ? 'ADD' : 'SET', env.sp.obj);
 }
 &lt;/script&gt;
 </code></pre>

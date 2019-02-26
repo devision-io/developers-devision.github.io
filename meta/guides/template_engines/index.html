@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.42.2" />
+    <meta name="generator" content="Hugo 0.42.1" />
     <meta name="description" content="">
 
 
@@ -1141,6 +1141,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p>Для шаблонизации используется freemarker.org.
 Отсутствие переменных при шаблонизации сейчас не является фатальной ошибкой, переменная в такой случае будет заменяться пустой строкой.</p>
 
+<h1 id="backend-шаблонизация">Backend шаблонизация</h1>
+
 <h2 id="функции">Функции</h2>
 
 <p>Пример вызова:</p>
@@ -1195,6 +1197,42 @@ ORDER BY ${sort}, id, name
 ${to_date('1988-07-03')?date?string.medium}
 </code></pre>
 
+<h1 id="frontend-шаблонизация">Frontend шаблонизация</h1>
+
+<p>Handlebars используется для простых шаблонов в интерфейсе для me-card-list и в последствии для ячеек me-table.</p>
+
+<h2 id="meta-хелперы">meta-хелперы</h2>
+
+<h3 id="xif">xif</h3>
+
+<p>Стандартный Handlebars не имеет нужных наш гибких условий шаблонизации, поэтому пришлось расширять. Мы выбрали: <a href="https://gist.github.com/akhoury/9118682">https://gist.github.com/akhoury/9118682</a></p>
+
+<pre><code class="language-html">{{#xif &quot; row.id == 6 &quot;}}
+    If it works!
+{{/xif}}
+</code></pre>
+
+<h3 id="json">json</h3>
+
+<p>Приведение объекта к json строке. Выбрали: <a href="http://zshawnsyed.com/2015/04/30/output-json-in-handlebars/">http://zshawnsyed.com/2015/04/30/output-json-in-handlebars/</a></p>
+
+<pre><code class="language-html">{{{json row}}}
+</code></pre>
+
+<p>или</p>
+
+<pre><code class="language-html">{{#json row}}{{/json}}
+</code></pre>
+
+<h3 id="elink">elink</h3>
+
+<p>Вставка ссылки на карточку meta объекта. В примере выводим список ссылок</p>
+
+<pre><code class="language-html">{{#each row.clients}}
+    {{elink objectId=id id=&quot;190&quot; name=name}}{{#unless @last}},{{/unless}}
+{{/each}}
+</code></pre>
+
 
 
 
@@ -1207,7 +1245,7 @@ ${to_date('1988-07-03')?date?string.medium}
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
     <nav id="TableOfContents">
 <ul>
-<li>
+<li><a href="#backend-шаблонизация">Backend шаблонизация</a>
 <ul>
 <li><a href="#функции">Функции</a></li>
 <li><a href="#работа-с-таблицами">Работа с таблицами</a>
@@ -1219,6 +1257,15 @@ ${to_date('1988-07-03')?date?string.medium}
 <ul>
 <li><a href="#начало-предыдущего-месяца">Начало предыдущего месяца</a></li>
 <li><a href="#локализация-даты-ru-ru">Локализация даты ru_RU</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#frontend-шаблонизация">Frontend шаблонизация</a>
+<ul>
+<li><a href="#meta-хелперы">meta-хелперы</a>
+<ul>
+<li><a href="#xif">xif</a></li>
+<li><a href="#json">json</a></li>
+<li><a href="#elink">elink</a></li>
 </ul></li>
 </ul></li>
 </ul>

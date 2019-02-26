@@ -84,8 +84,8 @@
       
       <guid>https://developers.devision.io/meta/guides/template_engines/</guid>
       <description>Для шаблонизации используется freemarker.org. Отсутствие переменных при шаблонизации сейчас не является фатальной ошибкой, переменная в такой случае будет заменяться пустой строкой.
-Функции Пример вызова:
- ${get_bean(String)} - Получение инстанса Java сервиса ${to_json(Object)} - Конвертация объекта в json ${to_date(String)} - Приведение к дате ${pg_quote_literal(String)} - Экранирование строки для PostgreSQL ${pg_quote_ident(String)} - Экранирование идентификатора (имя столбца, таблицы, схемы) для PostgreSQL  Полезно знать! Есть простой способ привести переменную-объект из env.sp к json строке.</description>
+Backend шаблонизация Функции Пример вызова:
+ ${get_bean(String)} - Получение инстанса Java сервиса ${to_json(Object)} - Конвертация объекта в json ${to_date(String)} - Приведение к дате ${pg_quote_literal(String)} - Экранирование строки для PostgreSQL ${pg_quote_ident(String)} - Экранирование идентификатора (имя столбца, таблицы, схемы) для PostgreSQL  Полезно знать! Есть простой способ привести переменную-объект из env.</description>
     </item>
     
     <item>

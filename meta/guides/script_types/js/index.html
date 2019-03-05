@@ -758,184 +758,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                     
                     
-
-                    
-                    
-                    
-
-                    
                 </a>
-                
-                <ul class="devsite-nav-expandable">
-                    
-                    
-                    
-
-
-                    
-                    
-                    
-            
-            
-            
-            
-            
-            <li data-nav-id="/ui_controls/me-chart/" class="devsite-nav-item dd-item ">
-                <a href="https://developers.devision.io/meta/ui_controls/me-chart/" class="devsite-nav-title">
-                    <span>Элемент me-chart</span>
-                </a>
-            </li>
-            
-            
-            
-            
-                    
-                    
-                    
-                    
-            
-            
-            
-            
-            
-            <li data-nav-id="/ui_controls/me-input/" class="devsite-nav-item dd-item ">
-                <a href="https://developers.devision.io/meta/ui_controls/me-input/" class="devsite-nav-title">
-                    <span>Элемент me-input</span>
-                </a>
-            </li>
-            
-            
-            
-            
-                    
-                    
-                    
-                    
-            
-            
-            
-            
-            
-            <li data-nav-id="/ui_controls/me-lego/" class="devsite-nav-item dd-item ">
-                <a href="https://developers.devision.io/meta/ui_controls/me-lego/" class="devsite-nav-title">
-                    <span>Элемент me-lego</span>
-                </a>
-            </li>
-            
-            
-            
-            
-                    
-                    
-                    
-                    
-            
-            
-            
-            
-            
-            <li data-nav-id="/ui_controls/me-lego-list/" class="devsite-nav-item dd-item ">
-                <a href="https://developers.devision.io/meta/ui_controls/me-lego-list/" class="devsite-nav-title">
-                    <span>Элемент me-lego-list</span>
-                </a>
-            </li>
-            
-            
-            
-            
-                    
-                    
-                    
-                    
-            
-            
-            
-            
-            
-            <li data-nav-id="/ui_controls/me-pivot/" class="devsite-nav-item dd-item ">
-                <a href="https://developers.devision.io/meta/ui_controls/me-pivot/" class="devsite-nav-title">
-                    <span>Элемент me-pivot</span>
-                </a>
-            </li>
-            
-            
-            
-            
-                    
-                    
-                    
-                    
-            
-            
-            
-            
-            
-            <li data-nav-id="/ui_controls/me-submit/" class="devsite-nav-item dd-item ">
-                <a href="https://developers.devision.io/meta/ui_controls/me-submit/" class="devsite-nav-title">
-                    <span>Элемент me-submit</span>
-                </a>
-            </li>
-            
-            
-            
-            
-                    
-                    
-                    
-                    
-            
-            
-            
-            
-            
-            <li data-nav-id="/ui_controls/me-table/" class="devsite-nav-item dd-item ">
-                <a href="https://developers.devision.io/meta/ui_controls/me-table/" class="devsite-nav-title">
-                    <span>Элемент me-table</span>
-                </a>
-            </li>
-            
-            
-            
-            
-                    
-                    
-                    
-                    
-            
-            
-            
-            
-            
-            <li data-nav-id="/ui_controls/me-tabs/" class="devsite-nav-item dd-item ">
-                <a href="https://developers.devision.io/meta/ui_controls/me-tabs/" class="devsite-nav-title">
-                    <span>Элемент me-tabs</span>
-                </a>
-            </li>
-            
-            
-            
-            
-                    
-                    
-                    
-                    
-            
-            
-            
-            
-            
-            <li data-nav-id="/ui_controls/me-wizard/" class="devsite-nav-item dd-item ">
-                <a href="https://developers.devision.io/meta/ui_controls/me-wizard/" class="devsite-nav-title">
-                    <span>Элемент me-wizard</span>
-                </a>
-            </li>
-            
-            
-            
-            
-                    
-                    
-                </ul>
                 
             </li>
             
@@ -1209,9 +1032,108 @@ function main(pvm, vm, env, ObjectLogService) {
   pvm.popup = {level: &quot;success&quot;, message: &quot;Объект сохранен&quot;};
   pvm.setEnvSp({});  
   pvm.changeState('default');
-  ObjectLogService.logValue(env.entity_id, objectId, 'SET', env.sp.obj);
+  ObjectLogService.logValue(env.entityId, objectId, 'SET', env.sp.obj);
 }
 &lt;/script&gt;
+</code></pre>
+
+<h2 id="частичное-изменение-env-sp-с-backend-patchenvsp">Частичное изменение env sp с backend (patchEnvSp)</h2>
+
+<p>Например, вы хотите реализовать такую логику: &ldquo;Пользователь на форме ввел ИНН в поле, бекенд вернул часть value данных для формы и Мета все заполнила. Поля после этого можно изменять, но если ИНН изменят опять - данные перезаполняются.&rdquo;</p>
+
+<p>Механизм refPvmData позволяет изменять env.sp, если вы вызовите <strong>pvm.patchEnvSp</strong>, для этого используйте псевдоэлемент <strong>me-data-object</strong>. Если в refPvmData вам нужны данные из БД, используйте additionalPartialLoad, например так:</p>
+
+<pre><code class="language-html">refPvmData: {id: &quot;load_step_info&quot;, sp: {}, additionalPartialLoad: [&quot;head_employess&quot;]}
+</code></pre>
+
+<div class="alert 
+alert-warning"
+ 
+role="alert"><p>Обратите внимание, что patchEnvSp перечает частичные данные и мета делает deep merge и перезаписывает только те данные, которые вы передали.</p>
+
+<p><strong>Пример 1:</strong></p>
+
+<ul>
+<li>Было: {&ldquo;a&rdquo;: 1, &ldquo;b&rdquo;: {&ldquo;in&rdquo;: 42}}</li>
+<li>Передали:  {&ldquo;a&rdquo;: 2}</li>
+<li>Будет: {&ldquo;a&rdquo;: 2, &ldquo;b&rdquo;: {&ldquo;in&rdquo;: 42}}</li>
+</ul>
+
+<p><strong>Пример 2:</strong></p>
+
+<ul>
+<li>Было: {&ldquo;a&rdquo;: 1, &ldquo;b&rdquo;: {&ldquo;in&rdquo;: 42}}</li>
+<li>Передали:   {&ldquo;b&rdquo;: {&ldquo;foo&rdquo;: 777}}</li>
+<li>Будет: {&ldquo;a&rdquo;: 1, &ldquo;b&rdquo;: {&ldquo;in&rdquo;: 42, &ldquo;foo&rdquo;: 777}}</li>
+</ul>
+
+<p><strong>Пример 3:</strong></p>
+
+<ul>
+<li>Было: {&ldquo;a&rdquo;: 1, &ldquo;b&rdquo;: {&ldquo;in&rdquo;: 42}}</li>
+<li>Передали:   {&ldquo;b&rdquo;: {}}</li>
+<li>Будет: {&ldquo;a&rdquo;: 1, &ldquo;b&rdquo;: {&ldquo;in&rdquo;: 42}}</li>
+</ul>
+</div>
+
+
+<p>Для полной перезаписи env.sp используйте pvm.setEnvSp()</p>
+
+<pre><code class="language-html">&lt;script type=&quot;meta/js&quot; id=&quot;data_loader&quot; depends=&quot;name&quot;&gt;
+	function main(pvm, env) {
+		pvm.patchEnvSp({obj: {
+			name_gen: env.sp.obj.name + &quot;11111&quot;,
+			other_form_data: env.sp.obj.name + &quot;222222&quot;, // если у вас более одного элемента
+		}});
+	}
+&lt;/script&gt;
+
+
+&lt;elem states=&quot;default&quot;&gt;
+	&lt;tpl&gt;
+		&lt;form name=&quot;editGroupForm&quot; ng-submit=&quot;changeState('save', {obj:env.sp.obj})&quot;&gt;
+			&lt;me-lego elems=&quot;editGroup.legoForm&quot;  output=&quot;env.sp.obj&quot; &gt;&lt;/me-lego&gt;
+			{{env.sp.group|json}}
+		&lt;/form&gt;
+	&lt;/tpl&gt;
+	&lt;script type=&quot;meta/js&quot; id=&quot;editGroup&quot; states=&quot;default&quot;&gt;
+		function main(env, log, vm, pvm) {
+			vm.legoForm = [
+				{
+					id: &quot;name&quot;,
+					label: &quot;Имя сотрудника&quot;,
+					help: 'Это имя будет отображаться на списках',
+					name: &quot;me-input&quot;,
+					attrs: {
+						type: &quot;text&quot;,
+						placeholder: 'Иван',
+						required: true,
+						min: 3,
+						max: 100
+					}
+				},
+				{
+					id: &quot;data_loader&quot;,
+					name: &quot;me-data-object&quot;,
+					depends: [&quot;name&quot;],
+					refPvmData: {id: &quot;data_loader&quot;, sp: {}}
+				},
+				{
+					id: &quot;name_gen&quot;,
+					label: &quot;Поле с генерируемым контентом&quot;,
+					name: &quot;me-input&quot;,
+					attrs: {
+						type: &quot;text&quot;,
+						placeholder: 'Иван',
+						required: true,
+						min: 0,
+						max: 100
+					}
+				}
+			];	
+		}
+	&lt;/script&gt;
+&lt;/elem&gt;
 </code></pre>
 
 <h2 id="логирование">Логирование</h2>
@@ -1245,7 +1167,7 @@ function main(log) {
 
 <p>pvm.initEnvSp заполняет env.sp со стороны сервера первый раз при загрузке страницы.</p>
 
-<h3 id="пример-заполенения-на-константами">Пример заполенения на константами</h3>
+<h3 id="пример-заполнения-на-константами">Пример заполнения на константами</h3>
 
 <pre><code class="language-html">&lt;script type=&quot;meta/js&quot; id=&quot;my_init_script&quot; &gt;
     function main(env, pvm) {
@@ -1256,7 +1178,7 @@ function main(log) {
 &lt;/script&gt;
 </code></pre>
 
-<h3 id="пример-заполенения-env-sp-из-запроса">Пример заполенения env.sp из запроса</h3>
+<h3 id="пример-заполнения-env-sp-из-запроса">Пример заполнения env.sp из запроса</h3>
 
 <pre><code class="language-html">&lt;script type=&quot;meta/sql&quot; id=&quot;my_init_info&quot; internal&gt;
 SELECT ........
@@ -1295,11 +1217,12 @@ SELECT ........
 <li>
 <ul>
 <li><a href="#popup-changestate">Popup, ChangeState</a></li>
+<li><a href="#частичное-изменение-env-sp-с-backend-patchenvsp">Частичное изменение env sp с backend (patchEnvSp)</a></li>
 <li><a href="#логирование">Логирование</a></li>
 <li><a href="#заполнение-env-при-первоначальной-загрузке-страницы">Заполнение Env при первоначальной загрузке страницы</a>
 <ul>
-<li><a href="#пример-заполенения-на-константами">Пример заполенения на константами</a></li>
-<li><a href="#пример-заполенения-env-sp-из-запроса">Пример заполенения env.sp из запроса</a></li>
+<li><a href="#пример-заполнения-на-константами">Пример заполнения на константами</a></li>
+<li><a href="#пример-заполнения-env-sp-из-запроса">Пример заполнения env.sp из запроса</a></li>
 </ul></li>
 <li><a href="#datadiffservice">DataDiffService</a></li>
 </ul></li>

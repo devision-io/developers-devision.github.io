@@ -1080,59 +1080,59 @@ role="alert"><p>Обратите внимание, что patchEnvSp переч�
 <p>Для полной перезаписи env.sp используйте pvm.setEnvSp()</p>
 
 <pre><code class="language-html">&lt;script type=&quot;meta/js&quot; id=&quot;data_loader&quot; depends=&quot;name&quot;&gt;
-	function main(pvm, env) {
-		pvm.patchEnvSp({obj: {
-			name_gen: env.sp.obj.name + &quot;11111&quot;,
-			other_form_data: env.sp.obj.name + &quot;222222&quot;, // если у вас более одного элемента
-		}});
-	}
+    function main(pvm, env) {
+        pvm.patchEnvSp({obj: {
+            name_gen: env.sp.obj.name + &quot;11111&quot;,
+            other_form_data: env.sp.obj.name + &quot;222222&quot;, // если у вас более одного элемента
+        }});
+    }
 &lt;/script&gt;
 
 
 &lt;elem states=&quot;default&quot;&gt;
-	&lt;tpl&gt;
-		&lt;form name=&quot;editGroupForm&quot; ng-submit=&quot;changeState('save', {obj:env.sp.obj})&quot;&gt;
-			&lt;me-lego elems=&quot;editGroup.legoForm&quot;  output=&quot;env.sp.obj&quot; &gt;&lt;/me-lego&gt;
-			{{env.sp.group|json}}
-		&lt;/form&gt;
-	&lt;/tpl&gt;
-	&lt;script type=&quot;meta/js&quot; id=&quot;editGroup&quot; states=&quot;default&quot;&gt;
-		function main(env, log, vm, pvm) {
-			vm.legoForm = [
-				{
-					id: &quot;name&quot;,
-					label: &quot;Имя сотрудника&quot;,
-					help: 'Это имя будет отображаться на списках',
-					name: &quot;me-input&quot;,
-					attrs: {
-						type: &quot;text&quot;,
-						placeholder: 'Иван',
-						required: true,
-						min: 3,
-						max: 100
-					}
-				},
-				{
-					id: &quot;data_loader&quot;,
-					name: &quot;me-data-object&quot;,
-					depends: [&quot;name&quot;],
-					refPvmData: {id: &quot;data_loader&quot;, sp: {}}
-				},
-				{
-					id: &quot;name_gen&quot;,
-					label: &quot;Поле с генерируемым контентом&quot;,
-					name: &quot;me-input&quot;,
-					attrs: {
-						type: &quot;text&quot;,
-						placeholder: 'Иван',
-						required: true,
-						min: 0,
-						max: 100
-					}
-				}
-			];	
-		}
-	&lt;/script&gt;
+    &lt;tpl&gt;
+        &lt;form name=&quot;editGroupForm&quot; ng-submit=&quot;changeState('save', {obj:env.sp.obj})&quot;&gt;
+            &lt;me-lego elems=&quot;editGroup.legoForm&quot;  output=&quot;env.sp.obj&quot; &gt;&lt;/me-lego&gt;
+            {{env.sp.group|json}}
+        &lt;/form&gt;
+    &lt;/tpl&gt;
+    &lt;script type=&quot;meta/js&quot; id=&quot;editGroup&quot; states=&quot;default&quot;&gt;
+        function main(env, log, vm, pvm) {
+            vm.legoForm = [
+                {
+                    id: &quot;name&quot;,
+                    label: &quot;Имя сотрудника&quot;,
+                    help: 'Это имя будет отображаться на списках',
+                    name: &quot;me-input&quot;,
+                    attrs: {
+                        type: &quot;text&quot;,
+                        placeholder: 'Иван',
+                        required: true,
+                        min: 3,
+                        max: 100
+                    }
+                },
+                {
+                    id: &quot;data_loader&quot;,
+                    name: &quot;me-data-object&quot;,
+                    depends: [&quot;name&quot;],
+                    refPvmData: {id: &quot;data_loader&quot;, sp: {}}
+                },
+                {
+                    id: &quot;name_gen&quot;,
+                    label: &quot;Поле с генерируемым контентом&quot;,
+                    name: &quot;me-input&quot;,
+                    attrs: {
+                        type: &quot;text&quot;,
+                        placeholder: 'Иван',
+                        required: true,
+                        min: 0,
+                        max: 100
+                    }
+                }
+            ];    
+        }
+    &lt;/script&gt;
 &lt;/elem&gt;
 </code></pre>
 

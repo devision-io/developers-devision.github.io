@@ -187,4 +187,40 @@
     <loc>https://developers.devision.io/meta/guides/java_api/userrecoveryservice/</loc>
   </url>
   
+  <url>
+    <loc>https://developers.devision.io/meta/ui_controls/me-chart/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.devision.io/meta/ui_controls/me-input/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.devision.io/meta/ui_controls/me-lego/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.devision.io/meta/ui_controls/me-lego-list/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.devision.io/meta/ui_controls/me-pivot/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.devision.io/meta/ui_controls/me-submit/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.devision.io/meta/ui_controls/me-table/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.devision.io/meta/ui_controls/me-tabs/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.devision.io/meta/ui_controls/me-wizard/</loc>
+  </url>
+  
 </urlset>

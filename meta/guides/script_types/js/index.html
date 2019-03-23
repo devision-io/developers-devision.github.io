@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.42.1" />
+    <meta name="generator" content="Hugo 0.42.2" />
     <meta name="description" content="">
 
 
@@ -758,7 +758,184 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                     
                     
+
+                    
+                    
+                    
+
+                    
                 </a>
+                
+                <ul class="devsite-nav-expandable">
+                    
+                    
+                    
+
+
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/ui_controls/me-chart/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/ui_controls/me-chart/" class="devsite-nav-title">
+                    <span>Элемент me-chart</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/ui_controls/me-input/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/ui_controls/me-input/" class="devsite-nav-title">
+                    <span>Элемент me-input</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/ui_controls/me-lego/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/ui_controls/me-lego/" class="devsite-nav-title">
+                    <span>Элемент me-lego</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/ui_controls/me-lego-list/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/ui_controls/me-lego-list/" class="devsite-nav-title">
+                    <span>Элемент me-lego-list</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/ui_controls/me-pivot/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/ui_controls/me-pivot/" class="devsite-nav-title">
+                    <span>Элемент me-pivot</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/ui_controls/me-submit/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/ui_controls/me-submit/" class="devsite-nav-title">
+                    <span>Элемент me-submit</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/ui_controls/me-table/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/ui_controls/me-table/" class="devsite-nav-title">
+                    <span>Элемент me-table</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/ui_controls/me-tabs/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/ui_controls/me-tabs/" class="devsite-nav-title">
+                    <span>Элемент me-tabs</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/ui_controls/me-wizard/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/ui_controls/me-wizard/" class="devsite-nav-title">
+                    <span>Элемент me-wizard</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                </ul>
                 
             </li>
             
@@ -1039,11 +1216,14 @@ function main(pvm, vm, env, ObjectLogService) {
 
 <h2 id="частичное-изменение-env-sp-с-backend-patchenvsp">Частичное изменение env sp с backend (patchEnvSp)</h2>
 
+<p>Пример: <a href="https://apps.devision.io/page?p=5196&amp;a=35">https://apps.devision.io/page?p=5196&amp;a=35</a></p>
+
 <p>Например, вы хотите реализовать такую логику: &ldquo;Пользователь на форме ввел ИНН в поле, бекенд вернул часть value данных для формы и Мета все заполнила. Поля после этого можно изменять, но если ИНН изменят опять - данные перезаполняются.&rdquo;</p>
 
-<p>Механизм refPvmData позволяет изменять env.sp, если вы вызовите <strong>pvm.patchEnvSp</strong>, для этого используйте псевдоэлемент <strong>me-data-object</strong>. Если в refPvmData вам нужны данные из БД, используйте additionalPartialLoad, например так:</p>
+<p>Делается через механизм серверной валидации, так как скорее всего мы заходите проверить ввод данных, перед заполнением других полей.
+Механизм refPvmValidator позволяет изменять env.sp, если вы вызовите <strong>pvm.patchEnvSp</strong>. Если в refPvmValidator вам нужны данные из БД, используйте additionalPartialLoad, например так:</p>
 
-<pre><code class="language-html">refPvmData: {id: &quot;load_step_info&quot;, sp: {}, additionalPartialLoad: [&quot;head_employess&quot;]}
+<pre><code class="language-html">refPvmValidator: {id: &quot;my_validator&quot;, sp: {}, additionalPartialLoad: [&quot;my_external_sql_data&quot;, &quot;my_data_loader&quot;]},
 </code></pre>
 
 <div class="alert 
@@ -1079,60 +1259,88 @@ role="alert"><p>Обратите внимание, что patchEnvSp переч�
 
 <p>Для полной перезаписи env.sp используйте pvm.setEnvSp()</p>
 
-<pre><code class="language-html">&lt;script type=&quot;meta/js&quot; id=&quot;data_loader&quot; depends=&quot;name&quot;&gt;
-    function main(pvm, env) {
-        pvm.patchEnvSp({obj: {
-            name_gen: env.sp.obj.name + &quot;11111&quot;,
-            other_form_data: env.sp.obj.name + &quot;222222&quot;, // если у вас более одного элемента
-        }});
-    }
+<pre><code class="language-html">&lt;script id=&quot;my_validator&quot; type=&quot;meta/sql&quot; db-alias=&quot;meta_samples&quot; depends=&quot;name&quot;&gt;
+SELECT 'unique_client' as id, 'Клиент не может присутствовать в списке больше одного раза: ' as name
+LIMIT 0
 &lt;/script&gt;
 
+&lt;script id=&quot;my_external_sql_data&quot; type=&quot;meta/sql&quot; db-alias=&quot;meta_samples&quot; depends=&quot;name&quot;&gt;
+SELECT NOW() as my_time
+&lt;/script&gt;
+
+&lt;script type=&quot;meta/js&quot; id=&quot;my_data_loader&quot; depends=&quot;name&quot;&gt;
+	function main(pvm, env) {
+		if (pvm.data.my_validator.rows.length === 0) {
+			pvm.patchEnvSp({obj: {
+				name_gen: env.sp.obj.name + &quot;11111   &quot; + pvm.data.my_external_sql_data.rows[0].my_time,
+				other_form_data: env.sp.obj.name + &quot;222222&quot;,
+			}});
+		}
+	}
+&lt;/script&gt;
 
 &lt;elem states=&quot;default&quot;&gt;
-    &lt;tpl&gt;
-        &lt;form name=&quot;editGroupForm&quot; ng-submit=&quot;changeState('save', {obj:env.sp.obj})&quot;&gt;
-            &lt;me-lego elems=&quot;editGroup.legoForm&quot;  output=&quot;env.sp.obj&quot; &gt;&lt;/me-lego&gt;
-            {{env.sp.group|json}}
-        &lt;/form&gt;
-    &lt;/tpl&gt;
-    &lt;script type=&quot;meta/js&quot; id=&quot;editGroup&quot; states=&quot;default&quot;&gt;
-        function main(env, log, vm, pvm) {
-            vm.legoForm = [
-                {
-                    id: &quot;name&quot;,
-                    label: &quot;Имя сотрудника&quot;,
-                    help: 'Это имя будет отображаться на списках',
-                    name: &quot;me-input&quot;,
-                    attrs: {
-                        type: &quot;text&quot;,
-                        placeholder: 'Иван',
-                        required: true,
-                        min: 3,
-                        max: 100
-                    }
-                },
-                {
-                    id: &quot;data_loader&quot;,
-                    name: &quot;me-data-object&quot;,
-                    depends: [&quot;name&quot;],
-                    refPvmData: {id: &quot;data_loader&quot;, sp: {}}
-                },
-                {
-                    id: &quot;name_gen&quot;,
-                    label: &quot;Поле с генерируемым контентом&quot;,
-                    name: &quot;me-input&quot;,
-                    attrs: {
-                        type: &quot;text&quot;,
-                        placeholder: 'Иван',
-                        required: true,
-                        min: 0,
-                        max: 100
-                    }
-                }
-            ];    
-        }
-    &lt;/script&gt;
+	&lt;tpl&gt;
+		&lt;form name=&quot;editGroupForm&quot; ng-submit=&quot;changeState('save', {obj:env.sp.obj})&quot;&gt;
+			&lt;me-lego elems=&quot;editGroup.legoForm&quot;  output=&quot;env.sp.obj&quot; &gt;&lt;/me-lego&gt;
+		&lt;/form&gt;
+	&lt;/tpl&gt;
+	&lt;script type=&quot;meta/js&quot; id=&quot;editGroup&quot; states=&quot;default&quot;&gt;
+		function main(env, log, vm, pvm) {
+			vm.legoForm = [
+				{
+					id: &quot;name&quot;,
+					label: &quot;Имя сотрудника&quot;,
+					help: 'Это имя будет отображаться на списках',
+					name: &quot;me-input&quot;,
+					refPvmValidator: {id: &quot;my_validator&quot;, sp: {}, additionalPartialLoad: [&quot;my_external_sql_data&quot;, &quot;my_data_loader&quot;]},
+					attrs: {
+						type: &quot;text&quot;,
+						placeholder: 'Иван',
+						required: true,
+						min: 3,
+						max: 100
+					}
+				},
+				{
+					id: &quot;name_gen&quot;,
+					label: &quot;Поле с генерируемым контентом&quot;,
+					name: &quot;me-input&quot;,
+					attrs: {
+						type: &quot;text&quot;,
+						placeholder: 'Иван',
+						required: true,
+						min: 0,
+						max: 100
+					}
+				},
+				{
+					id: &quot;other_form_data&quot;,
+					label: &quot;Еще какое-то поле&quot;,
+					name: &quot;me-input&quot;,
+					attrs: {
+						type: &quot;text&quot;
+					}
+				},
+				{
+					name: &quot;me-submit&quot;,
+					attrs: {
+						value: 'Сохранить'
+					}
+				},
+			];	
+		}
+	&lt;/script&gt;
+&lt;/elem&gt;
+
+&lt;elem states=&quot;save&quot;&gt;
+	&lt;tpl&gt;
+		Данные формы:
+		&lt;pre&gt;
+		
+		{{env.sp|json}}
+		&lt;/pre&gt;
+	&lt;/tpl&gt;
 &lt;/elem&gt;
 </code></pre>
 

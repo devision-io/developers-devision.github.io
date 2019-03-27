@@ -106,7 +106,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/guides/java_api/tablecolumnservice/</guid>
-      <description>   Метод и описание Возвращаемый тип     buildFn ( aggFn: AggFn, expr: String) String   escapeDivisionByZero ( text: String, escapePrefix: String, escapePostfix: String) String   extractTableParams ( columns: DataResult, dimensions: List, metrics: List) TableSettings   getMetricsFromExpr ( in: String) Set    </description>
+      <description>   Метод и описание Возвращаемый тип     buildFilters ( outputPlaceholderVarName: String, columns: DataResult, data: AdvancedFilterData) GeneratedFilter   buildFilters ( outputPlaceholderVarName: String, columns: DataResult, data: Object) GeneratedFilter   buildFn ( aggFn: AggFn, expr: String) String   escapeDivisionByZero ( text: String, escapePrefix: String, escapePostfix: String) String   extractTableParams ( columns: DataResult, dimensions: List, metrics: List) TableSettings   getMetricsFromExpr ( in: String) Set    </description>
     </item>
     
     <item>

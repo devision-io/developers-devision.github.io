@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.42.2" />
+    <meta name="generator" content="Hugo 0.42.1" />
     <meta name="description" content="">
 
 
@@ -1228,6 +1228,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         ],
         &quot;name&quot;: &quot;(string)&quot;,
         &quot;section&quot;: &quot;(string)&quot;,
+        &quot;style&quot;: &quot;(string)&quot;,
         &quot;title&quot;: &quot;(string)&quot;,
         &quot;tooltip&quot;: {
           &quot;content&quot;: &quot;(string)&quot;,
@@ -1279,6 +1280,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   &quot;help&quot;: &quot;(string)&quot;,
   &quot;icon&quot;: &quot;(string)&quot;,
   &quot;id&quot;: &quot;(string)&quot;,
+  &quot;inlineForm&quot;: &quot;(boolean)&quot;,
   &quot;label&quot;: &quot;(string)&quot;,
   &quot;listen&quot;: [
     {
@@ -1298,6 +1300,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   &quot;name&quot;: &quot;me-input&quot;,
   &quot;offset&quot;: &quot;(number)&quot;,
   &quot;order&quot;: &quot;(number)&quot;,
+  &quot;persistValueView&quot;: &quot;(boolean)&quot;,
   &quot;refPvmData&quot;: {
     &quot;additionalPartialLoad&quot;: [
       &quot;(string)&quot;
@@ -1312,6 +1315,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     &quot;dataId&quot;: &quot;(string)&quot;,
     &quot;id&quot;: &quot;(string)&quot;
   },
+  &quot;selectedValueView&quot;: &quot;(any)&quot;,
   &quot;selfDepends&quot;: &quot;(boolean)&quot;,
   &quot;span&quot;: &quot;(number)&quot;,
   &quot;tooltip&quot;: {
@@ -1325,29 +1329,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 }
 </code></pre>
 
-<h3 id="__tid_259">__tid (any)</h3>
+<h3 id="__tid_279">__tid (any)</h3>
 Автоматически генерируемое приватное поле
 
 
 
 
-<h3 id="align_244">align (string)</h3>
+<h3 id="align_263">align (string)</h3>
 Позиционирование элемента в ячейке серки
 
 **@default** "left"
 
 
-<h3 id="attrs_237">attrs [object Object]</h3>
+<h3 id="attrs_256">attrs [object Object]</h3>
 
-<p><h3 id="bindAttrs_257">bindAttrs [object Object]</h3>
+<p><h3 id="bindAttrs_277">bindAttrs [object Object]</h3>
 Когда нужно подписаться на изменение данные в pvm и заполнять какие-то поля элемента
 Например, менять elems в me-lego динамически или запонять me-input[type=text] расчетным значением</p>
 
-<p><h3 id="defaultValue_253">defaultValue (any)</h3>
+<p><h3 id="defaultValue_272">defaultValue (any)</h3>
 Значение элемента по умолчанию
 Для некоторых элементов</p>
 
-<p><h3 id="depends_251">depends (string)</h3>
+<p><h3 id="depends_270">depends (string)</h3>
 Зависимости от других элементов. При изменении зависимых элементов, при условии, что заполнены все значения из depends
 делается автоматический переапрос refPvmData и depends будут переданы в env.sp как {key: value}</p>
 
@@ -1355,14 +1359,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <p><strong>@example</strong> <a href="https://apps.devision.io/page?p=3597&amp;a=35">https://apps.devision.io/page?p=3597&amp;a=35</a></p>
 
-<p><h3 id="entityId_254">entityId (number)</h3>
+<p><h3 id="entityId_274">entityId (number)</h3>
 Meta EntityId
 Для некоторых элементов, напрмиер [[IMeInput]], [[IMeTable]]</p>
 
-<p><h3 id="errors_261">errors [object Object]</h3>
+<p><h3 id="errors_281">errors [object Object]</h3>
 Список ошибок элемента пока только валидации, но определенно все ошибки будут тут</p>
 
-<p><h3 id="exist_255">exist </h3>
+<p><h3 id="exist_275">exist </h3>
 Angular expression от рута vm страницы. Обратите внимание, что пути абсотюлтные, в отличие от &ldquo;depends&rdquo; в элементах
 Расчет идет на стороне браузера
 Например: &lsquo;editGroup.card.name == &ldquo;exist&rdquo; || editGroup.card.name == &ldquo;exist23&rdquo;&rsquo;
@@ -1372,76 +1376,88 @@ Angular expression от рута vm страницы. Обратите вним�
 
 <p><strong>@example</strong> <a href="https://apps.devision.io/page?p=4329&amp;a=35">https://apps.devision.io/page?p=4329&amp;a=35</a></p>
 
-<p><h3 id="formHorizontal_248">formHorizontal (boolean)</h3>
+<p><h3 id="formHorizontal_267">formHorizontal (boolean)</h3>
 Если элемента поддерживает, вывести его в стиле формы ключ, значение. Чтобы заголовок был на уровне элемента</p>
 
-<p><h3 id="help_241">help (string)</h3>
+<p><h3 id="help_260">help (string)</h3>
 Доп информация, рисуется под label или под элментом
 Зависит от типа элемента</p>
 
-<p><h3 id="icon_246">icon (string)</h3>
+<p><h3 id="icon_265">icon (string)</h3>
 Иконка Font Awesome
 Например fa-bicycle</p>
 
 <p><strong>@link</strong> <a href="http://ui.adplatform.lan/Static_Full_Version/icons.html">http://ui.adplatform.lan/Static_Full_Version/icons.html</a></p>
 
-<p><h3 id="id_239">id (string)</h3>
+<p><h3 id="id_258">id (string)</h3>
 ID данных элемента
 Будет доступно в env.sp.{ID} или как вложенная структура, если это [[IMeElemContainer]]</p>
 
-<p><h3 id="label_240">label (string)</h3>
+<p><h3 id="inlineForm_273">inlineForm (boolean)</h3>
+Нужно ли отрисовывать элемент без сетки в виде inlineForm (bootstrap)</p>
+
+<p><strong>@link</strong> {<a href="http://stackoverflow.com/questions/12201835/form-inline-inside-a-form-horizontal-in-twitter-bootstrap">http://stackoverflow.com/questions/12201835/form-inline-inside-a-form-horizontal-in-twitter-bootstrap</a>}</p>
+
+<p><h3 id="label_259">label (string)</h3>
 Заголовок элемента
 Обычно над элементом, на некоторых не рисуется вообще</p>
 
-<p><h3 id="listen_258">listen [object Object]</h3>
+<p><h3 id="listen_278">listen [object Object]</h3>
 Подписка на изменения объектов. Пока работает только для изменений вызваных в модальном окне
 Например у вас таблица со списоком аккуантов и в &ldquo;+ Аккаунт&rdquo; вы можете добавить или привязать аккаунт,
 а после сохранения в модальном окне, родительская таблциа должна пересчитаться</p>
 
-<p><h3 id="name_238">name (string)</h3>
+<p><h3 id="name_257">name (string)</h3>
 Название элемента
 Например: me-lego, me-input</p>
 
-<p><h3 id="offset_243">offset (number)</h3>
+<p><h3 id="offset_262">offset (number)</h3>
 Отстут по сетке справа от 0 до12</p>
 
-<p><h3 id="order_245">order (number)</h3>
+<p><h3 id="order_264">order (number)</h3>
 Прзиция элемента в сетке, чем меньше значение, тем элемент выше и левее</p>
 
-<p><h3 id="refPvmData_250">refPvmData [object Object]</h3>
+<p><h3 id="persistValueView_284">persistValueView (boolean)</h3>
+Блок обрабатывает вписывание в элемент текущего выбранного пункта в поле selectedValueView,
+чтобы можно быьт делать, label + name в скрытом режиме</p>
+
+<p><h3 id="refPvmData_269">refPvmData [object Object]</h3>
 Инструкции по получению данных для [[IMeInputAttrs.options]] или таблицы</p>
 
 <p><strong>@example</strong> <a href="https://apps.devision.io/page?p=3570&amp;a=35">https://apps.devision.io/page?p=3570&amp;a=35</a></p>
 
 <p><strong>@example</strong> <a href="https://apps.devision.io/page?p=3597&amp;a=35">https://apps.devision.io/page?p=3597&amp;a=35</a></p>
 
-<p><h3 id="refPvmValidator_249">refPvmValidator [object Object]</h3>
+<p><h3 id="refPvmValidator_268">refPvmValidator [object Object]</h3>
 Пользовательская валидация</p>
 
 <p><strong>@example</strong> <a href="https://apps.devision.io/page?p=3443&amp;a=35">https://apps.devision.io/page?p=3443&amp;a=35</a></p>
 
-<p><h3 id="selfDepends_252">selfDepends (boolean)</h3>
+<p><h3 id="selectedValueView_285">selectedValueView (any)</h3>
+Текстовое представление выбранного значения</p>
+
+<p><h3 id="selfDepends_271">selfDepends (boolean)</h3>
 Зависимость от себя самого, нужно для editable [[IMeTable]]
 и прототип для поиска [[IMeInputAttrs.options]] в me-input для частичной подгрузки данных</p>
 
 <p><strong>@beta</strong></p>
 
-<p><h3 id="span_242">span (number)</h3>
+<p><h3 id="span_261">span (number)</h3>
 Размер по сетке справа от 0 до12</p>
 
-<p><h3 id="tooltip_260">tooltip [object Object]</h3>
+<p><h3 id="tooltip_280">tooltip [object Object]</h3>
 Стандартный мета тултип</p>
 
-<p><h3 id="valid_263">valid (boolean)</h3>
+<p><h3 id="valid_283">valid (boolean)</h3>
 Элемент валидный</p>
 
-<p><h3 id="validateInProgress_262">validateInProgress (boolean)</h3>
+<p><h3 id="validateInProgress_282">validateInProgress (boolean)</h3>
 Принимает значение true на момент асинхронной валидации</p>
 
-<p><h3 id="value_247">value (string)</h3>
+<p><h3 id="value_266">value (string)</h3>
 для некоторых элементов</p>
 
-<p><h3 id="visible_256">visible (boolean)</h3>
+<p><h3 id="visible_276">visible (boolean)</h3>
 Angular expression от рута vm страницы. Обратите внимание, что пути абсотюлтные, в отличие от &ldquo;depends&rdquo; в элементах
 Расчет идет на стороне браузера
 Например: &lsquo;editGroup.card.name == &ldquo;visible&rdquo;&rsquo;</p>

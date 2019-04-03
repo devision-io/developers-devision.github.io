@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IMeTablePager | META UI Components</title>
+	<title>IPrevObject | META UI Components</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,13 +54,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_elems_i_me_table_.html">&quot;elems/i.me-table&quot;</a>
+					<a href="../modules/_helpers_i_common_.html">&quot;helpers/i.common&quot;</a>
 				</li>
 				<li>
-					<a href="_elems_i_me_table_.imetablepager.html">IMeTablePager</a>
+					<a href="_helpers_i_common_.iprevobject.html">IPrevObject</a>
 				</li>
 			</ul>
-			<h1>Interface IMeTablePager</h1>
+			<h1>Interface IPrevObject</h1>
 		</div>
 	</div>
 </header>
@@ -71,7 +71,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">IMeTablePager</span>
+						<span class="target">IPrevObject</span>
 					</li>
 				</ul>
 			</section>
@@ -82,7 +82,8 @@
 						<section class="tsd-index-section tsd-is-not-exported">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_elems_i_me_table_.imetablepager.html#total" class="tsd-kind-icon">total</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_helpers_i_common_.iprevobject.html#entityid" class="tsd-kind-icon">entity<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_helpers_i_common_.iprevobject.html#objectid" class="tsd-kind-icon">object<wbr>Id</a></li>
 							</ul>
 						</section>
 					</div>
@@ -91,21 +92,24 @@
 			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-					<a name="total" class="tsd-anchor"></a>
-					<h3>total</h3>
-					<div class="tsd-signature tsd-kind-icon">total<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="entityid" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> entity<wbr>Id</h3>
+					<div class="tsd-signature tsd-kind-icon">entity<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in elems/i.me-table.ts:254</li>
+							<li>Defined in helpers/i.common.ts:198</li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Общее кол-во записей без учета пагинации
-								Обычно так в Postgres:
-							json_build_object( &#39;pager&#39;, json_build_object(&#39;total&#39;, count(*) over()) ) as table_props_field</p>
-						</div>
-					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="objectid" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> object<wbr>Id</h3>
+					<div class="tsd-signature tsd-kind-icon">object<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in helpers/i.common.ts:200</li>
+						</ul>
+					</aside>
 				</section>
 			</section>
 		</div>
@@ -142,13 +146,13 @@
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_elems_i_me_submit_.html">"elems/i.me-<wbr>submit"</a>
 					</li>
-					<li class="current tsd-kind-external-module">
+					<li class=" tsd-kind-external-module">
 						<a href="../modules/_elems_i_me_table_.html">"elems/i.me-<wbr>table"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_helpers_i_backend_.html">"helpers/i.backend"</a>
 					</li>
-					<li class=" tsd-kind-external-module">
+					<li class="current tsd-kind-external-module">
 						<a href="../modules/_helpers_i_common_.html">"helpers/i.common"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -159,79 +163,40 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_elems_i_me_table_.imetable.html" class="tsd-kind-icon">IMe<wbr>Table</a>
+						<a href="_helpers_i_common_.iaddobjectbutton.html" class="tsd-kind-icon">IAdd<wbr>Object<wbr>Button</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_elems_i_me_table_.imetableattrs.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Attrs</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_elems_i_me_table_.imetableattrsoptions.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Attrs<wbr>Options</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_elems_i_me_table_.imetableattrssearch.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Attrs<wbr>Search</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_elems_i_me_table_.imetablecelldescription.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Cell<wbr>Description</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_elems_i_me_table_.imetablecelldiff.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Cell<wbr>Diff</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_elems_i_me_table_.imetablecelleditor.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Cell<wbr>Editor</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_elems_i_me_table_.imetablecellkpistatus.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Cell<wbr>Kpi<wbr>Status</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_elems_i_me_table_.imetablecellkpitrend.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Cell<wbr>Kpi<wbr>Trend</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_elems_i_me_table_.imetablecelllego.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Cell<wbr>Lego</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_elems_i_me_table_.imetablecellnotes.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Cell<wbr>Notes</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_elems_i_me_table_.imetablecellprogressbar.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Cell<wbr>Progress<wbr>Bar</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_elems_i_me_table_.imetablecellprops.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Cell<wbr>Props</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_elems_i_me_table_.imetablecellstyle.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Cell<wbr>Style</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_elems_i_me_table_.imetablecellstylefont.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Cell<wbr>Style<wbr>Font</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_elems_i_me_table_.imetableexportoptions.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Export<wbr>Options</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_elems_i_me_table_.imetableheader.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Header</a>
+						<a href="_helpers_i_common_.ientitycardlink.html" class="tsd-kind-icon">IEntity<wbr>Card<wbr>Link</a>
 					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_elems_i_me_table_.imetablepager.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Pager</a>
+						<a href="_helpers_i_common_.iprevobject.html" class="tsd-kind-icon">IPrev<wbr>Object</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-								<a href="_elems_i_me_table_.imetablepager.html#total" class="tsd-kind-icon">total</a>
+								<a href="_helpers_i_common_.iprevobject.html#entityid" class="tsd-kind-icon">entity<wbr>Id</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="_helpers_i_common_.iprevobject.html#objectid" class="tsd-kind-icon">object<wbr>Id</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_elems_i_me_table_.imetableplugineditable.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Plugin<wbr>Editable</a>
+						<a href="_helpers_i_common_.itooltip.html" class="tsd-kind-icon">ITooltip</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_elems_i_me_table_.imetableplugingoalseek.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Plugin<wbr>Goal<wbr>Seek</a>
+						<a href="_helpers_i_common_.iunit.html" class="tsd-kind-icon">IUnit</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_elems_i_me_table_.imetablepluginhiddencolumns.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Plugin<wbr>Hidden<wbr>Columns</a>
+						<a href="_helpers_i_common_.iunitvalue.html" class="tsd-kind-icon">IUnit<wbr>Value</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_elems_i_me_table_.imetableprops.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Props</a>
+						<a href="_helpers_i_common_.metaurldetails.html" class="tsd-kind-icon">Meta<wbr>Url<wbr>Details</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
+						<a href="_helpers_i_common_.pageenv.html" class="tsd-kind-icon">Page<wbr>Env</a>
 					</li>
 				</ul>
 			</nav>

@@ -270,6 +270,15 @@ ${sort} - для вставки сортировки
     </item>
     
     <item>
+      <title>GaService</title>
+      <link>https://developers.devision.io/meta/guides/java_api/gaservice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/guides/java_api/gaservice/</guid>
+      <description>   Метод и описание Возвращаемый тип     eventTrack ( category: String, action: String) void   eventTrack ( category: String, action: String, label: String) void   eventTrack ( category: String, action: String, label: String, value: Long) void   send ( parameters: Map) void    </description>
+    </item>
+    
+    <item>
       <title>HtmlService</title>
       <link>https://developers.devision.io/meta/guides/java_api/htmlservice/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

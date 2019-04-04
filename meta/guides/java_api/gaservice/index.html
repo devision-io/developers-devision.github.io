@@ -9,7 +9,7 @@
     <meta name="description" content="">
 
 
-    <title>meta/sql :: META | Devision Developers</title>
+    <title>GaService :: META | Devision Developers</title>
     <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/guides/script_types/sql/">
+  <body class="" data-url="/guides/java_api/gaservice/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -211,7 +211,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="/guides/script_types/" class="devsite-nav-item devsite-nav-item-main
-                        parent
+                        
                         
                         parent
                         ">
@@ -242,7 +242,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/guides/script_types/sql/" class="devsite-nav-item dd-item active">
+            <li data-nav-id="/guides/script_types/sql/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/guides/script_types/sql/" class="devsite-nav-title">
                     <span>meta/sql</span>
                 </a>
@@ -413,7 +413,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="/guides/java_api/" class="devsite-nav-item devsite-nav-item-main
-                        
+                        parent
                         
                         
                         ">
@@ -498,7 +498,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/guides/java_api/gaservice/" class="devsite-nav-item dd-item ">
+            <li data-nav-id="/guides/java_api/gaservice/" class="devsite-nav-item dd-item active">
                 <a href="https://developers.devision.io/meta/guides/java_api/gaservice/" class="devsite-nav-title">
                     <span>GaService</span>
                 </a>
@@ -1138,7 +1138,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
- <a href='https://developers.devision.io/meta/'>META</a> > <a href='https://developers.devision.io/meta/guides/'>Руководства</a> > <a href='https://developers.devision.io/meta/guides/script_types/'>Типы скриптов</a> > meta/sql
+ <a href='https://developers.devision.io/meta/'>META</a> > <a href='https://developers.devision.io/meta/guides/'>Руководства</a> > <a href='https://developers.devision.io/meta/guides/java_api/'>Java API</a> > GaService
 
 
 
@@ -1154,68 +1154,41 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <div id="body-inner">
           
-            <h1>meta/sql</h1>
+            <h1>GaService</h1>
           
 
 
 
+<table>
+<thead>
+<tr>
+<th>Метод и описание</th>
+<th>Возвращаемый тип</th>
+</tr>
+</thead>
 
+<tbody>
+<tr>
+<td>eventTrack ( category: String, action: String)</td>
+<td>void</td>
+</tr>
 
-<p>Основной способ получения данных, рекомендуется вибирать именно его, а не meta/js в пробладающем кол-во вслучаев.
-Исполняется на указанной в db-alias базе данных
-Выполняет SQL с синтактисом указанной БД без магических модификаций</p>
+<tr>
+<td>eventTrack ( category: String, action: String, label: String)</td>
+<td>void</td>
+</tr>
 
-<p>Существуют макросы для упрощения жизни разработчика:</p>
+<tr>
+<td>eventTrack ( category: String, action: String, label: String, value: Long)</td>
+<td>void</td>
+</tr>
 
-<p><strong>${pager}</strong> - для вставки пагинатора</p>
-
-<p><strong>${sort}</strong> - для вставки сортировки</p>
-
-<pre><code class="language-html">&lt;script type=&quot;meta/sql&quot; db-alias=&quot;meta_samples&quot; id=&quot;tableWithFooterWithoutPagerTotal&quot; 
-        label=&quot;Таблица с футером, но без расширенного пагинатора&quot; span=&quot;4&quot; order=&quot;71&quot;&gt;
-WITH empls AS (
-SELECT (generate_series || employee.&quot;employeeId&quot;::text)::int as seq,
-employee.*
-FROM &quot;public&quot;.&quot;employee&quot;, generate_series(1, 50)
-)
-SELECT
-    empls.seq, empls.&quot;employeeId&quot;, empls.name, empls.salary,
-    json_build_object(
-        'footerRows', json_build_array(
-            json_build_object('name', 'Ср. зарплата', 'salary', (avg(empls.salary) over())),
-            json_build_object('name', 'Итого', 'salary', (sum(empls.salary) over()))
-        )
-    ) as table_props_field
-FROM empls
-order by ${sort}, 1
-${pager}
-&lt;/script&gt;
-</code></pre>
-
-<h3 id="лимит-строк">Лимит строк</h3>
-
-<p>По-умолчанию 50 000 строк данных будет нормально возвращаться для скрипта или любого другого запроса в БД.
-Если строк придет больше, то скрипт вернет ошибку и не вернет результатов.
-Если вам не хватает значения 50к - вы можете увеличить его атрибутом скрипта</p>
-
-<pre><code class="language-html">&lt;script ... max-rows=&quot;999999&quot;&gt;
-...
-</code></pre>
-
-<h3 id="чтение-и-обновление-данных">Чтение и Обновление данных</h3>
-
-<p>По-умолчанию script выполняет функция query() в сервисе запросов к БД.
-Функция query ожидает, что запрос вернет результат, поэтому c SELECT все будет хорошо, а для INSERT, UPDATE, DELETE и пр
- нужно делать RETURNING если это Postgres, либо ставить no-result на скрипте. Это будет вызывать функцию update(),
- которая ждет, что ничего не будет возвращено и будет ругаться, если что-то вернется</p>
-
-<p>Пример: <a href="https://meta.realweb.ru/page?p=4105&amp;a=35">https://meta.realweb.ru/page?p=4105&amp;a=35</a></p>
-
-<pre><code class="language-html">&lt;script type=&quot;meta/sql&quot; db-alias=&quot;meta_samples&quot; id=&quot;upd&quot;
-		no-result&gt;
-UPDATE counters SET inc = inc + 1 WHERE name='md_source_update'
-&lt;/script&gt;
-</code></pre>
+<tr>
+<td>send ( parameters: Map)</td>
+<td>void</td>
+</tr>
+</tbody>
+</table>
 
 
 
@@ -1227,18 +1200,7 @@ UPDATE counters SET inc = inc + 1 WHERE name='md_source_update'
 </section>
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
-    <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#лимит-строк">Лимит строк</a></li>
-<li><a href="#чтение-и-обновление-данных">Чтение и Обновление данных</a></li>
-</ul></li>
-</ul></li>
-</ul>
-</nav>
+    
 </div>
 
 </div>

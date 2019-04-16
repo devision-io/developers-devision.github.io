@@ -33,6 +33,16 @@
     </item>
     
     <item>
+      <title>Google Analytics</title>
+      <link>https://developers.devision.io/meta/guides/google_analytics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/guides/google_analytics/</guid>
+      <description>Google Analytics уже глубоко интегрирован в платформу и многие нужные вам события с интерфейса и backend зачастую автоматически будут поступать в GA.
+Автоматически собираемые действия  Открытия страниц Открытие модальных окон (в т.ч. sidenav) Регистрация События ADD из ObjectLogService Клик на кнопку добавление объекта в me-select Выбор пункта меню в me-input type=menu-btn  Отправка событий через Measurement Protocol В скриптах meta/js или meta/sql (с помощью шаблонизатора) вы можете отправлять нужные вам события в GA.</description>
+    </item>
+    
+    <item>
       <title>Google Sheets</title>
       <link>https://developers.devision.io/meta/guides/google_sheets/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -78,14 +88,25 @@
     </item>
     
     <item>
+      <title>Типы скриптов</title>
+      <link>https://developers.devision.io/meta/guides/script_types/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/guides/script_types/</guid>
+      <description>Мотивация Скрипты это блоки получения или изменения данных, имеют атрибуты: - type - определяет тип получения данных: sql, js - id - имя данных для меты, используется для последующих обращений к данным. Грубо говоря имя переменной
+Ключевое слово internal Используется для того, чтобы получить данные на серверной стороне и не отправлять их на клиент. Это ускоряет страницу и позволяет 100% защитить программиста от случайно передачи секретной информации на клиент.</description>
+    </item>
+    
+    <item>
       <title>Шаблонизация</title>
       <link>https://developers.devision.io/meta/guides/template_engines/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/guides/template_engines/</guid>
       <description>Для шаблонизации используется freemarker.org. Отсутствие переменных при шаблонизации сейчас не является фатальной ошибкой, переменная в такой случае будет заменяться пустой строкой.
-Backend шаблонизация Функции Пример вызова:
- ${get_bean(String)} - Получение инстанса Java сервиса ${to_json(Object)} - Конвертация объекта в json ${to_date(String)} - Приведение к дате ${pg_quote_literal(String)} - Экранирование строки для PostgreSQL ${pg_quote_ident(String)} - Экранирование идентификатора (имя столбца, таблицы, схемы) для PostgreSQL  Полезно знать! Есть простой способ привести переменную-объект из env.</description>
+Backend шаблонизация Условия do-if Используется для условной фильтрации скриптов и элементов на бекенде. Скрипты не будет исполняться и будет предотвращать отрисовку связанных элементов. Элементы, при установки do-if на них не будут приходить на фронтенд
+Пример: https://samples-demo.devision.io/page?p=4551&amp;amp;a=35
+&amp;lt;script type=&amp;quot;meta/sql&amp;quot; db-alias=&amp;quot;meta&amp;quot; id=&amp;quot;all_activity&amp;quot; do-if=&amp;quot;env.sp.activity_mode==&#39;all&#39;&amp;quot;&amp;gt; select now() &amp;lt;/script&amp;gt;  Функции Пример вызова:</description>
     </item>
     
     <item>
@@ -94,7 +115,7 @@ Backend шаблонизация Функции Пример вызова:
       <pubDate>Mon, 24 Apr 2017 18:36:24 +0200</pubDate>
       
       <guid>https://developers.devision.io/meta/guides/charts/</guid>
-      <description>Являются элементами me-chart. Работают на основе google charts. Примеры тут: http://meta.realweb.ru/page?a=35&amp;amp;p=3623
+      <description>Являются элементами me-chart. Работают на основе google charts. Примеры тут: http://samples-demo.devision.io/page?a=35&amp;amp;p=3623
 Имеют опцию &amp;ldquo;nativeOptions&amp;rdquo; для передачи нативных параметров. Не рекомендуется это использоваться просто так из-за невозможности поддержки возможности смены графиков или более легкого обновления версии при отсутствии обратной совместимости.
 nativeOptions можно использовать как вариант для тестирования и с последующим запросом впиливания опции как мета параметр графиков.</description>
     </item>

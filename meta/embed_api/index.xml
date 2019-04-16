@@ -28,7 +28,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/embed_api/inject_api/</guid>
-      <description>API для встраивания внешнего html или lego кода на страницу сайта, на которой размещен embed.js Данные идут отсюда: https://meta.realweb.ru/page?p=4122&amp;amp;a=74
+      <description>API для встраивания внешнего html или lego кода на страницу сайта, на которой размещен embed.js Данные идут отсюда: https://samples-demo.devision.io/page?p=4122&amp;amp;a=74
 Для запуска применить
 me(&#39;applyInjects&#39;);  </description>
     </item>

@@ -13,6 +13,10 @@
   </url>
   
   <url>
+    <loc>https://developers.devision.io/meta/guides/google_analytics/</loc>
+  </url>
+  
+  <url>
     <loc>https://developers.devision.io/meta/guides/google_sheets/</loc>
   </url>
   
@@ -108,15 +112,7 @@
   </url>
   
   <url>
-    <loc>https://developers.devision.io/meta/guides/script_types/sql/</loc>
-  </url>
-  
-  <url>
-    <loc>https://developers.devision.io/meta/guides/script_types/js/</loc>
-  </url>
-  
-  <url>
-    <loc>https://developers.devision.io/meta/guides/java_api/</loc>
+    <loc>https://developers.devision.io/meta/java_api/</loc>
   </url>
   
   <url>
@@ -130,56 +126,60 @@
   </url>
   
   <url>
+    <loc>https://developers.devision.io/meta/java_api/apiclientservice/</loc>
+  </url>
+  
+  <url>
     <loc>https://developers.devision.io/meta/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://developers.devision.io/meta/guides/java_api/cryptservice/</loc>
+    <loc>https://developers.devision.io/meta/java_api/cryptservice/</loc>
   </url>
   
   <url>
-    <loc>https://developers.devision.io/meta/guides/java_api/datadiffservice/</loc>
+    <loc>https://developers.devision.io/meta/java_api/datadiffservice/</loc>
   </url>
   
   <url>
-    <loc>https://developers.devision.io/meta/guides/java_api/datatransformservice/</loc>
+    <loc>https://developers.devision.io/meta/java_api/datatransformservice/</loc>
   </url>
   
   <url>
-    <loc>https://developers.devision.io/meta/guides/java_api/gaservice/</loc>
+    <loc>https://developers.devision.io/meta/java_api/gaservice/</loc>
   </url>
   
   <url>
-    <loc>https://developers.devision.io/meta/guides/java_api/htmlservice/</loc>
+    <loc>https://developers.devision.io/meta/java_api/htmlservice/</loc>
   </url>
   
   <url>
-    <loc>https://developers.devision.io/meta/guides/java_api/legotomarkdownservice/</loc>
+    <loc>https://developers.devision.io/meta/java_api/legotomarkdownservice/</loc>
   </url>
   
   <url>
-    <loc>https://developers.devision.io/meta/guides/java_api/linkbuildservice/</loc>
+    <loc>https://developers.devision.io/meta/java_api/linkbuildservice/</loc>
   </url>
   
   <url>
-    <loc>https://developers.devision.io/meta/guides/java_api/markdownservice/</loc>
+    <loc>https://developers.devision.io/meta/java_api/markdownservice/</loc>
   </url>
   
   <url>
-    <loc>https://developers.devision.io/meta/guides/java_api/mediaservice/</loc>
+    <loc>https://developers.devision.io/meta/java_api/mediaservice/</loc>
   </url>
   
   <url>
-    <loc>https://developers.devision.io/meta/guides/java_api/metadatabaseservice/</loc>
+    <loc>https://developers.devision.io/meta/java_api/metadatabaseservice/</loc>
   </url>
   
   <url>
-    <loc>https://developers.devision.io/meta/guides/java_api/objectlogservice/</loc>
+    <loc>https://developers.devision.io/meta/java_api/objectlogservice/</loc>
   </url>
   
   <url>
-    <loc>https://developers.devision.io/meta/guides/java_api/tablecolumnservice/</loc>
+    <loc>https://developers.devision.io/meta/java_api/tablecolumnservice/</loc>
   </url>
   
   <url>
@@ -188,7 +188,7 @@
   </url>
   
   <url>
-    <loc>https://developers.devision.io/meta/guides/java_api/userrecoveryservice/</loc>
+    <loc>https://developers.devision.io/meta/java_api/userrecoveryservice/</loc>
   </url>
   
   <url>

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.42.2" />
+    <meta name="generator" content="Hugo 0.42.1" />
     <meta name="description" content="">
 
 
@@ -1198,15 +1198,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p>На стороне страницы создания/редактирования объекта сущности нужно обязательно залогировать добавление или изменение вызовом ObjectLogService.logValue</p>
 
 <pre><code class="language-html">&lt;script type=&quot;meta/js&quot; elem=&quot;hidden&quot; states=&quot;save&quot;&gt;
-	function main(pvm, vm, env, ObjectLogService) {
-		var isNew = false;
-		var objectId = env.object_id;
-		pvm.resetToInitialState();
-		pvm.closeModal();
-		pvm.changeState('default');
-		pvm.popup = {level: &quot;success&quot;, message: &quot;Сохранено&quot;};
-		ObjectLogService.logValue(env.entityId, objectId, isNew ? 'ADD' : 'SET', env.sp.obj);
-	}
+    function main(pvm, vm, env, ObjectLogService) {
+        var isNew = false;
+        var objectId = env.object_id;
+        pvm.resetToInitialState();
+        pvm.closeModal();
+        pvm.changeState('default');
+        pvm.popup = {level: &quot;success&quot;, message: &quot;Сохранено&quot;};
+        ObjectLogService.logValue(env.entityId, objectId, isNew ? 'ADD' : 'SET', env.sp.obj);
+    }
 &lt;/script&gt; 
 </code></pre>
 

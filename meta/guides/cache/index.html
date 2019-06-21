@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.42.1" />
+    <meta name="generator" content="Hugo 0.50" />
     <meta name="description" content="">
 
 
@@ -1138,6 +1138,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <ol>
 <li>&ldquo;cache&rdquo; - время жизни кеша в формате 10s - секунды, 10m - минуты, 10h часы.</li>
+<li>&ldquo;cache-company&rdquo; - добавляется к настройке &ldquo;cache&rdquo; и говорит о том, что кеш не зависит от пользователя, но зависит от env.companyId. Без &ldquo;cache&rdquo; не работает. Не может принимать значения true/false</li>
 <li>&ldquo;cache-global&rdquo; - добавляется к настройке &ldquo;cache&rdquo; и говорит о том, что кеш глобальный и не зависит от пользователя. Без &ldquo;cache&rdquo; не работает. Не может принимать значения true/false</li>
 </ol>
 
@@ -1147,6 +1148,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 Зависит от: applicationId, objectId, objectId, stateParams, state, limit/offset и userId</p>
 
 <pre><code class="language-html">&lt;script type=&quot;meta/sql&quot; id=&quot;res&quot; cache=&quot;5m&quot;&gt;
+SELECT ...
+&lt;/script&gt;
+</code></pre>
+
+<h3 id="кеш-уровня-companyid">Кеш уровня companyId</h3>
+
+<p>Зависит от: applicationId, objectId, objectId, stateParams, state, limit/offset и companyId</p>
+
+<pre><code class="language-html">&lt;script type=&quot;meta/sql&quot; id=&quot;res&quot; cache=&quot;5m&quot; cache-company&gt;
 SELECT ...
 &lt;/script&gt;
 </code></pre>
@@ -1177,6 +1187,7 @@ SELECT ...
 <li>
 <ul>
 <li><a href="#пользовательский-кеш">Пользовательский кеш</a></li>
+<li><a href="#кеш-уровня-companyid">Кеш уровня companyId</a></li>
 <li><a href="#глобальный-кеш">Глобальный кеш</a></li>
 </ul></li>
 </ul></li>

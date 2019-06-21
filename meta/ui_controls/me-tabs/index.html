@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.42.1" />
+    <meta name="generator" content="Hugo 0.50" />
     <meta name="description" content="">
 
 
@@ -1321,8 +1321,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 <h3 id="depends_104">depends (string)</h3>
-Зависимости от других элементов. При изменении зависимых элементов, при условии, что заполнены все значения из depends
-делается автоматический переапрос refPvmData и depends будут переданы в env.sp как {key: value}
+Указываться от корневого me-lego вставленного через html
+Так же есть возможность делать зависимости от текущего уровня иерархии, это удобно, когда неизвестна родительская вложенность.
+Например, когда у вас одна и та же динамическая форма подгружается в
+разных местах приложения на разном уровне вложенности или даже в me-lego-list иногда
 
 **@example** https://apps.devision.io/page?p=4329&a=35
 

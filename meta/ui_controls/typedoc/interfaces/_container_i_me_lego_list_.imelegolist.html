@@ -148,7 +148,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_i_me_elem_.imeelem.html">IMeElem</a>.<a href="_i_me_elem_.imeelem.html#__tid">__tid</a></p>
 						<ul>
-							<li>Defined in i.me-elem.ts:163</li>
+							<li>Defined in i.me-elem.ts:169</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -196,7 +196,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_i_me_elem_.imeelem.html">IMeElem</a>.<a href="_i_me_elem_.imeelem.html#bindattrs">bindAttrs</a></p>
 						<ul>
-							<li>Defined in i.me-elem.ts:148</li>
+							<li>Defined in i.me-elem.ts:154</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -213,7 +213,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_i_me_elem_.imeelem.html">IMeElem</a>.<a href="_i_me_elem_.imeelem.html#defaultvalue">defaultValue</a></p>
 						<ul>
-							<li>Defined in i.me-elem.ts:110</li>
+							<li>Defined in i.me-elem.ts:116</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -230,17 +230,22 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_i_me_elem_.imeelem.html">IMeElem</a>.<a href="_i_me_elem_.imeelem.html#depends">depends</a></p>
 						<ul>
-							<li>Defined in i.me-elem.ts:97</li>
+							<li>Defined in i.me-elem.ts:103</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Зависимости от других элементов. При изменении зависимых элементов, при условии, что заполнены все значения из depends
-							делается автоматический переапрос refPvmData и depends будут переданы в env.sp как {key: value}</p>
+							<p>Указываться от корневого me-lego вставленного через html
+								Так же есть возможность делать зависимости от текущего уровня иерархии, это удобно, когда неизвестна родительская вложенность.
+								Например, когда у вас одна и та же динамическая форма подгружается в
+							разных местах приложения на разном уровне вложенности или даже в me-lego-list иногда</p>
 						</div>
+						<p>Зависимости от других элементов. При изменении зависимых элементов, при условии, что заполнены все значения из depends
+						делается автоматический переапрос refPvmData и depends будут переданы в env.sp как {key: value}</p>
 						<p>Для зависимостей me-lego-list в одной строке используется нотация с [], например filled[].orgId, где filled - шв me-lego-list, orgId - id элемента</p>
 						<p>Например: [ &quot;filled[].orgId as orgId&quot; ] - переименовать для env.sp. Придет как env.sp.orgId
-						Например: [ &quot;mode&quot;, &quot;clientId&quot; ] - Придет как env.sp.mode, env.sp.clientId</p>
+							Например: [ &quot;mode&quot;, &quot;clientId&quot; ] - Придет как env.sp.mode, env.sp.clientId
+						Например: [ &quot;@.subOrgId42 as orgId&quot; ] - Для ссылки на текущую вложенность, например при динамической загрузки формы</p>
 						<dl class="tsd-comment-tags">
 							<dt>example</dt>
 							<dd><p><a href="https://apps.devision.io/page?p=4329&amp;a=35">https://apps.devision.io/page?p=4329&amp;a=35</a></p>
@@ -258,7 +263,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_i_me_elem_.imeelemcontainer.html">IMeElemContainer</a>.<a href="_i_me_elem_.imeelemcontainer.html#elems">elems</a></p>
 						<ul>
-							<li>Defined in i.me-elem.ts:408</li>
+							<li>Defined in i.me-elem.ts:414</li>
 						</ul>
 					</aside>
 				</section>
@@ -269,7 +274,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_i_me_elem_.imeelem.html">IMeElem</a>.<a href="_i_me_elem_.imeelem.html#entityid">entityId</a></p>
 						<ul>
-							<li>Defined in i.me-elem.ts:123</li>
+							<li>Defined in i.me-elem.ts:129</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -286,7 +291,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_i_me_elem_.imeelem.html">IMeElem</a>.<a href="_i_me_elem_.imeelem.html#errors">errors</a></p>
 						<ul>
-							<li>Defined in i.me-elem.ts:178</li>
+							<li>Defined in i.me-elem.ts:184</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -302,7 +307,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_i_me_elem_.imeelem.html">IMeElem</a>.<a href="_i_me_elem_.imeelem.html#exist">exist</a></p>
 						<ul>
-							<li>Defined in i.me-elem.ts:134</li>
+							<li>Defined in i.me-elem.ts:140</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -401,7 +406,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_i_me_elem_.imeelem.html">IMeElem</a>.<a href="_i_me_elem_.imeelem.html#inlineform">inlineForm</a></p>
 						<ul>
-							<li>Defined in i.me-elem.ts:117</li>
+							<li>Defined in i.me-elem.ts:123</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -439,7 +444,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_i_me_elem_.imeelem.html">IMeElem</a>.<a href="_i_me_elem_.imeelem.html#listen">listen</a></p>
 						<ul>
-							<li>Defined in i.me-elem.ts:157</li>
+							<li>Defined in i.me-elem.ts:163</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -507,7 +512,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_i_me_elem_.imeelem.html">IMeElem</a>.<a href="_i_me_elem_.imeelem.html#persistvalueview">persistValueView</a></p>
 						<ul>
-							<li>Defined in i.me-elem.ts:194</li>
+							<li>Defined in i.me-elem.ts:200</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -569,7 +574,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_i_me_elem_.imeelem.html">IMeElem</a>.<a href="_i_me_elem_.imeelem.html#selectedvalueview">selectedValueView</a></p>
 						<ul>
-							<li>Defined in i.me-elem.ts:199</li>
+							<li>Defined in i.me-elem.ts:205</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -585,7 +590,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_i_me_elem_.imeelem.html">IMeElem</a>.<a href="_i_me_elem_.imeelem.html#selfdepends">selfDepends</a></p>
 						<ul>
-							<li>Defined in i.me-elem.ts:104</li>
+							<li>Defined in i.me-elem.ts:110</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -622,7 +627,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_i_me_elem_.imeelem.html">IMeElem</a>.<a href="_i_me_elem_.imeelem.html#tooltip">tooltip</a></p>
 						<ul>
-							<li>Defined in i.me-elem.ts:173</li>
+							<li>Defined in i.me-elem.ts:179</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -638,7 +643,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_i_me_elem_.imeelem.html">IMeElem</a>.<a href="_i_me_elem_.imeelem.html#valid">valid</a></p>
 						<ul>
-							<li>Defined in i.me-elem.ts:188</li>
+							<li>Defined in i.me-elem.ts:194</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -654,7 +659,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_i_me_elem_.imeelem.html">IMeElem</a>.<a href="_i_me_elem_.imeelem.html#validateinprogress">validateInProgress</a></p>
 						<ul>
-							<li>Defined in i.me-elem.ts:183</li>
+							<li>Defined in i.me-elem.ts:189</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -686,7 +691,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_i_me_elem_.imeelem.html">IMeElem</a>.<a href="_i_me_elem_.imeelem.html#visible">visible</a></p>
 						<ul>
-							<li>Defined in i.me-elem.ts:142</li>
+							<li>Defined in i.me-elem.ts:148</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">

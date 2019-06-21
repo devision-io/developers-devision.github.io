@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.42.1" />
+    <meta name="generator" content="Hugo 0.50" />
     <meta name="description" content="">
 
 
@@ -1143,16 +1143,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   &quot;__tid&quot;: &quot;(any)&quot;,
   &quot;align&quot;: &quot;(string)&quot;,
   &quot;attrs&quot;: {
-    &quot;curved&quot;: &quot;(any)&quot;,
-    &quot;dualY&quot;: &quot;(true)&quot;,
-    &quot;hAxisMinValue&quot;: &quot;(any)&quot;,
+    &quot;curved&quot;: &quot;(boolean)&quot;,
+    &quot;dualY&quot;: &quot;(boolean)&quot;,
+    &quot;hAxisMinValue&quot;: &quot;(number)&quot;,
     &quot;height&quot;: &quot;(string)&quot;,
     &quot;nativeOptions&quot;: &quot;(any)&quot;,
-    &quot;pieHole&quot;: &quot;(any)&quot;,
+    &quot;pieHole&quot;: &quot;(number)&quot;,
     &quot;sliceVisibilityThreshold&quot;: &quot;(number)&quot;,
     &quot;stacked&quot;: &quot;(boolean)&quot;,
     &quot;stretched&quot;: &quot;(boolean)&quot;,
-    &quot;vAxisMinValue&quot;: &quot;(any)&quot;,
+    &quot;vAxisMinValue&quot;: &quot;(number)&quot;,
     &quot;vAxisTextPosition&quot;: &quot;(string)&quot;,
     &quot;zoomButton&quot;: &quot;( none | left )&quot;
   },
@@ -1251,8 +1251,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 Для некоторых элементов</p>
 
 <p><h3 id="depends_232">depends (string)</h3>
-Зависимости от других элементов. При изменении зависимых элементов, при условии, что заполнены все значения из depends
-делается автоматический переапрос refPvmData и depends будут переданы в env.sp как {key: value}</p>
+Указываться от корневого me-lego вставленного через html
+Так же есть возможность делать зависимости от текущего уровня иерархии, это удобно, когда неизвестна родительская вложенность.
+Например, когда у вас одна и та же динамическая форма подгружается в
+разных местах приложения на разном уровне вложенности или даже в me-lego-list иногда</p>
 
 <p><strong>@example</strong> <a href="https://apps.devision.io/page?p=4329&amp;a=35">https://apps.devision.io/page?p=4329&amp;a=35</a></p>
 

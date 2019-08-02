@@ -210,6 +210,29 @@ me(&#39;applyInjects&#39;);  </description>
     </item>
     
     <item>
+      <title>Интернационализация</title>
+      <link>https://developers.devision.io/meta/guides/i18n/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/guides/i18n/</guid>
+      <description>На системном уровне поддерживаются языки: ru, en.
+ Для того, чтобы начать переводить нужно: - добавить новые компоненты в таблицу meta.component, если текущих вам недостаточно - разметить страницы копонентами в настройках старниц - в app-content запустить i18n-app.py и собрать данные на перевод - если есть новые компоненты entity надо поместить в папку entity в компоненте
+Функции backend шаблонизации Для шаблонизации используется freemarker.org.
+ ${i18n(String key)} - Простой перевод ${i18n(String key, String defaultText)} - Простой перевод с текстом по умолчанию ${i18n(String key, List args, String?</description>
+    </item>
+    
+    <item>
+      <title>Nginx Proxy Headers</title>
+      <link>https://developers.devision.io/meta/guides/nginx/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/guides/nginx/</guid>
+      <description>Настраиваются на nginx при проксировании запосов в Java приложение, или через Chrome плагин ModHeader (https://chrome.google.com/webstore/detail/modheader/idgpnmonknjnojddfkpgkljpfnnfcklj) для разработки
+X-META-AppID Говорит о том, что МЕТА должна отвечать пользователю как конкретное приложение с установленным лого, css и пр
+server { listen *:80; server_name example.com; charset utf8; location / { proxy_set_header Host $host; proxy_set_header X-Real-IP $remote_addr; proxy_set_header X-META-AppID 3; proxy_pass http://127.0.0.1:8083; } }  X-META-Allowed-Apps Говорит о том, что МЕТА должна отвечать пользователю как конкретное приложение с установленным лого, css и пр Отличается от HEADER_X_META_APP_ID тем, что это будет работать как просто meta.</description>
+    </item>
+    
+    <item>
       <title>Именование сущностей в БД</title>
       <link>https://developers.devision.io/meta/guides/db_naming/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -352,6 +375,15 @@ me(&#39;applyInjects&#39;);  </description>
       
       <guid>https://developers.devision.io/meta/java_api/tablecolumnservice/</guid>
       <description>   Метод и описание Возвращаемый тип     buildFilters ( outputPlaceholderVarName: String, columns: DataResult, data: AdvancedFilterData) GeneratedFilter   buildFilters ( outputPlaceholderVarName: String, columns: DataResult, data: Object) GeneratedFilter   buildFn ( aggFn: AggFn, expr: String) String   escapeDivisionByZero ( text: String, escapePrefix: String, escapePostfix: String) String   extractTableParams ( columns: DataResult, dimensions: List, metrics: List) TableSettings   getMetricsFromExpr ( in: String) Set    </description>
+    </item>
+    
+    <item>
+      <title>TranslateService</title>
+      <link>https://developers.devision.io/meta/java_api/translateservice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/java_api/translateservice/</guid>
+      <description>   Метод и описание Возвращаемый тип     getAllPlaceholders ( language: String) Map   i18n ( language: String, text: String, args: Object[], defaultText: String) String   i18n ( text: String) String   i18n ( text: String, args: Object[]) String   i18n ( text: String, args: Object[], defaultText: String) String   i18n ( text: String, defaultText: String) String   i18nEntityFieldName ( entityId: String, fieldName: String) String   i18nEntityName ( entity: CEntity) String   i18nEntityName ( entityId: String) String   i18nPageName ( page: CPage) String   i18nSqlField ( key: String) String   i18nSqlField ( tableAlias: String, key: String) String   i18nSqlField ( tableAlias: String, key: String, lang: String) String    </description>
     </item>
     
     <item>

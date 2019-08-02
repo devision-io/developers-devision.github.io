@@ -9,7 +9,7 @@
     <meta name="description" content="">
 
 
-    <title>DataDiffService :: META | Devision Developers</title>
+    <title>Интернационализация :: META | Devision Developers</title>
     <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/java_api/datadiffservice/">
+  <body class="" data-url="/guides/i18n/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -69,7 +69,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="/guides/" class="devsite-nav-item devsite-nav-item-main
-                        
+                        parent
                         
                         parent
                         ">
@@ -334,7 +334,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/guides/i18n/" class="devsite-nav-item dd-item ">
+            <li data-nav-id="/guides/i18n/" class="devsite-nav-item dd-item active">
                 <a href="https://developers.devision.io/meta/guides/i18n/" class="devsite-nav-title">
                     <span>Интернационализация</span>
                 </a>
@@ -840,7 +840,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="/java_api/" class="devsite-nav-item devsite-nav-item-main
-                        parent
+                        
                         
                         
                         ">
@@ -907,7 +907,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/java_api/datadiffservice/" class="devsite-nav-item dd-item active">
+            <li data-nav-id="/java_api/datadiffservice/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/java_api/datadiffservice/" class="devsite-nav-title">
                     <span>DataDiffService</span>
                 </a>
@@ -1163,7 +1163,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
- <a href='https://developers.devision.io/meta/'>META</a> > <a href='https://developers.devision.io/meta/java_api/'>Java API</a> > DataDiffService
+ <a href='https://developers.devision.io/meta/'>META</a> > <a href='https://developers.devision.io/meta/guides/'>Руководства</a> > Интернационализация
 
 
 
@@ -1177,31 +1177,164 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <div id="body-inner">
           
-            <h1>DataDiffService</h1>
+            <h1>Интернационализация</h1>
           
 
 
 
-<table>
-<thead>
-<tr>
-<th>Метод и описание</th>
-<th>Возвращаемый тип</th>
-</tr>
-</thead>
 
-<tbody>
-<tr>
-<td>diff ( a: DataResult, b: DataResult, config: ScriptObjectMirror)</td>
-<td>DataResult</td>
-</tr>
 
-<tr>
-<td>diff ( oldV: DataResult, newV: DataResult, conf: DiffConfig)</td>
-<td>DataResult</td>
-</tr>
-</tbody>
-</table>
+<div class="notices info" ><p>На системном уровне поддерживаются языки: ru, en.</p>
+</div>
+
+
+<p>Для того, чтобы начать переводить нужно:
+ - добавить новые компоненты в таблицу meta.component, если текущих вам недостаточно
+ - разметить страницы копонентами в настройках старниц
+ - в app-content запустить i18n-app.py и собрать данные на перевод
+ - если есть новые компоненты entity надо поместить в папку entity в компоненте</p>
+
+<h2 id="функции-backend-шаблонизации">Функции backend шаблонизации</h2>
+
+<p>Для шаблонизации используется freemarker.org.</p>
+
+<ul>
+<li><strong>${i18n(String key)}</strong> - Простой перевод</li>
+<li><strong>${i18n(String key, String defaultText)}</strong> - Простой перевод с текстом по умолчанию</li>
+<li><strong>${i18n(String key, List args, String? defaultText)}</strong> - Перевод с заменой плейсхолдеров в тексте. Плейсхолдеры выглядят как {0}, {1} и соответствуют индексу значения из списка args</li>
+<li><strong>${i18n_ename(String entityId)}</strong> - Получение имени Сущности</li>
+<li><strong>${i18n_efield(String entityId, String fieldName)}</strong> - Получение имени поля Сущности</li>
+<li><strong>${i18n_sql_ofield(String key)}</strong> - Получение перевода поля</li>
+</ul>
+
+<p>###</p>
+
+<pre><code class="language-yaml">id: '2701'
+name: Тикет
+i18n: true &lt;---------- Указываем, что имя entity будет подвергаться переводу
+db_alias: meta
+schema: meta
+table: issue
+search_order: 100
+object_list_base_page_id: '4176'
+fields:
+- alias: application_id
+  db_type: text
+  name: application_id
+- alias: assignee_user_id
+  db_type: int8
+  name: assignee_user_id
+  display_name: Исполнитель
+  i18n: true
+- alias: creation_time
+  db_type: timestamp
+  display_name: Создано &lt;---------- Указываем на базовом языке компонента
+  i18n: true            &lt;---------- Указываем, для сбора на перевод указанного display_name
+  is_read_only: true
+  name: creation_time
+</code></pre>
+
+<pre><code class="language-yaml">id: '45'
+name: Продукт
+i18n: true    &lt;---------- Указываем, что имя entity будет подвергаться переводу
+i18n_object:  &lt;---------- Указываем для сбора записей из БД на перевод
+  fields:
+    - name: name        &lt;---------- Указываем для сбора записей из БД на перевод
+    - name: description &lt;---------- Указываем для сбора записей из БД на перевод
+db_alias: billing
+schema: public
+table: product
+search_order: 100
+fields:
+- db_type: integer
+  is_primary: true
+  is_read_only: true
+  name: id
+- db_type: text
+  name: key
+- db_type: text
+  is_required: true
+  is_title: true
+  name: name
+- db_type: description
+  name: description
+</code></pre>
+
+<h3 id="перевод-имени-сущности">Перевод имени сущности</h3>
+
+<p>Используется для lego или в label скриптов. Например перевод имени таблицы issue</p>
+
+<pre><code class="language-html">{
+    &quot;label&quot;: &quot;${i18n_ename('2773')}&quot;,
+    &quot;name&quot;: &quot;me-select&quot;
+}
+</code></pre>
+
+<h3 id="перевод-поля-сущности">Перевод поля сущности</h3>
+
+<p>Используется для lego или в label скриптов. Это например перевод имени поля таблицы issue</p>
+
+<pre><code class="language-html">{
+    &quot;label&quot;: &quot;${i18n_efield(&quot;2701&quot;, &quot;assignee_user_id&quot;)}&quot;,
+    &quot;name&quot;: &quot;me-select&quot;
+}
+</code></pre>
+
+<h3 id="перевод-поля-объекта-сущности">Перевод поля объекта сущности</h3>
+
+<p>Используется для перевода записей в таблицах, например, если вам нужно перевести список типов тикетов.</p>
+
+<pre><code class="language-html">&lt;script type=&quot;meta/sql&quot; id=&quot;issue_status_ids&quot; elem=&quot;me-select&quot; label=&quot;&quot; db-alias=&quot;meta&quot;&gt;
+    SELECT id, ${i18n_sql_ofield('name')} as name FROM meta.issue_status WHERE is_allowed ORDER BY 2
+&lt;/script&gt;
+</code></pre>
+
+<h3 id="перевод-страниц-компонента-на-уровне-компонента">Перевод страниц компонента на уровне компонента</h3>
+
+<p>Парсер соберет данные на уровне компонента. Это нужно использовать когда этот текст не является названием Сущности или Поля сущности</p>
+
+<pre><code class="language-html">${i18n(&quot;#.youCanceledChangeTariff&quot;, &quot;Вы отменили переход на тариф&quot;)}
+</code></pre>
+
+<h3 id="перевод-страниц-компонента-на-уровне-страницы">Перевод страниц компонента на уровне страницы</h3>
+
+<p>Парсер соберет данные на уровне страницы компонента. Например если у вас запись встречается только на это йстранице и вы не хотите портиь общие фразы компонента</p>
+
+<pre><code class="language-html">${i18n(&quot;@.youCanceledChangeTariff&quot;, &quot;Вы отменили переход на тариф&quot;)}
+</code></pre>
+
+<h2 id="функции-frontend-шаблонизации">Функции frontend шаблонизации</h2>
+
+<p>На уровне LEGO элемента, используются параметр i18n.</p>
+
+<pre><code class="language-json">[
+  {
+    &quot;id&quot;: &quot;login&quot;,
+    &quot;i18n&quot;: {
+      &quot;label&quot;: &quot;#.ex_system.login&quot;
+    },
+    &quot;name&quot;: &quot;me-input&quot;,
+    &quot;attrs&quot;: {
+      &quot;type&quot;: &quot;text&quot;,
+      &quot;required&quot;: true
+    },
+    &quot;label&quot;: &quot;Логин&quot;
+  },
+  {
+    &quot;id&quot;: &quot;password&quot;,
+    &quot;i18n&quot;: {
+      &quot;label&quot;: &quot;ex_system.password&quot;
+    },
+    &quot;name&quot;: &quot;me-input&quot;,
+    &quot;attrs&quot;: {
+      &quot;type&quot;: &quot;password&quot;,
+      &quot;required&quot;: true,
+      &quot;autocomplete&quot;: &quot;new-password&quot;
+    },
+    &quot;label&quot;: &quot;Пароль&quot;
+  }
+]
+</code></pre>
 
 
 
@@ -1213,7 +1346,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
-    
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#функции-backend-шаблонизации">Функции backend шаблонизации</a>
+<ul>
+<li><a href="#перевод-имени-сущности">Перевод имени сущности</a></li>
+<li><a href="#перевод-поля-сущности">Перевод поля сущности</a></li>
+<li><a href="#перевод-поля-объекта-сущности">Перевод поля объекта сущности</a></li>
+<li><a href="#перевод-страниц-компонента-на-уровне-компонента">Перевод страниц компонента на уровне компонента</a></li>
+<li><a href="#перевод-страниц-компонента-на-уровне-страницы">Перевод страниц компонента на уровне страницы</a></li>
+</ul></li>
+<li><a href="#функции-frontend-шаблонизации">Функции frontend шаблонизации</a></li>
+</ul></li>
+</ul>
+</nav>
 </div>
 
 </div>

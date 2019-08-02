@@ -154,6 +154,29 @@ nativeOptions можно использовать как вариант для �
     </item>
     
     <item>
+      <title>Интернационализация</title>
+      <link>https://developers.devision.io/meta/guides/i18n/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/guides/i18n/</guid>
+      <description>На системном уровне поддерживаются языки: ru, en.
+ Для того, чтобы начать переводить нужно: - добавить новые компоненты в таблицу meta.component, если текущих вам недостаточно - разметить страницы копонентами в настройках старниц - в app-content запустить i18n-app.py и собрать данные на перевод - если есть новые компоненты entity надо поместить в папку entity в компоненте
+Функции backend шаблонизации Для шаблонизации используется freemarker.org.
+ ${i18n(String key)} - Простой перевод ${i18n(String key, String defaultText)} - Простой перевод с текстом по умолчанию ${i18n(String key, List args, String?</description>
+    </item>
+    
+    <item>
+      <title>Nginx Proxy Headers</title>
+      <link>https://developers.devision.io/meta/guides/nginx/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/guides/nginx/</guid>
+      <description>Настраиваются на nginx при проксировании запосов в Java приложение, или через Chrome плагин ModHeader (https://chrome.google.com/webstore/detail/modheader/idgpnmonknjnojddfkpgkljpfnnfcklj) для разработки
+X-META-AppID Говорит о том, что МЕТА должна отвечать пользователю как конкретное приложение с установленным лого, css и пр
+server { listen *:80; server_name example.com; charset utf8; location / { proxy_set_header Host $host; proxy_set_header X-Real-IP $remote_addr; proxy_set_header X-META-AppID 3; proxy_pass http://127.0.0.1:8083; } }  X-META-Allowed-Apps Говорит о том, что МЕТА должна отвечать пользователю как конкретное приложение с установленным лого, css и пр Отличается от HEADER_X_META_APP_ID тем, что это будет работать как просто meta.</description>
+    </item>
+    
+    <item>
       <title>Именование сущностей в БД</title>
       <link>https://developers.devision.io/meta/guides/db_naming/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

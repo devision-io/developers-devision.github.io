@@ -9,7 +9,7 @@
     <meta name="description" content="">
 
 
-    <title>DataDiffService :: META | Devision Developers</title>
+    <title>TranslateService :: META | Devision Developers</title>
     <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/java_api/datadiffservice/">
+  <body class="" data-url="/java_api/translateservice/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -907,7 +907,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/java_api/datadiffservice/" class="devsite-nav-item dd-item active">
+            <li data-nav-id="/java_api/datadiffservice/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/java_api/datadiffservice/" class="devsite-nav-title">
                     <span>DataDiffService</span>
                 </a>
@@ -1105,7 +1105,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/java_api/translateservice/" class="devsite-nav-item dd-item ">
+            <li data-nav-id="/java_api/translateservice/" class="devsite-nav-item dd-item active">
                 <a href="https://developers.devision.io/meta/java_api/translateservice/" class="devsite-nav-title">
                     <span>TranslateService</span>
                 </a>
@@ -1163,7 +1163,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
- <a href='https://developers.devision.io/meta/'>META</a> > <a href='https://developers.devision.io/meta/java_api/'>Java API</a> > DataDiffService
+ <a href='https://developers.devision.io/meta/'>META</a> > <a href='https://developers.devision.io/meta/java_api/'>Java API</a> > TranslateService
 
 
 
@@ -1177,7 +1177,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <div id="body-inner">
           
-            <h1>DataDiffService</h1>
+            <h1>TranslateService</h1>
           
 
 
@@ -1192,13 +1192,68 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <tbody>
 <tr>
-<td>diff ( a: DataResult, b: DataResult, config: ScriptObjectMirror)</td>
-<td>DataResult</td>
+<td>getAllPlaceholders ( language: String)</td>
+<td>Map</td>
 </tr>
 
 <tr>
-<td>diff ( oldV: DataResult, newV: DataResult, conf: DiffConfig)</td>
-<td>DataResult</td>
+<td>i18n ( language: String, text: String, args: Object[], defaultText: String)</td>
+<td>String</td>
+</tr>
+
+<tr>
+<td>i18n ( text: String)</td>
+<td>String</td>
+</tr>
+
+<tr>
+<td>i18n ( text: String, args: Object[])</td>
+<td>String</td>
+</tr>
+
+<tr>
+<td>i18n ( text: String, args: Object[], defaultText: String)</td>
+<td>String</td>
+</tr>
+
+<tr>
+<td>i18n ( text: String, defaultText: String)</td>
+<td>String</td>
+</tr>
+
+<tr>
+<td>i18nEntityFieldName ( entityId: String, fieldName: String)</td>
+<td>String</td>
+</tr>
+
+<tr>
+<td>i18nEntityName ( entity: CEntity)</td>
+<td>String</td>
+</tr>
+
+<tr>
+<td>i18nEntityName ( entityId: String)</td>
+<td>String</td>
+</tr>
+
+<tr>
+<td>i18nPageName ( page: CPage)</td>
+<td>String</td>
+</tr>
+
+<tr>
+<td>i18nSqlField ( key: String)</td>
+<td>String</td>
+</tr>
+
+<tr>
+<td>i18nSqlField ( tableAlias: String, key: String)</td>
+<td>String</td>
+</tr>
+
+<tr>
+<td>i18nSqlField ( tableAlias: String, key: String, lang: String)</td>
+<td>String</td>
 </tr>
 </tbody>
 </table>

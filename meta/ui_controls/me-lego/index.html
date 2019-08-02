@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.50" />
+    <meta name="generator" content="Hugo 0.42.1" />
     <meta name="description" content="">
 
 
@@ -319,6 +319,42 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <li data-nav-id="/guides/metaql/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/guides/metaql/" class="devsite-nav-title">
                     <span>Язык запросов META (METAQL)</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/guides/i18n/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/guides/i18n/" class="devsite-nav-title">
+                    <span>Интернационализация</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/guides/nginx/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/guides/nginx/" class="devsite-nav-title">
+                    <span>Nginx Proxy Headers</span>
                 </a>
             </li>
             
@@ -1069,6 +1105,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
+            <li data-nav-id="/java_api/translateservice/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/java_api/translateservice/" class="devsite-nav-title">
+                    <span>TranslateService</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
             <li data-nav-id="/java_api/userrecoveryservice/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/java_api/userrecoveryservice/" class="devsite-nav-title">
                     <span>UserRecoveryService</span>
@@ -1299,35 +1353,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 }
 </code></pre>
 
-<h3 id="__tid_67">__tid (any)</h3>
+<h3 id="__tid_70">__tid (any)</h3>
 Автоматически генерируемое приватное поле
 
 
 
 
-<h3 id="align_51">align (string)</h3>
+<h3 id="align_54">align (string)</h3>
 Позиционирование элемента в ячейке серки
 
 **@default** "left"
 
 
-<h3 id="attrs_43">attrs [object Object]</h3>
+<h3 id="attrs_46">attrs [object Object]</h3>
 
-<h3 id="bindAttrs_65">bindAttrs [object Object]</h3>
+<h3 id="bindAttrs_68">bindAttrs [object Object]</h3>
 Когда нужно подписаться на изменение данные в pvm и заполнять какие-то поля элемента
 Например, менять elems в me-lego динамически или запонять me-input[type=text] расчетным значением
 
 
 
 
-<h3 id="defaultValue_60">defaultValue (any)</h3>
+<h3 id="defaultValue_63">defaultValue (any)</h3>
 Значение элемента по умолчанию
 Для некоторых элементов
 
 
 
 
-<h3 id="depends_58">depends (string)</h3>
+<h3 id="depends_61">depends (string)</h3>
 Указываться от корневого me-lego вставленного через html
 Так же есть возможность делать зависимости от текущего уровня иерархии, это удобно, когда неизвестна родительская вложенность.
 Например, когда у вас одна и та же динамическая форма подгружается в
@@ -1338,16 +1392,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 **@example** https://apps.devision.io/page?p=3597&a=35
 
 
-<h3 id="elems_44">elems [object Object]</h3>
+<h3 id="elems_47">elems [object Object]</h3>
 
-<p><h3 id="entityId_62">entityId (string)</h3>
+<p><h3 id="entityId_65">entityId (string)</h3>
 Meta EntityId
 Для некоторых элементов, напрмиер [[IMeInput]], [[IMeTable]]</p>
 
-<p><h3 id="errors_69">errors [object Object]</h3>
+<p><h3 id="errors_72">errors [object Object]</h3>
 Список ошибок элемента пока только валидации, но определенно все ошибки будут тут</p>
 
-<p><h3 id="exist_63">exist </h3>
+<p><h3 id="exist_66">exist </h3>
 Angular expression от рута vm страницы. Обратите внимание, что пути абсотюлтные, в отличие от &ldquo;depends&rdquo; в элементах
 Расчет идет на стороне браузера
 Например: &lsquo;editGroup.card.name == &ldquo;exist&rdquo; || editGroup.card.name == &ldquo;exist23&rdquo;&rsquo;
@@ -1357,88 +1411,92 @@ Angular expression от рута vm страницы. Обратите вним�
 
 <p><strong>@example</strong> <a href="https://apps.devision.io/page?p=4329&amp;a=35">https://apps.devision.io/page?p=4329&amp;a=35</a></p>
 
-<p><h3 id="formHorizontal_55">formHorizontal (boolean)</h3>
+<p><h3 id="formHorizontal_58">formHorizontal (boolean)</h3>
 Если элемента поддерживает, вывести его в стиле формы ключ, значение. Чтобы заголовок был на уровне элемента</p>
 
-<p><h3 id="help_48">help (string)</h3>
+<p><h3 id="help_51">help (string)</h3>
 Доп информация, рисуется под label или под элментом
 Зависит от типа элемента</p>
 
-<p><h3 id="icon_53">icon (string)</h3>
+<p><h3 id="i18n_77">i18n </h3>
+MeElem property internationalization (for label and help for example).
+Key of i18m map is elem property name, value is message key of i18n file</p>
+
+<p><h3 id="icon_56">icon (string)</h3>
 Иконка Font Awesome
 Например fa-bicycle</p>
 
 <p><strong>@link</strong> <a href="http://ui.adplatform.lan/Static_Full_Version/icons.html">http://ui.adplatform.lan/Static_Full_Version/icons.html</a></p>
 
-<p><h3 id="id_46">id (string)</h3>
+<p><h3 id="id_49">id (string)</h3>
 ID данных элемента
 Будет доступно в env.sp.{ID} или как вложенная структура, если это [[IMeElemContainer]]</p>
 
-<p><h3 id="inlineForm_61">inlineForm (boolean)</h3>
+<p><h3 id="inlineForm_64">inlineForm (boolean)</h3>
 Нужно ли отрисовывать элемент без сетки в виде inlineForm (bootstrap)</p>
 
 <p><strong>@link</strong> {<a href="http://stackoverflow.com/questions/12201835/form-inline-inside-a-form-horizontal-in-twitter-bootstrap">http://stackoverflow.com/questions/12201835/form-inline-inside-a-form-horizontal-in-twitter-bootstrap</a>}</p>
 
-<p><h3 id="label_47">label (string)</h3>
+<p><h3 id="label_50">label (string)</h3>
 Заголовок элемента
 Обычно над элементом, на некоторых не рисуется вообще</p>
 
-<p><h3 id="listen_66">listen [object Object]</h3>
+<p><h3 id="listen_69">listen [object Object]</h3>
 Подписка на изменения объектов. Пока работает только для изменений вызваных в модальном окне
 Например у вас таблица со списоком аккуантов и в &ldquo;+ Аккаунт&rdquo; вы можете добавить или привязать аккаунт,
 а после сохранения в модальном окне, родительская таблциа должна пересчитаться</p>
 
-<p><h3 id="name_45">name (string)</h3>
+<p><h3 id="name_48">name (string)</h3>
 Название элемента
 Например: me-lego, me-input</p>
 
-<p><h3 id="offset_50">offset (number)</h3>
+<p><h3 id="offset_53">offset (number)</h3>
 Отстут по сетке справа от 0 до12</p>
 
-<p><h3 id="order_52">order (number)</h3>
+<p><h3 id="order_55">order (number)</h3>
 Прзиция элемента в сетке, чем меньше значение, тем элемент выше и левее</p>
 
-<p><h3 id="persistValueView_72">persistValueView (boolean)</h3>
+<p><h3 id="persistValueView_75">persistValueView (boolean)</h3>
 Блок обрабатывает вписывание в элемент текущего выбранного пункта в поле selectedValueView,
 чтобы можно быьт делать, label + name в скрытом режиме</p>
 
-<p><h3 id="refPvmData_57">refPvmData [object Object]</h3>
+<p><h3 id="refPvmData_60">refPvmData [object Object]</h3>
 Инструкции по получению данных для [[IMeInputAttrs.options]] или таблицы</p>
 
 <p><strong>@example</strong> <a href="https://apps.devision.io/page?p=3570&amp;a=35">https://apps.devision.io/page?p=3570&amp;a=35</a></p>
 
 <p><strong>@example</strong> <a href="https://apps.devision.io/page?p=3597&amp;a=35">https://apps.devision.io/page?p=3597&amp;a=35</a></p>
 
-<p><h3 id="refPvmValidator_56">refPvmValidator [object Object]</h3>
+<p><h3 id="refPvmValidator_59">refPvmValidator [object Object]</h3>
 Пользовательская валидация</p>
 
 <p><strong>@example</strong> <a href="https://apps.devision.io/page?p=3443&amp;a=35">https://apps.devision.io/page?p=3443&amp;a=35</a></p>
 
-<p><h3 id="selectedValueView_73">selectedValueView (any)</h3>
+<p><h3 id="selectedValueView_76">selectedValueView (any)</h3>
 Текстовое представление выбранного значения</p>
 
-<p><h3 id="selfDepends_59">selfDepends (boolean)</h3>
+<p><h3 id="selfDepends_62">selfDepends (boolean)</h3>
 Зависимость от себя самого, нужно для editable [[IMeTable]]
 и прототип для поиска [[IMeInputAttrs.options]] в me-input для частичной подгрузки данных</p>
 
 <p><strong>@beta</strong></p>
 
-<p><h3 id="span_49">span (number)</h3>
+<p><h3 id="span_52">span (number)</h3>
 Размер по сетке справа от 0 до12</p>
 
-<p><h3 id="tooltip_68">tooltip [object Object]</h3>
+<p><h3 id="tooltip_71">tooltip [object Object]</h3>
 Стандартный мета тултип</p>
 
-<p><h3 id="valid_71">valid (boolean)</h3>
+<p><h3 id="valid_74">valid (boolean)</h3>
 Элемент валидный</p>
 
-<p><h3 id="validateInProgress_70">validateInProgress (boolean)</h3>
+<p><h3 id="validateInProgress_73">validateInProgress (boolean)</h3>
 Принимает значение true на момент асинхронной валидации</p>
 
-<p><h3 id="value_54">value (string)</h3>
+<p><h3 id="value_57">value (string)</h3>
 для некоторых элементов</p>
 
-<p><h3 id="visible_64">visible (boolean)</h3>
+<p><h3 id="visible_67">visible (boolean)</h3>
 Angular expression от рута vm страницы. Обратите внимание, что пути абсотюлтные, в отличие от &ldquo;depends&rdquo; в элементах
 Расчет идет на стороне браузера
 Например: &lsquo;editGroup.card.name == &ldquo;visible&rdquo;&rsquo;</p>

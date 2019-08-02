@@ -9,7 +9,7 @@
     <meta name="description" content="">
 
 
-    <title>DataDiffService :: META | Devision Developers</title>
+    <title>Nginx Proxy Headers :: META | Devision Developers</title>
     <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/java_api/datadiffservice/">
+  <body class="" data-url="/guides/nginx/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -69,7 +69,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="/guides/" class="devsite-nav-item devsite-nav-item-main
-                        
+                        parent
                         
                         parent
                         ">
@@ -352,7 +352,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/guides/nginx/" class="devsite-nav-item dd-item ">
+            <li data-nav-id="/guides/nginx/" class="devsite-nav-item dd-item active">
                 <a href="https://developers.devision.io/meta/guides/nginx/" class="devsite-nav-title">
                     <span>Nginx Proxy Headers</span>
                 </a>
@@ -840,7 +840,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="/java_api/" class="devsite-nav-item devsite-nav-item-main
-                        parent
+                        
                         
                         
                         ">
@@ -907,7 +907,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/java_api/datadiffservice/" class="devsite-nav-item dd-item active">
+            <li data-nav-id="/java_api/datadiffservice/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/java_api/datadiffservice/" class="devsite-nav-title">
                     <span>DataDiffService</span>
                 </a>
@@ -1163,7 +1163,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
- <a href='https://developers.devision.io/meta/'>META</a> > <a href='https://developers.devision.io/meta/java_api/'>Java API</a> > DataDiffService
+ <a href='https://developers.devision.io/meta/'>META</a> > <a href='https://developers.devision.io/meta/guides/'>Руководства</a> > Nginx Proxy Headers
 
 
 
@@ -1177,31 +1177,68 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <div id="body-inner">
           
-            <h1>DataDiffService</h1>
+            <h1>Nginx Proxy Headers</h1>
           
 
 
 
-<table>
-<thead>
-<tr>
-<th>Метод и описание</th>
-<th>Возвращаемый тип</th>
-</tr>
-</thead>
 
-<tbody>
-<tr>
-<td>diff ( a: DataResult, b: DataResult, config: ScriptObjectMirror)</td>
-<td>DataResult</td>
-</tr>
 
-<tr>
-<td>diff ( oldV: DataResult, newV: DataResult, conf: DiffConfig)</td>
-<td>DataResult</td>
-</tr>
-</tbody>
-</table>
+<p>Настраиваются на nginx при проксировании запосов в Java приложение, или через Chrome плагин ModHeader (<a href="https://chrome.google.com/webstore/detail/modheader/idgpnmonknjnojddfkpgkljpfnnfcklj">https://chrome.google.com/webstore/detail/modheader/idgpnmonknjnojddfkpgkljpfnnfcklj</a>) для разработки</p>
+
+<h2 id="x-meta-appid">X-META-AppID</h2>
+
+<p>Говорит о том, что МЕТА должна отвечать пользователю как конкретное приложение с установленным лого, css и пр</p>
+
+<pre><code>server {
+  listen *:80;
+  server_name example.com;
+  charset utf8;
+  location / {
+      proxy_set_header Host $host;
+      proxy_set_header X-Real-IP $remote_addr;
+      proxy_set_header X-META-AppID 3;
+      proxy_pass http://127.0.0.1:8083;
+  }
+}
+</code></pre>
+
+<h2 id="x-meta-allowed-apps">X-META-Allowed-Apps</h2>
+
+<p>Говорит о том, что МЕТА должна отвечать пользователю как конкретное приложение с установленным лого, css и пр
+Отличается от HEADER_X_META_APP_ID тем, что это будет работать как просто meta.realweb.ru, но не будет показывать
+главную страницу без указания приложения, т.е. будет работать только как embed вариант</p>
+
+<pre><code>server {
+    listen *:80;
+    server_name example.com;
+    charset utf8;
+    location / {
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-META-Allowed-Apps 'garpun, garpun_embed, express';
+        proxy_pass http://127.0.0.1:8083;
+    }
+}
+</code></pre>
+
+<h2 id="x-meta-dev-restrict-roles">X-META-Dev-Restrict-Roles</h2>
+
+<p>Разделенный через запятую список ролей, которым доступно нахождение не сайте.
+Обычно это разработчики и саппорт</p>
+
+<pre><code>server {
+    listen *:80;
+    server_name example.com;
+    charset utf8;
+    location / {
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-META-RESTRICT-ROLES 'meta.role.dev, meta.role.support'
+        proxy_pass http://127.0.0.1:8083;
+    }
+}
+</code></pre>
 
 
 
@@ -1213,7 +1250,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
-    
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#x-meta-appid">X-META-AppID</a></li>
+<li><a href="#x-meta-allowed-apps">X-META-Allowed-Apps</a></li>
+<li><a href="#x-meta-dev-restrict-roles">X-META-Dev-Restrict-Roles</a></li>
+</ul></li>
+</ul>
+</nav>
 </div>
 
 </div>

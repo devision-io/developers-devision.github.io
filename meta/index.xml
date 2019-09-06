@@ -218,7 +218,7 @@ me(&#39;applyInjects&#39;);  </description>
       <description>На системном уровне поддерживаются языки: ru, en.
  Для того, чтобы начать переводить нужно: - добавить новые компоненты в таблицу meta.component, если текущих вам недостаточно - разметить страницы копонентами в настройках старниц - в app-content запустить i18n-app.py и собрать данные на перевод - если есть новые компоненты entity надо поместить в папку entity в компоненте
 Функции backend шаблонизации Для шаблонизации используется freemarker.org.
- ${i18n(String key)} - Простой перевод ${i18n(String key, String defaultText)} - Простой перевод с текстом по умолчанию ${i18n(String key, List args, String?</description>
+ ${i18n(String placeholder)} - Простой перевод ${i18n(String placeholder, String defaultText)} - Простой перевод с текстом по умолчанию ${i18n(String placeholder, List args, String?</description>
     </item>
     
     <item>
@@ -383,7 +383,7 @@ server { listen *:80; server_name example.com; charset utf8; location / { proxy_
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/java_api/translateservice/</guid>
-      <description>   Метод и описание Возвращаемый тип     getAllPlaceholders ( language: String) Map   i18n ( language: String, text: String, args: Object[], defaultText: String) String   i18n ( text: String) String   i18n ( text: String, args: Object[]) String   i18n ( text: String, args: Object[], defaultText: String) String   i18n ( text: String, defaultText: String) String   i18nEntityFieldName ( entityId: String, fieldName: String) String   i18nEntityName ( entity: CEntity) String   i18nEntityName ( entityId: String) String   i18nPageName ( page: CPage) String   i18nSqlField ( key: String) String   i18nSqlField ( tableAlias: String, key: String) String   i18nSqlField ( tableAlias: String, key: String, lang: String) String    </description>
+      <description>   Метод и описание Возвращаемый тип     getAllPlaceholders ( language: String) Map   i18n ( language: String, text: String, args: Object[], defaultText: String) String   i18n ( placeholder: String) String   i18n ( placeholder: String, args: Object[]) String   i18n ( placeholder: String, args: Object[], defaultText: String) String   i18n ( placeholder: String, defaultText: String) String   i18nEntityFieldName ( entityId: String, fieldName: String) String   i18nEntityName ( entity: CEntity) String   i18nEntityName ( entityId: String) String   i18nPageName ( page: CPage) String   i18nSqlField ( placeholder: String) String   i18nSqlField ( tableAlias: String, placeholder: String) String   i18nSqlField ( tableAlias: String, placeholder: String, lang: String) String    </description>
     </item>
     
     <item>

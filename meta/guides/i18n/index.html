@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.42.1" />
+    <meta name="generator" content="Hugo 0.42.2" />
     <meta name="description" content="">
 
 
@@ -1199,12 +1199,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p>Для шаблонизации используется freemarker.org.</p>
 
 <ul>
-<li><strong>${i18n(String key)}</strong> - Простой перевод</li>
-<li><strong>${i18n(String key, String defaultText)}</strong> - Простой перевод с текстом по умолчанию</li>
-<li><strong>${i18n(String key, List args, String? defaultText)}</strong> - Перевод с заменой плейсхолдеров в тексте. Плейсхолдеры выглядят как {0}, {1} и соответствуют индексу значения из списка args</li>
+<li><strong>${i18n(String placeholder)}</strong> - Простой перевод</li>
+<li><strong>${i18n(String placeholder, String defaultText)}</strong> - Простой перевод с текстом по умолчанию</li>
+<li><strong>${i18n(String placeholder, List args, String? defaultText)}</strong> - Перевод с заменой плейсхолдеров в тексте. Плейсхолдеры выглядят как {0}, {1} и соответствуют индексу значения из списка args</li>
 <li><strong>${i18n_ename(String entityId)}</strong> - Получение имени Сущности</li>
 <li><strong>${i18n_efield(String entityId, String fieldName)}</strong> - Получение имени поля Сущности</li>
 <li><strong>${i18n_sql_ofield(String key)}</strong> - Получение перевода поля</li>
+<li><strong>${i18n_sql_ofield(String tableAlias, String key)}</strong> - Получение перевода поля в случае, если у вас больше одной таблицы в запросе и вам нужно указать альяс таблицы</li>
 </ul>
 
 <h3 id="разметка-entity">Разметка entity</h3>
@@ -1238,6 +1239,7 @@ fields:
 name: Продукт
 i18n: true    &lt;---------- Указываем, что имя entity будет подвергаться переводу
 i18n_object:  &lt;---------- Указываем для сбора записей из БД на перевод
+  sql_where_clause: allowed_roles &amp;&amp; ARRAY['meta.role.auth', 'adhands.role.can_view_all_clients_yes'] &lt;---------- Условие WHERE по которому будут отсекаться строки для перевода 
   fields:
     - name: name        &lt;---------- Указываем для сбора записей из БД на перевод
     - name: description &lt;---------- Указываем для сбора записей из БД на перевод
@@ -1282,7 +1284,8 @@ fields:
 
 <h3 id="перевод-поля-объекта-сущности">Перевод поля объекта сущности</h3>
 
-<p>Используется для перевода записей в таблицах, например, если вам нужно перевести список типов тикетов.</p>
+<p>Используется для перевода записей в таблицах, например, если вам нужно перевести список типов тикетов.
+Данные будут браться из поля me_i18n этой таблицы</p>
 
 <pre><code class="language-html">&lt;script type=&quot;meta/sql&quot; id=&quot;issue_status_ids&quot; elem=&quot;me-select&quot; label=&quot;&quot; db-alias=&quot;meta&quot;&gt;
     SELECT id, ${i18n_sql_ofield('name')} as name FROM meta.issue_status WHERE is_allowed ORDER BY 2
@@ -1294,13 +1297,6 @@ fields:
 <p>Парсер соберет данные на уровне компонента. Это нужно использовать когда этот текст не является названием Сущности или Поля сущности</p>
 
 <pre><code class="language-html">${i18n(&quot;#.youCanceledChangeTariff&quot;, &quot;Вы отменили переход на тариф&quot;)}
-</code></pre>
-
-<h3 id="перевод-страниц-компонента-на-уровне-страницы">Перевод страниц компонента на уровне страницы</h3>
-
-<p>Парсер соберет данные на уровне страницы компонента. Например если у вас запись встречается только на это йстранице и вы не хотите портиь общие фразы компонента</p>
-
-<pre><code class="language-html">${i18n(&quot;@.youCanceledChangeTariff&quot;, &quot;Вы отменили переход на тариф&quot;)}
 </code></pre>
 
 <h2 id="функции-frontend-шаблонизации">Функции frontend шаблонизации</h2>
@@ -1357,7 +1353,6 @@ fields:
 <li><a href="#перевод-поля-сущности">Перевод поля сущности</a></li>
 <li><a href="#перевод-поля-объекта-сущности">Перевод поля объекта сущности</a></li>
 <li><a href="#перевод-страниц-компонента-на-уровне-компонента">Перевод страниц компонента на уровне компонента</a></li>
-<li><a href="#перевод-страниц-компонента-на-уровне-страницы">Перевод страниц компонента на уровне страницы</a></li>
 </ul></li>
 <li><a href="#функции-frontend-шаблонизации">Функции frontend шаблонизации</a></li>
 </ul></li>

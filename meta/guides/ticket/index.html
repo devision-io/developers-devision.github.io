@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.42.1" />
+    <meta name="generator" content="Hugo 0.42.2" />
     <meta name="description" content="">
 
 
@@ -1204,6 +1204,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <ul>
 <li><strong>fill_new_issue_fields</strong>: Заполняет исполнителя и участников тикета </li>
 <li><strong>get_issue_access</strong>: Проверка ACL для доступа к тикету</li>
+<li><strong>get_issue_type_object_kind_options</strong>: Возвращает список options для me-input. Настраивается под сложные запросы, где metaql будет излишне сложен. Далее есть детальеное описание работы с этим методом</li>
 <li><strong>get_issue_type_object_details</strong>: Возвращает текст деталей по этому тикету, исходя из его сущности и типа в формате markdown.
 Используется в модуле _Согласование_ для отображения более полной информации по тому, что нужно согласовать.</li>
 <li><strong>get_issue_assignee_variants</strong>: Возвращает возможных исполнителей для данного тикета в зависимости от типа и сущности, в рамках которой работает.
@@ -1214,7 +1215,45 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 - get_issue_log_md: Возвращает детали по истории изменений тикета в формате markdown
 - get_issue_type_lego_form: Возвращает meta lego форму дополнительных полей для тикета
 - after_issue_self_change: Триггер для логирования истории изменения тикета
-- after_issue_msg_self_change: Триггер для логирования истории изменения комментариев тикета, а так же добавления участников тикета при упоминании их в комментариях</p>
+- after_issue_msg_self_change: Триггер для логирования истории изменения комментариев тикета, а так же добавления участников тикета при упоминании их в комментариях
+- get_approve_status: Получить статус согласованности тикета (с kind=approval)</p>
+
+<h3 id="получение-сложных-списков-для-полей-тикетов-get-issue-type-object-kind-options">Получение сложных списков для полей тикетов (get_issue_type_object_kind_options)</h3>
+
+<p>Что нужно сделать c вашим me-input:
+ - добавить depends
+ - добавить refPvmData</p>
+
+<p>Пример элемента со сложной зависимостью от других с подгрузкой данных из get_issue_type_object_kind_options</p>
+
+<pre><code class="language-json">    {
+      &quot;id&quot;: &quot;test_account&quot;,
+      &quot;name&quot;: &quot;me-input&quot;,
+      &quot;attrs&quot;: {
+        &quot;type&quot;: &quot;select&quot;,
+        &quot;required&quot;: true
+      },
+      &quot;label&quot;: &quot;Test account&quot;,
+      &quot;depends&quot;: [
+        &quot;issue_type_id&quot;, &quot;object_id&quot;, &quot;entity_id&quot;, // Эти поля обязательно нужено указать в depends
+  
+        // Далее пользовательские поля
+        // Знак @ использовать необязательно, но он может помочь вам не писать полный путь зависимости, а просто указать, 
+        // что зависимость на том же уровне LEGO иерархии 
+        // Подробнее https://developers.devision.io/meta/ui_controls/typedoc/interfaces/_elems_i_me_input_.imeinput.html#depends
+        &quot;@.engine as engine&quot;, 
+        &quot;@.connection_id as connection_id&quot;
+      ],
+      &quot;refPvmData&quot;: {
+        &quot;id&quot;: &quot;issue_type_object_kind_options&quot;,
+        &quot;sp&quot;: {
+          // Обязательно укажите вид зависимости. Как правило это помогает разобраться в при трассировке запроса и в хранике для условий роутинга
+          &quot;kind&quot;: &quot;test_account&quot; // Обязательно 
+        }
+      },
+      &quot;formHorizontal&quot;: true
+    }
+</code></pre>
 
 <h3 id="разновидности-типов-тикетов">Разновидности типов тикетов</h3>
 
@@ -1279,6 +1318,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <ul>
 <li><a href="#таблицы">Таблицы</a></li>
 <li><a href="#управляющие-функции-бд">Управляющие функции БД</a></li>
+<li><a href="#получение-сложных-списков-для-полей-тикетов-get-issue-type-object-kind-options">Получение сложных списков для полей тикетов (get_issue_type_object_kind_options)</a></li>
 <li><a href="#разновидности-типов-тикетов">Разновидности типов тикетов</a>
 <ul>
 <li><a href="#тип-согласование-kind-approval">Тип: Согласование (kind=approval)</a></li>

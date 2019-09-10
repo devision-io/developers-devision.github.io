@@ -9,7 +9,7 @@
     <meta name="description" content="">
 
 
-    <title>Именование сущностей в БД :: META | Devision Developers</title>
+    <title>Google Sheets :: META | Devision Developers</title>
     <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/guides/db_naming/">
+  <body class="" data-url="/work_with_data/google_sheets/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -69,7 +69,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="/guides/" class="devsite-nav-item devsite-nav-item-main
-                        parent
+                        
                         
                         parent
                         ">
@@ -334,7 +334,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/guides/db_naming/" class="devsite-nav-item dd-item active">
+            <li data-nav-id="/guides/db_naming/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/guides/db_naming/" class="devsite-nav-title">
                     <span>Именование сущностей в БД</span>
                 </a>
@@ -451,7 +451,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="/work_with_data/" class="devsite-nav-item devsite-nav-item-main
-                        
+                        parent
                         
                         
                         ">
@@ -500,7 +500,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/work_with_data/google_sheets/" class="devsite-nav-item dd-item ">
+            <li data-nav-id="/work_with_data/google_sheets/" class="devsite-nav-item dd-item active">
                 <a href="https://developers.devision.io/meta/work_with_data/google_sheets/" class="devsite-nav-title">
                     <span>Google Sheets</span>
                 </a>
@@ -1219,7 +1219,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
- <a href='https://developers.devision.io/meta/'>META</a> > <a href='https://developers.devision.io/meta/guides/'>Руководства</a> > Именование сущностей в БД
+ <a href='https://developers.devision.io/meta/'>META</a> > <a href='https://developers.devision.io/meta/work_with_data/'>Работа с данными</a> > Google Sheets
 
 
 
@@ -1233,73 +1233,56 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <div id="body-inner">
           
-            <h1>Именование сущностей в БД</h1>
+            <h1>Google Sheets</h1>
           
 
 
 
 
 
-<p>При разработке новой БД предлагается придерживаться следующих правил. При этом, если у вас есть готовая БД, то вы не должны хотеть полностью переделать ее соглашения, так как это бесполезная работа. Просто продолжайте использовать то, что у вас есть.</p>
+<h2 id="мотивация">Мотивация</h2>
 
-<ul>
-<li>Все таблицы должны иметь несоставной первичный ключ, который должен называться id</li>
-<li>Все таблицы, представления, функции, триггерные функции и типы должны иметь комментарий</li>
-<li>Поля таблиц и view должны иметь комментарий. Исключения: поля с внешними ключами, общепонятные поля (первичный ключ, views, clicks, name, title и т.п.), enum-поля</li>
-<li>Последовательности (sequences) одних таблиц нельзя копировать для других, если это дейстивтельно не оправдано. Для новых таблиц используйте serial и bigserial как типы полей с первичным ключем</li>
-<li>Лучше, чтобы названия первичных, уникальных ключей, индексов должна выдавать БД при создании этих объектов - так мы сэкономим время на разбирательствах что и как должно называться, БД сама разберется как это называть.</li>
-<li>Параметры и переменные в хранимых процедурах должны начинаться с &ldquo;_&rdquo; чтобы не перепутать их с полями таблиц и пр.</li>
-<li>Все схемы, таблицы, предстваления, поля, функции, триггеры и пр. должны иметь нотацию lower_camelcase. По возможность избегайте использования зарезервированных имен типа user, domain, table и пр</li>
-</ul>
+<p>Иногда пользователи хотят управлять отчетами через интеграцию с Google Sheets</p>
 
-<h2 id="таблицы-сущностей">Таблицы сущностей</h2>
+<p>Документация по query language: <a href="https://developers.google.com/chart/interactive/docs/querylanguage#language-clauses">https://developers.google.com/chart/interactive/docs/querylanguage#language-clauses</a></p>
 
-<p>Должны иметь свой PK, желательно id</p>
+<h1 id="административные-настройки-сервера">Административные настройки сервера</h1>
 
-<p>Единственное число. Например client, entity, &ldquo;user&rdquo;, campaign, company, &hellip;</p>
+<p>Для того, чтобы это заработало в основном конфигурационном файле меты должен быть заполнен блок googleShareAccount,
+где нужно вписать google service account настройки из формата json в формате yaml.
+После указания ваши пользователи смогут расшаривать файлы на ваш сервисный аккаунт и мета будет получать к ним доступ.</p>
 
-<h2 id="таблицы-связей">Таблицы связей</h2>
+<p>например у нас это аккаунт - robot-valera@devision-io.iam.gserviceaccount.com</p>
 
-<p>Должны иметь свой PK, желательно id</p>
+<h1 id="что-нужно-сделать">Что нужно сделать</h1>
 
-<p>Один ко многим: единственое_множественное. Например: client_managers</p>
+<p>Вы должны использовать БД &ldquo;gsheet&rdquo;.
+В ShardKey укажите id документа, через решетку имя листа, если имя листа не указано, то скорее всго будет взят первый созданный лист gid=0.
+Будте аккуратны, так как МЕТА не гарантирует, что google не изменит api и не станет отдавать другой лист по умолчанию.</p>
 
-<p>Многие ко многим: client_manager, client_manager_link</p>
+<p>Не забудьте, что пользователь должен либо сделать документ публичным, либо расшарить его на ваш сервисный аккаунт.</p>
 
-<h2 id="дата-время-без-tz">Дата время (без TZ)</h2>
+<h1 id="ограничения">Ограничения</h1>
 
-<p>Постфикс &ldquo;_time&rdquo;</p>
+<p>${pager}, ${sort} и комментирование строк как в БД не работают в скриптах google sheet</p>
 
-<p>Например: creation_time, modification_time</p>
+<h1 id="частые-проблемы">Частые проблемы</h1>
 
-<h2 id="только-дата">Только дата</h2>
+<h2 id="дата-в-мете-выводится-неверно">Дата в мете выводится неверно</h2>
 
-<p>Если не предполагается хранить время, то поле обязательно должно иметь тип DATE, т.е. не содержать никаких меток времени и не должно быть сохранено в формате unix timestamp.
-Постфикс &ldquo;_date&rdquo;</p>
+<p>Примените формат даты в google sheet к нужной колонке</p>
 
-<p>Например: creation_date</p>
+<h2 id="в-мете-пустота-вместо-числа-из-ячейки-или-число-нет-то-хотя-в-google-sheet-все-ок">В мете пустота вместо числа из ячейки или число нет то, хотя в google sheet все ок</h2>
 
-<h2 id="последний-редактировавший-пользователь">Последний редактировавший пользователь</h2>
+<p>Примените форма числа к нужным ячейкам и замените точки на запятые, если у у вас ru локаль</p>
 
-<p>Почти всегда нужен, чтобы триггеры могли писать логи</p>
+<h1 id="пример">Пример</h1>
 
-<p>Например: last_user_id</p>
+<p>Получение всего контента листа с названием &ldquo;Мой лист&rdquo;</p>
 
-<h2 id="ddl">DDL</h2>
-
-<pre><code class="language-sql">CREATE TABLE my_table (
-    id text primary key,
-    name text NOT NULL,
-    creation_time timestamptz NOT NULL DEFAULT NOW(),
-    modification_time timestamptz NOT NULL DEFAULT NOW(),
-    last_user_id bigint NOT NULL
-);
-
-CREATE TRIGGER update_modification_time_my_table
-  BEFORE UPDATE
-  ON public.my_table
-  FOR EACH ROW
-  EXECUTE PROCEDURE public.update_modification_time();
+<pre><code class="language-html">&lt;script id=&quot;res&quot; type=&quot;meta/sql&quot; db-alias=&quot;gsheet&quot; shard-key=&quot;1Wn2mET2s5hkhMvEJHXAXJu20wahJFgf11HxXYfBos8c#Мой лист&quot;&gt;
+select *
+&lt;/script&gt;
 </code></pre>
 
 
@@ -1316,13 +1299,17 @@ CREATE TRIGGER update_modification_time_my_table
 <ul>
 <li>
 <ul>
-<li><a href="#таблицы-сущностей">Таблицы сущностей</a></li>
-<li><a href="#таблицы-связей">Таблицы связей</a></li>
-<li><a href="#дата-время-без-tz">Дата время (без TZ)</a></li>
-<li><a href="#только-дата">Только дата</a></li>
-<li><a href="#последний-редактировавший-пользователь">Последний редактировавший пользователь</a></li>
-<li><a href="#ddl">DDL</a></li>
+<li><a href="#мотивация">Мотивация</a></li>
 </ul></li>
+<li><a href="#административные-настройки-сервера">Административные настройки сервера</a></li>
+<li><a href="#что-нужно-сделать">Что нужно сделать</a></li>
+<li><a href="#ограничения">Ограничения</a></li>
+<li><a href="#частые-проблемы">Частые проблемы</a>
+<ul>
+<li><a href="#дата-в-мете-выводится-неверно">Дата в мете выводится неверно</a></li>
+<li><a href="#в-мете-пустота-вместо-числа-из-ячейки-или-число-нет-то-хотя-в-google-sheet-все-ок">В мете пустота вместо числа из ячейки или число нет то, хотя в google sheet все ок</a></li>
+</ul></li>
+<li><a href="#пример">Пример</a></li>
 </ul>
 </nav>
 </div>

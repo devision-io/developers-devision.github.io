@@ -8,11 +8,6 @@
   </url>
   
   <url>
-    <loc>https://developers.devision.io/meta/guides/understanding_env_states/</loc>
-    <lastmod>2017-04-24T18:36:24+02:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://developers.devision.io/meta/work_with_data/datatransform/</loc>
   </url>
   
@@ -25,15 +20,11 @@
   </url>
   
   <url>
-    <loc>https://developers.devision.io/meta/guides/request_response_vars/</loc>
+    <loc>https://developers.devision.io/meta/guides/request_life_cycle/</loc>
   </url>
   
   <url>
     <loc>https://developers.devision.io/meta/guides/entity_listeners/</loc>
-  </url>
-  
-  <url>
-    <loc>https://developers.devision.io/meta/samples/</loc>
   </url>
   
   <url>
@@ -46,6 +37,10 @@
   </url>
   
   <url>
+    <loc>https://developers.devision.io/meta/samples/</loc>
+  </url>
+  
+  <url>
     <loc>https://developers.devision.io/meta/work_with_data/</loc>
   </url>
   
@@ -54,7 +49,7 @@
   </url>
   
   <url>
-    <loc>https://developers.devision.io/meta/ui_controls/</loc>
+    <loc>https://developers.devision.io/meta/reference/ui_controls/</loc>
   </url>
   
   <url>
@@ -72,27 +67,11 @@
   </url>
   
   <url>
-    <loc>https://developers.devision.io/meta/embed_api/</loc>
-  </url>
-  
-  <url>
-    <loc>https://developers.devision.io/meta/oauth/</loc>
-  </url>
-  
-  <url>
-    <loc>https://developers.devision.io/meta/embed_api/analytics/</loc>
-  </url>
-  
-  <url>
-    <loc>https://developers.devision.io/meta/oauth/login_with_meta/</loc>
+    <loc>https://developers.devision.io/meta/integrations/login_with_meta/</loc>
   </url>
   
   <url>
     <loc>https://developers.devision.io/meta/guides/build_url/</loc>
-  </url>
-  
-  <url>
-    <loc>https://developers.devision.io/meta/embed_api/inject_api/</loc>
   </url>
   
   <url>
@@ -116,7 +95,7 @@
   </url>
   
   <url>
-    <loc>https://developers.devision.io/meta/sdk/</loc>
+    <loc>https://developers.devision.io/meta/integrations/sdk/</loc>
   </url>
   
   <url>
@@ -124,11 +103,19 @@
   </url>
   
   <url>
+    <loc>https://developers.devision.io/meta/integrations/</loc>
+  </url>
+  
+  <url>
     <loc>https://developers.devision.io/meta/guides/ticket/</loc>
   </url>
   
   <url>
-    <loc>https://developers.devision.io/meta/java_api/</loc>
+    <loc>https://developers.devision.io/meta/reference/java_api/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.devision.io/meta/reference/</loc>
   </url>
   
   <url>
@@ -142,7 +129,7 @@
   </url>
   
   <url>
-    <loc>https://developers.devision.io/meta/java_api/apiclientservice/</loc>
+    <loc>https://developers.devision.io/meta/reference/java_api/apiclientservice/</loc>
   </url>
   
   <url>
@@ -151,51 +138,51 @@
   </url>
   
   <url>
-    <loc>https://developers.devision.io/meta/java_api/cryptservice/</loc>
+    <loc>https://developers.devision.io/meta/reference/java_api/cryptservice/</loc>
   </url>
   
   <url>
-    <loc>https://developers.devision.io/meta/java_api/datadiffservice/</loc>
+    <loc>https://developers.devision.io/meta/reference/java_api/datadiffservice/</loc>
   </url>
   
   <url>
-    <loc>https://developers.devision.io/meta/java_api/datatransformservice/</loc>
+    <loc>https://developers.devision.io/meta/reference/java_api/datatransformservice/</loc>
   </url>
   
   <url>
-    <loc>https://developers.devision.io/meta/java_api/gaservice/</loc>
+    <loc>https://developers.devision.io/meta/reference/java_api/gaservice/</loc>
   </url>
   
   <url>
-    <loc>https://developers.devision.io/meta/java_api/htmlservice/</loc>
+    <loc>https://developers.devision.io/meta/reference/java_api/htmlservice/</loc>
   </url>
   
   <url>
-    <loc>https://developers.devision.io/meta/java_api/legotomarkdownservice/</loc>
+    <loc>https://developers.devision.io/meta/reference/java_api/legotomarkdownservice/</loc>
   </url>
   
   <url>
-    <loc>https://developers.devision.io/meta/java_api/linkbuildservice/</loc>
+    <loc>https://developers.devision.io/meta/reference/java_api/linkbuildservice/</loc>
   </url>
   
   <url>
-    <loc>https://developers.devision.io/meta/java_api/markdownservice/</loc>
+    <loc>https://developers.devision.io/meta/reference/java_api/markdownservice/</loc>
   </url>
   
   <url>
-    <loc>https://developers.devision.io/meta/java_api/mediaservice/</loc>
+    <loc>https://developers.devision.io/meta/reference/java_api/mediaservice/</loc>
   </url>
   
   <url>
-    <loc>https://developers.devision.io/meta/java_api/metadatabaseservice/</loc>
+    <loc>https://developers.devision.io/meta/reference/java_api/metadatabaseservice/</loc>
   </url>
   
   <url>
-    <loc>https://developers.devision.io/meta/java_api/objectlogservice/</loc>
+    <loc>https://developers.devision.io/meta/reference/java_api/objectlogservice/</loc>
   </url>
   
   <url>
-    <loc>https://developers.devision.io/meta/java_api/tablecolumnservice/</loc>
+    <loc>https://developers.devision.io/meta/reference/java_api/tablecolumnservice/</loc>
   </url>
   
   <url>
@@ -204,47 +191,47 @@
   </url>
   
   <url>
-    <loc>https://developers.devision.io/meta/java_api/translateservice/</loc>
+    <loc>https://developers.devision.io/meta/reference/java_api/translateservice/</loc>
   </url>
   
   <url>
-    <loc>https://developers.devision.io/meta/java_api/userrecoveryservice/</loc>
+    <loc>https://developers.devision.io/meta/reference/java_api/userrecoveryservice/</loc>
   </url>
   
   <url>
-    <loc>https://developers.devision.io/meta/ui_controls/me-chart/</loc>
+    <loc>https://developers.devision.io/meta/reference/ui_controls/me-chart/</loc>
   </url>
   
   <url>
-    <loc>https://developers.devision.io/meta/ui_controls/me-input/</loc>
+    <loc>https://developers.devision.io/meta/reference/ui_controls/me-input/</loc>
   </url>
   
   <url>
-    <loc>https://developers.devision.io/meta/ui_controls/me-lego/</loc>
+    <loc>https://developers.devision.io/meta/reference/ui_controls/me-lego/</loc>
   </url>
   
   <url>
-    <loc>https://developers.devision.io/meta/ui_controls/me-lego-list/</loc>
+    <loc>https://developers.devision.io/meta/reference/ui_controls/me-lego-list/</loc>
   </url>
   
   <url>
-    <loc>https://developers.devision.io/meta/ui_controls/me-pivot/</loc>
+    <loc>https://developers.devision.io/meta/reference/ui_controls/me-pivot/</loc>
   </url>
   
   <url>
-    <loc>https://developers.devision.io/meta/ui_controls/me-submit/</loc>
+    <loc>https://developers.devision.io/meta/reference/ui_controls/me-submit/</loc>
   </url>
   
   <url>
-    <loc>https://developers.devision.io/meta/ui_controls/me-table/</loc>
+    <loc>https://developers.devision.io/meta/reference/ui_controls/me-table/</loc>
   </url>
   
   <url>
-    <loc>https://developers.devision.io/meta/ui_controls/me-tabs/</loc>
+    <loc>https://developers.devision.io/meta/reference/ui_controls/me-tabs/</loc>
   </url>
   
   <url>
-    <loc>https://developers.devision.io/meta/ui_controls/me-wizard/</loc>
+    <loc>https://developers.devision.io/meta/reference/ui_controls/me-wizard/</loc>
   </url>
   
 </urlset>

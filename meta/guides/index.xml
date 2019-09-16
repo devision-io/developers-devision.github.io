@@ -22,17 +22,6 @@
     </item>
     
     <item>
-      <title>Состояния страниц</title>
-      <link>https://developers.devision.io/meta/guides/understanding_env_states/</link>
-      <pubDate>Mon, 24 Apr 2017 18:36:24 +0200</pubDate>
-      
-      <guid>https://developers.devision.io/meta/guides/understanding_env_states/</guid>
-      <description>Введение env.state - id текущего состояния страницы. Это можно сравнить с action в контроллере MVC. По умолчанию default env.sp - параметры состояния
-Код примера Вот простой код для примера. Тут три ссылки, которые меняют состояние страницы. В script-ах указаны states, в которых script будет участвовать (будет выполняться). Если states для script или elem не указан, то script или elem участвует во всех state
-&amp;lt;elem&amp;gt; &amp;lt;tpl&amp;gt; &amp;lt;a ng-click=&amp;quot;changeState(&#39;first&#39;, {&#39;foo&#39;:1})&amp;quot;&amp;gt;to first&amp;lt;/a&amp;gt; | &amp;lt;a ng-click=&amp;quot;changeState(&#39;two&#39;, {&#39;bar&#39;:2})&amp;quot;&amp;gt;to two&amp;lt;/a&amp;gt; | &amp;lt;a ng-click=&amp;quot;changeState(&#39;three&#39;, env.</description>
-    </item>
-    
-    <item>
       <title>Google Analytics</title>
       <link>https://developers.devision.io/meta/guides/google_analytics/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -43,12 +32,12 @@
     </item>
     
     <item>
-      <title>Окружение запроса</title>
-      <link>https://developers.devision.io/meta/guides/request_response_vars/</link>
+      <title>Жизненный цикл</title>
+      <link>https://developers.devision.io/meta/guides/request_life_cycle/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://developers.devision.io/meta/guides/request_response_vars/</guid>
-      <description>Введение  env - объект-окружение запроса к серверу. vm - объект для удобной работы с ответом клиенту. На лего странцах отдельный vm на каждый script. pvm - только на LEGO-страницах. Отвечает за хранение данных на всех странце, содержит в себе vm script. DataResult - низкоуровневый класс, отвечающий за ответ с данными по EntityPage. Его нельзя получить так как он никуда не передается, существует вне scipt - над ним. Создается вручную при необходимости только в meta/js скриптах.</description>
+      <guid>https://developers.devision.io/meta/guides/request_life_cycle/</guid>
+      <description>Окружение запроса  env - объект-окружение запроса к серверу. vm - объект для удобной работы с ответом клиенту. На лего странцах отдельный vm на каждый script. pvm - только на LEGO-страницах. Отвечает за хранение данных на всех странце, содержит в себе vm script. DataResult - низкоуровневый класс, отвечающий за ответ с данными по EntityPage. Его нельзя получить так как он никуда не передается, существует вне scipt - над ним. Создается вручную при необходимости только в meta/js скриптах.</description>
     </item>
     
     <item>

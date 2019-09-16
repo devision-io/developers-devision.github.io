@@ -1,0 +1,1335 @@
+
+
+<!DOCTYPE html>
+<html lang="ru" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.42.1" />
+    <meta name="description" content="">
+
+
+    <title>Вход через META :: META | Devision Developers</title>
+    <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue_grey-pink.min.css" />
+
+      <link href="https://developers.devision.io/meta/css/hybrid.css" rel="stylesheet">
+    <link href="https://developers.devision.io/meta/css/horsey.css" rel="stylesheet">
+    <link href="https://developers.devision.io/meta/css/theme.css" rel="stylesheet">
+    <link href="https://developers.devision.io/meta/css/dev-theme.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+    
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
+
+  </head>
+  <body class="" data-url="/integrations/login_with_meta/">
+    
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+
+    
+
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+            
+            <span class="mdl-layout-title">
+                <a href='https://developers.devision.io/meta/' class="header-logo-link">
+                    <img src="https://metastatic.devision.io/avatar.png" width="30" />
+                    META
+                </a>
+            </span>
+        </div>
+    </header>
+
+    <main class="mdl-layout__content">
+        <div class="page-content">
+            <div class="mdl-grid devsite-full-site-width">
+                <div class="devsite-nav mdl-cell mdl-cell--3-col mdl-cell--3-col-tablet mdl-cell--12-col-phone">
+                    <nav class="devsite-section-nav">
+                        <ul class="devsite-section-nav-main">
+                            
+                              
+            
+            
+            
+            
+            
+            <li data-nav-id="/guides/" class="devsite-nav-item devsite-nav-item-main
+                        
+                        
+                        parent
+                        ">
+                <a href="https://developers.devision.io/meta/guides/" class="devsite-nav-title devsite-nav-item-main-title">
+                    <span>Руководства</span>
+
+                    
+                    
+
+                    
+                    
+                    
+
+                    
+                </a>
+                
+                <ul class="devsite-nav-expandable">
+                    
+                    
+                    
+
+
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/guides/quick_start/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/guides/quick_start/" class="devsite-nav-title">
+                    <span>Быстрый старт</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/guides/google_analytics/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/guides/google_analytics/" class="devsite-nav-title">
+                    <span>Google Analytics</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/guides/request_life_cycle/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/guides/request_life_cycle/" class="devsite-nav-title">
+                    <span>Жизненный цикл</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/guides/entity_listeners/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/guides/entity_listeners/" class="devsite-nav-title">
+                    <span>Отслеживание изменений сущностей</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/guides/entity_handlers/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/guides/entity_handlers/" class="devsite-nav-title">
+                    <span>Обработчики событий сущностей</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/guides/script_types/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/guides/script_types/" class="devsite-nav-title">
+                    <span>Типы скриптов</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/guides/template_engines/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/guides/template_engines/" class="devsite-nav-title">
+                    <span>Шаблонизация</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/guides/charts/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/guides/charts/" class="devsite-nav-title">
+                    <span>Графики</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/guides/cache/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/guides/cache/" class="devsite-nav-title">
+                    <span>Кеширование</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/guides/build_url/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/guides/build_url/" class="devsite-nav-title">
+                    <span>Построение URL</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/guides/i18n/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/guides/i18n/" class="devsite-nav-title">
+                    <span>Интернационализация (i18n)</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/guides/nginx/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/guides/nginx/" class="devsite-nav-title">
+                    <span>Nginx Proxy Headers</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/guides/db_naming/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/guides/db_naming/" class="devsite-nav-title">
+                    <span>Именование сущностей в БД</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/guides/ticket/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/guides/ticket/" class="devsite-nav-title">
+                    <span>Тикеты</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                </ul>
+                
+            </li>
+            
+            
+            
+                            
+                              
+            
+            
+            
+            
+            
+            <li data-nav-id="/samples/" class="devsite-nav-item devsite-nav-item-main
+                        
+                        
+                        parent
+                        ">
+                <a href="https://developers.devision.io/meta/samples/" class="devsite-nav-title devsite-nav-item-main-title">
+                    <span>Примеры</span>
+
+                    
+                    
+
+                    
+                    
+                    
+
+                    
+                </a>
+                
+                <ul class="devsite-nav-expandable">
+                    
+                    
+                    
+
+
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/samples/pages/report_with_filters/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/samples/pages/report_with_filters/" class="devsite-nav-title">
+                    <span>Простейший отчет с фильтрами</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/samples/pages/simple_entity/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/samples/pages/simple_entity/" class="devsite-nav-title">
+                    <span>Список и редактирование сущности</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                </ul>
+                
+            </li>
+            
+            
+            
+                            
+                              
+            
+            
+            
+            
+            
+            <li data-nav-id="/work_with_data/" class="devsite-nav-item devsite-nav-item-main
+                        
+                        
+                        
+                        ">
+                <a href="https://developers.devision.io/meta/work_with_data/" class="devsite-nav-title devsite-nav-item-main-title">
+                    <span>Работа с данными</span>
+
+                    
+                    
+
+                    
+                    
+                    
+
+                    
+                </a>
+                
+                <ul class="devsite-nav-expandable">
+                    
+                    
+                    
+
+
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/work_with_data/datatransform/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/work_with_data/datatransform/" class="devsite-nav-title">
+                    <span>DataTransformService</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/work_with_data/google_sheets/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/work_with_data/google_sheets/" class="devsite-nav-title">
+                    <span>Google Sheets</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/work_with_data/metaql/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/work_with_data/metaql/" class="devsite-nav-title">
+                    <span>Язык запросов META (METAQL)</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                </ul>
+                
+            </li>
+            
+            
+            
+                            
+                              
+            
+            
+            
+            
+            
+            <li data-nav-id="/integrations/" class="devsite-nav-item devsite-nav-item-main
+                        parent
+                        
+                        parent
+                        ">
+                <a href="https://developers.devision.io/meta/integrations/" class="devsite-nav-title devsite-nav-item-main-title">
+                    <span>Интеграции</span>
+
+                    
+                    
+
+                    
+                    
+                    
+
+                    
+                </a>
+                
+                <ul class="devsite-nav-expandable">
+                    
+                    
+                    
+
+
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/integrations/login_with_meta/" class="devsite-nav-item dd-item active">
+                <a href="https://developers.devision.io/meta/integrations/login_with_meta/" class="devsite-nav-title">
+                    <span>Вход через META</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/integrations/sdk/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/integrations/sdk/" class="devsite-nav-title">
+                    <span>SDK</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                </ul>
+                
+            </li>
+            
+            
+            
+                            
+                              
+            
+            
+            
+            
+            
+            <li data-nav-id="/reference/" class="devsite-nav-item devsite-nav-item-main
+                        
+                        
+                        parent
+                        ">
+                <a href="https://developers.devision.io/meta/reference/" class="devsite-nav-title devsite-nav-item-main-title">
+                    <span>Справочник по API</span>
+
+                    
+                    
+
+                    
+                    
+                    
+
+                    
+                </a>
+                
+                <ul class="devsite-nav-expandable">
+                    
+                    
+                    
+                    
+                    
+
+
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/reference/ui_controls/" class="devsite-nav-item devsite-nav-item-main
+                        
+                        
+                        parent
+                        ">
+                <a href="https://developers.devision.io/meta/reference/ui_controls/" class="devsite-nav-title devsite-nav-item-main-title">
+                    <span>Элементы UI</span>
+
+                    
+                    
+
+                    
+                    
+                    
+
+                    
+                </a>
+                
+                <ul class="devsite-nav-expandable">
+                    
+                    
+                    
+
+
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/reference/ui_controls/me-chart/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/reference/ui_controls/me-chart/" class="devsite-nav-title">
+                    <span>Элемент me-chart</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/reference/ui_controls/me-input/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/reference/ui_controls/me-input/" class="devsite-nav-title">
+                    <span>Элемент me-input</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/reference/ui_controls/me-lego/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/reference/ui_controls/me-lego/" class="devsite-nav-title">
+                    <span>Элемент me-lego</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/reference/ui_controls/me-lego-list/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/reference/ui_controls/me-lego-list/" class="devsite-nav-title">
+                    <span>Элемент me-lego-list</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/reference/ui_controls/me-pivot/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/reference/ui_controls/me-pivot/" class="devsite-nav-title">
+                    <span>Элемент me-pivot</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/reference/ui_controls/me-submit/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/reference/ui_controls/me-submit/" class="devsite-nav-title">
+                    <span>Элемент me-submit</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/reference/ui_controls/me-table/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/reference/ui_controls/me-table/" class="devsite-nav-title">
+                    <span>Элемент me-table</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/reference/ui_controls/me-tabs/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/reference/ui_controls/me-tabs/" class="devsite-nav-title">
+                    <span>Элемент me-tabs</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/reference/ui_controls/me-wizard/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/reference/ui_controls/me-wizard/" class="devsite-nav-title">
+                    <span>Элемент me-wizard</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                </ul>
+                
+            </li>
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/reference/java_api/" class="devsite-nav-item devsite-nav-item-main
+                        
+                        
+                        
+                        ">
+                <a href="https://developers.devision.io/meta/reference/java_api/" class="devsite-nav-title devsite-nav-item-main-title">
+                    <span>Java API</span>
+
+                    
+                    
+
+                    
+                    
+                    
+
+                    
+                </a>
+                
+                <ul class="devsite-nav-expandable">
+                    
+                    
+                    
+
+
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/reference/java_api/apiclientservice/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/reference/java_api/apiclientservice/" class="devsite-nav-title">
+                    <span>ApiClientService</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/reference/java_api/cryptservice/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/reference/java_api/cryptservice/" class="devsite-nav-title">
+                    <span>CryptService</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/reference/java_api/datadiffservice/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/reference/java_api/datadiffservice/" class="devsite-nav-title">
+                    <span>DataDiffService</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/reference/java_api/datatransformservice/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/reference/java_api/datatransformservice/" class="devsite-nav-title">
+                    <span>DataTransformService</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/reference/java_api/gaservice/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/reference/java_api/gaservice/" class="devsite-nav-title">
+                    <span>GaService</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/reference/java_api/htmlservice/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/reference/java_api/htmlservice/" class="devsite-nav-title">
+                    <span>HtmlService</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/reference/java_api/legotomarkdownservice/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/reference/java_api/legotomarkdownservice/" class="devsite-nav-title">
+                    <span>LegoToMarkdownService</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/reference/java_api/linkbuildservice/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/reference/java_api/linkbuildservice/" class="devsite-nav-title">
+                    <span>LinkBuildService</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/reference/java_api/markdownservice/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/reference/java_api/markdownservice/" class="devsite-nav-title">
+                    <span>MarkdownService</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/reference/java_api/mediaservice/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/reference/java_api/mediaservice/" class="devsite-nav-title">
+                    <span>MediaService</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/reference/java_api/metadatabaseservice/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/reference/java_api/metadatabaseservice/" class="devsite-nav-title">
+                    <span>MetaDatabaseService</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/reference/java_api/objectlogservice/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/reference/java_api/objectlogservice/" class="devsite-nav-title">
+                    <span>ObjectLogService</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/reference/java_api/tablecolumnservice/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/reference/java_api/tablecolumnservice/" class="devsite-nav-title">
+                    <span>TableColumnService</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/reference/java_api/translateservice/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/reference/java_api/translateservice/" class="devsite-nav-title">
+                    <span>TranslateService</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/reference/java_api/userrecoveryservice/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/reference/java_api/userrecoveryservice/" class="devsite-nav-title">
+                    <span>UserRecoveryService</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                </ul>
+                
+            </li>
+            
+            
+            
+                    
+                    
+                </ul>
+                
+            </li>
+            
+            
+            
+                            
+                        </ul>
+                    </nav>
+            
+            
+
+    </div>
+    <div class="mdl-cell mdl-cell--7-col mdl-cell--9-col-tablet mdl-cell--12-col-phone">
+        <section>
+        <div id="overlay"></div>
+        <div class=" ">
+        
+          <div>
+            <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                <span class="links">
+                
+
+
+
+
+
+
+
+ <a href='https://developers.devision.io/meta/'>META</a> > <a href='https://developers.devision.io/meta/integrations/'>Интеграции</a> > Вход через META
+
+
+
+
+
+
+                </span>
+            </div>
+          </div>
+        
+        
+        <div id="body-inner">
+          
+            <h1>Вход через META</h1>
+          
+
+
+
+
+
+<h1 id="приложение-запрашивает-код">Приложение запрашивает код</h1>
+
+<p>Получение токена в обмен на код, извлеченный из URL:</p>
+
+<ul>
+<li>Приложение направляет пользователя на страницу META.OAuth, где он может разрешить доступ к своим данным.</li>
+<li>Пользователь разрешает доступ приложению.</li>
+<li>META.OAuth перенаправляет пользователя на адрес, указанный в поле Callback URL при регистрации приложения. Код подтверждения (или описание ошибки) передается в параметре URL перенаправления.</li>
+<li>Приложение получает адрес перенаправления и извлекает код подтверждения.</li>
+<li>Приложение отправляет POST-запрос с кодом.</li>
+<li>META.OAuth возвращает токен или ошибку в теле ответа.</li>
+</ul>
+
+<h2 id="регистрируете-приложение">Регистрируете приложение</h2>
+
+<p>Вы можете добавить доверенное приложение, в таком случае мета не станет спрашивать у пользователя подтверждения в выдаче токена. Это полезно, когда вы делаете вход для своих внутренних сервисов.</p>
+
+<h2 id="запрос-кода-подтверждения">Запрос кода подтверждения</h2>
+
+<pre><code>http://YOUR-META-URL/oauth2/authorize?response_type=code
+
+    client_id=&lt;идентификатор приложения&gt;
+    &amp; redirect_uri=&lt;адрес перенаправления&gt;
+    &amp; state=&lt;произвольная строка&gt;
+    &amp; scope=&lt;запрашиваемые необходимые права&gt;
+</code></pre>
+
+<h2 id="получение-кода-подтверждения-из-url">Получение кода подтверждения из URL</h2>
+
+<p>Когда пользователь разрешает доступ к своим данным META.OAuth перенаправляет пользователя на указанный вами redirect_uri с добавлением GET параметра code</p>
+
+<h2 id="обмен-кода-подтверждения-на-токен">Обмен кода подтверждения на токен</h2>
+
+<p>Приложение отправляет код, а также свой идентификатор и пароль в POST-запросе.</p>
+
+<pre><code>POST /oauth2/token HTTP/1.1
+Host: YOUR-META-URL
+Content-type: application/x-www-form-urlencoded
+Content-Length: &lt;длина тела запроса&gt;
+
+    grant_type=authorization_code
+    &amp; code=&lt;код подтверждения&gt;
+    &amp; client_id=&lt;идентификатор приложения&gt;
+    &amp; client_secret=&lt;пароль приложения&gt;
+</code></pre>
+
+<h2 id="формат-ответа-с-токеном">Формат ответа с токеном</h2>
+
+<pre><code class="language-json">{
+  &quot;scopes&quot;: [
+    &quot;userinfo.profile&quot;
+  ],
+  &quot;token_type&quot;: &quot;bearer&quot;,
+  &quot;expires&quot;: 300,
+  &quot;access_token&quot;: &quot;eyJraWQiOiJhZWRiYmZlN2NjZjA3YzRiZWZkNDUwOTAxNTAxYjgzNzg3Njg1ZWNmIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYifQ.eyJhdWQiOiJhcGlzLmRldmlzaW9uLmlvIiwic3ViIjoiMTAxOTEiLCJpdWlkIjowLCJzY29wZSI6InVzZXJpbmZvLnByb2ZpbGUiLCJpc3MiOiJ0b2tlbi1pc3N1ZXIuZGV2aXNpb24uaW8iLCJleHAiOjE1NDQ1NDY0NjYsImlhdCI6MTU0NDU0NjE2Nn0.kztLoOpqCSomQklGkORtkHS1Zg50SgIFn__79FNTZZJMLPrg0jj57aWQEcJwknWIN7yakUVq9RlEq8JL_k_LwNhFlZshaVCFDiOsXa3e6-U1l4z8ZRYOPcbT0imWdajHB34pU95Q-_OQWlsAhvWTqGd04maUil0EbubwDOuaLZlOpXbgjn2paGe_E0augK9DJk4XVHC24RD8ZKluzJLE0PO22AzI44tJu2WgB_P_alT6Z6R6ur8-yWhEjCEHyUb9a9Elq-qNcDnxg4Td9GP4nFsfCak4zZd6jWE0ITfpDsYuczINIQsYCgQIfeDB2plDqBMuzTEycOb5i1EmxzLEqw&quot;,
+  &quot;refresh_token&quot;: &quot;da6e4c37987447312311a59fbc9d5b421&quot;,
+  &quot;user_id&quot;: 10191,
+  &quot;company_id&quot;: 1
+}
+</code></pre>
+
+<ul>
+<li>scopes: Области доступа, доступные этому токену</li>
+<li>token_type: Тип выданного токена. Всегда принимает значение «bearer»</li>
+<li>expires: Время жизни токена в секундах</li>
+<li>access_token: OAuth-токен с запрошенными правами</li>
+<li>refresh_token: Токен, который можно использовать <strong>только</strong> для продления срока жизни соответствующего OAuth-токена&rdquo;&rsquo;</li>
+</ul>
+
+<p>Время жизни refresh-токена совпадает с временем жизни OAuth-токена.</p>
+
+<p>Если выдать токен не удалось, то ответ содержит описание ошибки:</p>
+
+<pre><code class="language-json">{
+  &quot;token_type&quot;: &quot;bearer&quot;,
+  &quot;error&quot;: &quot;&lt;код ошибки&gt;&quot;,
+  &quot;error_description&quot;: &quot;&lt;описание ошибки&gt;&quot;
+}
+</code></pre>
+
+<h2 id="обновить-токен">Обновить токен</h2>
+
+<p>Получение токена в обмен на refresh-токен:</p>
+
+<ul>
+<li>Приложение отправляет POST-запрос с refresh-токеном.</li>
+<li>META.OAuth возвращает новый access_token в теле ответа.</li>
+</ul>
+
+<pre><code>POST /oauth2/token HTTP/1.1
+Host: YOUR-META-URL
+Content-type: application/x-www-form-urlencoded
+Content-Length: &lt;длина тела запроса&gt;
+
+    grant_type=refresh_token
+    &amp; refresh_token=&lt;refresh_token&gt;
+    &amp; client_id=&lt;идентификатор приложения&gt;
+    &amp; client_secret=&lt;пароль приложения&gt;
+</code></pre>
+
+<p>В теле ответа вы получите такую же структуру, как и в случае получения токена по authorization_code</p>
+
+
+
+
+
+
+
+
+</section>
+</div>
+<div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#приложение-запрашивает-код">Приложение запрашивает код</a>
+<ul>
+<li><a href="#регистрируете-приложение">Регистрируете приложение</a></li>
+<li><a href="#запрос-кода-подтверждения">Запрос кода подтверждения</a></li>
+<li><a href="#получение-кода-подтверждения-из-url">Получение кода подтверждения из URL</a></li>
+<li><a href="#обмен-кода-подтверждения-на-токен">Обмен кода подтверждения на токен</a></li>
+<li><a href="#формат-ответа-с-токеном">Формат ответа с токеном</a></li>
+<li><a href="#обновить-токен">Обновить токен</a></li>
+</ul></li>
+</ul>
+</nav>
+</div>
+
+</div>
+</main>
+
+
+</div>
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="https://developers.devision.io/meta/js/clipboard.min.js"></script>
+    <script src="https://developers.devision.io/meta/js/html5shiv-printshiv.min.js"></script>
+    <script src="https://developers.devision.io/meta/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="https://developers.devision.io/meta/js/modernizr.custom.71422.js"></script>
+    <script src="https://developers.devision.io/meta/js/learn.js"></script>
+    <script src="https://developers.devision.io/meta/js/hugo-learn.js"></script>
+
+  </body>
+</html>
+

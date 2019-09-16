@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Интеграции on META | Devision Developers</title>
+    <link>https://developers.devision.io/meta/integrations/</link>
+    <description>Recent content in Интеграции on META | Devision Developers</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    
+	<atom:link href="https://developers.devision.io/meta/integrations/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Вход через META</title>
+      <link>https://developers.devision.io/meta/integrations/login_with_meta/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/integrations/login_with_meta/</guid>
+      <description>Приложение запрашивает код Получение токена в обмен на код, извлеченный из URL:
+ Приложение направляет пользователя на страницу META.OAuth, где он может разрешить доступ к своим данным. Пользователь разрешает доступ приложению. META.OAuth перенаправляет пользователя на адрес, указанный в поле Callback URL при регистрации приложения. Код подтверждения (или описание ошибки) передается в параметре URL перенаправления. Приложение получает адрес перенаправления и извлекает код подтверждения. Приложение отправляет POST-запрос с кодом. META.OAuth возвращает токен или ошибку в теле ответа.</description>
+    </item>
+    
+    <item>
+      <title>SDK</title>
+      <link>https://developers.devision.io/meta/integrations/sdk/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/integrations/sdk/</guid>
+      <description>Существует официальная библиотека для работу с метой на Python3
+Исходники
+Документация</description>
+    </item>
+    
+  </channel>
+</rss>

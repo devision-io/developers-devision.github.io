@@ -11,6 +11,16 @@
     
     
     <item>
+      <title>DataDiffService</title>
+      <link>https://developers.devision.io/meta/work_with_data/datadiff/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/work_with_data/datadiff/</guid>
+      <description>Мотивация Сервис по вычислению разницы между двумя DataResult. В 99% случаев работает сравнимо по скорости с вариантами сравнения сложных данных через запрос в БД, но при этом код сравнения на порядок проще, чем тоже самое на SQL.
+Пример использования: https://samples-demo.devision.io/page?p=4363&amp;amp;a=35</description>
+    </item>
+    
+    <item>
       <title>DataTransformService</title>
       <link>https://developers.devision.io/meta/work_with_data/datatransform/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

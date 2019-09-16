@@ -576,7 +576,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             <li data-nav-id="/ui_controls/me-chart/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/ui_controls/me-chart/" class="devsite-nav-title">
-                    <span>Элемент me-chart</span>
+                    <span></span>
                 </a>
             </li>
             
@@ -594,25 +594,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             <li data-nav-id="/ui_controls/me-input/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/ui_controls/me-input/" class="devsite-nav-title">
-                    <span>Элемент me-input</span>
-                </a>
-            </li>
-            
-            
-            
-            
-                    
-                    
-                    
-                    
-            
-            
-            
-            
-            
-            <li data-nav-id="/ui_controls/me-lego/" class="devsite-nav-item dd-item ">
-                <a href="https://developers.devision.io/meta/ui_controls/me-lego/" class="devsite-nav-title">
-                    <span>Элемент me-lego</span>
+                    <span></span>
                 </a>
             </li>
             
@@ -630,7 +612,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             <li data-nav-id="/ui_controls/me-lego-list/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/ui_controls/me-lego-list/" class="devsite-nav-title">
-                    <span>Элемент me-lego-list</span>
+                    <span></span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/ui_controls/me-lego/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/ui_controls/me-lego/" class="devsite-nav-title">
+                    <span></span>
                 </a>
             </li>
             
@@ -648,7 +648,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             <li data-nav-id="/ui_controls/me-pivot/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/ui_controls/me-pivot/" class="devsite-nav-title">
-                    <span>Элемент me-pivot</span>
+                    <span></span>
                 </a>
             </li>
             
@@ -666,7 +666,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             <li data-nav-id="/ui_controls/me-submit/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/ui_controls/me-submit/" class="devsite-nav-title">
-                    <span>Элемент me-submit</span>
+                    <span></span>
                 </a>
             </li>
             
@@ -684,7 +684,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             <li data-nav-id="/ui_controls/me-table/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/ui_controls/me-table/" class="devsite-nav-title">
-                    <span>Элемент me-table</span>
+                    <span></span>
                 </a>
             </li>
             
@@ -702,7 +702,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             <li data-nav-id="/ui_controls/me-tabs/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/ui_controls/me-tabs/" class="devsite-nav-title">
-                    <span>Элемент me-tabs</span>
+                    <span></span>
                 </a>
             </li>
             
@@ -720,7 +720,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             <li data-nav-id="/ui_controls/me-wizard/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/ui_controls/me-wizard/" class="devsite-nav-title">
-                    <span>Элемент me-wizard</span>
+                    <span></span>
                 </a>
             </li>
             
@@ -1294,7 +1294,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           &quot;id&quot;: &quot;$metaql&quot;,
           &quot;sp&quot;: {
             // Кстати, это хороший пример использования защищенного языка запросов к данным. Это не полноценный SQL
-            // Тут работает общий ACL и нет ничего, кроме простых SELECT заппросов
+            // Тут работает общий ACL и нет ничего, кроме простых SELECT запросов
             &quot;dbQuery&quot;: {
               &quot;command&quot;: &quot;SELECT id,name FROM meta.ex_access WHERE ex_system_id = 'google_adwords' and user_status='ENABLED' ORDER BY name&quot;
             }
@@ -1311,7 +1311,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     function main(pvm, vm, env, ObjectLogService) {
         var isNew = false;
         var objectId = env.object_id;
-        pvm.resetToInitialState();
+        pvm.toInitialState();
         pvm.closeModal();
         pvm.changeState('default');
         pvm.popup = {level: &quot;success&quot;, message: &quot;Сохранено&quot;};

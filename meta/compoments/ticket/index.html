@@ -1249,33 +1249,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <p>Пример элемента со сложной зависимостью от других с подгрузкой данных из get_issue_type_object_kind_options</p>
 
-<pre><code class="language-json">    {
-      &quot;id&quot;: &quot;test_account&quot;,
-      &quot;name&quot;: &quot;me-input&quot;,
-      &quot;attrs&quot;: {
-        &quot;type&quot;: &quot;select&quot;,
-        &quot;required&quot;: true
-      },
-      &quot;label&quot;: &quot;Test account&quot;,
-      &quot;depends&quot;: [
-        &quot;issue_type_id&quot;, &quot;object_id&quot;, &quot;entity_id&quot;, // Эти поля обязательно нужено указать в depends
-  
-        // Далее пользовательские поля
-        // Знак @ использовать необязательно, но он может помочь вам не писать полный путь зависимости, а просто указать, 
-        // что зависимость на том же уровне LEGO иерархии 
-        // Подробнее https://developers.devision.io/meta/ui_controls/typedoc/interfaces/_elems_i_me_input_.imeinput.html#depends
-        &quot;@.engine as engine&quot;, 
-        &quot;@.connection_id as connection_id&quot;
-      ],
-      &quot;refPvmData&quot;: {
-        &quot;id&quot;: &quot;issue_type_object_kind_options&quot;,
-        &quot;sp&quot;: {
-          // Обязательно укажите вид зависимости. Как правило это помогает разобраться в при трассировке запроса и в хранике для условий роутинга
-          &quot;kind&quot;: &quot;test_account&quot; // Обязательно 
-        }
-      },
-      &quot;formHorizontal&quot;: true
+<pre><code class="language-json">{
+  &quot;id&quot;: &quot;test_account&quot;,
+  &quot;name&quot;: &quot;me-input&quot;,
+  &quot;attrs&quot;: {
+    &quot;type&quot;: &quot;select&quot;,
+    &quot;required&quot;: true
+  },
+  &quot;label&quot;: &quot;Test account&quot;,
+  &quot;depends&quot;: [
+    &quot;issue_type_id&quot;, &quot;object_id&quot;, &quot;entity_id&quot;, // Эти поля обязательно нужено указать в depends
+    // Далее пользовательские поля
+    // Знак @ использовать необязательно, но он может помочь вам не писать полный путь зависимости, а просто указать, 
+    // что зависимость на том же уровне LEGO иерархии 
+    // Подробнее https://developers.devision.io/meta/ui_controls/typedoc/interfaces/_elems_i_me_input_.imeinput.html#depends
+    &quot;@.engine as engine&quot;, 
+    &quot;@.connection_id as connection_id&quot;
+  ],
+  &quot;refPvmData&quot;: {
+    &quot;id&quot;: &quot;issue_type_object_kind_options&quot;,
+    &quot;sp&quot;: {
+      // Обязательно укажите вид зависимости. Как правило это помогает разобраться в при трассировке запроса и в хранике для условий роутинга
+      &quot;kind&quot;: &quot;test_account&quot; // Обязательно 
     }
+  },
+  &quot;formHorizontal&quot;: true
+}
 </code></pre>
 
 <h3 id="разновидности-типов-тикетов">Разновидности типов тикетов</h3>

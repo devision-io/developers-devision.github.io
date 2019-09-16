@@ -1226,13 +1226,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <pre><code class="language-html">&lt;script type=&quot;meta/js&quot; id=&quot;editGroup&quot; states=&quot;default&quot;&gt;
 function main(env, log, vm, pvm, GaService) {
-    GaService.eventTrack('GCS', 'InviteForm');
-    
-    // или
-    GaService.eventTrack('GCS', 'InviteForm', 'open');
-    
-    // или
-    GaService.eventTrack('GCS', 'InviteForm', 'open', 42);
+  GaService.eventTrack('GCS', 'InviteForm');
+  
+  // или
+  GaService.eventTrack('GCS', 'InviteForm', 'open');
+  
+  // или
+  GaService.eventTrack('GCS', 'InviteForm', 'open', 42);
 }
 &lt;/script&gt;
 </code></pre>
@@ -1244,9 +1244,9 @@ function main(env, log, vm, pvm, GaService) {
 
 <pre><code class="language-html">&lt;script type=&quot;meta/js&quot; id=&quot;res&quot; states=&quot;default&quot;&gt;
 function main(GaService) {
-    GaService.send({
-        &quot;ti&quot;: &quot;42&quot;
-    });
+  GaService.send({
+      &quot;ti&quot;: &quot;42&quot;
+  });
 }
 &lt;/script&gt;
 </code></pre>

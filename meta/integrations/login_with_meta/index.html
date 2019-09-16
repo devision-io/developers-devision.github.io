@@ -1228,10 +1228,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <pre><code>http://YOUR-META-URL/oauth2/authorize?response_type=code
 
-    client_id=&lt;идентификатор приложения&gt;
-    &amp; redirect_uri=&lt;адрес перенаправления&gt;
-    &amp; state=&lt;произвольная строка&gt;
-    &amp; scope=&lt;запрашиваемые необходимые права&gt;
+  client_id=&lt;идентификатор приложения&gt;
+  &amp; redirect_uri=&lt;адрес перенаправления&gt;
+  &amp; state=&lt;произвольная строка&gt;
+  &amp; scope=&lt;запрашиваемые необходимые права&gt;
 </code></pre>
 
 <h2 id="получение-кода-подтверждения-из-url">Получение кода подтверждения из URL</h2>
@@ -1247,10 +1247,10 @@ Host: YOUR-META-URL
 Content-type: application/x-www-form-urlencoded
 Content-Length: &lt;длина тела запроса&gt;
 
-    grant_type=authorization_code
-    &amp; code=&lt;код подтверждения&gt;
-    &amp; client_id=&lt;идентификатор приложения&gt;
-    &amp; client_secret=&lt;пароль приложения&gt;
+  grant_type=authorization_code
+  &amp; code=&lt;код подтверждения&gt;
+  &amp; client_id=&lt;идентификатор приложения&gt;
+  &amp; client_secret=&lt;пароль приложения&gt;
 </code></pre>
 
 <h2 id="формат-ответа-с-токеном">Формат ответа с токеном</h2>
@@ -1301,10 +1301,10 @@ Host: YOUR-META-URL
 Content-type: application/x-www-form-urlencoded
 Content-Length: &lt;длина тела запроса&gt;
 
-    grant_type=refresh_token
-    &amp; refresh_token=&lt;refresh_token&gt;
-    &amp; client_id=&lt;идентификатор приложения&gt;
-    &amp; client_secret=&lt;пароль приложения&gt;
+  grant_type=refresh_token
+  &amp; refresh_token=&lt;refresh_token&gt;
+  &amp; client_id=&lt;идентификатор приложения&gt;
+  &amp; client_secret=&lt;пароль приложения&gt;
 </code></pre>
 
 <p>В теле ответа вы получите такую же структуру, как и в случае получения токена по authorization_code</p>

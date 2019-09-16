@@ -1224,7 +1224,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <pre><code class="language-html">&lt;script type=&quot;...&quot; id=&quot;check_access&quot; state=&quot;check_access&quot;&gt;
 SELECT 
-    (CASE WHEN author_user_id = :env.userId THEN 200 ELSE 403 END) as status_code
+  (CASE WHEN author_user_id = :env.userId THEN 200 ELSE 403 END) as status_code
 FROM pubic.myobject
 WHERE id = :env.objectId::text 
 LIMIT 1
@@ -1238,15 +1238,15 @@ LIMIT 1
 <p>Например:</p>
 
 <pre><code class="language-html">&lt;script type=&quot;...&quot; id=&quot;get_anything&quot; state=&quot;check_access&quot;&gt;
-    SELECT myvar 
-    FROM ...
-    LIMIT 1 
+  SELECT myvar 
+  FROM ...
+  LIMIT 1 
 &lt;/script&gt;
 
 &lt;script type=&quot;...&quot; id=&quot;check_access&quot; state=&quot;check_access&quot;&gt;
-    SELECT ... 
-    FROM ... 
-    WHERE id IN ( :pvm.data.get_anything.rows[0].myvar )
+  SELECT ... 
+  FROM ... 
+  WHERE id IN ( :pvm.data.get_anything.rows[0].myvar )
 &lt;/script&gt;
 </code></pre>
 

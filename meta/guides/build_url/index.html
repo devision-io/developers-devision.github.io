@@ -1270,14 +1270,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 Скорее, лучше всего алгоритм пояснит код на JavaScript:</p>
 
 <pre><code class="language-javascript">function getPageUrlKey(data) {
-    let key = 'p_' + data.pageId;
-    if (data.entityId) {
-        key += '$e_' + data.entityId;
-    }
-    if (typeof data.objectId !== 'undefined') {
-        key += '$o_' + data.objectId;
-    }
-    return key;
+  let key = 'p_' + data.pageId;
+  if (data.entityId) {
+      key += '$e_' + data.entityId;
+  }
+  if (typeof data.objectId !== 'undefined') {
+      key += '$o_' + data.objectId;
+  }
+  return key;
 }
 </code></pre>
 

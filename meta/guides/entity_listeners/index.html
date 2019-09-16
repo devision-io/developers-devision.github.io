@@ -1223,51 +1223,51 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   &quot;id&quot;: &quot;mylego&quot;,
   &quot;name&quot;: &quot;me-lego&quot;,
   &quot;elems&quot;: [
-      {
-        &quot;id&quot;: &quot;ex_access_id&quot;,
-        &quot;name&quot;: &quot;me-input&quot;,
-        &quot;entityId&quot;: 2830,
-        &quot;attrs&quot;: {
-          &quot;type&quot;: &quot;select&quot;, // говорим, что  у нас выпадающий селектбокс
-          &quot;required&quot;: true,
-          &quot;addObjectButton&quot;: { // говорим, что у нас есть кнопка создания объектов указанного entity_id
-            &quot;env&quot;: {
-              &quot;sp&quot;: { // если вам нужно перезать что-то на страницу создания объекта, при нажатии на кнопку создания объекта сделайте это тут
-                &quot;obj&quot;: {
-                  &quot;mode&quot;: &quot;feed&quot;,
-                  &quot;ex_system_id&quot;: &quot;google_adwords&quot;
-                }
+    {
+      &quot;id&quot;: &quot;ex_access_id&quot;,
+      &quot;name&quot;: &quot;me-input&quot;,
+      &quot;entityId&quot;: 2830,
+      &quot;attrs&quot;: {
+        &quot;type&quot;: &quot;select&quot;, // говорим, что  у нас выпадающий селектбокс
+        &quot;required&quot;: true,
+        &quot;addObjectButton&quot;: { // говорим, что у нас есть кнопка создания объектов указанного entity_id
+          &quot;env&quot;: {
+            &quot;sp&quot;: { // если вам нужно перезать что-то на страницу создания объекта, при нажатии на кнопку создания объекта сделайте это тут
+              &quot;obj&quot;: {
+                &quot;mode&quot;: &quot;feed&quot;,
+                &quot;ex_system_id&quot;: &quot;google_adwords&quot;
               }
-            },
-            &quot;title&quot;: &quot;Подключить аккаунт&quot;
-          }
-        },
-        &quot;listen&quot;: [
-          {
-           // Тут мы гвоорим, что хотим отслеживать изменения сущности при операция добавление и изменения
-            &quot;code&quot;: [
-              &quot;ADD&quot;,
-              &quot;SET&quot;
-            ],
-            &quot;entityId&quot;: 2830,
-            &quot;refreshRefPvmData&quot;: {},  // Говорим, что хотим обновлять список опшенов me-input
-            &quot;objectId&quot;: 0
-          }
-        ],
-        
-        // Это просто для полноценности примера
-        &quot;label&quot;: &quot;Укажите аккаунт для получения данных или добавьте новый&quot;,
-        &quot;refPvmData&quot;: {
-          &quot;id&quot;: &quot;$metaql&quot;,
-          &quot;sp&quot;: {
-            // Кстати, это хороший пример использования защищенного языка запросов к данным. Это не полноценный SQL
-            // Тут работает общий ACL и нет ничего, кроме простых SELECT запросов
-            &quot;dbQuery&quot;: {
-              &quot;command&quot;: &quot;SELECT id,name FROM meta.ex_access WHERE ex_system_id = 'google_adwords' and user_status='ENABLED' ORDER BY name&quot;
             }
+          },
+          &quot;title&quot;: &quot;Подключить аккаунт&quot;
+        }
+      },
+      &quot;listen&quot;: [
+        {
+         // Тут мы гвоорим, что хотим отслеживать изменения сущности при операция добавление и изменения
+          &quot;code&quot;: [
+            &quot;ADD&quot;,
+            &quot;SET&quot;
+          ],
+          &quot;entityId&quot;: 2830,
+          &quot;refreshRefPvmData&quot;: {},  // Говорим, что хотим обновлять список опшенов me-input
+          &quot;objectId&quot;: 0
+        }
+      ],
+      
+      // Это просто для полноценности примера
+      &quot;label&quot;: &quot;Укажите аккаунт для получения данных или добавьте новый&quot;,
+      &quot;refPvmData&quot;: {
+        &quot;id&quot;: &quot;$metaql&quot;,
+        &quot;sp&quot;: {
+          // Кстати, это хороший пример использования защищенного языка запросов к данным. Это не полноценный SQL
+          // Тут работает общий ACL и нет ничего, кроме простых SELECT запросов
+          &quot;dbQuery&quot;: {
+            &quot;command&quot;: &quot;SELECT id,name FROM meta.ex_access WHERE ex_system_id = 'google_adwords' and user_status='ENABLED' ORDER BY name&quot;
           }
         }
       }
+    }
   ]
 }
 </code></pre>
@@ -1275,15 +1275,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p>На стороне страницы создания/редактирования объекта сущности нужно обязательно залогировать добавление или изменение вызовом ObjectLogService.logValue</p>
 
 <pre><code class="language-html">&lt;script type=&quot;meta/js&quot; elem=&quot;hidden&quot; states=&quot;save&quot;&gt;
-    function main(pvm, vm, env, ObjectLogService) {
-        var isNew = false;
-        var objectId = env.object_id;
-        pvm.toInitialState();
-        pvm.closeModal();
-        pvm.changeState('default');
-        pvm.popup = {level: &quot;success&quot;, message: &quot;Сохранено&quot;};
-        ObjectLogService.logValue(env.entityId, objectId, isNew ? 'ADD' : 'SET', env.sp.obj);
-    }
+function main(pvm, vm, env, ObjectLogService) {
+  var isNew = false;
+  var objectId = env.object_id;
+  pvm.toInitialState();
+  pvm.closeModal();
+  pvm.changeState('default');
+  pvm.popup = {level: &quot;success&quot;, message: &quot;Сохранено&quot;};
+  ObjectLogService.logValue(env.entityId, objectId, isNew ? 'ADD' : 'SET', env.sp.obj);
+}
 &lt;/script&gt; 
 </code></pre>
 

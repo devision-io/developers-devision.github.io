@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Компоненты on META | Devision Developers</title>
+    <link>https://developers.devision.io/meta/compoments/</link>
+    <description>Recent content in Компоненты on META | Devision Developers</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    
+	<atom:link href="https://developers.devision.io/meta/compoments/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Тикеты</title>
+      <link>https://developers.devision.io/meta/compoments/ticket/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/compoments/ticket/</guid>
+      <description>Таблицы  issue: Непосредственно сами тикеты. Основная таблица issue_entity: Сущности, доступные для выбора &amp;ldquo;категории&amp;rdquo; тикета при создании. Тип объекта, в рамках которого делается тикет. Например тикет может быть по клиенту, медиаплану, сотруднику issue_field: Доп. поля, которые можно навешивать потом на типы тикетов issue_logwork: Трекинг времени по тикетам issue_msg: Комментарии к тикетам, приложенные файлы issue_priority: Справочник приоритетов тикетов issue_status: Справочник статусов тикетов issue_type: Справочник типов тикетов, Тут настраивается доступность типов тикетов для issue_entity, доступность основных или доп полей  Управляющие функции БД Пользовательские функции для изменения бизнес логики отмечены жирным шрифтом.</description>
+    </item>
+    
+  </channel>
+</rss>

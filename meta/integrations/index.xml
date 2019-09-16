@@ -11,6 +11,16 @@
     
     
     <item>
+      <title>Google Analytics</title>
+      <link>https://developers.devision.io/meta/integrations/google_analytics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/integrations/google_analytics/</guid>
+      <description>Google Analytics уже глубоко интегрирован в платформу и многие нужные вам события с интерфейса и backend зачастую автоматически будут поступать в GA.
+Автоматически собираемые действия  Открытия страниц Открытие модальных окон (в т.ч. sidenav) Регистрация События ADD из ObjectLogService Клик на кнопку добавление объекта в me-select Выбор пункта меню в me-input type=menu-btn  Отправка событий через Measurement Protocol В скриптах meta/js или meta/sql (с помощью шаблонизатора) вы можете отправлять нужные вам события в GA.</description>
+    </item>
+    
+    <item>
       <title>Вход через META</title>
       <link>https://developers.devision.io/meta/integrations/login_with_meta/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -18,6 +28,17 @@
       <guid>https://developers.devision.io/meta/integrations/login_with_meta/</guid>
       <description>Приложение запрашивает код Получение токена в обмен на код, извлеченный из URL:
  Приложение направляет пользователя на страницу META.OAuth, где он может разрешить доступ к своим данным. Пользователь разрешает доступ приложению. META.OAuth перенаправляет пользователя на адрес, указанный в поле Callback URL при регистрации приложения. Код подтверждения (или описание ошибки) передается в параметре URL перенаправления. Приложение получает адрес перенаправления и извлекает код подтверждения. Приложение отправляет POST-запрос с кодом. META.OAuth возвращает токен или ошибку в теле ответа.</description>
+    </item>
+    
+    <item>
+      <title>Nginx Proxy Headers</title>
+      <link>https://developers.devision.io/meta/integrations/nginx/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/integrations/nginx/</guid>
+      <description>Настраиваются на nginx при проксировании запосов в Java приложение, или через Chrome плагин ModHeader (https://chrome.google.com/webstore/detail/modheader/idgpnmonknjnojddfkpgkljpfnnfcklj) для разработки
+X-META-AppID Говорит о том, что МЕТА должна отвечать пользователю как конкретное приложение с установленным лого, css и пр
+server { listen *:80; server_name example.com; charset utf8; location / { proxy_set_header Host $host; proxy_set_header X-Real-IP $remote_addr; proxy_set_header X-META-AppID 3; proxy_pass http://127.0.0.1:8083; } }  X-META-Allowed-Apps Говорит о том, что МЕТА должна отвечать пользователю как конкретное приложение с установленным лого, css и пр Отличается от HEADER_X_META_APP_ID тем, что это будет работать как просто meta.</description>
     </item>
     
     <item>

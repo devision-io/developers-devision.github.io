@@ -3,16 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://developers.devision.io/meta/guides/quick_start/</loc>
-    <lastmod>2017-04-24T18:36:24+02:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://developers.devision.io/meta/work_with_data/datatransform/</loc>
   </url>
   
   <url>
-    <loc>https://developers.devision.io/meta/guides/google_analytics/</loc>
+    <loc>https://developers.devision.io/meta/integrations/google_analytics/</loc>
   </url>
   
   <url>
@@ -38,6 +33,10 @@
   
   <url>
     <loc>https://developers.devision.io/meta/samples/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.devision.io/meta/compoments/</loc>
   </url>
   
   <url>
@@ -91,7 +90,7 @@
   </url>
   
   <url>
-    <loc>https://developers.devision.io/meta/guides/nginx/</loc>
+    <loc>https://developers.devision.io/meta/integrations/nginx/</loc>
   </url>
   
   <url>
@@ -107,7 +106,7 @@
   </url>
   
   <url>
-    <loc>https://developers.devision.io/meta/guides/ticket/</loc>
+    <loc>https://developers.devision.io/meta/compoments/ticket/</loc>
   </url>
   
   <url>

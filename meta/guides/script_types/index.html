@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.42.1" />
+    <meta name="generator" content="Hugo 0.42.2" />
     <meta name="description" content="">
 
 
@@ -1269,7 +1269,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <p>Скрипты это блоки получения или изменения данных, имеют атрибуты:
  - type - определяет тип получения данных: sql, js
- - id - имя данных для меты, используется для последующих обращений к данным. Грубо говоря имя переменной</p>
+ - id - имя данных для меты, используется для последующих обращений к данным. Грубо говоря имя переменной
+ - elem-attrs - доп. атрибуты элемента конкретного типа</p>
+
+<h2 id="атрибуты-elem-attrs">Атрибуты elem-attrs</h2>
+
+<p>Конфигурируют элемент, указанный в атрибуте elem. Для каждого elem они могут быть разными - ищите нужную документацию в <a href="https://developers.devision.io/meta/reference/ui_controls/typedoc/">структуре всех классов</a>.</p>
+
+<p>Чаще всего вы будете использовать атрибуты, указывая их в виде json-обекта как в этом примере:</p>
+
+<pre><code class="language-html">&lt;script type=&quot;meta/sql&quot; db-alias=&quot;adplatform&quot; id=&quot;issues&quot; order=&quot;100500&quot; entity-id=&quot;2701&quot;
+		elem-attrs='{&quot;addObjectButton&quot;:{ &quot;mode&quot;:&quot;sidenav&quot;}}'&gt;
+...
+</code></pre>
+
+<p>(beta) Для атрибутов типа строка и число вы можете использовать inline стиль написания, это удобно для более простой шаблонизации или боее ясного написания сложных объектов</p>
+
+<pre><code class="language-html">&lt;script type=&quot;meta/sql&quot; order=&quot;400&quot; id=&quot;res&quot; entity-id=&quot;2830&quot; db-alias=&quot;meta&quot; entity-id=&quot;ex_system&quot; 
+  elem=&quot;me-card-list&quot;
+  elem-attrs.entityCardLink.mode='sidenav'
+  elem-attrs.entityCardLink.drawTopMenu='false'
+  elem-attrs.grid.cardMaxWidth=&quot;350px&quot;
+  elem-attrs.grid.sizeNormal=&quot;20&quot;
+  elem-attrs.grid.sizeMd=&quot;25&quot;
+  elem-attrs.grid.sizeSm=&quot;33&quot;
+  elem-attrs.grid.sizeXs=&quot;100&quot;
+  elem-attrs.helpTemplate.cssStyle.background='#3689ff'
+  elem-attrs.helpTemplate.cssStyle.color='#fff'
+...
+</code></pre>
 
 <h2 id="ключевое-слово-internal">Ключевое слово internal</h2>
 
@@ -1629,6 +1657,7 @@ SELECT ........
 <ul>
 <li><a href="#мотивация">Мотивация</a>
 <ul>
+<li><a href="#атрибуты-elem-attrs">Атрибуты elem-attrs</a></li>
 <li><a href="#ключевое-слово-internal">Ключевое слово internal</a></li>
 <li><a href="#условия-do-if">Условия do-if</a></li>
 </ul></li>

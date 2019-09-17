@@ -40,8 +40,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/samples/pages/open_modal/</guid>
-      <description>Открыть добавление объекта через html Приведу пример из биллинга - подача заявки для перехода на дргой тариф. Заявка выполнена в виде тикета с типом согласование Тут мы видем использование технологии разметки перевода &amp;ldquo;i18n&amp;rdquo; в кнопке добавления новых объектов для entityId=2701 с заранее установленным env.sp
-&amp;lt;elem&amp;gt; &amp;lt;tpl&amp;gt; &amp;lt;me-add-obj-btn [attrs]=&#39;{&amp;quot;addObjectButton&amp;quot;:{ &amp;quot;mode&amp;quot;: &amp;quot;sidenav&amp;quot;, &amp;quot;title&amp;quot;: &amp;quot;${i18n(&amp;quot;#.productTariffTicketAdd&amp;quot;, &amp;quot;Подать заявку&amp;quot;)}&amp;quot;, &amp;quot;modalSize&amp;quot;: &amp;quot;lg&amp;quot;, &amp;quot;modalTitle&amp;quot;: &amp;quot;${i18n(&amp;quot;#.productTariffTicketAdd&amp;quot;, &amp;quot;Подать заявку&amp;quot;)}&amp;quot;, &amp;quot;cssClass&amp;quot;: &amp;quot;btn btn-sm btn-main&amp;quot;, &amp;quot;icon&amp;quot;: &amp;quot;fa-gavel&amp;quot;, &amp;quot;env&amp;quot;: { &amp;quot;sp&amp;quot;: { &amp;quot;card&amp;quot;: { &amp;quot;no_redirect_after_save&amp;quot;: true, &amp;quot;entity_id&amp;quot;: &amp;quot;2651&amp;quot;, &amp;quot;object_id&amp;quot;: &amp;quot;${env.</description>
+      <description>В таблице списке объектов сущности вывести страницу в контекстное меню Например у вас есть список пользователей и на карточке пользователя есть страница проектов, доступных пользователю.
+ Включите режим разработчика, если он не ключен Зайдите на интресующую вас страницу Откройте меню радактирования настроек приложения в поле &amp;ldquo;Вид в контекстном меню&amp;rdquo; выберите &amp;ldquo;Модальное окно&amp;rdquo; или &amp;ldquo;Выезжающее справа окно&amp;rdquo; Сохраните Сбросьте кеш меты Обновите страницу через F5  Пример такой страницы: https://apps.devision.io/card?e=example_entity&amp;amp;o=08f3395b-31f2-42c9-917e-a5f2b7bd4a95&amp;amp;p=5183&amp;amp;a=35</description>
     </item>
     
   </channel>

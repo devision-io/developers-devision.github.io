@@ -1401,8 +1401,7 @@ function main(pvm, vm, env, ObjectLogService) {
       url: &quot;/card?e=&quot; + env.entityId + &quot;&amp;o=&quot; + objectId + &quot;&amp;a=&quot; + env.applicationId
     };
   } else {
-    pvm.changeState('default');
-    pvm.resetToInitialState();
+    pvm.toInitialState();
     pvm.closeModal();
   }
   pvm.popup = {level: &quot;success&quot;, message: &quot;Сохранено&quot;};

@@ -158,7 +158,8 @@ nativeOptions можно использовать как вариант для �
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/samples/pages/report_with_filters/</guid>
-      <description>Типичная задача META - вывод списка объектов в виде отчета с фильтрами.
+      <description>Для начала ознакомьтесь со статьей Жизненный цикл запроса
+ Типичная задача META - вывод списка объектов в виде отчета с фильтрами.
 Обычно отчет представляет из себя одну таблицу с фильтрами. Script id такой основной таблицы рекомендуется называть &amp;ldquo;res&amp;rdquo;, чтобы другим разработчикам было привычнее читать ваш код.
 Код примера &amp;lt;!-- Фильтрация --&amp;gt; &amp;lt;script type=&amp;quot;meta/sql&amp;quot; db-alias=&amp;quot;meta_samples&amp;quot; label=&amp;quot;Организация&amp;quot; id=&amp;quot;org_ids&amp;quot; elem=&amp;quot;me-select&amp;quot; order=&amp;quot;1&amp;quot; span=&amp;quot;4&amp;quot; elem-attrs=&#39;{&amp;quot;multiple&amp;quot;:true}&#39; page-search&amp;gt; SELECT &amp;quot;organizationId&amp;quot; as id, name as name FROM &amp;quot;organization&amp;quot; order by name &amp;lt;/script&amp;gt; &amp;lt;script type=&amp;quot;meta/sql&amp;quot; db-alias=&amp;quot;meta_samples&amp;quot; label=&amp;quot;Статус&amp;quot; id=&amp;quot;active_mode&amp;quot; elem=&amp;quot;me-select&amp;quot; default=&amp;quot;all&amp;quot; order=&amp;quot;1&amp;quot; span=&amp;quot;4&amp;quot; page-search&amp;gt; SELECT t.</description>
     </item>
@@ -169,10 +170,10 @@ nativeOptions можно использовать как вариант для �
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/samples/pages/simple_entity/</guid>
-      <description>Типичная задача META - вывод списка объектов и их редактирование
+      <description>Для начала ознакомьтесь со статьей Жизненный цикл запроса
+ Типичная задача META - вывод списка объектов и их редактирование
 Регистрация Entity Чтобы начать работать с новой сущностью добавьте ее в репозиторий META AppContent. В списке полей обычно достаточно указать primary key и поле, которе будет считаться именем объекта сущности. Для примера попробуем зарегистрировать таблицу example_entity из БД с meta id &amp;ldquo;meta_samples&amp;rdquo;.
-В репозитории AppContent в директории /entity/meta_samples создайте файл example_entity___public.example_entity.yaml.
-Такое название файла надо читать так: {ENTITY_ID}___{DB_SCHEMA}.{DB_TABLE}.yaml Это именование позволяет быстро и легко искать файлы через IDE поиском по имени файла и пока что не влияет на парсер конфига, но будет влиять.</description>
+В репозитории AppContent в директории /entity/meta_samples создайте файл example_entity___public.</description>
     </item>
     
     <item>
@@ -226,6 +227,16 @@ server { listen *:80; server_name example.com; charset utf8; location / { proxy_
       <guid>https://developers.devision.io/meta/guides/db_naming/</guid>
       <description>При разработке новой БД предлагается придерживаться следующих правил. При этом, если у вас есть готовая БД, то вы не должны хотеть полностью переделать ее соглашения, так как это бесполезная работа. Просто продолжайте использовать то, что у вас есть.
  Все таблицы должны иметь несоставной первичный ключ, который должен называться id Все таблицы, представления, функции, триггерные функции и типы должны иметь комментарий Поля таблиц и view должны иметь комментарий. Исключения: поля с внешними ключами, общепонятные поля (первичный ключ, views, clicks, name, title и т.</description>
+    </item>
+    
+    <item>
+      <title>Открытие модального окна</title>
+      <link>https://developers.devision.io/meta/samples/pages/open_modal/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/samples/pages/open_modal/</guid>
+      <description>Открыть добавление объекта через html Приведу пример из биллинга - подача заявки для перехода на дргой тариф. Заявка выполнена в виде тикета с типом согласование Тут мы видем использование технологии разметки перевода &amp;ldquo;i18n&amp;rdquo; в кнопке добавления новых объектов для entityId=2701 с заранее установленным env.sp
+&amp;lt;elem&amp;gt; &amp;lt;tpl&amp;gt; &amp;lt;me-add-obj-btn [attrs]=&#39;{&amp;quot;addObjectButton&amp;quot;:{ &amp;quot;mode&amp;quot;: &amp;quot;sidenav&amp;quot;, &amp;quot;title&amp;quot;: &amp;quot;${i18n(&amp;quot;#.productTariffTicketAdd&amp;quot;, &amp;quot;Подать заявку&amp;quot;)}&amp;quot;, &amp;quot;modalSize&amp;quot;: &amp;quot;lg&amp;quot;, &amp;quot;modalTitle&amp;quot;: &amp;quot;${i18n(&amp;quot;#.productTariffTicketAdd&amp;quot;, &amp;quot;Подать заявку&amp;quot;)}&amp;quot;, &amp;quot;cssClass&amp;quot;: &amp;quot;btn btn-sm btn-main&amp;quot;, &amp;quot;icon&amp;quot;: &amp;quot;fa-gavel&amp;quot;, &amp;quot;env&amp;quot;: { &amp;quot;sp&amp;quot;: { &amp;quot;card&amp;quot;: { &amp;quot;no_redirect_after_save&amp;quot;: true, &amp;quot;entity_id&amp;quot;: &amp;quot;2651&amp;quot;, &amp;quot;object_id&amp;quot;: &amp;quot;${env.</description>
     </item>
     
     <item>

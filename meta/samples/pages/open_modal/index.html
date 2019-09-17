@@ -9,7 +9,7 @@
     <meta name="description" content="">
 
 
-    <title>Руководства :: META | Devision Developers</title>
+    <title>Открытие модального окна :: META | Devision Developers</title>
     <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/guides/">
+  <body class="" data-url="/samples/pages/open_modal/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -91,8 +91,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="/guides/" class="devsite-nav-item devsite-nav-item-main
-                        parent
-                        active
+                        
+                        
                         parent
                         ">
                 <a href="https://developers.devision.io/meta/guides/" class="devsite-nav-title devsite-nav-item-main-title">
@@ -309,7 +309,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="/samples/" class="devsite-nav-item devsite-nav-item-main
-                        
+                        parent
                         
                         parent
                         ">
@@ -376,7 +376,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/samples/pages/open_modal/" class="devsite-nav-item dd-item ">
+            <li data-nav-id="/samples/pages/open_modal/" class="devsite-nav-item dd-item active">
                 <a href="https://developers.devision.io/meta/samples/pages/open_modal/" class="devsite-nav-title">
                     <span>Открытие модального окна</span>
                 </a>
@@ -1241,7 +1241,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
- <a href='https://developers.devision.io/meta/'>META</a> > Руководства
+
+
+
+ <a href='https://developers.devision.io/meta/'>META</a> > <a href='https://developers.devision.io/meta/samples/'>Примеры</a> > Открытие модального окна
+
+
 
 
 
@@ -1253,172 +1258,46 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <div id="body-inner">
           
-            <h1>Руководства</h1>
+            <h1>Открытие модального окна</h1>
           
 
 
 
 
 
+<h2 id="открыть-добавление-объекта-через-html">Открыть добавление объекта через html</h2>
+
+<p>Приведу пример из биллинга - подача заявки для перехода на дргой тариф.
+Заявка выполнена в виде <a href="https://developers.devision.io/meta/meta/compoments/ticket/">тикета</a> с типом согласование
+Тут мы видем использование технологии разметки перевода &ldquo;i18n&rdquo; в кнопке добавления новых объектов для entityId=2701 с заранее установленным env.sp</p>
+
+<pre><code class="language-html">&lt;elem&gt;
+&lt;tpl&gt;
+  &lt;me-add-obj-btn [attrs]='{&quot;addObjectButton&quot;:{
+    &quot;mode&quot;: &quot;sidenav&quot;,
+    &quot;title&quot;: &quot;${i18n(&quot;#.productTariffTicketAdd&quot;, &quot;Подать заявку&quot;)}&quot;,
+    &quot;modalSize&quot;: &quot;lg&quot;,
+    &quot;modalTitle&quot;: &quot;${i18n(&quot;#.productTariffTicketAdd&quot;, &quot;Подать заявку&quot;)}&quot;,
+    &quot;cssClass&quot;: &quot;btn btn-sm btn-main&quot;, 
+    &quot;icon&quot;: &quot;fa-gavel&quot;,
+    &quot;env&quot;: {
+      &quot;sp&quot;: {
+        &quot;card&quot;: {
+          &quot;no_redirect_after_save&quot;: true,
+          &quot;entity_id&quot;: &quot;2651&quot;,
+          &quot;object_id&quot;: &quot;${env.companyId}&quot;,
+          &quot;issue_type_id&quot;: &quot;devision_billing_tariff&quot;,
+          &quot;form_data&quot;: {&quot;product_id&quot;: ${env.objectId}}
+        }
+      }
+    }
+  }, &quot;entityId&quot;: &quot;2701&quot;}'&gt;&lt;/me-add-obj-btn&gt;
+&lt;/tpl&gt;
+&lt;/elem&gt;
+</code></pre>
 
 
-	
 
-	
-	   <article class="post guides">
-    <header class="post-header">
-        <h2 class="post-title"><a href="https://developers.devision.io/meta/guides/request_life_cycle/">Жизненный цикл запроса</a></h2>
-    </header>
-
-    
-
-
-    
-</article>
-
-
-
-
-	
-	   <article class="post guides">
-    <header class="post-header">
-        <h2 class="post-title"><a href="https://developers.devision.io/meta/guides/entity_listeners/">Отслеживание изменений сущностей</a></h2>
-    </header>
-
-    
-
-
-    
-</article>
-
-
-
-
-	
-	   <article class="post guides">
-    <header class="post-header">
-        <h2 class="post-title"><a href="https://developers.devision.io/meta/guides/entity_handlers/">Обработчики событий сущностей</a></h2>
-    </header>
-
-    
-
-
-    
-</article>
-
-
-
-
-	
-	   <article class="post guides">
-    <header class="post-header">
-        <h2 class="post-title"><a href="https://developers.devision.io/meta/guides/script_types/">Типы скриптов</a></h2>
-    </header>
-
-    
-
-
-    
-</article>
-
-
-
-
-	
-	   <article class="post guides">
-    <header class="post-header">
-        <h2 class="post-title"><a href="https://developers.devision.io/meta/guides/template_engines/">Шаблонизация</a></h2>
-    </header>
-
-    
-
-
-    
-</article>
-
-
-
-
-	
-	   <article class="post guides">
-    <header class="post-header">
-        <h2 class="post-title"><a href="https://developers.devision.io/meta/guides/charts/">Графики</a></h2>
-    </header>
-
-    
-
-
-    
-</article>
-
-
-
-
-	
-	   <article class="post guides">
-    <header class="post-header">
-        <h2 class="post-title"><a href="https://developers.devision.io/meta/guides/cache/">Кеширование</a></h2>
-    </header>
-
-    
-
-
-    
-</article>
-
-
-
-
-	
-	   <article class="post guides">
-    <header class="post-header">
-        <h2 class="post-title"><a href="https://developers.devision.io/meta/guides/build_url/">Построение URL</a></h2>
-    </header>
-
-    
-
-
-    
-</article>
-
-
-
-
-	
-	   <article class="post guides">
-    <header class="post-header">
-        <h2 class="post-title"><a href="https://developers.devision.io/meta/guides/i18n/">Интернационализация (i18n)</a></h2>
-    </header>
-
-    
-
-
-    
-</article>
-
-
-
-
-	
-	   <article class="post guides">
-    <header class="post-header">
-        <h2 class="post-title"><a href="https://developers.devision.io/meta/guides/db_naming/">Именование сущностей в БД</a></h2>
-    </header>
-
-    
-
-
-    
-</article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
-
-	
 
 
 
@@ -1427,7 +1306,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
-    
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#открыть-добавление-объекта-через-html">Открыть добавление объекта через html</a></li>
+</ul></li>
+</ul>
+</nav>
 </div>
 
 </div>
@@ -1448,3 +1334,4 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   </body>
 </html>
+

@@ -369,6 +369,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
                     
                     
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/samples/pages/open_modal/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/samples/pages/open_modal/" class="devsite-nav-title">
+                    <span>Открытие модального окна</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
                 </ul>
                 
             </li>
@@ -1390,7 +1408,7 @@ LIMIT 1
 &lt;/script&gt;
 
 &lt;elem states=&quot;default&quot; order=&quot;190&quot;&gt;
-    &lt;template&gt;
+    &lt;tpl&gt;
         &lt;!-- Форма при отправке будет метять env.state на save и поэтому будут исполняться скрипты6 которые описаны ниже и имеют states=&quot;save&quot; --&gt;
         &lt;form name=&quot;editGroupForm&quot; ng-submit=&quot;changeState('save', {obj:env.sp.obj})&quot;&gt;
             &lt;!-- 
@@ -1400,7 +1418,7 @@ LIMIT 1
              --&gt;
             &lt;me-lego elems=&quot;editCard.elems&quot; output=&quot;env.sp.obj&quot;&gt;&lt;/me-lego&gt;
         &lt;/form&gt;
-    &lt;/template&gt;
+    &lt;/tpl&gt;
 &lt;/elem&gt;
 
 &lt;script type=&quot;meta/js&quot; id=&quot;editCard&quot; elem=&quot;hidden&quot; states=&quot;default&quot;&gt;

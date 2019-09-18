@@ -1267,6 +1267,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <h2 id="мотивация">Мотивация</h2>
 
+<p>На случай, если при сохранении формы в модальном окне нужно обновить инпуты в родительской форме или обновить список объектов сущности, если вы изменили или добавили новую.</p>
+
+<h3 id="случай-1">Случай 1</h3>
+
 <p>Бывают случаи, когда у вас есть форма создания/редактирования объекта и в ней есть инпут с выбором объекта другого типа.
 Например: вы добавляете товар и выбираете его категорию, а если категории нет, то вы хотите прямо здесь ее создать.</p>
 
@@ -1330,7 +1334,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 }
 </code></pre>
 
-<p>На стороне страницы создания/редактирования объекта сущности нужно обязательно залогировать добавление или изменение вызовом ObjectLogService.logValue</p>
+<h3 id="случай-2">Случай 2</h3>
+
+<p>Или у вас есть список объектов какой-либо сущности в таблице и при редактировании или добавлении объекта в модальном окне вы хотите перезагружать данные таблицы</p>
+
+<p>Для таблицы добавляется атрибут <strong>listen</strong></p>
+
+<ul>
+<li>code: укажите на какие коды вы подписываетесь ADD, SET, REMOVE</li>
+<li>entityId: укажите id сущности, которую будете прослушивать</li>
+<li>reload: говорит, что надо сделать reload страницы при получении уведомления об изменении данных</li>
+</ul>
+
+<pre><code class="language-html">&lt;script type=&quot;meta/sql&quot; order=&quot;400&quot; id=&quot;res&quot; entity-id=&quot;2830&quot; db-alias=&quot;meta&quot; entity-id=&quot;ex_system&quot; 
+  listen='[{&quot;code&quot;: [&quot;ADD&quot;, &quot;REMOVE&quot;, &quot;SET&quot;], &quot;reload&quot;:{},&quot;entityId&quot;: &quot;2830&quot;}]'
+...
+</code></pre>
+
+<h3 id="на-стороне-модального-окна">На стороне модального окна</h3>
+
+<p>На стороне страницы создания/редактирования объекта сущности нужно обязательно залогировать добавление или изменение вызовом ObjectLogService.logValue.
+Эти данные пойдут в лог и смогут быть использованы для подписки на события через артрибут <strong>listen</strong></p>
 
 <pre><code class="language-html">&lt;script type=&quot;meta/js&quot; elem=&quot;hidden&quot; states=&quot;save&quot;&gt;
 function main(pvm, vm, env, ObjectLogService) {
@@ -1359,7 +1383,12 @@ function main(pvm, vm, env, ObjectLogService) {
 <ul>
 <li>
 <ul>
-<li><a href="#мотивация">Мотивация</a></li>
+<li><a href="#мотивация">Мотивация</a>
+<ul>
+<li><a href="#случай-1">Случай 1</a></li>
+<li><a href="#случай-2">Случай 2</a></li>
+<li><a href="#на-стороне-модального-окна">На стороне модального окна</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </nav>

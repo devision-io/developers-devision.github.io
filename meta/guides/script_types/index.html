@@ -5,11 +5,11 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.42.2" />
+    <meta name="generator" content="Hugo 0.42.1" />
     <meta name="description" content="">
 
 
-    <title>Типы скриптов :: META | Devision Developers</title>
+    <title>Типы и атрибуты скриптов :: META | Devision Developers</title>
     <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -178,7 +178,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             <li data-nav-id="/guides/script_types/" class="devsite-nav-item dd-item active">
                 <a href="https://developers.devision.io/meta/guides/script_types/" class="devsite-nav-title">
-                    <span>Типы скриптов</span>
+                    <span>Типы и атрибуты скриптов</span>
                 </a>
             </li>
             
@@ -1244,7 +1244,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
- <a href='https://developers.devision.io/meta/'>META</a> > <a href='https://developers.devision.io/meta/guides/'>Руководства</a> > Типы скриптов
+ <a href='https://developers.devision.io/meta/'>META</a> > <a href='https://developers.devision.io/meta/guides/'>Руководства</a> > Типы и атрибуты скриптов
 
 
 
@@ -1258,7 +1258,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <div id="body-inner">
           
-            <h1>Типы скриптов</h1>
+            <h1>Типы и атрибуты скриптов</h1>
           
 
 
@@ -1269,35 +1269,41 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <p>Скрипты это блоки получения или изменения данных, имеют атрибуты:
  - type - определяет тип получения данных: sql, js
- - id - имя данных для меты, используется для последующих обращений к данным. Грубо говоря имя переменной
- - elem-attrs - доп. атрибуты элемента конкретного типа</p>
+ - id - имя данных для меты, используется для последующих обращений к данным. Грубо говоря имя переменной</p>
 
-<h2 id="атрибуты-elem-attrs">Атрибуты elem-attrs</h2>
+<h2 id="отображение-элементов-в-сетке">Отображение элементов в сетке</h2>
 
-<p>Конфигурируют элемент, указанный в атрибуте elem. Для каждого elem они могут быть разными - ищите нужную документацию в <a href="https://developers.devision.io/meta/reference/ui_controls/typedoc/">структуре всех классов</a>.</p>
+<p>UI сетка состоит из 12 столбцов, ячейки сетки не используют flex, идут слева направо и естественным образом переносятся на новую строку.
+Если нужно сделать новую строку используйте элемент с именем <strong>newrow</strong>:</p>
 
-<p>Чаще всего вы будете использовать атрибуты, указывая их в виде json-обекта как в этом примере:</p>
-
-<pre><code class="language-html">&lt;script type=&quot;meta/sql&quot; db-alias=&quot;adplatform&quot; id=&quot;issues&quot; order=&quot;100500&quot; entity-id=&quot;2701&quot;
-		elem-attrs='{&quot;addObjectButton&quot;:{ &quot;mode&quot;:&quot;sidenav&quot;}}'&gt;
-...
+<pre><code class="language-html">&lt;elem name=&quot;newrow&quot;&gt;&lt;/elem&gt;
 </code></pre>
 
-<p>(beta) Для атрибутов типа строка и число вы можете использовать inline стиль написания, это удобно для более простой шаблонизации или боее ясного написания сложных объектов</p>
+<p>Или если вы описываете LEGO на json, то это выглядит так (<a href="https://developers.devision.io/meta/samples/pages/simple_entity/">полный пример</a>):</p>
 
-<pre><code class="language-html">&lt;script type=&quot;meta/sql&quot; order=&quot;400&quot; id=&quot;res&quot; entity-id=&quot;2830&quot; db-alias=&quot;meta&quot; entity-id=&quot;ex_system&quot; 
-  elem=&quot;me-card-list&quot;
-  elem-attrs.entityCardLink.mode='sidenav'
-  elem-attrs.entityCardLink.drawTopMenu='false'
-  elem-attrs.grid.cardMaxWidth=&quot;350px&quot;
-  elem-attrs.grid.sizeNormal=&quot;20&quot;
-  elem-attrs.grid.sizeMd=&quot;25&quot;
-  elem-attrs.grid.sizeSm=&quot;33&quot;
-  elem-attrs.grid.sizeXs=&quot;100&quot;
-  elem-attrs.helpTemplate.cssStyle.background='#3689ff'
-  elem-attrs.helpTemplate.cssStyle.color='#fff'
-...
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;newrow&quot;
+}
 </code></pre>
+
+<h3 id="атрибут-order">Атрибут order</h3>
+
+<p>Атрибут <strong>Не влияет</strong> на порядов исполенения скриптов на backend, а только определяет спорядов в сетке.
+Чем больше значение, тем правее и ниже будет элемент.</p>
+
+<h3 id="атрибут-span">Атрибут span</h3>
+
+<p>Определяет ширину элемента в сетке. Например если будет span=&ldquo;12&rdquo; (значение по-умолчанию) то элемент будет занимать всю ширину страницы,
+span=&ldquo;6&rdquo; - только половину.</p>
+
+<h3 id="атрибут-offset">Атрибут offset</h3>
+
+<p>Работае как и span по ширине в сетке, но отвечает за левый отступ. Например, если у нас span=&ldquo;4&rdquo; и offset=&ldquo;4&rdquo;,
+то наш элемент будет занимать <sup>1</sup>&frasl;<sub>3</sub> ширины страницы и на <sup>1</sup>&frasl;<sub>3</sub> будет сдвинут слева, т.е. будет находится примерно по середине.</p>
+
+<h3 id="атрибут-align">Атрибут align</h3>
+
+<p>Центрирует контент элемента. Может быть: left (по умолчанию), right или center.</p>
 
 <h2 id="ключевое-слово-internal">Ключевое слово internal</h2>
 
@@ -1320,6 +1326,14 @@ select now()
 &lt;/script&gt;
 
 </code></pre>
+
+<h2 id="атрибут-exportable-по-умолчанию-true">Атрибут exportable (по умолчанию true)</h2>
+
+<p>Управляет возможностью выгружать таблицу</p>
+
+<h2 id="атрибут-analyzable-по-умолчанию-true">Атрибут analyzable (по умолчанию true)</h2>
+
+<p>Управляет возможностью делать анализ данных на таблице</p>
 
 <h1 id="sql-управляемый-скрипт-meta-sql">SQL управляемый скрипт (meta/sql)</h1>
 
@@ -1354,7 +1368,7 @@ ${pager}
 &lt;/script&gt;
 </code></pre>
 
-<h3 id="лимит-строк">Лимит строк</h3>
+<h3 id="лимит-строк-атрибут-max-rows">Лимит строк (атрибут max-rows)</h3>
 
 <p>По-умолчанию 50 000 строк данных будет нормально возвращаться для скрипта или любого другого запроса в БД.
 Если строк придет больше, то скрипт вернет ошибку и не вернет результатов.
@@ -1364,7 +1378,7 @@ ${pager}
 ...
 </code></pre>
 
-<h3 id="чтение-и-обновление-данных">Чтение и Обновление данных</h3>
+<h3 id="чтение-и-обновление-данных-атрибут-no-result">Чтение и Обновление данных (атрибут no-result)</h3>
 
 <p>По-умолчанию script выполняет функция query() в сервисе запросов к БД.
 Функция query ожидает, что запрос вернет результат, поэтому c SELECT все будет хорошо, а для INSERT, UPDATE, DELETE и пр
@@ -1657,16 +1671,24 @@ SELECT ........
 <ul>
 <li><a href="#мотивация">Мотивация</a>
 <ul>
-<li><a href="#атрибуты-elem-attrs">Атрибуты elem-attrs</a></li>
+<li><a href="#отображение-элементов-в-сетке">Отображение элементов в сетке</a>
+<ul>
+<li><a href="#атрибут-order">Атрибут order</a></li>
+<li><a href="#атрибут-span">Атрибут span</a></li>
+<li><a href="#атрибут-offset">Атрибут offset</a></li>
+<li><a href="#атрибут-align">Атрибут align</a></li>
+</ul></li>
 <li><a href="#ключевое-слово-internal">Ключевое слово internal</a></li>
 <li><a href="#условия-do-if">Условия do-if</a></li>
+<li><a href="#атрибут-exportable-по-умолчанию-true">Атрибут exportable (по умолчанию true)</a></li>
+<li><a href="#атрибут-analyzable-по-умолчанию-true">Атрибут analyzable (по умолчанию true)</a></li>
 </ul></li>
 <li><a href="#sql-управляемый-скрипт-meta-sql">SQL управляемый скрипт (meta/sql)</a>
 <ul>
 <li>
 <ul>
-<li><a href="#лимит-строк">Лимит строк</a></li>
-<li><a href="#чтение-и-обновление-данных">Чтение и Обновление данных</a></li>
+<li><a href="#лимит-строк-атрибут-max-rows">Лимит строк (атрибут max-rows)</a></li>
+<li><a href="#чтение-и-обновление-данных-атрибут-no-result">Чтение и Обновление данных (атрибут no-result)</a></li>
 </ul></li>
 </ul></li>
 <li><a href="#javascript-управляемый-скрипт-meta-js">JavaScript управляемый скрипт (meta/js)</a>

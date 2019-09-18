@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.42.2" />
+    <meta name="generator" content="Hugo 0.42.1" />
     <meta name="description" content="">
 
 
@@ -178,7 +178,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             <li data-nav-id="/guides/script_types/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/guides/script_types/" class="devsite-nav-title">
-                    <span>Типы скриптов</span>
+                    <span>Типы и атрибуты скриптов</span>
                 </a>
             </li>
             
@@ -1334,6 +1334,67 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 &lt;/elem&gt;
 </code></pre>
 
+<h3 id="открыть-карточку-объекта-сущности-при-клике-на-ее-название-в-списке">Открыть карточку объекта сущности при клике на ее название в списке</h3>
+
+<p>Обязательно изучите документацию документацию по <a href="https://developers.devision.io/meta/reference/ui_controls/typedoc/interfaces/_helpers_i_common_.ientitycardlink.html">IEntityCardLink</a>
+и изучите возможные <a href="https://developers.devision.io/meta/reference/ui_controls/typedoc/interfaces/_elems_i_me_table_.imetableattrs.html">атрибуты таблицы</a>.</p>
+
+<p>В данном примере код entityCardLink говорит, что при клике на название объекта будет происходить не переход на новую страницу, а будет открываться модальное окно с карточкой объекта.</p>
+
+<pre><code class="language-html">&lt;script type=&quot;meta/sql&quot; db-alias=&quot;adplatform&quot; id=&quot;res&quot; entity-id=&quot;2876&quot; order=&quot;100500&quot; 
+    elem-attrs='{&quot;addObjectButton&quot;:{&quot;title&quot;:&quot;Группа&quot;, &quot;mode&quot;:&quot;modal&quot;, &quot;env&quot;:{&quot;sp&quot;:{&quot;obj&quot;:{&quot;entity_id&quot;:2876}}} }}'
+         elem-attrs.entityCardLink.mode='modal' 
+        &gt;
+....
+</code></pre>
+
+<h3 id="открыть-карточку-выбранного-объекта-в-выпадающем-списке-me-input-type-select">Открыть карточку выбранного объекта в выпадающем списке (me-input type=select)</h3>
+
+<p>Например у вас сложная форма, где много инпутов и вам надо дать возможность быстро посмотреть карточку выбранного в одном из инпутов клиента.
+Для это используется атрибут элемента <a href="https://developers.devision.io/meta/reference/ui_controls/typedoc/interfaces/_elems_i_me_input_.imeinputattrs.html#fastviewobjectbutton">fastViewObjectButton</a>.</p>
+
+<p>Так же обратите внимание на параметр <em>addObjectButton</em> он позволяет настроить поведение инпута для добавления объекта в список, например удобно там открывать страницу добавления клиента.</p>
+
+<pre><code class="language-json">{
+  id: &quot;ex_access_id&quot;,
+  label: &quot;Доступ&quot;,
+  name: &quot;me-input&quot;,
+  refPvmData: {id: 'access_list', sp:{}, waitingId: 'wait_ex_access_for_google'},
+  attrs: {
+    type: &quot;select&quot;,
+    required: true,
+    fastViewObjectButton: {
+      drawActorList: false,
+      drawTopMenu: false,
+      modalSize: 'xs'
+    },
+    &quot;addObjectButton&quot;: {
+      &quot;mode&quot;: &quot;sidenav&quot;,
+      &quot;env&quot;: {
+        &quot;sp&quot;: {
+          &quot;obj&quot;: {
+            &quot;mode&quot;: &quot;feed&quot;,
+            &quot;ex_system_id&quot;: &quot;google_adwords&quot;
+          }
+        }
+      },
+      &quot;title&quot;: &quot;Подключить аккаунт&quot;
+    }
+  },
+  &quot;listen&quot;: [
+    {
+      &quot;code&quot;: [
+        &quot;ADD&quot;,
+        &quot;SET&quot;
+      ],
+      &quot;entityId&quot;: 2830,
+      &quot;refreshRefPvmData&quot;: {}
+    }
+  ],
+  &quot;entityId&quot;: 2830,
+}
+</code></pre>
+
 
 
 
@@ -1350,7 +1411,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <ul>
 <li><a href="#в-таблице-списке-объектов-сущности-вывести-страницу-в-контекстное-меню">В таблице списке объектов сущности вывести страницу в контекстное меню</a></li>
 <li><a href="#на-карточке-объекта-сущности-нужно-вывести-меню-действия-над-объектом">На карточке объекта сущности нужно вывести меню действия над объектом</a></li>
-<li><a href="#открыть-добавление-объекта-через-html">Открыть добавление объекта через html</a></li>
+<li><a href="#открыть-добавление-объекта-через-html">Открыть добавление объекта через html</a>
+<ul>
+<li><a href="#открыть-карточку-объекта-сущности-при-клике-на-ее-название-в-списке">Открыть карточку объекта сущности при клике на ее название в списке</a></li>
+<li><a href="#открыть-карточку-выбранного-объекта-в-выпадающем-списке-me-input-type-select">Открыть карточку выбранного объекта в выпадающем списке (me-input type=select)</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </nav>

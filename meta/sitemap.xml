@@ -3,6 +3,14 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://developers.devision.io/meta/guides/request_life_cycle/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.devision.io/meta/guides/script_types/</loc>
+  </url>
+  
+  <url>
     <loc>https://developers.devision.io/meta/work_with_data/datadiff/</loc>
   </url>
   
@@ -19,10 +27,6 @@
   </url>
   
   <url>
-    <loc>https://developers.devision.io/meta/guides/request_life_cycle/</loc>
-  </url>
-  
-  <url>
     <loc>https://developers.devision.io/meta/guides/entity_listeners/</loc>
   </url>
   
@@ -33,10 +37,6 @@
   
   <url>
     <loc>https://developers.devision.io/meta/guides/entity_handlers/</loc>
-  </url>
-  
-  <url>
-    <loc>https://developers.devision.io/meta/guides/script_types/</loc>
   </url>
   
   <url>

@@ -1272,6 +1272,109 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p>Пример использования:
 <a href="https://samples-demo.devision.io/page?p=4959&amp;a=35">https://samples-demo.devision.io/page?p=4959&amp;a=35</a></p>
 
+<p>Принципиально все достаточно просто - у вас есть DataResult и вы хотите его перегруппировать.
+Для этого сперва получаем данные, например sql запросом в скрипте <strong>res</strong>, а потом в отдельном meta/js скрипте делаем вызов DataTransformService.pivot
+с необходимыми параметрами.</p>
+
+<pre><code class="language-html">&lt;script type=&quot;meta/sql&quot; db-alias=&quot;meta_samples&quot; id=&quot;res&quot; entity-id=&quot;2629&quot; label=&quot;Исходные данные. Можно не выводить на интерфейс, тут просто для понимания исходных данных&quot; order=&quot;10&quot;&gt;
+SELECT 
+...
+json_build_object(
+  'pager', json_build_object('total', count(*) over()),
+  'headers', json_build_array(
+      ...
+  )
+) as table_props_field
+FROM &quot;public&quot;.&quot;employee&quot;
+&lt;/script&gt;
+
+&lt;script type=&quot;meta/js&quot; id=&quot;res_rows_cols&quot; span=&quot;6&quot; label=&quot;Rows and Cols&quot; order=&quot;20&quot;&gt;
+function main(pvm, DataTransformService) {
+return DataTransformService.pivot(pvm.data.res, {
+  rows: [&quot;isActive&quot;],
+  cols: [&quot;first_name&quot;],
+
+  metrics: [
+    {expression: &quot;salary&quot;},
+  ],
+
+  dimensionFilterClauses: [
+    {
+      operator: &quot;AND&quot;,
+      filters: [
+        {
+          dimensionName: &quot;name&quot;,
+          operator: &quot;IN_LIST&quot;,
+          expressions: [&quot;Юрий Гагарин&quot;, &quot;Дмитрий Медведев&quot;, &quot;Дмитрий Менделеев&quot;]
+        }
+      ]
+    }
+  ]
+});
+}
+&lt;/script&gt;
+</code></pre>
+
+<h3 id="pivotconfig">PivotConfig</h3>
+
+<pre><code class="language-json">{
+  // то, что группируется по строкам
+  &quot;rows&quot;: [&quot;name&quot;],
+  
+  // группировка по колонкам. (Не обязательно)
+  &quot;cols&quot;: [&quot;isActive&quot;],
+
+  // ограничение по строкам после группировки (Не обязательно). По умолчанию 0 - не заадано
+  &quot;limit&quot;: 10, 
+      
+  // Можно группировать существующие поля и описывать расчетные 
+  // За основу взято https://developers.google.com/analytics/devguides/reporting/core/v4/rest/v4/reports/batchGet#Metric
+  &quot;metrics&quot;: [
+    {&quot;expression&quot;: &quot;salary&quot;},
+    {&quot;expression&quot;: &quot;bigDecimal&quot;},
+    {&quot;expression&quot;: &quot;[metric:salary] / 10&quot;, &quot;alias&quot;: &quot;new_salary&quot;},
+    {&quot;expression&quot;: &quot;[metric:salary] * [metric:salary] * [metric:organizationId]&quot;, &quot;alias&quot;: &quot;multi_mul&quot;},
+  ],
+
+  // Сортировка (Не обязательно)
+  // Идет после группировки
+  &quot;orderBys&quot;: [
+    {&quot;fieldName&quot;: &quot;salary&quot;, &quot;sortOrder&quot;: &quot;DESC&quot;}
+  ],
+
+  // ограничение по строкам после группировки (Не обязательно). По умолчанию false
+  &quot;includeEmptyRows&quot;: false, 
+
+  &quot;dimensionFilterClauses&quot;: [
+    {
+      // Обязательно. Пока поддерживается только AND
+      &quot;operator&quot;: &quot;AND&quot;,
+      &quot;filters&quot;: [
+        {
+          // Делает условие обратным (Не обязательно)
+          // По умолчанию - false
+          &quot;not&quot;: false, 
+
+          // поле для фильров
+          &quot;dimensionName&quot;: &quot;name&quot;,
+
+          // Поддерживаются операторы IS_NULL, EXACT, PARTIAL, IN_LIST, BEGINS_WITH, ENDS_WITH
+          // за основу взят https://developers.google.com/analytics/devguides/reporting/core/v4/rest/v4/reports/batchGet#Operator
+          // По умолчанию EXACT
+          &quot;operator&quot;: &quot;IN_LIST&quot;,
+
+          // Строки и регулярные выражения для сопоставления.
+          // В целях сравнения используется только первое значение списка (кроме случаев, когда применяется оператор IN_LIST).
+          // Если применяется оператор IN_LIST, фильтрация параметров выполняется по всему списку фильтров, согласно описанию оператора IN_LIST.
+          // Для IS_NULL передавать не обязательно
+          &quot;expresions&quot;: [&quot;Юрий Гагарин&quot;, &quot;Дмитрий Медведев&quot;, &quot;Дмитрий Менделеев&quot;]
+        }
+      ]
+    }
+  ]
+}
+</code></pre>
+
 
 
 
@@ -1286,7 +1389,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <ul>
 <li>
 <ul>
-<li><a href="#мотивация">Мотивация</a></li>
+<li><a href="#мотивация">Мотивация</a>
+<ul>
+<li><a href="#pivotconfig">PivotConfig</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </nav>

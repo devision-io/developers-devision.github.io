@@ -27,7 +27,9 @@
       
       <guid>https://developers.devision.io/meta/work_with_data/datatransform/</guid>
       <description>Мотивация Когда надо выбрать много данных один раз и потом немного доагрегировать в разных плоскостях и пофильтровать, например для графиков или дашбордах данных из bigquery.
-Пример использования: https://samples-demo.devision.io/page?p=4959&amp;amp;a=35</description>
+Пример использования: https://samples-demo.devision.io/page?p=4959&amp;amp;a=35
+Принципиально все достаточно просто - у вас есть DataResult и вы хотите его перегруппировать. Для этого сперва получаем данные, например sql запросом в скрипте res, а потом в отдельном meta/js скрипте делаем вызов DataTransformService.pivot с необходимыми параметрами.
+&amp;lt;script type=&amp;quot;meta/sql&amp;quot; db-alias=&amp;quot;meta_samples&amp;quot; id=&amp;quot;res&amp;quot; entity-id=&amp;quot;2629&amp;quot; label=&amp;quot;Исходные данные.</description>
     </item>
     
     <item>

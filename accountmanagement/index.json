@@ -1,0 +1,36 @@
+[
+{
+	"uri": "https://developers.devision.io/accountmanagement/api/v1beta1/",
+	"title": "v1beta1",
+	"tags": [],
+	"description": "",
+	"content": "    // .swagger-ui .info hgroup.main window.onload = function () { // Build a system const ui = SwaggerUIBundle({ url: \"../v1beta1_accountmanagement.swagger.json\", // https://github.com/swagger-api/swagger-ui/blob/master/docs/usage/configuration.md dom_id: '#swagger-ui', deepLinking: true, displayOperationId: true, defaultModelsExpandDepth: 0, defaultModelExpandDepth: 100, defaultModelRendering: \"model\", supportedSubmitMethods: [], presets: [ SwaggerUIBundle.presets.apis, // SwaggerUIStandalonePreset ], plugins: [ SwaggerUIBundle.plugins.DownloadUrl ], layout: \"BaseLayout\", }) window.ui = ui }  "
+},
+{
+	"uri": "https://developers.devision.io/accountmanagement/",
+	"title": "Account Management",
+	"tags": [],
+	"description": "",
+	"content": " Account Management Высокоуровневые операции с аккаунтами внешних систем\nУправление бюджетом, создание аккаунтов в Яндекс Директе, Google Ads и пр\n"
+},
+{
+	"uri": "https://developers.devision.io/accountmanagement/api/",
+	"title": "Apis",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://developers.devision.io/accountmanagement/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://developers.devision.io/accountmanagement/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]

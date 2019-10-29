@@ -9,7 +9,7 @@
     <meta name="description" content="">
 
 
-    <title>Жизненный цикл запроса :: META | Devision Developers</title>
+    <title>ApiClientService :: META | Devision Developers</title>
     <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/guides/request_life_cycle/">
+  <body class="" data-url="/integrations/api_client/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -91,7 +91,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="/guides/" class="devsite-nav-item devsite-nav-item-main
-                        parent
+                        
                         
                         parent
                         ">
@@ -122,7 +122,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/guides/request_life_cycle/" class="devsite-nav-item dd-item active">
+            <li data-nav-id="/guides/request_life_cycle/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/guides/request_life_cycle/" class="devsite-nav-title">
                     <span>Жизненный цикл запроса</span>
                 </a>
@@ -585,7 +585,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="/integrations/" class="devsite-nav-item devsite-nav-item-main
-                        
+                        parent
                         
                         parent
                         ">
@@ -634,7 +634,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/integrations/api_client/" class="devsite-nav-item dd-item ">
+            <li data-nav-id="/integrations/api_client/" class="devsite-nav-item dd-item active">
                 <a href="https://developers.devision.io/meta/integrations/api_client/" class="devsite-nav-title">
                     <span>ApiClientService</span>
                 </a>
@@ -1316,7 +1316,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
- <a href='https://developers.devision.io/meta/'>META</a> > <a href='https://developers.devision.io/meta/guides/'>Руководства</a> > Жизненный цикл запроса
+ <a href='https://developers.devision.io/meta/'>META</a> > <a href='https://developers.devision.io/meta/integrations/'>Интеграции</a> > ApiClientService
 
 
 
@@ -1330,299 +1330,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <div id="body-inner">
           
-            <h1>Жизненный цикл запроса</h1>
+            <h1>ApiClientService</h1>
           
 
 
 
+<p>Если вы хотите работать со внутренними api Прямо из META</p>
 
-
-<h1 id="введение">Введение</h1>
-
-<div class="notices info" ><p>При чтении этого раздела вам могут понадобится подробности, описанные в разделе <a href="https://developers.devision.io/meta/guides/script_types/">Типы и атрибуты скриптов</a></p>
-</div>
-
-
-<h3 id="окружение-запроса">Окружение запроса</h3>
-
-<ul>
-<li><strong>env</strong> - объект-окружение запроса к серверу.</li>
-<li><strong>vm</strong> - объект для удобной работы с ответом клиенту. На лего странцах отдельный vm на каждый script.</li>
-<li><strong>pvm</strong> - только на LEGO-страницах. Отвечает за хранение данных на всех странце, содержит в себе vm script.</li>
-<li><strong>DataResult</strong> - низкоуровневый класс, отвечающий за ответ с данными по EntityPage. Его нельзя получить так как он никуда не передается,  существует вне script - над ним. Создается вручную при необходимости только в meta/js скриптах. Содержит в себе pvm, который в свою очередь и передается в страницы. В общем случае не рекомендуетсяим пользоваться без крайней необходимости, хотя он может быть полезен для построении таблиз из js на основе данных какого-либо api без сохранения в БД.</li>
-</ul>
-
-<h3 id="состояния-страниц">Состояния страниц</h3>
-
-<ul>
-<li>env.state - id текущего состояния страницы. Это можно сравнить с action в контроллере MVC. При первоначальной загрузке страница загружается с state=default, если у script или elem не указан states, то meta попытается их выполнить, если будут удовлетворены зависимости, указанные через depends</li>
-<li>env.sp - параметры состояния</li>
-</ul>
-
-<h2 id="выполенение-url-типа-page-пример-для-env-sp">Выполенение url типа /page. Пример для env.sp</h2>
-
-<p>Рассмотрим жизненный цикл на основе примера с обычной странице с таблицей и фильтром - <a href="https://apps.devision.io/page?p=3398&amp;a=35">https://apps.devision.io/page?p=3398&amp;a=35</a></p>
-
-<p>Итак, что происходит, когда пользоатель заходит на страницу:</p>
-
-<ul>
-<li>Backend получает указание загрузить pageId=3398 и applicationId=35 (Мы можем видеть это из url - параметры <strong>p</strong> и <strong>a</strong> соответственно /page?p=3398&amp;a=35)</li>
-<li>Backend проверяет соответствие ACL страницы и текущего пользователя
-
-<ul>
-<li>Если требуется авторизация, то пользователя редиректит на форму входа (или oauth с параметром retpath, который говорит куда нужно перебросить пользователя в случае успешной авторизации)</li>
-<li>Если авторизация не требуется, и ACL не удовлетворяет, то выдается 403</li>
-</ul></li>
-<li>Если все ок, то мета отдает html страницу в теле которой указаны данные пользователя и список страниц текущего приложения (именно поэтому сейчас требуется f5 при изменении параметров или набора страниц)</li>
-<li>UI инициализирует компонент me-page с pageId и пр</li>
-<li>me-page начинает разрешать зависимости по текущему env и запрашивает данные путем вызова backend api /api/meta/page (вы можете наблюдать вызовы в chrome debugger)</li>
-<li>После получения данных me-page начинает рисовать root lego страницы. Это то, что страница вернула через описание через <strong>script</strong> и <strong>elem</strong></li>
-<li>Надо  сразу упомянуть, что после отрисовки root lego, если он имеет зависимости refPvmData, me-page по аналогиис первичным запуском будет пытаться разрешить и их до тех пор, пока все не будет разрешено или не вернется ошибка или пустой ответ<br /></li>
-</ul>
-
-<pre><code class="language-html">&lt;!-- 
-Это скрипт с типом sql, который:
- - имеет id=period (т.е. будет доступен в env.sp.period)
- - запрашивает данные из БД с альясом meta_samples
- - будет оторажаться как me-input с типом daterange (elem=&quot;me-input&quot; elem-attrs='{&quot;type&quot;:&quot;daterange&quot;}') - это элемент пользовательского ввода в виде периода дат
- - имеет дефолт {&quot;from&quot;:&quot;2014-12-01&quot;, &quot;to&quot;:&quot;2015-03-01&quot;} . Т.е. при первоначальной загрузке страницы уже будет иметь значение. Это очень удобно для отчетов
- - Имеет приоритет вывода 10 (order)
- - Занимает 4 ячейки в горизонтальной сетке (span)
- - live-reload говорит о том, что при изменении значения инмупа страница будет обновлена с новым значением env.sp.period. Обычно это заменятеся атрибутом page-search, но для этой страницы он не нужен
---&gt;
-&lt;script type=&quot;meta/sql&quot; id=&quot;period&quot; db-alias=&quot;meta_samples&quot; 
-    default='{&quot;from&quot;:&quot;2014-12-01&quot;, &quot;to&quot;:&quot;2015-03-01&quot;}' elem=&quot;me-input&quot; order=&quot;10&quot; span=&quot;4&quot;
-    elem-attrs='{&quot;type&quot;:&quot;daterange&quot;}' live-reload&gt;
-  SELECT 1
+<pre><code class="language-html">&lt;script id=&quot;res&quot; type=&quot;meta/js&quot;&gt;
+function main(ApiClientService, vm) {
+  var apiclient = ApiClientService.buildClient(&quot;accountmanagement&quot;, &quot;v1beta1&quot;);
+  vm.data = apiclient.request(&quot;POST&quot;, &quot;budget-order/get&quot;, {
+    &quot;access_scope&quot;: {
+      &quot;client_id&quot;: &quot;28&quot;,
+      &quot;agency_account&quot;: &quot;larisoll2323@gmail.com&quot;,
+      &quot;operation_id&quot;: MetaUtils.uuid.randomUUID()
+    },
+    &quot;engine&quot;: &quot;GOOGLE_ADS&quot;,
+    &quot;account&quot;: &quot;9012273876&quot;
+  }).getMap();
+}
 &lt;/script&gt;
 
-&lt;!-- 
-Теги elem используется для простых пользовательских шаблонов.
-Обычно это не рекомендуется делать, так как переход на другие ui фреймворки будет усложнено, но иногда так проще всего
-
-UI template.
-Вы можете наблюдать вот такой вызов в шаблоне {{env.sp|json}} эта строка будет выводить env.sp в виде json через систему шаблонов angularjs. 
-Работает на frontend. В общем случае так делать не рекомендуется, так как поддержка angularjs скоро прекращается и придется переписывать такие вызовы.
-
-Backenf template.
-Это ${env.sp} работает freemarker - java шаблонизатор, работает на backend до того, как root lego будет возвращен на frontend.
---&gt;
-&lt;elem order=&quot;11&quot; span=&quot;3&quot;&gt;
+&lt;elem&gt;
   &lt;tpl&gt;
-    &lt;p&gt;
-      Тут в тесте мы проверяем, что stateParams теперь всегда и везде приходят как env.sp
-    &lt;/p&gt;
-    &lt;table class=&quot;table table-bordered&quot; style=&quot;max-width: 500px&quot;&gt;
-      &lt;tr&gt;
-        &lt;td&gt;Frontend angularjs state params&lt;/td&gt;
-        &lt;td class=&quot;angular-sp&quot;&gt;{{env.sp|json}}&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-        &lt;td&gt;Backend JS state params&lt;/td&gt;
-        &lt;td class=&quot;js-sp&quot;&gt;{{jsout.test|json}}&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-        &lt;td&gt;Template state params&lt;/td&gt;
-        &lt;td class=&quot;tpl-sp&quot;&gt;${env.sp}&lt;/td&gt;
-      &lt;/tr&gt;
-    &lt;/table&gt;
+    {{res|json}}
   &lt;/tpl&gt;
-  &lt;script type=&quot;meta/js&quot; id=&quot;jsout&quot;&gt;
-    function main(vm, env) {
-      vm.test = env.sp;
-    }
-  &lt;/script&gt;
 &lt;/elem&gt;
-
-&lt;!--
-Тут хорошо видно, что поле date приводится к типу date средствами postgresql и фильтруется данными из env.sp.period (:env.sp.period.from::date AND :env.sp.period.to::date)
-Это как раз те данные из элемента period, объявленного выше. 
-Поскольку атрибута elem нет, то данные по умолчанию выводятся в виде таблицы (то же самое было бы, если мы поставим elem=&quot;me-table&quot;)
-
-Если вам надо скрыть элемент, но вернуть данные на frontend используйте elem=&quot;hidden&quot;
-Если данные не должны уходить с сервера используйте атрибут internal
---&gt;
-&lt;script type=&quot;meta/sql&quot; db-alias=&quot;meta&quot; depends=&quot;period&quot; id=&quot;tbl&quot; order=&quot;50&quot;&gt;
-SELECT * FROM generate_series('2010-03-01 00:00'::timestamp,
-                '2016-03-04 12:00', '10 hours') as date
-WHERE date::date BETWEEN :env.sp.period.from::date AND :env.sp.period.to::date
-ORDER BY date
-${pager}
-&lt;/script&gt;
-</code></pre>
-
-<p>После того, как пользователь выбирает период дат в элементе period frontend посылает запрос в /api/meta/page с новым окружением,
-получает ответ и перерендеривает страницу. Все это пока меняет env.sp, но не env.state.</p>
-
-<h2 id="выполенение-url-типа-card-пример-для-env-state">Выполенение url типа /card. Пример для env.state</h2>
-
-<p>Хороший пример тут - <a href="https://apps.devision.io/page?p=5181&amp;a=35">https://apps.devision.io/page?p=5181&amp;a=35</a></p>
-
-<p>На странице видно список объектов, вы можете создать новый и отредактировать старый.
-Редактирование доступно как при клике на название объекта, так и при клике в контестном меню по пункту &ldquo;Быстрое редактирование&rdquo;
-при клике правой клавишей мыши на строке объекта.</p>
-
-<p>На странице редактирования объекта описано все поведение меты для выполнения запроса
-<a href="https://apps.devision.io/card?e=example_entity&amp;o=08f3395b-31f2-42c9-917e-a5f2b7bd4a95&amp;a=35">https://apps.devision.io/card?e=example_entity&amp;o=08f3395b-31f2-42c9-917e-a5f2b7bd4a95&amp;a=35</a></p>
-
-<pre><code class="language-html">&lt;!-- 
-Объявляем валидатор с depends от name. Параметр name в случае этой конкретной формы будет приходить как имя объекта.
-Такая валидация не обяъательна, это будет зависеть от конкретной формы. Часто это просто не надо.
---&gt;
-&lt;script id=&quot;name_validator&quot; type=&quot;meta/sql&quot; db-alias=&quot;meta_samples&quot; depends=&quot;name&quot;&gt;
-SELECT 'name_validator_unique' as id, 'Имя уже используется' as name FROM public.example_entity WHERE name = :env.sp.name LIMIT 1
-&lt;/script&gt;
-
-&lt;!-- 
-Для упрощения разработки форм мы договорились, что данные объекта сужности мы всегда извлеваем в скрипте с id=info с атрибутом internal (данный атрибут не дает данным уходить на frontend) 
---&gt;
-&lt;script type=&quot;meta/sql&quot; db-alias=&quot;meta_samples&quot; id=&quot;info&quot; internal states=&quot;default&quot;&gt;
-SELECT id, name, creation_time, last_user_id
-FROM public.example_entity
-WHERE id=NULLIF(:env.objectId, '0')::uuid
-LIMIT 1
-&lt;/script&gt;
-
-&lt;elem states=&quot;default&quot; order=&quot;190&quot;&gt;
-    &lt;tpl&gt;
-        &lt;!-- Форма при отправке будет метять env.state на save и поэтому будут исполняться скрипты6 которые описаны ниже и имеют states=&quot;save&quot; --&gt;
-        &lt;form name=&quot;editGroupForm&quot; ng-submit=&quot;changeState('save', {obj:env.sp.obj})&quot;&gt;
-            &lt;!-- 
-            Атрибут формы output важно делать именно env.sp.obj. 
-            В старом коде вы можете встретить другие значения, но в новых формах нужно всегда такой.
-            Это позволяет передавать в форму параметры через env.sp с внешних кнопок и других форм для первичного заполнения и в целом стандартизирует разработку.
-             --&gt;
-            &lt;me-lego elems=&quot;editCard.elems&quot; output=&quot;env.sp.obj&quot;&gt;&lt;/me-lego&gt;
-        &lt;/form&gt;
-    &lt;/tpl&gt;
-&lt;/elem&gt;
-
-&lt;script type=&quot;meta/js&quot; id=&quot;editCard&quot; elem=&quot;hidden&quot; states=&quot;default&quot;&gt;
-  function main(vm, pvm, env) {
-    // Получаем инфу из бд, если редактирвание или указываем значение по умолчанию
-    var info = pvm.data.info.notEmpty ? pvm.data.info.rows[0] : {};
-    // Не добавляейте в env секретные поля - эти данные уйдут в интерфейс
-    // Говорим мете, что при первичной загрузке страницы в env sp нужно положить данные из info в obj
-    // Далее они будут доступны как env.sp.obj
-    pvm.initEnvSp(env, {obj: info});
-
-    vm.elems = [
-      {
-        id: &quot;name&quot;,
-        label: &quot;Название&quot;,
-        span: 12,
-        name: &quot;me-input&quot;,
-        // Таким образом мы настраиваем валидатор на поле. 
-        // Подробный пример о валидаторах - https://apps.devision.io/page?p=3443&amp;a=35
-        refPvmValidator: {id: &quot;name_validator&quot;},
-        attrs: {
-          required: true,
-          min: 2,
-          max: 30
-        }
-      },
-
-      // Просто перенос строки
-      {name: &quot;newrow&quot;},
-      
-      // Кнопка отправки формы
-      {
-        id: &quot;submit&quot;,
-        name: &quot;me-submit&quot;,
-        attrs: {
-          value: '${i18n(&quot;common.saveButton&quot;)}'
-        }
-      }
-    ];
-  }
-&lt;/script&gt;
-
-&lt;!-- 
-В Postgres почти всегда хорошо делать INSERT ON CONFLICT DO UPDATE если вы не боитель роста инкремента в id (если он у вас имеет тип serial или bigserial)
---&gt;
-&lt;script type=&quot;meta/sql&quot; db-alias=&quot;meta_samples&quot; elem=&quot;hidden&quot; states=&quot;save&quot; id=&quot;upsert&quot;&gt;
-INSERT INTO example_entity (id, name, last_user_id)
-VALUES ( COALESCE(NULLIF(:env.objectId, '0')::uuid, uuid_generate_v4()), :env.sp.obj.name, :env.userId )
-ON CONFLICT (id) DO UPDATE SET
-  name = EXCLUDED.name
-RETURNING id;
-&lt;/script&gt;
-
-&lt;!-- 
-elem=&quot;hidden&quot; делает скрипт невидимым
-
-states может содержать список стейтов разделенных запятой, в нашем случае и обычно это не нужно. Если states не указан, что скрипт работает на всех стейтах
-states=&quot;save&quot; говорит о том, что скрипт будет выполнятся только при выполнении условия, что env.state IN (states)
---&gt;
-&lt;script type=&quot;meta/js&quot; elem=&quot;hidden&quot; states=&quot;save&quot;&gt;
-function main(pvm, vm, env, ObjectLogService) {
-  // Это простой относительно новый способ узнать работаем ли мы с уже созданным объектом или с новым. 
-  // Ранее использовалось сравнение с нулем - env.objectId == '0', но теперь в этом нет необходимости и можно использовать более явное условие
-  var isNew = !env.hasObjectId;
-  // Получаем ранее вставленный id или id из URL
-  var objectId = isNew ? pvm.data.upsert.rows[0].id : env.objectId;
-
-  if (isNew) {
-    // Это не обязательно, но обычно менеджер просит заредиректить пользователя на URL карточки свежесозданного объекта
-    pvm.redirect = {
-      url: &quot;/card?e=&quot; + env.entityId + &quot;&amp;o=&quot; + objectId + &quot;&amp;a=&quot; + env.applicationId
-    };
-  } else {
-    // Говорит о том, что надо вернуться к первоначальному состоянию страницы
-    // state=default
-    // firstLoading = true
-    pvm.toInitialState();
-    // Если страница будет открыта в модальном окне эта инструкция будет указывть мете, что окно надо закрыть
-    pvm.closeModal();
-  }
-  // Показать popup. В принципе popup, как и все эти инструкции кроме ObjectLogService.logValue можно ставить в любом порядке, 
-  // так как они будут реально выполнены ли на frontend или как toInitialState в конце обработки script
-  pvm.popup = {level: &quot;success&quot;, message: &quot;${i18n('common.saveSuccess')}&quot;};
-  // Залогировать действие над объектом сущности. Будет отгружено в БД и в логи, из логов обычно перемещается в BigQuery
-  ObjectLogService.logValue(env.entityId, objectId, isNew ? 'ADD' : 'SET', env.sp.obj);
-}
-&lt;/script&gt;
-</code></pre>
-
-<h3 id="код-примера">Код примера</h3>
-
-<p>Надо сказать, что обычно state меняется при сабмите формы, просто через html yе меняем, но этот пример может показать что происходит.</p>
-
-<p>Вот простой код для примера. Тут три ссылки, которые меняют состояние страницы.
-В script-ах указаны states, в которых script будет участвовать (будет выполняться).
-Если states для script или elem не указан, то script или elem участвует во всех state.</p>
-
-<pre><code class="language-html">&lt;elem&gt;
-&lt;tpl&gt;
-  &lt;a ng-click=&quot;changeState('first', {'foo':1})&quot;&gt;to first&lt;/a&gt; | 
-  &lt;a ng-click=&quot;changeState('two', {'bar':2})&quot;&gt;to two&lt;/a&gt; |
-  &lt;a ng-click=&quot;changeState('three', env.sp)&quot;&gt;to three&lt;/a&gt; |
-
-  &lt;hr&gt;    
-  state: {{env.state}}
-  &lt;br&gt;
-  &lt;pre&gt;{{env.sp|json}}&lt;/pre&gt;
-&lt;/tpl&gt;
-&lt;/elem&gt;
-
-&lt;script type=&quot;meta/sql&quot; db-alias=&quot;adplatform&quot; span=&quot;4&quot; states=&quot;first&quot;&gt;
-select 1
-&lt;/script&gt;
-
-&lt;script type=&quot;meta/sql&quot; db-alias=&quot;adplatform&quot; span=&quot;4&quot; states=&quot;two&quot;&gt;
-select 2
-&lt;/script&gt;
-
-&lt;script type=&quot;meta/sql&quot; db-alias=&quot;adplatform&quot; span=&quot;4&quot; states=&quot;first, two&quot;&gt;
-select 3
-&lt;/script&gt;
-
-&lt;script type=&quot;meta/js&quot; id=&quot;w&quot; states=&quot;three&quot;&gt;
-function main(vm, pvm, env) {
-  // Говорит мете, что страницу надо вернуть в изначальное состояние с параметрами по умолчанию
-  pvm.toInitialState();
-}
-&lt;/script&gt;
 </code></pre>
 
 
@@ -1635,23 +1369,7 @@ function main(vm, pvm, env) {
 </section>
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#введение">Введение</a>
-<ul>
-<li>
-<ul>
-<li><a href="#окружение-запроса">Окружение запроса</a></li>
-<li><a href="#состояния-страниц">Состояния страниц</a></li>
-</ul></li>
-<li><a href="#выполенение-url-типа-page-пример-для-env-sp">Выполенение url типа /page. Пример для env.sp</a></li>
-<li><a href="#выполенение-url-типа-card-пример-для-env-state">Выполенение url типа /card. Пример для env.state</a>
-<ul>
-<li><a href="#код-примера">Код примера</a></li>
-</ul></li>
-</ul></li>
-</ul>
-</nav>
+    
 </div>
 
 </div>

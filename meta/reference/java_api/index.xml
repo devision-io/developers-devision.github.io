@@ -20,6 +20,15 @@
     </item>
     
     <item>
+      <title>BillingService</title>
+      <link>https://developers.devision.io/meta/reference/java_api/billingservice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/reference/java_api/billingservice/</guid>
+      <description>   Метод и описание Возвращаемый тип     checkAddSkuUsage ( productId: String, skuId: String, plannedAddUsageAmount: long) void   init ( ) void    </description>
+    </item>
+    
+    <item>
       <title>CryptService</title>
       <link>https://developers.devision.io/meta/reference/java_api/cryptservice/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

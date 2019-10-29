@@ -432,6 +432,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
+            <li data-nav-id="/compoments/event_bus/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/compoments/event_bus/" class="devsite-nav-title">
+                    <span>Шина событий</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
             <li data-nav-id="/compoments/ticket/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/compoments/ticket/" class="devsite-nav-title">
                     <span>Тикеты</span>
@@ -590,6 +608,42 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     
 
 
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/integrations/billing/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/integrations/billing/" class="devsite-nav-title">
+                    <span>Billing</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/integrations/api_client/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/integrations/api_client/" class="devsite-nav-title">
+                    <span>ApiClientService</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
                     
                     
                     
@@ -947,6 +1001,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <li data-nav-id="/reference/java_api/apiclientservice/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/reference/java_api/apiclientservice/" class="devsite-nav-title">
                     <span>ApiClientService</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/reference/java_api/billingservice/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/reference/java_api/billingservice/" class="devsite-nav-title">
+                    <span>BillingService</span>
                 </a>
             </li>
             
@@ -1397,7 +1469,7 @@ LIMIT 1
         id: &quot;submit&quot;,
         name: &quot;me-submit&quot;,
         attrs: {
-          value: &quot;Сохранить&quot;
+          value: '${i18n(&quot;common.saveButton&quot;)}'
         }
       }
     ];
@@ -1415,7 +1487,7 @@ RETURNING id;
 
 &lt;script type=&quot;meta/js&quot; elem=&quot;hidden&quot; states=&quot;save&quot;&gt;
 function main(pvm, vm, env, ObjectLogService) {
-  var isNew = env.objectId == &quot;0&quot;;
+  var isNew = !env.hasObjectId;
   var objectId = isNew ? pvm.data.upsert.rows[0].id : env.objectId;
 
   if (isNew) {
@@ -1426,7 +1498,7 @@ function main(pvm, vm, env, ObjectLogService) {
     pvm.toInitialState();
     pvm.closeModal();
   }
-  pvm.popup = {level: &quot;success&quot;, message: &quot;Сохранено&quot;};
+  pvm.popup = {level: &quot;success&quot;, message: &quot;${i18n('common.saveSuccess')}&quot;};
   ObjectLogService.logValue(env.entityId, objectId, isNew ? 'ADD' : 'SET', env.sp.obj);
 }
 &lt;/script&gt;

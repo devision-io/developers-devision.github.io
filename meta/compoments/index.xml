@@ -6,9 +6,21 @@
     <description>Recent content in Компоненты on META | Devision Developers</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
+    <lastBuildDate>Mon, 24 Apr 2017 18:36:24 +0200</lastBuildDate>
     
 	<atom:link href="https://developers.devision.io/meta/compoments/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Шина событий</title>
+      <link>https://developers.devision.io/meta/compoments/event_bus/</link>
+      <pubDate>Mon, 24 Apr 2017 18:36:24 +0200</pubDate>
+      
+      <guid>https://developers.devision.io/meta/compoments/event_bus/</guid>
+      <description>Мотивация Нужно стремится делать компоненты системы масимально независимыми от бизнес-логики.
+Идеально, если при сохранении чего-то смотреть изменившиеся поля и понимать что именно надо выполнить по бизнес-процессу, если, например изменился только статус объекта, однако пока что это невозможно. Однако мы хотели сделать возможность подписываться на изменения объектов, чтобы не добавлять логику оповещения внутренних подсистем предприятия прямо в код страниц META.
+Пример: на карточке клиента при сохранении списка главных пользователей клиента надо записывать изменения в сторонюю CRM.</description>
+    </item>
     
     <item>
       <title>Тикеты</title>

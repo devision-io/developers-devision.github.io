@@ -33,6 +33,27 @@
     </item>
     
     <item>
+      <title>Billing</title>
+      <link>https://developers.devision.io/meta/integrations/billing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/integrations/billing/</guid>
+      <description>Java API
+Example
+&amp;lt;elem states=&amp;quot;default&amp;quot;&amp;gt; &amp;lt;tpl&amp;gt; &amp;lt;p&amp;gt; BillingService нужен для накладывания ограничений на доступный функционал &amp;lt;/p&amp;gt; &amp;lt;p class=&amp;quot;text-warning&amp;quot;&amp;gt; Для просмотра логов откройте chrome devtools console и включили dev mode в мете. &amp;lt;/p&amp;gt; &amp;lt;a ng-click=&amp;quot;changeState(&#39;test_in_js&#39;, {})&amp;quot; href&amp;gt;Go To JS&amp;lt;/a&amp;gt; &amp;lt;/tpl&amp;gt; &amp;lt;/elem&amp;gt; &amp;lt;script type=&amp;quot;meta/js&amp;quot; id=&amp;quot;ex0&amp;quot; states=&amp;quot;test_in_js&amp;quot;&amp;gt; function main(log) { log.info(&#39;ex0 выполняется в любом случае, так как он перед проверкой по биллингу&#39;); } &amp;lt;/script&amp;gt; &amp;lt;script type=&amp;quot;meta/js&amp;quot; id=&amp;quot;ex1&amp;quot; states=&amp;quot;test_in_js&amp;quot;&amp;gt; function main(log, env, vm, pvm, BillingService) { log.</description>
+    </item>
+    
+    <item>
+      <title>ApiClientService</title>
+      <link>https://developers.devision.io/meta/integrations/api_client/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/integrations/api_client/</guid>
+      <description>Если вы хотите работать со внутренними api Прямо из META
+&amp;lt;script id=&amp;quot;res&amp;quot; type=&amp;quot;meta/js&amp;quot;&amp;gt; function main(ApiClientService, vm) { var apiclient = ApiClientService.buildClient(&amp;quot;accountmanagement&amp;quot;, &amp;quot;v1beta1&amp;quot;); vm.data = apiclient.request(&amp;quot;POST&amp;quot;, &amp;quot;budget-order/get&amp;quot;, { &amp;quot;access_scope&amp;quot;: { &amp;quot;client_id&amp;quot;: &amp;quot;28&amp;quot;, &amp;quot;agency_account&amp;quot;: &amp;quot;larisoll2323@gmail.com&amp;quot;, &amp;quot;operation_id&amp;quot;: MetaUtils.uuid.randomUUID() }, &amp;quot;engine&amp;quot;: &amp;quot;GOOGLE_ADS&amp;quot;, &amp;quot;account&amp;quot;: &amp;quot;9012273876&amp;quot; }).getMap(); } &amp;lt;/script&amp;gt; &amp;lt;elem&amp;gt; &amp;lt;tpl&amp;gt; {{res|json}} &amp;lt;/tpl&amp;gt; &amp;lt;/elem&amp;gt;  </description>
+    </item>
+    
+    <item>
       <title>DataDiffService</title>
       <link>https://developers.devision.io/meta/work_with_data/datadiff/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -99,6 +120,17 @@
  Сделать скрипт cо state и id равному типу обработчика.
   Например:
 &amp;lt;script type=&amp;quot;...&amp;quot; id=&amp;quot;check_access&amp;quot; state=&amp;quot;check_access&amp;quot;&amp;gt; SELECT (CASE WHEN author_user_id = :env.userId THEN 200 ELSE 403 END) as status_code FROM pubic.</description>
+    </item>
+    
+    <item>
+      <title>Шина событий</title>
+      <link>https://developers.devision.io/meta/compoments/event_bus/</link>
+      <pubDate>Mon, 24 Apr 2017 18:36:24 +0200</pubDate>
+      
+      <guid>https://developers.devision.io/meta/compoments/event_bus/</guid>
+      <description>Мотивация Нужно стремится делать компоненты системы масимально независимыми от бизнес-логики.
+Идеально, если при сохранении чего-то смотреть изменившиеся поля и понимать что именно надо выполнить по бизнес-процессу, если, например изменился только статус объекта, однако пока что это невозможно. Однако мы хотели сделать возможность подписываться на изменения объектов, чтобы не добавлять логику оповещения внутренних подсистем предприятия прямо в код страниц META.
+Пример: на карточке клиента при сохранении списка главных пользователей клиента надо записывать изменения в сторонюю CRM.</description>
     </item>
     
     <item>
@@ -269,6 +301,15 @@ server { listen *:80; server_name example.com; charset utf8; location / { proxy_
       
       <guid>https://developers.devision.io/meta/reference/java_api/apiclientservice/</guid>
       <description>   Метод и описание Возвращаемый тип     buildClient ( apiName: String, apiVersion: String) ApiClient    </description>
+    </item>
+    
+    <item>
+      <title>BillingService</title>
+      <link>https://developers.devision.io/meta/reference/java_api/billingservice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/reference/java_api/billingservice/</guid>
+      <description>   Метод и описание Возвращаемый тип     checkAddSkuUsage ( productId: String, skuId: String, plannedAddUsageAmount: long) void   init ( ) void    </description>
     </item>
     
     <item>

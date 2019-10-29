@@ -432,6 +432,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
+            <li data-nav-id="/compoments/event_bus/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/compoments/event_bus/" class="devsite-nav-title">
+                    <span>Шина событий</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
             <li data-nav-id="/compoments/ticket/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/compoments/ticket/" class="devsite-nav-title">
                     <span>Тикеты</span>
@@ -590,6 +608,42 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     
 
 
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/integrations/billing/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/integrations/billing/" class="devsite-nav-title">
+                    <span>Billing</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/integrations/api_client/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/integrations/api_client/" class="devsite-nav-title">
+                    <span>ApiClientService</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
                     
                     
                     
@@ -947,6 +1001,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <li data-nav-id="/reference/java_api/apiclientservice/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/reference/java_api/apiclientservice/" class="devsite-nav-title">
                     <span>ApiClientService</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/reference/java_api/billingservice/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/reference/java_api/billingservice/" class="devsite-nav-title">
+                    <span>BillingService</span>
                 </a>
             </li>
             
@@ -1390,8 +1462,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 Для некоторых элементов</p>
 
 <p><h3 id="depends_415">depends (string)</h3>
-Указываться от корневого me-lego вставленного через html
-Так же есть возможность делать зависимости от текущего уровня иерархии, это удобно, когда неизвестна родительская вложенность.
+Указываться от корневого me-lego вставленного через html.
+Работает только когда у элемента есть параметр refPvmData и refPvmData с depends и зависимость еще не загружена.
+Также есть возможность делать зависимости от текущего уровня иерархии, это удобно, когда неизвестна родительская вложенность.
 Например, когда у вас одна и та же динамическая форма подгружается в
 разных местах приложения на разном уровне вложенности или даже в me-lego-list иногда</p>
 

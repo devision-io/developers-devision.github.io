@@ -432,6 +432,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
+            <li data-nav-id="/compoments/event_bus/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/compoments/event_bus/" class="devsite-nav-title">
+                    <span>Шина событий</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
             <li data-nav-id="/compoments/ticket/" class="devsite-nav-item dd-item active">
                 <a href="https://developers.devision.io/meta/compoments/ticket/" class="devsite-nav-title">
                     <span>Тикеты</span>
@@ -590,6 +608,42 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     
 
 
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/integrations/billing/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/integrations/billing/" class="devsite-nav-title">
+                    <span>Billing</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/integrations/api_client/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/integrations/api_client/" class="devsite-nav-title">
+                    <span>ApiClientService</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
                     
                     
                     
@@ -962,6 +1016,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
+            <li data-nav-id="/reference/java_api/billingservice/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/reference/java_api/billingservice/" class="devsite-nav-title">
+                    <span>BillingService</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
             <li data-nav-id="/reference/java_api/cryptservice/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/reference/java_api/cryptservice/" class="devsite-nav-title">
                     <span>CryptService</span>
@@ -1292,18 +1364,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 Если возможных исполнителей несколько и пользователь не выберет конкретного при создании тикета, то при добавлении тикета автоматически будет выбран первый из списка.</li>
 </ul>
 
-<p>Системные функции (нельзя менять):
-- get_issue_log_md: Возвращает детали по истории изменений тикета в формате markdown
-- get_issue_type_lego_form: Возвращает meta lego форму дополнительных полей для тикета
-- after_issue_self_change: Триггер для логирования истории изменения тикета
-- after_issue_msg_self_change: Триггер для логирования истории изменения комментариев тикета, а так же добавления участников тикета при упоминании их в комментариях
-- get_approve_status: Получить статус согласованности тикета (с kind=approval)</p>
+<p>Системные функции (нельзя менять):</p>
+
+<ul>
+<li>get_issue_log_md: Возвращает детали по истории изменений тикета в формате markdown</li>
+<li>get_issue_type_lego_form: Возвращает meta lego форму дополнительных полей для тикета</li>
+<li>after_issue_self_change: Триггер для логирования истории изменения тикета</li>
+<li>after_issue_msg_self_change: Триггер для логирования истории изменения комментариев тикета, а так же добавления участников тикета при упоминании их в комментариях</li>
+<li>get_approve_status: Получить статус согласованности тикета (с kind=approval)</li>
+</ul>
 
 <h3 id="получение-сложных-списков-для-полей-тикетов-get-issue-type-object-kind-options">Получение сложных списков для полей тикетов (get_issue_type_object_kind_options)</h3>
 
-<p>Что нужно сделать c вашим me-input:
- - добавить depends
- - добавить refPvmData</p>
+<p>Что нужно сделать c вашим me-input:</p>
+
+<ul>
+<li>добавить depends</li>
+<li>добавить refPvmData</li>
+</ul>
 
 <p>Пример элемента со сложной зависимостью от других с подгрузкой данных из get_issue_type_object_kind_options</p>
 
@@ -1369,9 +1447,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li>allowed_roles={meta.role.dev} потому, что вам сперва нужно все проверить и только потом открывать тип тикета на всех пользователей</li>
 </ul></li>
 
-<li><p>Реализуйте обработку получения деталей этого типа тикета в _get_issue_type_object<em>details</em></p></li>
+<li><p>Реализуйте обработку получения деталей этого типа тикета в get_issue_type_object_details</p></li>
 
-<li><p>Реализуйте получение списка возможных исполнителей в _get_issue_assignee<em>variants</em></p></li>
+<li><p>Реализуйте получение списка возможных исполнителей в get_issue_assignee_variants</p></li>
 </ul>
 
 <h4 id="тип-задача-kind-issue">Тип: Задача (kind=issue)</h4>

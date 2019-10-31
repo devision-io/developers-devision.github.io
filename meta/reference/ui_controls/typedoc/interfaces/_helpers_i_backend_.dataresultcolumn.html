@@ -85,6 +85,7 @@
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_helpers_i_backend_.dataresultcolumn.html#columns" class="tsd-kind-icon">columns</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_helpers_i_backend_.dataresultcolumn.html#decimals" class="tsd-kind-icon">decimals</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_helpers_i_backend_.dataresultcolumn.html#displayname" class="tsd-kind-icon">display<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_helpers_i_backend_.dataresultcolumn.html#hideintable" class="tsd-kind-icon">hide<wbr>InTable</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_helpers_i_backend_.dataresultcolumn.html#hidenameinparentcolumn" class="tsd-kind-icon">hide<wbr>Name<wbr>InParent<wbr>Column</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_helpers_i_backend_.dataresultcolumn.html#isprimary" class="tsd-kind-icon">is<wbr>Primary</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_helpers_i_backend_.dataresultcolumn.html#istitle" class="tsd-kind-icon">is<wbr>Title</a></li>
@@ -109,7 +110,7 @@
 					<div class="tsd-signature tsd-kind-icon">columns<span class="tsd-signature-symbol">:</span> <a href="_helpers_i_backend_.dataresultcolumn.html" class="tsd-signature-type">DataResultColumn</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in helpers/i.backend.ts:103</li>
+							<li>Defined in helpers/i.backend.ts:109</li>
 						</ul>
 					</aside>
 				</section>
@@ -119,7 +120,7 @@
 					<div class="tsd-signature tsd-kind-icon">decimals<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in helpers/i.backend.ts:84</li>
+							<li>Defined in helpers/i.backend.ts:90</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -147,6 +148,26 @@
 							<p>Отображаемое имя колонки
 							Если не передавать, то мета сама его вычисляет путем нормализации имени колонки из БД</p>
 						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="hideintable" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> hide<wbr>InTable</h3>
+					<div class="tsd-signature tsd-kind-icon">hide<wbr>InTable<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in helpers/i.backend.ts:72</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>true, если надо скрыть поле в обычной таблице</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>default</dt>
+							<dd><p>false</p>
+							</dd>
+						</dl>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
@@ -237,7 +258,7 @@
 					<div class="tsd-signature tsd-kind-icon">oneline<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in helpers/i.backend.ts:78</li>
+							<li>Defined in helpers/i.backend.ts:84</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -275,7 +296,7 @@
 					<div class="tsd-signature tsd-kind-icon">right<wbr>Align<wbr>Column<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in helpers/i.backend.ts:101</li>
+							<li>Defined in helpers/i.backend.ts:107</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -290,7 +311,7 @@
 					<div class="tsd-signature tsd-kind-icon">tooltip<span class="tsd-signature-symbol">:</span> <a href="_helpers_i_common_.itooltip.html" class="tsd-signature-type">ITooltip</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in helpers/i.backend.ts:89</li>
+							<li>Defined in helpers/i.backend.ts:95</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -305,7 +326,7 @@
 					<div class="tsd-signature tsd-kind-icon">unit<span class="tsd-signature-symbol">:</span> <a href="_helpers_i_common_.iunit.html" class="tsd-signature-type">IUnit</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in helpers/i.backend.ts:95</li>
+							<li>Defined in helpers/i.backend.ts:101</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -321,7 +342,7 @@
 					<div class="tsd-signature tsd-kind-icon">width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in helpers/i.backend.ts:71</li>
+							<li>Defined in helpers/i.backend.ts:77</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -397,6 +418,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
 								<a href="_helpers_i_backend_.dataresultcolumn.html#displayname" class="tsd-kind-icon">display<wbr>Name</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="_helpers_i_backend_.dataresultcolumn.html#hideintable" class="tsd-kind-icon">hide<wbr>InTable</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
 								<a href="_helpers_i_backend_.dataresultcolumn.html#hidenameinparentcolumn" class="tsd-kind-icon">hide<wbr>Name<wbr>InParent<wbr>Column</a>

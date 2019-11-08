@@ -1375,7 +1375,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 &lt;/script&gt; 
 </code></pre>
 
-<h3 id="python-worker">Python worker</h3>
+<h3 id="python-worker-listener">Python worker (Listener)</h3>
 
 <pre><code class="language-python">from metasdk import MetaApp
 from metasdk.event_bus import Event
@@ -1414,6 +1414,30 @@ META.worker.debug_tasks = [{
 @META.worker.single_task
 def main(task):
     META.event_bus.accept(task)
+</code></pre>
+
+<h2 id="python-client">Python Client</h2>
+
+<p>Если вам надо спровоцировать запись в журнал с записью в Шину Событий.
+Вы должны вызвать журналирование, а в app-content вы должны иметь настроенные обработчики (listeners)</p>
+
+<pre><code class="language-python">from metasdk import MetaApp
+
+META = MetaApp()
+
+META.ObjectLogService.log({
+    &quot;userId&quot;: 10191,
+    &quot;entityId&quot;: 2671,
+    &quot;objectId&quot;: 53,
+    &quot;code&quot;: &quot;SET&quot;,
+    &quot;form&quot;: &quot;my_form&quot;, # optional
+    &quot;value&quot;: {  # optional
+        &quot;foo&quot;: &quot;bar&quot;,
+        &quot;subFoo&quot;: {
+            &quot;foo2&quot;: [1, 2, 3]
+        }
+    }
+})
 </code></pre>
 
 <h2 id="ограничения">Ограничения</h2>
@@ -1457,8 +1481,9 @@ def main(task):
 <li><a href="#как-работает">Как работает</a>
 <ul>
 <li><a href="#meta-страницы">META Страницы</a></li>
-<li><a href="#python-worker">Python worker</a></li>
+<li><a href="#python-worker-listener">Python worker (Listener)</a></li>
 </ul></li>
+<li><a href="#python-client">Python Client</a></li>
 <li><a href="#ограничения">Ограничения</a></li>
 <li><a href="#отказоустойчивость">Отказоустойчивость</a></li>
 <li><a href="#roadmap">ROADMAP</a></li>

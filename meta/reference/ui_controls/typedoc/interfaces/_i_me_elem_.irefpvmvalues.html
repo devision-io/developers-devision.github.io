@@ -100,14 +100,22 @@
 					<div class="tsd-signature tsd-kind-icon">additional<wbr>Partial<wbr>Load<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in i.me-elem.ts:336</li>
+							<li>Defined in i.me-elem.ts:345</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>Список script.id для выполнения для запросе данных через refPvmValue
-							Нужно редко, так как часто нужно вызывать только один скрипт по умолчанию</p>
+							Нужно редко, так как часто нужно вызывать только один скрипт по умолчанию.</p>
 						</div>
+						<p>Детальнее: например у вас есть:</p>
+						<ul>
+							<li>скрипт yyy который использует шаблонизацию freemarker и делает итерации по данным скрипта zzz</li>
+							<li>если сделать классический refPvmData: &quot;yyy&quot;, то он не отработает, сказав, что аблонизация не прошла или зависимости zzz не найдено</li>
+						</ul>
+						<p>Для решения задачи надо сделать так:
+						refPvmData: {&quot;id&quot;: &quot;yyy&quot;, &quot;sp&quot;:{}, &quot;additionalPartialLoad&quot;:[&quot;zzz&quot;]}</p>
+						<p>&quot;sp&quot;: {} обязательно прописать</p>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
@@ -116,7 +124,7 @@
 					<div class="tsd-signature tsd-kind-icon">data<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in i.me-elem.ts:366</li>
+							<li>Defined in i.me-elem.ts:375</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -196,7 +204,7 @@
 					<div class="tsd-signature tsd-kind-icon">waiting<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in i.me-elem.ts:373</li>
+							<li>Defined in i.me-elem.ts:382</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">

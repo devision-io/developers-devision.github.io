@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.42.1" />
+    <meta name="generator" content="Hugo 0.42.2" />
     <meta name="description" content="">
 
 
@@ -1375,6 +1375,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 &lt;/script&gt; 
 </code></pre>
 
+<h3 id="dispatchers">Dispatchers</h3>
+
+<p>Содержится в параметре dispatcher</p>
+
+<p>Будет использоваться для шины событий как клиент, который продуцирует полезную работу: запускает фоновые процессы, записыват логи, генерирует события в шину</p>
+
+<p>Примеры:</p>
+
+<ul>
+<li>meta.{META_APP_ALIAS} - мета-приложение</li>
+<li>appscript.{SERVICE_ID} - фоновый скрипт (включает в сещя обработчики шины событий)</li>
+<li>apiservice.{SERVICE_ID} - http апи сервисы</li>
+</ul>
+
 <h3 id="python-worker-listener">Python worker (Listener)</h3>
 
 <pre><code class="language-python">from metasdk import MetaApp
@@ -1384,7 +1398,7 @@ META = MetaApp()
 log = META.log
 
 # в декораторе вы долэны указать на какие типу уведомлений подписываетесь и начать обработку события
-@META.event_bus.listener(entity_id=&quot;2830&quot;, code=[&quot;ADD&quot;, &quot;SET&quot;], form_pattern=[&quot;*&quot;])
+@META.event_bus.listener(entity_id=&quot;2830&quot;, code=[&quot;ADD&quot;, &quot;SET&quot;], form_pattern=[&quot;*&quot;], dispatcher_pattern=[&quot;meta.garpun_feeds&quot;])
 def on_upsert_ex_access(event: Event):
     print(u&quot;on_upsert_ex_access = %s&quot; % str(event))
     print(u&quot;event.value = %s&quot; % str(event.value))
@@ -1481,6 +1495,7 @@ META.ObjectLogService.log({
 <li><a href="#как-работает">Как работает</a>
 <ul>
 <li><a href="#meta-страницы">META Страницы</a></li>
+<li><a href="#dispatchers">Dispatchers</a></li>
 <li><a href="#python-worker-listener">Python worker (Listener)</a></li>
 <li><a href="#python-client">Python Client</a></li>
 </ul></li>

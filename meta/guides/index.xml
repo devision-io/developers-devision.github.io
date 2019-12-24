@@ -104,6 +104,17 @@ nativeOptions можно использовать как вариант для �
     </item>
     
     <item>
+      <title>Тестирование</title>
+      <link>https://developers.devision.io/meta/guides/testing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/guides/testing/</guid>
+      <description>Для того, чтобы на локальной мете можно было войти из под какого-то юзера или запустить тестирование сделана возможность просто указать user_id из-под которого нужно далать авторизоваться&amp;amp;
+http://localhost:9999/?local_auth_user_id=XXX где XXX - user_id  Это работает только на тех сборках, где в глобальном конфиге указан isDevMode: true
+isDevMode: true &amp;lt;------------- Это нелья устанавливать в Production окружении isFetchDbsFromApi: true name: dev .....  </description>
+    </item>
+    
+    <item>
       <title>Интернационализация (i18n)</title>
       <link>https://developers.devision.io/meta/guides/i18n/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

@@ -16,7 +16,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/reference/java_api/apiclientservice/</guid>
-      <description>   Метод и описание Возвращаемый тип     buildClient ( apiName: String, apiVersion: String) ApiClient    </description>
+      <description>   Метод и описание Возвращаемый тип     buildClient ( apiName: String, apiVersion: String) ApiClient   buildClient ( schemaHostPostVersion: String) ApiClient    </description>
     </item>
     
     <item>
@@ -38,6 +38,15 @@
     </item>
     
     <item>
+      <title>CurrentUserService</title>
+      <link>https://developers.devision.io/meta/reference/java_api/currentuserservice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/reference/java_api/currentuserservice/</guid>
+      <description>   Метод и описание Возвращаемый тип     get ( ) MetaUser   getAuthentication ( ) Authentication   getCompanyId ( ) long   getId ( ) long   getIp ( ) String   getLanguage ( ) String   getLanguageId ( ) Integer   hasAuthentication ( ) boolean   hasRole ( role: String) boolean   isAnonymous ( ) boolean   isDebugMode ( ) boolean   isDeveloper ( ) boolean   isNotDeveloper ( ) boolean   reload ( ) void   rememberMe ( ) void   rememberMeIfTokenExistsInUrl ( ) void   setAuthenticate ( user: MetaUser) UsernamePasswordAuthenticationToken   userHasRole ( role: String) boolean    </description>
+    </item>
+    
+    <item>
       <title>DataDiffService</title>
       <link>https://developers.devision.io/meta/reference/java_api/datadiffservice/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -53,6 +62,15 @@
       
       <guid>https://developers.devision.io/meta/reference/java_api/datatransformservice/</guid>
       <description>   Метод и описание Возвращаемый тип     pivot ( in: DataResult, conf: PivotConfig) DataResult   pivot ( in: DataResult, conf: ScriptObjectMirror) DataResult   sum ( o1: Object, o2: Object) Object    </description>
+    </item>
+    
+    <item>
+      <title>EntityService</title>
+      <link>https://developers.devision.io/meta/reference/java_api/entityservice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/reference/java_api/entityservice/</guid>
+      <description>   Метод и описание Возвращаемый тип     buildForm ( entityId: String, formMode: FormMode) LegoElem   buildForm ( entityId: String, formMode: String) LegoElem   getObject ( entityId: String, objectId: String) DataResult    </description>
     </item>
     
     <item>
@@ -119,12 +137,30 @@
     </item>
     
     <item>
+      <title>MutateTableService</title>
+      <link>https://developers.devision.io/meta/reference/java_api/mutatetableservice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/reference/java_api/mutatetableservice/</guid>
+      <description>   Метод и описание Возвращаемый тип     mutate ( mutateJob: MutateJob) void   mutate ( request: MutateJobRequest) MutateJobResponse   mutate ( request: ScriptObjectMirror) MutateJobResponse    </description>
+    </item>
+    
+    <item>
       <title>ObjectLogService</title>
       <link>https://developers.devision.io/meta/reference/java_api/objectlogservice/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/reference/java_api/objectlogservice/</guid>
       <description>   Метод и описание Возвращаемый тип     buildLog ( ) Log   coreErrorEventTrack ( action: String, label: String, value: Long) void   coreEventTrack ( action: String, label: String) void   coreEventTrack ( action: String, label: String, value: Long) void   log ( entityId: String, objectId: Object, code: Code) void   log ( entityId: String, objectId: Object, code: String) void   log ( objectLog: Log) void   logValue ( entityId: String, objectId: Object, code: Code, value: Object) void   logValue ( entityId: String, objectId: Object, code: Code, value: Object, form: String) void   logValue ( entityId: String, objectId: Object, code: String, value: Object) void   logValue ( entityId: String, objectId: Object, code: String, value: Object, form: String) void    </description>
+    </item>
+    
+    <item>
+      <title>SmartFormService</title>
+      <link>https://developers.devision.io/meta/reference/java_api/smartformservice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/reference/java_api/smartformservice/</guid>
+      <description>   Метод и описание Возвращаемый тип     handle ( env: Map, originalEnv: Env, vm: ViewModel, pvm: ViewModel) void    </description>
     </item>
     
     <item>

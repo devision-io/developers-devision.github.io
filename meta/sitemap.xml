@@ -104,7 +104,15 @@
   </url>
   
   <url>
+    <loc>https://developers.devision.io/meta/guides/testing/</loc>
+  </url>
+  
+  <url>
     <loc>https://developers.devision.io/meta/guides/i18n/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.devision.io/meta/integrations/embedded_frames/</loc>
   </url>
   
   <url>
@@ -167,11 +175,19 @@
   </url>
   
   <url>
+    <loc>https://developers.devision.io/meta/reference/java_api/currentuserservice/</loc>
+  </url>
+  
+  <url>
     <loc>https://developers.devision.io/meta/reference/java_api/datadiffservice/</loc>
   </url>
   
   <url>
     <loc>https://developers.devision.io/meta/reference/java_api/datatransformservice/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.devision.io/meta/reference/java_api/entityservice/</loc>
   </url>
   
   <url>
@@ -203,7 +219,15 @@
   </url>
   
   <url>
+    <loc>https://developers.devision.io/meta/reference/java_api/mutatetableservice/</loc>
+  </url>
+  
+  <url>
     <loc>https://developers.devision.io/meta/reference/java_api/objectlogservice/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.devision.io/meta/reference/java_api/smartformservice/</loc>
   </url>
   
   <url>

@@ -52,6 +52,17 @@ Example
     </item>
     
     <item>
+      <title>Embedded Frames</title>
+      <link>https://developers.devision.io/meta/integrations/embedded_frames/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/integrations/embedded_frames/</guid>
+      <description>Пример на основе интеграции старого Garpun в новое META-приложение
+В Garpun мы разместили код
+&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt; function inIframe() { try { return window.self !== window.top; } catch (e) { return true; } } document.addEventListener(&amp;quot;DOMContentLoaded&amp;quot;, function () { if (inIframe()) { // Это мы использовали чтобы убрать ненужные кнопки document.body.classList.add(&amp;quot;garpunEmbedded&amp;quot;); } document.body.classList.remove(&amp;quot;garpunLoading&amp;quot;); }); // (metaframewatcher = window.metaframewatcher || []).push({ height_classes: [&#39;t_window&#39;, &#39;cover&#39;, &#39;stickyWrap&#39;, &#39;mainBox&#39;] }); if (inIframe()) { // Это не относится к задаче встраивания напрямую, но наверняка будет полезно для GTM для отключения виджетов поддержки и пр window[&#39;IS_EMBED_MODE&#39;] = true; // Размещаем загрузки интеграционного скрипта (function() { var lt = document.</description>
+    </item>
+    
+    <item>
       <title>Nginx Proxy Headers</title>
       <link>https://developers.devision.io/meta/integrations/nginx/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

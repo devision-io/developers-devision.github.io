@@ -168,11 +168,25 @@
 	"content": " METAQL - Это защищенный SQL для запросов к данным меты. Основан на синтаксисах Oracle + PostgreSQL. Призван дать хороший и безопасный API к данным таблиц или views ваших БД.\nОсобенности  Поддерживаются только SELECT запросы Поддерживается только AND условия Нельзя называть поля или алясы зарезарвированными именами: date Нет прообразований типов JOIN пока не поддерживаются  Функции В METAQL разрешены не все функции, ниже представлен список доступных на текущий момент.\nФункции агрегации  MIN, MAX, SUM, AGV COUNT(*), COUNT(DISTINCT поле)  Функции преобразований  ROUND CONCAT NULLIF TRIM COALESCE  Фильтрация WHERE Работают операторы сравнения:\n =, !=, \u0026gt;, \u0026lt;, \u0026gt;=, \u0026lt;= IN, NOT IN LIKE, NOT LIKE ILIKE, NOT ILIKE BETWEEN  Как сделать таблицу доступной через METAQL API ? Выполните следующие действия:\n1) Добавьте новую Сущность для своей таблицы (если нужно)\nОбязательно укажите alias. Alias должен быть указан в формате lower_camel_case. Добавить можно здесь: https://samples-demo.devision.io/page?p=62\u0026amp;a=1\nОпционально укажите metaql_where Это поле отвечает за безусловную фильтрацию данных при любом запросе к METAQL. Например для статистики хорошо фильтровать по доступным клиентам:\n#table.client_id in (select client_id from get_user_clients(${env.userId?number}) )  \u0026rsquo;#table\u0026rsquo; - это плейсхолдер metaql таблицы. он будет заменен на реальное имы при компиляции запроса\n2) Заполните поля Сущности\nОбязательно укажите alias. Alias должен быть указан в формате lower_camel_case.\nИспользование LEGO MetaQL можно использовать в lego формах для того, чтобы не делать отдельные script\nНапример это активно используется в тикетной системе, где из-за высокого уровня абстракции нет возможности хардкодить отдельные script-ы для получения данных\nОбратите внимание, что доступна фильтрация metaql по depends (\u0026ldquo;env.sp.org_id\u0026rdquo; из примера). Пример тут: https://samples-demo.devision.io/page?p=4528\u0026amp;a=35\nvar elems = [ // ... { id:\u0026quot;epl_list\u0026quot;, span: 4, label: \u0026quot;Сотрудники\u0026quot;, depends:[\u0026quot;org_id\u0026quot;], refPvmData: {id:\u0026quot;$metaql\u0026quot;, sp:{\u0026quot;dbQuery\u0026quot;: { command:\u0026quot; \\ SELECT id, name, salary \\ FROM meta_samples.employee \\ WHERE organization_id = :env.sp.org_id \\ ORDER BY name DESC \\ \u0026quot; }}}, }, { id:\u0026quot;epls_graph2\u0026quot;, label: \u0026quot;Стата\u0026quot;, name:\u0026quot;me-chart\u0026quot;, attrs: {\u0026quot;type\u0026quot;:[\u0026quot;line\u0026quot;, \u0026quot;table\u0026quot;], \u0026quot;nativeOptions\u0026quot;:{\u0026quot;vAxis\u0026quot;:{\u0026quot;logScale\u0026quot;:true}} }, refPvmData: {id:\u0026quot;$metaql\u0026quot;, sp:{\u0026quot;dbQuery\u0026quot;: { command:\u0026quot; \\ SELECT \\ stat_date, \\ SUM(impressions) as impressions, \\ SUM(clicks) as clicks, \\ SUM(cost) as cost \\ FROM adplatform.campaign_stats_report \\ WHERE client_id = 15759 \\ AND stat_date BETWEEN '2017-03-01' AND '2017-04-01' \\ GROUP BY stat_date \\ ORDER BY stat_date \\ \u0026quot; }}}, }, // ... ]  SDK Запрос к статистике AdHands SELECT engine as platform, campaign_remote_id, SUM(impressions) as impressions, SUM(clicks) as clicks, ROUND(SUM(cost), 3) as cost FROM adplatform.campaign_stats_report WHERE stat_date BETWEEN '2017-02-01' AND '2017-03-31' AND engine = 'banner' AND client_id IN (1, 2) GROUP BY platform, campaign_remote_id ORDER BY platform, campaign_remote_id  Запрос к шардированным данным системы Garpun SELECT match_type, count(id) as cnt FROM garpun_storage.keyword#{account_id} group by match_type  "
 },
 {
+	"uri": "https://developers.devision.io/meta/guides/testing/",
+	"title": "Тестирование",
+	"tags": [],
+	"description": "",
+	"content": "Для того, чтобы на локальной мете можно было войти из под какого-то юзера или запустить тестирование сделана возможность просто указать user_id из-под которого нужно далать авторизоваться\u0026amp;\nhttp://localhost:9999/?local_auth_user_id=XXX где XXX - user_id  Это работает только на тех сборках, где в глобальном конфиге указан isDevMode: true\nisDevMode: true \u0026lt;------------- Это нелья устанавливать в Production окружении isFetchDbsFromApi: true name: dev .....  "
+},
+{
 	"uri": "https://developers.devision.io/meta/guides/i18n/",
 	"title": "Интернационализация (i18n)",
 	"tags": [],
 	"description": "",
 	"content": " На системном уровне поддерживаются языки: ru, en.\n Для того, чтобы начать переводить нужно:\n добавить новые компоненты в таблицу meta.component, если текущих вам недостаточно разметить страницы копонентами в настройках старниц в app-content запустить i18n-app.py и собрать данные на перевод. если есть новые компоненты entity надо поместить в папку entity в компоненте  i18n-app.py отпарсит контент мета-страниц на наличие размерки перевода, а так же обойдет entity в app-content и соберет данные на перевод. Если в разметке entity если i18n_object, то скрипт скачает данные из таблицы этой entity и добавит данные на перевод в поле me_i18n. Так же скрипт пытается автоматически через google api перевести контент на перевод.\nФункции backend шаблонизации Для шаблонизации используется freemarker.org.\n ${i18n(String placeholder)} - Простой перевод ${i18n(String placeholder, String defaultText)} - Простой перевод с текстом по умолчанию ${i18n(String placeholder, List args, String? defaultText)} - Перевод с заменой плейсхолдеров в тексте. Плейсхолдеры выглядят как {0}, {1} и соответствуют индексу значения из списка args ${i18n_ename(String entityId)} - Получение имени Сущности ${i18n_efield(String entityId, String fieldName)} - Получение имени поля Сущности ${i18n_sql_ofield(String key)} - Получение перевода поля ${i18n_sql_ofield(String tableAlias, String key)} - Получение перевода поля в случае, если у вас больше одной таблицы в запросе и вам нужно указать альяс таблицы  Разметка entity id: '2701' name: Тикет i18n: true \u0026lt;---------- Указываем, что имя entity будет подвергаться переводу db_alias: meta schema: meta table: issue search_order: 100 object_list_base_page_id: '4176' fields: - alias: application_id db_type: text name: application_id - alias: assignee_user_id db_type: int8 name: assignee_user_id display_name: Исполнитель i18n: true - alias: creation_time db_type: timestamp display_name: Создано \u0026lt;---------- Указываем на базовом языке компонента i18n: true \u0026lt;---------- Указываем, для сбора на перевод указанного display_name is_read_only: true name: creation_time  id: '45' name: Продукт i18n: true \u0026lt;---------- Указываем, что имя entity будет подвергаться переводу i18n_object: \u0026lt;---------- Указываем для сбора записей из БД на перевод sql_where_clause: allowed_roles \u0026amp;\u0026amp; ARRAY['meta.role.auth', 'adhands.role.can_view_all_clients_yes'] \u0026lt;---------- Условие WHERE по которому будут отсекаться строки для перевода fields: - name: name \u0026lt;---------- Указываем для сбора записей из БД на перевод - name: description \u0026lt;---------- Указываем для сбора записей из БД на перевод db_alias: billing schema: public table: product search_order: 100 fields: - db_type: integer is_primary: true is_read_only: true name: id - db_type: text name: key - db_type: text is_required: true is_title: true name: name - db_type: description name: description  Перевод имени сущности Используется для lego или в label скриптов. Например перевод имени таблицы issue\n{ \u0026quot;label\u0026quot;: \u0026quot;${i18n_ename('2773')}\u0026quot;, \u0026quot;name\u0026quot;: \u0026quot;me-select\u0026quot; }  Перевод поля сущности Используется для lego или в label скриптов. Это например перевод имени поля таблицы issue\n{ \u0026quot;label\u0026quot;: \u0026quot;${i18n_efield(\u0026quot;2701\u0026quot;, \u0026quot;assignee_user_id\u0026quot;)}\u0026quot;, \u0026quot;name\u0026quot;: \u0026quot;me-select\u0026quot; }  Перевод поля объекта сущности Используется для перевода записей в таблицах, например, если вам нужно перевести список типов тикетов. Данные будут браться из поля me_i18n этой таблицы\n\u0026lt;script type=\u0026quot;meta/sql\u0026quot; id=\u0026quot;issue_status_ids\u0026quot; elem=\u0026quot;me-select\u0026quot; label=\u0026quot;\u0026quot; db-alias=\u0026quot;meta\u0026quot;\u0026gt; SELECT id, ${i18n_sql_ofield('name')} as name FROM meta.issue_status WHERE is_allowed ORDER BY 2 \u0026lt;/script\u0026gt;  Перевод страниц компонента на уровне компонента Парсер соберет данные на уровне компонента. Это нужно использовать когда этот текст не является названием Сущности или Поля сущности\n${i18n(\u0026quot;#.youCanceledChangeTariff\u0026quot;, \u0026quot;Вы отменили переход на тариф\u0026quot;)}  Функции frontend шаблонизации На уровне LEGO элемента, используются параметр i18n.\n[ { \u0026quot;id\u0026quot;: \u0026quot;login\u0026quot;, \u0026quot;i18n\u0026quot;: { \u0026quot;label\u0026quot;: \u0026quot;#.ex_system.login\u0026quot; }, \u0026quot;name\u0026quot;: \u0026quot;me-input\u0026quot;, \u0026quot;attrs\u0026quot;: { \u0026quot;type\u0026quot;: \u0026quot;text\u0026quot;, \u0026quot;required\u0026quot;: true }, \u0026quot;label\u0026quot;: \u0026quot;Логин\u0026quot; }, { \u0026quot;id\u0026quot;: \u0026quot;password\u0026quot;, \u0026quot;i18n\u0026quot;: { \u0026quot;label\u0026quot;: \u0026quot;ex_system.password\u0026quot; }, \u0026quot;name\u0026quot;: \u0026quot;me-input\u0026quot;, \u0026quot;attrs\u0026quot;: { \u0026quot;type\u0026quot;: \u0026quot;password\u0026quot;, \u0026quot;required\u0026quot;: true, \u0026quot;autocomplete\u0026quot;: \u0026quot;new-password\u0026quot; }, \u0026quot;label\u0026quot;: \u0026quot;Пароль\u0026quot; } ]  "
+},
+{
+	"uri": "https://developers.devision.io/meta/integrations/embedded_frames/",
+	"title": "Embedded Frames",
+	"tags": [],
+	"description": "",
+	"content": "Пример на основе интеграции старого Garpun в новое META-приложение\nВ Garpun мы разместили код\n\u0026lt;script type=\u0026quot;text/javascript\u0026quot;\u0026gt; function inIframe() { try { return window.self !== window.top; } catch (e) { return true; } } document.addEventListener(\u0026quot;DOMContentLoaded\u0026quot;, function () { if (inIframe()) { // Это мы использовали чтобы убрать ненужные кнопки document.body.classList.add(\u0026quot;garpunEmbedded\u0026quot;); } document.body.classList.remove(\u0026quot;garpunLoading\u0026quot;); }); // (metaframewatcher = window.metaframewatcher || []).push({ height_classes: ['t_window', 'cover', 'stickyWrap', 'mainBox'] }); if (inIframe()) { // Это не относится к задаче встраивания напрямую, но наверняка будет полезно для GTM для отключения виджетов поддержки и пр window['IS_EMBED_MODE'] = true; // Размещаем загрузки интеграционного скрипта (function() { var lt = document.createElement('script'); lt.type ='text/javascript'; lt.src = 'https://app.garpun.com/_b/meta-element/iframe-content-watcher.js'; var sc = document.getElementsByTagName('script')[0]; if ( sc ) sc.parentNode.insertBefore(lt, sc); else document.documentElement.firstChild.appendChild(lt); })(); } \u0026lt;/script\u0026gt;  На странице META размещаем такой код\n\u0026lt;script type=\u0026quot;meta/js\u0026quot; id=\u0026quot;token\u0026quot; internal\u0026gt; function main(env, vm, OAuthService) { // генерируем токен авторизации vm.accessToken = OAuthService.getAccessToken(env.userId, ['userinfo.profile']); } \u0026lt;/script\u0026gt; \u0026lt;!-- baseUrl - посадочная accessToken - токен авторизации, доступен в amp.garpun.com так как он переведен на общую авторизацию account.garpun.com minAbsHeightDiff - минимальное изменение высоты на которое сработает ресайз iframe. Будет зависеть от вашего случая handleUrls - набор правил переадресации, чтобы например при клите со списка алгоритмов внутри iframe мы могли открыть алгоритм не внутри iframe, а как url меты, т.е. карточку алгоритма в meta приложении --\u0026gt; \u0026lt;elem id=\u0026quot;garpunUrl\u0026quot; name=\u0026quot;me-iframe\u0026quot; order=\u0026quot;0\u0026quot; attrs='{ \u0026quot;baseUrl\u0026quot;:\u0026quot;https://amp.garpun.com/interface/clients/algorithms/?adHandsClientId=${env.objectId}\u0026quot;, \u0026quot;accessToken\u0026quot;:\u0026quot;${pvm.data.token.vm.accessToken}\u0026quot;, \u0026quot;minAbsHeightDiff\u0026quot;: 90, \u0026quot;handleUrls\u0026quot;: [ {\u0026quot;regexp\u0026quot;: \u0026quot;add-algorithm\\\\?algorithmId=(\\\\d+)\u0026quot;, \u0026quot;goTo\u0026quot;: \u0026quot;/card?e=182\u0026amp;o=$1\u0026amp;a=${env.applicationId}\u0026quot;} ] }' \u0026gt;\u0026lt;/elem\u0026gt;  "
 },
 {
 	"uri": "https://developers.devision.io/meta/integrations/nginx/",
@@ -249,7 +263,7 @@
 	"title": "ApiClientService",
 	"tags": [],
 	"description": "",
-	"content": "   Метод и описание Возвращаемый тип     buildClient ( apiName: String, apiVersion: String) ApiClient    "
+	"content": "   Метод и описание Возвращаемый тип     buildClient ( apiName: String, apiVersion: String) ApiClient   buildClient ( schemaHostPostVersion: String) ApiClient    "
 },
 {
 	"uri": "https://developers.devision.io/meta/reference/java_api/billingservice/",
@@ -273,6 +287,13 @@
 	"content": "   Метод и описание Возвращаемый тип     checkJWTExpire ( decodedJWT: DecodedJWT) void   decode ( str: String) String   decodeJSONObj ( str: String, clazz: Class) Object   encode ( str: String) String   encode ( str: String, expiresAt: Date) String   encodeJSONObj ( obj: Object) String   encodeJSONObj ( obj: Object, validTime: String) String    "
 },
 {
+	"uri": "https://developers.devision.io/meta/reference/java_api/currentuserservice/",
+	"title": "CurrentUserService",
+	"tags": [],
+	"description": "",
+	"content": "   Метод и описание Возвращаемый тип     get ( ) MetaUser   getAuthentication ( ) Authentication   getCompanyId ( ) long   getId ( ) long   getIp ( ) String   getLanguage ( ) String   getLanguageId ( ) Integer   hasAuthentication ( ) boolean   hasRole ( role: String) boolean   isAnonymous ( ) boolean   isDebugMode ( ) boolean   isDeveloper ( ) boolean   isNotDeveloper ( ) boolean   reload ( ) void   rememberMe ( ) void   rememberMeIfTokenExistsInUrl ( ) void   setAuthenticate ( user: MetaUser) UsernamePasswordAuthenticationToken   userHasRole ( role: String) boolean    "
+},
+{
 	"uri": "https://developers.devision.io/meta/reference/java_api/datadiffservice/",
 	"title": "DataDiffService",
 	"tags": [],
@@ -285,6 +306,13 @@
 	"tags": [],
 	"description": "",
 	"content": "   Метод и описание Возвращаемый тип     pivot ( in: DataResult, conf: PivotConfig) DataResult   pivot ( in: DataResult, conf: ScriptObjectMirror) DataResult   sum ( o1: Object, o2: Object) Object    "
+},
+{
+	"uri": "https://developers.devision.io/meta/reference/java_api/entityservice/",
+	"title": "EntityService",
+	"tags": [],
+	"description": "",
+	"content": "   Метод и описание Возвращаемый тип     buildForm ( entityId: String, formMode: FormMode) LegoElem   buildForm ( entityId: String, formMode: String) LegoElem   getObject ( entityId: String, objectId: String) DataResult    "
 },
 {
 	"uri": "https://developers.devision.io/meta/reference/java_api/gaservice/",
@@ -336,11 +364,25 @@
 	"content": "   Метод и описание Возвращаемый тип     createMetaDataSourceInstance ( db: CDatabase) MetaDataSource   eraseDBPool ( ) void   getDatabaseType ( dbAlias: String) DatabaseType   getMDSource ( dbAlias: String) MetaDataSource   getMetaDS ( ) JdbcMetaDataSource   getMetaJdbcTemplate ( ) JdbcTemplate   getRedis ( ) RedissonClient    "
 },
 {
+	"uri": "https://developers.devision.io/meta/reference/java_api/mutatetableservice/",
+	"title": "MutateTableService",
+	"tags": [],
+	"description": "",
+	"content": "   Метод и описание Возвращаемый тип     mutate ( mutateJob: MutateJob) void   mutate ( request: MutateJobRequest) MutateJobResponse   mutate ( request: ScriptObjectMirror) MutateJobResponse    "
+},
+{
 	"uri": "https://developers.devision.io/meta/reference/java_api/objectlogservice/",
 	"title": "ObjectLogService",
 	"tags": [],
 	"description": "",
 	"content": "   Метод и описание Возвращаемый тип     buildLog ( ) Log   coreErrorEventTrack ( action: String, label: String, value: Long) void   coreEventTrack ( action: String, label: String) void   coreEventTrack ( action: String, label: String, value: Long) void   log ( entityId: String, objectId: Object, code: Code) void   log ( entityId: String, objectId: Object, code: String) void   log ( objectLog: Log) void   logValue ( entityId: String, objectId: Object, code: Code, value: Object) void   logValue ( entityId: String, objectId: Object, code: Code, value: Object, form: String) void   logValue ( entityId: String, objectId: Object, code: String, value: Object) void   logValue ( entityId: String, objectId: Object, code: String, value: Object, form: String) void    "
+},
+{
+	"uri": "https://developers.devision.io/meta/reference/java_api/smartformservice/",
+	"title": "SmartFormService",
+	"tags": [],
+	"description": "",
+	"content": "   Метод и описание Возвращаемый тип     handle ( env: Map, originalEnv: Env, vm: ViewModel, pvm: ViewModel) void    "
 },
 {
 	"uri": "https://developers.devision.io/meta/reference/java_api/tablecolumnservice/",

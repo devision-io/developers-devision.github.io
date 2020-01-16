@@ -9,7 +9,7 @@
     <meta name="description" content="">
 
 
-    <title>Account Management :: Account Management | Devision Developers</title>
+    <title>v1beta2 :: Account Management | Devision Developers</title>
     <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/">
+  <body class="" data-url="/api/v1beta2/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -91,7 +91,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="/api/" class="devsite-nav-item devsite-nav-item-main
-                        
+                        parent
                         
                         
                         ">
@@ -140,7 +140,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/api/v1beta2/" class="devsite-nav-item dd-item ">
+            <li data-nav-id="/api/v1beta2/" class="devsite-nav-item dd-item active">
                 <a href="https://developers.devision.io/accountmanagement/api/v1beta2/" class="devsite-nav-title">
                     <span>v1beta2</span>
                 </a>
@@ -169,36 +169,81 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div id="overlay"></div>
         <div class=" ">
         
+          <div>
+            <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                <span class="links">
+                
+
+
+
+
+
+
+
+ <a href='https://developers.devision.io/accountmanagement/'>Account Management</a> > <a href='https://developers.devision.io/accountmanagement/api/'>Apis</a> > v1beta2
+
+
+
+
+
+
+                </span>
+            </div>
+          </div>
+        
         
         <div id="body-inner">
           
+            <h1>v1beta2</h1>
+          
 
 
-<span id="sidebar-toggle-span">
-<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fa fa-bars"></i> navigation</a>
-</span>
 
- 
+<p><div id="swagger-ui"></div>
+<link rel="stylesheet" type="text/css" href="https://unpkg.com/swagger-ui-dist@3.12.1/swagger-ui.css"></p>
+
+<script src="https://unpkg.com/swagger-ui-dist@3.12.1/swagger-ui-standalone-preset.js"></script>
+<script src="https://unpkg.com/swagger-ui-dist@3.12.1/swagger-ui-bundle.js"></script>
+
+<script>
+    // .swagger-ui .info hgroup.main 
+    window.onload = function () {
+        // Build a system
+        const ui = SwaggerUIBundle({
+            url: "../v1beta2_accountmanagement.swagger.json",
+
+            // https://github.com/swagger-api/swagger-ui/blob/master/docs/usage/configuration.md
+            dom_id: '#swagger-ui',
+            deepLinking: true,
+            displayOperationId: true,
+            defaultModelsExpandDepth: 0,
+            defaultModelExpandDepth: 100,
+            defaultModelRendering: "model",
+            supportedSubmitMethods: [],
+            presets: [
+                SwaggerUIBundle.presets.apis,
+                // SwaggerUIStandalonePreset
+            ],
+            plugins: [
+                SwaggerUIBundle.plugins.DownloadUrl
+            ],
+            layout: "BaseLayout",
+        })
+        window.ui = ui
+    }
+</script>
 
 
-<h1 id="account-management">Account Management</h1>
 
-<p>Высокоуровневые операции с аккаунтами внешних систем</p>
 
-<p>Управление бюджетом, создание аккаунтов в Яндекс Директе, Google Ads и пр</p>
-	
-  
+
 
 
 
 </section>
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#account-management">Account Management</a></li>
-</ul>
-</nav>
+    
 </div>
 
 </div>

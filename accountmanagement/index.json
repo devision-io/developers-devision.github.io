@@ -7,6 +7,13 @@
 	"content": "    // .swagger-ui .info hgroup.main window.onload = function () { // Build a system const ui = SwaggerUIBundle({ url: \"../v1beta1_accountmanagement.swagger.json\", // https://github.com/swagger-api/swagger-ui/blob/master/docs/usage/configuration.md dom_id: '#swagger-ui', deepLinking: true, displayOperationId: true, defaultModelsExpandDepth: 0, defaultModelExpandDepth: 100, defaultModelRendering: \"model\", supportedSubmitMethods: [], presets: [ SwaggerUIBundle.presets.apis, // SwaggerUIStandalonePreset ], plugins: [ SwaggerUIBundle.plugins.DownloadUrl ], layout: \"BaseLayout\", }) window.ui = ui }  "
 },
 {
+	"uri": "https://developers.devision.io/accountmanagement/api/v1beta2/",
+	"title": "v1beta2",
+	"tags": [],
+	"description": "",
+	"content": "    // .swagger-ui .info hgroup.main window.onload = function () { // Build a system const ui = SwaggerUIBundle({ url: \"../v1beta2_accountmanagement.swagger.json\", // https://github.com/swagger-api/swagger-ui/blob/master/docs/usage/configuration.md dom_id: '#swagger-ui', deepLinking: true, displayOperationId: true, defaultModelsExpandDepth: 0, defaultModelExpandDepth: 100, defaultModelRendering: \"model\", supportedSubmitMethods: [], presets: [ SwaggerUIBundle.presets.apis, // SwaggerUIStandalonePreset ], plugins: [ SwaggerUIBundle.plugins.DownloadUrl ], layout: \"BaseLayout\", }) window.ui = ui }  "
+},
+{
 	"uri": "https://developers.devision.io/accountmanagement/",
 	"title": "Account Management",
 	"tags": [],

@@ -186,6 +186,87 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p>Высокоуровневые операции с аккаунтами внешних систем</p>
 
 <p>Управление бюджетом, создание аккаунтов в Яндекс Директе, Google Ads и пр</p>
+
+<h4 id="создание-проекта-и-получение-токена">Создание проекта и получение токена</h4>
+
+<p><em><a href="https://developers.devision.io/cloud/guides/get_started/">https://developers.devision.io/cloud/guides/get_started/</a></em></p>
+
+<h4 id="пример-обращения-в-api">Пример обращения в API</h4>
+
+<p>В качестве базавого URL используется <em>accountmanagement.apis.devision.io</em>
+Для того чтобы отправить запрос необходимо отправить на выбраный вами метод http сообщение содержащие токен в заголовке  Authorization:Bearer
+и запрос в формате JSON после параметра -d</p>
+
+<pre><code class="language-shell">curl -i -X POST \
+   -H &quot;Authorization:Bearer eyJ...arSQ&quot; \
+   -H &quot;Content-Type:application/json&quot; \
+   -d '{ &quot;client_id&quot;: &quot;12345&quot;, &quot;balance_slice&quot;: &quot;ENGINE&quot; }' \
+   'http://accountmanagement.apis.devision.io/v1beta1/budget-order/limit'
+</code></pre>
+
+<h4 id="описание-ошибок">Описание ошибок</h4>
+
+<p>При нормальной работе сервиса вы всегда будете получать ответ со статусом 200, код ошибки можно получить по ключу &ldquo;code&rdquo;.
+В нашем сервисе мы используни gRPC поэтому ошибки всегда будут соответсвовать этому документу <em><a href="https://cloud.google.com/inference/reference/rest/v1/Code?hl=ru">https://cloud.google.com/inference/reference/rest/v1/Code?hl=ru</a></em></p>
+
+<table class="constants responsive" id="ENUM_VALUES-table">
+          <tbody>
+          <tr id="ENUM_VALUES.OK">
+              <td><code class="apitype"><span>Ошибка</span></code></td>
+              <td><p>Описание</p></td>
+              <td><p>HTTP Mapping</p></td>
+              <td><p>Код ответа</p></td>              
+            </tr>
+            <tr id="ENUM_VALUES.OK">
+              <td><code class="apitype"><span>OK</span></code></td>
+              <td><p>Не ошибка, запрос успешно выполнился</p></td>
+              <td><p>HTTP Mapping: 200 OK</p></td>
+              <td><p>0</p></td>
+            </tr>
+            <tr id="ENUM_VALUES.CANCELLED">
+              <td><code class="apitype"><span>CANCELLED</span></code></td>
+              <td><p>Операция была отменена</p></td>
+              <td><p>HTTP Mapping: 499 Client Closed Request</p></td>
+              <td>1</td>
+            </tr>
+            <tr id="ENUM_VALUES.UNKNOWN">
+              <td><code class="apitype"><span>UNKNOWN</span></code></td>
+              <td><p>Неизвестная ошибка, обратитесь в тех.поддержку.</p></td>
+              <td><p>HTTP Mapping: 500 Internal Server Error</p></td>
+              <td>2</td>
+            </tr>
+            <tr id="ENUM_VALUES.INVALID_ARGUMENT">
+              <td><code class="apitype"><span>INVALID_ARGUMENT</span></code></td>
+              <td><p>Вы передали неправильный параметр.</p></td>
+              <td><p>HTTP Mapping: 400 Bad Request</p></td>
+              <td>3</td>
+            </tr>
+            <tr id="ENUM_VALUES.DEADLINE_EXCEEDED">
+              <td><code class="apitype"><span>DEADLINE_EXCEEDED</span></code></td>
+              <td><p>Неудалось выполнить операцию за разумное время</p></td>
+              <td><p>HTTP Mapping: 504 Gateway Timeout</p></td>
+              <td>4</td>
+            </tr>
+            <tr id="ENUM_VALUES.PERMISSION_DENIED">
+              <td><code class="apitype"><span>PERMISSION_DENIED</span></code></td>
+              <td><p>У вас нет прав на выполнение операции</p></td>
+              <td><p>HTTP Mapping: 403 Forbidden</p></td>
+              <td>7</td>
+            </tr>
+            <tr id="ENUM_VALUES.FAILED_PRECONDITION">
+              <td><code class="apitype"><span>FAILED_PRECONDITION</span></code></td>
+              <td><p>Операция была отклонена, поскольку система не находится в состоянии, необходимом для выполнения операции. Например, удаляемый каталог не является пустым, бюджет аккаунта находится в неверном состоянии</p></td>
+              <td><p>HTTP Mapping: 400 Bad Request</p></td>
+              <td>9</td>
+            </tr>
+            <tr id="ENUM_VALUES.INTERNAL">
+              <td><code class="apitype"><span>INTERNAL</span></code></td>
+              <td><p>Ошибка возникла на уровне нашей системы. Обратитесь в тех.поддержку.</p></td>
+              <td><p>HTTP Mapping: 500 Internal Server Error</p></td>
+              <td>13</td>
+            </tr>
+          </tbody>
+        </table>
 	
   
 
@@ -196,7 +277,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#account-management">Account Management</a></li>
+<li><a href="#account-management">Account Management</a>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#создание-проекта-и-получение-токена">Создание проекта и получение токена</a></li>
+<li><a href="#пример-обращения-в-api">Пример обращения в API</a></li>
+<li><a href="#описание-ошибок">Описание ошибок</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
 </ul>
 </nav>
 </div>

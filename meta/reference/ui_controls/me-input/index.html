@@ -1475,10 +1475,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       },
       &quot;icon&quot;: &quot;(string)&quot;,
       &quot;icon_image&quot;: &quot;(string)&quot;,
-      &quot;modalSize&quot;: &quot;( xs, sm, lg, fullscreen, max )&quot;,
-      &quot;modalTitle&quot;: &quot;(string)&quot;,
-      &quot;mode&quot;: &quot;[ modal, sidenav ]&quot;,
-      &quot;pageId&quot;: &quot;(number)&quot;,
+      &quot;pageId&quot;: &quot;(string)&quot;,
       &quot;title&quot;: &quot;(string)&quot;,
       &quot;tooltip&quot;: {
         &quot;content&quot;: &quot;(string)&quot;,
@@ -1527,7 +1524,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           &quot;modalSize&quot;: &quot;( xs, sm, lg, normal, max )&quot;,
           &quot;target&quot;: &quot;(string)&quot;,
           &quot;type&quot;: &quot;(string)&quot;,
-          &quot;value&quot;: &quot;(object)&quot;
+          &quot;value&quot;: {
+            &quot;entityId&quot;: &quot;(string)&quot;,
+            &quot;env&quot;: {
+              &quot;state&quot;: &quot;(string)&quot;
+            },
+            &quot;mode&quot;: &quot;( modal, sidenav, hidden )&quot;,
+            &quot;objectId&quot;: &quot;(string)&quot;,
+            &quot;pageId&quot;: &quot;(string)&quot;,
+            &quot;url&quot;: &quot;(string)&quot;
+          }
         },
         &quot;mentio&quot;: [
           {

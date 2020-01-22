@@ -1472,10 +1472,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       },
       &quot;icon&quot;: &quot;(string)&quot;,
       &quot;icon_image&quot;: &quot;(string)&quot;,
-      &quot;modalSize&quot;: &quot;( xs, sm, lg, fullscreen, max )&quot;,
-      &quot;modalTitle&quot;: &quot;(string)&quot;,
-      &quot;mode&quot;: &quot;[ modal, sidenav ]&quot;,
-      &quot;pageId&quot;: &quot;(number)&quot;,
+      &quot;pageId&quot;: &quot;(string)&quot;,
       &quot;title&quot;: &quot;(string)&quot;,
       &quot;tooltip&quot;: {
         &quot;content&quot;: &quot;(string)&quot;,
@@ -1586,35 +1583,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 }
 </code></pre>
 
-<h3 id="__tid_547">__tid (any)</h3>
+<h3 id="__tid_554">__tid (any)</h3>
 Автоматически генерируемое приватное поле
 
 
 
 
-<h3 id="align_531">align (string)</h3>
+<h3 id="align_538">align (string)</h3>
 Позиционирование элемента в ячейке серки
 
 **@default** "left"
 
 
-<h3 id="analyzable_524">analyzable (boolean)</h3>
+<h3 id="analyzable_531">analyzable (boolean)</h3>
 Будет ли работать бежим "Анализ данных" на таблице
 
 
 
 
-<h3 id="attrs_521">attrs [object Object]</h3>
+<h3 id="attrs_528">attrs [object Object]</h3>
 
-<p><h3 id="bindAttrs_545">bindAttrs [object Object]</h3>
+<p><h3 id="bindAttrs_552">bindAttrs [object Object]</h3>
 Когда нужно подписаться на изменение данные в pvm и заполнять какие-то поля элемента
 Например, менять elems в me-lego динамически или запонять me-input[type=text] расчетным значением</p>
 
-<p><h3 id="defaultValue_540">defaultValue (any)</h3>
+<p><h3 id="defaultValue_547">defaultValue (any)</h3>
 Значение элемента по умолчанию
 Для некоторых элементов</p>
 
-<p><h3 id="depends_538">depends (string)</h3>
+<p><h3 id="depends_545">depends (string)</h3>
 Указываться от корневого me-lego вставленного через html.
 Работает только когда у элемента есть параметр refPvmData и refPvmData с depends и зависимость еще не загружена.
 Также есть возможность делать зависимости от текущего уровня иерархии, это удобно, когда неизвестна родительская вложенность.
@@ -1625,14 +1622,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <p><strong>@example</strong> <a href="https://apps.devision.io/page?p=3597&amp;a=35">https://apps.devision.io/page?p=3597&amp;a=35</a></p>
 
-<p><h3 id="entityId_542">entityId (string)</h3>
+<p><h3 id="entityId_549">entityId (string)</h3>
 Meta EntityId
 Для некоторых элементов, напрмиер [[IMeInput]], [[IMeTable]]</p>
 
-<p><h3 id="errors_549">errors [object Object]</h3>
+<p><h3 id="errors_556">errors [object Object]</h3>
 Список ошибок элемента пока только валидации, но определенно все ошибки будут тут</p>
 
-<p><h3 id="exist_543">exist </h3>
+<p><h3 id="exist_550">exist </h3>
 Angular expression от рута vm страницы. Обратите внимание, что пути абсотюлтные, в отличие от &ldquo;depends&rdquo; в элементах
 Расчет идет на стороне браузера
 Например: &lsquo;editGroup.card.name == &ldquo;exist&rdquo; || editGroup.card.name == &ldquo;exist23&rdquo;&rsquo;
@@ -1642,99 +1639,99 @@ Angular expression от рута vm страницы. Обратите вним�
 
 <p><strong>@example</strong> <a href="https://apps.devision.io/page?p=4329&amp;a=35">https://apps.devision.io/page?p=4329&amp;a=35</a></p>
 
-<p><h3 id="exportable_523">exportable (boolean)</h3>
+<p><h3 id="exportable_530">exportable (boolean)</h3>
 Можно ли экспортировать таблицу</p>
 
-<p><h3 id="filterable_522">filterable (boolean)</h3>
+<p><h3 id="filterable_529">filterable (boolean)</h3>
 Тех. настройка для автофильторв
 Только для разработчиков</p>
 
-<p><h3 id="formHorizontal_535">formHorizontal (boolean)</h3>
+<p><h3 id="formHorizontal_542">formHorizontal (boolean)</h3>
 Если элемента поддерживает, вывести его в стиле формы ключ, значение. Чтобы заголовок был на уровне элемента</p>
 
-<p><h3 id="help_528">help (string)</h3>
+<p><h3 id="help_535">help (string)</h3>
 Доп информация, рисуется под label или под элментом
 Зависит от типа элемента</p>
 
-<p><h3 id="i18n_554">i18n </h3>
+<p><h3 id="i18n_561">i18n </h3>
 MeElem property internationalization (for label and help for example).
 Key of i18m map is elem property name, value is message key of i18n file</p>
 
-<p><h3 id="icon_533">icon (string)</h3>
+<p><h3 id="icon_540">icon (string)</h3>
 Иконка Font Awesome
 Например fa-bicycle</p>
 
 <p><strong>@link</strong> <a href="http://ui.adplatform.lan/Static_Full_Version/icons.html">http://ui.adplatform.lan/Static_Full_Version/icons.html</a></p>
 
-<p><h3 id="id_526">id (string)</h3>
+<p><h3 id="id_533">id (string)</h3>
 ID данных элемента
 Будет доступно в env.sp.{ID} или как вложенная структура, если это [[IMeElemContainer]]</p>
 
-<p><h3 id="inlineForm_541">inlineForm (boolean)</h3>
+<p><h3 id="inlineForm_548">inlineForm (boolean)</h3>
 Нужно ли отрисовывать элемент без сетки в виде inlineForm (bootstrap)</p>
 
 <p><strong>@link</strong> {<a href="http://stackoverflow.com/questions/12201835/form-inline-inside-a-form-horizontal-in-twitter-bootstrap">http://stackoverflow.com/questions/12201835/form-inline-inside-a-form-horizontal-in-twitter-bootstrap</a>}</p>
 
-<p><h3 id="label_527">label (string)</h3>
+<p><h3 id="label_534">label (string)</h3>
 Заголовок элемента
 Обычно над элементом, на некоторых не рисуется вообще</p>
 
-<p><h3 id="listen_546">listen [object Object]</h3>
+<p><h3 id="listen_553">listen [object Object]</h3>
 Подписка на изменения объектов. Пока работает только для изменений вызваных в модальном окне
 Например у вас таблица со списоком аккуантов и в &ldquo;+ Аккаунт&rdquo; вы можете добавить или привязать аккаунт,
 а после сохранения в модальном окне, родительская таблциа должна пересчитаться</p>
 
-<p><h3 id="name_525">name (string)</h3>
+<p><h3 id="name_532">name (string)</h3>
 Название элемента
 Например: me-lego, me-input</p>
 
-<p><h3 id="offset_530">offset (number)</h3>
+<p><h3 id="offset_537">offset (number)</h3>
 Отстут по сетке справа от 0 до12</p>
 
-<p><h3 id="order_532">order (number)</h3>
+<p><h3 id="order_539">order (number)</h3>
 Прзиция элемента в сетке, чем меньше значение, тем элемент выше и левее</p>
 
-<p><h3 id="persistValueView_552">persistValueView (boolean)</h3>
+<p><h3 id="persistValueView_559">persistValueView (boolean)</h3>
 Блок обрабатывает вписывание в элемент текущего выбранного пункта в поле selectedValueView,
 чтобы можно быьт делать, label + name в скрытом режиме</p>
 
-<p><h3 id="refPvmData_537">refPvmData [object Object]</h3>
+<p><h3 id="refPvmData_544">refPvmData [object Object]</h3>
 Инструкции по получению данных для [[IMeInputAttrs.options]] или таблицы</p>
 
 <p><strong>@example</strong> <a href="https://apps.devision.io/page?p=3570&amp;a=35">https://apps.devision.io/page?p=3570&amp;a=35</a></p>
 
 <p><strong>@example</strong> <a href="https://apps.devision.io/page?p=3597&amp;a=35">https://apps.devision.io/page?p=3597&amp;a=35</a></p>
 
-<p><h3 id="refPvmValidator_536">refPvmValidator [object Object]</h3>
+<p><h3 id="refPvmValidator_543">refPvmValidator [object Object]</h3>
 Пользовательская валидация</p>
 
 <p><strong>@example</strong> <a href="https://apps.devision.io/page?p=3443&amp;a=35">https://apps.devision.io/page?p=3443&amp;a=35</a></p>
 
-<p><h3 id="selectedValueView_553">selectedValueView (any)</h3>
+<p><h3 id="selectedValueView_560">selectedValueView (any)</h3>
 Текстовое представление выбранного значения</p>
 
-<p><h3 id="selfDepends_539">selfDepends (boolean)</h3>
+<p><h3 id="selfDepends_546">selfDepends (boolean)</h3>
 Зависимость от себя самого, нужно для editable [[IMeTable]]
 и прототип для поиска [[IMeInputAttrs.options]] в me-input для частичной подгрузки данных</p>
 
 <p><strong>@beta</strong></p>
 
-<p><h3 id="span_529">span (number)</h3>
+<p><h3 id="span_536">span (number)</h3>
 Размер по сетке справа от 0 до12</p>
 
-<p><h3 id="tooltip_548">tooltip [object Object]</h3>
+<p><h3 id="tooltip_555">tooltip [object Object]</h3>
 Стандартный мета тултип</p>
 
-<p><h3 id="valid_551">valid (boolean)</h3>
+<p><h3 id="valid_558">valid (boolean)</h3>
 Элемент валидный</p>
 
-<p><h3 id="validateInProgress_550">validateInProgress (boolean)</h3>
+<p><h3 id="validateInProgress_557">validateInProgress (boolean)</h3>
 Принимает значение true на момент асинхронной валидации</p>
 
-<p><h3 id="value_534">value (string)</h3>
+<p><h3 id="value_541">value (string)</h3>
 для некоторых элементов</p>
 
-<p><h3 id="visible_544">visible (boolean)</h3>
+<p><h3 id="visible_551">visible (boolean)</h3>
 Angular expression от рута vm страницы. Обратите внимание, что пути абсотюлтные, в отличие от &ldquo;depends&rdquo; в элементах
 Расчет идет на стороне браузера
 Например: &lsquo;editGroup.card.name == &ldquo;visible&rdquo;&rsquo;</p>

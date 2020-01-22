@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IMeTableCellStyleFont | META UI Components</title>
+	<title>IMeTablePluginMenu | META UI Components</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -57,21 +57,28 @@
 					<a href="../modules/_elems_i_me_table_.html">&quot;elems/i.me-table&quot;</a>
 				</li>
 				<li>
-					<a href="_elems_i_me_table_.imetablecellstylefont.html">IMeTableCellStyleFont</a>
+					<a href="_elems_i_me_table_.imetablepluginmenu.html">IMeTablePluginMenu</a>
 				</li>
 			</ul>
-			<h1>Interface IMeTableCellStyleFont</h1>
+			<h1>Interface IMeTablePluginMenu</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Плагин функциональности меню выделенного диапазона</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">IMeTableCellStyleFont</span>
+						<span class="target">IMeTablePluginMenu</span>
 					</li>
 				</ul>
 			</section>
@@ -82,9 +89,14 @@
 						<section class="tsd-index-section tsd-is-not-exported">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_elems_i_me_table_.imetablecellstylefont.html#b" class="tsd-kind-icon">b</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_elems_i_me_table_.imetablecellstylefont.html#color" class="tsd-kind-icon">color</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_elems_i_me_table_.imetablecellstylefont.html#size" class="tsd-kind-icon">size</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_elems_i_me_table_.imetablepluginmenu.html#items" class="tsd-kind-icon">items</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-private tsd-is-private-protected tsd-is-not-exported">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-private tsd-is-not-exported"><a href="_elems_i_me_table_.imetablepluginmenu.html#getcolumncontentmenu" class="tsd-kind-icon">get<wbr>Column<wbr>Content<wbr>Menu</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-private tsd-is-not-exported"><a href="_elems_i_me_table_.imetablepluginmenu.html#render" class="tsd-kind-icon">render</a></li>
 							</ul>
 						</section>
 					</div>
@@ -93,56 +105,61 @@
 			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-					<a name="b" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> b</h3>
-					<div class="tsd-signature tsd-kind-icon">b<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<a name="items" class="tsd-anchor"></a>
+					<h3>items</h3>
+					<div class="tsd-signature tsd-kind-icon">items<span class="tsd-signature-symbol">:</span> <a href="_elems_i_me_table_.imetablepluginmenuitem.html" class="tsd-signature-type">IMeTablePluginMenuItem</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in elems/i.me-table.ts:345</li>
+							<li>Defined in elems/i.me-table.ts:562</li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Жирный</p>
-						</div>
-						<dl class="tsd-comment-tags">
-							<dt>default</dt>
-							<dd><p>false</p>
-							</dd>
-						</dl>
-					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-					<a name="color" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> color</h3>
-					<div class="tsd-signature tsd-kind-icon">color<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in elems/i.me-table.ts:351</li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Код цвета текста без ведущего знака &quot;#&quot;
-							Например: 2D2D2D</p>
-						</div>
-					</div>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected tsd-is-not-exported">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-private tsd-is-not-exported">
+					<a name="getcolumncontentmenu" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> get<wbr>Column<wbr>Content<wbr>Menu</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-private tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Column<wbr>Content<wbr>Menu<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in elems/i.me-table.ts:568</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-					<a name="size" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> size</h3>
-					<div class="tsd-signature tsd-kind-icon">size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in elems/i.me-table.ts:357</li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Размер текста в пикселях без постфикса &quot;px&quot;
-							Например: 16</p>
-						</div>
-					</div>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-private tsd-is-not-exported">
+					<a name="render" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> render</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-private tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">render<span class="tsd-signature-symbol">(</span>vm<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in elems/i.me-table.ts:574</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>vm: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -240,24 +257,9 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
 						<a href="_elems_i_me_table_.imetablecellstyle.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Cell<wbr>Style</a>
 					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
 						<a href="_elems_i_me_table_.imetablecellstylefont.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Cell<wbr>Style<wbr>Font</a>
-						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-								<a href="_elems_i_me_table_.imetablecellstylefont.html#b" class="tsd-kind-icon">b</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-								<a href="_elems_i_me_table_.imetablecellstylefont.html#color" class="tsd-kind-icon">color</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-								<a href="_elems_i_me_table_.imetablecellstylefont.html#size" class="tsd-kind-icon">size</a>
-							</li>
-						</ul>
 					</li>
-				</ul>
-				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
 						<a href="_elems_i_me_table_.imetableexportoptions.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Export<wbr>Options</a>
 					</li>
@@ -276,9 +278,24 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
 						<a href="_elems_i_me_table_.imetablepluginhiddencolumns.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Plugin<wbr>Hidden<wbr>Columns</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
 						<a href="_elems_i_me_table_.imetablepluginmenu.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Plugin<wbr>Menu</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="_elems_i_me_table_.imetablepluginmenu.html#items" class="tsd-kind-icon">items</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-private tsd-is-not-exported">
+								<a href="_elems_i_me_table_.imetablepluginmenu.html#getcolumncontentmenu" class="tsd-kind-icon">get<wbr>Column<wbr>Content<wbr>Menu</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-private tsd-is-not-exported">
+								<a href="_elems_i_me_table_.imetablepluginmenu.html#render" class="tsd-kind-icon">render</a>
+							</li>
+						</ul>
 					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
 						<a href="_elems_i_me_table_.imetablepluginmenuitem.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Plugin<wbr>Menu<wbr>Item</a>
 					</li>

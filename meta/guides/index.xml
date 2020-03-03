@@ -58,6 +58,15 @@
     </item>
     
     <item>
+      <title>Типы данных</title>
+      <link>https://developers.devision.io/meta/guides/data_types/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/guides/data_types/</guid>
+      <description>Основные    Тип Описание     UNKNOWN Неизвестный тип, часто бывает текстовым в действительности. Но иногда БД не может отдать тип и мы не рискуем предполагать. В этих случаях используйте type cast средствами БД   BOOLEAN Булев тип (true/false)   TEXT Текстовое поле без существенных ограничений длины.   INT 32х битное целое число. Диапазон от -2,147,483,648 до +2,147,483,647   LONG 64х битное целое число.</description>
+    </item>
+    
+    <item>
       <title>Шаблонизация</title>
       <link>https://developers.devision.io/meta/guides/template_engines/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

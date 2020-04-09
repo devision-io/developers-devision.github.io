@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Компоненты on META | Devision Developers</title>
@@ -10,6 +10,15 @@
     
 	<atom:link href="https://developers.devision.io/meta/compoments/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>OAuth</title>
+      <link>https://developers.devision.io/meta/compoments/oauth/</link>
+      <pubDate>Mon, 24 Apr 2017 18:36:24 +0200</pubDate>
+      
+      <guid>https://developers.devision.io/meta/compoments/oauth/</guid>
+      <description>Области действия для API (Scopes) Придумывая скоупы для сервисов идитие от общего к частному и не создавайте больше необходимого. Скорее всего достаточно будет начать со скоупа полного доступа к сервису, потом, если и когда понадобится - до ьавить доступ только на чтение.</description>
+    </item>
     
     <item>
       <title>Шина событий</title>

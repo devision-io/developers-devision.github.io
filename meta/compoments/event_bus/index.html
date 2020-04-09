@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.42.1" />
+    <meta name="generator" content="Hugo 0.68.1" />
     <meta name="description" content="">
 
 
@@ -460,6 +460,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     
 
 
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/compoments/oauth/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/compoments/oauth/" class="devsite-nav-title">
+                    <span>OAuth</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
                     
                     
                     
@@ -1358,6 +1376,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
+            <li data-nav-id="/reference/java_api/smartqueryservice/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/reference/java_api/smartqueryservice/" class="devsite-nav-title">
+                    <span>SmartQueryService</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
             <li data-nav-id="/reference/java_api/tablecolumnservice/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/reference/java_api/tablecolumnservice/" class="devsite-nav-title">
                     <span>TableColumnService</span>
@@ -1461,141 +1497,111 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-
-
 <h2 id="мотивация">Мотивация</h2>
-
 <p>Нужно стремится делать компоненты системы масимально независимыми от бизнес-логики.</p>
-
 <p>Идеально, если при сохранении чего-то смотреть изменившиеся поля и понимать что именно надо выполнить по бизнес-процессу, если, например изменился только статус
 объекта, однако пока что это невозможно. Однако мы хотели сделать возможность подписываться на изменения объектов, чтобы не добавлять логику оповещения
 внутренних подсистем предприятия прямо в код страниц META.</p>
-
 <p>Пример: на карточке клиента при сохранении списка главных пользователей клиента надо записывать изменения в сторонюю CRM.
 В простейшем случае все тривиально - в код страницы вставляется вызов апи CRM, например даже через какое-то наше внутрее API.
 Однако список таких систем может расти и вам просто сложно будет за этим всем следить, а так же параллелить и перезапускать при недостуности внешних API,
 код будет ухудшаться и не будет соблюдаться принцип единой ответственности (SRP).</p>
-
 <p>Кроме того, если вы или с вами будут делиться модулями меты, вы врядли захотите менять эти страницы, чтобы уведомить какие-то части своей подсистемы.</p>
-
 <h2 id="как-работает">Как работает</h2>
-
 <p>На основе <a href="../starter/">Starter</a> в качестве backend для распределенного запуска скриптов.
 Он же обеспечивает перезапуск при падениях, ограничение очереди выполнения, логи и пр. вещи нужные для обработки очередей</p>
-
 <h3 id="meta-страницы">META Страницы</h3>
-
 <p>В коде страниц редактирования карточек объектов в принципе вседа есть похожий код, который занимается журналированием изменений:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span> <span style="color:#a6e22e">elem</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hidden&#34;</span> <span style="color:#a6e22e">states</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;save&#34;</span>&gt;
+  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>(<span style="color:#a6e22e">pvm</span>, <span style="color:#a6e22e">vm</span>, <span style="color:#a6e22e">env</span>, <span style="color:#a6e22e">ObjectLogService</span>) {
+    <span style="color:#75715e">// тут обычное сохранение вашего объекта или списка объектов
+</span><span style="color:#75715e"></span>
+    <span style="color:#75715e">// Это стандартная запись в журнал изменений по объекту
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">ObjectLogService</span>.<span style="color:#a6e22e">logValue</span>(<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">entityId</span>, <span style="color:#a6e22e">objectId</span>, <span style="color:#a6e22e">isNew</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">&#39;ADD&#39;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;SET&#39;</span>, <span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">sp</span>.<span style="color:#a6e22e">obj</span>);
 
-<pre><code class="language-html">&lt;script type=&quot;meta/js&quot; elem=&quot;hidden&quot; states=&quot;save&quot;&gt;
-  function main(pvm, vm, env, ObjectLogService) {
-    // тут обычное сохранение вашего объекта или списка объектов
-
-    // Это стандартная запись в журнал изменений по объекту
-    ObjectLogService.logValue(env.entityId, objectId, isNew ? 'ADD' : 'SET', env.sp.obj);
-
-    // или с пятым параметром, который укажет на некую &quot;форму&quot;, которая менала объект
-    //  например тут придумано название main_user_list, которое именно у нас в приложении будет означать форму со списоком главных пользователей 
-    ObjectLogService.logValue(env.entityId, objectId, isNew ? 'ADD' : 'SET', env.sp.obj, 'main_user_list');
+    <span style="color:#75715e">// или с пятым параметром, который укажет на некую &#34;форму&#34;, которая менала объект
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">//  например тут придумано название main_user_list, которое именно у нас в приложении будет означать форму со списоком главных пользователей 
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">ObjectLogService</span>.<span style="color:#a6e22e">logValue</span>(<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">entityId</span>, <span style="color:#a6e22e">objectId</span>, <span style="color:#a6e22e">isNew</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">&#39;ADD&#39;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;SET&#39;</span>, <span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">sp</span>.<span style="color:#a6e22e">obj</span>, <span style="color:#e6db74">&#39;main_user_list&#39;</span>);
   }
-&lt;/script&gt; 
-</code></pre>
-
-<h3 id="dispatchers">Dispatchers</h3>
-
+&lt;/<span style="color:#f92672">script</span>&gt; 
+</code></pre></div><h3 id="dispatchers">Dispatchers</h3>
 <p>Содержится в параметре dispatcher</p>
-
 <p>Будет использоваться для шины событий как клиент, который продуцирует полезную работу: запускает фоновые процессы, записыват логи, генерирует события в шину</p>
-
 <p>Примеры:</p>
-
 <ul>
 <li>meta.{META_APP_ALIAS} - мета-приложение</li>
 <li>appscript.{SERVICE_ID} - фоновый скрипт (включает в сещя обработчики шины событий)</li>
 <li>apiservice.{SERVICE_ID} - http апи сервисы</li>
 </ul>
-
 <h3 id="python-worker-listener">Python worker (Listener)</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> metasdk <span style="color:#f92672">import</span> MetaApp
+<span style="color:#f92672">from</span> metasdk.event_bus <span style="color:#f92672">import</span> Event
 
-<pre><code class="language-python">from metasdk import MetaApp
-from metasdk.event_bus import Event
+META <span style="color:#f92672">=</span> MetaApp()
+log <span style="color:#f92672">=</span> META<span style="color:#f92672">.</span>log
 
-META = MetaApp()
-log = META.log
-
-# в декораторе вы долэны указать на какие типу уведомлений подписываетесь и начать обработку события
-@META.event_bus.listener(entity_id=&quot;2830&quot;, code=[&quot;ADD&quot;, &quot;SET&quot;], form_pattern=[&quot;*&quot;], dispatcher_pattern=[&quot;meta.garpun_feeds&quot;])
-def on_upsert_ex_access(event: Event):
-    print(u&quot;on_upsert_ex_access = %s&quot; % str(event))
-    print(u&quot;event.value = %s&quot; % str(event.value))
-    print(u&quot;event.object_id = %s&quot; % str(event.object_id))
-    import time
-    print(&quot;sleep...&quot;)
-    time.sleep(60)
+<span style="color:#75715e"># в декораторе вы долэны указать на какие типу уведомлений подписываетесь и начать обработку события</span>
+<span style="color:#a6e22e">@META.event_bus.listener</span>(entity_id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;2830&#34;</span>, code<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;ADD&#34;</span>, <span style="color:#e6db74">&#34;SET&#34;</span>], form_pattern<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;*&#34;</span>], dispatcher_pattern<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;meta.garpun_feeds&#34;</span>])
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">on_upsert_ex_access</span>(event: Event):
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">u</span><span style="color:#e6db74">&#34;on_upsert_ex_access = </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> str(event))
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">u</span><span style="color:#e6db74">&#34;event.value = </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> str(event<span style="color:#f92672">.</span>value))
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">u</span><span style="color:#e6db74">&#34;event.object_id = </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> str(event<span style="color:#f92672">.</span>object_id))
+    <span style="color:#f92672">import</span> time
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;sleep...&#34;</span>)
+    time<span style="color:#f92672">.</span>sleep(<span style="color:#ae81ff">60</span>)
 
 
-# Это пример для тестового локального запуска, прямо как в типичных фоновых скриптах
-META.worker.debug_tasks = [{
-    &quot;data&quot;: {
-        &quot;event&quot;: {
-            &quot;userId&quot;: 10191,
-            &quot;entityId&quot;: 2830,
-            &quot;objectId&quot;: &quot;42&quot;,
-            &quot;code&quot;: &quot;SET&quot;,
-            &quot;form&quot;: &quot;test&quot;,
-            &quot;value&quot;: {
-                &quot;a&quot;: 1
+<span style="color:#75715e"># Это пример для тестового локального запуска, прямо как в типичных фоновых скриптах</span>
+META<span style="color:#f92672">.</span>worker<span style="color:#f92672">.</span>debug_tasks <span style="color:#f92672">=</span> [{
+    <span style="color:#e6db74">&#34;data&#34;</span>: {
+        <span style="color:#e6db74">&#34;event&#34;</span>: {
+            <span style="color:#e6db74">&#34;userId&#34;</span>: <span style="color:#ae81ff">10191</span>,
+            <span style="color:#e6db74">&#34;entityId&#34;</span>: <span style="color:#ae81ff">2830</span>,
+            <span style="color:#e6db74">&#34;objectId&#34;</span>: <span style="color:#e6db74">&#34;42&#34;</span>,
+            <span style="color:#e6db74">&#34;code&#34;</span>: <span style="color:#e6db74">&#34;SET&#34;</span>,
+            <span style="color:#e6db74">&#34;form&#34;</span>: <span style="color:#e6db74">&#34;test&#34;</span>,
+            <span style="color:#e6db74">&#34;value&#34;</span>: {
+                <span style="color:#e6db74">&#34;a&#34;</span>: <span style="color:#ae81ff">1</span>
             }
         }
     }
 }]
 
-# Бойлерплейт, который запускает обработку
-@META.worker.single_task
-def main(task):
-    META.event_bus.accept(task)
-</code></pre>
-
-<h3 id="python-client">Python Client</h3>
-
+<span style="color:#75715e"># Бойлерплейт, который запускает обработку</span>
+<span style="color:#a6e22e">@META.worker.single_task</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>(task):
+    META<span style="color:#f92672">.</span>event_bus<span style="color:#f92672">.</span>accept(task)
+</code></pre></div><h3 id="python-client">Python Client</h3>
 <p>Если вам надо спровоцировать запись в журнал с записью в Шину Событий.
 Вы должны вызвать журналирование, а в app-content вы должны иметь настроенные обработчики (listeners)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> metasdk <span style="color:#f92672">import</span> MetaApp
 
-<pre><code class="language-python">from metasdk import MetaApp
+META <span style="color:#f92672">=</span> MetaApp()
 
-META = MetaApp()
-
-META.ObjectLogService.log({
-    &quot;userId&quot;: 10191,
-    &quot;entityId&quot;: 2671,
-    &quot;objectId&quot;: 53,
-    &quot;code&quot;: &quot;SET&quot;,
-    &quot;form&quot;: &quot;my_form&quot;, # optional
-    &quot;value&quot;: {  # optional
-        &quot;foo&quot;: &quot;bar&quot;,
-        &quot;subFoo&quot;: {
-            &quot;foo2&quot;: [1, 2, 3]
+META<span style="color:#f92672">.</span>ObjectLogService<span style="color:#f92672">.</span>log({
+    <span style="color:#e6db74">&#34;userId&#34;</span>: <span style="color:#ae81ff">10191</span>,
+    <span style="color:#e6db74">&#34;entityId&#34;</span>: <span style="color:#ae81ff">2671</span>,
+    <span style="color:#e6db74">&#34;objectId&#34;</span>: <span style="color:#ae81ff">53</span>,
+    <span style="color:#e6db74">&#34;code&#34;</span>: <span style="color:#e6db74">&#34;SET&#34;</span>,
+    <span style="color:#e6db74">&#34;form&#34;</span>: <span style="color:#e6db74">&#34;my_form&#34;</span>, <span style="color:#75715e"># optional</span>
+    <span style="color:#e6db74">&#34;value&#34;</span>: {  <span style="color:#75715e"># optional</span>
+        <span style="color:#e6db74">&#34;foo&#34;</span>: <span style="color:#e6db74">&#34;bar&#34;</span>,
+        <span style="color:#e6db74">&#34;subFoo&#34;</span>: {
+            <span style="color:#e6db74">&#34;foo2&#34;</span>: [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>]
         }
     }
 })
-</code></pre>
-
-<h2 id="ограничения">Ограничения</h2>
-
+</code></pre></div><h2 id="ограничения">Ограничения</h2>
 <ul>
 <li>Звездочка в паттерне формы &ldquo;*&rdquo; может стоять или в начале или в конце, но НЕ в середине выражения</li>
 <li>Если нет подписчиков события, событие будет записано в журнал, но не уйдет в Starter</li>
 </ul>
-
 <h2 id="отказоустойчивость">Отказоустойчивость</h2>
-
 <p>Мы стараемся делать все надежно, однако все ломается (например падение сети или выключение электричества) и событие может не уйти и вы <strong>должны</strong> иметь механизмы перепроверки.
 Желательно подумать о них примо при проектировании своей подсистемы.
 Работать они могут сильно реже - напирмер раз в час перепроеряют, что все сработало как надо и если что-то не так - делают нужные задачи.
 Мы будем улучшать надежность Шины, однако все же надо помнить, что только вы знаете как правильно ореагировать на серьезные ошибки в вашем продукте.</p>
-
 <h2 id="roadmap">ROADMAP</h2>
-
 <ul>
 <li>попытаться очень быстро обрабатывать события с минимальными накладными расходами на запуск питона, например</li>
 <li>убрать оповещение юзеров и какие-то уведомления туда же</li>
@@ -1614,22 +1620,20 @@ META.ObjectLogService.log({
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#мотивация">Мотивация</a></li>
-<li><a href="#как-работает">Как работает</a>
-<ul>
-<li><a href="#meta-страницы">META Страницы</a></li>
-<li><a href="#dispatchers">Dispatchers</a></li>
-<li><a href="#python-worker-listener">Python worker (Listener)</a></li>
-<li><a href="#python-client">Python Client</a></li>
-</ul></li>
-<li><a href="#ограничения">Ограничения</a></li>
-<li><a href="#отказоустойчивость">Отказоустойчивость</a></li>
-<li><a href="#roadmap">ROADMAP</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#мотивация">Мотивация</a></li>
+    <li><a href="#как-работает">Как работает</a>
+      <ul>
+        <li><a href="#meta-страницы">META Страницы</a></li>
+        <li><a href="#dispatchers">Dispatchers</a></li>
+        <li><a href="#python-worker-listener">Python worker (Listener)</a></li>
+        <li><a href="#python-client">Python Client</a></li>
+      </ul>
+    </li>
+    <li><a href="#ограничения">Ограничения</a></li>
+    <li><a href="#отказоустойчивость">Отказоустойчивость</a></li>
+    <li><a href="#roadmap">ROADMAP</a></li>
+  </ul>
 </nav>
 </div>
 

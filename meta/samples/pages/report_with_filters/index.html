@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.42.1" />
+    <meta name="generator" content="Hugo 0.68.1" />
     <meta name="description" content="">
 
 
@@ -460,6 +460,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     
 
 
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/compoments/oauth/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/compoments/oauth/" class="devsite-nav-title">
+                    <span>OAuth</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
                     
                     
                     
@@ -1358,6 +1376,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
+            <li data-nav-id="/reference/java_api/smartqueryservice/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/reference/java_api/smartqueryservice/" class="devsite-nav-title">
+                    <span>SmartQueryService</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
             <li data-nav-id="/reference/java_api/tablecolumnservice/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/reference/java_api/tablecolumnservice/" class="devsite-nav-title">
                     <span>TableColumnService</span>
@@ -1461,95 +1497,86 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-
-
-<div class="notices info" ><p>Для начала ознакомьтесь со статьей <a href="../../../guides/request_life_cycle">Жизненный цикл запроса</a></p>
-</div>
-
-
+<!-- raw HTML omitted -->
 <p>Типичная задача META - вывод списка объектов в виде отчета с фильтрами.</p>
-
 <p>Обычно отчет представляет из себя одну таблицу с фильтрами. Script id такой основной таблицы рекомендуется называть &ldquo;res&rdquo;, чтобы другим разработчикам было привычнее читать ваш код.</p>
-
 <h2 id="код-примера">Код примера</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- 
+</span><span style="color:#75715e">Фильтрация
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">Атрибут page-search объединяет эти фильтры в общий блок пресетов. 
+</span><span style="color:#75715e">Это позволяет пользователю быстрее находить фильтры и сохранять пресеты фильтров 
+</span><span style="color:#75715e"> --&gt;</span>
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta_samples&#34;</span> <span style="color:#a6e22e">label</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Организация&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;org_ids&#34;</span> <span style="color:#a6e22e">elem</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;me-select&#34;</span> <span style="color:#a6e22e">order</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1&#34;</span> <span style="color:#a6e22e">span</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;4&#34;</span> <span style="color:#a6e22e">elem-attrs</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;{&#34;multiple&#34;:true}&#39;</span> <span style="color:#a6e22e">page-search</span>&gt;
+<span style="color:#a6e22e">SELECT</span> <span style="color:#e6db74">&#34;organizationId&#34;</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">id</span>, <span style="color:#a6e22e">name</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">name</span> <span style="color:#a6e22e">FROM</span> <span style="color:#e6db74">&#34;organization&#34;</span> <span style="color:#a6e22e">order</span> <span style="color:#a6e22e">by</span> <span style="color:#a6e22e">name</span>
+&lt;/<span style="color:#f92672">script</span>&gt;
 
-<pre><code class="language-html">&lt;!-- 
-Фильтрация
-
-Атрибут page-search объединяет эти фильтры в общий блок пресетов. 
-Это позволяет пользователю быстрее находить фильтры и сохранять пресеты фильтров 
- --&gt;
-&lt;script type=&quot;meta/sql&quot; db-alias=&quot;meta_samples&quot; label=&quot;Организация&quot; id=&quot;org_ids&quot; elem=&quot;me-select&quot; order=&quot;1&quot; span=&quot;4&quot; elem-attrs='{&quot;multiple&quot;:true}' page-search&gt;
-SELECT &quot;organizationId&quot; as id, name as name FROM &quot;organization&quot; order by name
-&lt;/script&gt;
-
-&lt;script type=&quot;meta/sql&quot; db-alias=&quot;meta_samples&quot; label=&quot;Статус&quot; id=&quot;active_mode&quot; elem=&quot;me-select&quot; default=&quot;all&quot; order=&quot;1&quot; span=&quot;4&quot; page-search&gt;
-SELECT t.* FROM (VALUES ('all', 'Все'), ('active', 'Активные'), ('no_active', 'Неактивные')) as t(id,name);
-&lt;/script&gt;
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta_samples&#34;</span> <span style="color:#a6e22e">label</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Статус&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;active_mode&#34;</span> <span style="color:#a6e22e">elem</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;me-select&#34;</span> <span style="color:#a6e22e">default</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;all&#34;</span> <span style="color:#a6e22e">order</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1&#34;</span> <span style="color:#a6e22e">span</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;4&#34;</span> <span style="color:#a6e22e">page-search</span>&gt;
+<span style="color:#a6e22e">SELECT</span> <span style="color:#a6e22e">t</span>.<span style="color:#f92672">*</span> <span style="color:#a6e22e">FROM</span> (<span style="color:#a6e22e">VALUES</span> (<span style="color:#e6db74">&#39;all&#39;</span>, <span style="color:#e6db74">&#39;Все&#39;</span>), (<span style="color:#e6db74">&#39;active&#39;</span>, <span style="color:#e6db74">&#39;Активные&#39;</span>), (<span style="color:#e6db74">&#39;no_active&#39;</span>, <span style="color:#e6db74">&#39;Неактивные&#39;</span>)) <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">t</span>(<span style="color:#a6e22e">id</span>,<span style="color:#a6e22e">name</span>);
+&lt;/<span style="color:#f92672">script</span>&gt;
 
 
-&lt;!-- 
-Основная таблица 
-
-Большие таблицы обычно делаем с order=&quot;100500&quot;, чтобы они всегда точно буду в самом низу.
-elem-attrs c ключом native делает настройки по умолчанию для me-pivot, которые нужны для режима Анализ данных, который есть почти на всех таблоицах автоматически  
---&gt;
-&lt;script type=&quot;meta/sql&quot; db-alias=&quot;meta_samples&quot; id=&quot;res&quot; entity-id=&quot;2629&quot; label=&quot;Шаблон страницы по умолчанию&quot;
-elem-attrs='{&quot;native&quot;: {
-        &quot;cols&quot;: [&quot;isActive&quot;],
-        &quot;rows&quot;: [&quot;org_name&quot;],
-        &quot;vals&quot;: [&quot;salary&quot;],
-        &quot;aggregatorName&quot;: &quot;Сумма&quot;,
-        &quot;menuLimit&quot;: 10000,
-        &quot;rendererName&quot;: &quot;Table With Subtotal&quot;,
-        &quot;skipEmptyLines&quot;: true,
-        &quot;unusedAttrsVertical&quot;: &quot;horizontal&quot;
-    }}'     
-   elem-attrs='{&quot;addObjectButton&quot;:{&quot;title&quot;:&quot;Сотрудник&quot;, &quot;mode&quot;:&quot;modal&quot;}}' 
-    order=&quot;100500&quot; &gt;
-SELECT
-	-- Выбираемые поля
-	&quot;employeeId&quot;,
-	employee.&quot;name&quot;,
-	&quot;isActive&quot;,
-	&quot;creationTime&quot;,
-	organization.name as org_name,
-	organization.&quot;workAfter&quot; as org_work_after,
-	(CASE WHEN &quot;isActive&quot; THEN '' ELSE 'ЗАБЛОКИРОВАН' END) as &quot;статус&quot;,
-	&quot;salary&quot;::int8,
-	-- Системная колонка - добавляет total в пагинатор и применяет параметры к колонкам
-	json_build_object(
-		'pager', json_build_object('total', count(*) over()),
-		'headers', json_build_array(
-			json_build_object('name', 'name', 'displayName', 'Имя'),
-			json_build_object('name', 'creationTime', 'displayName', 'Добавлен', 'parentColumn', 'name'),
-			json_build_object('name', 'isActive', 'displayName', 'Активный', 'parentColumn', 'name'),
-			json_build_object('name', 'статус', 'parentColumn', 'name', 'hideNameInParentColumn', true),
-			json_build_object('name', 'org_name', 'displayName', 'Организация'),
-			json_build_object('name', 'org_work_after', 'displayName', 'Время работы', 'parentColumn', 'org_name'),
-			json_build_object('name', 'salary', 'displayName', 'ЗП')
+<span style="color:#75715e">&lt;!-- 
+</span><span style="color:#75715e">Основная таблица 
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">Большие таблицы обычно делаем с order=&#34;100500&#34;, чтобы они всегда точно буду в самом низу.
+</span><span style="color:#75715e">elem-attrs c ключом native делает настройки по умолчанию для me-pivot, которые нужны для режима Анализ данных, который есть почти на всех таблоицах автоматически  
+</span><span style="color:#75715e">--&gt;</span>
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta_samples&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;res&#34;</span> <span style="color:#a6e22e">entity-id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;2629&#34;</span> <span style="color:#a6e22e">label</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Шаблон страницы по умолчанию&#34;</span>
+<span style="color:#a6e22e">elem-attrs</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;{&#34;native&#34;: {
+</span><span style="color:#e6db74">        &#34;cols&#34;: [&#34;isActive&#34;],
+</span><span style="color:#e6db74">        &#34;rows&#34;: [&#34;org_name&#34;],
+</span><span style="color:#e6db74">        &#34;vals&#34;: [&#34;salary&#34;],
+</span><span style="color:#e6db74">        &#34;aggregatorName&#34;: &#34;Сумма&#34;,
+</span><span style="color:#e6db74">        &#34;menuLimit&#34;: 10000,
+</span><span style="color:#e6db74">        &#34;rendererName&#34;: &#34;Table With Subtotal&#34;,
+</span><span style="color:#e6db74">        &#34;skipEmptyLines&#34;: true,
+</span><span style="color:#e6db74">        &#34;unusedAttrsVertical&#34;: &#34;horizontal&#34;
+</span><span style="color:#e6db74">    }}&#39;</span>     
+   <span style="color:#a6e22e">elem-attrs</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;{&#34;addObjectButton&#34;:{&#34;title&#34;:&#34;Сотрудник&#34;, &#34;mode&#34;:&#34;modal&#34;}}&#39;</span> 
+    <span style="color:#a6e22e">order</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;100500&#34;</span> &gt;
+<span style="color:#a6e22e">SELECT</span>
+	<span style="color:#f92672">--</span> <span style="color:#a6e22e">Выбираемые</span> <span style="color:#a6e22e">поля</span>
+	<span style="color:#e6db74">&#34;employeeId&#34;</span>,
+	<span style="color:#a6e22e">employee</span>.<span style="color:#e6db74">&#34;name&#34;</span>,
+	<span style="color:#e6db74">&#34;isActive&#34;</span>,
+	<span style="color:#e6db74">&#34;creationTime&#34;</span>,
+	<span style="color:#a6e22e">organization</span>.<span style="color:#a6e22e">name</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">org_name</span>,
+	<span style="color:#a6e22e">organization</span>.<span style="color:#e6db74">&#34;workAfter&#34;</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">org_work_after</span>,
+	(<span style="color:#a6e22e">CASE</span> <span style="color:#a6e22e">WHEN</span> <span style="color:#e6db74">&#34;isActive&#34;</span> <span style="color:#a6e22e">THEN</span> <span style="color:#e6db74">&#39;&#39;</span> <span style="color:#a6e22e">ELSE</span> <span style="color:#e6db74">&#39;ЗАБЛОКИРОВАН&#39;</span> <span style="color:#a6e22e">END</span>) <span style="color:#a6e22e">as</span> <span style="color:#e6db74">&#34;статус&#34;</span>,
+	<span style="color:#e6db74">&#34;salary&#34;</span><span style="color:#f92672">::</span><span style="color:#a6e22e">int8</span>,
+	<span style="color:#f92672">--</span> <span style="color:#a6e22e">Системная</span> <span style="color:#a6e22e">колонка</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">добавляет</span> <span style="color:#a6e22e">total</span> <span style="color:#a6e22e">в</span> <span style="color:#a6e22e">пагинатор</span> <span style="color:#a6e22e">и</span> <span style="color:#a6e22e">применяет</span> <span style="color:#a6e22e">параметры</span> <span style="color:#a6e22e">к</span> <span style="color:#a6e22e">колонкам</span>
+	<span style="color:#a6e22e">json_build_object</span>(
+		<span style="color:#e6db74">&#39;pager&#39;</span>, <span style="color:#a6e22e">json_build_object</span>(<span style="color:#e6db74">&#39;total&#39;</span>, <span style="color:#a6e22e">count</span>(<span style="color:#f92672">*</span>) <span style="color:#a6e22e">over</span>()),
+		<span style="color:#e6db74">&#39;headers&#39;</span>, <span style="color:#a6e22e">json_build_array</span>(
+			<span style="color:#a6e22e">json_build_object</span>(<span style="color:#e6db74">&#39;name&#39;</span>, <span style="color:#e6db74">&#39;name&#39;</span>, <span style="color:#e6db74">&#39;displayName&#39;</span>, <span style="color:#e6db74">&#39;Имя&#39;</span>),
+			<span style="color:#a6e22e">json_build_object</span>(<span style="color:#e6db74">&#39;name&#39;</span>, <span style="color:#e6db74">&#39;creationTime&#39;</span>, <span style="color:#e6db74">&#39;displayName&#39;</span>, <span style="color:#e6db74">&#39;Добавлен&#39;</span>, <span style="color:#e6db74">&#39;parentColumn&#39;</span>, <span style="color:#e6db74">&#39;name&#39;</span>),
+			<span style="color:#a6e22e">json_build_object</span>(<span style="color:#e6db74">&#39;name&#39;</span>, <span style="color:#e6db74">&#39;isActive&#39;</span>, <span style="color:#e6db74">&#39;displayName&#39;</span>, <span style="color:#e6db74">&#39;Активный&#39;</span>, <span style="color:#e6db74">&#39;parentColumn&#39;</span>, <span style="color:#e6db74">&#39;name&#39;</span>),
+			<span style="color:#a6e22e">json_build_object</span>(<span style="color:#e6db74">&#39;name&#39;</span>, <span style="color:#e6db74">&#39;статус&#39;</span>, <span style="color:#e6db74">&#39;parentColumn&#39;</span>, <span style="color:#e6db74">&#39;name&#39;</span>, <span style="color:#e6db74">&#39;hideNameInParentColumn&#39;</span>, <span style="color:#66d9ef">true</span>),
+			<span style="color:#a6e22e">json_build_object</span>(<span style="color:#e6db74">&#39;name&#39;</span>, <span style="color:#e6db74">&#39;org_name&#39;</span>, <span style="color:#e6db74">&#39;displayName&#39;</span>, <span style="color:#e6db74">&#39;Организация&#39;</span>),
+			<span style="color:#a6e22e">json_build_object</span>(<span style="color:#e6db74">&#39;name&#39;</span>, <span style="color:#e6db74">&#39;org_work_after&#39;</span>, <span style="color:#e6db74">&#39;displayName&#39;</span>, <span style="color:#e6db74">&#39;Время работы&#39;</span>, <span style="color:#e6db74">&#39;parentColumn&#39;</span>, <span style="color:#e6db74">&#39;org_name&#39;</span>),
+			<span style="color:#a6e22e">json_build_object</span>(<span style="color:#e6db74">&#39;name&#39;</span>, <span style="color:#e6db74">&#39;salary&#39;</span>, <span style="color:#e6db74">&#39;displayName&#39;</span>, <span style="color:#e6db74">&#39;ЗП&#39;</span>)
 		)
-	) as table_props_field
-FROM &quot;public&quot;.&quot;employee&quot;
-inner join organization ON organization.&quot;organizationId&quot; = employee.&quot;organizationId&quot;
-WHERE employee.name ILIKE ${env.search_text}
--- Фильтрация данных таблицы
-[#if env.sp.org_ids?size&gt;0]
-	AND employee.&quot;organizationId&quot; IN ( :env.sp.org_ids )
-[/#if]
-[#if env.sp.active_mode?has_content]
-	[#if env.sp.active_mode = 'active']
-		AND employee.&quot;isActive&quot;
-	[/#if]
-	[#if env.sp.active_mode = 'no_active']
-		AND NOT employee.&quot;isActive&quot;
-	[/#if]
-[/#if]
-ORDER BY ${sort}, &quot;creationTime&quot; DESC
-${pager}
-&lt;/script&gt;
-</code></pre>
-
+	) <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">table_props_field</span>
+<span style="color:#a6e22e">FROM</span> <span style="color:#e6db74">&#34;public&#34;</span>.<span style="color:#e6db74">&#34;employee&#34;</span>
+<span style="color:#a6e22e">inner</span> <span style="color:#a6e22e">join</span> <span style="color:#a6e22e">organization</span> <span style="color:#a6e22e">ON</span> <span style="color:#a6e22e">organization</span>.<span style="color:#e6db74">&#34;organizationId&#34;</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">employee</span>.<span style="color:#e6db74">&#34;organizationId&#34;</span>
+<span style="color:#a6e22e">WHERE</span> <span style="color:#a6e22e">employee</span>.<span style="color:#a6e22e">name</span> <span style="color:#a6e22e">ILIKE</span> <span style="color:#a6e22e">$</span>{<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">search_text</span>}
+<span style="color:#f92672">--</span> <span style="color:#a6e22e">Фильтрация</span> <span style="color:#a6e22e">данных</span> <span style="color:#a6e22e">таблицы</span>
+[<span style="color:#960050;background-color:#1e0010">#</span><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">sp</span>.<span style="color:#a6e22e">org_ids</span><span style="color:#f92672">?</span><span style="color:#a6e22e">size</span><span style="color:#f92672">&gt;</span><span style="color:#ae81ff">0</span>]
+	<span style="color:#a6e22e">AND</span> <span style="color:#a6e22e">employee</span>.<span style="color:#e6db74">&#34;organizationId&#34;</span> <span style="color:#a6e22e">IN</span> ( <span style="color:#f92672">:</span><span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">sp</span>.<span style="color:#a6e22e">org_ids</span> )
+[<span style="color:#960050;background-color:#1e0010">/#if]</span>
+[<span style="color:#960050;background-color:#1e0010">#</span><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">sp</span>.<span style="color:#a6e22e">active_mode</span><span style="color:#f92672">?</span><span style="color:#a6e22e">has_content</span>]
+	[<span style="color:#960050;background-color:#1e0010">#</span><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">sp</span>.<span style="color:#a6e22e">active_mode</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;active&#39;</span>]
+		<span style="color:#a6e22e">AND</span> <span style="color:#a6e22e">employee</span>.<span style="color:#e6db74">&#34;isActive&#34;</span>
+	[<span style="color:#960050;background-color:#1e0010">/#if]</span>
+	[<span style="color:#960050;background-color:#1e0010">#</span><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">sp</span>.<span style="color:#a6e22e">active_mode</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;no_active&#39;</span>]
+		<span style="color:#a6e22e">AND</span> <span style="color:#a6e22e">NOT</span> <span style="color:#a6e22e">employee</span>.<span style="color:#e6db74">&#34;isActive&#34;</span>
+	[<span style="color:#960050;background-color:#1e0010">/#if]</span>
+[<span style="color:#960050;background-color:#1e0010">/#if]</span>
+<span style="color:#a6e22e">ORDER</span> <span style="color:#a6e22e">BY</span> <span style="color:#a6e22e">$</span>{<span style="color:#a6e22e">sort</span>}, <span style="color:#e6db74">&#34;creationTime&#34;</span> <span style="color:#a6e22e">DESC</span>
+<span style="color:#a6e22e">$</span>{<span style="color:#a6e22e">pager</span>}
+&lt;/<span style="color:#f92672">script</span>&gt;
+</code></pre></div>
 
 
 
@@ -1561,12 +1588,9 @@ ${pager}
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#код-примера">Код примера</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#код-примера">Код примера</a></li>
+  </ul>
 </nav>
 </div>
 

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.42.1" />
+    <meta name="generator" content="Hugo 0.68.1" />
     <meta name="description" content="">
 
 
@@ -460,6 +460,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     
 
 
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/compoments/oauth/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/compoments/oauth/" class="devsite-nav-title">
+                    <span>OAuth</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
                     
                     
                     
@@ -1358,6 +1376,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
+            <li data-nav-id="/reference/java_api/smartqueryservice/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/reference/java_api/smartqueryservice/" class="devsite-nav-title">
+                    <span>SmartQueryService</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
             <li data-nav-id="/reference/java_api/tablecolumnservice/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/reference/java_api/tablecolumnservice/" class="devsite-nav-title">
                     <span>TableColumnService</span>
@@ -1461,12 +1497,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-
-
 <h2 id="в-таблице-списке-объектов-сущности-вывести-страницу-в-контекстное-меню">В таблице списке объектов сущности вывести страницу в контекстное меню</h2>
-
 <p>Например у вас есть список пользователей и на карточке пользователя есть страница проектов, доступных пользователю.</p>
-
 <ul>
 <li>Включите режим разработчика, если он не ключен</li>
 <li>Зайдите на интресующую вас страницу</li>
@@ -1476,15 +1508,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li>Сбросьте кеш меты</li>
 <li>Обновите страницу через F5</li>
 </ul>
-
 <p>Пример такой страницы: <a href="https://apps.devision.io/card?e=example_entity&amp;o=08f3395b-31f2-42c9-917e-a5f2b7bd4a95&amp;p=5183&amp;a=35">https://apps.devision.io/card?e=example_entity&amp;o=08f3395b-31f2-42c9-917e-a5f2b7bd4a95&amp;p=5183&amp;a=35</a></p>
-
 <h2 id="на-карточке-объекта-сущности-нужно-вывести-меню-действия-над-объектом">На карточке объекта сущности нужно вывести меню действия над объектом</h2>
-
 <p>Например вы хотите сделать какое-то кастоное действие - выставить счет контагенту, по особенному удалить или что-то другое, не связанное просто с отображением таблиц и другой информации.</p>
-
 <p>Для меты это будет обычная страница, как и например та, которая просто отображает списки с фильтрами, поэтому ничего страшного в том, что она будет для ас и в левом меню тоже.</p>
-
 <ul>
 <li>Включите режим разработчика, если он не ключен</li>
 <li>Зайдите на интресующую вас страницу</li>
@@ -1495,105 +1522,89 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li>Сбросьте кеш меты</li>
 <li>Обновите страницу через F5</li>
 </ul>
-
 <p>Пример такой страницы: <a href="https://apps.devision.io/card?e=example_entity&amp;o=08f3395b-31f2-42c9-917e-a5f2b7bd4a95&amp;p=5311&amp;a=35">https://apps.devision.io/card?e=example_entity&amp;o=08f3395b-31f2-42c9-917e-a5f2b7bd4a95&amp;p=5311&amp;a=35</a></p>
-
 <p>Стоит сказать, что галочка на &ldquo;Показывать в меню только разработчикам&rdquo; сейчас не обязательна,
 но по внутренним договоренностям мы считаем хорошей практикой показывать страницы действий только сверху.</p>
-
 <h2 id="открыть-добавление-объекта-через-html">Открыть добавление объекта через html</h2>
-
 <p>Приведу пример из биллинга - подача заявки для перехода на дргой тариф.
 Заявка выполнена в виде <a href="https://developers.devision.io/meta/compoments/ticket/">тикета</a> с типом согласование
 Тут мы видем использование технологии разметки перевода &ldquo;i18n&rdquo; в кнопке добавления новых объектов для entityId=2701 с заранее установленным env.sp</p>
-
-<pre><code class="language-html">&lt;elem&gt;
-&lt;tpl&gt;
-  &lt;me-add-obj-btn attrs='{&quot;addObjectButton&quot;:{
-    &quot;mode&quot;: &quot;sidenav&quot;,
-    &quot;title&quot;: &quot;${i18n(&quot;#.productTariffTicketAdd&quot;, &quot;Подать заявку&quot;)}&quot;,
-    &quot;modalSize&quot;: &quot;lg&quot;,
-    &quot;modalTitle&quot;: &quot;${i18n(&quot;#.productTariffTicketAdd&quot;, &quot;Подать заявку&quot;)}&quot;,
-    &quot;cssClass&quot;: &quot;btn btn-sm btn-main&quot;, 
-    &quot;icon&quot;: &quot;fa-gavel&quot;,
-    &quot;env&quot;: {
-      &quot;sp&quot;: {
-        &quot;card&quot;: {
-          &quot;no_redirect_after_save&quot;: true,
-          &quot;entity_id&quot;: &quot;2651&quot;,
-          &quot;object_id&quot;: &quot;${env.companyId}&quot;,
-          &quot;issue_type_id&quot;: &quot;devision_billing_tariff&quot;,
-          &quot;form_data&quot;: {&quot;product_id&quot;: ${env.objectId}}
-        }
-      }
-    }
-  }, &quot;entityId&quot;: &quot;2701&quot;}'&gt;&lt;/me-add-obj-btn&gt;
-&lt;/tpl&gt;
-&lt;/elem&gt;
-</code></pre>
-
-<h2 id="открыть-карточку-объекта-сущности-при-клике-на-ее-название-в-списке">Открыть карточку объекта сущности при клике на ее название в списке</h2>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">elem</span>&gt;
+&lt;<span style="color:#f92672">tpl</span>&gt;
+  &lt;<span style="color:#f92672">me-add-obj-btn</span> <span style="color:#a6e22e">attrs</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;{&#34;addObjectButton&#34;:{
+</span><span style="color:#e6db74">    &#34;mode&#34;: &#34;sidenav&#34;,
+</span><span style="color:#e6db74">    &#34;title&#34;: &#34;${i18n(&#34;#.productTariffTicketAdd&#34;, &#34;Подать заявку&#34;)}&#34;,
+</span><span style="color:#e6db74">    &#34;modalSize&#34;: &#34;lg&#34;,
+</span><span style="color:#e6db74">    &#34;modalTitle&#34;: &#34;${i18n(&#34;#.productTariffTicketAdd&#34;, &#34;Подать заявку&#34;)}&#34;,
+</span><span style="color:#e6db74">    &#34;cssClass&#34;: &#34;btn btn-sm btn-main&#34;, 
+</span><span style="color:#e6db74">    &#34;icon&#34;: &#34;fa-gavel&#34;,
+</span><span style="color:#e6db74">    &#34;env&#34;: {
+</span><span style="color:#e6db74">      &#34;sp&#34;: {
+</span><span style="color:#e6db74">        &#34;card&#34;: {
+</span><span style="color:#e6db74">          &#34;no_redirect_after_save&#34;: true,
+</span><span style="color:#e6db74">          &#34;entity_id&#34;: &#34;2651&#34;,
+</span><span style="color:#e6db74">          &#34;object_id&#34;: &#34;${env.companyId}&#34;,
+</span><span style="color:#e6db74">          &#34;issue_type_id&#34;: &#34;devision_billing_tariff&#34;,
+</span><span style="color:#e6db74">          &#34;form_data&#34;: {&#34;product_id&#34;: ${env.objectId}}
+</span><span style="color:#e6db74">        }
+</span><span style="color:#e6db74">      }
+</span><span style="color:#e6db74">    }
+</span><span style="color:#e6db74">  }, &#34;entityId&#34;: &#34;2701&#34;}&#39;</span>&gt;&lt;/<span style="color:#f92672">me-add-obj-btn</span>&gt;
+&lt;/<span style="color:#f92672">tpl</span>&gt;
+&lt;/<span style="color:#f92672">elem</span>&gt;
+</code></pre></div><h2 id="открыть-карточку-объекта-сущности-при-клике-на-ее-название-в-списке">Открыть карточку объекта сущности при клике на ее название в списке</h2>
 <p>Обязательно изучите документацию документацию по <a href="https://developers.devision.io/meta/reference/ui_controls/typedoc/interfaces/_helpers_i_common_.ientitycardlink.html">IEntityCardLink</a>
 и изучите возможные <a href="https://developers.devision.io/meta/reference/ui_controls/typedoc/interfaces/_elems_i_me_table_.imetableattrs.html">атрибуты таблицы</a>.</p>
-
 <p>В данном примере код entityCardLink говорит, что при клике на название объекта будет происходить не переход на новую страницу, а будет открываться модальное окно с карточкой объекта.</p>
-
-<pre><code class="language-html">&lt;script type=&quot;meta/sql&quot; db-alias=&quot;adplatform&quot; id=&quot;res&quot; entity-id=&quot;2876&quot; order=&quot;100500&quot; 
-    elem-attrs='{&quot;addObjectButton&quot;:{&quot;title&quot;:&quot;Группа&quot;, &quot;mode&quot;:&quot;modal&quot;, &quot;env&quot;:{&quot;sp&quot;:{&quot;obj&quot;:{&quot;entity_id&quot;:2876}}} }}'
-         elem-attrs.entityCardLink.mode='modal' 
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;adplatform&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;res&#34;</span> <span style="color:#a6e22e">entity-id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;2876&#34;</span> <span style="color:#a6e22e">order</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;100500&#34;</span> 
+    <span style="color:#a6e22e">elem-attrs</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;{&#34;addObjectButton&#34;:{&#34;title&#34;:&#34;Группа&#34;, &#34;mode&#34;:&#34;modal&#34;, &#34;env&#34;:{&#34;sp&#34;:{&#34;obj&#34;:{&#34;entity_id&#34;:2876}}} }}&#39;</span>
+         <span style="color:#a6e22e">elem-attrs</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">entityCardLink</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">mode</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;modal&#39;</span> 
         &gt;
 ....
-</code></pre>
-
-<h2 id="открыть-карточку-выбранного-объекта-в-выпадающем-списке-me-input-type-select">Открыть карточку выбранного объекта в выпадающем списке (me-input type=select)</h2>
-
+</code></pre></div><h2 id="открыть-карточку-выбранного-объекта-в-выпадающем-списке-me-input-typeselect">Открыть карточку выбранного объекта в выпадающем списке (me-input type=select)</h2>
 <p>Например у вас сложная форма, где много инпутов и вам надо дать возможность быстро посмотреть карточку выбранного в одном из инпутов клиента.
 Для это используется атрибут элемента <a href="https://developers.devision.io/meta/reference/ui_controls/typedoc/interfaces/_elems_i_me_input_.imeinputattrs.html#fastviewobjectbutton">fastViewObjectButton</a>.</p>
-
 <p>Так же обратите внимание на параметр <em>addObjectButton</em> он позволяет настроить поведение инпута для добавления объекта в список, например удобно там открывать страницу добавления клиента.</p>
-
-<pre><code class="language-json">{
-  id: &quot;ex_access_id&quot;,
-  label: &quot;Доступ&quot;,
-  name: &quot;me-input&quot;,
-  refPvmData: {id: 'access_list', sp:{}, waitingId: 'wait_ex_access_for_google'},
-  attrs: {
-    type: &quot;select&quot;,
-    required: true,
-    fastViewObjectButton: {
-      drawActorList: false,
-      drawTopMenu: false,
-      modalSize: 'xs'
-    },
-    &quot;addObjectButton&quot;: {
-      &quot;mode&quot;: &quot;sidenav&quot;,
-      &quot;env&quot;: {
-        &quot;sp&quot;: {
-          &quot;obj&quot;: {
-            &quot;mode&quot;: &quot;feed&quot;,
-            &quot;ex_system_id&quot;: &quot;google_adwords&quot;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#960050;background-color:#1e0010">id:</span> <span style="color:#f92672">&#34;ex_access_id&#34;</span>,
+  <span style="color:#960050;background-color:#1e0010">label:</span> <span style="color:#f92672">&#34;Доступ&#34;</span>,
+  <span style="color:#960050;background-color:#1e0010">name:</span> <span style="color:#f92672">&#34;me-input&#34;</span>,
+  <span style="color:#960050;background-color:#1e0010">refPvmData:</span> <span style="color:#960050;background-color:#1e0010">{id:</span> <span style="color:#960050;background-color:#1e0010">&#39;access_list&#39;,</span> <span style="color:#960050;background-color:#1e0010">sp:{</span>}<span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#960050;background-color:#1e0010">waitingId:</span> <span style="color:#960050;background-color:#1e0010">&#39;wait_ex_access_for_google&#39;},</span>
+  <span style="color:#960050;background-color:#1e0010">attrs:</span> {
+    <span style="color:#960050;background-color:#1e0010">type:</span> <span style="color:#f92672">&#34;select&#34;</span>,
+    <span style="color:#960050;background-color:#1e0010">required:</span> <span style="color:#960050;background-color:#1e0010">true,</span>
+    <span style="color:#960050;background-color:#1e0010">fastViewObjectButton:</span> <span style="color:#960050;background-color:#1e0010">{</span>
+      <span style="color:#960050;background-color:#1e0010">drawActorList:</span> <span style="color:#960050;background-color:#1e0010">false,</span>
+      <span style="color:#960050;background-color:#1e0010">drawTopMenu:</span> <span style="color:#960050;background-color:#1e0010">false,</span>
+      <span style="color:#960050;background-color:#1e0010">modalSize:</span> <span style="color:#960050;background-color:#1e0010">&#39;xs&#39;</span>
+    }<span style="color:#960050;background-color:#1e0010">,</span>
+    <span style="color:#e6db74">&#34;addObjectButton&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> {
+      <span style="color:#f92672">&#34;mode&#34;</span>: <span style="color:#e6db74">&#34;sidenav&#34;</span>,
+      <span style="color:#f92672">&#34;env&#34;</span>: {
+        <span style="color:#f92672">&#34;sp&#34;</span>: {
+          <span style="color:#f92672">&#34;obj&#34;</span>: {
+            <span style="color:#f92672">&#34;mode&#34;</span>: <span style="color:#e6db74">&#34;feed&#34;</span>,
+            <span style="color:#f92672">&#34;ex_system_id&#34;</span>: <span style="color:#e6db74">&#34;google_adwords&#34;</span>
           }
         }
       },
-      &quot;title&quot;: &quot;Подключить аккаунт&quot;
+      <span style="color:#f92672">&#34;title&#34;</span>: <span style="color:#e6db74">&#34;Подключить аккаунт&#34;</span>
     }
-  },
-  &quot;listen&quot;: [
+  <span style="color:#960050;background-color:#1e0010">},</span>
+  <span style="color:#e6db74">&#34;listen&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> [
     {
-      &quot;code&quot;: [
-        &quot;ADD&quot;,
-        &quot;SET&quot;
+      <span style="color:#f92672">&#34;code&#34;</span>: [
+        <span style="color:#e6db74">&#34;ADD&#34;</span>,
+        <span style="color:#e6db74">&#34;SET&#34;</span>
       ],
-      &quot;entityId&quot;: 2830,
-      &quot;selectAfterAdd&quot;: true,
-      &quot;refreshRefPvmData&quot;: {}
+      <span style="color:#f92672">&#34;entityId&#34;</span>: <span style="color:#ae81ff">2830</span>,
+      <span style="color:#f92672">&#34;selectAfterAdd&#34;</span>: <span style="color:#66d9ef">true</span>,
+      <span style="color:#f92672">&#34;refreshRefPvmData&#34;</span>: {}
     }
-  ],
-  &quot;entityId&quot;: 2830,
-}
-</code></pre>
-
+  ]<span style="color:#960050;background-color:#1e0010">,</span>
+  <span style="color:#e6db74">&#34;entityId&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#ae81ff">2830</span><span style="color:#960050;background-color:#1e0010">,</span>
+<span style="color:#960050;background-color:#1e0010">}</span>
+</code></pre></div>
 
 
 
@@ -1605,16 +1616,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#в-таблице-списке-объектов-сущности-вывести-страницу-в-контекстное-меню">В таблице списке объектов сущности вывести страницу в контекстное меню</a></li>
-<li><a href="#на-карточке-объекта-сущности-нужно-вывести-меню-действия-над-объектом">На карточке объекта сущности нужно вывести меню действия над объектом</a></li>
-<li><a href="#открыть-добавление-объекта-через-html">Открыть добавление объекта через html</a></li>
-<li><a href="#открыть-карточку-объекта-сущности-при-клике-на-ее-название-в-списке">Открыть карточку объекта сущности при клике на ее название в списке</a></li>
-<li><a href="#открыть-карточку-выбранного-объекта-в-выпадающем-списке-me-input-type-select">Открыть карточку выбранного объекта в выпадающем списке (me-input type=select)</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#в-таблице-списке-объектов-сущности-вывести-страницу-в-контекстное-меню">В таблице списке объектов сущности вывести страницу в контекстное меню</a></li>
+    <li><a href="#на-карточке-объекта-сущности-нужно-вывести-меню-действия-над-объектом">На карточке объекта сущности нужно вывести меню действия над объектом</a></li>
+    <li><a href="#открыть-добавление-объекта-через-html">Открыть добавление объекта через html</a></li>
+    <li><a href="#открыть-карточку-объекта-сущности-при-клике-на-ее-название-в-списке">Открыть карточку объекта сущности при клике на ее название в списке</a></li>
+    <li><a href="#открыть-карточку-выбранного-объекта-в-выпадающем-списке-me-input-typeselect">Открыть карточку выбранного объекта в выпадающем списке (me-input type=select)</a></li>
+  </ul>
 </nav>
 </div>
 

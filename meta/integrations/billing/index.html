@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.42.1" />
+    <meta name="generator" content="Hugo 0.68.1" />
     <meta name="description" content="">
 
 
@@ -460,6 +460,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     
 
 
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/compoments/oauth/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/compoments/oauth/" class="devsite-nav-title">
+                    <span>OAuth</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
                     
                     
                     
@@ -1358,6 +1376,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
+            <li data-nav-id="/reference/java_api/smartqueryservice/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/reference/java_api/smartqueryservice/" class="devsite-nav-title">
+                    <span>SmartQueryService</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
             <li data-nav-id="/reference/java_api/tablecolumnservice/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/reference/java_api/tablecolumnservice/" class="devsite-nav-title">
                     <span>TableColumnService</span>
@@ -1462,48 +1498,45 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 <p><a href="https://developers.devision.io/meta/meta/reference/java_api/billingservice/">Java API</a></p>
-
 <p><a href="https://apps.devision.io/page?p=5316&amp;a=35">Example</a></p>
-
-<pre><code class="language-html">&lt;elem states=&quot;default&quot;&gt;
-  &lt;tpl&gt;
-    &lt;p&gt;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">elem</span> <span style="color:#a6e22e">states</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;default&#34;</span>&gt;
+  &lt;<span style="color:#f92672">tpl</span>&gt;
+    &lt;<span style="color:#f92672">p</span>&gt;
       BillingService нужен для накладывания ограничений на доступный функционал 
-    &lt;/p&gt;
-    &lt;p class=&quot;text-warning&quot;&gt;
+    &lt;/<span style="color:#f92672">p</span>&gt;
+    &lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text-warning&#34;</span>&gt;
       Для просмотра логов откройте chrome devtools console и включили dev mode в мете.
-    &lt;/p&gt;
+    &lt;/<span style="color:#f92672">p</span>&gt;
     
-    &lt;a ng-click=&quot;changeState('test_in_js', {})&quot; href&gt;Go To JS&lt;/a&gt;
-  &lt;/tpl&gt;
-&lt;/elem&gt;
+    &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">ng-click</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;changeState(&#39;test_in_js&#39;, {})&#34;</span> <span style="color:#a6e22e">href</span>&gt;Go To JS&lt;/<span style="color:#f92672">a</span>&gt;
+  &lt;/<span style="color:#f92672">tpl</span>&gt;
+&lt;/<span style="color:#f92672">elem</span>&gt;
 
-&lt;script type=&quot;meta/js&quot; id=&quot;ex0&quot; states=&quot;test_in_js&quot;&gt;
-  function main(log) {
-    log.info('ex0 выполняется в любом случае, так как он перед проверкой по биллингу');
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ex0&#34;</span> <span style="color:#a6e22e">states</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;test_in_js&#34;</span>&gt;
+  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>(<span style="color:#a6e22e">log</span>) {
+    <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">info</span>(<span style="color:#e6db74">&#39;ex0 выполняется в любом случае, так как он перед проверкой по биллингу&#39;</span>);
   }
-&lt;/script&gt;
+&lt;/<span style="color:#f92672">script</span>&gt;
 
-&lt;script type=&quot;meta/js&quot; id=&quot;ex1&quot; states=&quot;test_in_js&quot;&gt;
-  function main(log, env, vm, pvm, BillingService) {
-    log.info('ex1 Перед проверкой по биллингу');
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ex1&#34;</span> <span style="color:#a6e22e">states</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;test_in_js&#34;</span>&gt;
+  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>(<span style="color:#a6e22e">log</span>, <span style="color:#a6e22e">env</span>, <span style="color:#a6e22e">vm</span>, <span style="color:#a6e22e">pvm</span>, <span style="color:#a6e22e">BillingService</span>) {
+    <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">info</span>(<span style="color:#e6db74">&#39;ex1 Перед проверкой по биллингу&#39;</span>);
     
-    // Метод checkAddSkuUsage бросает исключение PaymentRequiredException и останавливает выполенение скриптов за 
-    BillingService.checkAddSkuUsage('feeds', 'feeds-streams-count', 10);
+    <span style="color:#75715e">// Метод checkAddSkuUsage бросает исключение PaymentRequiredException и останавливает выполенение скриптов за 
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">BillingService</span>.<span style="color:#a6e22e">checkAddSkuUsage</span>(<span style="color:#e6db74">&#39;feeds&#39;</span>, <span style="color:#e6db74">&#39;feeds-streams-count&#39;</span>, <span style="color:#ae81ff">10</span>);
     
-    log.info('ex1 Этот код уже не исполнится, если будет PaymentRequiredException');
+    <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">info</span>(<span style="color:#e6db74">&#39;ex1 Этот код уже не исполнится, если будет PaymentRequiredException&#39;</span>);
   }
-&lt;/script&gt;
+&lt;/<span style="color:#f92672">script</span>&gt;
 
-&lt;script type=&quot;meta/js&quot; id=&quot;ex2&quot; states=&quot;test_in_js&quot;&gt;
-  function main(log, BillingService) {
-    // В случае исключения PaymentRequiredException этот скрипт уже не выполнится
-    // В нашем примере мы всегда получаем исключение
-    log.info('ex2 только, если мы не получили PaymentRequiredException');
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ex2&#34;</span> <span style="color:#a6e22e">states</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;test_in_js&#34;</span>&gt;
+  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>(<span style="color:#a6e22e">log</span>, <span style="color:#a6e22e">BillingService</span>) {
+    <span style="color:#75715e">// В случае исключения PaymentRequiredException этот скрипт уже не выполнится
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// В нашем примере мы всегда получаем исключение
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">info</span>(<span style="color:#e6db74">&#39;ex2 только, если мы не получили PaymentRequiredException&#39;</span>);
   }
-&lt;/script&gt;
-</code></pre>
-
+&lt;/<span style="color:#f92672">script</span>&gt;
+</code></pre></div>
 
 
 
@@ -1514,7 +1547,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
-    
+    <nav id="TableOfContents"></nav>
 </div>
 
 </div>

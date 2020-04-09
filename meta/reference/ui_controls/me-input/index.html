@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.42.1" />
+    <meta name="generator" content="Hugo 0.68.1" />
     <meta name="description" content="">
 
 
@@ -460,6 +460,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     
 
 
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/compoments/oauth/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/compoments/oauth/" class="devsite-nav-title">
+                    <span>OAuth</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
                     
                     
                     
@@ -1358,6 +1376,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
+            <li data-nav-id="/reference/java_api/smartqueryservice/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/reference/java_api/smartqueryservice/" class="devsite-nav-title">
+                    <span>SmartQueryService</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
             <li data-nav-id="/reference/java_api/tablecolumnservice/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/reference/java_api/tablecolumnservice/" class="devsite-nav-title">
                     <span>TableColumnService</span>
@@ -1466,359 +1502,268 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-
-
 <p>Основной элемент для ввода данных
 Использует attrs.type для уточнения внешнего вида элемента.
 Может принимать вид текстового поля ввода, выпадающего списка, checkbox, radio и пр.</p>
-
 <p><strong>@returns</strong> any - тип результируещего значения зависит от [[IMeInputAttrs.type]] элемента и от значения multiple</p>
-
 <h2 id="общее">Общее</h2>
-
 <p>Обратите внимание на <a href="../typedoc">структуру всех классов</a></p>
-
 <h2 id="структура">Структура</h2>
-
-<pre><code class="language-json">{
-  &quot;__tid&quot;: &quot;(any)&quot;,
-  &quot;align&quot;: &quot;(string)&quot;,
-  &quot;attrs&quot;: {
-    &quot;addObjectButton&quot;: {
-      &quot;cssClass&quot;: &quot;(string)&quot;,
-      &quot;cssProperties&quot;: &quot;(string)&quot;,
-      &quot;disabled&quot;: &quot;(boolean)&quot;,
-      &quot;drawAsMainElementOnParentElemIsEmpty&quot;: &quot;(boolean)&quot;,
-      &quot;env&quot;: {
-        &quot;state&quot;: &quot;(string)&quot;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;__tid&#34;</span>: <span style="color:#e6db74">&#34;(any)&#34;</span>,
+  <span style="color:#f92672">&#34;align&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+  <span style="color:#f92672">&#34;attrs&#34;</span>: {
+    <span style="color:#f92672">&#34;addObjectButton&#34;</span>: {
+      <span style="color:#f92672">&#34;cssClass&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+      <span style="color:#f92672">&#34;cssProperties&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+      <span style="color:#f92672">&#34;disabled&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>,
+      <span style="color:#f92672">&#34;drawAsMainElementOnParentElemIsEmpty&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>,
+      <span style="color:#f92672">&#34;env&#34;</span>: {
+        <span style="color:#f92672">&#34;state&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>
       },
-      &quot;icon&quot;: &quot;(string)&quot;,
-      &quot;icon_image&quot;: &quot;(string)&quot;,
-      &quot;pageId&quot;: &quot;(string)&quot;,
-      &quot;title&quot;: &quot;(string)&quot;,
-      &quot;tooltip&quot;: {
-        &quot;content&quot;: &quot;(string)&quot;,
-        &quot;label&quot;: &quot;(string)&quot;
+      <span style="color:#f92672">&#34;icon&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+      <span style="color:#f92672">&#34;icon_image&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+      <span style="color:#f92672">&#34;pageId&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+      <span style="color:#f92672">&#34;title&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+      <span style="color:#f92672">&#34;tooltip&#34;</span>: {
+        <span style="color:#f92672">&#34;content&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+        <span style="color:#f92672">&#34;label&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>
       }
     },
-    &quot;align&quot;: &quot;( left | right )&quot;,
-    &quot;autoSelect&quot;: &quot;( none | first | if_only_one )&quot;,
-    &quot;contextualClass&quot;: &quot;(string)&quot;,
-    &quot;create&quot;: &quot;(boolean)&quot;,
-    &quot;ctrlEnterApply&quot;: &quot;(boolean)&quot;,
-    &quot;disabled&quot;: &quot;(boolean)&quot;,
-    &quot;enterSubmit&quot;: &quot;(boolean)&quot;,
-    &quot;fastViewObjectButton&quot;: {
-      &quot;drawActorList&quot;: &quot;(boolean)&quot;,
-      &quot;drawTopMenu&quot;: &quot;(boolean)&quot;,
-      &quot;env&quot;: {
-        &quot;state&quot;: &quot;(string)&quot;
-      },
-      &quot;modalSize&quot;: &quot;( xs, sm, md, lg, fullscreen, max )&quot;,
-      &quot;modalTitle&quot;: &quot;(string)&quot;,
-      &quot;mode&quot;: &quot;( modal, sidenav, hidden )&quot;,
-      &quot;pageId&quot;: &quot;(string)&quot;
-    },
-    &quot;formInputName&quot;: &quot;(string)&quot;,
-    &quot;groupAddon&quot;: {
-      &quot;text&quot;: &quot;(string)&quot;
-    },
-    &quot;inlineElements&quot;: &quot;(boolean)&quot;,
-    &quot;inlineLabel&quot;: &quot;(boolean)&quot;,
-    &quot;max&quot;: &quot;(number)&quot;,
-    &quot;maxHeight&quot;: &quot;(string)&quot;,
-    &quot;min&quot;: &quot;(number)&quot;,
-    &quot;mode&quot;: &quot;( JSON | JSON_OBJECT | HTML | SQL )&quot;,
-    &quot;multiple&quot;: &quot;(boolean)&quot;,
-    &quot;native&quot;: &quot;(any)&quot;,
-    &quot;options&quot;: [
+    <span style="color:#f92672">&#34;align&#34;</span>: <span style="color:#e6db74">&#34;( left | right )&#34;</span>,
+    <span style="color:#f92672">&#34;autoSelect&#34;</span>: <span style="color:#e6db74">&#34;( none | first | if_only_one )&#34;</span>,
+    <span style="color:#f92672">&#34;contextualClass&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+    <span style="color:#f92672">&#34;create&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>,
+    <span style="color:#f92672">&#34;ctrlEnterApply&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>,
+    <span style="color:#f92672">&#34;disabled&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>,
+    <span style="color:#f92672">&#34;enterSubmit&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>,
+    <span style="color:#f92672">&#34;exposeSelectedOptionKeys&#34;</span>: [
       {
-        &quot;date&quot;: &quot;(string)&quot;,
-        &quot;description&quot;: &quot;(string)&quot;,
-        &quot;fast_select&quot;: &quot;(boolean)&quot;,
-        &quot;icon&quot;: &quot;(string)&quot;,
-        &quot;icon_image&quot;: &quot;(string)&quot;,
-        &quot;image&quot;: &quot;(string)&quot;,
-        &quot;link&quot;: {
-          &quot;modalSize&quot;: &quot;( xs, sm, lg, normal, max )&quot;,
-          &quot;target&quot;: &quot;(string)&quot;,
-          &quot;type&quot;: &quot;(string)&quot;,
-          &quot;value&quot;: {
-            &quot;entityId&quot;: &quot;(string)&quot;,
-            &quot;env&quot;: {
-              &quot;state&quot;: &quot;(string)&quot;
+        <span style="color:#f92672">&#34;source&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+        <span style="color:#f92672">&#34;target&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>
+      }
+    ],
+    <span style="color:#f92672">&#34;fastViewObjectButton&#34;</span>: {
+      <span style="color:#f92672">&#34;drawActorList&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>,
+      <span style="color:#f92672">&#34;drawTopMenu&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>,
+      <span style="color:#f92672">&#34;env&#34;</span>: {
+        <span style="color:#f92672">&#34;state&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>
+      },
+      <span style="color:#f92672">&#34;modalSize&#34;</span>: <span style="color:#e6db74">&#34;( xs, sm, md, lg, fullscreen, max )&#34;</span>,
+      <span style="color:#f92672">&#34;modalTitle&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+      <span style="color:#f92672">&#34;mode&#34;</span>: <span style="color:#e6db74">&#34;( modal, sidenav, hidden )&#34;</span>,
+      <span style="color:#f92672">&#34;pageId&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>
+    },
+    <span style="color:#f92672">&#34;formInputName&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+    <span style="color:#f92672">&#34;groupAddon&#34;</span>: {
+      <span style="color:#f92672">&#34;text&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>
+    },
+    <span style="color:#f92672">&#34;inlineElements&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>,
+    <span style="color:#f92672">&#34;inlineLabel&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>,
+    <span style="color:#f92672">&#34;max&#34;</span>: <span style="color:#e6db74">&#34;(number)&#34;</span>,
+    <span style="color:#f92672">&#34;maxHeight&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+    <span style="color:#f92672">&#34;min&#34;</span>: <span style="color:#e6db74">&#34;(number)&#34;</span>,
+    <span style="color:#f92672">&#34;mode&#34;</span>: <span style="color:#e6db74">&#34;( JSON | JSON_OBJECT | HTML | SQL )&#34;</span>,
+    <span style="color:#f92672">&#34;multiple&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>,
+    <span style="color:#f92672">&#34;native&#34;</span>: <span style="color:#e6db74">&#34;(any)&#34;</span>,
+    <span style="color:#f92672">&#34;options&#34;</span>: [
+      {
+        <span style="color:#f92672">&#34;date&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+        <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+        <span style="color:#f92672">&#34;fast_select&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>,
+        <span style="color:#f92672">&#34;icon&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+        <span style="color:#f92672">&#34;icon_image&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+        <span style="color:#f92672">&#34;image&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+        <span style="color:#f92672">&#34;link&#34;</span>: {
+          <span style="color:#f92672">&#34;modalSize&#34;</span>: <span style="color:#e6db74">&#34;( xs, sm, lg, normal, max )&#34;</span>,
+          <span style="color:#f92672">&#34;target&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+          <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+          <span style="color:#f92672">&#34;value&#34;</span>: {
+            <span style="color:#f92672">&#34;entityId&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+            <span style="color:#f92672">&#34;env&#34;</span>: {
+              <span style="color:#f92672">&#34;state&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>
             },
-            &quot;mode&quot;: &quot;( modal, sidenav, hidden )&quot;,
-            &quot;objectId&quot;: &quot;(string)&quot;,
-            &quot;pageId&quot;: &quot;(string)&quot;,
-            &quot;url&quot;: &quot;(string)&quot;
+            <span style="color:#f92672">&#34;mode&#34;</span>: <span style="color:#e6db74">&#34;( modal, sidenav, hidden )&#34;</span>,
+            <span style="color:#f92672">&#34;objectId&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+            <span style="color:#f92672">&#34;pageId&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+            <span style="color:#f92672">&#34;url&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>
           }
         },
-        &quot;mentio&quot;: [
+        <span style="color:#f92672">&#34;mentio&#34;</span>: [
           {
-            &quot;date&quot;: &quot;(string)&quot;,
-            &quot;description&quot;: &quot;(string)&quot;,
-            &quot;items&quot;: [
+            <span style="color:#f92672">&#34;date&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+            <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+            <span style="color:#f92672">&#34;items&#34;</span>: [
               {
-                &quot;date&quot;: &quot;(string)&quot;,
-                &quot;description&quot;: &quot;(string)&quot;,
-                &quot;name&quot;: &quot;(string)&quot;,
-                &quot;section&quot;: &quot;(string)&quot;,
-                &quot;title&quot;: &quot;(string)&quot;
+                <span style="color:#f92672">&#34;date&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+                <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+                <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+                <span style="color:#f92672">&#34;section&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+                <span style="color:#f92672">&#34;title&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>
               }
             ],
-            &quot;name&quot;: &quot;(string)&quot;,
-            &quot;section&quot;: &quot;(string)&quot;,
-            &quot;title&quot;: &quot;(string)&quot;,
-            &quot;triggerChar&quot;: &quot;(string)&quot;
+            <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+            <span style="color:#f92672">&#34;section&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+            <span style="color:#f92672">&#34;title&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+            <span style="color:#f92672">&#34;triggerChar&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>
           }
         ],
-        &quot;name&quot;: &quot;(string)&quot;,
-        &quot;section&quot;: &quot;(string)&quot;,
-        &quot;style&quot;: &quot;(string)&quot;,
-        &quot;title&quot;: &quot;(string)&quot;,
-        &quot;tooltip&quot;: {
-          &quot;content&quot;: &quot;(string)&quot;,
-          &quot;label&quot;: &quot;(string)&quot;
+        <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+        <span style="color:#f92672">&#34;section&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+        <span style="color:#f92672">&#34;style&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+        <span style="color:#f92672">&#34;title&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+        <span style="color:#f92672">&#34;tooltip&#34;</span>: {
+          <span style="color:#f92672">&#34;content&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+          <span style="color:#f92672">&#34;label&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>
         },
-        &quot;value&quot;: {
-          &quot;unit&quot;: {
-            &quot;value&quot;: &quot;(string)&quot;
+        <span style="color:#f92672">&#34;value&#34;</span>: {
+          <span style="color:#f92672">&#34;unit&#34;</span>: {
+            <span style="color:#f92672">&#34;value&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>
           },
-          &quot;value&quot;: &quot;(any)&quot;
+          <span style="color:#f92672">&#34;value&#34;</span>: <span style="color:#e6db74">&#34;(any)&#34;</span>
         }
       }
     ],
-    &quot;pattern&quot;: &quot;(string)&quot;,
-    &quot;placeholder&quot;: &quot;(string)&quot;,
-    &quot;readonly&quot;: &quot;(boolean)&quot;,
-    &quot;required&quot;: &quot;(boolean)&quot;,
-    &quot;rows&quot;: &quot;(number)&quot;,
-    &quot;scaleByContent&quot;: &quot;(boolean)&quot;,
-    &quot;step&quot;: &quot;(number)&quot;,
-    &quot;timePicker&quot;: &quot;(boolean)&quot;,
-    &quot;tooltip&quot;: {
-      &quot;content&quot;: &quot;(string)&quot;,
-      &quot;label&quot;: &quot;(string)&quot;
+    <span style="color:#f92672">&#34;pattern&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+    <span style="color:#f92672">&#34;placeholder&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+    <span style="color:#f92672">&#34;readonly&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>,
+    <span style="color:#f92672">&#34;refreshOptionsButton&#34;</span>: {
+      <span style="color:#f92672">&#34;refPvmBeforeRefresh&#34;</span>: {
+        <span style="color:#f92672">&#34;additionalPartialLoad&#34;</span>: [
+          <span style="color:#e6db74">&#34;(string)&#34;</span>
+        ],
+        <span style="color:#f92672">&#34;dataId&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+        <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+        <span style="color:#f92672">&#34;waitingId&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>
+      }
     },
-    &quot;type&quot;: &quot;( text | select | duallist | submit | textarea | checkbox | radio | me-summary-btn | me-tabs | filecontent | url | tel | email | percent )&quot;,
-    &quot;value&quot;: &quot;(string)&quot;,
-    &quot;verticalColumns&quot;: &quot;(boolean)&quot;,
-    &quot;viewSize&quot;: &quot;( xs | sm | lg )&quot;
+    <span style="color:#f92672">&#34;required&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>,
+    <span style="color:#f92672">&#34;rows&#34;</span>: <span style="color:#e6db74">&#34;(number)&#34;</span>,
+    <span style="color:#f92672">&#34;scaleByContent&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>,
+    <span style="color:#f92672">&#34;step&#34;</span>: <span style="color:#e6db74">&#34;(number)&#34;</span>,
+    <span style="color:#f92672">&#34;timePicker&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>,
+    <span style="color:#f92672">&#34;tooltip&#34;</span>: {
+      <span style="color:#f92672">&#34;content&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+      <span style="color:#f92672">&#34;label&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>
+    },
+    <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;( text | select | duallist | submit | textarea | checkbox | radio | me-summary-btn | me-tabs | filecontent | url | tel | email | percent )&#34;</span>,
+    <span style="color:#f92672">&#34;value&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+    <span style="color:#f92672">&#34;verticalColumns&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>,
+    <span style="color:#f92672">&#34;viewSize&#34;</span>: <span style="color:#e6db74">&#34;( xs | sm | lg )&#34;</span>
   },
-  &quot;bindAttrs&quot;: [
+  <span style="color:#f92672">&#34;bindAttrs&#34;</span>: [
     {
-      &quot;source&quot;: &quot;(string)&quot;,
-      &quot;target&quot;: &quot;(string)&quot;
+      <span style="color:#f92672">&#34;source&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+      <span style="color:#f92672">&#34;target&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>
     }
   ],
-  &quot;defaultValue&quot;: &quot;(any)&quot;,
-  &quot;depends&quot;: [
-    &quot;(string)&quot;
+  <span style="color:#f92672">&#34;defaultValue&#34;</span>: <span style="color:#e6db74">&#34;(any)&#34;</span>,
+  <span style="color:#f92672">&#34;depends&#34;</span>: [
+    <span style="color:#e6db74">&#34;(string)&#34;</span>
   ],
-  &quot;entityId&quot;: &quot;(string)&quot;,
-  &quot;errors&quot;: [
+  <span style="color:#f92672">&#34;entityId&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+  <span style="color:#f92672">&#34;errors&#34;</span>: [
     {
-      &quot;id&quot;: &quot;(string)&quot;,
-      &quot;name&quot;: &quot;(string)&quot;
+      <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+      <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>
     }
   ],
-  &quot;formHorizontal&quot;: &quot;(boolean)&quot;,
-  &quot;help&quot;: &quot;(string)&quot;,
-  &quot;icon&quot;: &quot;(string)&quot;,
-  &quot;id&quot;: &quot;(string)&quot;,
-  &quot;inlineForm&quot;: &quot;(boolean)&quot;,
-  &quot;label&quot;: &quot;(string)&quot;,
-  &quot;listen&quot;: [
+  <span style="color:#f92672">&#34;formHorizontal&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>,
+  <span style="color:#f92672">&#34;help&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+  <span style="color:#f92672">&#34;icon&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+  <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+  <span style="color:#f92672">&#34;inlineForm&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>,
+  <span style="color:#f92672">&#34;label&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+  <span style="color:#f92672">&#34;listen&#34;</span>: [
     {
-      &quot;$promise&quot;: &quot;(any)&quot;,
-      &quot;code&quot;: [
-        &quot;( ADD | SET, REMOVE )&quot;
+      <span style="color:#f92672">&#34;$promise&#34;</span>: <span style="color:#e6db74">&#34;(any)&#34;</span>,
+      <span style="color:#f92672">&#34;code&#34;</span>: [
+        <span style="color:#e6db74">&#34;( ADD | SET, REMOVE )&#34;</span>
       ],
-      &quot;entityId&quot;: &quot;(string)&quot;,
-      &quot;objectId&quot;: &quot;(string)&quot;,
-      &quot;pubSubChannel&quot;: [
-        &quot;(string)&quot;
+      <span style="color:#f92672">&#34;entityId&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+      <span style="color:#f92672">&#34;objectId&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+      <span style="color:#f92672">&#34;pubSubChannel&#34;</span>: [
+        <span style="color:#e6db74">&#34;(string)&#34;</span>
       ],
-      &quot;refreshRefPvmData&quot;: &quot;(any)&quot;,
-      &quot;reload&quot;: &quot;(any)&quot;,
-      &quot;selectAfterAdd&quot;: &quot;(boolean)&quot;
+      <span style="color:#f92672">&#34;refreshRefPvmData&#34;</span>: <span style="color:#e6db74">&#34;(any)&#34;</span>,
+      <span style="color:#f92672">&#34;reload&#34;</span>: <span style="color:#e6db74">&#34;(any)&#34;</span>,
+      <span style="color:#f92672">&#34;selectAfterAdd&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>
     }
   ],
-  &quot;name&quot;: &quot;me-input&quot;,
-  &quot;offset&quot;: &quot;(number)&quot;,
-  &quot;order&quot;: &quot;(number)&quot;,
-  &quot;persistValueView&quot;: &quot;(boolean)&quot;,
-  &quot;refPvmData&quot;: {
-    &quot;additionalPartialLoad&quot;: [
-      &quot;(string)&quot;
+  <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;me-input&#34;</span>,
+  <span style="color:#f92672">&#34;offset&#34;</span>: <span style="color:#e6db74">&#34;(number)&#34;</span>,
+  <span style="color:#f92672">&#34;order&#34;</span>: <span style="color:#e6db74">&#34;(number)&#34;</span>,
+  <span style="color:#f92672">&#34;persistValueView&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>,
+  <span style="color:#f92672">&#34;refPvmData&#34;</span>: {
+    <span style="color:#f92672">&#34;additionalPartialLoad&#34;</span>: [
+      <span style="color:#e6db74">&#34;(string)&#34;</span>
     ],
-    &quot;dataId&quot;: &quot;(string)&quot;,
-    &quot;id&quot;: &quot;(string)&quot;,
-    &quot;waitingId&quot;: &quot;(string)&quot;
+    <span style="color:#f92672">&#34;dataId&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+    <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+    <span style="color:#f92672">&#34;waitingId&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>
   },
-  &quot;refPvmValidator&quot;: {
-    &quot;additionalPartialLoad&quot;: [
-      &quot;(string)&quot;
+  <span style="color:#f92672">&#34;refPvmValidator&#34;</span>: {
+    <span style="color:#f92672">&#34;additionalPartialLoad&#34;</span>: [
+      <span style="color:#e6db74">&#34;(string)&#34;</span>
     ],
-    &quot;dataId&quot;: &quot;(string)&quot;,
-    &quot;id&quot;: &quot;(string)&quot;,
-    &quot;waitingId&quot;: &quot;(string)&quot;
+    <span style="color:#f92672">&#34;dataId&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+    <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+    <span style="color:#f92672">&#34;waitingId&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>
   },
-  &quot;selectedValueView&quot;: &quot;(any)&quot;,
-  &quot;selfDepends&quot;: &quot;(boolean)&quot;,
-  &quot;span&quot;: &quot;(number)&quot;,
-  &quot;tooltip&quot;: {
-    &quot;content&quot;: &quot;(string)&quot;,
-    &quot;label&quot;: &quot;(string)&quot;
+  <span style="color:#f92672">&#34;selectedValueView&#34;</span>: <span style="color:#e6db74">&#34;(any)&#34;</span>,
+  <span style="color:#f92672">&#34;selfDepends&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>,
+  <span style="color:#f92672">&#34;span&#34;</span>: <span style="color:#e6db74">&#34;(number)&#34;</span>,
+  <span style="color:#f92672">&#34;tooltip&#34;</span>: {
+    <span style="color:#f92672">&#34;content&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+    <span style="color:#f92672">&#34;label&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>
   },
-  &quot;valid&quot;: &quot;(boolean)&quot;,
-  &quot;validateInProgress&quot;: &quot;(boolean)&quot;,
-  &quot;value&quot;: &quot;(string)&quot;,
-  &quot;visible&quot;: &quot;(boolean)&quot;
+  <span style="color:#f92672">&#34;valid&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>,
+  <span style="color:#f92672">&#34;validateInProgress&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>,
+  <span style="color:#f92672">&#34;value&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+  <span style="color:#f92672">&#34;visible&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>
 }
-</code></pre>
-
-<h3 id="__tid_368">__tid (any)</h3>
-Автоматически генерируемое приватное поле
-
-
-
-
-<h3 id="align_352">align (string)</h3>
-Позиционирование элемента в ячейке серки
-
-**@default** "left"
-
-
-<h3 id="attrs_345">attrs [object Object]</h3>
-
-<p><h3 id="bindAttrs_366">bindAttrs [object Object]</h3>
-Когда нужно подписаться на изменение данные в pvm и заполнять какие-то поля элемента
-Например, менять elems в me-lego динамически или запонять me-input[type=text] расчетным значением</p>
-
-<p><h3 id="defaultValue_361">defaultValue (any)</h3>
-Значение элемента по умолчанию
-Для некоторых элементов</p>
-
-<p><h3 id="depends_359">depends (string)</h3>
-Указываться от корневого me-lego вставленного через html.
-Работает только когда у элемента есть параметр refPvmData и refPvmData с depends и зависимость еще не загружена.
-Также есть возможность делать зависимости от текущего уровня иерархии, это удобно, когда неизвестна родительская вложенность.
-Например, когда у вас одна и та же динамическая форма подгружается в
-разных местах приложения на разном уровне вложенности или даже в me-lego-list иногда</p>
-
+</code></pre></div><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><strong>@default</strong> &ldquo;left&rdquo;</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p><strong>@example</strong> <a href="https://apps.devision.io/page?p=4329&amp;a=35">https://apps.devision.io/page?p=4329&amp;a=35</a></p>
-
 <p><strong>@example</strong> <a href="https://apps.devision.io/page?p=3597&amp;a=35">https://apps.devision.io/page?p=3597&amp;a=35</a></p>
-
-<p><h3 id="entityId_363">entityId (string)</h3>
-Meta EntityId
-Для некоторых элементов, напрмиер [[IMeInput]], [[IMeTable]]</p>
-
-<p><h3 id="errors_370">errors [object Object]</h3>
-Список ошибок элемента пока только валидации, но определенно все ошибки будут тут</p>
-
-<p><h3 id="exist_364">exist </h3>
-Angular expression от рута vm страницы. Обратите внимание, что пути абсотюлтные, в отличие от &ldquo;depends&rdquo; в элементах
-Расчет идет на стороне браузера
-Например: &lsquo;editGroup.card.name == &ldquo;exist&rdquo; || editGroup.card.name == &ldquo;exist23&rdquo;&rsquo;
-Для me-lego-list можно использовать нотацию [] для получения доступа в элементу списка, например MyForm.out.card.filled[].deadline_enabled === true, где filled - id me-lego-list</p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p><strong>@example</strong> <a href="https://apps.devision.io/page?p=3570&amp;a=35">https://apps.devision.io/page?p=3570&amp;a=35</a></p>
-
 <p><strong>@example</strong> <a href="https://apps.devision.io/page?p=4329&amp;a=35">https://apps.devision.io/page?p=4329&amp;a=35</a></p>
-
-<p><h3 id="formHorizontal_356">formHorizontal (boolean)</h3>
-Если элемента поддерживает, вывести его в стиле формы ключ, значение. Чтобы заголовок был на уровне элемента</p>
-
-<p><h3 id="help_349">help (string)</h3>
-Доп информация, рисуется под label или под элментом
-Зависит от типа элемента</p>
-
-<p><h3 id="i18n_375">i18n </h3>
-MeElem property internationalization (for label and help for example).
-Key of i18m map is elem property name, value is message key of i18n file</p>
-
-<p><h3 id="icon_354">icon (string)</h3>
-Иконка Font Awesome
-Например fa-bicycle</p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p><strong>@link</strong> <a href="http://ui.adplatform.lan/Static_Full_Version/icons.html">http://ui.adplatform.lan/Static_Full_Version/icons.html</a></p>
-
-<p><h3 id="id_347">id (string)</h3>
-ID данных элемента
-Будет доступно в env.sp.{ID} или как вложенная структура, если это [[IMeElemContainer]]</p>
-
-<p><h3 id="inlineForm_362">inlineForm (boolean)</h3>
-Нужно ли отрисовывать элемент без сетки в виде inlineForm (bootstrap)</p>
-
-<p><strong>@link</strong> {<a href="http://stackoverflow.com/questions/12201835/form-inline-inside-a-form-horizontal-in-twitter-bootstrap">http://stackoverflow.com/questions/12201835/form-inline-inside-a-form-horizontal-in-twitter-bootstrap</a>}</p>
-
-<p><h3 id="label_348">label (string)</h3>
-Заголовок элемента
-Обычно над элементом, на некоторых не рисуется вообще</p>
-
-<p><h3 id="listen_367">listen [object Object]</h3>
-Подписка на изменения объектов. Пока работает только для изменений вызваных в модальном окне
-Например у вас таблица со списоком аккуантов и в &ldquo;+ Аккаунт&rdquo; вы можете добавить или привязать аккаунт,
-а после сохранения в модальном окне, родительская таблциа должна пересчитаться</p>
-
-<p><h3 id="name_346">name (string)</h3>
-Название элемента
-Например: me-lego, me-input</p>
-
-<p><h3 id="offset_351">offset (number)</h3>
-Отстут по сетке справа от 0 до12</p>
-
-<p><h3 id="order_353">order (number)</h3>
-Прзиция элемента в сетке, чем меньше значение, тем элемент выше и левее</p>
-
-<p><h3 id="persistValueView_373">persistValueView (boolean)</h3>
-Блок обрабатывает вписывание в элемент текущего выбранного пункта в поле selectedValueView,
-чтобы можно быьт делать, label + name в скрытом режиме</p>
-
-<p><h3 id="refPvmData_358">refPvmData [object Object]</h3>
-Инструкции по получению данных для [[IMeInputAttrs.options]] или таблицы</p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><strong>@link</strong> {http://stackoverflow.com/questions/12201835/form-inline-inside-a-form-horizontal-in-twitter-bootstrap}</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p><strong>@example</strong> <a href="https://apps.devision.io/page?p=3570&amp;a=35">https://apps.devision.io/page?p=3570&amp;a=35</a></p>
-
 <p><strong>@example</strong> <a href="https://apps.devision.io/page?p=3597&amp;a=35">https://apps.devision.io/page?p=3597&amp;a=35</a></p>
-
-<p><h3 id="refPvmValidator_357">refPvmValidator [object Object]</h3>
-Пользовательская валидация</p>
-
+<!-- raw HTML omitted -->
 <p><strong>@example</strong> <a href="https://apps.devision.io/page?p=3443&amp;a=35">https://apps.devision.io/page?p=3443&amp;a=35</a></p>
-
-<p><h3 id="selectedValueView_374">selectedValueView (any)</h3>
-Текстовое представление выбранного значения</p>
-
-<p><h3 id="selfDepends_360">selfDepends (boolean)</h3>
-Зависимость от себя самого, нужно для editable [[IMeTable]]
-и прототип для поиска [[IMeInputAttrs.options]] в me-input для частичной подгрузки данных</p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p><strong>@beta</strong></p>
-
-<p><h3 id="span_350">span (number)</h3>
-Размер по сетке справа от 0 до12</p>
-
-<p><h3 id="tooltip_369">tooltip [object Object]</h3>
-Стандартный мета тултип</p>
-
-<p><h3 id="valid_372">valid (boolean)</h3>
-Элемент валидный</p>
-
-<p><h3 id="validateInProgress_371">validateInProgress (boolean)</h3>
-Принимает значение true на момент асинхронной валидации</p>
-
-<p><h3 id="value_355">value (string)</h3>
-для некоторых элементов</p>
-
-<p><h3 id="visible_365">visible (boolean)</h3>
-Angular expression от рута vm страницы. Обратите внимание, что пути абсотюлтные, в отличие от &ldquo;depends&rdquo; в элементах
-Расчет идет на стороне браузера
-Например: &lsquo;editGroup.card.name == &ldquo;visible&rdquo;&rsquo;</p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p><strong>@example</strong> <a href="https://apps.devision.io/page?p=3570&amp;a=35">https://apps.devision.io/page?p=3570&amp;a=35</a></p>
 
 
@@ -1832,13 +1777,10 @@ Angular expression от рута vm страницы. Обратите вним�
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#общее">Общее</a></li>
-<li><a href="#структура">Структура</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#общее">Общее</a></li>
+    <li><a href="#структура">Структура</a></li>
+  </ul>
 </nav>
 </div>
 

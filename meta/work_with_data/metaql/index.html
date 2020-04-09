@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.42.1" />
+    <meta name="generator" content="Hugo 0.68.1" />
     <meta name="description" content="">
 
 
@@ -460,6 +460,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     
 
 
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/compoments/oauth/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/compoments/oauth/" class="devsite-nav-title">
+                    <span>OAuth</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
                     
                     
                     
@@ -1358,6 +1376,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
+            <li data-nav-id="/reference/java_api/smartqueryservice/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/reference/java_api/smartqueryservice/" class="devsite-nav-title">
+                    <span>SmartQueryService</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
             <li data-nav-id="/reference/java_api/tablecolumnservice/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/reference/java_api/tablecolumnservice/" class="devsite-nav-title">
                     <span>TableColumnService</span>
@@ -1461,13 +1497,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-
-
 <p>METAQL - Это защищенный SQL для запросов к данным меты. Основан на синтаксисах Oracle + PostgreSQL.
 Призван дать хороший и безопасный API к данным таблиц или views ваших БД.</p>
-
 <h2 id="особенности">Особенности</h2>
-
 <ul>
 <li>Поддерживаются только SELECT запросы</li>
 <li>Поддерживается только AND условия</li>
@@ -1475,20 +1507,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li>Нет прообразований типов</li>
 <li>JOIN пока не поддерживаются</li>
 </ul>
-
 <h2 id="функции">Функции</h2>
-
 <p>В METAQL разрешены не все функции, ниже представлен список доступных на текущий момент.</p>
-
 <h3 id="функции-агрегации">Функции агрегации</h3>
-
 <ul>
 <li>MIN, MAX, SUM, AGV</li>
 <li>COUNT(*), COUNT(DISTINCT поле)</li>
 </ul>
-
 <h3 id="функции-преобразований">Функции преобразований</h3>
-
 <ul>
 <li>ROUND</li>
 <li>CONCAT</li>
@@ -1496,11 +1522,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li>TRIM</li>
 <li>COALESCE</li>
 </ul>
-
 <h2 id="фильтрация-where">Фильтрация WHERE</h2>
-
 <p>Работают операторы сравнения:</p>
-
 <ul>
 <li>=, !=, &gt;, &lt;, &gt;=, &lt;=</li>
 <li>IN, NOT IN</li>
@@ -1508,105 +1531,81 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li>ILIKE, NOT ILIKE</li>
 <li>BETWEEN</li>
 </ul>
-
-<h2 id="как-сделать-таблицу-доступной-через-metaql-api">Как сделать таблицу доступной через METAQL API ?</h2>
-
+<h2 id="как-сделать-таблицу-доступной-через-metaql-api-">Как сделать таблицу доступной через METAQL API ?</h2>
 <p>Выполните следующие действия:</p>
-
 <p><strong>1) Добавьте новую Сущность для своей таблицы (если нужно)</strong></p>
-
 <p>Обязательно укажите alias. Alias должен быть указан в формате lower_camel_case.
 Добавить можно здесь: <a href="https://samples-demo.devision.io/page?p=62&amp;a=1">https://samples-demo.devision.io/page?p=62&amp;a=1</a></p>
-
 <p>Опционально укажите metaql_where
 Это поле отвечает за безусловную фильтрацию данных при любом запросе к METAQL.
 Например для статистики хорошо фильтровать по доступным клиентам:</p>
-
-<pre><code class="language-sql">#table.client_id in (select client_id from get_user_clients(${env.userId?number}) )
-</code></pre>
-
-<p>&rsquo;#table&rsquo; - это плейсхолдер metaql таблицы. он будет заменен на реальное имы при компиляции запроса</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#f92672">#</span><span style="color:#66d9ef">table</span>.client_id <span style="color:#66d9ef">in</span> (<span style="color:#66d9ef">select</span> client_id <span style="color:#66d9ef">from</span> get_user_clients(<span style="color:#960050;background-color:#1e0010">${</span>env.userId<span style="color:#f92672">?</span>number<span style="color:#960050;background-color:#1e0010">}</span>) )
+</code></pre></div><p>&lsquo;#table&rsquo; - это плейсхолдер metaql таблицы. он будет заменен на реальное имы при компиляции запроса</p>
 <p><strong>2) Заполните поля Сущности</strong></p>
-
 <p>Обязательно укажите alias. Alias должен быть указан в формате lower_camel_case.</p>
-
 <h2 id="использование">Использование</h2>
-
 <h3 id="lego">LEGO</h3>
-
 <p>MetaQL можно использовать в lego формах для того, чтобы не делать отдельные script</p>
-
 <p>Например это активно используется в тикетной системе, где из-за высокого уровня абстракции нет возможности хардкодить отдельные script-ы для получения данных</p>
-
 <p>Обратите внимание, что доступна фильтрация metaql по depends (&ldquo;env.sp.org_id&rdquo; из примера).
 Пример тут: <a href="https://samples-demo.devision.io/page?p=4528&amp;a=35">https://samples-demo.devision.io/page?p=4528&amp;a=35</a></p>
-
-<pre><code class="language-js">var elems = [
-    // ...
-    {
-        id:&quot;epl_list&quot;,
-        span: 4,
-        label: &quot;Сотрудники&quot;,
-        depends:[&quot;org_id&quot;],
-        refPvmData: {id:&quot;$metaql&quot;, sp:{&quot;dbQuery&quot;: {
-            command:&quot; \
-                SELECT id, name, salary \
-                FROM meta_samples.employee \
-                WHERE organization_id = :env.sp.org_id \ 
-                ORDER BY name DESC \
-                &quot;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">elems</span> <span style="color:#f92672">=</span> [
+    <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>    {
+        <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#34;epl_list&#34;</span>,
+        <span style="color:#a6e22e">span</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">4</span>,
+        <span style="color:#a6e22e">label</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Сотрудники&#34;</span>,
+        <span style="color:#a6e22e">depends</span><span style="color:#f92672">:</span>[<span style="color:#e6db74">&#34;org_id&#34;</span>],
+        <span style="color:#a6e22e">refPvmData</span><span style="color:#f92672">:</span> {<span style="color:#a6e22e">id</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#34;$metaql&#34;</span>, <span style="color:#a6e22e">sp</span><span style="color:#f92672">:</span>{<span style="color:#e6db74">&#34;dbQuery&#34;</span><span style="color:#f92672">:</span> {
+            <span style="color:#a6e22e">command</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#34; \
+</span><span style="color:#e6db74">                SELECT id, name, salary \
+</span><span style="color:#e6db74">                FROM meta_samples.employee \
+</span><span style="color:#e6db74">                WHERE organization_id = :env.sp.org_id \ 
+</span><span style="color:#e6db74">                ORDER BY name DESC \
+</span><span style="color:#e6db74">                &#34;</span>
         }}},
     },
     {
-        id:&quot;epls_graph2&quot;,
-        label: &quot;Стата&quot;,
-        name:&quot;me-chart&quot;,
-        attrs: {&quot;type&quot;:[&quot;line&quot;, &quot;table&quot;], &quot;nativeOptions&quot;:{&quot;vAxis&quot;:{&quot;logScale&quot;:true}} },
-        refPvmData: {id:&quot;$metaql&quot;, sp:{&quot;dbQuery&quot;: {
-            command:&quot; \
-                SELECT \
-                  stat_date, \
-                  SUM(impressions) as impressions, \
-                  SUM(clicks) as clicks, \
-                  SUM(cost) as cost \
-                FROM adplatform.campaign_stats_report \
-                WHERE client_id = 15759 \
-                AND stat_date BETWEEN '2017-03-01' AND '2017-04-01' \
-                GROUP BY stat_date \
-                ORDER BY stat_date \
-            &quot;
+        <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#34;epls_graph2&#34;</span>,
+        <span style="color:#a6e22e">label</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Стата&#34;</span>,
+        <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#34;me-chart&#34;</span>,
+        <span style="color:#a6e22e">attrs</span><span style="color:#f92672">:</span> {<span style="color:#e6db74">&#34;type&#34;</span><span style="color:#f92672">:</span>[<span style="color:#e6db74">&#34;line&#34;</span>, <span style="color:#e6db74">&#34;table&#34;</span>], <span style="color:#e6db74">&#34;nativeOptions&#34;</span><span style="color:#f92672">:</span>{<span style="color:#e6db74">&#34;vAxis&#34;</span><span style="color:#f92672">:</span>{<span style="color:#e6db74">&#34;logScale&#34;</span><span style="color:#f92672">:</span><span style="color:#66d9ef">true</span>}} },
+        <span style="color:#a6e22e">refPvmData</span><span style="color:#f92672">:</span> {<span style="color:#a6e22e">id</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#34;$metaql&#34;</span>, <span style="color:#a6e22e">sp</span><span style="color:#f92672">:</span>{<span style="color:#e6db74">&#34;dbQuery&#34;</span><span style="color:#f92672">:</span> {
+            <span style="color:#a6e22e">command</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#34; \
+</span><span style="color:#e6db74">                SELECT \
+</span><span style="color:#e6db74">                  stat_date, \
+</span><span style="color:#e6db74">                  SUM(impressions) as impressions, \
+</span><span style="color:#e6db74">                  SUM(clicks) as clicks, \
+</span><span style="color:#e6db74">                  SUM(cost) as cost \
+</span><span style="color:#e6db74">                FROM adplatform.campaign_stats_report \
+</span><span style="color:#e6db74">                WHERE client_id = 15759 \
+</span><span style="color:#e6db74">                AND stat_date BETWEEN &#39;2017-03-01&#39; AND &#39;2017-04-01&#39; \
+</span><span style="color:#e6db74">                GROUP BY stat_date \
+</span><span style="color:#e6db74">                ORDER BY stat_date \
+</span><span style="color:#e6db74">            &#34;</span>
         }}},
     },
-    // ...
-]
-</code></pre>
-
-<h3 id="sdk">SDK</h3>
-
+    <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>]
+</code></pre></div><h3 id="sdk">SDK</h3>
 <h3 id="запрос-к-статистике">Запрос к статистике</h3>
-
-<pre><code class="language-sql">SELECT
-  engine as platform,
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span>
+  engine <span style="color:#66d9ef">as</span> platform,
   campaign_remote_id,
-  SUM(impressions) as impressions,
-  SUM(clicks) as clicks,
-  ROUND(SUM(cost), 3) as cost
-FROM adplatform.campaign_stats_report
-WHERE stat_date BETWEEN '2017-02-01' AND '2017-03-31'
-AND engine = 'banner'
-AND client_id IN (1, 2)
-GROUP BY platform, campaign_remote_id
-ORDER BY platform, campaign_remote_id
-</code></pre>
-
-<h3 id="запрос-к-шардированным-данным-системы-garpun">Запрос к шардированным данным системы Garpun</h3>
-
-<pre><code class="language-sql">SELECT match_type, count(id) as cnt
-FROM garpun_storage.keyword#{account_id}
-group by match_type
-</code></pre>
-
+  <span style="color:#66d9ef">SUM</span>(impressions) <span style="color:#66d9ef">as</span> impressions,
+  <span style="color:#66d9ef">SUM</span>(clicks) <span style="color:#66d9ef">as</span> clicks,
+  ROUND(<span style="color:#66d9ef">SUM</span>(cost), <span style="color:#ae81ff">3</span>) <span style="color:#66d9ef">as</span> cost
+<span style="color:#66d9ef">FROM</span> adplatform.campaign_stats_report
+<span style="color:#66d9ef">WHERE</span> stat_date <span style="color:#66d9ef">BETWEEN</span> <span style="color:#e6db74">&#39;2017-02-01&#39;</span> <span style="color:#66d9ef">AND</span> <span style="color:#e6db74">&#39;2017-03-31&#39;</span>
+<span style="color:#66d9ef">AND</span> engine <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;banner&#39;</span>
+<span style="color:#66d9ef">AND</span> client_id <span style="color:#66d9ef">IN</span> (<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>)
+<span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> platform, campaign_remote_id
+<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> platform, campaign_remote_id
+</code></pre></div><h3 id="запрос-к-шардированным-данным-системы-garpun">Запрос к шардированным данным системы Garpun</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> match_type, <span style="color:#66d9ef">count</span>(id) <span style="color:#66d9ef">as</span> cnt
+<span style="color:#66d9ef">FROM</span> garpun_storage.keyword<span style="color:#f92672">#</span><span style="color:#960050;background-color:#1e0010">{</span>account_id<span style="color:#960050;background-color:#1e0010">}</span>
+<span style="color:#66d9ef">group</span> <span style="color:#66d9ef">by</span> match_type
+</code></pre></div>
 
 
 
@@ -1618,26 +1617,25 @@ group by match_type
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#особенности">Особенности</a></li>
-<li><a href="#функции">Функции</a>
-<ul>
-<li><a href="#функции-агрегации">Функции агрегации</a></li>
-<li><a href="#функции-преобразований">Функции преобразований</a></li>
-</ul></li>
-<li><a href="#фильтрация-where">Фильтрация WHERE</a></li>
-<li><a href="#как-сделать-таблицу-доступной-через-metaql-api">Как сделать таблицу доступной через METAQL API ?</a></li>
-<li><a href="#использование">Использование</a>
-<ul>
-<li><a href="#lego">LEGO</a></li>
-<li><a href="#sdk">SDK</a></li>
-<li><a href="#запрос-к-статистике">Запрос к статистике</a></li>
-<li><a href="#запрос-к-шардированным-данным-системы-garpun">Запрос к шардированным данным системы Garpun</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#особенности">Особенности</a></li>
+    <li><a href="#функции">Функции</a>
+      <ul>
+        <li><a href="#функции-агрегации">Функции агрегации</a></li>
+        <li><a href="#функции-преобразований">Функции преобразований</a></li>
+      </ul>
+    </li>
+    <li><a href="#фильтрация-where">Фильтрация WHERE</a></li>
+    <li><a href="#как-сделать-таблицу-доступной-через-metaql-api-">Как сделать таблицу доступной через METAQL API ?</a></li>
+    <li><a href="#использование">Использование</a>
+      <ul>
+        <li><a href="#lego">LEGO</a></li>
+        <li><a href="#sdk">SDK</a></li>
+        <li><a href="#запрос-к-статистике">Запрос к статистике</a></li>
+        <li><a href="#запрос-к-шардированным-данным-системы-garpun">Запрос к шардированным данным системы Garpun</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
 </div>
 

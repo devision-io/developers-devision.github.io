@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Работа с данными on META | Devision Developers</title>
@@ -29,7 +29,7 @@
       <description>Мотивация Когда надо выбрать много данных один раз и потом немного доагрегировать в разных плоскостях и пофильтровать, например для графиков или дашбордах данных из bigquery.
 Пример использования: https://samples-demo.devision.io/page?p=4959&amp;amp;a=35
 Принципиально все достаточно просто - у вас есть DataResult и вы хотите его перегруппировать. Для этого сперва получаем данные, например sql запросом в скрипте res, а потом в отдельном meta/js скрипте делаем вызов DataTransformService.pivot с необходимыми параметрами.
-&amp;lt;script type=&amp;quot;meta/sql&amp;quot; db-alias=&amp;quot;meta_samples&amp;quot; id=&amp;quot;res&amp;quot; entity-id=&amp;quot;2629&amp;quot; label=&amp;quot;Исходные данные.</description>
+&amp;lt;script type=&amp;#34;meta/sql&amp;#34; db-alias=&amp;#34;meta_samples&amp;#34; id=&amp;#34;res&amp;#34; entity-id=&amp;#34;2629&amp;#34; label=&amp;#34;Исходные данные.</description>
     </item>
     
     <item>
@@ -51,7 +51,8 @@
       
       <guid>https://developers.devision.io/meta/work_with_data/metaql/</guid>
       <description>METAQL - Это защищенный SQL для запросов к данным меты. Основан на синтаксисах Oracle + PostgreSQL. Призван дать хороший и безопасный API к данным таблиц или views ваших БД.
-Особенности  Поддерживаются только SELECT запросы Поддерживается только AND условия Нельзя называть поля или алясы зарезарвированными именами: date Нет прообразований типов JOIN пока не поддерживаются  Функции В METAQL разрешены не все функции, ниже представлен список доступных на текущий момент.</description>
+Особенности  Поддерживаются только SELECT запросы Поддерживается только AND условия Нельзя называть поля или алясы зарезарвированными именами: date Нет прообразований типов JOIN пока не поддерживаются  Функции В METAQL разрешены не все функции, ниже представлен список доступных на текущий момент.
+Функции агрегации  MIN, MAX, SUM, AGV COUNT(*), COUNT(DISTINCT поле)  Функции преобразований  ROUND CONCAT NULLIF TRIM COALESCE  Фильтрация WHERE Работают операторы сравнения:</description>
     </item>
     
   </channel>

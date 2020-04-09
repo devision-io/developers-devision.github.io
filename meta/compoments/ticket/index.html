@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.42.1" />
+    <meta name="generator" content="Hugo 0.68.1" />
     <meta name="description" content="">
 
 
@@ -460,6 +460,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     
 
 
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/compoments/oauth/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/compoments/oauth/" class="devsite-nav-title">
+                    <span>OAuth</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
                     
                     
                     
@@ -1358,6 +1376,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
+            <li data-nav-id="/reference/java_api/smartqueryservice/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/reference/java_api/smartqueryservice/" class="devsite-nav-title">
+                    <span>SmartQueryService</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
             <li data-nav-id="/reference/java_api/tablecolumnservice/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/reference/java_api/tablecolumnservice/" class="devsite-nav-title">
                     <span>TableColumnService</span>
@@ -1461,10 +1497,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-
-
 <h3 id="таблицы">Таблицы</h3>
-
 <ul>
 <li>issue: Непосредственно сами тикеты. Основная таблица</li>
 <li>issue_entity: Сущности, доступные для выбора &ldquo;категории&rdquo; тикета при создании. Тип объекта, в рамках которого делается тикет. Например тикет может быть по клиенту, медиаплану, сотруднику</li>
@@ -1475,23 +1508,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li>issue_status: Справочник статусов тикетов</li>
 <li>issue_type: Справочник типов тикетов, Тут настраивается доступность типов тикетов для issue_entity, доступность основных или доп полей</li>
 </ul>
-
 <h3 id="управляющие-функции-бд">Управляющие функции БД</h3>
-
 <p>Пользовательские функции для изменения бизнес логики отмечены <strong>жирным</strong> шрифтом.</p>
-
 <ul>
 <li><strong>fill_new_issue_fields</strong>: Заполняет исполнителя и участников тикета </li>
 <li><strong>get_issue_access</strong>: Проверка ACL для доступа к тикету</li>
 <li><strong>get_issue_type_object_kind_options</strong>: Возвращает список options для me-input. Настраивается под сложные запросы, где metaql будет излишне сложен. Далее есть детальеное описание работы с этим методом</li>
 <li><strong>get_issue_type_object_details</strong>: Возвращает текст деталей по этому тикету, исходя из его сущности и типа в формате markdown.
-Используется в модуле _Согласование_ для отображения более полной информации по тому, что нужно согласовать.</li>
+Используется в модуле <em>Согласование</em> для отображения более полной информации по тому, что нужно согласовать.</li>
 <li><strong>get_issue_assignee_variants</strong>: Возвращает возможных исполнителей для данного тикета в зависимости от типа и сущности, в рамках которой работает.
 Если возможных исполнителей несколько и пользователь не выберет конкретного при создании тикета, то при добавлении тикета автоматически будет выбран первый из списка.</li>
 </ul>
-
 <p>Системные функции (нельзя менять):</p>
-
 <ul>
 <li>get_issue_log_md: Возвращает детали по истории изменений тикета в формате markdown</li>
 <li>get_issue_type_lego_form: Возвращает meta lego форму дополнительных полей для тикета</li>
@@ -1499,70 +1527,59 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li>after_issue_msg_self_change: Триггер для логирования истории изменения комментариев тикета, а так же добавления участников тикета при упоминании их в комментариях</li>
 <li>get_approve_status: Получить статус согласованности тикета (с kind=approval)</li>
 </ul>
-
-<h3 id="получение-сложных-списков-для-полей-тикетов-get-issue-type-object-kind-options">Получение сложных списков для полей тикетов (get_issue_type_object_kind_options)</h3>
-
+<h3 id="получение-сложных-списков-для-полей-тикетов-get_issue_type_object_kind_options">Получение сложных списков для полей тикетов (get_issue_type_object_kind_options)</h3>
 <p>Что нужно сделать c вашим me-input:</p>
-
 <ul>
 <li>добавить depends</li>
 <li>добавить refPvmData</li>
 </ul>
-
 <p>Пример элемента со сложной зависимостью от других с подгрузкой данных из get_issue_type_object_kind_options</p>
-
-<pre><code class="language-json">{
-  &quot;id&quot;: &quot;test_account&quot;,
-  &quot;name&quot;: &quot;me-input&quot;,
-  &quot;attrs&quot;: {
-    &quot;type&quot;: &quot;select&quot;,
-    &quot;required&quot;: true
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;test_account&#34;</span>,
+  <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;me-input&#34;</span>,
+  <span style="color:#f92672">&#34;attrs&#34;</span>: {
+    <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;select&#34;</span>,
+    <span style="color:#f92672">&#34;required&#34;</span>: <span style="color:#66d9ef">true</span>
   },
-  &quot;label&quot;: &quot;Test account&quot;,
-  &quot;depends&quot;: [
-    &quot;issue_type_id&quot;, &quot;object_id&quot;, &quot;entity_id&quot;, // Эти поля обязательно нужено указать в depends
-    // Далее пользовательские поля
-    // Знак @ использовать необязательно, но он может помочь вам не писать полный путь зависимости, а просто указать, 
-    // что зависимость на том же уровне LEGO иерархии 
-    // Подробнее https://developers.devision.io/meta/ui_controls/typedoc/interfaces/_elems_i_me_input_.imeinput.html#depends
-    &quot;@.engine as engine&quot;, 
-    &quot;@.connection_id as connection_id&quot;
+  <span style="color:#f92672">&#34;label&#34;</span>: <span style="color:#e6db74">&#34;Test account&#34;</span>,
+  <span style="color:#f92672">&#34;depends&#34;</span>: [ 
+    <span style="color:#e6db74">&#34;issue_type_id&#34;</span>, <span style="color:#e6db74">&#34;object_id&#34;</span>, <span style="color:#e6db74">&#34;entity_id&#34;</span>, <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">Эти</span> <span style="color:#960050;background-color:#1e0010">поля</span> <span style="color:#960050;background-color:#1e0010">обязательно</span> <span style="color:#960050;background-color:#1e0010">нужено</span> <span style="color:#960050;background-color:#1e0010">указать</span> <span style="color:#960050;background-color:#1e0010">в</span> <span style="color:#960050;background-color:#1e0010">depends</span>
+    <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">Далее</span> <span style="color:#960050;background-color:#1e0010">пользовательские</span> <span style="color:#960050;background-color:#1e0010">поля</span>
+    <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">Знак</span> <span style="color:#960050;background-color:#1e0010">@</span> <span style="color:#960050;background-color:#1e0010">использовать</span> <span style="color:#960050;background-color:#1e0010">необязательно</span>, <span style="color:#960050;background-color:#1e0010">но</span> <span style="color:#960050;background-color:#1e0010">он</span> <span style="color:#960050;background-color:#1e0010">может</span> <span style="color:#960050;background-color:#1e0010">помочь</span> <span style="color:#960050;background-color:#1e0010">вам</span> <span style="color:#960050;background-color:#1e0010">не</span> <span style="color:#960050;background-color:#1e0010">писать</span> <span style="color:#960050;background-color:#1e0010">полный</span> <span style="color:#960050;background-color:#1e0010">путь</span> <span style="color:#960050;background-color:#1e0010">зависимости</span>, <span style="color:#960050;background-color:#1e0010">а</span> <span style="color:#960050;background-color:#1e0010">просто</span> <span style="color:#960050;background-color:#1e0010">указать</span>, 
+    <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">что</span> <span style="color:#960050;background-color:#1e0010">зависимость</span> <span style="color:#960050;background-color:#1e0010">на</span> <span style="color:#960050;background-color:#1e0010">том</span> <span style="color:#960050;background-color:#1e0010">же</span> <span style="color:#960050;background-color:#1e0010">уровне</span> <span style="color:#960050;background-color:#1e0010">LEGO</span> <span style="color:#960050;background-color:#1e0010">иерархии</span> 
+    <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">Подробнее</span> <span style="color:#960050;background-color:#1e0010">https://developers.devision.io/meta/reference/ui_controls/typedoc/interfaces/_elems_i_me_input_.imeinput.html#depends</span>
+    <span style="color:#e6db74">&#34;@.engine as engine&#34;</span>, 
+    <span style="color:#e6db74">&#34;@.connection_id as connection_id&#34;</span>
   ],
-  &quot;refPvmData&quot;: {
-    &quot;id&quot;: &quot;issue_type_object_kind_options&quot;,
-    &quot;sp&quot;: {
-      // Обязательно укажите вид зависимости. Как правило это помогает разобраться в при трассировке запроса и в хранике для условий роутинга
-      &quot;kind&quot;: &quot;test_account&quot; // Обязательно 
+  <span style="color:#f92672">&#34;refPvmData&#34;</span>: {
+    <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;issue_type_object_kind_options&#34;</span>,
+    <span style="color:#f92672">&#34;sp&#34;</span>: {
+      <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">Обязательно</span> <span style="color:#960050;background-color:#1e0010">укажите</span> <span style="color:#960050;background-color:#1e0010">вид</span> <span style="color:#960050;background-color:#1e0010">зависимости.</span> <span style="color:#960050;background-color:#1e0010">Как</span> <span style="color:#960050;background-color:#1e0010">правило</span> <span style="color:#960050;background-color:#1e0010">это</span> <span style="color:#960050;background-color:#1e0010">помогает</span> <span style="color:#960050;background-color:#1e0010">разобраться</span> <span style="color:#960050;background-color:#1e0010">в</span> <span style="color:#960050;background-color:#1e0010">при</span> <span style="color:#960050;background-color:#1e0010">трассировке</span> <span style="color:#960050;background-color:#1e0010">запроса</span> <span style="color:#960050;background-color:#1e0010">и</span> <span style="color:#960050;background-color:#1e0010">в</span> <span style="color:#960050;background-color:#1e0010">хранике</span> <span style="color:#960050;background-color:#1e0010">для</span> <span style="color:#960050;background-color:#1e0010">условий</span> <span style="color:#960050;background-color:#1e0010">роутинга</span>
+      <span style="color:#f92672">&#34;kind&#34;</span>: <span style="color:#e6db74">&#34;test_account&#34;</span> <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">Обязательно</span> 
     }
   },
-  &quot;formHorizontal&quot;: true
+  <span style="color:#f92672">&#34;formHorizontal&#34;</span>: <span style="color:#66d9ef">true</span>
 }
-</code></pre>
-
-<h3 id="разновидности-типов-тикетов">Разновидности типов тикетов</h3>
-
-<h4 id="тип-согласование-kind-approval">Тип: Согласование (kind=approval)</h4>
-
+</code></pre></div><h3 id="разновидности-типов-тикетов">Разновидности типов тикетов</h3>
+<h4 id="тип-согласование-kindapproval">Тип: Согласование (kind=approval)</h4>
 <p>Используются для реализации механизма согласования объектов. Хорошо подходят для этого так как:</p>
-
 <ul>
 <li>имеют уже готовый механизм уведомлений об изменениях</li>
 <li>имеют механизм комментирования</li>
 <li>в целом реализуют схожий с потребностями функционал, так как согласование - это фактически задача на другого человека с дедлайном и пр</li>
 </ul>
-
 <p>У одной сущности может быть несколько типов согласования. Например для медиапланов может быть согласование самого МП (сумма и пр), а так же согласование файла заявки.</p>
-
-<p>Для каждого типа согласования <strong>следует</strong> делать отдельный issue_type, так как для разных типов согласования скорее всего понадобится разная сопроводительная информация из _get_issue_type_object<em>details<strong>.</strong></em></p>
-
+<p>Для каждого типа согласования <strong>следует</strong> делать отдельный issue_type, так как для разных типов согласования скорее всего понадобится разная сопроводительная информация из _get_issue_type_object_details**.**_</p>
 <p>Для добавления нового типа согласования на сущность нужно:</p>
-
 <ul>
-<li>Добавить основное поле для сущности в issue_field, если поля еще нет</li>
-<li>Добавить сущность в issue_entity, если ее там нет и указать основное поле в issue_field_id</li>
-
-<li><p>Добавить запись в issue_type</p>
-
+<li>
+<p>Добавить основное поле для сущности в issue_field, если поля еще нет</p>
+</li>
+<li>
+<p>Добавить сущность в issue_entity, если ее там нет и указать основное поле в issue_field_id</p>
+</li>
+<li>
+<p>Добавить запись в issue_type</p>
 <ul>
 <li>для нужной entity </li>
 <li>c нужными application_ids</li>
@@ -1571,17 +1588,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li>kind=approval</li>
 <li>is_helper=true</li>
 <li>allowed_roles={meta.role.dev} потому, что вам сперва нужно все проверить и только потом открывать тип тикета на всех пользователей</li>
-</ul></li>
-
-<li><p>Реализуйте обработку получения деталей этого типа тикета в get_issue_type_object_details</p></li>
-
-<li><p>Реализуйте получение списка возможных исполнителей в get_issue_assignee_variants</p></li>
 </ul>
-
-<h4 id="тип-задача-kind-issue">Тип: Задача (kind=issue)</h4>
-
+</li>
+<li>
+<p>Реализуйте обработку получения деталей этого типа тикета в get_issue_type_object_details</p>
+</li>
+<li>
+<p>Реализуйте получение списка возможных исполнителей в get_issue_assignee_variants</p>
+</li>
+</ul>
+<h4 id="тип-задача-kindissue">Тип: Задача (kind=issue)</h4>
 <p>Самые обычные типы тикетов. Ничего примечательного.</p>
-
 <p>Могут обрабатываться роботом или человеком.</p>
 
 
@@ -1595,22 +1612,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#таблицы">Таблицы</a></li>
-<li><a href="#управляющие-функции-бд">Управляющие функции БД</a></li>
-<li><a href="#получение-сложных-списков-для-полей-тикетов-get-issue-type-object-kind-options">Получение сложных списков для полей тикетов (get_issue_type_object_kind_options)</a></li>
-<li><a href="#разновидности-типов-тикетов">Разновидности типов тикетов</a>
-<ul>
-<li><a href="#тип-согласование-kind-approval">Тип: Согласование (kind=approval)</a></li>
-<li><a href="#тип-задача-kind-issue">Тип: Задача (kind=issue)</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#таблицы">Таблицы</a></li>
+        <li><a href="#управляющие-функции-бд">Управляющие функции БД</a></li>
+        <li><a href="#получение-сложных-списков-для-полей-тикетов-get_issue_type_object_kind_options">Получение сложных списков для полей тикетов (get_issue_type_object_kind_options)</a></li>
+        <li><a href="#разновидности-типов-тикетов">Разновидности типов тикетов</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
 </div>
 

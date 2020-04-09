@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.42.1" />
+    <meta name="generator" content="Hugo 0.68.1" />
     <meta name="description" content="">
 
 
@@ -460,6 +460,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     
 
 
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/compoments/oauth/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/compoments/oauth/" class="devsite-nav-title">
+                    <span>OAuth</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
                     
                     
                     
@@ -1358,6 +1376,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
+            <li data-nav-id="/reference/java_api/smartqueryservice/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/reference/java_api/smartqueryservice/" class="devsite-nav-title">
+                    <span>SmartQueryService</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
             <li data-nav-id="/reference/java_api/tablecolumnservice/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/reference/java_api/tablecolumnservice/" class="devsite-nav-title">
                     <span>TableColumnService</span>
@@ -1461,30 +1497,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-
-
 <p>Для шаблонизации используется freemarker.org.
 Отсутствие переменных при шаблонизации сейчас не является фатальной ошибкой, переменная в такой случае будет заменяться пустой строкой.</p>
-
 <h1 id="backend-шаблонизация">Backend шаблонизация</h1>
-
 <h2 id="условия-do-if">Условия do-if</h2>
-
 <p>Используется для условной фильтрации скриптов и элементов на бекенде.
 Скрипты не будет исполняться и будет предотвращать отрисовку связанных элементов. Элементы, при установки do-if на них не будут приходить на фронтенд</p>
-
 <p>Пример: <a href="https://samples-demo.devision.io/page?p=4551&amp;a=35">https://samples-demo.devision.io/page?p=4551&amp;a=35</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;all_activity&#34;</span> <span style="color:#a6e22e">do-if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;env.sp.activity_mode==&#39;all&#39;&#34;</span>&gt;
+<span style="color:#a6e22e">select</span> <span style="color:#a6e22e">now</span>()
+&lt;/<span style="color:#f92672">script</span>&gt;
 
-<pre><code class="language-html">&lt;script type=&quot;meta/sql&quot; db-alias=&quot;meta&quot; id=&quot;all_activity&quot; do-if=&quot;env.sp.activity_mode=='all'&quot;&gt;
-select now()
-&lt;/script&gt;
-
-</code></pre>
-
-<h2 id="функции">Функции</h2>
-
+</code></pre></div><h2 id="функции">Функции</h2>
 <p>Пример вызова:</p>
-
 <ul>
 <li><strong>${get_bean(String)}</strong> - Получение инстанса Java сервиса</li>
 <li><strong>${to_json(Object)}</strong> - Конвертация объекта в json</li>
@@ -1492,85 +1517,47 @@ select now()
 <li><strong>${pg_quote_literal(String)}</strong> - Экранирование строки для PostgreSQL</li>
 <li><strong>${pg_quote_ident(String)}</strong> - Экранирование идентификатора (имя столбца, таблицы, схемы) для PostgreSQL</li>
 </ul>
-
 <p><strong>Полезно знать!</strong>
 Есть простой способ привести переменную-объект из env.sp к json строке.
-Обрабатываются такие случаи: &ldquo;:env.sp.obj.schedules$to_json::jsonb&rdquo;, эта запись эквивалентна &lsquo;${pg_quote_literal(to_json(env.sp.obj.schedules))}&rsquo;::jsonb.
+Обрабатываются такие случаи: &ldquo;:env.sp.obj.schedules$to_json::jsonb&rdquo;, эта запись эквивалентна &lsquo;${pg_quote_literal(to_json(env.sp.obj.schedules))}'::jsonb.
 Данные из pvm пока не обрабатывается таким образом.</p>
-
 <h2 id="работа-с-таблицами">Работа с таблицами</h2>
-
 <h3 id="pager">${pager}</h3>
-
 <p>Добавляет limit/offset в запрос и пагинатор на страницу</p>
-
-<pre><code class="language-sql">SELECT * FROM user ${pager}
-</code></pre>
-
-<h3 id="sort">${sort}</h3>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> <span style="color:#66d9ef">user</span> <span style="color:#960050;background-color:#1e0010">${</span>pager<span style="color:#960050;background-color:#1e0010">}</span>
+</code></pre></div><h3 id="sort">${sort}</h3>
 <p>Добавляет поле сортировки в таблицу в UI и в запрос.</p>
-
-<pre><code class="language-sql">SELECT * FROM user 
-ORDER BY ${sort}, id, name
-</code></pre>
-
-<h2 id="работа-с-датой-и-временем-и-локализация">Работа с датой и временем и локализация</h2>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> <span style="color:#66d9ef">user</span> 
+<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> <span style="color:#960050;background-color:#1e0010">${</span>sort<span style="color:#960050;background-color:#1e0010">}</span>, id, name
+</code></pre></div><h2 id="работа-с-датой-и-временем-и-локализация">Работа с датой и временем и локализация</h2>
 <p>Мета использует Java 8 DateTime API
 Пример: <a href="https://samples-demo.devision.io/page?p=3750&amp;a=35">https://samples-demo.devision.io/page?p=3750&amp;a=35</a></p>
-
 <h3 id="начало-предыдущего-месяца">Начало предыдущего месяца</h3>
-
 <pre><code>${ref.now.withDayOfMonth(1).minusMonths(1)?date}
-</code></pre>
-
-<h3 id="локализация-даты-ru-ru">Локализация даты ru_RU</h3>
-
+</code></pre><h3 id="локализация-даты-ru_ru">Локализация даты ru_RU</h3>
 <p><a href="http://freemarker.org/docs/ref_builtins_date.html">http://freemarker.org/docs/ref_builtins_date.html</a></p>
-
 <p><a href="http://freemarker.org/docs/pgui_config_settings.html">http://freemarker.org/docs/pgui_config_settings.html</a></p>
-
 <pre><code>[#setting locale=&quot;ru_RU&quot; /]
 ${to_date('1988-07-03')?date?string.medium}
-</code></pre>
-
-<h1 id="frontend-шаблонизация">Frontend шаблонизация</h1>
-
+</code></pre><h1 id="frontend-шаблонизация">Frontend шаблонизация</h1>
 <p>Handlebars используется для простых шаблонов в интерфейсе для me-card-list и в последствии для ячеек me-table.</p>
-
 <h2 id="meta-хелперы">meta-хелперы</h2>
-
 <h3 id="xif">xif</h3>
-
 <p>Стандартный Handlebars не имеет нужных наш гибких условий шаблонизации, поэтому пришлось расширять. Мы выбрали: <a href="https://gist.github.com/akhoury/9118682">https://gist.github.com/akhoury/9118682</a></p>
-
-<pre><code class="language-html">{{#xif &quot; row.id == 6 &quot;}}
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">{{#xif &#34; row.id == 6 &#34;}}
     If it works!
 {{/xif}}
-</code></pre>
-
-<h3 id="json">json</h3>
-
+</code></pre></div><h3 id="json">json</h3>
 <p>Приведение объекта к json строке. Выбрали: <a href="http://zshawnsyed.com/2015/04/30/output-json-in-handlebars/">http://zshawnsyed.com/2015/04/30/output-json-in-handlebars/</a></p>
-
-<pre><code class="language-html">{{{json row}}}
-</code></pre>
-
-<p>или</p>
-
-<pre><code class="language-html">{{#json row}}{{/json}}
-</code></pre>
-
-<h3 id="elink">elink</h3>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">{{{json row}}}
+</code></pre></div><p>или</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">{{#json row}}{{/json}}
+</code></pre></div><h3 id="elink">elink</h3>
 <p>Вставка ссылки на карточку meta объекта. В примере выводим список ссылок</p>
-
-<pre><code class="language-html">{{#each row.clients}}
-    {{elink objectId=id id=&quot;190&quot; name=name}}{{#unless @last}},{{/unless}}
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">{{#each row.clients}}
+    {{elink objectId=id id=&#34;190&#34; name=name}}{{#unless @last}},{{/unless}}
 {{/each}}
-</code></pre>
-
+</code></pre></div>
 
 
 
@@ -1582,32 +1569,32 @@ ${to_date('1988-07-03')?date?string.medium}
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#backend-шаблонизация">Backend шаблонизация</a>
-<ul>
-<li><a href="#условия-do-if">Условия do-if</a></li>
-<li><a href="#функции">Функции</a></li>
-<li><a href="#работа-с-таблицами">Работа с таблицами</a>
-<ul>
-<li><a href="#pager">${pager}</a></li>
-<li><a href="#sort">${sort}</a></li>
-</ul></li>
-<li><a href="#работа-с-датой-и-временем-и-локализация">Работа с датой и временем и локализация</a>
-<ul>
-<li><a href="#начало-предыдущего-месяца">Начало предыдущего месяца</a></li>
-<li><a href="#локализация-даты-ru-ru">Локализация даты ru_RU</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#frontend-шаблонизация">Frontend шаблонизация</a>
-<ul>
-<li><a href="#meta-хелперы">meta-хелперы</a>
-<ul>
-<li><a href="#xif">xif</a></li>
-<li><a href="#json">json</a></li>
-<li><a href="#elink">elink</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#условия-do-if">Условия do-if</a></li>
+    <li><a href="#функции">Функции</a></li>
+    <li><a href="#работа-с-таблицами">Работа с таблицами</a>
+      <ul>
+        <li><a href="#pager">${pager}</a></li>
+        <li><a href="#sort">${sort}</a></li>
+      </ul>
+    </li>
+    <li><a href="#работа-с-датой-и-временем-и-локализация">Работа с датой и временем и локализация</a>
+      <ul>
+        <li><a href="#начало-предыдущего-месяца">Начало предыдущего месяца</a></li>
+        <li><a href="#локализация-даты-ru_ru">Локализация даты ru_RU</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#meta-хелперы">meta-хелперы</a>
+      <ul>
+        <li><a href="#xif">xif</a></li>
+        <li><a href="#json">json</a></li>
+        <li><a href="#elink">elink</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
 </div>
 

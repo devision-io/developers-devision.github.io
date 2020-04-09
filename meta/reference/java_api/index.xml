@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Java API on META | Devision Developers</title>
@@ -124,7 +124,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/reference/java_api/mediaservice/</guid>
-      <description>   Метод и описание Возвращаемый тип     deleteExpired ( env: Env, mediaId: String) void   get ( env: Env, mediaId: String) MediaFile   getDownloadUrlPart ( id: String) String   getFilesBase64ZipArchive ( files: List) String   getViewUrlPart ( id: String) String   persist ( env: Env, fileBase64Content: String, filename: String, extension: String, mime: String, isPrivate: boolean) MediaFile   persist ( env: Env, fileBase64Content: String, filename: String, extension: String, mime: String, isPrivate: boolean, origin: String) MediaFile   prepareFileName ( env: Env, filename: String) String   sendFileToResponse ( response: HttpServletResponse, media: MediaFile, fname: String, addHeadersForDownload: boolean) void   sendHeaders ( response: HttpServletResponse, contentType: String, fname: String, addHeadersForDownload: boolean) void   upsert ( req: UpsertRequest) MediaFile    </description>
+      <description>   Метод и описание Возвращаемый тип     deleteExpired ( env: Env, mediaId: String) void   get ( env: Env, mediaId: String) MediaFile   getDownloadUrlPart ( id: String) String   getFilesBase64ZipArchive ( files: List) String   getViewUrlPart ( id: String) String   persist ( env: Env, fileBase64Content: String, filename: String, extension: String, mime: String, isPrivate: boolean) MediaFile   persist ( env: Env, fileBase64Content: String, filename: String, extension: String, mime: String, isPrivate: boolean, origin: String) MediaFile   persist ( env: Env, fileBase64Content: String, filename: String, extension: String, mime: String, isPrivate: boolean, ttlInSec: long) MediaFile   prepareFileName ( env: Env, filename: String) String   sendFileToResponse ( response: HttpServletResponse, media: MediaFile, fname: String, addHeadersForDownload: boolean) void   sendHeaders ( response: HttpServletResponse, contentType: String, fname: String, addHeadersForDownload: boolean) void   upsert ( req: UpsertRequest) MediaFile    </description>
     </item>
     
     <item>
@@ -164,12 +164,21 @@
     </item>
     
     <item>
+      <title>SmartQueryService</title>
+      <link>https://developers.devision.io/meta/reference/java_api/smartqueryservice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/reference/java_api/smartqueryservice/</guid>
+      <description>   Метод и описание Возвращаемый тип     extractAndCheckMetrics ( reportConfig: SmartQueryConfig, entityKind: EntityKind) List   generateMetaQLRequest ( config: Config, queryConfig: SmartQueryConfig) String   replaceSqlPlaceholdersToEscapedValues ( queryConfig: SmartQueryConfig, sql: String) String   valueToStrValue ( value: Object) String    </description>
+    </item>
+    
+    <item>
       <title>TableColumnService</title>
       <link>https://developers.devision.io/meta/reference/java_api/tablecolumnservice/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/reference/java_api/tablecolumnservice/</guid>
-      <description>   Метод и описание Возвращаемый тип     buildFilters ( outputPlaceholderVarName: String, columns: DataResult, data: AdvancedFilterData) GeneratedFilter   buildFilters ( outputPlaceholderVarName: String, columns: DataResult, data: Object) GeneratedFilter   buildFn ( aggFn: AggFn, expr: String) String   escapeDivisionByZero ( text: String, escapePrefix: String, escapePostfix: String) String   extractTableParams ( columns: DataResult, dimensions: List, metrics: List) TableSettings   getMetricsFromExpr ( in: String) Set    </description>
+      <description>   Метод и описание Возвращаемый тип     buildAggFn ( aggFn: AggFn, expr: String) String   buildFilters ( outputPlaceholderVarName: String, columns: DataResult, data: AdvancedFilterData) GeneratedFilter   buildFilters ( outputPlaceholderVarName: String, columns: DataResult, data: Object) GeneratedFilter   escapeDivisionByZero ( text: String, escapePrefix: String, escapePostfix: String) String   extractTableParams ( columns: DataResult, dimensions: List, metrics: List) TableSettings   extractTableParams ( headers: List, dimensions: List, metrics: List, entityKind: EntityKind, strict: boolean) TableSettings   getMetricsFromExpr ( in: String) Set    </description>
     </item>
     
     <item>

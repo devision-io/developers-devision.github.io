@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.42.1" />
+    <meta name="generator" content="Hugo 0.68.1" />
     <meta name="description" content="">
 
 
@@ -460,6 +460,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     
 
 
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/compoments/oauth/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/compoments/oauth/" class="devsite-nav-title">
+                    <span>OAuth</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
                     
                     
                     
@@ -1358,6 +1376,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
+            <li data-nav-id="/reference/java_api/smartqueryservice/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/reference/java_api/smartqueryservice/" class="devsite-nav-title">
+                    <span>SmartQueryService</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
             <li data-nav-id="/reference/java_api/tablecolumnservice/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/reference/java_api/tablecolumnservice/" class="devsite-nav-title">
                     <span>TableColumnService</span>
@@ -1461,175 +1497,151 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-
-
-<div class="notices info" ><p>Для начала ознакомьтесь со статьей <a href="https://developers.devision.io/meta/guides/request_life_cycle/">Жизненный цикл запроса</a></p>
-</div>
-
-
+<!-- raw HTML omitted -->
 <p>Типичная задача META - вывод списка объектов и их редактирование</p>
-
 <h2 id="регистрация-entity">Регистрация Entity</h2>
-
 <p>Чтобы начать работать с новой сущностью добавьте ее в репозиторий META AppContent.
 В списке полей обычно достаточно указать primary key и поле, которе будет считаться именем объекта сущности.
 Для примера попробуем зарегистрировать таблицу example_entity из БД с meta id &ldquo;meta_samples&rdquo;.</p>
-
 <p>В репозитории AppContent в директории <strong>/entity/meta_samples</strong> создайте файл <strong>example_entity___public.example_entity.yaml</strong>.</p>
-
 <p>Такое название файла надо читать так: {ENTITY_ID}___{DB_SCHEMA}.{DB_TABLE}.yaml
 Это именование позволяет быстро и легко искать файлы через IDE поиском по имени файла и пока что не влияет на парсер конфига, но будет влиять.</p>
-
 <p>Контент файла:</p>
-
-<pre><code class="language-yaml">id: 'example_entity'
-name: Пример
-db_alias: meta_samples
-schema: public
-table: example_entity
-fields:
-- alias: id # для metaql
-  db_type: uuid
-  is_primary: true # говорит, что поле - первичный ключ
-  name: id # название поля в БД
-- alias: name
-  db_type: text
-  is_title: true # говорит, что поле - является именем объекта сущности, например как users.full_name будет использовано для автоматического получения для названия объекта в хлебных крошках
-  name: name
-</code></pre>
-
-<h2 id="добавьте-новую-страницу-список-сущностей-в-таблице">Добавьте новую страницу: Список сущностей в таблице</h2>
-
-<pre><code class="language-html">&lt;script type=&quot;meta/sql&quot; db-alias=&quot;meta_samples&quot; id=&quot;res&quot; entity-id=&quot;example_entity&quot;
-  elem-attrs='{&quot;addObjectButton&quot;:{&quot;title&quot;:&quot;Entity&quot;, &quot;mode&quot;:&quot;modal&quot;, &quot;modalSize&quot;:&quot;lg&quot;, &quot;env&quot;:{&quot;sp&quot;:{&quot;obj&quot;:{&quot;name&quot;:&quot;test&quot;}}} }}' order=&quot;1000&quot;&gt;
-SELECT
-  ee.id,
-  ee.name,
-  ee.creation_time,
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">id</span>: <span style="color:#e6db74">&#39;example_entity&#39;</span>
+<span style="color:#66d9ef">name</span>: Пример
+<span style="color:#66d9ef">db_alias</span>: meta_samples
+<span style="color:#66d9ef">schema</span>: public
+<span style="color:#66d9ef">table</span>: example_entity
+<span style="color:#66d9ef">fields</span>:
+- <span style="color:#66d9ef">alias</span>: id <span style="color:#75715e"># для metaql</span>
+  <span style="color:#66d9ef">db_type</span>: uuid
+  <span style="color:#66d9ef">is_primary</span>: <span style="color:#66d9ef">true</span> <span style="color:#75715e"># говорит, что поле - первичный ключ</span>
+  <span style="color:#66d9ef">name</span>: id <span style="color:#75715e"># название поля в БД</span>
+- <span style="color:#66d9ef">alias</span>: name
+  <span style="color:#66d9ef">db_type</span>: text
+  <span style="color:#66d9ef">is_title</span>: <span style="color:#66d9ef">true</span> <span style="color:#75715e"># говорит, что поле - является именем объекта сущности, например как users.full_name будет использовано для автоматического получения для названия объекта в хлебных крошках</span>
+  <span style="color:#66d9ef">name</span>: name
+</code></pre></div><h2 id="добавьте-новую-страницу-список-сущностей-в-таблице">Добавьте новую страницу: Список сущностей в таблице</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta_samples&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;res&#34;</span> <span style="color:#a6e22e">entity-id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;example_entity&#34;</span>
+  <span style="color:#a6e22e">elem-attrs</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;{&#34;addObjectButton&#34;:{&#34;title&#34;:&#34;Entity&#34;, &#34;mode&#34;:&#34;modal&#34;, &#34;modalSize&#34;:&#34;lg&#34;, &#34;env&#34;:{&#34;sp&#34;:{&#34;obj&#34;:{&#34;name&#34;:&#34;test&#34;}}} }}&#39;</span> <span style="color:#a6e22e">order</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1000&#34;</span>&gt;
+<span style="color:#a6e22e">SELECT</span>
+  <span style="color:#a6e22e">ee</span>.<span style="color:#a6e22e">id</span>,
+  <span style="color:#a6e22e">ee</span>.<span style="color:#a6e22e">name</span>,
+  <span style="color:#a6e22e">ee</span>.<span style="color:#a6e22e">creation_time</span>,
   
-  json_build_object(
-      'pager', json_build_object('total', count(*) over()),
-      'headers', json_build_array(
-        json_build_object('name', 'id', 'isVisible', false),
-        json_build_object('name', 'name', 'displayName', 'Имя'),
-        json_build_object('name', 'creation_time', 'displayName', 'Добавлено')
+  <span style="color:#a6e22e">json_build_object</span>(
+      <span style="color:#e6db74">&#39;pager&#39;</span>, <span style="color:#a6e22e">json_build_object</span>(<span style="color:#e6db74">&#39;total&#39;</span>, <span style="color:#a6e22e">count</span>(<span style="color:#f92672">*</span>) <span style="color:#a6e22e">over</span>()),
+      <span style="color:#e6db74">&#39;headers&#39;</span>, <span style="color:#a6e22e">json_build_array</span>(
+        <span style="color:#a6e22e">json_build_object</span>(<span style="color:#e6db74">&#39;name&#39;</span>, <span style="color:#e6db74">&#39;id&#39;</span>, <span style="color:#e6db74">&#39;isVisible&#39;</span>, <span style="color:#66d9ef">false</span>),
+        <span style="color:#a6e22e">json_build_object</span>(<span style="color:#e6db74">&#39;name&#39;</span>, <span style="color:#e6db74">&#39;name&#39;</span>, <span style="color:#e6db74">&#39;displayName&#39;</span>, <span style="color:#e6db74">&#39;Имя&#39;</span>),
+        <span style="color:#a6e22e">json_build_object</span>(<span style="color:#e6db74">&#39;name&#39;</span>, <span style="color:#e6db74">&#39;creation_time&#39;</span>, <span style="color:#e6db74">&#39;displayName&#39;</span>, <span style="color:#e6db74">&#39;Добавлено&#39;</span>)
       )
-    ) as table_props_field
-FROM example_entity ee
-ORDER BY ${sort}
-${pager}
-&lt;/script&gt;
-</code></pre>
-
-<h2 id="добавьте-новую-страницу-редактирование-объекта-в-карточке">Добавьте новую страницу: Редактирование объекта в карточке</h2>
-
+    ) <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">table_props_field</span>
+<span style="color:#a6e22e">FROM</span> <span style="color:#a6e22e">example_entity</span> <span style="color:#a6e22e">ee</span>
+<span style="color:#a6e22e">ORDER</span> <span style="color:#a6e22e">BY</span> <span style="color:#a6e22e">$</span>{<span style="color:#a6e22e">sort</span>}
+<span style="color:#a6e22e">$</span>{<span style="color:#a6e22e">pager</span>}
+&lt;/<span style="color:#f92672">script</span>&gt;
+</code></pre></div><h2 id="добавьте-новую-страницу-редактирование-объекта-в-карточке">Добавьте новую страницу: Редактирование объекта в карточке</h2>
 <p>Зайдите на страницу на своем домене: /card?e=example_entity&amp;o=1&amp;a=ВАШ_APP_ID</p>
-
 <ul>
 <li>o=1 - нужно чтобы мета показала левое меню сущности, чтобы мы могли добавить первую страницу</li>
 <li>a=XXX - id вашего приложения</li>
 </ul>
-
 <p>Итак, добавьте новую страницу и зайдите в ее параметры:</p>
-
 <ul>
 <li>Роль: &ldquo;Основная страница создания/редактирования/просмотра объекта&rdquo;</li>
 <li>Снимите галку с &ldquo;Сохранять состояние в URL&rdquo;. Для редактирование карточек это скорее плохо, а для страниц с отчетами это позволяет не думать о сохранении параметров фильтор в url</li>
 <li>Когда страница готова к публикации снимите галку с &ldquo;Показывать в меню только разработчикам&rdquo;, если вы хотите чтобы все пользователи видели ее в меню</li>
 </ul>
-
 <p>Далее работаем с контентом страницы:</p>
-
 <ul>
 <li>Вставьте контент</li>
 <li>Замените db-alias на свой</li>
 <li>Замените название таблицы и список полей на свои</li>
 </ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;name_validator&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta_samples&#34;</span> <span style="color:#a6e22e">depends</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;name&#34;</span>&gt;
+<span style="color:#a6e22e">SELECT</span> <span style="color:#e6db74">&#39;name_validator_unique&#39;</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">id</span>, <span style="color:#e6db74">&#39;Имя уже используется&#39;</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">name</span> <span style="color:#a6e22e">FROM</span> <span style="color:#66d9ef">public</span>.<span style="color:#a6e22e">example_entity</span> <span style="color:#a6e22e">WHERE</span> <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#f92672">:</span><span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">sp</span>.<span style="color:#a6e22e">name</span> <span style="color:#a6e22e">LIMIT</span> <span style="color:#ae81ff">1</span>
+&lt;/<span style="color:#f92672">script</span>&gt;
 
-<pre><code class="language-html">&lt;script id=&quot;name_validator&quot; type=&quot;meta/sql&quot; db-alias=&quot;meta_samples&quot; depends=&quot;name&quot;&gt;
-SELECT 'name_validator_unique' as id, 'Имя уже используется' as name FROM public.example_entity WHERE name = :env.sp.name LIMIT 1
-&lt;/script&gt;
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta_samples&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;info&#34;</span> <span style="color:#a6e22e">internal</span>&gt;
+<span style="color:#f92672">--</span> <span style="color:#a6e22e">выбирайте</span> <span style="color:#a6e22e">только</span> <span style="color:#a6e22e">те</span> <span style="color:#a6e22e">поля</span>, <span style="color:#a6e22e">которые</span> <span style="color:#a6e22e">вам</span> <span style="color:#a6e22e">нужны</span>
 
-&lt;script type=&quot;meta/sql&quot; db-alias=&quot;meta_samples&quot; id=&quot;info&quot; internal&gt;
--- выбирайте только те поля, которые вам нужны
+<span style="color:#a6e22e">SELECT</span> <span style="color:#a6e22e">id</span>, <span style="color:#a6e22e">name</span>, <span style="color:#a6e22e">creation_time</span>, <span style="color:#a6e22e">last_user_id</span>
+<span style="color:#a6e22e">FROM</span> <span style="color:#66d9ef">public</span>.<span style="color:#a6e22e">example_entity</span>
+<span style="color:#a6e22e">WHERE</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#a6e22e">NULLIF</span>(<span style="color:#f92672">:</span><span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">objectId</span>, <span style="color:#e6db74">&#39;0&#39;</span>)<span style="color:#f92672">::</span><span style="color:#a6e22e">uuid</span>
+<span style="color:#a6e22e">LIMIT</span> <span style="color:#ae81ff">1</span>
+&lt;/<span style="color:#f92672">script</span>&gt;
 
-SELECT id, name, creation_time, last_user_id
-FROM public.example_entity
-WHERE id=NULLIF(:env.objectId, '0')::uuid
-LIMIT 1
-&lt;/script&gt;
+&lt;<span style="color:#f92672">elem</span> <span style="color:#a6e22e">states</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;default&#34;</span> <span style="color:#a6e22e">order</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;190&#34;</span>&gt;
+  &lt;<span style="color:#f92672">template</span>&gt;
+    &lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;editGroupForm&#34;</span> <span style="color:#a6e22e">ng-submit</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;changeState(&#39;save&#39;, {obj:env.sp.obj})&#34;</span>&gt;
+      &lt;<span style="color:#f92672">me-lego</span> <span style="color:#a6e22e">elems</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;editCard.elems&#34;</span> <span style="color:#a6e22e">output</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;env.sp.obj&#34;</span>&gt;&lt;/<span style="color:#f92672">me-lego</span>&gt;
+      &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">ng-if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;$root.isDebugMode&#34;</span>&gt;
+        &lt;<span style="color:#f92672">pre</span>&gt;{{env.sp.obj|json}}&lt;/<span style="color:#f92672">pre</span>&gt;
+      &lt;/<span style="color:#f92672">div</span>&gt;
+    &lt;/<span style="color:#f92672">form</span>&gt;
+  &lt;/<span style="color:#f92672">template</span>&gt;
+&lt;/<span style="color:#f92672">elem</span>&gt;
 
-&lt;elem states=&quot;default&quot; order=&quot;190&quot;&gt;
-  &lt;template&gt;
-    &lt;form name=&quot;editGroupForm&quot; ng-submit=&quot;changeState('save', {obj:env.sp.obj})&quot;&gt;
-      &lt;me-lego elems=&quot;editCard.elems&quot; output=&quot;env.sp.obj&quot;&gt;&lt;/me-lego&gt;
-      &lt;div ng-if=&quot;$root.isDebugMode&quot;&gt;
-        &lt;pre&gt;{{env.sp.obj|json}}&lt;/pre&gt;
-      &lt;/div&gt;
-    &lt;/form&gt;
-  &lt;/template&gt;
-&lt;/elem&gt;
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;editCard&#34;</span> <span style="color:#a6e22e">elem</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hidden&#34;</span> <span style="color:#a6e22e">states</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;default&#34;</span>&gt;
+  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>(<span style="color:#a6e22e">vm</span>, <span style="color:#a6e22e">pvm</span>, <span style="color:#a6e22e">env</span>) {
+    <span style="color:#75715e">// Получаем инфу из бд, если редактирвание или указываем здачение по умолчанию
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">info</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">pvm</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">info</span>.<span style="color:#a6e22e">notEmpty</span> <span style="color:#f92672">?</span> <span style="color:#a6e22e">pvm</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">info</span>.<span style="color:#a6e22e">rows</span>[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">:</span> {};
+    <span style="color:#75715e">// Не добавляейте в env секретные поля - эти данные уйдут в интерфейс
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">pvm</span>.<span style="color:#a6e22e">initEnvSp</span>(<span style="color:#a6e22e">env</span>, {<span style="color:#a6e22e">obj</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">info</span>});
 
-&lt;script type=&quot;meta/js&quot; id=&quot;editCard&quot; elem=&quot;hidden&quot; states=&quot;default&quot;&gt;
-  function main(vm, pvm, env) {
-    // Получаем инфу из бд, если редактирвание или указываем здачение по умолчанию
-    var info = pvm.data.info.notEmpty ? pvm.data.info.rows[0] : {};
-    // Не добавляейте в env секретные поля - эти данные уйдут в интерфейс
-    pvm.initEnvSp(env, {obj: info});
-
-    vm.elems = [
+    <span style="color:#a6e22e">vm</span>.<span style="color:#a6e22e">elems</span> <span style="color:#f92672">=</span> [
       {
-        id: &quot;name&quot;,
-        label: &quot;Название&quot;,
-        span: 12,
-        name: &quot;me-input&quot;,
-        refPvmValidator: {id: &quot;name_validator&quot;},
-        attrs: {
-          required: true,
-          min: 2,
-          max: 30
+        <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;name&#34;</span>,
+        <span style="color:#a6e22e">label</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Название&#34;</span>,
+        <span style="color:#a6e22e">span</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">12</span>,
+        <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;me-input&#34;</span>,
+        <span style="color:#a6e22e">refPvmValidator</span><span style="color:#f92672">:</span> {<span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;name_validator&#34;</span>},
+        <span style="color:#a6e22e">attrs</span><span style="color:#f92672">:</span> {
+          <span style="color:#a6e22e">required</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+          <span style="color:#a6e22e">min</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2</span>,
+          <span style="color:#a6e22e">max</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">30</span>
         }
       },
-      {name: &quot;newrow&quot;},
+      {<span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;newrow&#34;</span>},
       {
-        id: &quot;submit&quot;,
-        name: &quot;me-submit&quot;,
-        attrs: {
-          value: '${i18n(&quot;common.saveButton&quot;)}'
+        <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;submit&#34;</span>,
+        <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;me-submit&#34;</span>,
+        <span style="color:#a6e22e">attrs</span><span style="color:#f92672">:</span> {
+          <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;${i18n(&#34;common.saveButton&#34;)}&#39;</span>
         }
       }
     ];
   }
-&lt;/script&gt;
+&lt;/<span style="color:#f92672">script</span>&gt;
 
-&lt;script type=&quot;meta/sql&quot; db-alias=&quot;meta_samples&quot; elem=&quot;hidden&quot; states=&quot;save&quot; id=&quot;upsert&quot;&gt;
-INSERT INTO example_entity (id, name, last_user_id)
-VALUES ( COALESCE(NULLIF(:env.objectId, '0')::uuid, uuid_generate_v4()), :env.sp.obj.name, :env.userId )
-ON CONFLICT (id) DO UPDATE SET
-  name = EXCLUDED.name
-RETURNING id;
-&lt;/script&gt;
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta_samples&#34;</span> <span style="color:#a6e22e">elem</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hidden&#34;</span> <span style="color:#a6e22e">states</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;save&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;upsert&#34;</span>&gt;
+<span style="color:#a6e22e">INSERT</span> <span style="color:#a6e22e">INTO</span> <span style="color:#a6e22e">example_entity</span> (<span style="color:#a6e22e">id</span>, <span style="color:#a6e22e">name</span>, <span style="color:#a6e22e">last_user_id</span>)
+<span style="color:#a6e22e">VALUES</span> ( <span style="color:#a6e22e">COALESCE</span>(<span style="color:#a6e22e">NULLIF</span>(<span style="color:#f92672">:</span><span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">objectId</span>, <span style="color:#e6db74">&#39;0&#39;</span>)<span style="color:#f92672">::</span><span style="color:#a6e22e">uuid</span>, <span style="color:#a6e22e">uuid_generate_v4</span>()), <span style="color:#f92672">:</span><span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">sp</span>.<span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">name</span>, <span style="color:#f92672">:</span><span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">userId</span> )
+<span style="color:#a6e22e">ON</span> <span style="color:#a6e22e">CONFLICT</span> (<span style="color:#a6e22e">id</span>) <span style="color:#a6e22e">DO</span> <span style="color:#a6e22e">UPDATE</span> <span style="color:#a6e22e">SET</span>
+  <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">EXCLUDED</span>.<span style="color:#a6e22e">name</span>
+<span style="color:#a6e22e">RETURNING</span> <span style="color:#a6e22e">id</span>;
+&lt;/<span style="color:#f92672">script</span>&gt;
 
 
-&lt;script type=&quot;meta/js&quot; elem=&quot;hidden&quot; states=&quot;save&quot;&gt;
-function main(pvm, vm, env, ObjectLogService) {
-  var isNew = !env.hasObjectId;
-  var objectId = isNew ? pvm.data.upsert.rows[0].id : env.objectId;
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span> <span style="color:#a6e22e">elem</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hidden&#34;</span> <span style="color:#a6e22e">states</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;save&#34;</span>&gt;
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>(<span style="color:#a6e22e">pvm</span>, <span style="color:#a6e22e">vm</span>, <span style="color:#a6e22e">env</span>, <span style="color:#a6e22e">ObjectLogService</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">isNew</span> <span style="color:#f92672">=</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">hasObjectId</span>;
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">objectId</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">isNew</span> <span style="color:#f92672">?</span> <span style="color:#a6e22e">pvm</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">upsert</span>.<span style="color:#a6e22e">rows</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">id</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">objectId</span>;
 
-  if (isNew) {
-    pvm.redirect = {
-      url: &quot;/card?e=&quot; + env.entityId + &quot;&amp;o=&quot; + objectId + &quot;&amp;a=&quot; + env.applicationId
+  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">isNew</span>) {
+    <span style="color:#a6e22e">pvm</span>.<span style="color:#a6e22e">redirect</span> <span style="color:#f92672">=</span> {
+      <span style="color:#a6e22e">url</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;/card?e=&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">entityId</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;&amp;o=&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">objectId</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;&amp;a=&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">applicationId</span>
     };
-  } else {
-    pvm.toInitialState();
-    pvm.closeModal();
+  } <span style="color:#66d9ef">else</span> {
+    <span style="color:#a6e22e">pvm</span>.<span style="color:#a6e22e">toInitialState</span>();
+    <span style="color:#a6e22e">pvm</span>.<span style="color:#a6e22e">closeModal</span>();
   }
-  pvm.popup = {level: &quot;success&quot;, message: &quot;${i18n('common.saveSuccess')}&quot;};
-  ObjectLogService.logValue(env.entityId, objectId, isNew ? 'ADD' : 'SET', env.sp.obj);
+  <span style="color:#a6e22e">pvm</span>.<span style="color:#a6e22e">popup</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">level</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;success&#34;</span>, <span style="color:#a6e22e">message</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;${i18n(&#39;common.saveSuccess&#39;)}&#34;</span>};
+  <span style="color:#a6e22e">ObjectLogService</span>.<span style="color:#a6e22e">logValue</span>(<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">entityId</span>, <span style="color:#a6e22e">objectId</span>, <span style="color:#a6e22e">isNew</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">&#39;ADD&#39;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;SET&#39;</span>, <span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">sp</span>.<span style="color:#a6e22e">obj</span>);
 }
-&lt;/script&gt;
-</code></pre>
-
+&lt;/<span style="color:#f92672">script</span>&gt;
+</code></pre></div>
 
 
 
@@ -1641,14 +1653,11 @@ function main(pvm, vm, env, ObjectLogService) {
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#регистрация-entity">Регистрация Entity</a></li>
-<li><a href="#добавьте-новую-страницу-список-сущностей-в-таблице">Добавьте новую страницу: Список сущностей в таблице</a></li>
-<li><a href="#добавьте-новую-страницу-редактирование-объекта-в-карточке">Добавьте новую страницу: Редактирование объекта в карточке</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#регистрация-entity">Регистрация Entity</a></li>
+    <li><a href="#добавьте-новую-страницу-список-сущностей-в-таблице">Добавьте новую страницу: Список сущностей в таблице</a></li>
+    <li><a href="#добавьте-новую-страницу-редактирование-объекта-в-карточке">Добавьте новую страницу: Редактирование объекта в карточке</a></li>
+  </ul>
 </nav>
 </div>
 

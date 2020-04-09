@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.42.1" />
+    <meta name="generator" content="Hugo 0.68.1" />
     <meta name="description" content="">
 
 
@@ -460,6 +460,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     
 
 
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/compoments/oauth/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/compoments/oauth/" class="devsite-nav-title">
+                    <span>OAuth</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
                     
                     
                     
@@ -1358,6 +1376,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
+            <li data-nav-id="/reference/java_api/smartqueryservice/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/reference/java_api/smartqueryservice/" class="devsite-nav-title">
+                    <span>SmartQueryService</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
             <li data-nav-id="/reference/java_api/tablecolumnservice/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/reference/java_api/tablecolumnservice/" class="devsite-nav-title">
                     <span>TableColumnService</span>
@@ -1461,12 +1497,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-
-
 <p>Google Analytics уже глубоко интегрирован в платформу и многие нужные вам события с интерфейса и backend зачастую автоматически будут поступать в GA.</p>
-
 <h2 id="автоматически-собираемые-действия">Автоматически собираемые действия</h2>
-
 <ul>
 <li>Открытия страниц</li>
 <li>Открытие модальных окон (в т.ч. sidenav)</li>
@@ -1475,39 +1507,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li>Клик на кнопку добавление объекта в me-select</li>
 <li>Выбор пункта меню в me-input type=menu-btn</li>
 </ul>
-
 <h2 id="отправка-событий-через-measurement-protocol">Отправка событий через Measurement Protocol</h2>
-
 <p>В скриптах meta/js или meta/sql (с помощью шаблонизатора) вы можете отправлять нужные вам события в GA.</p>
-
-<pre><code class="language-html">&lt;script type=&quot;meta/js&quot; id=&quot;editGroup&quot; states=&quot;default&quot;&gt;
-function main(env, log, vm, pvm, GaService) {
-  GaService.eventTrack('GCS', 'InviteForm');
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;editGroup&#34;</span> <span style="color:#a6e22e">states</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;default&#34;</span>&gt;
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>(<span style="color:#a6e22e">env</span>, <span style="color:#a6e22e">log</span>, <span style="color:#a6e22e">vm</span>, <span style="color:#a6e22e">pvm</span>, <span style="color:#a6e22e">GaService</span>) {
+  <span style="color:#a6e22e">GaService</span>.<span style="color:#a6e22e">eventTrack</span>(<span style="color:#e6db74">&#39;GCS&#39;</span>, <span style="color:#e6db74">&#39;InviteForm&#39;</span>);
   
-  // или
-  GaService.eventTrack('GCS', 'InviteForm', 'open');
+  <span style="color:#75715e">// или
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">GaService</span>.<span style="color:#a6e22e">eventTrack</span>(<span style="color:#e6db74">&#39;GCS&#39;</span>, <span style="color:#e6db74">&#39;InviteForm&#39;</span>, <span style="color:#e6db74">&#39;open&#39;</span>);
   
-  // или
-  GaService.eventTrack('GCS', 'InviteForm', 'open', 42);
+  <span style="color:#75715e">// или
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">GaService</span>.<span style="color:#a6e22e">eventTrack</span>(<span style="color:#e6db74">&#39;GCS&#39;</span>, <span style="color:#e6db74">&#39;InviteForm&#39;</span>, <span style="color:#e6db74">&#39;open&#39;</span>, <span style="color:#ae81ff">42</span>);
 }
-&lt;/script&gt;
-</code></pre>
-
-<h2 id="measurement-protocol">Measurement Protocol</h2>
-
+&lt;/<span style="color:#f92672">script</span>&gt;
+</code></pre></div><h2 id="measurement-protocol">Measurement Protocol</h2>
 <p>Вы можете отправлять не только события, но тогда следует ознакомится с доступными в протоколе параметрами
 Например, чтобы отправить transaction id нужно</p>
-
-<pre><code class="language-html">&lt;script type=&quot;meta/js&quot; id=&quot;res&quot; states=&quot;default&quot;&gt;
-function main(GaService) {
-  GaService.send({
-      &quot;ti&quot;: &quot;42&quot;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;res&#34;</span> <span style="color:#a6e22e">states</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;default&#34;</span>&gt;
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>(<span style="color:#a6e22e">GaService</span>) {
+  <span style="color:#a6e22e">GaService</span>.<span style="color:#a6e22e">send</span>({
+      <span style="color:#e6db74">&#34;ti&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;42&#34;</span>
   });
 }
-&lt;/script&gt;
-</code></pre>
-
-<p>Описание протокола
+&lt;/<span style="color:#f92672">script</span>&gt;
+</code></pre></div><p>Описание протокола
 <a href="https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters?hl=en">https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters?hl=en</a></p>
 
 
@@ -1521,14 +1544,11 @@ function main(GaService) {
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#автоматически-собираемые-действия">Автоматически собираемые действия</a></li>
-<li><a href="#отправка-событий-через-measurement-protocol">Отправка событий через Measurement Protocol</a></li>
-<li><a href="#measurement-protocol">Measurement Protocol</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#автоматически-собираемые-действия">Автоматически собираемые действия</a></li>
+    <li><a href="#отправка-событий-через-measurement-protocol">Отправка событий через Measurement Protocol</a></li>
+    <li><a href="#measurement-protocol">Measurement Protocol</a></li>
+  </ul>
 </nav>
 </div>
 

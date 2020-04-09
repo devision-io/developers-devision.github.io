@@ -73,7 +73,7 @@
 						<p>Когда нужно подписаться на изменение данные в pvm и заполнять какие-то поля элемента</p>
 					</div>
 					<p>{
-						id:&quot;share_settings_form_data&quot;,
+						id: &quot;share_settings_form_data&quot;,
 						name:&quot;me-lego&quot;,
 						data: [],
 						elems: [],
@@ -116,14 +116,19 @@
 					<div class="tsd-signature tsd-kind-icon">source<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in i.me-elem.ts:311</li>
+							<li>Defined in i.me-elem.ts:317</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>На какие данные подписаться
-							Например: &quot;pvm.data.share_type_settings_form.rows[0].settings_form&quot;</p>
+								Например: &quot;pvm.data.share_type_settings_form.rows[0].settings_form&quot; - абсолютная ссылка
+							Например: &quot;@.column&quot; - относительная ссылка</p>
 						</div>
+						<p>Далее пользовательские поля
+							Знак @ использовать необязательно, но он может помочь вам не писать полный путь зависимости, а просто указать,
+							что зависимость на том же уровне LEGO иерархии
+						Подробнее <a href="https://developers.devision.io/meta/reference/ui_controls/typedoc/interfaces/_elems_i_me_input_.imeinput.html#depends">https://developers.devision.io/meta/reference/ui_controls/typedoc/interfaces/_elems_i_me_input_.imeinput.html#depends</a></p>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
@@ -132,13 +137,14 @@
 					<div class="tsd-signature tsd-kind-icon">target<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in i.me-elem.ts:317</li>
+							<li>Defined in i.me-elem.ts:324</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>В какое поле элемента записать данные
-							Например: &quot;elems&quot;</p>
+								Например: &quot;elems&quot;
+							Например &quot;refPvmData.sp.entityId</p>
 						</div>
 					</div>
 				</section>

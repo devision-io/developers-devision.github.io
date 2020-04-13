@@ -86,6 +86,7 @@
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_i_me_elem_.irefpvmvalues.html#dataid" class="tsd-kind-icon">data<wbr>Id</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_i_me_elem_.irefpvmvalues.html#id" class="tsd-kind-icon">id</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_i_me_elem_.irefpvmvalues.html#sp" class="tsd-kind-icon">sp</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_i_me_elem_.irefpvmvalues.html#spquerydepends" class="tsd-kind-icon">sp<wbr>Query<wbr>Depends</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_i_me_elem_.irefpvmvalues.html#waitingid" class="tsd-kind-icon">waiting<wbr>Id</a></li>
 							</ul>
 						</section>
@@ -100,7 +101,7 @@
 					<div class="tsd-signature tsd-kind-icon">additional<wbr>Partial<wbr>Load<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in i.me-elem.ts:362</li>
+							<li>Defined in i.me-elem.ts:364</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -124,7 +125,7 @@
 					<div class="tsd-signature tsd-kind-icon">data<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in i.me-elem.ts:392</li>
+							<li>Defined in i.me-elem.ts:394</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -163,7 +164,7 @@
 					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in i.me-elem.ts:338</li>
+							<li>Defined in i.me-elem.ts:340</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -189,7 +190,7 @@
 					<div class="tsd-signature tsd-kind-icon">sp<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> | </span><a href="_i_me_elem_.irefpvmvaluesmetaql.html" class="tsd-signature-type">IRefPvmValuesMetaQL</a><span class="tsd-signature-symbol"> | </span><a href="_i_me_elem_.irefpvmvaluespagepreset.html" class="tsd-signature-type">IRefPvmValuesPagePreset</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in i.me-elem.ts:347</li>
+							<li>Defined in i.me-elem.ts:349</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -208,12 +209,35 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="spquerydepends" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> sp<wbr>Query<wbr>Depends</h3>
+					<div class="tsd-signature tsd-kind-icon">sp<wbr>Query<wbr>Depends<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in i.me-elem.ts:417</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Поддерживается только в refreshRefPvmData в me-input</p>
+						</div>
+						<p>Имеет описание как IMeElem.depends, но работает немного иначе -
+							UI не следит за изменением данных, описанных в этом списке, а
+						получает из по ссылке прямо перед тем, как сделать запрос на backend.</p>
+						<p>Например, у вас есть три me-select: 1, 2, 3
+						2 зависит от 1, а 3 зависит от 2. При этом в refPvmData для 3 вы хотели бы передавать id из 1 вместе с id их 2.</p>
+						<p>Делать depends от двух не получится из-за асинхронной натуры JavaScript -
+							вы будете получать два запроса на бекенд в непонтяное время с непонятной очередностью,
+						при том, что у 3 нет прямой зависимоти от 1, вам просто нужен id оттуда</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
 					<a name="waitingid" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> waiting<wbr>Id</h3>
 					<div class="tsd-signature tsd-kind-icon">waiting<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in i.me-elem.ts:399</li>
+							<li>Defined in i.me-elem.ts:401</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -315,6 +339,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
 								<a href="_i_me_elem_.irefpvmvalues.html#sp" class="tsd-kind-icon">sp</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="_i_me_elem_.irefpvmvalues.html#spquerydepends" class="tsd-kind-icon">sp<wbr>Query<wbr>Depends</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
 								<a href="_i_me_elem_.irefpvmvalues.html#waitingid" class="tsd-kind-icon">waiting<wbr>Id</a>

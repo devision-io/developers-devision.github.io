@@ -9,7 +9,7 @@
     <meta name="description" content="">
 
 
-    <title>Nginx Proxy Headers :: META | Devision Developers</title>
+    <title>Смарт-формы :: META | Devision Developers</title>
     <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/integrations/nginx/">
+  <body class="" data-url="/compoments/smart_forms/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -437,7 +437,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="/compoments/" class="devsite-nav-item devsite-nav-item-main
-                        
+                        parent
                         
                         parent
                         ">
@@ -522,7 +522,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/compoments/smart_forms/" class="devsite-nav-item dd-item ">
+            <li data-nav-id="/compoments/smart_forms/" class="devsite-nav-item dd-item active">
                 <a href="https://developers.devision.io/meta/compoments/smart_forms/" class="devsite-nav-title">
                     <span>Смарт-формы</span>
                 </a>
@@ -657,7 +657,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="/integrations/" class="devsite-nav-item devsite-nav-item-main
-                        parent
+                        
                         
                         parent
                         ">
@@ -778,7 +778,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/integrations/nginx/" class="devsite-nav-item dd-item active">
+            <li data-nav-id="/integrations/nginx/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/integrations/nginx/" class="devsite-nav-title">
                     <span>Nginx Proxy Headers</span>
                 </a>
@@ -1496,7 +1496,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
- <a href='https://developers.devision.io/meta/'>META</a> > <a href='https://developers.devision.io/meta/integrations/'>Интеграции</a> > Nginx Proxy Headers
+ <a href='https://developers.devision.io/meta/'>META</a> > <a href='https://developers.devision.io/meta/compoments/'>Компоненты</a> > Смарт-формы
 
 
 
@@ -1510,55 +1510,148 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <div id="body-inner">
           
-            <h1>Nginx Proxy Headers</h1>
+            <h1>Смарт-формы</h1>
           
 
 
 
-<p>Настраиваются на nginx при проксировании запосов в Java приложение, или через Chrome плагин ModHeader (<a href="https://chrome.google.com/webstore/detail/modheader/idgpnmonknjnojddfkpgkljpfnnfcklj">https://chrome.google.com/webstore/detail/modheader/idgpnmonknjnojddfkpgkljpfnnfcklj</a>) для разработки</p>
-<h2 id="x-meta-appid">X-META-AppID</h2>
-<p>Говорит о том, что МЕТА должна отвечать пользователю как конкретное приложение с установленным лого, css и пр</p>
-<pre><code>server {
-  listen *:80;
-  server_name example.com;
-  charset utf8;
-  location / {
-    proxy_set_header Host $host;
-    proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header X-META-AppID 3;
-    proxy_pass http://127.0.0.1:8083;
+<h2 id="мотивация">Мотивация</h2>
+<p>Довольно часто нужно нарисовать типовую форму для добавления или редактирования строки таблицы
+Логированиче через ObjectLogService будет выполнено автоматически, а значит и <a href="./event_bus/">Шина</a> сможет принять
+событие, если будет нужно.</p>
+<h2 id="автоматическая-генерация-формы">Автоматическая генерация формы</h2>
+<p>Форма генерируется по внутреннним правилам и сейчас невозможно подвигать контролы
+кроме как их позицией в списке <code>fields</code> в yaml файле, но даже это не гарантирует,
+что они выстроятся в нужном вам порядке - мета сортирует блоками в соответствии со внутренними правилами.</p>
+<p>Тип me-input так же пытается подобраться автоматически, исходя из заполненности полей:</p>
+<ul>
+<li>name</li>
+<li>db_type</li>
+<li>data_type</li>
+<li>semantic_role</li>
+</ul>
+<h2 id="настройка-insert_query">Настройка insert_query</h2>
+<p>Иногда бывает, что надо вызвать хранимую процедуру для вставки объекта.
+Это можно сделать через настройку параметра insert_query в yaml, нужной entity.
+Данные формы придут как обычно в <code>:env.sp.obj.*</code></p>
+<p>ВАЖНО! Вы будете <strong>обязаны</strong> вернуть одну строку с одним полем с названием <code>id</code>.</p>
+<h2 id="практический-пример">Практический пример</h2>
+<h3 id="пример-настройки-entity">Пример настройки entity</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">id</span>: <span style="color:#e6db74">&#39;190&#39;</span>
+<span style="color:#66d9ef">name</span>: Клиент
+<span style="color:#66d9ef">db_alias</span>: adplatform
+<span style="color:#66d9ef">schema</span>: public
+<span style="color:#66d9ef">table</span>: client
+<span style="color:#66d9ef">alias</span>: client
+<span style="color:#66d9ef">kind</span>: DICT
+<span style="color:#66d9ef">metaql_where</span>: <span style="color:#e6db74">&#39;#table.id in (select client_id from get_user_clients(${env.userId?number}))&#39;</span>
+<span style="color:#66d9ef">input_options_query</span>: <span style="color:#e6db74">&gt;
+</span><span style="color:#e6db74">  select</span>
+    client.id,
+    client.name,
+    categories.name as description
+  from client
+    left join company on company_id = company.id
+    left join client_category as categories on categories.id = client.category_id
+  where client.is_enabled
+  AND client.company_id=:env.companyId::bigint
+  AND client.id in (select client_id from get_user_clients(:env.userId::bigint) )
+  ORDER BY <span style="color:#ae81ff">2</span>
+
+<span style="color:#66d9ef">insert_query</span>: <span style="color:#e6db74">&gt;
+</span><span style="color:#e6db74">  SELECT client_id as id FROM ext_garpun_main.&#34;api_addClient&#34;(</span>
+    :env.userId::bigint, :env.companyId::bigint,
+    :env.sp.obj.name::text, <span style="color:#ae81ff">11</span>
+  );
+<span style="color:#66d9ef">search_order</span>: <span style="color:#ae81ff">1</span>
+<span style="color:#66d9ef">object_list_base_page_id</span>: <span style="color:#e6db74">&#39;2176&#39;</span>
+<span style="color:#66d9ef">acl</span>: 
+  <span style="color:#66d9ef">view</span>:   /* Не забывайте про ACL. У вас он может быть другой  <span style="color:#75715e">*/</span>
+    <span style="color:#66d9ef">roles</span>:
+    - meta.role.auth
+<span style="color:#66d9ef">fields</span>:
+- <span style="color:#66d9ef">alias</span>: id
+  <span style="color:#66d9ef">db_type</span>: bigint
+  <span style="color:#66d9ef">is_primary</span>: <span style="color:#66d9ef">true</span>
+  <span style="color:#66d9ef">name</span>: id
+  <span style="color:#66d9ef">display_name</span>: ID
+  <span style="color:#66d9ef">semantic_role</span>: DIMENSION
+  <span style="color:#66d9ef">data_type</span>: LONG
+  <span style="color:#66d9ef">is_read_only</span>: <span style="color:#66d9ef">true</span>
+- <span style="color:#66d9ef">alias</span>: name
+  <span style="color:#66d9ef">db_type</span>: text
+  <span style="color:#66d9ef">is_title</span>: <span style="color:#66d9ef">true</span>
+  <span style="color:#66d9ef">display_name</span>: Название клиента
+  <span style="color:#66d9ef">name</span>: name
+  <span style="color:#66d9ef">semantic_role</span>: DIMENSION
+  <span style="color:#66d9ef">data_type</span>: TEXT
+  <span style="color:#66d9ef">is_required</span>: <span style="color:#66d9ef">true</span>
+- <span style="color:#66d9ef">alias</span>: is_enabled
+  <span style="color:#66d9ef">db_type</span>: bool
+  <span style="color:#66d9ef">name</span>: is_enabled
+  <span style="color:#66d9ef">display_name</span>: Активный
+  <span style="color:#66d9ef">semantic_role</span>: DIMENSION
+  <span style="color:#66d9ef">data_type</span>: BOOLEAN
+- <span style="color:#66d9ef">alias</span>: is_archived
+  <span style="color:#66d9ef">db_type</span>: bool
+  <span style="color:#66d9ef">name</span>: archive
+  <span style="color:#66d9ef">display_name</span>: Архивный
+  <span style="color:#66d9ef">semantic_role</span>: DIMENSION
+  <span style="color:#66d9ef">data_type</span>: BOOLEAN
+- <span style="color:#66d9ef">alias</span>: category_id
+  <span style="color:#66d9ef">db_type</span>: int8
+  <span style="color:#66d9ef">name</span>: category_id
+  <span style="color:#66d9ef">data_type</span>: LONG
+  <span style="color:#66d9ef">foreign_entity_id</span>: <span style="color:#ae81ff">2768</span>
+  <span style="color:#66d9ef">semantic_role</span>: DIMENSION
+  <span style="color:#66d9ef">default_value</span>: <span style="color:#ae81ff">11</span>
+- <span style="color:#66d9ef">alias</span>: creation_time
+  <span style="color:#66d9ef">db_type</span>: timestamp(<span style="color:#ae81ff">0</span>)
+  <span style="color:#66d9ef">name</span>: creation_time
+  <span style="color:#66d9ef">display_name</span>: Дата создания
+  <span style="color:#66d9ef">i18n</span>: <span style="color:#66d9ef">true</span>
+  <span style="color:#66d9ef">data_type</span>: DATETIME
+  <span style="color:#66d9ef">semantic_role</span>: DIMENSION
+  <span style="color:#66d9ef">is_read_only</span>: <span style="color:#66d9ef">true</span>
+- <span style="color:#66d9ef">alias</span>: modification_time
+  <span style="color:#66d9ef">db_type</span>: timestamp(<span style="color:#ae81ff">0</span>)
+  <span style="color:#66d9ef">name</span>: modification_time
+  <span style="color:#66d9ef">display_name</span>: Дата изменения
+  <span style="color:#66d9ef">i18n</span>: <span style="color:#66d9ef">true</span>
+  <span style="color:#66d9ef">data_type</span>: DATETIME
+  <span style="color:#66d9ef">semantic_role</span>: DIMENSION
+  <span style="color:#66d9ef">is_read_only</span>: <span style="color:#66d9ef">true</span>
+</code></pre></div><h3 id="пример-1">Пример 1</h3>
+<p>Например мы хотим получить форму редактирования всех полей нужной entity_id.
+Добавляем страницу в рамках нужной entity.
+В нашем случае для примера 190. Url меты долэен быть примерно таким, когда вы работаете со страницей <code>/card?e=190&amp;o={ТУТ_ID_ОБЪЕКТА}</code>
+Это все, что надо на странице:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span> <span style="color:#a6e22e">elem</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;me-smart-form&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;smart_form&#34;</span>&gt;
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>(<span style="color:#a6e22e">SmartFormService</span>, <span style="color:#a6e22e">pvm</span>, <span style="color:#a6e22e">vm</span>, <span style="color:#a6e22e">env</span>, <span style="color:#a6e22e">originalEnv</span>) {
+  <span style="color:#a6e22e">SmartFormService</span>.<span style="color:#a6e22e">handle</span>(<span style="color:#a6e22e">env</span>, <span style="color:#a6e22e">originalEnv</span>, <span style="color:#a6e22e">vm</span>, <span style="color:#a6e22e">pvm</span>);
+}
+&lt;/<span style="color:#f92672">script</span>&gt;
+</code></pre></div><p>Мета автоматически нарисует текствые поля для ввода текстовых значений, чекбоксы для boolean,
+нарисует выпадашки для полей, с указанным foreign_entity_id</p>
+<h3 id="пример-2">Пример 2</h3>
+<p>Мы хотели получить редактор записи клиента, но так, чтобы при добавлении было только поле name,
+а при редактировании к нему добавлялся бы выбор category_id</p>
+<p>Это все, что надо на странице:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span> <span style="color:#a6e22e">elem</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;me-smart-form&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;smart_form&#34;</span>&gt;
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>(<span style="color:#a6e22e">SmartFormService</span>, <span style="color:#a6e22e">pvm</span>, <span style="color:#a6e22e">vm</span>, <span style="color:#a6e22e">env</span>, <span style="color:#a6e22e">originalEnv</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">fieldNames</span> <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;name&#39;</span>];
+  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">hasObjectId</span>) {
+    <span style="color:#a6e22e">fieldNames</span>.<span style="color:#a6e22e">push</span>(<span style="color:#e6db74">&#39;category_id&#39;</span>);
   }
+  <span style="color:#a6e22e">SmartFormService</span>.<span style="color:#a6e22e">handle</span>(<span style="color:#a6e22e">env</span>, <span style="color:#a6e22e">originalEnv</span>, <span style="color:#a6e22e">vm</span>, <span style="color:#a6e22e">pvm</span>, {
+    <span style="color:#a6e22e">fieldNames</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">fieldNames</span>
+  });
 }
-</code></pre><h2 id="x-meta-allowed-apps">X-META-Allowed-Apps</h2>
-<p>Говорит о том, что МЕТА должна отвечать пользователю как конкретное приложение с установленным лого, css и пр
-Отличается от HEADER_X_META_APP_ID тем, что это будет работать как просто meta.realweb.ru, но не будет показывать
-главную страницу без указания приложения, т.е. будет работать только как embed вариант</p>
-<pre><code>server {
-    listen *:80;
-    server_name example.com;
-    charset utf8;
-    location / {
-      proxy_set_header Host $host;
-      proxy_set_header X-Real-IP $remote_addr;
-      proxy_set_header X-META-Allowed-Apps 'garpun, garpun_embed, express';
-      proxy_pass http://127.0.0.1:8083;
-    }
-}
-</code></pre><h2 id="x-meta-dev-restrict-roles">X-META-Dev-Restrict-Roles</h2>
-<p>Разделенный через запятую список ролей, которым доступно нахождение не сайте.
-Обычно это разработчики и саппорт</p>
-<pre><code>server {
-    listen *:80;
-    server_name example.com;
-    charset utf8;
-    location / {
-      proxy_set_header Host $host;
-      proxy_set_header X-Real-IP $remote_addr;
-      proxy_set_header X-META-RESTRICT-ROLES 'meta.role.dev, meta.role.support'
-      proxy_pass http://127.0.0.1:8083;
-    }
-}
-</code></pre>
+&lt;/<span style="color:#f92672">script</span>&gt;
+</code></pre></div><h3 id="что-далее">Что далее?</h3>
+<p>Не забудьте про <a href="https://developers.devision.io/meta/meta/guides/entity_handlers/">обработчик событий сущности check_access</a> для того,
+чтобы не делать проверку доступа к объекту на каждой странице сущности.</p>
+
 
 
 
@@ -1571,9 +1664,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#x-meta-appid">X-META-AppID</a></li>
-    <li><a href="#x-meta-allowed-apps">X-META-Allowed-Apps</a></li>
-    <li><a href="#x-meta-dev-restrict-roles">X-META-Dev-Restrict-Roles</a></li>
+    <li><a href="#мотивация">Мотивация</a></li>
+    <li><a href="#автоматическая-генерация-формы">Автоматическая генерация формы</a></li>
+    <li><a href="#настройка-insert_query">Настройка insert_query</a></li>
+    <li><a href="#практический-пример">Практический пример</a>
+      <ul>
+        <li><a href="#пример-настройки-entity">Пример настройки entity</a></li>
+        <li><a href="#пример-1">Пример 1</a></li>
+        <li><a href="#пример-2">Пример 2</a></li>
+        <li><a href="#что-далее">Что далее?</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 </div>

@@ -515,6 +515,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
                     
                     
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/compoments/smart_forms/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/compoments/smart_forms/" class="devsite-nav-title">
+                    <span>Смарт-формы</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
                 </ul>
                 
             </li>
@@ -1501,37 +1519,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 Призван дать хороший и безопасный API к данным таблиц или views ваших БД.</p>
 <h2 id="особенности">Особенности</h2>
 <ul>
-<li>Поддерживаются только SELECT запросы</li>
-<li>Поддерживается только AND условия</li>
+<li><code>SELECT * FROM ...</code> не поддерживается</li>
 <li>Нельзя называть поля или алясы зарезарвированными именами: date</li>
-<li>Нет прообразований типов</li>
-<li>JOIN пока не поддерживаются</li>
+<li>Добавлен оператор ILIKE для регистронезависимного сравнения строк</li>
+<li>Поддерживаются только SELECT запросы</li>
+<li>JOIN не поддерживаются</li>
+<li>Работает ограниченный набор функций, описанных ниже</li>
+<li>OR в условиях не поддерживается. Используется AND с отицанием или IN ( &hellip; )</li>
 </ul>
 <h2 id="функции">Функции</h2>
-<p>В METAQL разрешены не все функции, ниже представлен список доступных на текущий момент.</p>
-<h3 id="функции-агрегации">Функции агрегации</h3>
+<p>Работают функции агрегации:</p>
 <ul>
 <li>MIN, MAX, SUM, AGV</li>
 <li>COUNT(*), COUNT(DISTINCT поле)</li>
+<li>ARRAY_AGG</li>
 </ul>
-<h3 id="функции-преобразований">Функции преобразований</h3>
+<p>Функции преобразований:</p>
 <ul>
 <li>ROUND</li>
 <li>CONCAT</li>
 <li>NULLIF</li>
-<li>TRIM</li>
 <li>COALESCE</li>
 </ul>
-<h2 id="фильтрация-where">Фильтрация WHERE</h2>
-<p>Работают операторы сравнения:</p>
-<ul>
-<li>=, !=, &gt;, &lt;, &gt;=, &lt;=</li>
-<li>IN, NOT IN</li>
-<li>LIKE, NOT LIKE</li>
-<li>ILIKE, NOT ILIKE</li>
-<li>BETWEEN</li>
-</ul>
-<h2 id="как-сделать-таблицу-доступной-через-metaql-api-">Как сделать таблицу доступной через METAQL API ?</h2>
+<h2 id="экранирование">Экранирование</h2>
+<p>Одинарная кавычка экранируется одинарной кавычкой.
+Например, еси вам нужно поискать все кампании, в названии которых есть одинарная кавычка, то вам необходимо выполнить такой запрос:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">select</span> id, remote_id, name, engine <span style="color:#66d9ef">from</span> adplatform.campaign <span style="color:#66d9ef">where</span> name <span style="color:#66d9ef">like</span> <span style="color:#e6db74">&#39;%&#39;&#39;%&#39;</span>
+</code></pre></div><p>Ели нужно поискать клиента по точному совпадению, то принцип будет такой же:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">select</span> id, name <span style="color:#66d9ef">from</span> adplatform.client <span style="color:#66d9ef">where</span> name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Тестовый &#39;&#39; проект&#39;</span>
+</code></pre></div><h2 id="как-сделать-таблицу-доступной-через-metaql-api-">Как сделать таблицу доступной через METAQL API ?</h2>
 <p>Выполните следующие действия:</p>
 <p><strong>1) Добавьте новую Сущность для своей таблицы (если нужно)</strong></p>
 <p>Обязательно укажите alias. Alias должен быть указан в формате lower_camel_case.
@@ -1605,6 +1621,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> match_type, <span style="color:#66d9ef">count</span>(id) <span style="color:#66d9ef">as</span> cnt
 <span style="color:#66d9ef">FROM</span> garpun_storage.keyword<span style="color:#f92672">#</span><span style="color:#960050;background-color:#1e0010">{</span>account_id<span style="color:#960050;background-color:#1e0010">}</span>
 <span style="color:#66d9ef">group</span> <span style="color:#66d9ef">by</span> match_type
+</code></pre></div><h3 id="получение-изменившихся-клиентов">Получение изменившихся клиентов</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> id, name, modification_time
+<span style="color:#66d9ef">FROM</span> adplatform.client
+<span style="color:#66d9ef">WHERE</span> modification_time <span style="color:#f92672">&gt;</span> <span style="color:#e6db74">&#39;2020-03-31T12:21:46+0300&#39;</span>
 </code></pre></div>
 
 
@@ -1619,13 +1639,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <nav id="TableOfContents">
   <ul>
     <li><a href="#особенности">Особенности</a></li>
-    <li><a href="#функции">Функции</a>
-      <ul>
-        <li><a href="#функции-агрегации">Функции агрегации</a></li>
-        <li><a href="#функции-преобразований">Функции преобразований</a></li>
-      </ul>
-    </li>
-    <li><a href="#фильтрация-where">Фильтрация WHERE</a></li>
+    <li><a href="#функции">Функции</a></li>
+    <li><a href="#экранирование">Экранирование</a></li>
     <li><a href="#как-сделать-таблицу-доступной-через-metaql-api-">Как сделать таблицу доступной через METAQL API ?</a></li>
     <li><a href="#использование">Использование</a>
       <ul>
@@ -1633,6 +1648,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <li><a href="#sdk">SDK</a></li>
         <li><a href="#запрос-к-статистике">Запрос к статистике</a></li>
         <li><a href="#запрос-к-шардированным-данным-системы-garpun">Запрос к шардированным данным системы Garpun</a></li>
+        <li><a href="#получение-изменившихся-клиентов">Получение изменившихся клиентов</a></li>
       </ul>
     </li>
   </ul>

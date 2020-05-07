@@ -394,7 +394,7 @@ server { listen *:80; server_name example.com; charset utf8; location / { proxy_
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/reference/java_api/entityservice/</guid>
-      <description>   Метод и описание Возвращаемый тип     buildForm ( entityId: String, formMode: FormMode) LegoElem   buildForm ( entityId: String, formMode: String) LegoElem   getObject ( entityId: String, objectId: String) DataResult    </description>
+      <description>   Метод и описание Возвращаемый тип     buildForm ( entityId: String, formMode: FormMode, config: SmartFormConfig) LegoElem   getObject ( entityId: String, objectId: String) DataResult    </description>
     </item>
     
     <item>
@@ -484,7 +484,7 @@ server { listen *:80; server_name example.com; charset utf8; location / { proxy_
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/reference/java_api/smartformservice/</guid>
-      <description>   Метод и описание Возвращаемый тип     handle ( env: Map, originalEnv: Env, vm: ViewModel, pvm: ViewModel) void    </description>
+      <description>   Метод и описание Возвращаемый тип     handle ( env: Map, originalEnv: Env, vm: ViewModel, pvm: ViewModel) void   handle ( env: Map, originalEnv: Env, vm: ViewModel, pvm: ViewModel, config: ScriptObjectMirror) void   handle ( env: Map, originalEnv: Env, vm: ViewModel, pvm: ViewModel, config: SmartFormConfig) void    </description>
     </item>
     
     <item>

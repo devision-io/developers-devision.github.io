@@ -1516,8 +1516,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 <p>Являются элементами me-chart. Работают на основе google charts. Примеры тут: <a href="http://samples-demo.devision.io/page?a=35&amp;p=3623">http://samples-demo.devision.io/page?a=35&amp;p=3623</a></p>
-<p>Имеют опцию &ldquo;nativeOptions&rdquo; для передачи нативных параметров. Не рекомендуется это использоваться просто так из-за невозможности поддержки возможности смены графиков или более легкого обновления версии при отсутствии обратной совместимости.</p>
-<p>nativeOptions можно использовать как вариант для тестирования и с последующим запросом впиливания опции как мета параметр графиков.</p>
+<h2 id="ограничения">Ограничения</h2>
+<ul>
+<li>Поддерживаются не все типы графиков гугла, новый тип нужно прописывать и настраивать в ядре платформы мета.</li>
+<li>Поддердиваются не все параметры графиков. Мета старается выводить графики &ldquo;по-умолчанию&rdquo; более менее приемлимо как может для общего случая.</li>
+</ul>
+<h2 id="атрибуты">Атрибуты</h2>
+<p>У графиков есть общие <a href="https://developers.devision.io/meta/meta/reference/ui_controls/typedoc/interfaces/_elems_i_me_chart_.imechartattrs.html">мета-атрибуты</a>
+и обычно настройка графика заканчивается именно ими.</p>
+<p>И нативные Google - например для <a href="https://developers.google.com/chart/interactive/docs/gallery/columnchart#configuration-options">column chart</a>
+, которые указываются через nativeOptions, но в общем случае это не рекомендуется.</p>
+<p>Атрибут nativeOptions можно использовать как вариант для тестирования и с последующим запросом впиливания опции как мета параметр графиков.</p>
 
 
 
@@ -1529,7 +1538,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#ограничения">Ограничения</a></li>
+    <li><a href="#атрибуты">Атрибуты</a></li>
+  </ul>
+</nav>
 </div>
 
 </div>

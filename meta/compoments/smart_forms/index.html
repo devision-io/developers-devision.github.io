@@ -266,6 +266,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
+            <li data-nav-id="/guides/debug_and_logging/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/guides/debug_and_logging/" class="devsite-nav-title">
+                    <span>Логирование и отладка</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
             <li data-nav-id="/guides/build_url/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/guides/build_url/" class="devsite-nav-title">
                     <span>Построение URL</span>
@@ -1535,7 +1553,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 Это можно сделать через настройку параметра insert_query в yaml, нужной entity.
 Данные формы придут как обычно в <code>:env.sp.obj.*</code></p>
 <p>ВАЖНО! Вы будете <strong>обязаны</strong> вернуть одну строку с одним полем с названием <code>id</code>.</p>
-<h2 id="практический-пример">Практический пример</h2>
+<h2 id="параметры-add_expression-и-set_expression">Параметры add_expression и set_expression</h2>
+<p>Иногда при insert или update записи надо иметь высчитываемые поля, но часто они зависят от контекста, например <code>userId</code>.
+В примере нише рассматривается простейший случай, когда нам надо просто взять и вставить id пользователя (используется prepared statement), но
+тут можно написать и более сложный sql expression</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#66d9ef">name</span>: author_user_id
+  <span style="color:#66d9ef">db_type</span>: bigint
+  <span style="color:#66d9ef">display_name</span>: Добавлено
+  <span style="color:#66d9ef">i18n</span>: <span style="color:#66d9ef">true</span>
+  <span style="color:#66d9ef">foreign_entity_id</span>: <span style="color:#ae81ff">2654</span>
+  <span style="color:#66d9ef">is_readonly</span>: <span style="color:#66d9ef">true</span>
+  <span style="color:#66d9ef">add_expression</span>: :env.userId
+- <span style="color:#66d9ef">name</span>: last_user_id
+  <span style="color:#66d9ef">db_type</span>: bigint
+  <span style="color:#66d9ef">display_name</span>: Изменено
+  <span style="color:#66d9ef">i18n</span>: <span style="color:#66d9ef">true</span>
+  <span style="color:#66d9ef">foreign_entity_id</span>: <span style="color:#ae81ff">2654</span>
+  <span style="color:#66d9ef">is_readonly</span>: <span style="color:#66d9ef">true</span>
+  <span style="color:#66d9ef">add_expression</span>: :env.userId
+  <span style="color:#66d9ef">set_expression</span>: :env.userId
+</code></pre></div><h2 id="практический-пример">Практический пример</h2>
 <h3 id="пример-настройки-entity">Пример настройки entity</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">id</span>: <span style="color:#e6db74">&#39;190&#39;</span>
 <span style="color:#66d9ef">name</span>: Клиент
@@ -1624,7 +1661,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </code></pre></div><h3 id="пример-1">Пример 1</h3>
 <p>Например мы хотим получить форму редактирования всех полей нужной entity_id.
 Добавляем страницу в рамках нужной entity.
-В нашем случае для примера 190. Url меты долэен быть примерно таким, когда вы работаете со страницей <code>/card?e=190&amp;o={ТУТ_ID_ОБЪЕКТА}</code>
+В нашем случае для примера 190. Url меты должен быть примерно таким, когда вы работаете со страницей - <code>/card?e=190&amp;o={ТУТ_ID_ОБЪЕКТА}</code>
 Это все, что надо на странице:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span> <span style="color:#a6e22e">elem</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;me-smart-form&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;smart_form&#34;</span>&gt;
 <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>(<span style="color:#a6e22e">SmartFormService</span>, <span style="color:#a6e22e">pvm</span>, <span style="color:#a6e22e">vm</span>, <span style="color:#a6e22e">env</span>, <span style="color:#a6e22e">originalEnv</span>) {
@@ -1667,6 +1704,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <li><a href="#мотивация">Мотивация</a></li>
     <li><a href="#автоматическая-генерация-формы">Автоматическая генерация формы</a></li>
     <li><a href="#настройка-insert_query">Настройка insert_query</a></li>
+    <li><a href="#параметры-add_expression-и-set_expression">Параметры add_expression и set_expression</a></li>
     <li><a href="#практический-пример">Практический пример</a>
       <ul>
         <li><a href="#пример-настройки-entity">Пример настройки entity</a></li>

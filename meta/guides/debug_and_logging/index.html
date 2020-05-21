@@ -9,7 +9,7 @@
     <meta name="description" content="">
 
 
-    <title>TranslateService :: META | Devision Developers</title>
+    <title>Логирование и отладка :: META | Devision Developers</title>
     <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/reference/java_api/translateservice/">
+  <body class="" data-url="/guides/debug_and_logging/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -91,7 +91,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="/guides/" class="devsite-nav-item devsite-nav-item-main
-                        
+                        parent
                         
                         parent
                         ">
@@ -266,7 +266,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/guides/debug_and_logging/" class="devsite-nav-item dd-item ">
+            <li data-nav-id="/guides/debug_and_logging/" class="devsite-nav-item dd-item active">
                 <a href="https://developers.devision.io/meta/guides/debug_and_logging/" class="devsite-nav-title">
                     <span>Логирование и отладка</span>
                 </a>
@@ -839,7 +839,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="/reference/" class="devsite-nav-item devsite-nav-item-main
-                        parent
+                        
                         
                         parent
                         ">
@@ -1075,7 +1075,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="/reference/java_api/" class="devsite-nav-item devsite-nav-item-main
-                        parent
+                        
                         
                         
                         ">
@@ -1448,7 +1448,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/reference/java_api/translateservice/" class="devsite-nav-item dd-item active">
+            <li data-nav-id="/reference/java_api/translateservice/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/reference/java_api/translateservice/" class="devsite-nav-title">
                     <span>TranslateService</span>
                 </a>
@@ -1514,12 +1514,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-
-
-
- <a href='https://developers.devision.io/meta/'>META</a> > <a href='https://developers.devision.io/meta/reference/'>Справочник по API</a> > <a href='https://developers.devision.io/meta/reference/java_api/'>Java API</a> > TranslateService
-
-
+ <a href='https://developers.devision.io/meta/'>META</a> > <a href='https://developers.devision.io/meta/guides/'>Руководства</a> > Логирование и отладка
 
 
 
@@ -1533,73 +1528,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <div id="body-inner">
           
-            <h1>TranslateService</h1>
+            <h1>Логирование и отладка</h1>
           
 
 
 
-<table>
-<thead>
-<tr>
-<th>Метод и описание</th>
-<th>Возвращаемый тип</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>getAllPlaceholders ( language: String)</td>
-<td>Map</td>
-</tr>
-<tr>
-<td>i18n ( language: String, text: String, args: Object[], defaultText: String)</td>
-<td>String</td>
-</tr>
-<tr>
-<td>i18n ( placeholder: String)</td>
-<td>String</td>
-</tr>
-<tr>
-<td>i18n ( placeholder: String, args: Object[])</td>
-<td>String</td>
-</tr>
-<tr>
-<td>i18n ( placeholder: String, args: Object[], defaultText: String)</td>
-<td>String</td>
-</tr>
-<tr>
-<td>i18n ( placeholder: String, defaultText: String)</td>
-<td>String</td>
-</tr>
-<tr>
-<td>i18nEntityFieldName ( entityId: String, fieldName: String)</td>
-<td>String</td>
-</tr>
-<tr>
-<td>i18nEntityName ( entity: CEntity)</td>
-<td>String</td>
-</tr>
-<tr>
-<td>i18nEntityName ( entityId: String)</td>
-<td>String</td>
-</tr>
-<tr>
-<td>i18nPageName ( page: CPage, language: String)</td>
-<td>String</td>
-</tr>
-<tr>
-<td>i18nSqlField ( placeholder: String)</td>
-<td>String</td>
-</tr>
-<tr>
-<td>i18nSqlField ( tableAlias: String, placeholder: String)</td>
-<td>String</td>
-</tr>
-<tr>
-<td>i18nSqlField ( tableAlias: String, placeholder: String, lang: String)</td>
-<td>String</td>
-</tr>
-</tbody>
-</table>
+<h2 id="логирование">Логирование</h2>
+<p>Логирование доступно в meta/js скриптах. Чтобы начать логировать вам надо получить (заинжектить) инстанс логера через параметр вашей main функции.
+Для логирования используется slf4j тут можно посмотреть его интерфейсы <a href="http://www.slf4j.org/api/org/slf4j/Logger.html">http://www.slf4j.org/api/org/slf4j/Logger.html</a></p>
+<p>На текущий момент известны некоторые проблемы с логированием:</p>
+<ul>
+<li>Логов вообще нет: соединение с бекэндом по websocket-ам было потеряно и не смогло восстановится. F5 скорее всего решит проблему</li>
+<li>Нет конкретного лога: Не все объекты, прикладываемые в качестве интерполируего аргумента лога могут быть приведены к строке и из-за этого весь лог может пропадать. Попробуйте в этом месте исключить аргументы и посмотреть что будет.</li>
+</ul>
+<p>А вот примеры вызова</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;my_src&#34;</span> &gt;
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>(<span style="color:#a6e22e">log</span>) {
+  <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">info</span>(<span style="color:#e6db74">&#39;test info&#39;</span>);
+  <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">warn</span>(<span style="color:#e6db74">&#39;test warning&#39;</span>);
+  <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#39;test error&#39;</span>);
+  
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">myvar</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">a</span><span style="color:#f92672">:</span><span style="color:#ae81ff">1</span>};
+  <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">info</span>(<span style="color:#e6db74">&#39;lalala {}&#39;</span>, <span style="color:#a6e22e">myvar</span>);
+}
+&lt;/<span style="color:#f92672">script</span>&gt;
+</code></pre></div><p>Из нюансов стоит выделить, что логи запросов к БД будут пренесены в фильтр дебаг-логов в браузере.</p>
 
 
 
@@ -1611,7 +1564,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#логирование">Логирование</a></li>
+  </ul>
+</nav>
 </div>
 
 </div>

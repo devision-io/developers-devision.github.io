@@ -266,6 +266,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
+            <li data-nav-id="/guides/debug_and_logging/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/guides/debug_and_logging/" class="devsite-nav-title">
+                    <span>Логирование и отладка</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
             <li data-nav-id="/guides/build_url/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/guides/build_url/" class="devsite-nav-title">
                     <span>Построение URL</span>
@@ -1791,28 +1809,7 @@ PostgreSQL очень хорошо справляется почти со все
   &lt;/<span style="color:#f92672">pre</span>&gt;
   &lt;/<span style="color:#f92672">tpl</span>&gt;
 &lt;/<span style="color:#f92672">elem</span>&gt;
-</code></pre></div><h2 id="логирование">Логирование</h2>
-<p>На текущий момент известны некоторые проблемы с логированием
-Логов вообще нет
-соединение с бекэндом по websocket-ам было потеряно и не смогло восстановится. F5 скорее всего решит проблему
-META-177 - В режиме разработки логер перестает выбрасывать в браузер логи с бекенда В ОЖИДАНИИ
-Нет конкретного лога
-Не все объекты, прикладываемые в качестве интерполируего аргумента лога могут быть приведены к строке и из-за этого весь лог может пропадать. Попробуйте в этом месте исключить аргументы и посмотреть что будет.</p>
-<p>Логирование доступно в js акторах и в js скриптах лего страниц. Чтобы начать логировать вам надо получить (заинжектить) инстанс логера через параметр вашей main функции.
-Для логирования используется slf4j тут можно посмотреть его интерфейсы <a href="http://www.slf4j.org/api/org/slf4j/Logger.html">http://www.slf4j.org/api/org/slf4j/Logger.html</a>
-А вот примеры вызова</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;my_src&#34;</span> &gt;
-<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>(<span style="color:#a6e22e">log</span>) {
-  <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">info</span>(<span style="color:#e6db74">&#39;test info&#39;</span>);
-  <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">warn</span>(<span style="color:#e6db74">&#39;test warning&#39;</span>);
-  <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#39;test error&#39;</span>);
-  
-  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">myvar</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">a</span><span style="color:#f92672">:</span><span style="color:#ae81ff">1</span>};
-  <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">info</span>(<span style="color:#e6db74">&#39;lalala {}&#39;</span>, <span style="color:#a6e22e">myvar</span>);
-}
-&lt;/<span style="color:#f92672">script</span>&gt;
-</code></pre></div><p>Из нюансов стоит выделить, что логи запросов к БД будут пренесены в фильтр дебаг-логов в браузере.</p>
-<h2 id="заполнение-env-при-первоначальной-загрузке-страницы">Заполнение Env при первоначальной загрузке страницы</h2>
+</code></pre></div><h2 id="заполнение-env-при-первоначальной-загрузке-страницы">Заполнение Env при первоначальной загрузке страницы</h2>
 <p>pvm.initEnvSp заполняет env.sp со стороны сервера первый раз при загрузке страницы.</p>
 <h3 id="пример-заполнения-на-константами">Пример заполнения на константами</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;my_init_script&#34;</span> &gt;
@@ -1880,7 +1877,6 @@ META-177 - В режиме разработки логер перестает в
     </li>
     <li><a href="#popup-changestate">Popup, ChangeState</a></li>
     <li><a href="#частичное-изменение-env-sp-с-backend-patchenvsp">Частичное изменение env sp с backend (patchEnvSp)</a></li>
-    <li><a href="#логирование">Логирование</a></li>
     <li><a href="#заполнение-env-при-первоначальной-загрузке-страницы">Заполнение Env при первоначальной загрузке страницы</a>
       <ul>
         <li><a href="#пример-заполнения-на-константами">Пример заполнения на константами</a></li>

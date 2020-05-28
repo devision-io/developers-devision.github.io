@@ -215,7 +215,7 @@ Backend шаблонизация Условия do-if Используется �
       <guid>https://developers.devision.io/meta/guides/build_url/</guid>
       <description>При программировании в Мете во всех случаях стройте ссылки стандартными функциями, всегда стройте относительные ссылки (без имени домена).
 Стандартные механизмы В мете уже есть стандартные средства генерации url на карточку объекта или на обычную страницу. Используйте для этого:
- LinkBuildService для meta/js $root.buildEnvUrl для html шаблонов (https://apps.devision.io/page?p=3788&amp;amp;a=35) Стройте ссылки в таблице запросом через href_field_ или entity_link_field_ (https://apps.devision.io/page?p=3292&amp;amp;a=35)  Параметры  a - applicationId p - pageId e - entityId. ID типа сущности.</description>
+ LinkBuildService для meta/js $root.buildEnvUrl для html шаблонов (https://apps.devision.io/page?p=3788&amp;amp;a=35) Стройте ссылки в таблице запросом через href_field_ или entity_link_field_ (https://apps.devision.io/page?p=3292&amp;amp;a=35)  LinkBuildService пример Пример как использовать билжер урл вместе с me-lego6 стилизованную под прямоугольную карточку дашборда</description>
     </item>
     
     <item>
@@ -369,7 +369,7 @@ server { listen *:80; server_name example.com; charset utf8; location / { proxy_
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/reference/java_api/billingservice/</guid>
-      <description>   Метод и описание Возвращаемый тип     checkAddSkuUsage ( productId: String, skuId: String, plannedAddUsageAmount: long) void   init ( ) void    </description>
+      <description>   Метод и описание Возвращаемый тип     checkAddSkuUsage ( productId: String, skuId: String, plannedAddUsageAmount: long) void   getSkuUsage ( productId: String, skuId: String) UsageRecordCheckResponse   init ( ) void    </description>
     </item>
     
     <item>
@@ -450,7 +450,7 @@ server { listen *:80; server_name example.com; charset utf8; location / { proxy_
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/reference/java_api/linkbuildservice/</guid>
-      <description>   Метод и описание Возвращаемый тип     build ( href: String, content: String) String   getFullUrl ( entityId: String, objectId: String, pageId: String) String   getHtmlLink ( content: String, entityId: String, objectId: String) String   getHtmlLink ( content: String, entityId: String, objectId: String, pageId: String) String   getPageFullUrl ( pageId: String, sp: Map) String    </description>
+      <description>   Метод и описание Возвращаемый тип     build ( href: String, content: String) String   getFullUrl ( entityId: String, objectId: String, pageId: String) String   getHtmlLink ( content: String, entityId: String, objectId: String) String   getHtmlLink ( content: String, entityId: String, objectId: String, pageId: String) String   getPageFullUrl ( pageId: String, sp: Map) String   getPageFullUrl ( pageId: String, sp: Map, search: Map) String   getPageFullUrl ( pageId: String, sp: Map, search: ScriptObjectMirror) String    </description>
     </item>
     
     <item>

@@ -1580,7 +1580,7 @@ log <span style="color:#f92672">=</span> META<span style="color:#f92672">.</span
 <span style="color:#a6e22e">@META.event_bus.listener</span>(entity_id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;2830&#34;</span>, code<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;ADD&#34;</span>, <span style="color:#e6db74">&#34;SET&#34;</span>], form_pattern<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;*&#34;</span>], dispatcher_pattern<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;meta.garpun_feeds&#34;</span>])
 <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">on_upsert_ex_access</span>(event: Event):
     <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">u</span><span style="color:#e6db74">&#34;on_upsert_ex_access = </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> str(event))
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">u</span><span style="color:#e6db74">&#34;event.value = </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> str(event<span style="color:#f92672">.</span>value))
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">u</span><span style="color:#e6db74">&#34;event.value = </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> str(event<span style="color:#f92672">.</span>value)) <span style="color:#75715e"># для получения value нужено делать receive_value=True, но не делайте это всегда, часто это не нужно, но создает большую доп. нагрузку</span>
     <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">u</span><span style="color:#e6db74">&#34;event.object_id = </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> str(event<span style="color:#f92672">.</span>object_id))
     <span style="color:#f92672">import</span> time
     <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;sleep...&#34;</span>)
@@ -1631,6 +1631,7 @@ META<span style="color:#f92672">.</span>ObjectLogService<span style="color:#f926
 <ul>
 <li>Звездочка в паттерне формы &ldquo;*&rdquo; может стоять или в начале или в конце, но НЕ в середине выражения</li>
 <li>Если нет подписчиков события, событие будет записано в журнал, но не уйдет в Starter</li>
+<li>По-умолчанию value лога не прокидывается в таски для шины. Для того, чтобы получать его делайте receive_value=True</li>
 </ul>
 <h2 id="отказоустойчивость">Отказоустойчивость</h2>
 <p>Мы стараемся делать все надежно, однако все ломается (например падение сети или выключение электричества) и событие может не уйти и вы <strong>должны</strong> иметь механизмы перепроверки.

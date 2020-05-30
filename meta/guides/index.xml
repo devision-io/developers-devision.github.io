@@ -21,6 +21,19 @@
     </item>
     
     <item>
+      <title>Роли пользователей</title>
+      <link>https://developers.devision.io/meta/guides/roles/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/guides/roles/</guid>
+      <description>Что такое и где используются? Сразу скажем, что это не совсем роли, это скорее что-то вроде списка тегов или аудиторий. Роли используются как обычно для фильтрации доступного функционала.
+Они пересчитываются при авторизации и помещаются в env.roles
+Чтобы обновить данные по текущему пользователю мы можете использовать код на meta/js:
+CurrentUserService.reload(); Чтобы обновить данные по любому пользователю мы можете использовать код на meta/js:
+PubSubService.pubReloadUser(userId); Какие бывают Системные роли  meta.role.all - все пользователи - с авторизацией и без meta.</description>
+    </item>
+    
+    <item>
       <title>Типы и атрибуты скриптов</title>
       <link>https://developers.devision.io/meta/guides/script_types/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

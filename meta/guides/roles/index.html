@@ -9,7 +9,7 @@
     <meta name="description" content="">
 
 
-    <title>Типы данных :: META | Devision Developers</title>
+    <title>Роли пользователей :: META | Devision Developers</title>
     <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/guides/data_types/">
+  <body class="" data-url="/guides/roles/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -140,7 +140,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/guides/roles/" class="devsite-nav-item dd-item ">
+            <li data-nav-id="/guides/roles/" class="devsite-nav-item dd-item active">
                 <a href="https://developers.devision.io/meta/guides/roles/" class="devsite-nav-title">
                     <span>Роли пользователей</span>
                 </a>
@@ -212,7 +212,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/guides/data_types/" class="devsite-nav-item dd-item active">
+            <li data-nav-id="/guides/data_types/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/guides/data_types/" class="devsite-nav-title">
                     <span>Типы данных</span>
                 </a>
@@ -1532,7 +1532,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
- <a href='https://developers.devision.io/meta/'>META</a> > <a href='https://developers.devision.io/meta/guides/'>Руководства</a> > Типы данных
+ <a href='https://developers.devision.io/meta/'>META</a> > <a href='https://developers.devision.io/meta/guides/'>Руководства</a> > Роли пользователей
 
 
 
@@ -1546,132 +1546,69 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <div id="body-inner">
           
-            <h1>Типы данных</h1>
+            <h1>Роли пользователей</h1>
           
 
 
 
-<h2 id="основные">Основные</h2>
-<table>
-<thead>
-<tr>
-<th>Тип</th>
-<th>Описание</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>UNKNOWN</td>
-<td>Неизвестный тип, часто бывает текстовым в действительности. Но иногда БД не может отдать тип и мы не рискуем предполагать. В этих случаях используйте type cast средствами БД</td>
-</tr>
-<tr>
-<td>BOOLEAN</td>
-<td>Булев тип (true/false)</td>
-</tr>
-<tr>
-<td>TEXT</td>
-<td>Текстовое поле без существенных ограничений длины.</td>
-</tr>
-<tr>
-<td>INT</td>
-<td>32х битное целое число. Диапазон от -2,147,483,648 до +2,147,483,647</td>
-</tr>
-<tr>
-<td>LONG</td>
-<td>64х битное целое число. Диапазон от -9,223,372,036,854,775,808 до +9,223,372,036,854,775,807</td>
-</tr>
-<tr>
-<td>DECIMAL</td>
-<td>Вещественное число с указанной точностью. Тип DECIMAL позволяет хранить числа с очень большим количеством цифр. Он особенно рекомендуется для хранения денежных сумм и других величин, где важна точность.</td>
-</tr>
-<tr>
-<td>DATE</td>
-<td>Дата по часовому поясу сервера</td>
-</tr>
-<tr>
-<td>TIME</td>
-<td>Время (без даты). Очень редкий тип</td>
-</tr>
-<tr>
-<td>DATETIME</td>
-<td>Дата и время по часовому поясу сервера. Рекомендуется использовать в БД тип данных с указанимаем часового пояса. Для Postgres timestamptz</td>
-</tr>
-<tr>
-<td>RECORD</td>
-<td>Означает, что колонка содержит вложенную типизированную структуру данных</td>
-</tr>
-<tr>
-<td>INTERVAL</td>
-<td>Целочисленное значение секундах</td>
-</tr>
-<tr>
-<td>PERCENT</td>
-<td>Число с плавающей точкой для хранения процентов, с базисом 1. Что значит, что 50% = 0.5</td>
-</tr>
-</tbody>
-</table>
-<h2 id="спицифические">Спицифические</h2>
-<table>
-<thead>
-<tr>
-<th>Тип</th>
-<th>Описание</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ARRAY</td>
-<td>Обычно не указывается, но возвращается, если например вы сделали операцию ARRAY_AGG. При этом тип значений массива неизвестен. Лучше использовать RECORD структуры</td>
-</tr>
-<tr>
-<td>I18N</td>
-<td>Значение ячейки такой колонки будет пропущено через <code>translateService.i18n</code> для попытки перевода. Применяется для колонок с префиксом <code>i18n_field_</code> в названии.</td>
-</tr>
-<tr>
-<td>HTML</td>
-<td>Указывает формат рендеринга html-разметки (данные в виде строки). Применяется для колонок с префиксом <code>html_field_</code> в названии.</td>
-</tr>
-<tr>
-<td>HREF</td>
-<td>Указывает формат данных для отрисовки ссылки (данные в виде json). Применяется для колонок с префиксом <code>href_field_</code> в названии.</td>
-</tr>
-<tr>
-<td>ENTITY_LINK</td>
-<td>Указывает формат данных для отрисовки ссылки на сущность (данные в виде json). Применяется для колонок с префиксом <code>entity_link_field_</code> в названии.</td>
-</tr>
-<tr>
-<td>JSON</td>
-<td>Применяется для колонок с префиксом <code>json_field_</code> в названии.</td>
-</tr>
-<tr>
-<td>MARKDOWN</td>
-<td>Значение ячейки такой колонки будет пропущено через <code>markdownService.render</code> шаблонизации в html Применяется для колонок с префиксом <code>markdown_field_</code> в названии.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="deprecated">Deprecated</h2>
-<table>
-<thead>
-<tr>
-<th>Тип</th>
-<th>Описание</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>JSON_LABEL</td>
-<td>Применяется для колонок с префиксом <code>json_label_</code> в названии.</td>
-</tr>
-<tr>
-<td>JSON_GRAPH</td>
-<td>Применяется для колонок с префиксом <code>json_graph_</code> в названии.</td>
-</tr>
-<tr>
-<td>JSON_TREE_LABEL</td>
-<td>Применяется для колонок с префиксом <code>json_tree_label_</code> в названии.</td>
-</tr>
-</tbody>
-</table>
+<h2 id="что-такое-и-где-используются">Что такое и где используются?</h2>
+<p>Сразу скажем, что это не совсем роли, это скорее что-то вроде списка тегов или аудиторий.
+Роли используются как обычно для фильтрации доступного функционала.</p>
+<p>Они пересчитываются при авторизации и помещаются в <code>env.roles</code></p>
+<p>Чтобы обновить данные по текущему пользователю мы можете использовать код на meta/js:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">CurrentUserService</span>.<span style="color:#a6e22e">reload</span>();
+</code></pre></div><p>Чтобы обновить данные по любому пользователю мы можете использовать код на meta/js:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">PubSubService</span>.<span style="color:#a6e22e">pubReloadUser</span>(<span style="color:#a6e22e">userId</span>);
+</code></pre></div><h2 id="какие-бывают">Какие бывают</h2>
+<h3 id="системные-роли">Системные роли</h3>
+<ul>
+<li>meta.role.all - все пользователи - с авторизацией и без</li>
+<li>meta.role.anon - неавторизованные пользователи</li>
+<li>meta.role.auth - авторизованные пользователи</li>
+<li>meta.role.dev - разработчики</li>
+<li>meta.role.support - техническая поддержка</li>
+<li>meta.role.preset_admin - администратор созраненых фильтров (пресетов) страниц</li>
+</ul>
+<h3 id="динамические-роли">Динамические роли</h3>
+<p>Выдаются при авторизации</p>
+<ul>
+<li>c{COMPANY_ID} - имеют все пользователи, входящие в company. Если надо выдать доступ к чему-то всем пользователям одной компании</li>
+<li>u{USER_ID} -  Если надо выдать доступ к чему-то конкретному пользователю</li>
+</ul>
+<h3 id="adhands-роли">AdHands роли</h3>
+<p>Выдается из данных поля users.roles[0]</p>
+<ul>
+<li>adhands.role.{ADHANDS_ROLE_ID} - у кадого пользователя есть одна роль из-за наследственности от adhands</li>
+</ul>
+<h2 id="пример-использования">Пример использования</h2>
+<h3 id="для-фильтрации-данных">Для фильтрации данных</h3>
+<p>Типичный случай использования фильтров данных, который отлично себя зарекомендовал:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">AND</span> allowed_roles <span style="color:#f92672">&amp;&amp;</span> ARRAY[ :env.roles ]::text[]
+</code></pre></div><p>В таблице создается поле allowed_roles text[] и туда по надобности добавляются нужные роли.</p>
+<p>Это круто и удобно потому, что:</p>
+<ul>
+<li>У вас всего одно поле и с ним проще работать и меньше кода</li>
+<li>Поле можно проиндексировать и опять же оно одно и расширяется очень легко</li>
+<li>Поиск пересечений в одном поле лучше чем OR на разные поля</li>
+<li>Добавляя это поле вы перестаете парится вопросами:
+<ul>
+<li>как ограничить доступ конкретной компании или группе</li>
+<li>а что если надо добавить еще конкретного пользователя или более одного</li>
+<li>нужно добавлять группу пользователей, при этоу управление группой - отдельная песня и не является ACL напрямую</li>
+</ul>
+</li>
+</ul>
+<h3 id="использование-в-metajs">Использование в meta/js</h3>
+<p>Обратите внимание, что в meta/js env является не внутренним объектов меты, а иеент тип Map&lt;String, Object&gt; и
+для того, чтобы работать с реальным env надо использовать originalEnv:</p>
+<ul>
+<li>originalEnv.hasRoleAnon()</li>
+<li>originalEnv.hasRoleDev()</li>
+<li>originalEnv.hasRoleSupport()</li>
+<li>originalEnv.hasAnyRoles([&lsquo;adhands.role.97&rsquo;, &lsquo;meta.role.dev&rsquo;])</li>
+<li>originalEnv.hasRole(&ldquo;meta.role.preset_admin&rdquo;)</li>
+<li>originalEnv.hasAnyRoles([&lsquo;adhands.role.97&rsquo;, &lsquo;meta.role.dev&rsquo;]),</li>
+</ul>
 
 
 
@@ -1685,9 +1622,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#основные">Основные</a></li>
-    <li><a href="#спицифические">Спицифические</a></li>
-    <li><a href="#deprecated">Deprecated</a></li>
+    <li><a href="#что-такое-и-где-используются">Что такое и где используются?</a></li>
+    <li><a href="#какие-бывают">Какие бывают</a>
+      <ul>
+        <li><a href="#системные-роли">Системные роли</a></li>
+        <li><a href="#динамические-роли">Динамические роли</a></li>
+        <li><a href="#adhands-роли">AdHands роли</a></li>
+      </ul>
+    </li>
+    <li><a href="#пример-использования">Пример использования</a>
+      <ul>
+        <li><a href="#для-фильтрации-данных">Для фильтрации данных</a></li>
+        <li><a href="#использование-в-metajs">Использование в meta/js</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 </div>

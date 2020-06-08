@@ -1600,7 +1600,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li>404 или если метод не вернет ни одной строки это будет - отсутствие обхекта</li>
 </ul>
 <p>Если будет возвращен иной код состояния это будет воспринято как ошибка страницы и дальнейшая загрузка объекта будет преравана.</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">db</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;adplatform&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;check_access&#34;</span> <span style="color:#a6e22e">states</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;check_access, default&#34;</span>&gt;
+<span style="color:#a6e22e">SELECT</span> 
+(<span style="color:#a6e22e">CASE</span> <span style="color:#a6e22e">WHEN</span> <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">id</span> <span style="color:#a6e22e">IN</span> (<span style="color:#a6e22e">SELECT</span> <span style="color:#a6e22e">client_id</span> <span style="color:#a6e22e">FROM</span> <span style="color:#a6e22e">get_user_clients</span>(<span style="color:#f92672">:</span><span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">userId</span>)) <span style="color:#a6e22e">THEN</span> <span style="color:#ae81ff">200</span> <span style="color:#a6e22e">ELSE</span> <span style="color:#ae81ff">403</span> <span style="color:#a6e22e">END</span>) <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">status_code</span>
+<span style="color:#a6e22e">from</span> <span style="color:#a6e22e">client</span>
+<span style="color:#a6e22e">where</span> <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">id</span> <span style="color:#f92672">=</span> <span style="color:#f92672">:</span><span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">objectId</span><span style="color:#f92672">::</span><span style="color:#a6e22e">bigint</span>
+<span style="color:#a6e22e">limit</span> <span style="color:#ae81ff">1</span>
+&lt;/<span style="color:#f92672">script</span>&gt;
+</code></pre></div><h2 id="обработчик-breadcrumbs">Обработчик: breadcrumbs</h2>
+<p>Используется для вывода более прокаченных хлебных крошек в навигации.</p>
+<h3 id="ссылка-на-страницу-родитеслького-объекта">Ссылка на страницу родитеслького объекта</h3>
+<p>Например у вас есть структура. Клиенты -&gt; Клиент -&gt; Список алгоритмов клиента -&gt; Алгоритм.
+До появления этого функционала не было никакой возможности построить ссылку на список алгоритмов клиента в навигационном разделе, будучи на карточке алгоритма.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">db</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;adplatform&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;breadcrumbs&#34;</span> <span style="color:#a6e22e">states</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;breadcrumbs, default&#34;</span>&gt;
+<span style="color:#a6e22e">SELECT</span> <span style="color:#a6e22e">json_build_object</span>(<span style="color:#e6db74">&#39;id&#39;</span>, <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">id</span>, <span style="color:#e6db74">&#39;name&#39;</span>, <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">name</span>, <span style="color:#e6db74">&#39;entityId&#39;</span>, <span style="color:#e6db74">&#39;190&#39;</span>, <span style="color:#e6db74">&#39;pageId&#39;</span>, <span style="color:#e6db74">&#39;5282&#39;</span>) <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">entity_link_field_parent_object</span>
+<span style="color:#a6e22e">from</span> <span style="color:#a6e22e">algorithm</span>
+<span style="color:#a6e22e">left</span> <span style="color:#a6e22e">join</span> <span style="color:#a6e22e">client</span> <span style="color:#a6e22e">ON</span> <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">id</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">algorithm</span>.<span style="color:#a6e22e">client_id</span>
+<span style="color:#a6e22e">where</span> <span style="color:#a6e22e">algorithm</span>.<span style="color:#a6e22e">id</span><span style="color:#f92672">=:</span><span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">objectId</span><span style="color:#f92672">::</span><span style="color:#a6e22e">bigint</span>
+&lt;/<span style="color:#f92672">script</span>&gt;
+</code></pre></div><h3 id="ссылка-на-страницу-приложений-не-карточку">Ссылка на страницу приложений (не карточку)</h3>
+<p>Работает приоритетнее, чем object_list_base_page_id, хотя делает тоже самое, но может использоваться для динамического рассчета page_id.
+Так же иногда удобнее, чем object_list_base_page_id так как не является глобальной настройкой над всем приложениями.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">db</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;adplatform&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;breadcrumbs&#34;</span> <span style="color:#a6e22e">state</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;breadcrumbs, default&#34;</span>&gt;
+<span style="color:#a6e22e">SELECT</span> <span style="color:#a6e22e">json_build_object</span>(<span style="color:#e6db74">&#39;pageId&#39;</span>, <span style="color:#e6db74">&#39;app_clients&#39;</span>) <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">parent_page</span>
+<span style="color:#a6e22e">from</span> <span style="color:#a6e22e">client</span>
+<span style="color:#a6e22e">WHERE</span> <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">id</span> <span style="color:#f92672">=</span> <span style="color:#f92672">:</span><span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">objectId</span><span style="color:#f92672">::</span><span style="color:#a6e22e">bigint</span>
+&lt;/<span style="color:#f92672">script</span>&gt;
+</code></pre></div>
 
 
 
@@ -1615,6 +1641,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <ul>
     <li><a href="#мотивация">Мотивация</a></li>
     <li><a href="#обработчик-check_access">Обработчик: check_access</a></li>
+    <li><a href="#обработчик-breadcrumbs">Обработчик: breadcrumbs</a>
+      <ul>
+        <li><a href="#ссылка-на-страницу-родитеслького-объекта">Ссылка на страницу родитеслького объекта</a></li>
+        <li><a href="#ссылка-на-страницу-приложений-не-карточку">Ссылка на страницу приложений (не карточку)</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 </div>

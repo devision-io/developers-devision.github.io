@@ -1567,7 +1567,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li>semantic_role</li>
 </ul>
 <p>Ширина me-input для поля высчитывается автоматически исходя из разных параметров,
-но может быть задана через атрибут поля <code>span</code>.</p>
+но может быть задана через атрибут поля <code>lego_elem.span</code>.
+В целом иногда есть задача вывести поле как textarea, для этого используется атрибут <code>lego_elem</code>.
+По сути там пишется все то, что можно писать в обычных ручных lego формах, но не обязательно описывать вообще все -
+впишите только то, что нужно переопределить по отношению к автосгенерированным свойствам.</p>
 <p>Например:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">...
 - <span style="color:#66d9ef">alias</span>: name
@@ -1576,10 +1579,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <span style="color:#66d9ef">display_name</span>: Название клиента
   <span style="color:#66d9ef">name</span>: name
   <span style="color:#66d9ef">semantic_role</span>: DIMENSION
-  <span style="color:#66d9ef">span</span>: <span style="color:#ae81ff">3</span> &lt;---------- ширина, заданная вручную
   <span style="color:#66d9ef">order</span>: <span style="color:#ae81ff">100</span> &lt;---------- сортировка, заданная вручную и не через само положение относительно других полей entity
   <span style="color:#66d9ef">data_type</span>: TEXT
   <span style="color:#66d9ef">is_required</span>: <span style="color:#66d9ef">true</span>
+  <span style="color:#66d9ef">lego_elem</span>:  &lt;---- Все то, что рабоатет в lego формах (НЕ ОЯЗАТЕЛЬНО полное описание всего elem). Перетирается важными сгенерированными параметрами, например id, label, entityId, required и пр 
+    <span style="color:#66d9ef">name</span>: me-input
+    <span style="color:#66d9ef">span</span>: <span style="color:#ae81ff">4</span>
+    <span style="color:#66d9ef">attrs</span>:
+      <span style="color:#66d9ef">type</span>: textarea
 ...
 </code></pre></div><h2 id="настройка-insert_query">Настройка insert_query</h2>
 <p>Иногда бывает, что надо вызвать хранимую процедуру для вставки объекта.

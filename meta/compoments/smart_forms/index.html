@@ -1556,8 +1556,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 Логированиче через ObjectLogService будет выполнено автоматически, а значит и <a href="./event_bus/">Шина</a> сможет принять
 событие, если будет нужно.</p>
 <h2 id="автоматическая-генерация-формы">Автоматическая генерация формы</h2>
-<p>Форма генерируется по внутреннним правилам и сейчас невозможно подвигать контролы
-кроме как их позицией в списке <code>fields</code> в yaml файле, но даже это не гарантирует,
+<p>Форма генерируется по внутреннним правилам, но подвигать контролы можно
+через их позициии в списке <code>fields</code> в yaml файле или атрибут <code>order</code>, но даже это не гарантирует,
 что они выстроятся в нужном вам порядке - мета сортирует блоками в соответствии со внутренними правилами.</p>
 <p>Тип me-input так же пытается подобраться автоматически, исходя из заполненности полей:</p>
 <ul>
@@ -1566,7 +1566,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li>data_type</li>
 <li>semantic_role</li>
 </ul>
-<h2 id="настройка-insert_query">Настройка insert_query</h2>
+<p>Ширина me-input для поля высчитывается автоматически исходя из разных параметров,
+но может быть задана через атрибут поля <code>span</code>.</p>
+<p>Например:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">...
+- <span style="color:#66d9ef">alias</span>: name
+  <span style="color:#66d9ef">db_type</span>: text
+  <span style="color:#66d9ef">is_title</span>: <span style="color:#66d9ef">true</span>
+  <span style="color:#66d9ef">display_name</span>: Название клиента
+  <span style="color:#66d9ef">name</span>: name
+  <span style="color:#66d9ef">semantic_role</span>: DIMENSION
+  <span style="color:#66d9ef">span</span>: <span style="color:#ae81ff">3</span> &lt;---------- ширина, заданная вручную
+  <span style="color:#66d9ef">order</span>: <span style="color:#ae81ff">100</span> &lt;---------- сортировка, заданная вручную и не через само положение относительно других полей entity
+  <span style="color:#66d9ef">data_type</span>: TEXT
+  <span style="color:#66d9ef">is_required</span>: <span style="color:#66d9ef">true</span>
+...
+</code></pre></div><h2 id="настройка-insert_query">Настройка insert_query</h2>
 <p>Иногда бывает, что надо вызвать хранимую процедуру для вставки объекта.
 Это можно сделать через настройку параметра insert_query в yaml, нужной entity.
 Данные формы придут как обычно в <code>:env.sp.obj.*</code></p>

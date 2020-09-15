@@ -994,6 +994,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
+            <li data-nav-id="/reference/ui_controls/me-lego-modal/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/reference/ui_controls/me-lego-modal/" class="devsite-nav-title">
+                    <span>Элемент me-lego-modal</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
             <li data-nav-id="/reference/ui_controls/me-pivot/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/reference/ui_controls/me-pivot/" class="devsite-nav-title">
                     <span>Элемент me-pivot</span>
@@ -1554,7 +1572,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p>Если вы хотите работать со внутренними api Прямо из META</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;res&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span>&gt;
 <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>(<span style="color:#a6e22e">ApiClientService</span>, <span style="color:#a6e22e">vm</span>) {
-  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">apiclient</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ApiClientService</span>.<span style="color:#a6e22e">buildClient</span>(<span style="color:#e6db74">&#34;accountmanagement&#34;</span>, <span style="color:#e6db74">&#34;v1beta1&#34;</span>);
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">apiclient</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ApiClientService</span>.<span style="color:#a6e22e">buildClient</span>(<span style="color:#e6db74">&#34;accountmanagement&#34;</span>, <span style="color:#e6db74">&#34;v1beta1&#34;</span>, <span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">userId</span>, [<span style="color:#e6db74">&#34;meta.dev&#34;</span>]);
   <span style="color:#a6e22e">vm</span>.<span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">apiclient</span>.<span style="color:#a6e22e">request</span>(<span style="color:#e6db74">&#34;POST&#34;</span>, <span style="color:#e6db74">&#34;budget-order/get&#34;</span>, {
     <span style="color:#e6db74">&#34;access_scope&#34;</span><span style="color:#f92672">:</span> {
       <span style="color:#e6db74">&#34;client_id&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;28&#34;</span>,
@@ -1563,8 +1581,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     },
     <span style="color:#e6db74">&#34;engine&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;GOOGLE_ADS&#34;</span>,
     <span style="color:#e6db74">&#34;account&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;9012273876&#34;</span>
-  }).<span style="color:#a6e22e">getMap</span>();
-}
+  }).<span style="color:#a6e22e">getMap</span>(); <span style="color:#75715e">// or .getObject() // or.getList()
+</span><span style="color:#75715e"></span>}
 &lt;/<span style="color:#f92672">script</span>&gt;
 
 &lt;<span style="color:#f92672">elem</span>&gt;

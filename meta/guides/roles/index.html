@@ -994,6 +994,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
+            <li data-nav-id="/reference/ui_controls/me-lego-modal/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/reference/ui_controls/me-lego-modal/" class="devsite-nav-title">
+                    <span>Элемент me-lego-modal</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
             <li data-nav-id="/reference/ui_controls/me-pivot/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/reference/ui_controls/me-pivot/" class="devsite-nav-title">
                     <span>Элемент me-pivot</span>
@@ -1602,12 +1620,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p>Обратите внимание, что в meta/js env является не внутренним объектов меты, а иеент тип Map&lt;String, Object&gt; и
 для того, чтобы работать с реальным env надо использовать originalEnv:</p>
 <ul>
-<li>originalEnv.hasRoleAnon()</li>
-<li>originalEnv.hasRoleDev()</li>
-<li>originalEnv.hasRoleSupport()</li>
-<li>originalEnv.hasAnyRoles([&lsquo;adhands.role.97&rsquo;, &lsquo;meta.role.dev&rsquo;])</li>
-<li>originalEnv.hasRole(&ldquo;meta.role.preset_admin&rdquo;)</li>
-<li>originalEnv.hasAnyRoles([&lsquo;adhands.role.97&rsquo;, &lsquo;meta.role.dev&rsquo;]),</li>
+<li>originalEnv.hasRoleAnon() - быстро-фильтр на проверку неавторозованных пользователей</li>
+<li>originalEnv.hasRoleDev() - быстро-фильтр на проверку пользователей-разработчиков</li>
+<li>originalEnv.hasRoleSupport() - быстро-фильтр на проверку пользователей-саппорта</li>
+<li>originalEnv.hasAnyRoles([&lsquo;adhands.role.97&rsquo;, &lsquo;meta.role.dev&rsquo;]) - поиск пересечений. Вернет true, если в env.roles есть хотябы одна указанная роль</li>
+<li>originalEnv.hasRole(&ldquo;meta.role.preset_admin&rdquo;) - выполняет все то, что и hasAnyRoles, нона вход только одна роль</li>
 </ul>
 
 

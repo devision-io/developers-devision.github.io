@@ -9,7 +9,7 @@
     <meta name="description" content="">
 
 
-    <title>Java API :: META | Devision Developers</title>
+    <title>Элемент me-lego-modal :: META | Devision Developers</title>
     <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/reference/java_api/">
+  <body class="" data-url="/reference/ui_controls/me-lego-modal/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -891,7 +891,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="/reference/ui_controls/" class="devsite-nav-item devsite-nav-item-main
-                        
+                        parent
                         
                         parent
                         ">
@@ -994,7 +994,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/reference/ui_controls/me-lego-modal/" class="devsite-nav-item dd-item ">
+            <li data-nav-id="/reference/ui_controls/me-lego-modal/" class="devsite-nav-item dd-item active">
                 <a href="https://developers.devision.io/meta/reference/ui_controls/me-lego-modal/" class="devsite-nav-title">
                     <span>Элемент me-lego-modal</span>
                 </a>
@@ -1111,8 +1111,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="/reference/java_api/" class="devsite-nav-item devsite-nav-item-main
-                        parent
-                        active
+                        
+                        
                         
                         ">
                 <a href="https://developers.devision.io/meta/reference/java_api/" class="devsite-nav-title devsite-nav-item-main-title">
@@ -1550,7 +1550,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
- <a href='https://developers.devision.io/meta/'>META</a> > <a href='https://developers.devision.io/meta/reference/'>Справочник по API</a> > Java API
+
+
+
+ <a href='https://developers.devision.io/meta/'>META</a> > <a href='https://developers.devision.io/meta/reference/'>Справочник по API</a> > <a href='https://developers.devision.io/meta/reference/ui_controls/'>Элементы UI</a> > Элемент me-lego-modal
+
+
 
 
 
@@ -1564,37 +1569,234 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <div id="body-inner">
           
-            <h1>Java API</h1>
+            <h1>Элемент me-lego-modal</h1>
           
 
 
 
+<p>Используется на сложных формах для того, чтобы спрятать какую-то часть.
+Или например если надо сделать me-lego-list внутри дургого me-lego-list (без me-lego-modal это технически это невозможно).</p>
+<p><strong>@example</strong> <a href="https://apps.devision.io/page?p=3723&amp;a=35">https://apps.devision.io/page?p=3723&amp;a=35</a></p>
+<h2 id="общее">Общее</h2>
+<p>Обратите внимание на <a href="../typedoc">структуру всех классов</a></p>
+<h2 id="структура">Структура</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;__tid&#34;</span>: <span style="color:#e6db74">&#34;(any)&#34;</span>,
+  <span style="color:#f92672">&#34;align&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+  <span style="color:#f92672">&#34;attrs&#34;</span>: {
+    <span style="color:#f92672">&#34;modalSize&#34;</span>: <span style="color:#e6db74">&#34;( xs, sm, md, lg, fullscreen, max )&#34;</span>,
+    <span style="color:#f92672">&#34;modalTitle&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+    <span style="color:#f92672">&#34;mode&#34;</span>: <span style="color:#e6db74">&#34;( modal, sidenav, hidden )&#34;</span>
+  },
+  <span style="color:#f92672">&#34;bindAttrs&#34;</span>: [
+    {
+      <span style="color:#f92672">&#34;source&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+      <span style="color:#f92672">&#34;target&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>
+    }
+  ],
+  <span style="color:#f92672">&#34;defaultValue&#34;</span>: <span style="color:#e6db74">&#34;(any)&#34;</span>,
+  <span style="color:#f92672">&#34;depends&#34;</span>: [
+    <span style="color:#e6db74">&#34;(string)&#34;</span>
+  ],
+  <span style="color:#f92672">&#34;elems&#34;</span>: [
+    {
+      <span style="color:#f92672">&#34;__tid&#34;</span>: <span style="color:#e6db74">&#34;(any)&#34;</span>,
+      <span style="color:#f92672">&#34;align&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+      <span style="color:#f92672">&#34;bindAttrs&#34;</span>: [
+        {
+          <span style="color:#f92672">&#34;source&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+          <span style="color:#f92672">&#34;target&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>
+        }
+      ],
+      <span style="color:#f92672">&#34;defaultValue&#34;</span>: <span style="color:#e6db74">&#34;(any)&#34;</span>,
+      <span style="color:#f92672">&#34;depends&#34;</span>: [
+        <span style="color:#e6db74">&#34;(string)&#34;</span>
+      ],
+      <span style="color:#f92672">&#34;entityId&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+      <span style="color:#f92672">&#34;errors&#34;</span>: [
+        {
+          <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+          <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>
+        }
+      ],
+      <span style="color:#f92672">&#34;exportable&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>,
+      <span style="color:#f92672">&#34;formHorizontal&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>,
+      <span style="color:#f92672">&#34;help&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+      <span style="color:#f92672">&#34;icon&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+      <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+      <span style="color:#f92672">&#34;inlineForm&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>,
+      <span style="color:#f92672">&#34;label&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+      <span style="color:#f92672">&#34;listen&#34;</span>: [
+        {
+          <span style="color:#f92672">&#34;$promise&#34;</span>: <span style="color:#e6db74">&#34;(any)&#34;</span>,
+          <span style="color:#f92672">&#34;code&#34;</span>: [
+            <span style="color:#e6db74">&#34;( ADD | SET, REMOVE )&#34;</span>
+          ],
+          <span style="color:#f92672">&#34;entityId&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+          <span style="color:#f92672">&#34;objectId&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+          <span style="color:#f92672">&#34;pubSubChannel&#34;</span>: [
+            <span style="color:#e6db74">&#34;(string)&#34;</span>
+          ],
+          <span style="color:#f92672">&#34;refreshRefPvmData&#34;</span>: <span style="color:#e6db74">&#34;(any)&#34;</span>,
+          <span style="color:#f92672">&#34;reload&#34;</span>: <span style="color:#e6db74">&#34;(any)&#34;</span>,
+          <span style="color:#f92672">&#34;selectAfterAdd&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>
+        }
+      ],
+      <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+      <span style="color:#f92672">&#34;offset&#34;</span>: <span style="color:#e6db74">&#34;(number)&#34;</span>,
+      <span style="color:#f92672">&#34;order&#34;</span>: <span style="color:#e6db74">&#34;(number)&#34;</span>,
+      <span style="color:#f92672">&#34;persistValueView&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>,
+      <span style="color:#f92672">&#34;refPvmData&#34;</span>: {
+        <span style="color:#f92672">&#34;additionalPartialLoad&#34;</span>: [
+          <span style="color:#e6db74">&#34;(string)&#34;</span>
+        ],
+        <span style="color:#f92672">&#34;dataId&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+        <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+        <span style="color:#f92672">&#34;spQueryDepends&#34;</span>: [
+          <span style="color:#e6db74">&#34;(string)&#34;</span>
+        ],
+        <span style="color:#f92672">&#34;waitingId&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>
+      },
+      <span style="color:#f92672">&#34;refPvmValidator&#34;</span>: {
+        <span style="color:#f92672">&#34;additionalPartialLoad&#34;</span>: [
+          <span style="color:#e6db74">&#34;(string)&#34;</span>
+        ],
+        <span style="color:#f92672">&#34;dataId&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+        <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+        <span style="color:#f92672">&#34;spQueryDepends&#34;</span>: [
+          <span style="color:#e6db74">&#34;(string)&#34;</span>
+        ],
+        <span style="color:#f92672">&#34;waitingId&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>
+      },
+      <span style="color:#f92672">&#34;selectedValueView&#34;</span>: <span style="color:#e6db74">&#34;(any)&#34;</span>,
+      <span style="color:#f92672">&#34;selfDepends&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>,
+      <span style="color:#f92672">&#34;span&#34;</span>: <span style="color:#e6db74">&#34;(number)&#34;</span>,
+      <span style="color:#f92672">&#34;tooltip&#34;</span>: {
+        <span style="color:#f92672">&#34;content&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+        <span style="color:#f92672">&#34;label&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>
+      },
+      <span style="color:#f92672">&#34;valid&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>,
+      <span style="color:#f92672">&#34;validateInProgress&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>,
+      <span style="color:#f92672">&#34;value&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+      <span style="color:#f92672">&#34;visible&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>
+    }
+  ],
+  <span style="color:#f92672">&#34;entityId&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+  <span style="color:#f92672">&#34;errors&#34;</span>: [
+    {
+      <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+      <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>
+    }
+  ],
+  <span style="color:#f92672">&#34;exportable&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>,
+  <span style="color:#f92672">&#34;formHorizontal&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>,
+  <span style="color:#f92672">&#34;help&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+  <span style="color:#f92672">&#34;icon&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+  <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+  <span style="color:#f92672">&#34;inlineForm&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>,
+  <span style="color:#f92672">&#34;label&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+  <span style="color:#f92672">&#34;listen&#34;</span>: [
+    {
+      <span style="color:#f92672">&#34;$promise&#34;</span>: <span style="color:#e6db74">&#34;(any)&#34;</span>,
+      <span style="color:#f92672">&#34;code&#34;</span>: [
+        <span style="color:#e6db74">&#34;( ADD | SET, REMOVE )&#34;</span>
+      ],
+      <span style="color:#f92672">&#34;entityId&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+      <span style="color:#f92672">&#34;objectId&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+      <span style="color:#f92672">&#34;pubSubChannel&#34;</span>: [
+        <span style="color:#e6db74">&#34;(string)&#34;</span>
+      ],
+      <span style="color:#f92672">&#34;refreshRefPvmData&#34;</span>: <span style="color:#e6db74">&#34;(any)&#34;</span>,
+      <span style="color:#f92672">&#34;reload&#34;</span>: <span style="color:#e6db74">&#34;(any)&#34;</span>,
+      <span style="color:#f92672">&#34;selectAfterAdd&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>
+    }
+  ],
+  <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;me-lego-modal&#34;</span>,
+  <span style="color:#f92672">&#34;offset&#34;</span>: <span style="color:#e6db74">&#34;(number)&#34;</span>,
+  <span style="color:#f92672">&#34;order&#34;</span>: <span style="color:#e6db74">&#34;(number)&#34;</span>,
+  <span style="color:#f92672">&#34;persistValueView&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>,
+  <span style="color:#f92672">&#34;refPvmData&#34;</span>: {
+    <span style="color:#f92672">&#34;additionalPartialLoad&#34;</span>: [
+      <span style="color:#e6db74">&#34;(string)&#34;</span>
+    ],
+    <span style="color:#f92672">&#34;dataId&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+    <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+    <span style="color:#f92672">&#34;spQueryDepends&#34;</span>: [
+      <span style="color:#e6db74">&#34;(string)&#34;</span>
+    ],
+    <span style="color:#f92672">&#34;waitingId&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>
+  },
+  <span style="color:#f92672">&#34;refPvmValidator&#34;</span>: {
+    <span style="color:#f92672">&#34;additionalPartialLoad&#34;</span>: [
+      <span style="color:#e6db74">&#34;(string)&#34;</span>
+    ],
+    <span style="color:#f92672">&#34;dataId&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+    <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+    <span style="color:#f92672">&#34;spQueryDepends&#34;</span>: [
+      <span style="color:#e6db74">&#34;(string)&#34;</span>
+    ],
+    <span style="color:#f92672">&#34;waitingId&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>
+  },
+  <span style="color:#f92672">&#34;selectedValueView&#34;</span>: <span style="color:#e6db74">&#34;(any)&#34;</span>,
+  <span style="color:#f92672">&#34;selfDepends&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>,
+  <span style="color:#f92672">&#34;span&#34;</span>: <span style="color:#e6db74">&#34;(number)&#34;</span>,
+  <span style="color:#f92672">&#34;tooltip&#34;</span>: {
+    <span style="color:#f92672">&#34;content&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+    <span style="color:#f92672">&#34;label&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>
+  },
+  <span style="color:#f92672">&#34;valid&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>,
+  <span style="color:#f92672">&#34;validateInProgress&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>,
+  <span style="color:#f92672">&#34;value&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
+  <span style="color:#f92672">&#34;visible&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>
+}
+</code></pre></div><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><strong>@default</strong> &ldquo;left&rdquo;</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><strong>@example</strong> <a href="https://apps.devision.io/page?p=4329&amp;a=35">https://apps.devision.io/page?p=4329&amp;a=35</a></p>
+<p><strong>@example</strong> <a href="https://apps.devision.io/page?p=3597&amp;a=35">https://apps.devision.io/page?p=3597&amp;a=35</a></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><strong>@example</strong> <a href="https://apps.devision.io/page?p=3570&amp;a=35">https://apps.devision.io/page?p=3570&amp;a=35</a></p>
+<p><strong>@example</strong> <a href="https://apps.devision.io/page?p=4329&amp;a=35">https://apps.devision.io/page?p=4329&amp;a=35</a></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><strong>@link</strong> <a href="http://ui.adplatform.lan/Static_Full_Version/icons.html">http://ui.adplatform.lan/Static_Full_Version/icons.html</a></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><strong>@link</strong> {http://stackoverflow.com/questions/12201835/form-inline-inside-a-form-horizontal-in-twitter-bootstrap}</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><strong>@example</strong> <a href="https://apps.devision.io/page?p=3570&amp;a=35">https://apps.devision.io/page?p=3570&amp;a=35</a></p>
+<p><strong>@example</strong> <a href="https://apps.devision.io/page?p=3597&amp;a=35">https://apps.devision.io/page?p=3597&amp;a=35</a></p>
+<!-- raw HTML omitted -->
+<p><strong>@example</strong> <a href="https://apps.devision.io/page?p=3443&amp;a=35">https://apps.devision.io/page?p=3443&amp;a=35</a></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><strong>@beta</strong></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><strong>@example</strong> <a href="https://apps.devision.io/page?p=3570&amp;a=35">https://apps.devision.io/page?p=3570&amp;a=35</a></p>
 
 
 
-
-	
-
-	
-	   <article class="post reference">
-    <header class="post-header">
-        <h2 class="post-title"><a href="https://developers.devision.io/meta/reference/java_api/userrecoveryservice/">UserRecoveryService</a></h2>
-    </header>
-
-    
-
-
-    
-</article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
-
-	
 
 
 
@@ -1603,7 +1805,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#общее">Общее</a></li>
+    <li><a href="#структура">Структура</a></li>
+  </ul>
+</nav>
 </div>
 
 </div>
@@ -1624,3 +1831,4 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   </body>
 </html>
+

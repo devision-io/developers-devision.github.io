@@ -16,7 +16,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/reference/java_api/apiclientservice/</guid>
-      <description>   Метод и описание Возвращаемый тип     buildClient ( apiName: String, apiVersion: String) ApiClient   buildClient ( schemaHostPostVersion: String) ApiClient    </description>
+      <description>   Метод и описание Возвращаемый тип     buildClient ( apiName: String, apiVersion: String, userId: long, scopes: List) ApiClient   buildClient ( schemaHostPostVersion: String, userId: long, scopes: List) ApiClient    </description>
     </item>
     
     <item>
@@ -133,7 +133,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/reference/java_api/metadatabaseservice/</guid>
-      <description>   Метод и описание Возвращаемый тип     createMetaDataSourceInstance ( db: CDatabase) MetaDataSource   eraseDBPool ( ) void   getDatabaseType ( dbAlias: String) DatabaseType   getMDSource ( dbAlias: String) MetaDataSource   getMetaDS ( ) JdbcMetaDataSource   getMetaJdbcTemplate ( ) JdbcTemplate   getRedis ( ) RedissonClient    </description>
+      <description>   Метод и описание Возвращаемый тип     createMetaDataSourceInstance ( db: CDatabase) MetaDataSource   eraseDBPool ( ) void   getAppCacheRedis ( ) RedissonClient   getDatabaseType ( dbAlias: String) DatabaseType   getMDSource ( dbAlias: String) MetaDataSource   getMetaDS ( ) JdbcMetaDataSource   getMetaJdbcTemplate ( ) JdbcTemplate   getRedis ( ) RedissonClient    </description>
     </item>
     
     <item>
@@ -178,7 +178,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/reference/java_api/tablecolumnservice/</guid>
-      <description>   Метод и описание Возвращаемый тип     buildAggFn ( aggFn: AggFn, expr: String) String   buildFilters ( outputPlaceholderVarName: String, columns: DataResult, data: AdvancedFilterData) GeneratedFilter   buildFilters ( outputPlaceholderVarName: String, columns: DataResult, data: Object) GeneratedFilter   escapeDivisionByZero ( text: String, escapePrefix: String, escapePostfix: String) String   extractTableParams ( columns: DataResult, dimensions: List, metrics: List) TableSettings   extractTableParams ( headers: List, dimensions: List, metrics: List, entityKind: EntityKind, strict: boolean) TableSettings   getMetricsFromExpr ( in: String) Set    </description>
+      <description>   Метод и описание Возвращаемый тип     buildAggFn ( aggFn: AggFn, expr: String) String   buildFilters ( outputPlaceholderVarName: String, columns: DataResult, data: AdvancedFilterData) GeneratedFilter   buildFilters ( outputPlaceholderVarName: String, columns: DataResult, data: AdvancedFilterData, databaseType: DatabaseType) GeneratedFilter   buildFilters ( outputPlaceholderVarName: String, columns: DataResult, data: Object) GeneratedFilter   buildFilters ( outputPlaceholderVarName: String, columns: DataResult, data: Object, databaseType: String) GeneratedFilter   escapeDivisionByZero ( text: String, escapePrefix: String, escapePostfix: String) String   extractTableParams ( columns: DataResult, dimensions: List, metrics: List) TableSettings   extractTableParams ( headers: List, dimensions: List, metrics: List, entityKind: EntityKind, strict: boolean) TableSettings   getMetricsFromExpr ( in: String) Set    </description>
     </item>
     
     <item>

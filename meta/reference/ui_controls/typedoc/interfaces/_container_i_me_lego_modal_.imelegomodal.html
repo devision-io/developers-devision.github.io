@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IMeTable | META UI Components</title>
+	<title>IMeLegoModal | META UI Components</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,13 +54,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_elems_i_me_table_.html">&quot;elems/i.me-table&quot;</a>
+					<a href="../modules/_container_i_me_lego_modal_.html">&quot;container/i.me-lego-modal&quot;</a>
 				</li>
 				<li>
-					<a href="_elems_i_me_table_.imetable.html">IMeTable</a>
+					<a href="_container_i_me_lego_modal_.imelegomodal.html">IMeLegoModal</a>
 				</li>
 			</ul>
-			<h1>Interface IMeTable</h1>
+			<h1>Interface IMeLegoModal</h1>
 		</div>
 	</div>
 </header>
@@ -70,9 +70,16 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Основной и единственный элемент для вывода таблиц и редактируемых таблиц</p>
+						<p>Используется на сложных формах для того, чтобы спрятать какую-то часть.
+						Или например если надо сделать me-lego-list внутри дургого me-lego-list (без me-lego-modal это технически это невозможно).</p>
 					</div>
+					<p>Часть формы просто убирается в суб-форму, открывающуются в модальном окне.
+						Размерами модального окна, а так же другими его настройками можно управлять как обычно,
+					так как артрибуты реализуют интерфейс IModalOptions</p>
 					<dl class="tsd-comment-tags">
+						<dt>example</dt>
+						<dd><p><a href="https://apps.devision.io/page?p=3723&amp;a=35">https://apps.devision.io/page?p=3723&amp;a=35</a></p>
+						</dd>
 						<dt>lego_elem</dt>
 						<dd></dd>
 					</dl>
@@ -82,10 +89,10 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="_i_me_elem_.imeelem.html" class="tsd-signature-type">IMeElem</a>
+						<a href="_i_me_elem_.imeelemcontainer.html" class="tsd-signature-type">IMeElemContainer</a>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">IMeTable</span>
+								<span class="target">IMeLegoModal</span>
 							</li>
 						</ul>
 					</li>
@@ -98,40 +105,39 @@
 						<section class="tsd-index-section tsd-is-not-exported">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-private tsd-is-not-exported"><a href="_elems_i_me_table_.imetable.html#__tid" class="tsd-kind-icon">__tid</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_elems_i_me_table_.imetable.html#align" class="tsd-kind-icon">align</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_elems_i_me_table_.imetable.html#analyzable" class="tsd-kind-icon">analyzable</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite tsd-is-not-exported"><a href="_elems_i_me_table_.imetable.html#attrs" class="tsd-kind-icon">attrs</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_elems_i_me_table_.imetable.html#bindattrs" class="tsd-kind-icon">bind<wbr>Attrs</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_elems_i_me_table_.imetable.html#defaultvalue" class="tsd-kind-icon">default<wbr>Value</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_elems_i_me_table_.imetable.html#depends" class="tsd-kind-icon">depends</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_elems_i_me_table_.imetable.html#entityid" class="tsd-kind-icon">entity<wbr>Id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_elems_i_me_table_.imetable.html#errors" class="tsd-kind-icon">errors</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_elems_i_me_table_.imetable.html#exist" class="tsd-kind-icon">exist</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite tsd-is-not-exported"><a href="_elems_i_me_table_.imetable.html#exportable" class="tsd-kind-icon">exportable</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_elems_i_me_table_.imetable.html#filterable" class="tsd-kind-icon">filterable</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_elems_i_me_table_.imetable.html#formhorizontal" class="tsd-kind-icon">form<wbr>Horizontal</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_elems_i_me_table_.imetable.html#help" class="tsd-kind-icon">help</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_elems_i_me_table_.imetable.html#i18n" class="tsd-kind-icon">i18n</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_elems_i_me_table_.imetable.html#icon" class="tsd-kind-icon">icon</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_elems_i_me_table_.imetable.html#id" class="tsd-kind-icon">id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_elems_i_me_table_.imetable.html#inlineform" class="tsd-kind-icon">inline<wbr>Form</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_elems_i_me_table_.imetable.html#label" class="tsd-kind-icon">label</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_elems_i_me_table_.imetable.html#listen" class="tsd-kind-icon">listen</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_elems_i_me_table_.imetable.html#name" class="tsd-kind-icon">name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_elems_i_me_table_.imetable.html#offset" class="tsd-kind-icon">offset</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_elems_i_me_table_.imetable.html#order" class="tsd-kind-icon">order</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_elems_i_me_table_.imetable.html#persistvalueview" class="tsd-kind-icon">persist<wbr>Value<wbr>View</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_elems_i_me_table_.imetable.html#refpvmdata" class="tsd-kind-icon">ref<wbr>Pvm<wbr>Data</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_elems_i_me_table_.imetable.html#refpvmvalidator" class="tsd-kind-icon">ref<wbr>Pvm<wbr>Validator</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_elems_i_me_table_.imetable.html#selectedvalueview" class="tsd-kind-icon">selected<wbr>Value<wbr>View</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_elems_i_me_table_.imetable.html#selfdepends" class="tsd-kind-icon">self<wbr>Depends</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_elems_i_me_table_.imetable.html#span" class="tsd-kind-icon">span</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_elems_i_me_table_.imetable.html#tooltip" class="tsd-kind-icon">tooltip</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_elems_i_me_table_.imetable.html#valid" class="tsd-kind-icon">valid</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_elems_i_me_table_.imetable.html#validateinprogress" class="tsd-kind-icon">validate<wbr>InProgress</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_elems_i_me_table_.imetable.html#value" class="tsd-kind-icon">value</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_elems_i_me_table_.imetable.html#visible" class="tsd-kind-icon">visible</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-private tsd-is-not-exported"><a href="_container_i_me_lego_modal_.imelegomodal.html#__tid" class="tsd-kind-icon">__tid</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_container_i_me_lego_modal_.imelegomodal.html#align" class="tsd-kind-icon">align</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite tsd-is-not-exported"><a href="_container_i_me_lego_modal_.imelegomodal.html#attrs" class="tsd-kind-icon">attrs</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_container_i_me_lego_modal_.imelegomodal.html#bindattrs" class="tsd-kind-icon">bind<wbr>Attrs</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_container_i_me_lego_modal_.imelegomodal.html#defaultvalue" class="tsd-kind-icon">default<wbr>Value</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_container_i_me_lego_modal_.imelegomodal.html#depends" class="tsd-kind-icon">depends</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_container_i_me_lego_modal_.imelegomodal.html#elems" class="tsd-kind-icon">elems</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_container_i_me_lego_modal_.imelegomodal.html#entityid" class="tsd-kind-icon">entity<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_container_i_me_lego_modal_.imelegomodal.html#errors" class="tsd-kind-icon">errors</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_container_i_me_lego_modal_.imelegomodal.html#exist" class="tsd-kind-icon">exist</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_container_i_me_lego_modal_.imelegomodal.html#exportable" class="tsd-kind-icon">exportable</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_container_i_me_lego_modal_.imelegomodal.html#formhorizontal" class="tsd-kind-icon">form<wbr>Horizontal</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_container_i_me_lego_modal_.imelegomodal.html#help" class="tsd-kind-icon">help</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_container_i_me_lego_modal_.imelegomodal.html#i18n" class="tsd-kind-icon">i18n</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_container_i_me_lego_modal_.imelegomodal.html#icon" class="tsd-kind-icon">icon</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_container_i_me_lego_modal_.imelegomodal.html#id" class="tsd-kind-icon">id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_container_i_me_lego_modal_.imelegomodal.html#inlineform" class="tsd-kind-icon">inline<wbr>Form</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_container_i_me_lego_modal_.imelegomodal.html#label" class="tsd-kind-icon">label</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_container_i_me_lego_modal_.imelegomodal.html#listen" class="tsd-kind-icon">listen</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_container_i_me_lego_modal_.imelegomodal.html#name" class="tsd-kind-icon">name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_container_i_me_lego_modal_.imelegomodal.html#offset" class="tsd-kind-icon">offset</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_container_i_me_lego_modal_.imelegomodal.html#order" class="tsd-kind-icon">order</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_container_i_me_lego_modal_.imelegomodal.html#persistvalueview" class="tsd-kind-icon">persist<wbr>Value<wbr>View</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_container_i_me_lego_modal_.imelegomodal.html#refpvmdata" class="tsd-kind-icon">ref<wbr>Pvm<wbr>Data</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_container_i_me_lego_modal_.imelegomodal.html#refpvmvalidator" class="tsd-kind-icon">ref<wbr>Pvm<wbr>Validator</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_container_i_me_lego_modal_.imelegomodal.html#selectedvalueview" class="tsd-kind-icon">selected<wbr>Value<wbr>View</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_container_i_me_lego_modal_.imelegomodal.html#selfdepends" class="tsd-kind-icon">self<wbr>Depends</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_container_i_me_lego_modal_.imelegomodal.html#span" class="tsd-kind-icon">span</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_container_i_me_lego_modal_.imelegomodal.html#tooltip" class="tsd-kind-icon">tooltip</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_container_i_me_lego_modal_.imelegomodal.html#valid" class="tsd-kind-icon">valid</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_container_i_me_lego_modal_.imelegomodal.html#validateinprogress" class="tsd-kind-icon">validate<wbr>InProgress</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_container_i_me_lego_modal_.imelegomodal.html#value" class="tsd-kind-icon">value</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_container_i_me_lego_modal_.imelegomodal.html#visible" class="tsd-kind-icon">visible</a></li>
 							</ul>
 						</section>
 					</div>
@@ -176,29 +182,14 @@
 						</dl>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-					<a name="analyzable" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> analyzable</h3>
-					<div class="tsd-signature tsd-kind-icon">analyzable<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in elems/i.me-table.ts:22</li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Будет ли работать бежим &quot;Анализ данных&quot; на таблице</p>
-						</div>
-					</div>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite tsd-is-not-exported">
 					<a name="attrs" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> attrs</h3>
-					<div class="tsd-signature tsd-kind-icon">attrs<span class="tsd-signature-symbol">:</span> <a href="_elems_i_me_table_.imetableattrs.html" class="tsd-signature-type">IMeTableAttrs</a></div>
+					<h3>attrs</h3>
+					<div class="tsd-signature tsd-kind-icon">attrs<span class="tsd-signature-symbol">:</span> <a href="_container_i_me_lego_modal_.imelegomodalattrs.html" class="tsd-signature-type">IMeLegoModalAttrs</a></div>
 					<aside class="tsd-sources">
 						<p>Overrides <a href="_i_me_elem_.imeelem.html">IMeElem</a>.<a href="_i_me_elem_.imeelem.html#attrs">attrs</a></p>
 						<ul>
-							<li>Defined in elems/i.me-table.ts:6</li>
+							<li>Defined in container/i.me-lego-modal.ts:14</li>
 						</ul>
 					</aside>
 				</section>
@@ -273,6 +264,17 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported">
+					<a name="elems" class="tsd-anchor"></a>
+					<h3>elems</h3>
+					<div class="tsd-signature tsd-kind-icon">elems<span class="tsd-signature-symbol">:</span> <a href="_i_me_elem_.imeelem.html" class="tsd-signature-type">IMeElem</a><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="_i_me_elem_.imeelemcontainer.html">IMeElemContainer</a>.<a href="_i_me_elem_.imeelemcontainer.html#elems">elems</a></p>
+						<ul>
+							<li>Defined in i.me-elem.ts:478</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported">
 					<a name="entityid" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> entity<wbr>Id</h3>
 					<div class="tsd-signature tsd-kind-icon">entity<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
@@ -338,35 +340,19 @@
 						</dl>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite tsd-is-not-exported">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported">
 					<a name="exportable" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> exportable</h3>
 					<div class="tsd-signature tsd-kind-icon">exportable<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
-						<p>Overrides <a href="_i_me_elem_.imeelem.html">IMeElem</a>.<a href="_i_me_elem_.imeelem.html#exportable">exportable</a></p>
+						<p>Inherited from <a href="_i_me_elem_.imeelem.html">IMeElem</a>.<a href="_i_me_elem_.imeelem.html#exportable">exportable</a></p>
 						<ul>
-							<li>Defined in elems/i.me-table.ts:17</li>
+							<li>Defined in i.me-elem.ts:227</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Можно ли экспортировать таблицу</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-					<a name="filterable" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> filterable</h3>
-					<div class="tsd-signature tsd-kind-icon">filterable<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in elems/i.me-table.ts:12</li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Тех. настройка для автофильторв
-							Только для разработчиков</p>
+							<p>Имеет ли экспорт этот элемент</p>
 						</div>
 					</div>
 				</section>
@@ -789,7 +775,7 @@
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_container_i_me_lego_list_.html">"container/i.me-<wbr>lego-<wbr>list"</a>
 					</li>
-					<li class=" tsd-kind-external-module">
+					<li class="current tsd-kind-external-module">
 						<a href="../modules/_container_i_me_lego_modal_.html">"container/i.me-<wbr>lego-<wbr>modal"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -816,7 +802,7 @@
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_elems_i_me_submit_.html">"elems/i.me-<wbr>submit"</a>
 					</li>
-					<li class="current tsd-kind-external-module">
+					<li class=" tsd-kind-external-module">
 						<a href="../modules/_elems_i_me_table_.html">"elems/i.me-<wbr>table"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -835,182 +821,113 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_elems_i_me_table_.imetable.html" class="tsd-kind-icon">IMe<wbr>Table</a>
+						<a href="_container_i_me_lego_modal_.imelegomodal.html" class="tsd-kind-icon">IMe<wbr>Lego<wbr>Modal</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-private tsd-is-not-exported">
-								<a href="_elems_i_me_table_.imetable.html#__tid" class="tsd-kind-icon">__tid</a>
+								<a href="_container_i_me_lego_modal_.imelegomodal.html#__tid" class="tsd-kind-icon">__tid</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported">
-								<a href="_elems_i_me_table_.imetable.html#align" class="tsd-kind-icon">align</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-								<a href="_elems_i_me_table_.imetable.html#analyzable" class="tsd-kind-icon">analyzable</a>
+								<a href="_container_i_me_lego_modal_.imelegomodal.html#align" class="tsd-kind-icon">align</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite tsd-is-not-exported">
-								<a href="_elems_i_me_table_.imetable.html#attrs" class="tsd-kind-icon">attrs</a>
+								<a href="_container_i_me_lego_modal_.imelegomodal.html#attrs" class="tsd-kind-icon">attrs</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported">
-								<a href="_elems_i_me_table_.imetable.html#bindattrs" class="tsd-kind-icon">bind<wbr>Attrs</a>
+								<a href="_container_i_me_lego_modal_.imelegomodal.html#bindattrs" class="tsd-kind-icon">bind<wbr>Attrs</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported">
-								<a href="_elems_i_me_table_.imetable.html#defaultvalue" class="tsd-kind-icon">default<wbr>Value</a>
+								<a href="_container_i_me_lego_modal_.imelegomodal.html#defaultvalue" class="tsd-kind-icon">default<wbr>Value</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported">
-								<a href="_elems_i_me_table_.imetable.html#depends" class="tsd-kind-icon">depends</a>
+								<a href="_container_i_me_lego_modal_.imelegomodal.html#depends" class="tsd-kind-icon">depends</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported">
-								<a href="_elems_i_me_table_.imetable.html#entityid" class="tsd-kind-icon">entity<wbr>Id</a>
+								<a href="_container_i_me_lego_modal_.imelegomodal.html#elems" class="tsd-kind-icon">elems</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported">
-								<a href="_elems_i_me_table_.imetable.html#errors" class="tsd-kind-icon">errors</a>
+								<a href="_container_i_me_lego_modal_.imelegomodal.html#entityid" class="tsd-kind-icon">entity<wbr>Id</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported">
-								<a href="_elems_i_me_table_.imetable.html#exist" class="tsd-kind-icon">exist</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite tsd-is-not-exported">
-								<a href="_elems_i_me_table_.imetable.html#exportable" class="tsd-kind-icon">exportable</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-								<a href="_elems_i_me_table_.imetable.html#filterable" class="tsd-kind-icon">filterable</a>
+								<a href="_container_i_me_lego_modal_.imelegomodal.html#errors" class="tsd-kind-icon">errors</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported">
-								<a href="_elems_i_me_table_.imetable.html#formhorizontal" class="tsd-kind-icon">form<wbr>Horizontal</a>
+								<a href="_container_i_me_lego_modal_.imelegomodal.html#exist" class="tsd-kind-icon">exist</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported">
-								<a href="_elems_i_me_table_.imetable.html#help" class="tsd-kind-icon">help</a>
+								<a href="_container_i_me_lego_modal_.imelegomodal.html#exportable" class="tsd-kind-icon">exportable</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported">
-								<a href="_elems_i_me_table_.imetable.html#i18n" class="tsd-kind-icon">i18n</a>
+								<a href="_container_i_me_lego_modal_.imelegomodal.html#formhorizontal" class="tsd-kind-icon">form<wbr>Horizontal</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported">
-								<a href="_elems_i_me_table_.imetable.html#icon" class="tsd-kind-icon">icon</a>
+								<a href="_container_i_me_lego_modal_.imelegomodal.html#help" class="tsd-kind-icon">help</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported">
-								<a href="_elems_i_me_table_.imetable.html#id" class="tsd-kind-icon">id</a>
+								<a href="_container_i_me_lego_modal_.imelegomodal.html#i18n" class="tsd-kind-icon">i18n</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported">
-								<a href="_elems_i_me_table_.imetable.html#inlineform" class="tsd-kind-icon">inline<wbr>Form</a>
+								<a href="_container_i_me_lego_modal_.imelegomodal.html#icon" class="tsd-kind-icon">icon</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported">
-								<a href="_elems_i_me_table_.imetable.html#label" class="tsd-kind-icon">label</a>
+								<a href="_container_i_me_lego_modal_.imelegomodal.html#id" class="tsd-kind-icon">id</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported">
-								<a href="_elems_i_me_table_.imetable.html#listen" class="tsd-kind-icon">listen</a>
+								<a href="_container_i_me_lego_modal_.imelegomodal.html#inlineform" class="tsd-kind-icon">inline<wbr>Form</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported">
-								<a href="_elems_i_me_table_.imetable.html#name" class="tsd-kind-icon">name</a>
+								<a href="_container_i_me_lego_modal_.imelegomodal.html#label" class="tsd-kind-icon">label</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported">
-								<a href="_elems_i_me_table_.imetable.html#offset" class="tsd-kind-icon">offset</a>
+								<a href="_container_i_me_lego_modal_.imelegomodal.html#listen" class="tsd-kind-icon">listen</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported">
-								<a href="_elems_i_me_table_.imetable.html#order" class="tsd-kind-icon">order</a>
+								<a href="_container_i_me_lego_modal_.imelegomodal.html#name" class="tsd-kind-icon">name</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported">
-								<a href="_elems_i_me_table_.imetable.html#persistvalueview" class="tsd-kind-icon">persist<wbr>Value<wbr>View</a>
+								<a href="_container_i_me_lego_modal_.imelegomodal.html#offset" class="tsd-kind-icon">offset</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported">
-								<a href="_elems_i_me_table_.imetable.html#refpvmdata" class="tsd-kind-icon">ref<wbr>Pvm<wbr>Data</a>
+								<a href="_container_i_me_lego_modal_.imelegomodal.html#order" class="tsd-kind-icon">order</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported">
-								<a href="_elems_i_me_table_.imetable.html#refpvmvalidator" class="tsd-kind-icon">ref<wbr>Pvm<wbr>Validator</a>
+								<a href="_container_i_me_lego_modal_.imelegomodal.html#persistvalueview" class="tsd-kind-icon">persist<wbr>Value<wbr>View</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported">
-								<a href="_elems_i_me_table_.imetable.html#selectedvalueview" class="tsd-kind-icon">selected<wbr>Value<wbr>View</a>
+								<a href="_container_i_me_lego_modal_.imelegomodal.html#refpvmdata" class="tsd-kind-icon">ref<wbr>Pvm<wbr>Data</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported">
-								<a href="_elems_i_me_table_.imetable.html#selfdepends" class="tsd-kind-icon">self<wbr>Depends</a>
+								<a href="_container_i_me_lego_modal_.imelegomodal.html#refpvmvalidator" class="tsd-kind-icon">ref<wbr>Pvm<wbr>Validator</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported">
-								<a href="_elems_i_me_table_.imetable.html#span" class="tsd-kind-icon">span</a>
+								<a href="_container_i_me_lego_modal_.imelegomodal.html#selectedvalueview" class="tsd-kind-icon">selected<wbr>Value<wbr>View</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported">
-								<a href="_elems_i_me_table_.imetable.html#tooltip" class="tsd-kind-icon">tooltip</a>
+								<a href="_container_i_me_lego_modal_.imelegomodal.html#selfdepends" class="tsd-kind-icon">self<wbr>Depends</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported">
-								<a href="_elems_i_me_table_.imetable.html#valid" class="tsd-kind-icon">valid</a>
+								<a href="_container_i_me_lego_modal_.imelegomodal.html#span" class="tsd-kind-icon">span</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported">
-								<a href="_elems_i_me_table_.imetable.html#validateinprogress" class="tsd-kind-icon">validate<wbr>InProgress</a>
+								<a href="_container_i_me_lego_modal_.imelegomodal.html#tooltip" class="tsd-kind-icon">tooltip</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported">
-								<a href="_elems_i_me_table_.imetable.html#value" class="tsd-kind-icon">value</a>
+								<a href="_container_i_me_lego_modal_.imelegomodal.html#valid" class="tsd-kind-icon">valid</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported">
-								<a href="_elems_i_me_table_.imetable.html#visible" class="tsd-kind-icon">visible</a>
+								<a href="_container_i_me_lego_modal_.imelegomodal.html#validateinprogress" class="tsd-kind-icon">validate<wbr>InProgress</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported">
+								<a href="_container_i_me_lego_modal_.imelegomodal.html#value" class="tsd-kind-icon">value</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported">
+								<a href="_container_i_me_lego_modal_.imelegomodal.html#visible" class="tsd-kind-icon">visible</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_elems_i_me_table_.imetableattrs.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Attrs</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_elems_i_me_table_.imetableattrsoptions.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Attrs<wbr>Options</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_elems_i_me_table_.imetableattrssearch.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Attrs<wbr>Search</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_elems_i_me_table_.imetablecelldescription.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Cell<wbr>Description</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_elems_i_me_table_.imetablecelldiff.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Cell<wbr>Diff</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_elems_i_me_table_.imetablecelleditor.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Cell<wbr>Editor</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_elems_i_me_table_.imetablecellkpistatus.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Cell<wbr>Kpi<wbr>Status</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_elems_i_me_table_.imetablecellkpitrend.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Cell<wbr>Kpi<wbr>Trend</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_elems_i_me_table_.imetablecelllego.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Cell<wbr>Lego</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_elems_i_me_table_.imetablecellnotes.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Cell<wbr>Notes</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_elems_i_me_table_.imetablecellprogressbar.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Cell<wbr>Progress<wbr>Bar</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_elems_i_me_table_.imetablecellprops.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Cell<wbr>Props</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_elems_i_me_table_.imetablecellstyle.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Cell<wbr>Style</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_elems_i_me_table_.imetablecellstylefont.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Cell<wbr>Style<wbr>Font</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_elems_i_me_table_.imetableexportoptions.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Export<wbr>Options</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_elems_i_me_table_.imetableheader.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Header</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_elems_i_me_table_.imetablepager.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Pager</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_elems_i_me_table_.imetableplugineditable.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Plugin<wbr>Editable</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_elems_i_me_table_.imetableplugingoalseek.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Plugin<wbr>Goal<wbr>Seek</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_elems_i_me_table_.imetablepluginhiddencolumns.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Plugin<wbr>Hidden<wbr>Columns</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_elems_i_me_table_.imetablepluginmenu.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Plugin<wbr>Menu</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_elems_i_me_table_.imetablepluginmenuitem.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Plugin<wbr>Menu<wbr>Item</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_elems_i_me_table_.imetableprops.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Props</a>
+						<a href="_container_i_me_lego_modal_.imelegomodalattrs.html" class="tsd-kind-icon">IMe<wbr>Lego<wbr>Modal<wbr>Attrs</a>
 					</li>
 				</ul>
 			</nav>

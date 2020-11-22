@@ -148,7 +148,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_i_me_elem_.imeelem.html">IMeElem</a>.<a href="_i_me_elem_.imeelem.html#__tid">__tid</a></p>
 						<ul>
-							<li>Defined in i.me-elem.ts:180</li>
+							<li>Defined in i.me-elem.ts:185</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -196,7 +196,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_i_me_elem_.imeelem.html">IMeElem</a>.<a href="_i_me_elem_.imeelem.html#bindattrs">bindAttrs</a></p>
 						<ul>
-							<li>Defined in i.me-elem.ts:165</li>
+							<li>Defined in i.me-elem.ts:170</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -266,7 +266,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_i_me_elem_.imeelemcontainer.html">IMeElemContainer</a>.<a href="_i_me_elem_.imeelemcontainer.html#elems">elems</a></p>
 						<ul>
-							<li>Defined in i.me-elem.ts:478</li>
+							<li>Defined in i.me-elem.ts:483</li>
 						</ul>
 					</aside>
 				</section>
@@ -294,7 +294,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_i_me_elem_.imeelem.html">IMeElem</a>.<a href="_i_me_elem_.imeelem.html#errors">errors</a></p>
 						<ul>
-							<li>Defined in i.me-elem.ts:195</li>
+							<li>Defined in i.me-elem.ts:200</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -310,7 +310,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_i_me_elem_.imeelem.html">IMeElem</a>.<a href="_i_me_elem_.imeelem.html#exist">exist</a></p>
 						<ul>
-							<li>Defined in i.me-elem.ts:151</li>
+							<li>Defined in i.me-elem.ts:156</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -323,6 +323,10 @@
 						</div>
 						<p>Важно! Если вам надо ставить два условия используйте indexOf
 						Например: [&quot;goal_completions&quot;, &quot;visit&quot;].indexOf(env.sp.obj.metric_elem[].kpi_indicator) &gt; -1</p>
+						<p>Если вдруг не работает, возможно надо использовать двойное отрицание &quot;!!&quot;, чтобы получить bool из переменной любого типа.
+							Например !pvm.data.mylist.row[0].user - будет &quot;не user в первой строке&quot;
+							Например !!pvm.data.mylist.row[0].user - будет &quot;есть user в первой строке и это не null, не пустота и не 0&quot;
+						Т.е. прямо как это работает в конструкции if в языках javascript, python, php</p>
 						<p>Условия типа такого:
 							env.sp.obj.metric_elem[].kpi_indicator == &quot;visit&quot; || env.sp.obj.metric_elem[].kpi_indicator == &quot;goal_completions&quot;
 						где дважды используется [] не будут работать из-за внутренней реализации</p>
@@ -343,7 +347,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_i_me_elem_.imeelem.html">IMeElem</a>.<a href="_i_me_elem_.imeelem.html#exportable">exportable</a></p>
 						<ul>
-							<li>Defined in i.me-elem.ts:227</li>
+							<li>Defined in i.me-elem.ts:232</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -392,7 +396,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_i_me_elem_.imeelem.html">IMeElem</a>.<a href="_i_me_elem_.imeelem.html#i18n">i18n</a></p>
 						<ul>
-							<li>Defined in i.me-elem.ts:222</li>
+							<li>Defined in i.me-elem.ts:227</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -494,7 +498,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_i_me_elem_.imeelem.html">IMeElem</a>.<a href="_i_me_elem_.imeelem.html#listen">listen</a></p>
 						<ul>
-							<li>Defined in i.me-elem.ts:174</li>
+							<li>Defined in i.me-elem.ts:179</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -562,7 +566,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_i_me_elem_.imeelem.html">IMeElem</a>.<a href="_i_me_elem_.imeelem.html#persistvalueview">persistValueView</a></p>
 						<ul>
-							<li>Defined in i.me-elem.ts:211</li>
+							<li>Defined in i.me-elem.ts:216</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -624,7 +628,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_i_me_elem_.imeelem.html">IMeElem</a>.<a href="_i_me_elem_.imeelem.html#selectedvalueview">selectedValueView</a></p>
 						<ul>
-							<li>Defined in i.me-elem.ts:216</li>
+							<li>Defined in i.me-elem.ts:221</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -677,7 +681,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_i_me_elem_.imeelem.html">IMeElem</a>.<a href="_i_me_elem_.imeelem.html#tooltip">tooltip</a></p>
 						<ul>
-							<li>Defined in i.me-elem.ts:190</li>
+							<li>Defined in i.me-elem.ts:195</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -693,7 +697,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_i_me_elem_.imeelem.html">IMeElem</a>.<a href="_i_me_elem_.imeelem.html#valid">valid</a></p>
 						<ul>
-							<li>Defined in i.me-elem.ts:205</li>
+							<li>Defined in i.me-elem.ts:210</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -709,7 +713,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_i_me_elem_.imeelem.html">IMeElem</a>.<a href="_i_me_elem_.imeelem.html#validateinprogress">validateInProgress</a></p>
 						<ul>
-							<li>Defined in i.me-elem.ts:200</li>
+							<li>Defined in i.me-elem.ts:205</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -741,7 +745,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_i_me_elem_.imeelem.html">IMeElem</a>.<a href="_i_me_elem_.imeelem.html#visible">visible</a></p>
 						<ul>
-							<li>Defined in i.me-elem.ts:159</li>
+							<li>Defined in i.me-elem.ts:164</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">

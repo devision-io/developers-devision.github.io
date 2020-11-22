@@ -161,7 +161,7 @@
 					<div class="tsd-signature tsd-kind-icon">__tid<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in i.me-elem.ts:180</li>
+							<li>Defined in i.me-elem.ts:185</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -196,7 +196,7 @@
 					<div class="tsd-signature tsd-kind-icon">attrs<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> | </span><a href="_elems_i_me_input_.imeinputattrs.html" class="tsd-signature-type">IMeInputAttrs</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in i.me-elem.ts:185</li>
+							<li>Defined in i.me-elem.ts:190</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -211,7 +211,7 @@
 					<div class="tsd-signature tsd-kind-icon">bind<wbr>Attrs<span class="tsd-signature-symbol">:</span> <a href="_i_me_elem_.imeelembindattrs.html" class="tsd-signature-type">IMeElemBindAttrs</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in i.me-elem.ts:165</li>
+							<li>Defined in i.me-elem.ts:170</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -294,7 +294,7 @@
 					<div class="tsd-signature tsd-kind-icon">errors<span class="tsd-signature-symbol">:</span> <a href="_i_me_elem_.imeelemerror.html" class="tsd-signature-type">IMeElemError</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in i.me-elem.ts:195</li>
+							<li>Defined in i.me-elem.ts:200</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -309,7 +309,7 @@
 					<div class="tsd-signature tsd-kind-icon">exist<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><a href="_i_me_elem_.imeelemexistsetting.html" class="tsd-signature-type">IMeElemExistSetting</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in i.me-elem.ts:151</li>
+							<li>Defined in i.me-elem.ts:156</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -322,6 +322,10 @@
 						</div>
 						<p>Важно! Если вам надо ставить два условия используйте indexOf
 						Например: [&quot;goal_completions&quot;, &quot;visit&quot;].indexOf(env.sp.obj.metric_elem[].kpi_indicator) &gt; -1</p>
+						<p>Если вдруг не работает, возможно надо использовать двойное отрицание &quot;!!&quot;, чтобы получить bool из переменной любого типа.
+							Например !pvm.data.mylist.row[0].user - будет &quot;не user в первой строке&quot;
+							Например !!pvm.data.mylist.row[0].user - будет &quot;есть user в первой строке и это не null, не пустота и не 0&quot;
+						Т.е. прямо как это работает в конструкции if в языках javascript, python, php</p>
 						<p>Условия типа такого:
 							env.sp.obj.metric_elem[].kpi_indicator == &quot;visit&quot; || env.sp.obj.metric_elem[].kpi_indicator == &quot;goal_completions&quot;
 						где дважды используется [] не будут работать из-за внутренней реализации</p>
@@ -341,7 +345,7 @@
 					<div class="tsd-signature tsd-kind-icon">exportable<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in i.me-elem.ts:227</li>
+							<li>Defined in i.me-elem.ts:232</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -387,7 +391,7 @@
 					<div class="tsd-signature tsd-kind-icon">i18n<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in i.me-elem.ts:222</li>
+							<li>Defined in i.me-elem.ts:227</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -484,7 +488,7 @@
 					<div class="tsd-signature tsd-kind-icon">listen<span class="tsd-signature-symbol">:</span> <a href="_i_me_elem_.imeelemlistenitem.html" class="tsd-signature-type">IMeElemListenItem</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in i.me-elem.ts:174</li>
+							<li>Defined in i.me-elem.ts:179</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -548,7 +552,7 @@
 					<div class="tsd-signature tsd-kind-icon">persist<wbr>Value<wbr>View<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in i.me-elem.ts:211</li>
+							<li>Defined in i.me-elem.ts:216</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -607,7 +611,7 @@
 					<div class="tsd-signature tsd-kind-icon">selected<wbr>Value<wbr>View<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in i.me-elem.ts:216</li>
+							<li>Defined in i.me-elem.ts:221</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -657,7 +661,7 @@
 					<div class="tsd-signature tsd-kind-icon">tooltip<span class="tsd-signature-symbol">:</span> <a href="_helpers_i_common_.itooltip.html" class="tsd-signature-type">ITooltip</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in i.me-elem.ts:190</li>
+							<li>Defined in i.me-elem.ts:195</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -672,7 +676,7 @@
 					<div class="tsd-signature tsd-kind-icon">valid<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in i.me-elem.ts:205</li>
+							<li>Defined in i.me-elem.ts:210</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -687,7 +691,7 @@
 					<div class="tsd-signature tsd-kind-icon">validate<wbr>InProgress<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in i.me-elem.ts:200</li>
+							<li>Defined in i.me-elem.ts:205</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -717,7 +721,7 @@
 					<div class="tsd-signature tsd-kind-icon">visible<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in i.me-elem.ts:159</li>
+							<li>Defined in i.me-elem.ts:164</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">

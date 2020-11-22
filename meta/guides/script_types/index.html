@@ -304,7 +304,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             <li data-nav-id="/guides/build_url/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/guides/build_url/" class="devsite-nav-title">
-                    <span>Построение URL</span>
+                    <span>Ссылки: Построение URL</span>
                 </a>
             </li>
             
@@ -1619,7 +1619,13 @@ span=&quot;6&rdquo; - только половину.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;my_data&#34;</span> <span style="color:#a6e22e">internal</span>&gt;
   <span style="color:#a6e22e">SELECT</span> <span style="color:#ae81ff">1</span>
 &lt;/<span style="color:#f92672">script</span>&gt;
-</code></pre></div><h2 id="условия-do-if">Условия do-if</h2>
+</code></pre></div><h2 id="ключевое-слово-async">Ключевое слово async</h2>
+<p>Является ли скрипт асинхронным, по умолчанию равно false.
+Если true, то при загрузке страницы скрипт не будет выполнен.
+Будет считаться, что эти данные будут загружаться браузером асинхронно.
+При этом это может использоваться как для me-input, так и для просто refPvmData.
+Это очень удобно для медленных графиков или того, что можно догрузить после всего.</p>
+<h2 id="условия-do-if">Условия do-if</h2>
 <p>Используется для условной фильтрации скриптов и элементов на бекенде.
 Скрипты не будет исполняться и будет предотвращать отрисовку связанных элементов. Элементы, при установки do-if на них не будут приходить на фронтенд</p>
 <p>Пример: <a href="https://samples-demo.devision.io/page?p=4551&amp;a=35">https://samples-demo.devision.io/page?p=4551&amp;a=35</a></p>
@@ -1891,6 +1897,7 @@ PostgreSQL очень хорошо справляется почти со все
       </ul>
     </li>
     <li><a href="#ключевое-слово-internal">Ключевое слово internal</a></li>
+    <li><a href="#ключевое-слово-async">Ключевое слово async</a></li>
     <li><a href="#условия-do-if">Условия do-if</a></li>
     <li><a href="#атрибут-exportable-по-умолчанию-true">Атрибут exportable (по умолчанию true)</a></li>
     <li><a href="#атрибут-analyzable-по-умолчанию-true">Атрибут analyzable (по умолчанию true)</a></li>

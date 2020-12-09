@@ -9,7 +9,7 @@
     <meta name="description" content="">
 
 
-    <title>GaService :: META | Devision Developers</title>
+    <title>Медиаданные :: META | Devision Developers</title>
     <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/reference/java_api/gaservice/">
+  <body class="" data-url="/guides/media/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -91,7 +91,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="/guides/" class="devsite-nav-item devsite-nav-item-main
-                        
+                        parent
                         
                         parent
                         ">
@@ -230,7 +230,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/guides/media/" class="devsite-nav-item dd-item ">
+            <li data-nav-id="/guides/media/" class="devsite-nav-item dd-item active">
                 <a href="https://developers.devision.io/meta/guides/media/" class="devsite-nav-title">
                     <span>Медиаданные</span>
                 </a>
@@ -875,7 +875,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="/reference/" class="devsite-nav-item devsite-nav-item-main
-                        parent
+                        
                         
                         parent
                         ">
@@ -1129,7 +1129,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="/reference/java_api/" class="devsite-nav-item devsite-nav-item-main
-                        parent
+                        
                         
                         
                         ">
@@ -1286,7 +1286,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/reference/java_api/gaservice/" class="devsite-nav-item dd-item active">
+            <li data-nav-id="/reference/java_api/gaservice/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/reference/java_api/gaservice/" class="devsite-nav-title">
                     <span>GaService</span>
                 </a>
@@ -1568,12 +1568,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-
-
-
- <a href='https://developers.devision.io/meta/'>META</a> > <a href='https://developers.devision.io/meta/reference/'>Справочник по API</a> > <a href='https://developers.devision.io/meta/reference/java_api/'>Java API</a> > GaService
-
-
+ <a href='https://developers.devision.io/meta/'>META</a> > <a href='https://developers.devision.io/meta/guides/'>Руководства</a> > Медиаданные
 
 
 
@@ -1587,38 +1582,65 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <div id="body-inner">
           
-            <h1>GaService</h1>
+            <h1>Медиаданные</h1>
           
 
 
 
-<table>
-<thead>
-<tr>
-<th>Метод и описание</th>
-<th>Возвращаемый тип</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>eventTrack ( category: String, action: String)</td>
-<td>void</td>
-</tr>
-<tr>
-<td>eventTrack ( category: String, action: String, label: String)</td>
-<td>void</td>
-</tr>
-<tr>
-<td>eventTrack ( category: String, action: String, label: String, value: Long)</td>
-<td>void</td>
-</tr>
-<tr>
-<td>send ( parameters: Map)</td>
-<td>void</td>
-</tr>
-</tbody>
-</table>
+<h2 id="что-такое-и-где-используются">Что такое и где используются?</h2>
+<p>Контент любых файлов как правило плохо хранить прямо в базе данных,
+так как это вызывает дополнительную нагрузку на хранение, репликацию,
+очистку, vacuum (для postgres), выборку данных (если у вас БД не с колоночным хранением).</p>
+<p>Поэтому в мете есть специальное API для работы с файлами.
+По сути вся работа сводится к тому, чтобы на интерфейсе через форму или на сервере через metasdk загрузить данные,
+а потом на интерфейсе их показать или получить на бекенде.</p>
+<p>Мета может хранить данные просто в расшаренной папке,
+но рекомендуется настраивать S3 совместимое хранилище через общий конфигурационный файл платформы.</p>
+<h3 id="загрузка-данных">Загрузка данных</h3>
+<p>Для загрузки данных через интерфейс используйте компонент <a href="https://samples-demo.devision.io/page?p=4201&amp;a=35">me-input type=attach</a></p>
+<p>Если вам нужно загрузить данные программно, то используйте метод upload в <a href="https://metasdk.readthedocs.io/ru/latest/rpc.html#mediaservice">MediaService</a> в python metasdk.</p>
+<p>При загрузке файлов вы можете устанавливать значения для <code>entityId</code> и <code>objectId</code>, это желательно, не необязательно.
+Это нужно, чтобы семантически привязать медиафайл к какому-либо объекту меты.
+Например, установив entityId=190 и objectId=42 вы привяжете загружаемый медиафайл к Сущности клиент с primary key = 42</p>
+<p>Для оптимизации хранения очень полезно устанавливать ttl хранения для временных данных и результатов,
+которые можно автоматически стирать через время. Если его не устанавливать, то хранение будет вечным,
+что может негативно сказаться на стоимости вашего решения.</p>
+<h3 id="хранение">Хранение</h3>
+<p>Даные записываются ядром меты, не рекомендуюется делать вставку данных в таблицу в ручную,
+так как это может негативно повлиять на систему.</p>
+<p>Таблица для хранения: <code>meta.media</code></p>
+<h3 id="markdown">Markdown</h3>
+<p>В полях типа MARKDOWN или при использовании <a href="https://developers.devision.io/meta/meta/reference/java_api/markdownservice/">MarkdownService</a> вы можете достаточно просто
+сгенерировать полную ссылку на скачивание или просмотр медиафайла.</p>
+<ul>
+<li><code>[~media_view:41d1d840-5055-4852-84d1-7edd8497e41a]</code> - ссылка на просмотр медиафайла</li>
+<li><code>[~media_download:41d1d840-5055-4852-84d1-7edd8497e41a]</code> - ссылка на загрузку медиафайла</li>
+</ul>
+<p>В этих случаях сгенерируется абсолютная ссылка с каноническим именем медиафайла.</p>
+<h3 id="работа-через-metasdk">Работа через metasdk</h3>
+<p>Ознакомьтесь с <a href="%5BMediaService%5D(https://metasdk.readthedocs.io/ru/latest/rpc.html#mediaservice)">основным описанием</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> metasdk <span style="color:#f92672">import</span> MetaApp
+<span style="color:#f92672">from</span> tempfile <span style="color:#f92672">import</span> NamedTemporaryFile
+<span style="color:#f92672">import</span> shutil
 
+META <span style="color:#f92672">=</span> MetaApp()
+
+media_id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;41d1d840-5055-4852-84d1-7edd8497e41a&#34;</span> <span style="color:#75715e"># замените на свой media_id</span>
+
+<span style="color:#75715e"># Для больших файлов важно скачивать их as_stream, чтобы жкономить память на сервере и на клиенте</span>
+response <span style="color:#f92672">=</span> META<span style="color:#f92672">.</span>MediaService<span style="color:#f92672">.</span>download(media_id, as_stream<span style="color:#f92672">=</span>True)
+
+<span style="color:#75715e"># мета старается сжимать ответы через gzip, поэтому</span>
+<span style="color:#75715e"># для текстовых файлов часто очень важно устанавливать decode_content=True</span>
+<span style="color:#75715e"># например для mime application/json плохо скачиваются</span>
+<span style="color:#75715e"># response.raw.decode_content = True</span>
+ 
+TMP_DIR <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;./my_tmp&#34;</span>
+
+source_file <span style="color:#f92672">=</span> NamedTemporaryFile(dir<span style="color:#f92672">=</span>TMP_DIR, delete<span style="color:#f92672">=</span>False)
+<span style="color:#66d9ef">with</span> open(source_file<span style="color:#f92672">.</span>name, <span style="color:#e6db74">&#34;wb&#34;</span>) <span style="color:#66d9ef">as</span> out_file:
+    shutil<span style="color:#f92672">.</span>copyfileobj(response<span style="color:#f92672">.</span>raw, out_file)
+</code></pre></div>
 
 
 
@@ -1629,7 +1651,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#что-такое-и-где-используются">Что такое и где используются?</a>
+      <ul>
+        <li><a href="#загрузка-данных">Загрузка данных</a></li>
+        <li><a href="#хранение">Хранение</a></li>
+        <li><a href="#markdown">Markdown</a></li>
+        <li><a href="#работа-через-metasdk">Работа через metasdk</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 </div>
 
 </div>

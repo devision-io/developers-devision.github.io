@@ -28,6 +28,10 @@
   </url>
   
   <url>
+    <loc>https://developers.devision.io/meta/configs/capp/</loc>
+  </url>
+  
+  <url>
     <loc>https://developers.devision.io/meta/work_with_data/datadiff/</loc>
   </url>
   
@@ -158,6 +162,10 @@
   
   <url>
     <loc>https://developers.devision.io/meta/compoments/ticket/</loc>
+  </url>
+  
+  <url>
+    <loc>https://developers.devision.io/meta/configs/</loc>
   </url>
   
   <url>

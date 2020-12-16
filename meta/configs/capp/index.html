@@ -9,7 +9,7 @@
     <meta name="description" content="">
 
 
-    <title>Простейший отчет с фильтрами :: META | Devision Developers</title>
+    <title>App :: META | Devision Developers</title>
     <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/samples/pages/report_with_filters/">
+  <body class="" data-url="/configs/capp/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -381,7 +381,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="/samples/" class="devsite-nav-item devsite-nav-item-main
-                        parent
+                        
                         
                         parent
                         ">
@@ -412,7 +412,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/samples/pages/report_with_filters/" class="devsite-nav-item dd-item active">
+            <li data-nav-id="/samples/pages/report_with_filters/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/samples/pages/report_with_filters/" class="devsite-nav-title">
                     <span>Простейший отчет с фильтрами</span>
                 </a>
@@ -875,7 +875,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="/configs/" class="devsite-nav-item devsite-nav-item-main
-                        
+                        parent
                         
                         parent
                         ">
@@ -906,7 +906,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/configs/capp/" class="devsite-nav-item dd-item ">
+            <li data-nav-id="/configs/capp/" class="devsite-nav-item dd-item active">
                 <a href="https://developers.devision.io/meta/configs/capp/" class="devsite-nav-title">
                     <span>App</span>
                 </a>
@@ -1624,7 +1624,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
- <a href='https://developers.devision.io/meta/'>META</a> > <a href='https://developers.devision.io/meta/samples/'>Примеры</a> > Простейший отчет с фильтрами
+ <a href='https://developers.devision.io/meta/'>META</a> > <a href='https://developers.devision.io/meta/configs/'>Конфигурация</a> > App
 
 
 
@@ -1638,91 +1638,47 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <div id="body-inner">
           
-            <h1>Простейший отчет с фильтрами</h1>
+            <h1>App</h1>
           
 
 
 
-<!-- raw HTML omitted -->
-<p>Типичная задача META - вывод списка объектов в виде отчета с фильтрами.</p>
-<p>Обычно отчет представляет из себя одну таблицу с фильтрами. Script id такой основной таблицы рекомендуется называть &ldquo;res&rdquo;, чтобы другим разработчикам было привычнее читать ваш код.</p>
-<h2 id="код-примера">Код примера</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- 
-</span><span style="color:#75715e">Фильтрация
-</span><span style="color:#75715e">
-</span><span style="color:#75715e">Атрибут page-search объединяет эти фильтры в общий блок пресетов. 
-</span><span style="color:#75715e">Это позволяет пользователю быстрее находить фильтры и сохранять пресеты фильтров 
-</span><span style="color:#75715e"> --&gt;</span>
-&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta_samples&#34;</span> <span style="color:#a6e22e">label</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Организация&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;org_ids&#34;</span> <span style="color:#a6e22e">elem</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;me-select&#34;</span> <span style="color:#a6e22e">order</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1&#34;</span> <span style="color:#a6e22e">span</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;4&#34;</span> <span style="color:#a6e22e">elem-attrs</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;{&#34;multiple&#34;:true}&#39;</span> <span style="color:#a6e22e">page-search</span>&gt;
-<span style="color:#a6e22e">SELECT</span> <span style="color:#e6db74">&#34;organizationId&#34;</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">id</span>, <span style="color:#a6e22e">name</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">name</span> <span style="color:#a6e22e">FROM</span> <span style="color:#e6db74">&#34;organization&#34;</span> <span style="color:#a6e22e">order</span> <span style="color:#a6e22e">by</span> <span style="color:#a6e22e">name</span>
-&lt;/<span style="color:#f92672">script</span>&gt;
+<h2 id="конфигурация-приложений">Конфигурация приложений</h2>
+<p>Конфигурация приложений расположена в файле <strong>apps.yaml</strong> в корне app-content.</p>
+<p>Файл содержит в себе структуру:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">apps</span>:
+  - <span style="color:#66d9ef">id</span>: string <span style="color:#75715e"># ID приложения</span>
+    <span style="color:#66d9ef">name</span>: string <span style="color:#75715e"># Имя приложения. Выводится везде для всех</span>
+    <span style="color:#66d9ef">alias</span>: string <span style="color:#75715e"># для тикетов и мета страницы и для фидов</span>
+    <span style="color:#66d9ef">description</span>: string <span style="color:#75715e"># Для вывода разработчикам</span>
+    <span style="color:#66d9ef">category</span>: string <span style="color:#75715e"># Название категории для разработчиков</span>
+    <span style="color:#66d9ef">site_url</span>: string <span style="color:#75715e"># Для редиректа на логин, скачивание файлов и пр.</span>
+    <span style="color:#66d9ef">favicon_url</span>: string <span style="color:#75715e"># Ссылка на favicon</span>
+    <span style="color:#66d9ef">picture_url</span>: string <span style="color:#75715e"># Основная нормальная иконка приложения</span>
+    <span style="color:#66d9ef">middle_picture_url</span>: string <span style="color:#75715e"># Если указано - выводится на иконке внутри приложения, если нет - то picture_url</span>
+    <span style="color:#66d9ef">login_picture_url</span>: string <span style="color:#75715e"># Если указано - выводится на форме логина, если нет - то picture_url</span>
+    <span style="color:#66d9ef">help_url</span>: string <span style="color:#75715e"># Ссылка на хелп в приложении</span>
+    <span style="color:#66d9ef">is_join_user_enabled</span>: string <span style="color:#75715e"># Можно ли зарегистрироваться через это приложение</span>
+    <span style="color:#66d9ef">is_fast_google_auth_enabled</span>: string <span style="color:#75715e"># Включена ли функция быстрого входа через Google - https://developers.google.com/identity/one-tap/web</span>
+    <span style="color:#66d9ef">is_global_search_enabled</span>: bool <span style="color:#75715e"># Доступен ли интерфейс глобального поиска</span>
+    <span style="color:#66d9ef">is_hide_first_item_in_top_menu</span>: bool <span style="color:#75715e"># Некоторые приложения нуждаются в скрытии первого элемента меню, но при этом клик по лого приложния все также должен перенаправлять пользователя на эту страницу.</span>
+    <span style="color:#66d9ef">oauth_server</span>:
+      <span style="color:#66d9ef">server_url</span>: string <span style="color:#75715e"># Schema + host. Например https://account.devision.io</span>
+      <span style="color:#66d9ef">client_id</span>: string <span style="color:#75715e"># ClientID полученый через Cloud. Записан в id в meta.oauth_client</span>
+      <span style="color:#66d9ef">client_secret</span>: string <span style="color:#75715e"># ClientSecret полученый через Cloud. Записан в secret в meta.oauth_client</span>
+    <span style="color:#66d9ef">acl</span>: map <span style="color:#75715e"># Map ключ значение. Повторяет схему acl для страниц. Смотрите в примерах</span>
+    <span style="color:#66d9ef">i18n</span>:
+      <span style="color:#66d9ef">ru</span>:
+        <span style="color:#66d9ef">join_app_name</span>: string <span style="color:#75715e"># Имя приложения при регистрации</span>
+        <span style="color:#66d9ef">public_offer_url</span>: string <span style="color:#75715e"># Ссылка на подтверждение оферты при регистрации</span>
+        <span style="color:#66d9ef">privacy_policy_url</span>: string <span style="color:#75715e"># Ссылка на документацию по работе с персональными данными</span>
+      <span style="color:#66d9ef">en</span>: 
+        <span style="color:#75715e"># по аналогии ...</span>
+      <span style="color:#75715e"># любой язык по аналогии ...</span>
+  - <span style="color:#66d9ef">id</span>: string <span style="color:#75715e"># ID приложения 2</span>
+    <span style="color:#75715e"># ....</span>
+</code></pre></div><p>Параметры bool по умолчанию принимают значения false</p>
 
-&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta_samples&#34;</span> <span style="color:#a6e22e">label</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Статус&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;active_mode&#34;</span> <span style="color:#a6e22e">elem</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;me-select&#34;</span> <span style="color:#a6e22e">default</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;all&#34;</span> <span style="color:#a6e22e">order</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1&#34;</span> <span style="color:#a6e22e">span</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;4&#34;</span> <span style="color:#a6e22e">page-search</span>&gt;
-<span style="color:#a6e22e">SELECT</span> <span style="color:#a6e22e">t</span>.<span style="color:#f92672">*</span> <span style="color:#a6e22e">FROM</span> (<span style="color:#a6e22e">VALUES</span> (<span style="color:#e6db74">&#39;all&#39;</span>, <span style="color:#e6db74">&#39;Все&#39;</span>), (<span style="color:#e6db74">&#39;active&#39;</span>, <span style="color:#e6db74">&#39;Активные&#39;</span>), (<span style="color:#e6db74">&#39;no_active&#39;</span>, <span style="color:#e6db74">&#39;Неактивные&#39;</span>)) <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">t</span>(<span style="color:#a6e22e">id</span>,<span style="color:#a6e22e">name</span>);
-&lt;/<span style="color:#f92672">script</span>&gt;
-
-
-<span style="color:#75715e">&lt;!-- 
-</span><span style="color:#75715e">Основная таблица 
-</span><span style="color:#75715e">
-</span><span style="color:#75715e">Большие таблицы обычно делаем с order=&#34;100500&#34;, чтобы они всегда точно буду в самом низу.
-</span><span style="color:#75715e">elem-attrs c ключом native делает настройки по умолчанию для me-pivot, которые нужны для режима Анализ данных, который есть почти на всех таблоицах автоматически  
-</span><span style="color:#75715e">--&gt;</span>
-&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta_samples&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;res&#34;</span> <span style="color:#a6e22e">entity-id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;2629&#34;</span> <span style="color:#a6e22e">label</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Шаблон страницы по умолчанию&#34;</span>
-<span style="color:#a6e22e">elem-attrs</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;{&#34;native&#34;: {
-</span><span style="color:#e6db74">        &#34;cols&#34;: [&#34;isActive&#34;],
-</span><span style="color:#e6db74">        &#34;rows&#34;: [&#34;org_name&#34;],
-</span><span style="color:#e6db74">        &#34;vals&#34;: [&#34;salary&#34;],
-</span><span style="color:#e6db74">        &#34;aggregatorName&#34;: &#34;Сумма&#34;,
-</span><span style="color:#e6db74">        &#34;menuLimit&#34;: 10000,
-</span><span style="color:#e6db74">        &#34;rendererName&#34;: &#34;Table With Subtotal&#34;,
-</span><span style="color:#e6db74">        &#34;skipEmptyLines&#34;: true,
-</span><span style="color:#e6db74">        &#34;unusedAttrsVertical&#34;: &#34;horizontal&#34;
-</span><span style="color:#e6db74">    }}&#39;</span>     
-   <span style="color:#a6e22e">elem-attrs</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;{&#34;addObjectButton&#34;:{&#34;title&#34;:&#34;Сотрудник&#34;, &#34;mode&#34;:&#34;modal&#34;}}&#39;</span> 
-    <span style="color:#a6e22e">order</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;100500&#34;</span> &gt;
-<span style="color:#a6e22e">SELECT</span>
-	<span style="color:#f92672">--</span> <span style="color:#a6e22e">Выбираемые</span> <span style="color:#a6e22e">поля</span>
-	<span style="color:#e6db74">&#34;employeeId&#34;</span>,
-	<span style="color:#a6e22e">employee</span>.<span style="color:#e6db74">&#34;name&#34;</span>,
-	<span style="color:#e6db74">&#34;isActive&#34;</span>,
-	<span style="color:#e6db74">&#34;creationTime&#34;</span>,
-	<span style="color:#a6e22e">organization</span>.<span style="color:#a6e22e">name</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">org_name</span>,
-	<span style="color:#a6e22e">organization</span>.<span style="color:#e6db74">&#34;workAfter&#34;</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">org_work_after</span>,
-	(<span style="color:#a6e22e">CASE</span> <span style="color:#a6e22e">WHEN</span> <span style="color:#e6db74">&#34;isActive&#34;</span> <span style="color:#a6e22e">THEN</span> <span style="color:#e6db74">&#39;&#39;</span> <span style="color:#a6e22e">ELSE</span> <span style="color:#e6db74">&#39;ЗАБЛОКИРОВАН&#39;</span> <span style="color:#a6e22e">END</span>) <span style="color:#a6e22e">as</span> <span style="color:#e6db74">&#34;статус&#34;</span>,
-	<span style="color:#e6db74">&#34;salary&#34;</span><span style="color:#f92672">::</span><span style="color:#a6e22e">int8</span>,
-	<span style="color:#f92672">--</span> <span style="color:#a6e22e">Системная</span> <span style="color:#a6e22e">колонка</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">добавляет</span> <span style="color:#a6e22e">total</span> <span style="color:#a6e22e">в</span> <span style="color:#a6e22e">пагинатор</span> <span style="color:#a6e22e">и</span> <span style="color:#a6e22e">применяет</span> <span style="color:#a6e22e">параметры</span> <span style="color:#a6e22e">к</span> <span style="color:#a6e22e">колонкам</span>
-	<span style="color:#a6e22e">json_build_object</span>(
-		<span style="color:#e6db74">&#39;pager&#39;</span>, <span style="color:#a6e22e">json_build_object</span>(<span style="color:#e6db74">&#39;total&#39;</span>, <span style="color:#a6e22e">count</span>(<span style="color:#f92672">*</span>) <span style="color:#a6e22e">over</span>()),
-		<span style="color:#e6db74">&#39;headers&#39;</span>, <span style="color:#a6e22e">json_build_array</span>(
-			<span style="color:#a6e22e">json_build_object</span>(<span style="color:#e6db74">&#39;name&#39;</span>, <span style="color:#e6db74">&#39;name&#39;</span>, <span style="color:#e6db74">&#39;displayName&#39;</span>, <span style="color:#e6db74">&#39;Имя&#39;</span>),
-			<span style="color:#a6e22e">json_build_object</span>(<span style="color:#e6db74">&#39;name&#39;</span>, <span style="color:#e6db74">&#39;creationTime&#39;</span>, <span style="color:#e6db74">&#39;displayName&#39;</span>, <span style="color:#e6db74">&#39;Добавлен&#39;</span>, <span style="color:#e6db74">&#39;parentColumn&#39;</span>, <span style="color:#e6db74">&#39;name&#39;</span>),
-			<span style="color:#a6e22e">json_build_object</span>(<span style="color:#e6db74">&#39;name&#39;</span>, <span style="color:#e6db74">&#39;isActive&#39;</span>, <span style="color:#e6db74">&#39;displayName&#39;</span>, <span style="color:#e6db74">&#39;Активный&#39;</span>, <span style="color:#e6db74">&#39;parentColumn&#39;</span>, <span style="color:#e6db74">&#39;name&#39;</span>),
-			<span style="color:#a6e22e">json_build_object</span>(<span style="color:#e6db74">&#39;name&#39;</span>, <span style="color:#e6db74">&#39;статус&#39;</span>, <span style="color:#e6db74">&#39;parentColumn&#39;</span>, <span style="color:#e6db74">&#39;name&#39;</span>, <span style="color:#e6db74">&#39;hideNameInParentColumn&#39;</span>, <span style="color:#66d9ef">true</span>),
-			<span style="color:#a6e22e">json_build_object</span>(<span style="color:#e6db74">&#39;name&#39;</span>, <span style="color:#e6db74">&#39;org_name&#39;</span>, <span style="color:#e6db74">&#39;displayName&#39;</span>, <span style="color:#e6db74">&#39;Организация&#39;</span>),
-			<span style="color:#a6e22e">json_build_object</span>(<span style="color:#e6db74">&#39;name&#39;</span>, <span style="color:#e6db74">&#39;org_work_after&#39;</span>, <span style="color:#e6db74">&#39;displayName&#39;</span>, <span style="color:#e6db74">&#39;Время работы&#39;</span>, <span style="color:#e6db74">&#39;parentColumn&#39;</span>, <span style="color:#e6db74">&#39;org_name&#39;</span>),
-			<span style="color:#a6e22e">json_build_object</span>(<span style="color:#e6db74">&#39;name&#39;</span>, <span style="color:#e6db74">&#39;salary&#39;</span>, <span style="color:#e6db74">&#39;displayName&#39;</span>, <span style="color:#e6db74">&#39;ЗП&#39;</span>)
-		)
-	) <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">table_props_field</span>
-<span style="color:#a6e22e">FROM</span> <span style="color:#e6db74">&#34;public&#34;</span>.<span style="color:#e6db74">&#34;employee&#34;</span>
-<span style="color:#a6e22e">inner</span> <span style="color:#a6e22e">join</span> <span style="color:#a6e22e">organization</span> <span style="color:#a6e22e">ON</span> <span style="color:#a6e22e">organization</span>.<span style="color:#e6db74">&#34;organizationId&#34;</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">employee</span>.<span style="color:#e6db74">&#34;organizationId&#34;</span>
-<span style="color:#a6e22e">WHERE</span> <span style="color:#a6e22e">employee</span>.<span style="color:#a6e22e">name</span> <span style="color:#a6e22e">ILIKE</span> <span style="color:#a6e22e">$</span>{<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">search_text</span>}
-<span style="color:#f92672">--</span> <span style="color:#a6e22e">Фильтрация</span> <span style="color:#a6e22e">данных</span> <span style="color:#a6e22e">таблицы</span>
-[<span style="color:#960050;background-color:#1e0010">#</span><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">sp</span>.<span style="color:#a6e22e">org_ids</span><span style="color:#f92672">?</span><span style="color:#a6e22e">size</span><span style="color:#f92672">&gt;</span><span style="color:#ae81ff">0</span>]
-	<span style="color:#a6e22e">AND</span> <span style="color:#a6e22e">employee</span>.<span style="color:#e6db74">&#34;organizationId&#34;</span> <span style="color:#a6e22e">IN</span> ( <span style="color:#f92672">:</span><span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">sp</span>.<span style="color:#a6e22e">org_ids</span> )
-[<span style="color:#960050;background-color:#1e0010">/#if]</span>
-[<span style="color:#960050;background-color:#1e0010">#</span><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">sp</span>.<span style="color:#a6e22e">active_mode</span><span style="color:#f92672">?</span><span style="color:#a6e22e">has_content</span>]
-	[<span style="color:#960050;background-color:#1e0010">#</span><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">sp</span>.<span style="color:#a6e22e">active_mode</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;active&#39;</span>]
-		<span style="color:#a6e22e">AND</span> <span style="color:#a6e22e">employee</span>.<span style="color:#e6db74">&#34;isActive&#34;</span>
-	[<span style="color:#960050;background-color:#1e0010">/#if]</span>
-	[<span style="color:#960050;background-color:#1e0010">#</span><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">sp</span>.<span style="color:#a6e22e">active_mode</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;no_active&#39;</span>]
-		<span style="color:#a6e22e">AND</span> <span style="color:#a6e22e">NOT</span> <span style="color:#a6e22e">employee</span>.<span style="color:#e6db74">&#34;isActive&#34;</span>
-	[<span style="color:#960050;background-color:#1e0010">/#if]</span>
-[<span style="color:#960050;background-color:#1e0010">/#if]</span>
-<span style="color:#a6e22e">ORDER</span> <span style="color:#a6e22e">BY</span> <span style="color:#a6e22e">$</span>{<span style="color:#a6e22e">sort</span>}, <span style="color:#e6db74">&#34;creationTime&#34;</span> <span style="color:#a6e22e">DESC</span>
-<span style="color:#a6e22e">$</span>{<span style="color:#a6e22e">pager</span>}
-&lt;/<span style="color:#f92672">script</span>&gt;
-</code></pre></div>
 
 
 
@@ -1735,7 +1691,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#код-примера">Код примера</a></li>
+    <li><a href="#конфигурация-приложений">Конфигурация приложений</a></li>
   </ul>
 </nav>
 </div>

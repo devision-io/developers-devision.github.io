@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Конфигурация on META | Devision Developers</title>
+    <link>https://developers.devision.io/meta/configs/</link>
+    <description>Recent content in Конфигурация on META | Devision Developers</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    
+	<atom:link href="https://developers.devision.io/meta/configs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>App</title>
+      <link>https://developers.devision.io/meta/configs/capp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/configs/capp/</guid>
+      <description>Конфигурация приложений Конфигурация приложений расположена в файле apps.yaml в корне app-content.
+Файл содержит в себе структуру:
+apps: - id: string # ID приложения name: string # Имя приложения. Выводится везде для всех alias: string # для тикетов и мета страницы и для фидов description: string # Для вывода разработчикам category: string # Название категории для разработчиков site_url: string # Для редиректа на логин, скачивание файлов и пр. favicon_url: string # Ссылка на favicon picture_url: string # Основная нормальная иконка приложения middle_picture_url: string # Если указано - выводится на иконке внутри приложения, если нет - то picture_url login_picture_url: string # Если указано - выводится на форме логина, если нет - то picture_url help_url: string # Ссылка на хелп в приложении is_join_user_enabled: string # Можно ли зарегистрироваться через это приложение is_fast_google_auth_enabled: string # Включена ли функция быстрого входа через Google - https://developers.</description>
+    </item>
+    
+  </channel>
+</rss>

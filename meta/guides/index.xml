@@ -45,6 +45,20 @@ PubSubService.pubReloadUser(userId); Какие бывают Системные 
     </item>
     
     <item>
+      <title>Валидация</title>
+      <link>https://developers.devision.io/meta/guides/validation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/guides/validation/</guid>
+      <description>Простые валидаторы   min (number): для чисел - минимальное число, для строк - минимальная длина строки
+  max (number): для чисел - максимальное число, для строк - максимальная длина строки
+  required (boolean): для любых элементов, означает обязательность заполнения
+  pattern (string): регулярное выражение для текстовых инпутов
+  Пример:
+{ id: &amp;#34;alias&amp;#34;, span: 6, label: &amp;#34;Альяс&amp;#34;, help: &amp;#34;Текстовая подпись&amp;#34;, name: &amp;#34;me-input&amp;#34;, attrs: { type: &amp;#34;text&amp;#34;, pattern: &amp;#34;[0-9a-z_]+&amp;#34;, min: 0, max: 100 }, } Серверные валидаторы Управляются через параметр refPvmValidator, который является полным аналогом refPvmData, только загружает результаты валидации</description>
+    </item>
+    
+    <item>
       <title>Отслеживание изменений сущностей</title>
       <link>https://developers.devision.io/meta/guides/entity_listeners/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

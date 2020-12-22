@@ -9,8 +9,8 @@
     <meta name="description" content="">
 
 
-    <title>Billing :: META | Devision Developers</title>
-    <link rel="shortcut icon" href="https://storage.googleapis.com/metawww/favicon.ico" type="image/x-icon" />
+    <title>Валидация :: META | Devision Developers</title>
+    <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/integrations/billing/">
+  <body class="" data-url="/guides/validation/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -91,7 +91,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="/guides/" class="devsite-nav-item devsite-nav-item-main
-                        
+                        parent
                         
                         parent
                         ">
@@ -176,7 +176,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/guides/validation/" class="devsite-nav-item dd-item ">
+            <li data-nav-id="/guides/validation/" class="devsite-nav-item dd-item active">
                 <a href="https://developers.devision.io/meta/guides/validation/" class="devsite-nav-title">
                     <span>Валидация</span>
                 </a>
@@ -729,7 +729,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="/integrations/" class="devsite-nav-item devsite-nav-item-main
-                        parent
+                        
                         
                         parent
                         ">
@@ -760,7 +760,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/integrations/billing/" class="devsite-nav-item dd-item active">
+            <li data-nav-id="/integrations/billing/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/integrations/billing/" class="devsite-nav-title">
                     <span>Billing</span>
                 </a>
@@ -1642,7 +1642,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
- <a href='https://developers.devision.io/meta/'>META</a> > <a href='https://developers.devision.io/meta/integrations/'>Интеграции</a> > Billing
+ <a href='https://developers.devision.io/meta/'>META</a> > <a href='https://developers.devision.io/meta/guides/'>Руководства</a> > Валидация
 
 
 
@@ -1656,50 +1656,112 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <div id="body-inner">
           
-            <h1>Billing</h1>
+            <h1>Валидация</h1>
           
 
 
 
-<p><a href="https://developers.devision.io/meta/meta/reference/java_api/billingservice/">Java API</a></p>
-<p><a href="https://samples-demo.devision.io/page?p=5316&amp;a=35">Example</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">elem</span> <span style="color:#a6e22e">states</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;default&#34;</span>&gt;
-  &lt;<span style="color:#f92672">tpl</span>&gt;
-    &lt;<span style="color:#f92672">p</span>&gt;
-      BillingService нужен для накладывания ограничений на доступный функционал 
-    &lt;/<span style="color:#f92672">p</span>&gt;
-    &lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text-warning&#34;</span>&gt;
-      Для просмотра логов откройте chrome devtools console и включили dev mode в мете.
-    &lt;/<span style="color:#f92672">p</span>&gt;
-    
-    &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">ng-click</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;changeState(&#39;test_in_js&#39;, {})&#34;</span> <span style="color:#a6e22e">href</span>&gt;Go To JS&lt;/<span style="color:#f92672">a</span>&gt;
-  &lt;/<span style="color:#f92672">tpl</span>&gt;
-&lt;/<span style="color:#f92672">elem</span>&gt;
+<h2 id="простые-валидаторы">Простые валидаторы</h2>
+<ul>
+<li>
+<p><code>min</code> (number): для чисел - минимальное число, для строк - минимальная длина строки</p>
+</li>
+<li>
+<p><code>max</code> (number): для чисел - максимальное число, для строк - максимальная длина строки</p>
+</li>
+<li>
+<p><code>required</code> (boolean): для любых элементов, означает обязательность заполнения</p>
+</li>
+<li>
+<p><code>pattern</code> (string): регулярное выражение для текстовых инпутов</p>
+</li>
+</ul>
+<p>Пример:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#960050;background-color:#1e0010">id:</span> <span style="color:#f92672">&#34;alias&#34;</span>,
+  <span style="color:#960050;background-color:#1e0010">span:</span> <span style="color:#960050;background-color:#1e0010">6,</span>
+  <span style="color:#960050;background-color:#1e0010">label:</span> <span style="color:#f92672">&#34;Альяс&#34;</span>,
+  <span style="color:#960050;background-color:#1e0010">help:</span> <span style="color:#f92672">&#34;Текстовая подпись&#34;</span>,
+  <span style="color:#960050;background-color:#1e0010">name:</span> <span style="color:#f92672">&#34;me-input&#34;</span>,
+  <span style="color:#960050;background-color:#1e0010">attrs:</span> <span style="color:#960050;background-color:#1e0010">{</span> <span style="color:#960050;background-color:#1e0010">type:</span> <span style="color:#f92672">&#34;text&#34;</span>, <span style="color:#960050;background-color:#1e0010">pattern:</span> <span style="color:#f92672">&#34;[0-9a-z_]+&#34;</span>, <span style="color:#960050;background-color:#1e0010">min:</span> <span style="color:#960050;background-color:#1e0010">0,</span> <span style="color:#960050;background-color:#1e0010">max:</span> <span style="color:#960050;background-color:#1e0010">100</span> }<span style="color:#960050;background-color:#1e0010">,</span>
+<span style="color:#960050;background-color:#1e0010">}</span>
+</code></pre></div><h2 id="серверные-валидаторы">Серверные валидаторы</h2>
+<p>Управляются через параметр <code>refPvmValidator</code>, который является полным аналогом <code>refPvmData</code>, только загружает результаты валидации</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#960050;background-color:#1e0010">id:</span> <span style="color:#f92672">&#34;name&#34;</span>,
+  <span style="color:#960050;background-color:#1e0010">label:</span> <span style="color:#f92672">&#34;Название&#34;</span>,
+  <span style="color:#960050;background-color:#1e0010">span:</span> <span style="color:#960050;background-color:#1e0010">12,</span>
+  <span style="color:#960050;background-color:#1e0010">name:</span> <span style="color:#f92672">&#34;me-input&#34;</span>,
+  <span style="color:#960050;background-color:#1e0010">refPvmValidator:</span> <span style="color:#960050;background-color:#1e0010">{id:</span> <span style="color:#f92672">&#34;name_validator&#34;</span>}
+<span style="color:#960050;background-color:#1e0010">}</span>
+</code></pre></div><p>Вызываемый скрипт <code>name_validator</code> не обязательно должен иметь именно такое назывние.</p>
+<p>Должен быть описан на странице формы или объявлен на спец. странице с ролью Валидаторы и, в таком случае,
+указан в форме так: <code>refPvmValidator: {id: &quot;#entity.name_validator&quot;}</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta_samples&#34;</span> <span style="color:#a6e22e">depends</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;name&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;name_validator&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span>&gt;
+<span style="color:#a6e22e">SELECT</span> <span style="color:#e6db74">&#39;name_validator_unique&#39;</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">id</span>, <span style="color:#e6db74">&#39;Имя уже используется&#39;</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">name</span> <span style="color:#a6e22e">FROM</span> <span style="color:#66d9ef">public</span>.<span style="color:#a6e22e">example_entity</span> <span style="color:#a6e22e">WHERE</span> <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#f92672">:</span><span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">sp</span>.<span style="color:#a6e22e">name</span> <span style="color:#a6e22e">LIMIT</span> <span style="color:#ae81ff">1</span>
+&lt;/<span style="color:#f92672">script</span>&gt;
+</code></pre></div><h2 id="валидация-для-обычных-форм">Валидация для обычных форм</h2>
+<p><a href="https://samples-demo.devision.io/page?p=3443&amp;a=35">Пример 1</a></p>
+<p><a href="https://samples-demo.devision.io/card?e=example_entity&amp;o=418d7484-eef8-4f55-8faf-9af30ace0d0b&amp;a=35">Пример 2</a></p>
+<p>Приведена часть страницы для примера:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;editCard&#34;</span> <span style="color:#a6e22e">elem</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hidden&#34;</span> <span style="color:#a6e22e">states</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;default&#34;</span>&gt;
+  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>(<span style="color:#a6e22e">vm</span>, <span style="color:#a6e22e">pvm</span>, <span style="color:#a6e22e">env</span>) {
+  .....
 
-&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ex0&#34;</span> <span style="color:#a6e22e">states</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;test_in_js&#34;</span>&gt;
-  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>(<span style="color:#a6e22e">log</span>) {
-    <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">info</span>(<span style="color:#e6db74">&#39;ex0 выполняется в любом случае, так как он перед проверкой по биллингу&#39;</span>);
+  <span style="color:#a6e22e">vm</span>.<span style="color:#a6e22e">elems</span> <span style="color:#f92672">=</span> [
+    {
+    <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;name&#34;</span>,
+    <span style="color:#a6e22e">label</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Название&#34;</span>,
+    <span style="color:#a6e22e">span</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">12</span>,
+    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;me-input&#34;</span>,
+    <span style="color:#75715e">// Валидатор при это объявлен на уровне entity на странице &#34;Валидаторы&#34; с соответствующей ролью страницы
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// Таким образом мы настраиваем валидатор на поле. 
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">refPvmValidator</span><span style="color:#f92672">:</span> {<span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;#entity.name_validator&#34;</span>}, <span style="color:#f92672">&lt;---</span> <span style="color:#a6e22e">настройки</span> <span style="color:#a6e22e">серверного</span> <span style="color:#a6e22e">валидатора</span>. <span style="color:#a6e22e">Префикс</span> <span style="color:#e6db74">&#34;#entity.&#34;</span> <span style="color:#a6e22e">указывает</span> <span style="color:#a6e22e">на</span> <span style="color:#a6e22e">то</span>, <span style="color:#a6e22e">что</span> <span style="color:#a6e22e">скрипт</span> <span style="color:#a6e22e">name_validator</span> <span style="color:#a6e22e">описан</span> <span style="color:#a6e22e">на</span> <span style="color:#a6e22e">странице</span> <span style="color:#a6e22e">с</span> <span style="color:#a6e22e">ролью</span> <span style="color:#e6db74">&#34;Валидаторы&#34;</span> <span style="color:#a6e22e">в</span> <span style="color:#a6e22e">текущей</span> <span style="color:#a6e22e">entity</span>
+    <span style="color:#a6e22e">attrs</span><span style="color:#f92672">:</span> {
+      <span style="color:#a6e22e">required</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>, <span style="color:#f92672">&lt;---</span> <span style="color:#a6e22e">обычные</span> <span style="color:#a6e22e">валидаторы</span>
+      <span style="color:#a6e22e">min</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2</span>, <span style="color:#f92672">&lt;---</span> <span style="color:#a6e22e">обычные</span> <span style="color:#a6e22e">валидаторы</span>
+      <span style="color:#a6e22e">max</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">30</span> <span style="color:#f92672">&lt;---</span> <span style="color:#a6e22e">обычные</span> <span style="color:#a6e22e">валидаторы</span>
+    }
+    },
+    .....
+
+  ];
   }
 &lt;/<span style="color:#f92672">script</span>&gt;
-
-&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ex1&#34;</span> <span style="color:#a6e22e">states</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;test_in_js&#34;</span>&gt;
-  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>(<span style="color:#a6e22e">log</span>, <span style="color:#a6e22e">env</span>, <span style="color:#a6e22e">vm</span>, <span style="color:#a6e22e">pvm</span>, <span style="color:#a6e22e">BillingService</span>) {
-    <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">info</span>(<span style="color:#e6db74">&#39;ex1 Перед проверкой по биллингу&#39;</span>);
-    
-    <span style="color:#75715e">// Метод checkAddSkuUsage бросает исключение PaymentRequiredException и останавливает выполенение скриптов за 
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">BillingService</span>.<span style="color:#a6e22e">checkAddSkuUsage</span>(<span style="color:#e6db74">&#39;feeds&#39;</span>, <span style="color:#e6db74">&#39;feeds-streams-count&#39;</span>, <span style="color:#ae81ff">10</span>);
-    
-    <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">info</span>(<span style="color:#e6db74">&#39;ex1 Этот код уже не исполнится, если будет PaymentRequiredException&#39;</span>);
-  }
-&lt;/<span style="color:#f92672">script</span>&gt;
-
-&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ex2&#34;</span> <span style="color:#a6e22e">states</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;test_in_js&#34;</span>&gt;
-  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>(<span style="color:#a6e22e">log</span>, <span style="color:#a6e22e">BillingService</span>) {
-    <span style="color:#75715e">// В случае исключения PaymentRequiredException этот скрипт уже не выполнится
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">// В нашем примере мы всегда получаем исключение
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">info</span>(<span style="color:#e6db74">&#39;ex2 только, если мы не получили PaymentRequiredException&#39;</span>);
-  }
-&lt;/<span style="color:#f92672">script</span>&gt;
+</code></pre></div><h2 id="валидация-смарт-форм">Валидация смарт-форм</h2>
+<p><a href="https://developers.devision.io/meta/compoments/smart_forms/">Смарт-формы</a> являются частью платформы и так же нуждаются в простой настройке валидаторов.</p>
+<p><a href="https://samples-demo.devision.io/card?e=example_entity&amp;o=418d7484-eef8-4f55-8faf-9af30ace0d0b&amp;p=5183&amp;a=35">Пример 1</a></p>
+<p>Настройка делается через указание <code>lego_elem</code> как для обычных валидаторов типа <code>min</code>, <code>max</code>
+и пр., так и для серверной валидации через <code>refPvmValidator</code>.</p>
+<p>Для примера приведена только часть полей:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">id</span>: <span style="color:#e6db74">&#39;example_entity&#39;</span>
+<span style="color:#66d9ef">name</span>: Пример
+<span style="color:#66d9ef">db_alias</span>: meta_samples
+<span style="color:#66d9ef">schema</span>: public
+<span style="color:#66d9ef">table</span>: example_entity
+<span style="color:#66d9ef">i18n</span>: <span style="color:#66d9ef">true</span>
+<span style="color:#66d9ef">fields</span>:
+- <span style="color:#66d9ef">name</span>: id
+  <span style="color:#66d9ef">db_type</span>: uuid
+  <span style="color:#66d9ef">is_primary</span>: <span style="color:#66d9ef">true</span>
+  <span style="color:#66d9ef">is_hidden</span>: <span style="color:#66d9ef">true</span>
+- <span style="color:#66d9ef">name</span>: name
+  <span style="color:#66d9ef">db_type</span>: text
+  <span style="color:#66d9ef">is_title</span>: <span style="color:#66d9ef">true</span>
+  <span style="color:#66d9ef">is_required</span>: <span style="color:#66d9ef">true</span>
+  <span style="color:#66d9ef">display_name</span>: Название
+  <span style="color:#66d9ef">i18n</span>: <span style="color:#66d9ef">true</span>
+  <span style="color:#66d9ef">lego_elem</span>:
+  <span style="color:#66d9ef">refPvmValidator</span>:
+    <span style="color:#66d9ef">id</span>: <span style="color:#e6db74">&#39;#entity.name_validator&#39;</span> &lt;--- настройки серверного валидатора. Префикс <span style="color:#e6db74">&#34;#entity.&#34;</span> указывает на то, что скрипт name_validator описан на странице с ролью <span style="color:#e6db74">&#34;Валидаторы&#34;</span> в текущей entity  
+....
+- <span style="color:#66d9ef">name</span>: cost
+  <span style="color:#66d9ef">db_type</span>: numeric
+  <span style="color:#66d9ef">i18n</span>: <span style="color:#66d9ef">true</span>
+  <span style="color:#66d9ef">display_name</span>: Стоимость
+  <span style="color:#66d9ef">lego_elem</span>:
+  <span style="color:#66d9ef">attrs</span>:
+    <span style="color:#66d9ef">max</span>: <span style="color:#ae81ff">2000</span> &lt;------ настройка обычных валидаторов
 </code></pre></div>
 
 
@@ -1711,7 +1773,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#простые-валидаторы">Простые валидаторы</a></li>
+    <li><a href="#серверные-валидаторы">Серверные валидаторы</a></li>
+    <li><a href="#валидация-для-обычных-форм">Валидация для обычных форм</a></li>
+    <li><a href="#валидация-смарт-форм">Валидация смарт-форм</a></li>
+  </ul>
+</nav>
 </div>
 
 </div>

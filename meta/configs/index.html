@@ -9,8 +9,8 @@
     <meta name="description" content="">
 
 
-    <title>Billing :: META | Devision Developers</title>
-    <link rel="shortcut icon" href="https://storage.googleapis.com/metawww/favicon.ico" type="image/x-icon" />
+    <title>Конфигурация :: META | Devision Developers</title>
+    <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/integrations/billing/">
+  <body class="" data-url="/configs/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -729,7 +729,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="/integrations/" class="devsite-nav-item devsite-nav-item-main
-                        parent
+                        
                         
                         parent
                         ">
@@ -760,7 +760,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/integrations/billing/" class="devsite-nav-item dd-item active">
+            <li data-nav-id="/integrations/billing/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/integrations/billing/" class="devsite-nav-title">
                     <span>Billing</span>
                 </a>
@@ -893,8 +893,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="/configs/" class="devsite-nav-item devsite-nav-item-main
-                        
-                        
+                        parent
+                        active
                         parent
                         ">
                 <a href="https://developers.devision.io/meta/configs/" class="devsite-nav-title devsite-nav-item-main-title">
@@ -1639,12 +1639,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-
-
-
- <a href='https://developers.devision.io/meta/'>META</a> > <a href='https://developers.devision.io/meta/integrations/'>Интеграции</a> > Billing
-
-
+ <a href='https://developers.devision.io/meta/'>META</a> > Конфигурация
 
 
 
@@ -1656,53 +1651,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <div id="body-inner">
           
-            <h1>Billing</h1>
+            <h1>Конфигурация</h1>
           
 
 
 
-<p><a href="https://developers.devision.io/meta/meta/reference/java_api/billingservice/">Java API</a></p>
-<p><a href="https://samples-demo.devision.io/page?p=5316&amp;a=35">Example</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">elem</span> <span style="color:#a6e22e">states</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;default&#34;</span>&gt;
-  &lt;<span style="color:#f92672">tpl</span>&gt;
-    &lt;<span style="color:#f92672">p</span>&gt;
-      BillingService нужен для накладывания ограничений на доступный функционал 
-    &lt;/<span style="color:#f92672">p</span>&gt;
-    &lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text-warning&#34;</span>&gt;
-      Для просмотра логов откройте chrome devtools console и включили dev mode в мете.
-    &lt;/<span style="color:#f92672">p</span>&gt;
+
+
+
+
+	
+
+	
+	   <article class="post configs">
+    <header class="post-header">
+        <h2 class="post-title"><a href="https://developers.devision.io/meta/configs/capp/">App</a></h2>
+    </header>
+
     
-    &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">ng-click</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;changeState(&#39;test_in_js&#39;, {})&#34;</span> <span style="color:#a6e22e">href</span>&gt;Go To JS&lt;/<span style="color:#f92672">a</span>&gt;
-  &lt;/<span style="color:#f92672">tpl</span>&gt;
-&lt;/<span style="color:#f92672">elem</span>&gt;
 
-&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ex0&#34;</span> <span style="color:#a6e22e">states</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;test_in_js&#34;</span>&gt;
-  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>(<span style="color:#a6e22e">log</span>) {
-    <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">info</span>(<span style="color:#e6db74">&#39;ex0 выполняется в любом случае, так как он перед проверкой по биллингу&#39;</span>);
-  }
-&lt;/<span style="color:#f92672">script</span>&gt;
 
-&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ex1&#34;</span> <span style="color:#a6e22e">states</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;test_in_js&#34;</span>&gt;
-  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>(<span style="color:#a6e22e">log</span>, <span style="color:#a6e22e">env</span>, <span style="color:#a6e22e">vm</span>, <span style="color:#a6e22e">pvm</span>, <span style="color:#a6e22e">BillingService</span>) {
-    <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">info</span>(<span style="color:#e6db74">&#39;ex1 Перед проверкой по биллингу&#39;</span>);
     
-    <span style="color:#75715e">// Метод checkAddSkuUsage бросает исключение PaymentRequiredException и останавливает выполенение скриптов за 
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">BillingService</span>.<span style="color:#a6e22e">checkAddSkuUsage</span>(<span style="color:#e6db74">&#39;feeds&#39;</span>, <span style="color:#e6db74">&#39;feeds-streams-count&#39;</span>, <span style="color:#ae81ff">10</span>);
-    
-    <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">info</span>(<span style="color:#e6db74">&#39;ex1 Этот код уже не исполнится, если будет PaymentRequiredException&#39;</span>);
-  }
-&lt;/<span style="color:#f92672">script</span>&gt;
-
-&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ex2&#34;</span> <span style="color:#a6e22e">states</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;test_in_js&#34;</span>&gt;
-  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>(<span style="color:#a6e22e">log</span>, <span style="color:#a6e22e">BillingService</span>) {
-    <span style="color:#75715e">// В случае исключения PaymentRequiredException этот скрипт уже не выполнится
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">// В нашем примере мы всегда получаем исключение
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">info</span>(<span style="color:#e6db74">&#39;ex2 только, если мы не получили PaymentRequiredException&#39;</span>);
-  }
-&lt;/<span style="color:#f92672">script</span>&gt;
-</code></pre></div>
+</article>
 
 
+
+
+	
+
+	<div style="margin-bottom:2rem"></div>
+
+	
 
 
 
@@ -1732,4 +1711,3 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   </body>
 </html>
-

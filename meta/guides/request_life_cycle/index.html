@@ -176,6 +176,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
+            <li data-nav-id="/guides/validation/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/guides/validation/" class="devsite-nav-title">
+                    <span>Валидация</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
             <li data-nav-id="/guides/entity_listeners/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/guides/entity_listeners/" class="devsite-nav-title">
                     <span>Отслеживание изменений сущностей</span>
@@ -286,7 +304,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             <li data-nav-id="/guides/debug_and_logging/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/guides/debug_and_logging/" class="devsite-nav-title">
-                    <span>Логирование и отладка</span>
+                    <span>Отладка и Логирование</span>
                 </a>
             </li>
             
@@ -853,6 +871,62 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <li data-nav-id="/integrations/sdk/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/integrations/sdk/" class="devsite-nav-title">
                     <span>SDK</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                </ul>
+                
+            </li>
+            
+            
+            
+                            
+                              
+            
+            
+            
+            
+            
+            <li data-nav-id="/configs/" class="devsite-nav-item devsite-nav-item-main
+                        
+                        
+                        parent
+                        ">
+                <a href="https://developers.devision.io/meta/configs/" class="devsite-nav-title devsite-nav-item-main-title">
+                    <span>Конфигурация</span>
+
+                    
+                    
+
+                    
+                    
+                    
+
+                    
+                </a>
+                
+                <ul class="devsite-nav-expandable">
+                    
+                    
+                    
+
+
+                    
+                    
+                    
+            
+            
+            
+            
+            
+            <li data-nav-id="/configs/capp/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/configs/capp/" class="devsite-nav-title">
+                    <span>App</span>
                 </a>
             </li>
             
@@ -1602,7 +1676,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li>env.sp - параметры состояния</li>
 </ul>
 <h2 id="выполенение-url-типа-page-пример-для-envsp">Выполенение url типа /page. Пример для env.sp</h2>
-<p>Рассмотрим жизненный цикл на основе примера с обычной странице с таблицей и фильтром - <a href="https://apps.devision.io/page?p=3398&amp;a=35">https://apps.devision.io/page?p=3398&amp;a=35</a></p>
+<p>Рассмотрим жизненный цикл на основе примера с обычной странице с таблицей и фильтром - <a href="https://samples-demo.devision.io/page?p=3398&amp;a=35">https://samples-demo.devision.io/page?p=3398&amp;a=35</a></p>
 <p>Итак, что происходит, когда пользоатель заходит на страницу:</p>
 <ul>
 <li>Backend получает указание загрузить pageId=3398 и applicationId=35 (Мы можем видеть это из url - параметры <strong>p</strong> и <strong>a</strong> соответственно /page?p=3398&amp;a=35)</li>
@@ -1690,12 +1764,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </code></pre></div><p>После того, как пользователь выбирает период дат в элементе period frontend посылает запрос в /api/meta/page с новым окружением,
 получает ответ и перерендеривает страницу. Все это пока меняет env.sp, но не env.state.</p>
 <h2 id="выполенение-url-типа-card-пример-для-envstate">Выполенение url типа /card. Пример для env.state</h2>
-<p>Хороший пример тут - <a href="https://apps.devision.io/page?p=5181&amp;a=35">https://apps.devision.io/page?p=5181&amp;a=35</a></p>
+<p>Хороший пример тут - <a href="https://samples-demo.devision.io/page?p=5181&amp;a=35">https://samples-demo.devision.io/page?p=5181&amp;a=35</a></p>
 <p>На странице видно список объектов, вы можете создать новый и отредактировать старый.
 Редактирование доступно как при клике на название объекта, так и при клике в контестном меню по пункту &ldquo;Быстрое редактирование&rdquo;
 при клике правой клавишей мыши на строке объекта.</p>
 <p>На странице редактирования объекта описано все поведение меты для выполнения запроса
-<a href="https://apps.devision.io/card?e=example_entity&amp;o=08f3395b-31f2-42c9-917e-a5f2b7bd4a95&amp;a=35">https://apps.devision.io/card?e=example_entity&amp;o=08f3395b-31f2-42c9-917e-a5f2b7bd4a95&amp;a=35</a></p>
+<a href="https://samples-demo.devision.io/card?e=example_entity&amp;o=08f3395b-31f2-42c9-917e-a5f2b7bd4a95&amp;a=35">https://samples-demo.devision.io/card?e=example_entity&amp;o=08f3395b-31f2-42c9-917e-a5f2b7bd4a95&amp;a=35</a></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- 
 </span><span style="color:#75715e">Объявляем валидатор с depends от name. Параметр name в случае этой конкретной формы будет приходить как имя объекта.
 </span><span style="color:#75715e">Такая валидация не обяъательна, это будет зависеть от конкретной формы. Часто это просто не надо.
@@ -1744,7 +1818,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span style="color:#a6e22e">span</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">12</span>,
         <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;me-input&#34;</span>,
         <span style="color:#75715e">// Таким образом мы настраиваем валидатор на поле. 
-</span><span style="color:#75715e"></span>        <span style="color:#75715e">// Подробный пример о валидаторах - https://apps.devision.io/page?p=3443&amp;a=35
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">// Подробный пример о валидаторах - https://samples-demo.devision.io/page?p=3443&amp;a=35
 </span><span style="color:#75715e"></span>        <span style="color:#a6e22e">refPvmValidator</span><span style="color:#f92672">:</span> {<span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;name_validator&#34;</span>},
         <span style="color:#a6e22e">attrs</span><span style="color:#f92672">:</span> {
           <span style="color:#a6e22e">required</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,

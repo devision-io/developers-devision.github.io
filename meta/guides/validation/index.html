@@ -1701,8 +1701,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <span style="color:#a6e22e">SELECT</span> <span style="color:#e6db74">&#39;name_validator_unique&#39;</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">id</span>, <span style="color:#e6db74">&#39;Имя уже используется&#39;</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">name</span> <span style="color:#a6e22e">FROM</span> <span style="color:#66d9ef">public</span>.<span style="color:#a6e22e">example_entity</span> <span style="color:#a6e22e">WHERE</span> <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#f92672">:</span><span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">sp</span>.<span style="color:#a6e22e">name</span> <span style="color:#a6e22e">LIMIT</span> <span style="color:#ae81ff">1</span>
 &lt;/<span style="color:#f92672">script</span>&gt;
 </code></pre></div><h2 id="валидация-для-обычных-форм">Валидация для обычных форм</h2>
-<p><a href="https://samples-demo.devision.io/page?p=3443&amp;a=35">Пример 1</a></p>
-<p><a href="https://samples-demo.devision.io/card?e=example_entity&amp;o=418d7484-eef8-4f55-8faf-9af30ace0d0b&amp;a=35">Пример 2</a></p>
 <p>Приведена часть страницы для примера:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;editCard&#34;</span> <span style="color:#a6e22e">elem</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hidden&#34;</span> <span style="color:#a6e22e">states</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;default&#34;</span>&gt;
   <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>(<span style="color:#a6e22e">vm</span>, <span style="color:#a6e22e">pvm</span>, <span style="color:#a6e22e">env</span>) {
@@ -1728,10 +1726,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   ];
   }
 &lt;/<span style="color:#f92672">script</span>&gt;
-</code></pre></div><h2 id="валидация-смарт-форм">Валидация смарт-форм</h2>
+</code></pre></div><p><a href="https://samples-demo.devision.io/page?p=3443&amp;a=35">Пример 1</a></p>
+<p><a href="https://samples-demo.devision.io/card?e=example_entity&amp;o=418d7484-eef8-4f55-8faf-9af30ace0d0b&amp;a=35">Пример 2</a></p>
+<h2 id="валидация-смарт-форм">Валидация смарт-форм</h2>
 <p><a href="https://developers.devision.io/meta/compoments/smart_forms/">Смарт-формы</a> являются частью платформы и так же нуждаются в простой настройке валидаторов.</p>
-<p><a href="https://samples-demo.devision.io/card?e=example_entity&amp;o=418d7484-eef8-4f55-8faf-9af30ace0d0b&amp;p=5183&amp;a=35">Пример 1</a></p>
-<p>Настройка делается через указание <code>lego_elem</code> как для обычных валидаторов типа <code>min</code>, <code>max</code>
+<p>Настройка делается в yaml-файле нужной вам entity через указание <code>lego_elem</code> как для обычных валидаторов типа <code>min</code>, <code>max</code>
 и пр., так и для серверной валидации через <code>refPvmValidator</code>.</p>
 <p>Для примера приведена только часть полей:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">id</span>: <span style="color:#e6db74">&#39;example_entity&#39;</span>
@@ -1762,7 +1761,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <span style="color:#66d9ef">lego_elem</span>:
   <span style="color:#66d9ef">attrs</span>:
     <span style="color:#66d9ef">max</span>: <span style="color:#ae81ff">2000</span> &lt;------ настройка обычных валидаторов
-</code></pre></div>
+</code></pre></div><p><a href="https://samples-demo.devision.io/card?e=example_entity&amp;o=418d7484-eef8-4f55-8faf-9af30ace0d0b&amp;p=5183&amp;a=35">Пример 1</a></p>
+
 
 
 

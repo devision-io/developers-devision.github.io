@@ -1722,7 +1722,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <span style="color:#66d9ef">is_readonly</span>: <span style="color:#66d9ef">true</span>
   <span style="color:#66d9ef">add_expression</span>: :env.userId
   <span style="color:#66d9ef">set_expression</span>: :env.userId
-</code></pre></div><h2 id="практический-пример">Практический пример</h2>
+</code></pre></div><h2 id="связанный-enum">Связанный enum</h2>
+<p>Enum-ы хранятся в таблице meta.enum и являются простыми справочниками, для которых не хочется заводить отдельные таблицы.</p>
+<p>В смарт-формах можно очень легко автоматически получить контрол me-select для таких полей просто сделав ссылку на нужный вам справочник.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">...
+- <span style="color:#66d9ef">db_type</span>: text
+  <span style="color:#66d9ef">name</span>: state
+  <span style="color:#66d9ef">foreign_enum_kind</span>: <span style="color:#e6db74">&#39;billing_state&#39;</span> &lt;-------- эта настройка управляет ссылкой на enum 
+  <span style="color:#66d9ef">lego_elem</span>:
+    <span style="color:#66d9ef">span</span>: <span style="color:#ae81ff">4</span>
+...
+</code></pre></div><p>Мета внутри себя для такого поля сделает запрос:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> meta.enum_options_view <span style="color:#66d9ef">WHERE</span> kind<span style="color:#f92672">=</span>:kind <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> name
+</code></pre></div><p>В плейсхолдер <code>:kind</code> будет подставлено значение из <code>foreign_enum_kind</code>, в этом конкретном примере - <code>billing_state</code>.</p>
+<h2 id="практический-пример">Практический пример</h2>
 <h3 id="пример-настройки-entity">Пример настройки entity</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">id</span>: <span style="color:#e6db74">&#39;190&#39;</span>
 <span style="color:#66d9ef">name</span>: Клиент
@@ -1855,6 +1868,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <li><a href="#автоматическая-генерация-формы">Автоматическая генерация формы</a></li>
     <li><a href="#настройка-insert_query">Настройка insert_query</a></li>
     <li><a href="#параметры-add_expression-и-set_expression">Параметры add_expression и set_expression</a></li>
+    <li><a href="#связанный-enum">Связанный enum</a></li>
     <li><a href="#практический-пример">Практический пример</a>
       <ul>
         <li><a href="#пример-настройки-entity">Пример настройки entity</a></li>

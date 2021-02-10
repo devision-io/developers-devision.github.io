@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.68.1" />
+    <meta name="generator" content="Hugo 0.59.1" />
     <meta name="description" content="">
 
 
@@ -1661,8 +1661,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
+
+
 <h1 id="приложение-запрашивает-код">Приложение запрашивает код</h1>
+
 <p>Получение токена в обмен на код, извлеченный из URL:</p>
+
 <ul>
 <li>Приложение направляет пользователя на страницу META.OAuth, где он может разрешить доступ к своим данным.</li>
 <li>Пользователь разрешает доступ приложению.</li>
@@ -1671,19 +1675,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li>Приложение отправляет POST-запрос с кодом.</li>
 <li>META.OAuth возвращает токен или ошибку в теле ответа.</li>
 </ul>
+
 <h2 id="регистрируете-приложение">Регистрируете приложение</h2>
+
 <p>Вы можете добавить доверенное приложение, в таком случае мета не станет спрашивать у пользователя подтверждения в выдаче токена. Это полезно, когда вы делаете вход для своих внутренних сервисов.</p>
+
 <h2 id="запрос-кода-подтверждения">Запрос кода подтверждения</h2>
+
 <pre><code>http://YOUR-META-URL/oauth2/authorize?response_type=code
 
   client_id=&lt;идентификатор приложения&gt;
   &amp; redirect_uri=&lt;адрес перенаправления&gt;
   &amp; state=&lt;произвольная строка&gt;
   &amp; scope=&lt;запрашиваемые необходимые права&gt;
-</code></pre><h2 id="получение-кода-подтверждения-из-url">Получение кода подтверждения из URL</h2>
+</code></pre>
+
+<h2 id="получение-кода-подтверждения-из-url">Получение кода подтверждения из URL</h2>
+
 <p>Когда пользователь разрешает доступ к своим данным META.OAuth перенаправляет пользователя на указанный вами redirect_uri с добавлением GET параметра code</p>
+
 <h2 id="обмен-кода-подтверждения-на-токен">Обмен кода подтверждения на токен</h2>
+
 <p>Приложение отправляет код, а также свой идентификатор и пароль в POST-запросе.</p>
+
 <pre><code>POST /oauth2/token HTTP/1.1
 Host: YOUR-META-URL
 Content-type: application/x-www-form-urlencoded
@@ -1693,48 +1707,64 @@ Content-Length: &lt;длина тела запроса&gt;
   &amp; code=&lt;код подтверждения&gt;
   &amp; client_id=&lt;идентификатор приложения&gt;
   &amp; client_secret=&lt;пароль приложения&gt;
-</code></pre><h2 id="формат-ответа-с-токеном">Формат ответа с токеном</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#f92672">&#34;scopes&#34;</span>: [
-    <span style="color:#e6db74">&#34;userinfo.profile&#34;</span>
+</code></pre>
+
+<h2 id="формат-ответа-с-токеном">Формат ответа с токеном</h2>
+
+<pre><code class="language-json">{
+  &quot;scopes&quot;: [
+    &quot;userinfo.profile&quot;
   ],
-  <span style="color:#f92672">&#34;token_type&#34;</span>: <span style="color:#e6db74">&#34;bearer&#34;</span>,
-  <span style="color:#f92672">&#34;expires&#34;</span>: <span style="color:#ae81ff">300</span>,
-  <span style="color:#f92672">&#34;access_token&#34;</span>: <span style="color:#e6db74">&#34;eyJraWQiOiJhZWRiYmZlN2NjZjA3YzRiZWZkNDUwOTAxNTAxYjgzNzg3Njg1ZWNmIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYifQ.eyJhdWQiOiJhcGlzLmRldmlzaW9uLmlvIiwic3ViIjoiMTAxOTEiLCJpdWlkIjowLCJzY29wZSI6InVzZXJpbmZvLnByb2ZpbGUiLCJpc3MiOiJ0b2tlbi1pc3N1ZXIuZGV2aXNpb24uaW8iLCJleHAiOjE1NDQ1NDY0NjYsImlhdCI6MTU0NDU0NjE2Nn0.kztLoOpqCSomQklGkORtkHS1Zg50SgIFn__79FNTZZJMLPrg0jj57aWQEcJwknWIN7yakUVq9RlEq8JL_k_LwNhFlZshaVCFDiOsXa3e6-U1l4z8ZRYOPcbT0imWdajHB34pU95Q-_OQWlsAhvWTqGd04maUil0EbubwDOuaLZlOpXbgjn2paGe_E0augK9DJk4XVHC24RD8ZKluzJLE0PO22AzI44tJu2WgB_P_alT6Z6R6ur8-yWhEjCEHyUb9a9Elq-qNcDnxg4Td9GP4nFsfCak4zZd6jWE0ITfpDsYuczINIQsYCgQIfeDB2plDqBMuzTEycOb5i1EmxzLEqw&#34;</span>,
-  <span style="color:#f92672">&#34;refresh_token&#34;</span>: <span style="color:#e6db74">&#34;da6e4c37987447312311a59fbc9d5b421&#34;</span>,
-  <span style="color:#f92672">&#34;user_id&#34;</span>: <span style="color:#ae81ff">10191</span>,
-  <span style="color:#f92672">&#34;company_id&#34;</span>: <span style="color:#ae81ff">1</span>
+  &quot;token_type&quot;: &quot;bearer&quot;,
+  &quot;expires&quot;: 300,
+  &quot;access_token&quot;: &quot;eyJraWQiOiJhZWRiYmZlN2NjZjA3YzRiZWZkNDUwOTAxNTAxYjgzNzg3Njg1ZWNmIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYifQ.eyJhdWQiOiJhcGlzLmRldmlzaW9uLmlvIiwic3ViIjoiMTAxOTEiLCJpdWlkIjowLCJzY29wZSI6InVzZXJpbmZvLnByb2ZpbGUiLCJpc3MiOiJ0b2tlbi1pc3N1ZXIuZGV2aXNpb24uaW8iLCJleHAiOjE1NDQ1NDY0NjYsImlhdCI6MTU0NDU0NjE2Nn0.kztLoOpqCSomQklGkORtkHS1Zg50SgIFn__79FNTZZJMLPrg0jj57aWQEcJwknWIN7yakUVq9RlEq8JL_k_LwNhFlZshaVCFDiOsXa3e6-U1l4z8ZRYOPcbT0imWdajHB34pU95Q-_OQWlsAhvWTqGd04maUil0EbubwDOuaLZlOpXbgjn2paGe_E0augK9DJk4XVHC24RD8ZKluzJLE0PO22AzI44tJu2WgB_P_alT6Z6R6ur8-yWhEjCEHyUb9a9Elq-qNcDnxg4Td9GP4nFsfCak4zZd6jWE0ITfpDsYuczINIQsYCgQIfeDB2plDqBMuzTEycOb5i1EmxzLEqw&quot;,
+  &quot;refresh_token&quot;: &quot;da6e4c37987447312311a59fbc9d5b421&quot;,
+  &quot;user_id&quot;: 10191,
+  &quot;company_id&quot;: 1
 }
-</code></pre></div><ul>
+</code></pre>
+
+<ul>
 <li>scopes: Области доступа, доступные этому токену</li>
 <li>token_type: Тип выданного токена. Всегда принимает значение «bearer»</li>
 <li>expires: Время жизни токена в секундах</li>
 <li>access_token: OAuth-токен с запрошенными правами</li>
 <li>refresh_token: Токен, который можно использовать <strong>только</strong> для продления срока жизни соответствующего OAuth-токена&rdquo;&rsquo;</li>
 </ul>
+
 <p>Время жизни refresh-токена совпадает с временем жизни OAuth-токена.</p>
+
 <p>Если выдать токен не удалось, то ответ содержит описание ошибки:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#f92672">&#34;token_type&#34;</span>: <span style="color:#e6db74">&#34;bearer&#34;</span>,
-  <span style="color:#f92672">&#34;error&#34;</span>: <span style="color:#e6db74">&#34;&lt;код ошибки&gt;&#34;</span>,
-  <span style="color:#f92672">&#34;error_description&#34;</span>: <span style="color:#e6db74">&#34;&lt;описание ошибки&gt;&#34;</span>
+
+<pre><code class="language-json">{
+  &quot;token_type&quot;: &quot;bearer&quot;,
+  &quot;error&quot;: &quot;&lt;код ошибки&gt;&quot;,
+  &quot;error_description&quot;: &quot;&lt;описание ошибки&gt;&quot;
 }
-</code></pre></div><h2 id="обновить-токен">Обновить токен</h2>
+</code></pre>
+
+<h2 id="обновить-токен">Обновить токен</h2>
+
 <p>Получение токена в обмен на refresh-токен:</p>
+
 <ul>
 <li>Приложение отправляет POST-запрос с refresh-токеном.</li>
-<li>META.OAuth возвращает новый access_token в теле ответа.</li>
-</ul>
+
+<li><p>META.OAuth возвращает новый access_token в теле ответа.</p>
+
 <pre><code>POST /oauth2/token HTTP/1.1
 Host: YOUR-META-URL
 Content-type: application/x-www-form-urlencoded
 Content-Length: &lt;длина тела запроса&gt;
 
-  grant_type=refresh_token
-  &amp; refresh_token=&lt;refresh_token&gt;
-  &amp; client_id=&lt;идентификатор приложения&gt;
-  &amp; client_secret=&lt;пароль приложения&gt;
-</code></pre><p>В теле ответа вы получите такую же структуру, как и в случае получения токена по authorization_code</p>
+grant_type=refresh_token
+&amp; refresh_token=&lt;refresh_token&gt;
+&amp; client_id=&lt;идентификатор приложения&gt;
+&amp; client_secret=&lt;пароль приложения&gt;
+</code></pre></li>
+</ul>
+
+<p>В теле ответа вы получите такую же структуру, как и в случае получения токена по authorization_code</p>
 
 
 
@@ -1747,14 +1777,17 @@ Content-Length: &lt;длина тела запроса&gt;
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
     <nav id="TableOfContents">
-  <ul>
-    <li><a href="#регистрируете-приложение">Регистрируете приложение</a></li>
-    <li><a href="#запрос-кода-подтверждения">Запрос кода подтверждения</a></li>
-    <li><a href="#получение-кода-подтверждения-из-url">Получение кода подтверждения из URL</a></li>
-    <li><a href="#обмен-кода-подтверждения-на-токен">Обмен кода подтверждения на токен</a></li>
-    <li><a href="#формат-ответа-с-токеном">Формат ответа с токеном</a></li>
-    <li><a href="#обновить-токен">Обновить токен</a></li>
-  </ul>
+<ul>
+<li><a href="#приложение-запрашивает-код">Приложение запрашивает код</a>
+<ul>
+<li><a href="#регистрируете-приложение">Регистрируете приложение</a></li>
+<li><a href="#запрос-кода-подтверждения">Запрос кода подтверждения</a></li>
+<li><a href="#получение-кода-подтверждения-из-url">Получение кода подтверждения из URL</a></li>
+<li><a href="#обмен-кода-подтверждения-на-токен">Обмен кода подтверждения на токен</a></li>
+<li><a href="#формат-ответа-с-токеном">Формат ответа с токеном</a></li>
+<li><a href="#обновить-токен">Обновить токен</a></li>
+</ul></li>
+</ul>
 </nav>
 </div>
 

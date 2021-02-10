@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.68.1" />
+    <meta name="generator" content="Hugo 0.59.1" />
     <meta name="description" content="">
 
 
@@ -1661,269 +1661,297 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
+
+
 <h1 id="введение">Введение</h1>
-<!-- raw HTML omitted -->
+
+<div class="notices info" >
+При чтении этого раздела вам могут понадобится подробности, описанные в разделе [Типы и атрибуты скриптов](/guides/script_types/)
+</div>
+
 <h3 id="окружение-запроса">Окружение запроса</h3>
+
 <ul>
 <li><strong>env</strong> - объект-окружение запроса к серверу.</li>
 <li><strong>vm</strong> - объект для удобной работы с ответом клиенту. На лего странцах отдельный vm на каждый script.</li>
 <li><strong>pvm</strong> - только на LEGO-страницах. Отвечает за хранение данных на всех странце, содержит в себе vm script.</li>
 <li><strong>DataResult</strong> - низкоуровневый класс, отвечающий за ответ с данными по EntityPage. Его нельзя получить так как он никуда не передается,  существует вне script - над ним. Создается вручную при необходимости только в meta/js скриптах. Содержит в себе pvm, который в свою очередь и передается в страницы. В общем случае не рекомендуетсяим пользоваться без крайней необходимости, хотя он может быть полезен для построении таблиз из js на основе данных какого-либо api без сохранения в БД.</li>
 </ul>
+
 <h3 id="состояния-страниц">Состояния страниц</h3>
+
 <ul>
 <li>env.state - id текущего состояния страницы. Это можно сравнить с action в контроллере MVC. При первоначальной загрузке страница загружается с state=default, если у script или elem не указан states, то meta попытается их выполнить, если будут удовлетворены зависимости, указанные через depends</li>
 <li>env.sp - параметры состояния</li>
 </ul>
-<h2 id="выполенение-url-типа-page-пример-для-envsp">Выполенение url типа /page. Пример для env.sp</h2>
+
+<h2 id="выполенение-url-типа-page-пример-для-env-sp">Выполенение url типа /page. Пример для env.sp</h2>
+
 <p>Рассмотрим жизненный цикл на основе примера с обычной странице с таблицей и фильтром - <a href="https://samples-demo.devision.io/page?p=3398&amp;a=35">https://samples-demo.devision.io/page?p=3398&amp;a=35</a></p>
+
 <p>Итак, что происходит, когда пользоатель заходит на страницу:</p>
+
 <ul>
 <li>Backend получает указание загрузить pageId=3398 и applicationId=35 (Мы можем видеть это из url - параметры <strong>p</strong> и <strong>a</strong> соответственно /page?p=3398&amp;a=35)</li>
 <li>Backend проверяет соответствие ACL страницы и текущего пользователя
+
 <ul>
 <li>Если требуется авторизация, то пользователя редиректит на форму входа (или oauth с параметром retpath, который говорит куда нужно перебросить пользователя в случае успешной авторизации)</li>
 <li>Если авторизация не требуется, и ACL не удовлетворяет, то выдается 403</li>
-</ul>
-</li>
+</ul></li>
 <li>Если все ок, то мета отдает html страницу в теле которой указаны данные пользователя и список страниц текущего приложения (именно поэтому сейчас требуется f5 при изменении параметров или набора страниц)</li>
 <li>UI инициализирует компонент me-page с pageId и пр</li>
 <li>me-page начинает разрешать зависимости по текущему env и запрашивает данные путем вызова backend api /api/meta/page (вы можете наблюдать вызовы в chrome debugger)</li>
 <li>После получения данных me-page начинает рисовать root lego страницы. Это то, что страница вернула через описание через <strong>script</strong> и <strong>elem</strong></li>
-<li>Надо  сразу упомянуть, что после отрисовки root lego, если он имеет зависимости refPvmData, me-page по аналогиис первичным запуском будет пытаться разрешить и их до тех пор, пока все не будет разрешено или не вернется ошибка или пустой ответ</li>
+
+<li><p>Надо  сразу упомянуть, что после отрисовки root lego, если он имеет зависимости refPvmData, me-page по аналогиис первичным запуском будет пытаться разрешить и их до тех пор, пока все не будет разрешено или не вернется ошибка или пустой ответ</p>
+
+<pre><code class="language-html">&lt;!-- 
+Это скрипт с типом sql, который:
+- имеет id=period (т.е. будет доступен в env.sp.period)
+- запрашивает данные из БД с альясом meta_samples
+- будет оторажаться как me-input с типом daterange (elem=&quot;me-input&quot; elem-attrs='{&quot;type&quot;:&quot;daterange&quot;}') - это элемент пользовательского ввода в виде периода дат
+- имеет дефолт {&quot;from&quot;:&quot;2014-12-01&quot;, &quot;to&quot;:&quot;2015-03-01&quot;} . Т.е. при первоначальной загрузке страницы уже будет иметь значение. Это очень удобно для отчетов
+- Имеет приоритет вывода 10 (order)
+- Занимает 4 ячейки в горизонтальной сетке (span)
+- live-reload говорит о том, что при изменении значения инмупа страница будет обновлена с новым значением env.sp.period. Обычно это заменятеся атрибутом page-search, но для этой страницы он не нужен
+--&gt;
+&lt;script type=&quot;meta/sql&quot; id=&quot;period&quot; db-alias=&quot;meta_samples&quot; 
+default='{&quot;from&quot;:&quot;2014-12-01&quot;, &quot;to&quot;:&quot;2015-03-01&quot;}' elem=&quot;me-input&quot; order=&quot;10&quot; span=&quot;4&quot;
+elem-attrs='{&quot;type&quot;:&quot;daterange&quot;}' live-reload&gt;
+SELECT 1
+&lt;/script&gt;
+
+&lt;!-- 
+Теги elem используется для простых пользовательских шаблонов.
+Обычно это не рекомендуется делать, так как переход на другие ui фреймворки будет усложнено, но иногда так проще всего
+
+UI template.
+Вы можете наблюдать вот такой вызов в шаблоне {{env.sp|json}} эта строка будет выводить env.sp в виде json через систему шаблонов angularjs. 
+Работает на frontend. В общем случае так делать не рекомендуется, так как поддержка angularjs скоро прекращается и придется переписывать такие вызовы.
+
+Backenf template.
+Это ${env.sp} работает freemarker - java шаблонизатор, работает на backend до того, как root lego будет возвращен на frontend.
+--&gt;
+&lt;elem order=&quot;11&quot; span=&quot;3&quot;&gt;
+&lt;tpl&gt;
+&lt;p&gt;
+  Тут в тесте мы проверяем, что stateParams теперь всегда и везде приходят как env.sp
+&lt;/p&gt;
+&lt;table class=&quot;table table-bordered&quot; style=&quot;max-width: 500px&quot;&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Frontend angularjs state params&lt;/td&gt;
+    &lt;td class=&quot;angular-sp&quot;&gt;{{env.sp|json}}&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Backend JS state params&lt;/td&gt;
+    &lt;td class=&quot;js-sp&quot;&gt;{{jsout.test|json}}&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Template state params&lt;/td&gt;
+    &lt;td class=&quot;tpl-sp&quot;&gt;${env.sp}&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+&lt;/tpl&gt;
+&lt;script type=&quot;meta/js&quot; id=&quot;jsout&quot;&gt;
+function main(vm, env) {
+  vm.test = env.sp;
+}
+&lt;/script&gt;
+&lt;/elem&gt;
+
+&lt;!--
+Тут хорошо видно, что поле date приводится к типу date средствами postgresql и фильтруется данными из env.sp.period (:env.sp.period.from::date AND :env.sp.period.to::date)
+Это как раз те данные из элемента period, объявленного выше. 
+Поскольку атрибута elem нет, то данные по умолчанию выводятся в виде таблицы (то же самое было бы, если мы поставим elem=&quot;me-table&quot;)
+
+Если вам надо скрыть элемент, но вернуть данные на frontend используйте elem=&quot;hidden&quot;
+Если данные не должны уходить с сервера используйте атрибут internal
+--&gt;
+&lt;script type=&quot;meta/sql&quot; db-alias=&quot;meta&quot; depends=&quot;period&quot; id=&quot;tbl&quot; order=&quot;50&quot;&gt;
+SELECT * FROM generate_series('2010-03-01 00:00'::timestamp,
+            '2016-03-04 12:00', '10 hours') as date
+WHERE date::date BETWEEN :env.sp.period.from::date AND :env.sp.period.to::date
+ORDER BY date
+${pager}
+&lt;/script&gt;
+</code></pre></li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- 
-</span><span style="color:#75715e">Это скрипт с типом sql, который:
-</span><span style="color:#75715e"> - имеет id=period (т.е. будет доступен в env.sp.period)
-</span><span style="color:#75715e"> - запрашивает данные из БД с альясом meta_samples
-</span><span style="color:#75715e"> - будет оторажаться как me-input с типом daterange (elem=&#34;me-input&#34; elem-attrs=&#39;{&#34;type&#34;:&#34;daterange&#34;}&#39;) - это элемент пользовательского ввода в виде периода дат
-</span><span style="color:#75715e"> - имеет дефолт {&#34;from&#34;:&#34;2014-12-01&#34;, &#34;to&#34;:&#34;2015-03-01&#34;} . Т.е. при первоначальной загрузке страницы уже будет иметь значение. Это очень удобно для отчетов
-</span><span style="color:#75715e"> - Имеет приоритет вывода 10 (order)
-</span><span style="color:#75715e"> - Занимает 4 ячейки в горизонтальной сетке (span)
-</span><span style="color:#75715e"> - live-reload говорит о том, что при изменении значения инмупа страница будет обновлена с новым значением env.sp.period. Обычно это заменятеся атрибутом page-search, но для этой страницы он не нужен
-</span><span style="color:#75715e">--&gt;</span>
-&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;period&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta_samples&#34;</span> 
-    <span style="color:#a6e22e">default</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;{&#34;from&#34;:&#34;2014-12-01&#34;, &#34;to&#34;:&#34;2015-03-01&#34;}&#39;</span> <span style="color:#a6e22e">elem</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;me-input&#34;</span> <span style="color:#a6e22e">order</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;10&#34;</span> <span style="color:#a6e22e">span</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;4&#34;</span>
-    <span style="color:#a6e22e">elem-attrs</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;{&#34;type&#34;:&#34;daterange&#34;}&#39;</span> <span style="color:#a6e22e">live-reload</span>&gt;
-  <span style="color:#a6e22e">SELECT</span> <span style="color:#ae81ff">1</span>
-&lt;/<span style="color:#f92672">script</span>&gt;
 
-<span style="color:#75715e">&lt;!-- 
-</span><span style="color:#75715e">Теги elem используется для простых пользовательских шаблонов.
-</span><span style="color:#75715e">Обычно это не рекомендуется делать, так как переход на другие ui фреймворки будет усложнено, но иногда так проще всего
-</span><span style="color:#75715e">
-</span><span style="color:#75715e">UI template.
-</span><span style="color:#75715e">Вы можете наблюдать вот такой вызов в шаблоне {{env.sp|json}} эта строка будет выводить env.sp в виде json через систему шаблонов angularjs. 
-</span><span style="color:#75715e">Работает на frontend. В общем случае так делать не рекомендуется, так как поддержка angularjs скоро прекращается и придется переписывать такие вызовы.
-</span><span style="color:#75715e">
-</span><span style="color:#75715e">Backenf template.
-</span><span style="color:#75715e">Это ${env.sp} работает freemarker - java шаблонизатор, работает на backend до того, как root lego будет возвращен на frontend.
-</span><span style="color:#75715e">--&gt;</span>
-&lt;<span style="color:#f92672">elem</span> <span style="color:#a6e22e">order</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;11&#34;</span> <span style="color:#a6e22e">span</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;3&#34;</span>&gt;
-  &lt;<span style="color:#f92672">tpl</span>&gt;
-    &lt;<span style="color:#f92672">p</span>&gt;
-      Тут в тесте мы проверяем, что stateParams теперь всегда и везде приходят как env.sp
-    &lt;/<span style="color:#f92672">p</span>&gt;
-    &lt;<span style="color:#f92672">table</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;table table-bordered&#34;</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;max-width: 500px&#34;</span>&gt;
-      &lt;<span style="color:#f92672">tr</span>&gt;
-        &lt;<span style="color:#f92672">td</span>&gt;Frontend angularjs state params&lt;/<span style="color:#f92672">td</span>&gt;
-        &lt;<span style="color:#f92672">td</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;angular-sp&#34;</span>&gt;{{env.sp|json}}&lt;/<span style="color:#f92672">td</span>&gt;
-      &lt;/<span style="color:#f92672">tr</span>&gt;
-      &lt;<span style="color:#f92672">tr</span>&gt;
-        &lt;<span style="color:#f92672">td</span>&gt;Backend JS state params&lt;/<span style="color:#f92672">td</span>&gt;
-        &lt;<span style="color:#f92672">td</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;js-sp&#34;</span>&gt;{{jsout.test|json}}&lt;/<span style="color:#f92672">td</span>&gt;
-      &lt;/<span style="color:#f92672">tr</span>&gt;
-      &lt;<span style="color:#f92672">tr</span>&gt;
-        &lt;<span style="color:#f92672">td</span>&gt;Template state params&lt;/<span style="color:#f92672">td</span>&gt;
-        &lt;<span style="color:#f92672">td</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tpl-sp&#34;</span>&gt;${env.sp}&lt;/<span style="color:#f92672">td</span>&gt;
-      &lt;/<span style="color:#f92672">tr</span>&gt;
-    &lt;/<span style="color:#f92672">table</span>&gt;
-  &lt;/<span style="color:#f92672">tpl</span>&gt;
-  &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;jsout&#34;</span>&gt;
-    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>(<span style="color:#a6e22e">vm</span>, <span style="color:#a6e22e">env</span>) {
-      <span style="color:#a6e22e">vm</span>.<span style="color:#a6e22e">test</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">sp</span>;
-    }
-  &lt;/<span style="color:#f92672">script</span>&gt;
-&lt;/<span style="color:#f92672">elem</span>&gt;
-
-<span style="color:#75715e">&lt;!--
-</span><span style="color:#75715e">Тут хорошо видно, что поле date приводится к типу date средствами postgresql и фильтруется данными из env.sp.period (:env.sp.period.from::date AND :env.sp.period.to::date)
-</span><span style="color:#75715e">Это как раз те данные из элемента period, объявленного выше. 
-</span><span style="color:#75715e">Поскольку атрибута elem нет, то данные по умолчанию выводятся в виде таблицы (то же самое было бы, если мы поставим elem=&#34;me-table&#34;)
-</span><span style="color:#75715e">
-</span><span style="color:#75715e">Если вам надо скрыть элемент, но вернуть данные на frontend используйте elem=&#34;hidden&#34;
-</span><span style="color:#75715e">Если данные не должны уходить с сервера используйте атрибут internal
-</span><span style="color:#75715e">--&gt;</span>
-&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta&#34;</span> <span style="color:#a6e22e">depends</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;period&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tbl&#34;</span> <span style="color:#a6e22e">order</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;50&#34;</span>&gt;
-<span style="color:#a6e22e">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">FROM</span> <span style="color:#a6e22e">generate_series</span>(<span style="color:#e6db74">&#39;2010-03-01 00:00&#39;</span><span style="color:#f92672">::</span><span style="color:#a6e22e">timestamp</span>,
-                <span style="color:#e6db74">&#39;2016-03-04 12:00&#39;</span>, <span style="color:#e6db74">&#39;10 hours&#39;</span>) <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">date</span>
-<span style="color:#a6e22e">WHERE</span> <span style="color:#a6e22e">date</span><span style="color:#f92672">::</span><span style="color:#a6e22e">date</span> <span style="color:#a6e22e">BETWEEN</span> <span style="color:#f92672">:</span><span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">sp</span>.<span style="color:#a6e22e">period</span>.<span style="color:#a6e22e">from</span><span style="color:#f92672">::</span><span style="color:#a6e22e">date</span> <span style="color:#a6e22e">AND</span> <span style="color:#f92672">:</span><span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">sp</span>.<span style="color:#a6e22e">period</span>.<span style="color:#a6e22e">to</span><span style="color:#f92672">::</span><span style="color:#a6e22e">date</span>
-<span style="color:#a6e22e">ORDER</span> <span style="color:#a6e22e">BY</span> <span style="color:#a6e22e">date</span>
-<span style="color:#a6e22e">$</span>{<span style="color:#a6e22e">pager</span>}
-&lt;/<span style="color:#f92672">script</span>&gt;
-</code></pre></div><p>После того, как пользователь выбирает период дат в элементе period frontend посылает запрос в /api/meta/page с новым окружением,
+<p>После того, как пользователь выбирает период дат в элементе period frontend посылает запрос в /api/meta/page с новым окружением,
 получает ответ и перерендеривает страницу. Все это пока меняет env.sp, но не env.state.</p>
-<h2 id="выполенение-url-типа-card-пример-для-envstate">Выполенение url типа /card. Пример для env.state</h2>
+
+<h2 id="выполенение-url-типа-card-пример-для-env-state">Выполенение url типа /card. Пример для env.state</h2>
+
 <p>Хороший пример тут - <a href="https://samples-demo.devision.io/page?p=5181&amp;a=35">https://samples-demo.devision.io/page?p=5181&amp;a=35</a></p>
+
 <p>На странице видно список объектов, вы можете создать новый и отредактировать старый.
 Редактирование доступно как при клике на название объекта, так и при клике в контестном меню по пункту &ldquo;Быстрое редактирование&rdquo;
 при клике правой клавишей мыши на строке объекта.</p>
+
 <p>На странице редактирования объекта описано все поведение меты для выполнения запроса
 <a href="https://samples-demo.devision.io/card?e=example_entity&amp;o=08f3395b-31f2-42c9-917e-a5f2b7bd4a95&amp;a=35">https://samples-demo.devision.io/card?e=example_entity&amp;o=08f3395b-31f2-42c9-917e-a5f2b7bd4a95&amp;a=35</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- 
-</span><span style="color:#75715e">Объявляем валидатор с depends от name. Параметр name в случае этой конкретной формы будет приходить как имя объекта.
-</span><span style="color:#75715e">Такая валидация не обяъательна, это будет зависеть от конкретной формы. Часто это просто не надо.
-</span><span style="color:#75715e">--&gt;</span>
-&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;name_validator&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta_samples&#34;</span> <span style="color:#a6e22e">depends</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;name&#34;</span>&gt;
-<span style="color:#a6e22e">SELECT</span> <span style="color:#e6db74">&#39;name_validator_unique&#39;</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">id</span>, <span style="color:#e6db74">&#39;Имя уже используется&#39;</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">name</span> <span style="color:#a6e22e">FROM</span> <span style="color:#66d9ef">public</span>.<span style="color:#a6e22e">example_entity</span> <span style="color:#a6e22e">WHERE</span> <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#f92672">:</span><span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">sp</span>.<span style="color:#a6e22e">name</span> <span style="color:#a6e22e">LIMIT</span> <span style="color:#ae81ff">1</span>
-&lt;/<span style="color:#f92672">script</span>&gt;
 
-<span style="color:#75715e">&lt;!-- 
-</span><span style="color:#75715e">Для упрощения разработки форм мы договорились, что данные объекта сужности мы всегда извлеваем в скрипте с id=info с атрибутом internal (данный атрибут не дает данным уходить на frontend) 
-</span><span style="color:#75715e">--&gt;</span>
-&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta_samples&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;info&#34;</span> <span style="color:#a6e22e">internal</span> <span style="color:#a6e22e">states</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;default&#34;</span>&gt;
-<span style="color:#a6e22e">SELECT</span> <span style="color:#a6e22e">id</span>, <span style="color:#a6e22e">name</span>, <span style="color:#a6e22e">creation_time</span>, <span style="color:#a6e22e">last_user_id</span>
-<span style="color:#a6e22e">FROM</span> <span style="color:#66d9ef">public</span>.<span style="color:#a6e22e">example_entity</span>
-<span style="color:#a6e22e">WHERE</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#a6e22e">NULLIF</span>(<span style="color:#f92672">:</span><span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">objectId</span>, <span style="color:#e6db74">&#39;0&#39;</span>)<span style="color:#f92672">::</span><span style="color:#a6e22e">uuid</span>
-<span style="color:#a6e22e">LIMIT</span> <span style="color:#ae81ff">1</span>
-&lt;/<span style="color:#f92672">script</span>&gt;
+<pre><code class="language-html">&lt;!-- 
+Объявляем валидатор с depends от name. Параметр name в случае этой конкретной формы будет приходить как имя объекта.
+Такая валидация не обяъательна, это будет зависеть от конкретной формы. Часто это просто не надо.
+--&gt;
+&lt;script id=&quot;name_validator&quot; type=&quot;meta/sql&quot; db-alias=&quot;meta_samples&quot; depends=&quot;name&quot;&gt;
+SELECT 'name_validator_unique' as id, 'Имя уже используется' as name FROM public.example_entity WHERE name = :env.sp.name LIMIT 1
+&lt;/script&gt;
 
-&lt;<span style="color:#f92672">elem</span> <span style="color:#a6e22e">states</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;default&#34;</span> <span style="color:#a6e22e">order</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;190&#34;</span>&gt;
-    &lt;<span style="color:#f92672">tpl</span>&gt;
-        <span style="color:#75715e">&lt;!-- Форма при отправке будет метять env.state на save и поэтому будут исполняться скрипты6 которые описаны ниже и имеют states=&#34;save&#34; --&gt;</span>
-        &lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;editGroupForm&#34;</span> <span style="color:#a6e22e">ng-submit</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;changeState(&#39;save&#39;, {obj:env.sp.obj})&#34;</span>&gt;
-            <span style="color:#75715e">&lt;!-- 
-</span><span style="color:#75715e">            Атрибут формы output важно делать именно env.sp.obj. 
-</span><span style="color:#75715e">            В старом коде вы можете встретить другие значения, но в новых формах нужно всегда такой.
-</span><span style="color:#75715e">            Это позволяет передавать в форму параметры через env.sp с внешних кнопок и других форм для первичного заполнения и в целом стандартизирует разработку.
-</span><span style="color:#75715e">             --&gt;</span>
-            &lt;<span style="color:#f92672">me-lego</span> <span style="color:#a6e22e">elems</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;editCard.elems&#34;</span> <span style="color:#a6e22e">output</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;env.sp.obj&#34;</span>&gt;&lt;/<span style="color:#f92672">me-lego</span>&gt;
-        &lt;/<span style="color:#f92672">form</span>&gt;
-    &lt;/<span style="color:#f92672">tpl</span>&gt;
-&lt;/<span style="color:#f92672">elem</span>&gt;
+&lt;!-- 
+Для упрощения разработки форм мы договорились, что данные объекта сужности мы всегда извлеваем в скрипте с id=info с атрибутом internal (данный атрибут не дает данным уходить на frontend) 
+--&gt;
+&lt;script type=&quot;meta/sql&quot; db-alias=&quot;meta_samples&quot; id=&quot;info&quot; internal states=&quot;default&quot;&gt;
+SELECT id, name, creation_time, last_user_id
+FROM public.example_entity
+WHERE id=NULLIF(:env.objectId, '0')::uuid
+LIMIT 1
+&lt;/script&gt;
 
-&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;editCard&#34;</span> <span style="color:#a6e22e">elem</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hidden&#34;</span> <span style="color:#a6e22e">states</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;default&#34;</span>&gt;
-  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>(<span style="color:#a6e22e">vm</span>, <span style="color:#a6e22e">pvm</span>, <span style="color:#a6e22e">env</span>) {
-    <span style="color:#75715e">// Получаем инфу из бд, если редактирвание или указываем значение по умолчанию
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">info</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">pvm</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">info</span>.<span style="color:#a6e22e">notEmpty</span> <span style="color:#f92672">?</span> <span style="color:#a6e22e">pvm</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">info</span>.<span style="color:#a6e22e">rows</span>[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">:</span> {};
-    <span style="color:#75715e">// Не добавляейте в env секретные поля - эти данные уйдут в интерфейс
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">// Говорим мете, что при первичной загрузке страницы в env sp нужно положить данные из info в obj
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">// Далее они будут доступны как env.sp.obj
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">pvm</span>.<span style="color:#a6e22e">initEnvSp</span>(<span style="color:#a6e22e">env</span>, {<span style="color:#a6e22e">obj</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">info</span>});
+&lt;elem states=&quot;default&quot; order=&quot;190&quot;&gt;
+    &lt;tpl&gt;
+        &lt;!-- Форма при отправке будет метять env.state на save и поэтому будут исполняться скрипты6 которые описаны ниже и имеют states=&quot;save&quot; --&gt;
+        &lt;form name=&quot;editGroupForm&quot; ng-submit=&quot;changeState('save', {obj:env.sp.obj})&quot;&gt;
+            &lt;!-- 
+            Атрибут формы output важно делать именно env.sp.obj. 
+            В старом коде вы можете встретить другие значения, но в новых формах нужно всегда такой.
+            Это позволяет передавать в форму параметры через env.sp с внешних кнопок и других форм для первичного заполнения и в целом стандартизирует разработку.
+             --&gt;
+            &lt;me-lego elems=&quot;editCard.elems&quot; output=&quot;env.sp.obj&quot;&gt;&lt;/me-lego&gt;
+        &lt;/form&gt;
+    &lt;/tpl&gt;
+&lt;/elem&gt;
 
-    <span style="color:#a6e22e">vm</span>.<span style="color:#a6e22e">elems</span> <span style="color:#f92672">=</span> [
+&lt;script type=&quot;meta/js&quot; id=&quot;editCard&quot; elem=&quot;hidden&quot; states=&quot;default&quot;&gt;
+  function main(vm, pvm, env) {
+    // Получаем инфу из бд, если редактирвание или указываем значение по умолчанию
+    var info = pvm.data.info.notEmpty ? pvm.data.info.rows[0] : {};
+    // Не добавляейте в env секретные поля - эти данные уйдут в интерфейс
+    // Говорим мете, что при первичной загрузке страницы в env sp нужно положить данные из info в obj
+    // Далее они будут доступны как env.sp.obj
+    pvm.initEnvSp(env, {obj: info});
+
+    vm.elems = [
       {
-        <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;name&#34;</span>,
-        <span style="color:#a6e22e">label</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Название&#34;</span>,
-        <span style="color:#a6e22e">span</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">12</span>,
-        <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;me-input&#34;</span>,
-        <span style="color:#75715e">// Таким образом мы настраиваем валидатор на поле. 
-</span><span style="color:#75715e"></span>        <span style="color:#75715e">// Подробный пример о валидаторах - https://samples-demo.devision.io/page?p=3443&amp;a=35
-</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">refPvmValidator</span><span style="color:#f92672">:</span> {<span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;name_validator&#34;</span>},
-        <span style="color:#a6e22e">attrs</span><span style="color:#f92672">:</span> {
-          <span style="color:#a6e22e">required</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
-          <span style="color:#a6e22e">min</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2</span>,
-          <span style="color:#a6e22e">max</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">30</span>
+        id: &quot;name&quot;,
+        label: &quot;Название&quot;,
+        span: 12,
+        name: &quot;me-input&quot;,
+        // Таким образом мы настраиваем валидатор на поле. 
+        // Подробный пример о валидаторах - https://samples-demo.devision.io/page?p=3443&amp;a=35
+        refPvmValidator: {id: &quot;name_validator&quot;},
+        attrs: {
+          required: true,
+          min: 2,
+          max: 30
         }
       },
 
-      <span style="color:#75715e">// Просто перенос строки
-</span><span style="color:#75715e"></span>      {<span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;newrow&#34;</span>},
+      // Просто перенос строки
+      {name: &quot;newrow&quot;},
       
-      <span style="color:#75715e">// Кнопка отправки формы
-</span><span style="color:#75715e"></span>      {
-        <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;submit&#34;</span>,
-        <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;me-submit&#34;</span>,
-        <span style="color:#a6e22e">attrs</span><span style="color:#f92672">:</span> {
-          <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;${i18n(&#34;common.saveButton&#34;)}&#39;</span>
+      // Кнопка отправки формы
+      {
+        id: &quot;submit&quot;,
+        name: &quot;me-submit&quot;,
+        attrs: {
+          value: '${i18n(&quot;common.saveButton&quot;)}'
         }
       }
     ];
   }
-&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;/script&gt;
 
-<span style="color:#75715e">&lt;!-- 
-</span><span style="color:#75715e">В Postgres почти всегда хорошо делать INSERT ON CONFLICT DO UPDATE если вы не боитель роста инкремента в id (если он у вас имеет тип serial или bigserial)
-</span><span style="color:#75715e">--&gt;</span>
-&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta_samples&#34;</span> <span style="color:#a6e22e">elem</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hidden&#34;</span> <span style="color:#a6e22e">states</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;save&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;upsert&#34;</span>&gt;
-<span style="color:#a6e22e">INSERT</span> <span style="color:#a6e22e">INTO</span> <span style="color:#a6e22e">example_entity</span> (<span style="color:#a6e22e">id</span>, <span style="color:#a6e22e">name</span>, <span style="color:#a6e22e">last_user_id</span>)
-<span style="color:#a6e22e">VALUES</span> ( <span style="color:#a6e22e">COALESCE</span>(<span style="color:#a6e22e">NULLIF</span>(<span style="color:#f92672">:</span><span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">objectId</span>, <span style="color:#e6db74">&#39;0&#39;</span>)<span style="color:#f92672">::</span><span style="color:#a6e22e">uuid</span>, <span style="color:#a6e22e">uuid_generate_v4</span>()), <span style="color:#f92672">:</span><span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">sp</span>.<span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">name</span>, <span style="color:#f92672">:</span><span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">userId</span> )
-<span style="color:#a6e22e">ON</span> <span style="color:#a6e22e">CONFLICT</span> (<span style="color:#a6e22e">id</span>) <span style="color:#a6e22e">DO</span> <span style="color:#a6e22e">UPDATE</span> <span style="color:#a6e22e">SET</span>
-  <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">EXCLUDED</span>.<span style="color:#a6e22e">name</span>
-<span style="color:#a6e22e">RETURNING</span> <span style="color:#a6e22e">id</span>;
-&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;!-- 
+В Postgres почти всегда хорошо делать INSERT ON CONFLICT DO UPDATE если вы не боитель роста инкремента в id (если он у вас имеет тип serial или bigserial)
+--&gt;
+&lt;script type=&quot;meta/sql&quot; db-alias=&quot;meta_samples&quot; elem=&quot;hidden&quot; states=&quot;save&quot; id=&quot;upsert&quot;&gt;
+INSERT INTO example_entity (id, name, last_user_id)
+VALUES ( COALESCE(NULLIF(:env.objectId, '0')::uuid, uuid_generate_v4()), :env.sp.obj.name, :env.userId )
+ON CONFLICT (id) DO UPDATE SET
+  name = EXCLUDED.name
+RETURNING id;
+&lt;/script&gt;
 
-<span style="color:#75715e">&lt;!-- 
-</span><span style="color:#75715e">elem=&#34;hidden&#34; делает скрипт невидимым
-</span><span style="color:#75715e">
-</span><span style="color:#75715e">states может содержать список стейтов разделенных запятой, в нашем случае и обычно это не нужно. Если states не указан, что скрипт работает на всех стейтах
-</span><span style="color:#75715e">states=&#34;save&#34; говорит о том, что скрипт будет выполнятся только при выполнении условия, что env.state IN (states)
-</span><span style="color:#75715e">--&gt;</span>
-&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span> <span style="color:#a6e22e">elem</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hidden&#34;</span> <span style="color:#a6e22e">states</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;save&#34;</span>&gt;
-<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>(<span style="color:#a6e22e">pvm</span>, <span style="color:#a6e22e">vm</span>, <span style="color:#a6e22e">env</span>, <span style="color:#a6e22e">ObjectLogService</span>) {
-  <span style="color:#75715e">// Это простой относительно новый способ узнать работаем ли мы с уже созданным объектом или с новым. 
-</span><span style="color:#75715e"></span>  <span style="color:#75715e">// Ранее использовалось сравнение с нулем - env.objectId == &#39;0&#39;, но теперь в этом нет необходимости и можно использовать более явное условие
-</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">isNew</span> <span style="color:#f92672">=</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">hasObjectId</span>;
-  <span style="color:#75715e">// Получаем ранее вставленный id или id из URL
-</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">objectId</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">isNew</span> <span style="color:#f92672">?</span> <span style="color:#a6e22e">pvm</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">upsert</span>.<span style="color:#a6e22e">rows</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">id</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">objectId</span>;
+&lt;!-- 
+elem=&quot;hidden&quot; делает скрипт невидимым
 
-  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">isNew</span>) {
-    <span style="color:#75715e">// Это не обязательно, но обычно менеджер просит заредиректить пользователя на URL карточки свежесозданного объекта
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">pvm</span>.<span style="color:#a6e22e">redirect</span> <span style="color:#f92672">=</span> {
-      <span style="color:#a6e22e">url</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;/card?e=&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">entityId</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;&amp;o=&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">objectId</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;&amp;a=&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">applicationId</span>
+states может содержать список стейтов разделенных запятой, в нашем случае и обычно это не нужно. Если states не указан, что скрипт работает на всех стейтах
+states=&quot;save&quot; говорит о том, что скрипт будет выполнятся только при выполнении условия, что env.state IN (states)
+--&gt;
+&lt;script type=&quot;meta/js&quot; elem=&quot;hidden&quot; states=&quot;save&quot;&gt;
+function main(pvm, vm, env, ObjectLogService) {
+  // Это простой относительно новый способ узнать работаем ли мы с уже созданным объектом или с новым. 
+  // Ранее использовалось сравнение с нулем - env.objectId == '0', но теперь в этом нет необходимости и можно использовать более явное условие
+  var isNew = !env.hasObjectId;
+  // Получаем ранее вставленный id или id из URL
+  var objectId = isNew ? pvm.data.upsert.rows[0].id : env.objectId;
+
+  if (isNew) {
+    // Это не обязательно, но обычно менеджер просит заредиректить пользователя на URL карточки свежесозданного объекта
+    pvm.redirect = {
+      url: &quot;/card?e=&quot; + env.entityId + &quot;&amp;o=&quot; + objectId + &quot;&amp;a=&quot; + env.applicationId
     };
-  } <span style="color:#66d9ef">else</span> {
-    <span style="color:#75715e">// Говорит о том, что надо вернуться к первоначальному состоянию страницы
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">// state=default
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">// firstLoading = true
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">pvm</span>.<span style="color:#a6e22e">toInitialState</span>();
-    <span style="color:#75715e">// Если страница будет открыта в модальном окне эта инструкция будет указывть мете, что окно надо закрыть
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">pvm</span>.<span style="color:#a6e22e">closeModal</span>();
+  } else {
+    // Говорит о том, что надо вернуться к первоначальному состоянию страницы
+    // state=default
+    // firstLoading = true
+    pvm.toInitialState();
+    // Если страница будет открыта в модальном окне эта инструкция будет указывть мете, что окно надо закрыть
+    pvm.closeModal();
   }
-  <span style="color:#75715e">// Показать popup. В принципе popup, как и все эти инструкции кроме ObjectLogService.logValue можно ставить в любом порядке, 
-</span><span style="color:#75715e"></span>  <span style="color:#75715e">// так как они будут реально выполнены ли на frontend или как toInitialState в конце обработки script
-</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">pvm</span>.<span style="color:#a6e22e">popup</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">level</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;success&#34;</span>, <span style="color:#a6e22e">message</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;${i18n(&#39;common.saveSuccess&#39;)}&#34;</span>};
-  <span style="color:#75715e">// Залогировать действие над объектом сущности. Будет отгружено в БД и в логи, из логов обычно перемещается в BigQuery
-</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">ObjectLogService</span>.<span style="color:#a6e22e">logValue</span>(<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">entityId</span>, <span style="color:#a6e22e">objectId</span>, <span style="color:#a6e22e">isNew</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">&#39;ADD&#39;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;SET&#39;</span>, <span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">sp</span>.<span style="color:#a6e22e">obj</span>);
+  // Показать popup. В принципе popup, как и все эти инструкции кроме ObjectLogService.logValue можно ставить в любом порядке, 
+  // так как они будут реально выполнены ли на frontend или как toInitialState в конце обработки script
+  pvm.popup = {level: &quot;success&quot;, message: &quot;${i18n('common.saveSuccess')}&quot;};
+  // Залогировать действие над объектом сущности. Будет отгружено в БД и в логи, из логов обычно перемещается в BigQuery
+  ObjectLogService.logValue(env.entityId, objectId, isNew ? 'ADD' : 'SET', env.sp.obj);
 }
-&lt;/<span style="color:#f92672">script</span>&gt;
-</code></pre></div><h3 id="код-примера">Код примера</h3>
+&lt;/script&gt;
+</code></pre>
+
+<h3 id="код-примера">Код примера</h3>
+
 <p>Надо сказать, что обычно state меняется при сабмите формы, просто через html yе меняем, но этот пример может показать что происходит.</p>
+
 <p>Вот простой код для примера. Тут три ссылки, которые меняют состояние страницы.
 В script-ах указаны states, в которых script будет участвовать (будет выполняться).
 Если states для script или elem не указан, то script или elem участвует во всех state.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">elem</span>&gt;
-&lt;<span style="color:#f92672">tpl</span>&gt;
-  &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">ng-click</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;changeState(&#39;first&#39;, {&#39;foo&#39;:1})&#34;</span>&gt;to first&lt;/<span style="color:#f92672">a</span>&gt; | 
-  &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">ng-click</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;changeState(&#39;two&#39;, {&#39;bar&#39;:2})&#34;</span>&gt;to two&lt;/<span style="color:#f92672">a</span>&gt; |
-  &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">ng-click</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;changeState(&#39;three&#39;, env.sp)&#34;</span>&gt;to three&lt;/<span style="color:#f92672">a</span>&gt; |
 
-  &lt;<span style="color:#f92672">hr</span>&gt;    
+<pre><code class="language-html">&lt;elem&gt;
+&lt;tpl&gt;
+  &lt;a ng-click=&quot;changeState('first', {'foo':1})&quot;&gt;to first&lt;/a&gt; | 
+  &lt;a ng-click=&quot;changeState('two', {'bar':2})&quot;&gt;to two&lt;/a&gt; |
+  &lt;a ng-click=&quot;changeState('three', env.sp)&quot;&gt;to three&lt;/a&gt; |
+
+  &lt;hr&gt;    
   state: {{env.state}}
-  &lt;<span style="color:#f92672">br</span>&gt;
-  &lt;<span style="color:#f92672">pre</span>&gt;{{env.sp|json}}&lt;/<span style="color:#f92672">pre</span>&gt;
-&lt;/<span style="color:#f92672">tpl</span>&gt;
-&lt;/<span style="color:#f92672">elem</span>&gt;
+  &lt;br&gt;
+  &lt;pre&gt;{{env.sp|json}}&lt;/pre&gt;
+&lt;/tpl&gt;
+&lt;/elem&gt;
 
-&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;adplatform&#34;</span> <span style="color:#a6e22e">span</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;4&#34;</span> <span style="color:#a6e22e">states</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;first&#34;</span>&gt;
-<span style="color:#a6e22e">select</span> <span style="color:#ae81ff">1</span>
-&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;script type=&quot;meta/sql&quot; db-alias=&quot;adplatform&quot; span=&quot;4&quot; states=&quot;first&quot;&gt;
+select 1
+&lt;/script&gt;
 
-&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;adplatform&#34;</span> <span style="color:#a6e22e">span</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;4&#34;</span> <span style="color:#a6e22e">states</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;two&#34;</span>&gt;
-<span style="color:#a6e22e">select</span> <span style="color:#ae81ff">2</span>
-&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;script type=&quot;meta/sql&quot; db-alias=&quot;adplatform&quot; span=&quot;4&quot; states=&quot;two&quot;&gt;
+select 2
+&lt;/script&gt;
 
-&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;adplatform&#34;</span> <span style="color:#a6e22e">span</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;4&#34;</span> <span style="color:#a6e22e">states</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;first, two&#34;</span>&gt;
-<span style="color:#a6e22e">select</span> <span style="color:#ae81ff">3</span>
-&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;script type=&quot;meta/sql&quot; db-alias=&quot;adplatform&quot; span=&quot;4&quot; states=&quot;first, two&quot;&gt;
+select 3
+&lt;/script&gt;
 
-&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;w&#34;</span> <span style="color:#a6e22e">states</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;three&#34;</span>&gt;
-<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>(<span style="color:#a6e22e">vm</span>, <span style="color:#a6e22e">pvm</span>, <span style="color:#a6e22e">env</span>) {
-  <span style="color:#75715e">// Говорит мете, что страницу надо вернуть в изначальное состояние с параметрами по умолчанию
-</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">pvm</span>.<span style="color:#a6e22e">toInitialState</span>();
+&lt;script type=&quot;meta/js&quot; id=&quot;w&quot; states=&quot;three&quot;&gt;
+function main(vm, pvm, env) {
+  // Говорит мете, что страницу надо вернуть в изначальное состояние с параметрами по умолчанию
+  pvm.toInitialState();
 }
-&lt;/<span style="color:#f92672">script</span>&gt;
-</code></pre></div>
+&lt;/script&gt;
+</code></pre>
+
 
 
 
@@ -1935,20 +1963,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
     <nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#окружение-запроса">Окружение запроса</a></li>
-        <li><a href="#состояния-страниц">Состояния страниц</a></li>
-      </ul>
-    </li>
-    <li><a href="#выполенение-url-типа-page-пример-для-envsp">Выполенение url типа /page. Пример для env.sp</a></li>
-    <li><a href="#выполенение-url-типа-card-пример-для-envstate">Выполенение url типа /card. Пример для env.state</a>
-      <ul>
-        <li><a href="#код-примера">Код примера</a></li>
-      </ul>
-    </li>
-  </ul>
+<ul>
+<li><a href="#введение">Введение</a>
+<ul>
+<li>
+<ul>
+<li><a href="#окружение-запроса">Окружение запроса</a></li>
+<li><a href="#состояния-страниц">Состояния страниц</a></li>
+</ul></li>
+<li><a href="#выполенение-url-типа-page-пример-для-env-sp">Выполенение url типа /page. Пример для env.sp</a></li>
+<li><a href="#выполенение-url-типа-card-пример-для-env-state">Выполенение url типа /card. Пример для env.state</a>
+<ul>
+<li><a href="#код-примера">Код примера</a></li>
+</ul></li>
+</ul></li>
+</ul>
 </nav>
 </div>
 

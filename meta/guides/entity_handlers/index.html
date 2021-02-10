@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.68.1" />
+    <meta name="generator" content="Hugo 0.59.1" />
     <meta name="description" content="">
 
 
@@ -1661,82 +1661,114 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
+
+
 <h2 id="мотивация">Мотивация</h2>
+
 <p>Часто хочется иметь middleware функцию проверки доступа к конкретному объекту на карточке объекта для того,
 чтобы не делать проверку досупа на каждой странице сущности.</p>
+
 <p>Чтобы сделать обработчик вам нужно:</p>
+
 <ul>
-<li>
-<p>Сделать страницы с ролью &ldquo;Обработчики событий сущности&rdquo;</p>
-</li>
-<li>
-<p>Сделать скрипт cо state и id равному типу обработчика.</p>
-</li>
+<li><p>Сделать страницы с ролью &ldquo;Обработчики событий сущности&rdquo;</p></li>
+
+<li><p>Сделать скрипт cо state и id равному типу обработчика.</p></li>
 </ul>
+
 <p>Например:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;...&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;check_access&#34;</span> <span style="color:#a6e22e">state</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;check_access&#34;</span>&gt;
-<span style="color:#a6e22e">SELECT</span> 
-  (<span style="color:#a6e22e">CASE</span> <span style="color:#a6e22e">WHEN</span> <span style="color:#a6e22e">author_user_id</span> <span style="color:#f92672">=</span> <span style="color:#f92672">:</span><span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">userId</span> <span style="color:#a6e22e">THEN</span> <span style="color:#ae81ff">200</span> <span style="color:#a6e22e">ELSE</span> <span style="color:#ae81ff">403</span> <span style="color:#a6e22e">END</span>) <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">status_code</span>
-<span style="color:#a6e22e">FROM</span> <span style="color:#a6e22e">pubic</span>.<span style="color:#a6e22e">myobject</span>
-<span style="color:#a6e22e">WHERE</span> <span style="color:#a6e22e">id</span> <span style="color:#f92672">=</span> <span style="color:#f92672">:</span><span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">objectId</span><span style="color:#f92672">::</span><span style="color:#a6e22e">text</span> 
-<span style="color:#a6e22e">LIMIT</span> <span style="color:#ae81ff">1</span>
-&lt;/<span style="color:#f92672">script</span>&gt;
-</code></pre></div><p>Обратите внимание, что на один state вы можете сделать несколько скриптов,
+
+<pre><code class="language-html">&lt;script type=&quot;...&quot; id=&quot;check_access&quot; state=&quot;check_access&quot;&gt;
+SELECT 
+  (CASE WHEN author_user_id = :env.userId THEN 200 ELSE 403 END) as status_code
+FROM pubic.myobject
+WHERE id = :env.objectId::text 
+LIMIT 1
+&lt;/script&gt;
+</code></pre>
+
+<p>Обратите внимание, что на один state вы можете сделать несколько скриптов,
 которые выполнятся последовательно согласно их положению на странице. Это может быть удобно,
 когда вам надо что-то сделать в разных бд или sql + javascript. В этом случае скрипт с id равному типу обработчика должен стоять последним.</p>
-<p>Например:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;...&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;get_anything&#34;</span> <span style="color:#a6e22e">state</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;check_access&#34;</span>&gt;
-  <span style="color:#a6e22e">SELECT</span> <span style="color:#a6e22e">myvar</span> 
-  <span style="color:#a6e22e">FROM</span> ...
-  <span style="color:#a6e22e">LIMIT</span> <span style="color:#ae81ff">1</span> 
-&lt;/<span style="color:#f92672">script</span>&gt;
 
-&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;...&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;check_access&#34;</span> <span style="color:#a6e22e">state</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;check_access&#34;</span>&gt;
-  <span style="color:#a6e22e">SELECT</span> ... 
-  <span style="color:#a6e22e">FROM</span> ... 
-  <span style="color:#a6e22e">WHERE</span> <span style="color:#a6e22e">id</span> <span style="color:#a6e22e">IN</span> ( <span style="color:#f92672">:</span><span style="color:#a6e22e">pvm</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">get_anything</span>.<span style="color:#a6e22e">rows</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">myvar</span> )
-&lt;/<span style="color:#f92672">script</span>&gt;
-</code></pre></div><h2 id="обработчик-check_access">Обработчик: check_access</h2>
+<p>Например:</p>
+
+<pre><code class="language-html">&lt;script type=&quot;...&quot; id=&quot;get_anything&quot; state=&quot;check_access&quot;&gt;
+  SELECT myvar 
+  FROM ...
+  LIMIT 1 
+&lt;/script&gt;
+
+&lt;script type=&quot;...&quot; id=&quot;check_access&quot; state=&quot;check_access&quot;&gt;
+  SELECT ... 
+  FROM ... 
+  WHERE id IN ( :pvm.data.get_anything.rows[0].myvar )
+&lt;/script&gt;
+</code></pre>
+
+<h2 id="обработчик-check-access">Обработчик: check_access</h2>
+
 <p>Используется для проверки доступа к конкретному объекту сущности.
 Например в вашем приложении есть список клиентов, но не каждому пользователю доступен каждый клиент.
 В этом случае удобно будет сделать проверку на карточке один раз и не проверять на каждой странице.</p>
-<!-- raw HTML omitted -->
+
+<div class="notices info" >
+Проверка на карточке объекта не отменяет отдельные проверки на списке объектов. 
+Пока что в Мете нет способа быстро и просто проверять доступность данных на списках через встроенные механизмы.
+Мы рекомендуем делать хранимые процедуры базы данных для быстрой проверки доступа.
+</div>
+
 <p>Метод может вернуть всего одну строку с параметром &ldquo;status_code&rdquo; (тип int) или вернуть ноль строк.
-Для простоты коды соответсвуют <a href="https://ru.wikipedia.org/wiki/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA_%D0%BA%D0%BE%D0%B4%D0%BE%D0%B2_%D1%81%D0%BE%D1%81%D1%82%D0%BE%D1%8F%D0%BD%D0%B8%D1%8F_HTTP">HTTP кодам состояния</a></p>
+Для простоты коды соответсвуют <a href="https://ru.wikipedia.org/wiki/Список_кодов_состояния_HTTP">HTTP кодам состояния</a></p>
+
 <p>На текущий момент реализована обработка этих кодов:</p>
+
 <ul>
 <li>200 - доступ есть</li>
 <li>403 - доступ запрещен</li>
 <li>404 или если метод не вернет ни одной строки это будет - отсутствие обхекта</li>
 </ul>
+
 <p>Если будет возвращен иной код состояния это будет воспринято как ошибка страницы и дальнейшая загрузка объекта будет преравана.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">db</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;adplatform&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;check_access&#34;</span> <span style="color:#a6e22e">states</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;check_access, default&#34;</span>&gt;
-<span style="color:#a6e22e">SELECT</span> 
-(<span style="color:#a6e22e">CASE</span> <span style="color:#a6e22e">WHEN</span> <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">id</span> <span style="color:#a6e22e">IN</span> (<span style="color:#a6e22e">SELECT</span> <span style="color:#a6e22e">client_id</span> <span style="color:#a6e22e">FROM</span> <span style="color:#a6e22e">get_user_clients</span>(<span style="color:#f92672">:</span><span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">userId</span>)) <span style="color:#a6e22e">THEN</span> <span style="color:#ae81ff">200</span> <span style="color:#a6e22e">ELSE</span> <span style="color:#ae81ff">403</span> <span style="color:#a6e22e">END</span>) <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">status_code</span>
-<span style="color:#a6e22e">from</span> <span style="color:#a6e22e">client</span>
-<span style="color:#a6e22e">where</span> <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">id</span> <span style="color:#f92672">=</span> <span style="color:#f92672">:</span><span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">objectId</span><span style="color:#f92672">::</span><span style="color:#a6e22e">bigint</span>
-<span style="color:#a6e22e">limit</span> <span style="color:#ae81ff">1</span>
-&lt;/<span style="color:#f92672">script</span>&gt;
-</code></pre></div><h2 id="обработчик-breadcrumbs">Обработчик: breadcrumbs</h2>
+
+<pre><code class="language-html">&lt;script type=&quot;meta/sql&quot; db=&quot;adplatform&quot; id=&quot;check_access&quot; states=&quot;check_access, default&quot;&gt;
+SELECT 
+(CASE WHEN client.id IN (SELECT client_id FROM get_user_clients(:env.userId)) THEN 200 ELSE 403 END) as status_code
+from client
+where client.id = :env.objectId::bigint
+limit 1
+&lt;/script&gt;
+</code></pre>
+
+<h2 id="обработчик-breadcrumbs">Обработчик: breadcrumbs</h2>
+
 <p>Используется для вывода более прокаченных хлебных крошек в навигации.</p>
+
 <h3 id="ссылка-на-страницу-родитеслького-объекта">Ссылка на страницу родитеслького объекта</h3>
+
 <p>Например у вас есть структура. Клиенты -&gt; Клиент -&gt; Список алгоритмов клиента -&gt; Алгоритм.
 До появления этого функционала не было никакой возможности построить ссылку на список алгоритмов клиента в навигационном разделе, будучи на карточке алгоритма.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">db</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;adplatform&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;breadcrumbs&#34;</span> <span style="color:#a6e22e">states</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;breadcrumbs, default&#34;</span>&gt;
-<span style="color:#a6e22e">SELECT</span> <span style="color:#a6e22e">json_build_object</span>(<span style="color:#e6db74">&#39;id&#39;</span>, <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">id</span>, <span style="color:#e6db74">&#39;name&#39;</span>, <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">name</span>, <span style="color:#e6db74">&#39;entityId&#39;</span>, <span style="color:#e6db74">&#39;190&#39;</span>, <span style="color:#e6db74">&#39;pageId&#39;</span>, <span style="color:#e6db74">&#39;5282&#39;</span>) <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">entity_link_field_parent_object</span>
-<span style="color:#a6e22e">from</span> <span style="color:#a6e22e">algorithm</span>
-<span style="color:#a6e22e">left</span> <span style="color:#a6e22e">join</span> <span style="color:#a6e22e">client</span> <span style="color:#a6e22e">ON</span> <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">id</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">algorithm</span>.<span style="color:#a6e22e">client_id</span>
-<span style="color:#a6e22e">where</span> <span style="color:#a6e22e">algorithm</span>.<span style="color:#a6e22e">id</span><span style="color:#f92672">=:</span><span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">objectId</span><span style="color:#f92672">::</span><span style="color:#a6e22e">bigint</span>
-&lt;/<span style="color:#f92672">script</span>&gt;
-</code></pre></div><h3 id="ссылка-на-страницу-приложений-не-карточку">Ссылка на страницу приложений (не карточку)</h3>
+
+<pre><code class="language-html">&lt;script type=&quot;meta/sql&quot; db=&quot;adplatform&quot; id=&quot;breadcrumbs&quot; states=&quot;breadcrumbs, default&quot;&gt;
+SELECT json_build_object('id', client.id, 'name', client.name, 'entityId', '190', 'pageId', '5282') as entity_link_field_parent_object
+from algorithm
+left join client ON client.id = algorithm.client_id
+where algorithm.id=:env.objectId::bigint
+&lt;/script&gt;
+</code></pre>
+
+<h3 id="ссылка-на-страницу-приложений-не-карточку">Ссылка на страницу приложений (не карточку)</h3>
+
 <p>Работает приоритетнее, чем object_list_base_page_id, хотя делает тоже самое, но может использоваться для динамического рассчета page_id.
 Так же иногда удобнее, чем object_list_base_page_id так как не является глобальной настройкой над всем приложениями.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">db</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;adplatform&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;breadcrumbs&#34;</span> <span style="color:#a6e22e">state</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;breadcrumbs, default&#34;</span>&gt;
-<span style="color:#a6e22e">SELECT</span> <span style="color:#a6e22e">json_build_object</span>(<span style="color:#e6db74">&#39;pageId&#39;</span>, <span style="color:#e6db74">&#39;app_clients&#39;</span>) <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">parent_page</span>
-<span style="color:#a6e22e">from</span> <span style="color:#a6e22e">client</span>
-<span style="color:#a6e22e">WHERE</span> <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">id</span> <span style="color:#f92672">=</span> <span style="color:#f92672">:</span><span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">objectId</span><span style="color:#f92672">::</span><span style="color:#a6e22e">bigint</span>
-&lt;/<span style="color:#f92672">script</span>&gt;
-</code></pre></div>
+
+<pre><code class="language-html">&lt;script type=&quot;meta/sql&quot; db=&quot;adplatform&quot; id=&quot;breadcrumbs&quot; state=&quot;breadcrumbs, default&quot;&gt;
+SELECT json_build_object('pageId', 'app_clients') as parent_page
+from client
+WHERE client.id = :env.objectId::bigint
+&lt;/script&gt;
+</code></pre>
+
 
 
 
@@ -1748,16 +1780,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
     <nav id="TableOfContents">
-  <ul>
-    <li><a href="#мотивация">Мотивация</a></li>
-    <li><a href="#обработчик-check_access">Обработчик: check_access</a></li>
-    <li><a href="#обработчик-breadcrumbs">Обработчик: breadcrumbs</a>
-      <ul>
-        <li><a href="#ссылка-на-страницу-родитеслького-объекта">Ссылка на страницу родитеслького объекта</a></li>
-        <li><a href="#ссылка-на-страницу-приложений-не-карточку">Ссылка на страницу приложений (не карточку)</a></li>
-      </ul>
-    </li>
-  </ul>
+<ul>
+<li>
+<ul>
+<li><a href="#мотивация">Мотивация</a></li>
+<li><a href="#обработчик-check-access">Обработчик: check_access</a></li>
+<li><a href="#обработчик-breadcrumbs">Обработчик: breadcrumbs</a>
+<ul>
+<li><a href="#ссылка-на-страницу-родитеслького-объекта">Ссылка на страницу родитеслького объекта</a></li>
+<li><a href="#ссылка-на-страницу-приложений-не-карточку">Ссылка на страницу приложений (не карточку)</a></li>
+</ul></li>
+</ul></li>
+</ul>
 </nav>
 </div>
 

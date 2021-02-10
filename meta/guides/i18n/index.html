@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.68.1" />
+    <meta name="generator" content="Hugo 0.59.1" />
     <meta name="description" content="">
 
 
@@ -1661,19 +1661,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-<!-- raw HTML omitted -->
+
+
+<div class="notices info" >
+На системном уровне поддерживаются языки: ru, en.
+</div>
+
 <p>Для того, чтобы начать переводить нужно:</p>
+
 <ul>
 <li>добавить новые компоненты в таблицу meta.component, если текущих вам недостаточно. Не забудьте указать языки для перевода в поле <code>i18n_langs</code></li>
 <li>разметить страницы копонентами в настройках старниц</li>
 <li>в app-content запустить i18n-app.py и собрать данные на перевод.</li>
 <li>если есть новые компоненты entity надо поместить в папку entity в компоненте</li>
 </ul>
+
 <p>i18n-app.py отпарсит контент мета-страниц на наличие размерки перевода, а так же обойдет entity в app-content и соберет данные на перевод.
 Если в разметке entity если i18n_object, то скрипт скачает данные из таблицы этой entity и добавит данные на перевод в поле me_i18n.
 Так же скрипт пытается автоматически через google api перевести контент на перевод.</p>
+
 <h2 id="функции-backend-шаблонизации">Функции backend шаблонизации</h2>
+
 <p>Для шаблонизации используется freemarker.org.</p>
+
 <ul>
 <li><strong>${i18n(String placeholder)}</strong> - Простой перевод</li>
 <li><strong>${i18n(String placeholder, String defaultText)}</strong> - Простой перевод с текстом по умолчанию</li>
@@ -1683,106 +1693,131 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li><strong>${i18n_sql_ofield(String key)}</strong> - Получение перевода поля</li>
 <li><strong>${i18n_sql_ofield(String tableAlias, String key)}</strong> - Получение перевода поля в случае, если у вас больше одной таблицы в запросе и вам нужно указать альяс таблицы</li>
 </ul>
+
 <h3 id="разметка-entity">Разметка entity</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">id</span>: <span style="color:#e6db74">&#39;2701&#39;</span>
-<span style="color:#66d9ef">name</span>: Тикет
-<span style="color:#66d9ef">i18n</span>: <span style="color:#66d9ef">true</span> &lt;---------- Указываем, что имя entity будет подвергаться переводу
-<span style="color:#66d9ef">db_alias</span>: meta
-<span style="color:#66d9ef">schema</span>: meta
-<span style="color:#66d9ef">table</span>: issue
-<span style="color:#66d9ef">search_order</span>: <span style="color:#ae81ff">100</span>
-<span style="color:#66d9ef">object_list_base_page_id</span>: <span style="color:#e6db74">&#39;4176&#39;</span>
-<span style="color:#66d9ef">fields</span>:
-- <span style="color:#66d9ef">alias</span>: application_id
-  <span style="color:#66d9ef">db_type</span>: text
-  <span style="color:#66d9ef">name</span>: application_id
-- <span style="color:#66d9ef">alias</span>: assignee_user_id
-  <span style="color:#66d9ef">db_type</span>: int8
-  <span style="color:#66d9ef">name</span>: assignee_user_id
-  <span style="color:#66d9ef">display_name</span>: Исполнитель
-  <span style="color:#66d9ef">i18n</span>: <span style="color:#66d9ef">true</span>
-- <span style="color:#66d9ef">alias</span>: creation_time
-  <span style="color:#66d9ef">db_type</span>: timestamp
-  <span style="color:#66d9ef">display_name</span>: Создано &lt;---------- Указываем на базовом языке компонента
-  <span style="color:#66d9ef">i18n</span>: <span style="color:#66d9ef">true</span>            &lt;---------- Указываем, для сбора на перевод указанного display_name
-  <span style="color:#66d9ef">is_disabled</span>: <span style="color:#66d9ef">true</span>
-  <span style="color:#66d9ef">name</span>: creation_time
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">id</span>: <span style="color:#e6db74">&#39;45&#39;</span>
-<span style="color:#66d9ef">name</span>: Продукт
-<span style="color:#66d9ef">i18n</span>: <span style="color:#66d9ef">true</span>    &lt;---------- Указываем, что имя entity будет подвергаться переводу
-<span style="color:#66d9ef">i18n_object</span>:  &lt;---------- Указываем для сбора записей из БД на перевод
-  <span style="color:#66d9ef">sql_where_clause</span>: allowed_roles <span style="color:#75715e">&amp;&amp;</span> ARRAY[<span style="color:#e6db74">&#39;meta.role.auth&#39;</span>, <span style="color:#e6db74">&#39;adhands.role.can_view_all_clients_yes&#39;</span>] &lt;---------- Условие WHERE по которому будут отсекаться строки для перевода 
-  <span style="color:#66d9ef">fields</span>:
-    - <span style="color:#66d9ef">name</span>: name        &lt;---------- Указываем для сбора записей из БД на перевод
-    - <span style="color:#66d9ef">name</span>: description &lt;---------- Указываем для сбора записей из БД на перевод
-<span style="color:#66d9ef">db_alias</span>: billing
-<span style="color:#66d9ef">schema</span>: public
-<span style="color:#66d9ef">table</span>: product
-<span style="color:#66d9ef">search_order</span>: <span style="color:#ae81ff">100</span>
-<span style="color:#66d9ef">fields</span>:
-- <span style="color:#66d9ef">db_type</span>: integer
-  <span style="color:#66d9ef">is_primary</span>: <span style="color:#66d9ef">true</span>
-  <span style="color:#66d9ef">is_disabled</span>: <span style="color:#66d9ef">true</span>
-  <span style="color:#66d9ef">name</span>: id
-- <span style="color:#66d9ef">db_type</span>: text
-  <span style="color:#66d9ef">name</span>: key
-- <span style="color:#66d9ef">db_type</span>: text
-  <span style="color:#66d9ef">is_required</span>: <span style="color:#66d9ef">true</span>
-  <span style="color:#66d9ef">is_title</span>: <span style="color:#66d9ef">true</span>
-  <span style="color:#66d9ef">name</span>: name
-- <span style="color:#66d9ef">db_type</span>: description
-  <span style="color:#66d9ef">name</span>: description
-</code></pre></div><h3 id="перевод-имени-сущности">Перевод имени сущности</h3>
+
+<pre><code class="language-yaml">id: '2701'
+name: Тикет
+i18n: true &lt;---------- Указываем, что имя entity будет подвергаться переводу
+db_alias: meta
+schema: meta
+table: issue
+search_order: 100
+object_list_base_page_id: '4176'
+fields:
+- alias: application_id
+  db_type: text
+  name: application_id
+- alias: assignee_user_id
+  db_type: int8
+  name: assignee_user_id
+  display_name: Исполнитель
+  i18n: true
+- alias: creation_time
+  db_type: timestamp
+  display_name: Создано &lt;---------- Указываем на базовом языке компонента
+  i18n: true            &lt;---------- Указываем, для сбора на перевод указанного display_name
+  is_disabled: true
+  name: creation_time
+</code></pre>
+
+<pre><code class="language-yaml">id: '45'
+name: Продукт
+i18n: true    &lt;---------- Указываем, что имя entity будет подвергаться переводу
+i18n_object:  &lt;---------- Указываем для сбора записей из БД на перевод
+  sql_where_clause: allowed_roles &amp;&amp; ARRAY['meta.role.auth', 'adhands.role.can_view_all_clients_yes'] &lt;---------- Условие WHERE по которому будут отсекаться строки для перевода 
+  fields:
+    - name: name        &lt;---------- Указываем для сбора записей из БД на перевод
+    - name: description &lt;---------- Указываем для сбора записей из БД на перевод
+db_alias: billing
+schema: public
+table: product
+search_order: 100
+fields:
+- db_type: integer
+  is_primary: true
+  is_disabled: true
+  name: id
+- db_type: text
+  name: key
+- db_type: text
+  is_required: true
+  is_title: true
+  name: name
+- db_type: description
+  name: description
+</code></pre>
+
+<h3 id="перевод-имени-сущности">Перевод имени сущности</h3>
+
 <p>Используется для lego или в label скриптов. Например перевод имени таблицы issue</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">{
-    &#34;label&#34;: &#34;${i18n_ename(&#39;2773&#39;)}&#34;,
-    &#34;name&#34;: &#34;me-select&#34;
+
+<pre><code class="language-html">{
+    &quot;label&quot;: &quot;${i18n_ename('2773')}&quot;,
+    &quot;name&quot;: &quot;me-select&quot;
 }
-</code></pre></div><h3 id="перевод-поля-сущности">Перевод поля сущности</h3>
+</code></pre>
+
+<h3 id="перевод-поля-сущности">Перевод поля сущности</h3>
+
 <p>Используется для lego или в label скриптов. Это например перевод имени поля таблицы issue</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">{
-    &#34;label&#34;: &#34;${i18n_efield(&#34;2701&#34;, &#34;assignee_user_id&#34;)}&#34;,
-    &#34;name&#34;: &#34;me-select&#34;
+
+<pre><code class="language-html">{
+    &quot;label&quot;: &quot;${i18n_efield(&quot;2701&quot;, &quot;assignee_user_id&quot;)}&quot;,
+    &quot;name&quot;: &quot;me-select&quot;
 }
-</code></pre></div><h3 id="перевод-поля-объекта-сущности">Перевод поля объекта сущности</h3>
+</code></pre>
+
+<h3 id="перевод-поля-объекта-сущности">Перевод поля объекта сущности</h3>
+
 <p>Используется для перевода записей в таблицах, например, если вам нужно перевести список типов тикетов.
 Данные будут браться из поля me_i18n этой таблицы</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;issue_status_ids&#34;</span> <span style="color:#a6e22e">elem</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;me-select&#34;</span> <span style="color:#a6e22e">label</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta&#34;</span>&gt;
-    <span style="color:#a6e22e">SELECT</span> <span style="color:#a6e22e">id</span>, <span style="color:#a6e22e">$</span>{<span style="color:#a6e22e">i18n_sql_ofield</span>(<span style="color:#e6db74">&#39;name&#39;</span>)} <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">name</span> <span style="color:#a6e22e">FROM</span> <span style="color:#a6e22e">meta</span>.<span style="color:#a6e22e">issue_status</span> <span style="color:#a6e22e">WHERE</span> <span style="color:#a6e22e">is_allowed</span> <span style="color:#a6e22e">ORDER</span> <span style="color:#a6e22e">BY</span> <span style="color:#ae81ff">2</span>
-&lt;/<span style="color:#f92672">script</span>&gt;
-</code></pre></div><h3 id="перевод-страниц-компонента-на-уровне-компонента">Перевод страниц компонента на уровне компонента</h3>
+
+<pre><code class="language-html">&lt;script type=&quot;meta/sql&quot; id=&quot;issue_status_ids&quot; elem=&quot;me-select&quot; label=&quot;&quot; db-alias=&quot;meta&quot;&gt;
+    SELECT id, ${i18n_sql_ofield('name')} as name FROM meta.issue_status WHERE is_allowed ORDER BY 2
+&lt;/script&gt;
+</code></pre>
+
+<h3 id="перевод-страниц-компонента-на-уровне-компонента">Перевод страниц компонента на уровне компонента</h3>
+
 <p>Парсер соберет данные на уровне компонента. Это нужно использовать когда этот текст не является названием Сущности или Поля сущности</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">${i18n(&#34;#.youCanceledChangeTariff&#34;, &#34;Вы отменили переход на тариф&#34;)}
-</code></pre></div><h2 id="функции-frontend-шаблонизации">Функции frontend шаблонизации</h2>
+
+<pre><code class="language-html">${i18n(&quot;#.youCanceledChangeTariff&quot;, &quot;Вы отменили переход на тариф&quot;)}
+</code></pre>
+
+<h2 id="функции-frontend-шаблонизации">Функции frontend шаблонизации</h2>
+
 <p>На уровне LEGO элемента, используются параметр i18n.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
+
+<pre><code class="language-json">[
   {
-    <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;login&#34;</span>,
-    <span style="color:#f92672">&#34;i18n&#34;</span>: {
-      <span style="color:#f92672">&#34;label&#34;</span>: <span style="color:#e6db74">&#34;#.ex_system.login&#34;</span>
+    &quot;id&quot;: &quot;login&quot;,
+    &quot;i18n&quot;: {
+      &quot;label&quot;: &quot;#.ex_system.login&quot;
     },
-    <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;me-input&#34;</span>,
-    <span style="color:#f92672">&#34;attrs&#34;</span>: {
-      <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;text&#34;</span>,
-      <span style="color:#f92672">&#34;required&#34;</span>: <span style="color:#66d9ef">true</span>
+    &quot;name&quot;: &quot;me-input&quot;,
+    &quot;attrs&quot;: {
+      &quot;type&quot;: &quot;text&quot;,
+      &quot;required&quot;: true
     },
-    <span style="color:#f92672">&#34;label&#34;</span>: <span style="color:#e6db74">&#34;Логин&#34;</span>
+    &quot;label&quot;: &quot;Логин&quot;
   },
   {
-    <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;password&#34;</span>,
-    <span style="color:#f92672">&#34;i18n&#34;</span>: {
-      <span style="color:#f92672">&#34;label&#34;</span>: <span style="color:#e6db74">&#34;ex_system.password&#34;</span>
+    &quot;id&quot;: &quot;password&quot;,
+    &quot;i18n&quot;: {
+      &quot;label&quot;: &quot;ex_system.password&quot;
     },
-    <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;me-input&#34;</span>,
-    <span style="color:#f92672">&#34;attrs&#34;</span>: {
-      <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;password&#34;</span>,
-      <span style="color:#f92672">&#34;required&#34;</span>: <span style="color:#66d9ef">true</span>,
-      <span style="color:#f92672">&#34;autocomplete&#34;</span>: <span style="color:#e6db74">&#34;new-password&#34;</span>
+    &quot;name&quot;: &quot;me-input&quot;,
+    &quot;attrs&quot;: {
+      &quot;type&quot;: &quot;password&quot;,
+      &quot;required&quot;: true,
+      &quot;autocomplete&quot;: &quot;new-password&quot;
     },
-    <span style="color:#f92672">&#34;label&#34;</span>: <span style="color:#e6db74">&#34;Пароль&#34;</span>
+    &quot;label&quot;: &quot;Пароль&quot;
   }
 ]
-</code></pre></div>
+</code></pre>
+
 
 
 
@@ -1794,18 +1829,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
     <nav id="TableOfContents">
-  <ul>
-    <li><a href="#функции-backend-шаблонизации">Функции backend шаблонизации</a>
-      <ul>
-        <li><a href="#разметка-entity">Разметка entity</a></li>
-        <li><a href="#перевод-имени-сущности">Перевод имени сущности</a></li>
-        <li><a href="#перевод-поля-сущности">Перевод поля сущности</a></li>
-        <li><a href="#перевод-поля-объекта-сущности">Перевод поля объекта сущности</a></li>
-        <li><a href="#перевод-страниц-компонента-на-уровне-компонента">Перевод страниц компонента на уровне компонента</a></li>
-      </ul>
-    </li>
-    <li><a href="#функции-frontend-шаблонизации">Функции frontend шаблонизации</a></li>
-  </ul>
+<ul>
+<li>
+<ul>
+<li><a href="#функции-backend-шаблонизации">Функции backend шаблонизации</a>
+<ul>
+<li><a href="#разметка-entity">Разметка entity</a></li>
+<li><a href="#перевод-имени-сущности">Перевод имени сущности</a></li>
+<li><a href="#перевод-поля-сущности">Перевод поля сущности</a></li>
+<li><a href="#перевод-поля-объекта-сущности">Перевод поля объекта сущности</a></li>
+<li><a href="#перевод-страниц-компонента-на-уровне-компонента">Перевод страниц компонента на уровне компонента</a></li>
+</ul></li>
+<li><a href="#функции-frontend-шаблонизации">Функции frontend шаблонизации</a></li>
+</ul></li>
+</ul>
 </nav>
 </div>
 

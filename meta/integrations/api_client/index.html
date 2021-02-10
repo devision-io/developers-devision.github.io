@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.68.1" />
+    <meta name="generator" content="Hugo 0.59.1" />
     <meta name="description" content="">
 
 
@@ -1662,27 +1662,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 <p>Если вы хотите работать со внутренними api Прямо из META</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;res&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span>&gt;
-<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>(<span style="color:#a6e22e">ApiClientService</span>, <span style="color:#a6e22e">vm</span>) {
-  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">apiclient</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">ApiClientService</span>.<span style="color:#a6e22e">buildClient</span>(<span style="color:#e6db74">&#34;accountmanagement&#34;</span>, <span style="color:#e6db74">&#34;v1beta1&#34;</span>, <span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">userId</span>, [<span style="color:#e6db74">&#34;meta.dev&#34;</span>]);
-  <span style="color:#a6e22e">vm</span>.<span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">apiclient</span>.<span style="color:#a6e22e">request</span>(<span style="color:#e6db74">&#34;POST&#34;</span>, <span style="color:#e6db74">&#34;budget-order/get&#34;</span>, {
-    <span style="color:#e6db74">&#34;access_scope&#34;</span><span style="color:#f92672">:</span> {
-      <span style="color:#e6db74">&#34;client_id&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;28&#34;</span>,
-      <span style="color:#e6db74">&#34;agency_account&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;larisoll2323@gmail.com&#34;</span>,
-      <span style="color:#e6db74">&#34;operation_id&#34;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">MetaUtils</span>.<span style="color:#a6e22e">uuid</span>.<span style="color:#a6e22e">randomUUID</span>()
-    },
-    <span style="color:#e6db74">&#34;engine&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;GOOGLE_ADS&#34;</span>,
-    <span style="color:#e6db74">&#34;account&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;9012273876&#34;</span>
-  }).<span style="color:#a6e22e">getMap</span>(); <span style="color:#75715e">// or .getObject() // or.getList()
-</span><span style="color:#75715e"></span>}
-&lt;/<span style="color:#f92672">script</span>&gt;
 
-&lt;<span style="color:#f92672">elem</span>&gt;
-  &lt;<span style="color:#f92672">tpl</span>&gt;
+<pre><code class="language-html">&lt;script id=&quot;res&quot; type=&quot;meta/js&quot;&gt;
+function main(ApiClientService, vm) {
+  var apiclient = ApiClientService.buildClient(&quot;accountmanagement&quot;, &quot;v1beta1&quot;, env.userId, [&quot;meta.dev&quot;]);
+  vm.data = apiclient.request(&quot;POST&quot;, &quot;budget-order/get&quot;, {
+    &quot;access_scope&quot;: {
+      &quot;client_id&quot;: &quot;28&quot;,
+      &quot;agency_account&quot;: &quot;larisoll2323@gmail.com&quot;,
+      &quot;operation_id&quot;: MetaUtils.uuid.randomUUID()
+    },
+    &quot;engine&quot;: &quot;GOOGLE_ADS&quot;,
+    &quot;account&quot;: &quot;9012273876&quot;
+  }).getMap(); // or .getObject() // or.getList()
+}
+&lt;/script&gt;
+
+&lt;elem&gt;
+  &lt;tpl&gt;
     {{res|json}}
-  &lt;/<span style="color:#f92672">tpl</span>&gt;
-&lt;/<span style="color:#f92672">elem</span>&gt;
-</code></pre></div>
+  &lt;/tpl&gt;
+&lt;/elem&gt;
+</code></pre>
+
 
 
 
@@ -1693,7 +1695,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
-    <nav id="TableOfContents"></nav>
+    
 </div>
 
 </div>

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.68.1" />
+    <meta name="generator" content="Hugo 0.59.1" />
     <meta name="description" content="">
 
 
@@ -1666,151 +1666,262 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
+
+
 <p>Основной и единственный элемент для вывода графиков
 Работает на Google Charts</p>
+
 <p><strong>@example</strong> <a href="https://apps.devision.io/page?p=3623&amp;a=35">https://apps.devision.io/page?p=3623&amp;a=35</a></p>
+
 <p><strong>@link</strong> <a href="https://developers.google.com/chart/interactive/docs/gallery">https://developers.google.com/chart/interactive/docs/gallery</a></p>
+
 <h2 id="общее">Общее</h2>
+
 <p>Обратите внимание на <a href="../typedoc">структуру всех классов</a></p>
+
 <h2 id="структура">Структура</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#f92672">&#34;__tid&#34;</span>: <span style="color:#e6db74">&#34;(any)&#34;</span>,
-  <span style="color:#f92672">&#34;align&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
-  <span style="color:#f92672">&#34;attrs&#34;</span>: {
-    <span style="color:#f92672">&#34;curved&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>,
-    <span style="color:#f92672">&#34;dualY&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>,
-    <span style="color:#f92672">&#34;hAxisMinValue&#34;</span>: <span style="color:#e6db74">&#34;(number)&#34;</span>,
-    <span style="color:#f92672">&#34;height&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
-    <span style="color:#f92672">&#34;nativeOptions&#34;</span>: <span style="color:#e6db74">&#34;(any)&#34;</span>,
-    <span style="color:#f92672">&#34;pieHole&#34;</span>: <span style="color:#e6db74">&#34;(number)&#34;</span>,
-    <span style="color:#f92672">&#34;sliceVisibilityThreshold&#34;</span>: <span style="color:#e6db74">&#34;(number)&#34;</span>,
-    <span style="color:#f92672">&#34;stacked&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>,
-    <span style="color:#f92672">&#34;stretched&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>,
-    <span style="color:#f92672">&#34;vAxisMinValue&#34;</span>: <span style="color:#e6db74">&#34;(number)&#34;</span>,
-    <span style="color:#f92672">&#34;vAxisTextPosition&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
-    <span style="color:#f92672">&#34;zoomButton&#34;</span>: <span style="color:#e6db74">&#34;( none | left )&#34;</span>
+
+<pre><code class="language-json">{
+  &quot;__tid&quot;: &quot;(any)&quot;,
+  &quot;align&quot;: &quot;(string)&quot;,
+  &quot;attrs&quot;: {
+    &quot;curved&quot;: &quot;(boolean)&quot;,
+    &quot;dualY&quot;: &quot;(boolean)&quot;,
+    &quot;hAxisMinValue&quot;: &quot;(number)&quot;,
+    &quot;height&quot;: &quot;(string)&quot;,
+    &quot;nativeOptions&quot;: &quot;(any)&quot;,
+    &quot;pieHole&quot;: &quot;(number)&quot;,
+    &quot;sliceVisibilityThreshold&quot;: &quot;(number)&quot;,
+    &quot;stacked&quot;: &quot;(boolean)&quot;,
+    &quot;stretched&quot;: &quot;(boolean)&quot;,
+    &quot;vAxisMinValue&quot;: &quot;(number)&quot;,
+    &quot;vAxisTextPosition&quot;: &quot;(string)&quot;,
+    &quot;zoomButton&quot;: &quot;( none | left )&quot;
   },
-  <span style="color:#f92672">&#34;bindAttrs&#34;</span>: [
+  &quot;bindAttrs&quot;: [
     {
-      <span style="color:#f92672">&#34;source&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
-      <span style="color:#f92672">&#34;target&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>
+      &quot;source&quot;: &quot;(string)&quot;,
+      &quot;target&quot;: &quot;(string)&quot;
     }
   ],
-  <span style="color:#f92672">&#34;defaultValue&#34;</span>: <span style="color:#e6db74">&#34;(any)&#34;</span>,
-  <span style="color:#f92672">&#34;depends&#34;</span>: [
-    <span style="color:#e6db74">&#34;(string)&#34;</span>
+  &quot;defaultValue&quot;: &quot;(any)&quot;,
+  &quot;depends&quot;: [
+    &quot;(string)&quot;
   ],
-  <span style="color:#f92672">&#34;entityId&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
-  <span style="color:#f92672">&#34;errors&#34;</span>: [
+  &quot;entityId&quot;: &quot;(string)&quot;,
+  &quot;errors&quot;: [
     {
-      <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
-      <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>
+      &quot;id&quot;: &quot;(string)&quot;,
+      &quot;name&quot;: &quot;(string)&quot;
     }
   ],
-  <span style="color:#f92672">&#34;exportable&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>,
-  <span style="color:#f92672">&#34;formHorizontal&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>,
-  <span style="color:#f92672">&#34;help&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
-  <span style="color:#f92672">&#34;icon&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
-  <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
-  <span style="color:#f92672">&#34;inlineForm&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>,
-  <span style="color:#f92672">&#34;label&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
-  <span style="color:#f92672">&#34;listen&#34;</span>: [
+  &quot;exportable&quot;: &quot;(boolean)&quot;,
+  &quot;formHorizontal&quot;: &quot;(boolean)&quot;,
+  &quot;help&quot;: &quot;(string)&quot;,
+  &quot;icon&quot;: &quot;(string)&quot;,
+  &quot;id&quot;: &quot;(string)&quot;,
+  &quot;inlineForm&quot;: &quot;(boolean)&quot;,
+  &quot;label&quot;: &quot;(string)&quot;,
+  &quot;listen&quot;: [
     {
-      <span style="color:#f92672">&#34;$promise&#34;</span>: <span style="color:#e6db74">&#34;(any)&#34;</span>,
-      <span style="color:#f92672">&#34;code&#34;</span>: [
-        <span style="color:#e6db74">&#34;( ADD | SET, REMOVE )&#34;</span>
+      &quot;$promise&quot;: &quot;(any)&quot;,
+      &quot;code&quot;: [
+        &quot;( ADD | SET, REMOVE )&quot;
       ],
-      <span style="color:#f92672">&#34;entityId&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
-      <span style="color:#f92672">&#34;objectId&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
-      <span style="color:#f92672">&#34;pubSubChannel&#34;</span>: [
-        <span style="color:#e6db74">&#34;(string)&#34;</span>
+      &quot;entityId&quot;: &quot;(string)&quot;,
+      &quot;objectId&quot;: &quot;(string)&quot;,
+      &quot;pubSubChannel&quot;: [
+        &quot;(string)&quot;
       ],
-      <span style="color:#f92672">&#34;refreshRefPvmData&#34;</span>: <span style="color:#e6db74">&#34;(any)&#34;</span>,
-      <span style="color:#f92672">&#34;reload&#34;</span>: <span style="color:#e6db74">&#34;(any)&#34;</span>,
-      <span style="color:#f92672">&#34;selectAfterAdd&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>
+      &quot;refreshRefPvmData&quot;: &quot;(any)&quot;,
+      &quot;reload&quot;: &quot;(any)&quot;,
+      &quot;selectAfterAdd&quot;: &quot;(boolean)&quot;
     }
   ],
-  <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;me-chart&#34;</span>,
-  <span style="color:#f92672">&#34;offset&#34;</span>: <span style="color:#e6db74">&#34;(number)&#34;</span>,
-  <span style="color:#f92672">&#34;order&#34;</span>: <span style="color:#e6db74">&#34;(number)&#34;</span>,
-  <span style="color:#f92672">&#34;persistValueView&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>,
-  <span style="color:#f92672">&#34;refPvmData&#34;</span>: {
-    <span style="color:#f92672">&#34;additionalPartialLoad&#34;</span>: [
-      <span style="color:#e6db74">&#34;(string)&#34;</span>
+  &quot;name&quot;: &quot;me-chart&quot;,
+  &quot;offset&quot;: &quot;(number)&quot;,
+  &quot;order&quot;: &quot;(number)&quot;,
+  &quot;persistValueView&quot;: &quot;(boolean)&quot;,
+  &quot;refPvmData&quot;: {
+    &quot;additionalPartialLoad&quot;: [
+      &quot;(string)&quot;
     ],
-    <span style="color:#f92672">&#34;dataId&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
-    <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
-    <span style="color:#f92672">&#34;spQueryDepends&#34;</span>: [
-      <span style="color:#e6db74">&#34;(string)&#34;</span>
+    &quot;dataId&quot;: &quot;(string)&quot;,
+    &quot;id&quot;: &quot;(string)&quot;,
+    &quot;spQueryDepends&quot;: [
+      &quot;(string)&quot;
     ],
-    <span style="color:#f92672">&#34;waitingId&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>
+    &quot;waitingId&quot;: &quot;(string)&quot;
   },
-  <span style="color:#f92672">&#34;refPvmValidator&#34;</span>: {
-    <span style="color:#f92672">&#34;additionalPartialLoad&#34;</span>: [
-      <span style="color:#e6db74">&#34;(string)&#34;</span>
+  &quot;refPvmValidator&quot;: {
+    &quot;additionalPartialLoad&quot;: [
+      &quot;(string)&quot;
     ],
-    <span style="color:#f92672">&#34;dataId&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
-    <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
-    <span style="color:#f92672">&#34;spQueryDepends&#34;</span>: [
-      <span style="color:#e6db74">&#34;(string)&#34;</span>
+    &quot;dataId&quot;: &quot;(string)&quot;,
+    &quot;id&quot;: &quot;(string)&quot;,
+    &quot;spQueryDepends&quot;: [
+      &quot;(string)&quot;
     ],
-    <span style="color:#f92672">&#34;waitingId&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>
+    &quot;waitingId&quot;: &quot;(string)&quot;
   },
-  <span style="color:#f92672">&#34;selectedValueView&#34;</span>: <span style="color:#e6db74">&#34;(any)&#34;</span>,
-  <span style="color:#f92672">&#34;selfDepends&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>,
-  <span style="color:#f92672">&#34;span&#34;</span>: <span style="color:#e6db74">&#34;(number)&#34;</span>,
-  <span style="color:#f92672">&#34;tooltip&#34;</span>: {
-    <span style="color:#f92672">&#34;content&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
-    <span style="color:#f92672">&#34;label&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>
+  &quot;selectedValueView&quot;: &quot;(any)&quot;,
+  &quot;selfDepends&quot;: &quot;(boolean)&quot;,
+  &quot;span&quot;: &quot;(number)&quot;,
+  &quot;tooltip&quot;: {
+    &quot;content&quot;: &quot;(string)&quot;,
+    &quot;label&quot;: &quot;(string)&quot;
   },
-  <span style="color:#f92672">&#34;valid&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>,
-  <span style="color:#f92672">&#34;validateInProgress&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>,
-  <span style="color:#f92672">&#34;value&#34;</span>: <span style="color:#e6db74">&#34;(string)&#34;</span>,
-  <span style="color:#f92672">&#34;visible&#34;</span>: <span style="color:#e6db74">&#34;(boolean)&#34;</span>
+  &quot;valid&quot;: &quot;(boolean)&quot;,
+  &quot;validateInProgress&quot;: &quot;(boolean)&quot;,
+  &quot;value&quot;: &quot;(string)&quot;,
+  &quot;visible&quot;: &quot;(boolean)&quot;
 }
-</code></pre></div><!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p><strong>@default</strong> &ldquo;left&rdquo;</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+</code></pre>
+
+<h3 id="__tid_324">__tid (any)</h3>
+Автоматически генерируемое приватное поле
+
+
+
+
+<h3 id="align_308">align (string)</h3>
+Позиционирование элемента в ячейке серки
+
+**@default** "left"
+
+
+<h3 id="attrs_301">attrs [object Object]</h3>
+
+<p><h3 id="bindAttrs_322">bindAttrs [object Object]</h3>
+Когда нужно подписаться на изменение данные в pvm и заполнять какие-то поля элемента
+Например, менять elems в me-lego динамически или запонять me-input[type=text] расчетным значением</p>
+
+<p><h3 id="defaultValue_317">defaultValue (any)</h3>
+Значение элемента по умолчанию
+Для некоторых элементов</p>
+
+<p><h3 id="depends_315">depends (string)</h3>
+Указываться от корневого me-lego вставленного через html.
+Работает только когда у элемента есть параметр refPvmData и refPvmData с depends и зависимость еще не загружена.
+Также есть возможность делать зависимости от текущего уровня иерархии, это удобно, когда неизвестна родительская вложенность.
+Например, когда у вас одна и та же динамическая форма подгружается в
+разных местах приложения на разном уровне вложенности или даже в me-lego-list иногда</p>
+
 <p><strong>@example</strong> <a href="https://apps.devision.io/page?p=4329&amp;a=35">https://apps.devision.io/page?p=4329&amp;a=35</a></p>
+
 <p><strong>@example</strong> <a href="https://apps.devision.io/page?p=3597&amp;a=35">https://apps.devision.io/page?p=3597&amp;a=35</a></p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+
+<p><h3 id="entityId_319">entityId (string)</h3>
+Meta EntityId
+Для некоторых элементов, напрмиер [[IMeInput]], [[IMeTable]]</p>
+
+<p><h3 id="errors_326">errors [object Object]</h3>
+Список ошибок элемента пока только валидации, но определенно все ошибки будут тут</p>
+
+<p><h3 id="exist_320">exist </h3>
+Angular expression от рута vm страницы. Обратите внимание, что пути абсотюлтные, в отличие от &ldquo;depends&rdquo; в элементах
+Расчет идет на стороне браузера
+Например: &lsquo;editGroup.card.name == &ldquo;exist&rdquo; || editGroup.card.name == &ldquo;exist23&rdquo;&rsquo;
+Для me-lego-list можно использовать нотацию [] для получения доступа в элементу списка,
+Например: env.sp.obj.filled[].deadline_enabled === true, где filled - id me-lego-list</p>
+
 <p><strong>@example</strong> <a href="https://apps.devision.io/page?p=3570&amp;a=35">https://apps.devision.io/page?p=3570&amp;a=35</a></p>
+
 <p><strong>@example</strong> <a href="https://apps.devision.io/page?p=4329&amp;a=35">https://apps.devision.io/page?p=4329&amp;a=35</a></p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+
+<p><h3 id="exportable_334">exportable (boolean)</h3>
+Имеет ли экспорт этот элемент</p>
+
+<p><h3 id="formHorizontal_312">formHorizontal (boolean)</h3>
+Если элемента поддерживает, вывести его в стиле формы ключ, значение. Чтобы заголовок был на уровне элемента</p>
+
+<p><h3 id="help_305">help (string)</h3>
+Доп информация, рисуется под label или под элментом
+Зависит от типа элемента</p>
+
+<p><h3 id="i18n_331">i18n </h3>
+MeElem property internationalization (for label and help for example).
+Key of i18m map is elem property name, value is message key of i18n file</p>
+
+<p><h3 id="icon_310">icon (string)</h3>
+Иконка Font Awesome
+Например fa-bicycle</p>
+
 <p><strong>@link</strong> <a href="http://ui.adplatform.lan/Static_Full_Version/icons.html">http://ui.adplatform.lan/Static_Full_Version/icons.html</a></p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p><strong>@link</strong> {http://stackoverflow.com/questions/12201835/form-inline-inside-a-form-horizontal-in-twitter-bootstrap}</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+
+<p><h3 id="id_303">id (string)</h3>
+ID данных элемента
+Будет доступно в env.sp.{ID} или как вложенная структура, если это [[IMeElemContainer]]</p>
+
+<p><h3 id="inlineForm_318">inlineForm (boolean)</h3>
+Нужно ли отрисовывать элемент без сетки в виде inlineForm (bootstrap)</p>
+
+<p><strong>@link</strong> {<a href="http://stackoverflow.com/questions/12201835/form-inline-inside-a-form-horizontal-in-twitter-bootstrap">http://stackoverflow.com/questions/12201835/form-inline-inside-a-form-horizontal-in-twitter-bootstrap</a>}</p>
+
+<p><h3 id="label_304">label (string)</h3>
+Заголовок элемента
+Обычно над элементом, на некоторых не рисуется вообще</p>
+
+<p><h3 id="listen_323">listen [object Object]</h3>
+Подписка на изменения объектов. Пока работает только для изменений вызваных в модальном окне
+Например у вас таблица со списоком аккуантов и в &ldquo;+ Аккаунт&rdquo; вы можете добавить или привязать аккаунт,
+а после сохранения в модальном окне, родительская таблциа должна пересчитаться</p>
+
+<p><h3 id="name_302">name (string)</h3>
+Название элемента
+Например: me-lego, me-input</p>
+
+<p><h3 id="offset_307">offset (number)</h3>
+Отстут по сетке справа от 0 до12</p>
+
+<p><h3 id="order_309">order (number)</h3>
+Прзиция элемента в сетке, чем меньше значение, тем элемент выше и левее</p>
+
+<p><h3 id="persistValueView_329">persistValueView (boolean)</h3>
+Блок обрабатывает вписывание в элемент текущего выбранного пункта в поле selectedValueView,
+чтобы можно быьт делать, label + name в скрытом режиме</p>
+
+<p><h3 id="refPvmData_314">refPvmData [object Object]</h3>
+Инструкции по получению данных для [[IMeInputAttrs.options]] или таблицы</p>
+
 <p><strong>@example</strong> <a href="https://apps.devision.io/page?p=3570&amp;a=35">https://apps.devision.io/page?p=3570&amp;a=35</a></p>
+
 <p><strong>@example</strong> <a href="https://apps.devision.io/page?p=3597&amp;a=35">https://apps.devision.io/page?p=3597&amp;a=35</a></p>
-<!-- raw HTML omitted -->
+
+<p><h3 id="refPvmValidator_313">refPvmValidator [object Object]</h3>
+Пользовательская валидация</p>
+
 <p><strong>@example</strong> <a href="https://apps.devision.io/page?p=3443&amp;a=35">https://apps.devision.io/page?p=3443&amp;a=35</a></p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+
+<p><h3 id="selectedValueView_330">selectedValueView (any)</h3>
+Текстовое представление выбранного значения</p>
+
+<p><h3 id="selfDepends_316">selfDepends (boolean)</h3>
+Зависимость от себя самого, нужно для editable [[IMeTable]]
+и прототип для поиска [[IMeInputAttrs.options]] в me-input для частичной подгрузки данных</p>
+
 <p><strong>@beta</strong></p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+
+<p><h3 id="span_306">span (number)</h3>
+Размер по сетке справа от 0 до12</p>
+
+<p><h3 id="tooltip_325">tooltip [object Object]</h3>
+Стандартный мета тултип</p>
+
+<p><h3 id="valid_328">valid (boolean)</h3>
+Элемент валидный</p>
+
+<p><h3 id="validateInProgress_327">validateInProgress (boolean)</h3>
+Принимает значение true на момент асинхронной валидации</p>
+
+<p><h3 id="value_311">value (string)</h3>
+для некоторых элементов</p>
+
+<p><h3 id="visible_321">visible (boolean)</h3>
+Angular expression от рута vm страницы. Обратите внимание, что пути абсотюлтные, в отличие от &ldquo;depends&rdquo; в элементах
+Расчет идет на стороне браузера
+Например: &lsquo;editGroup.card.name == &ldquo;visible&rdquo;&rsquo;</p>
+
 <p><strong>@example</strong> <a href="https://apps.devision.io/page?p=3570&amp;a=35">https://apps.devision.io/page?p=3570&amp;a=35</a></p>
 
 
@@ -1824,10 +1935,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
     <nav id="TableOfContents">
-  <ul>
-    <li><a href="#общее">Общее</a></li>
-    <li><a href="#структура">Структура</a></li>
-  </ul>
+<ul>
+<li>
+<ul>
+<li><a href="#общее">Общее</a></li>
+<li><a href="#структура">Структура</a></li>
+</ul></li>
+</ul>
 </nav>
 </div>
 

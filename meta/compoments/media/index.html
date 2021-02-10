@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.68.1" />
+    <meta name="generator" content="Hugo 0.59.1" />
     <meta name="description" content="">
 
 
@@ -1661,105 +1661,141 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
+
+
 <h2 id="что-такое-и-где-используются">Что такое и где используются?</h2>
+
 <p>Контент любых файлов как правило плохо хранить прямо в базе данных,
 так как это вызывает дополнительную нагрузку на хранение, репликацию,
 очистку, vacuum (для postgres), выборку данных (если у вас БД не с колоночным хранением).</p>
+
 <p>Поэтому в мете есть специальное API для работы с файлами.
 По сути вся работа сводится к тому, чтобы на интерфейсе через форму или на сервере через metasdk загрузить данные,
 а потом на интерфейсе их показать или получить на бекенде.</p>
+
 <p>Мета может хранить данные просто в расшаренной папке,
 но рекомендуется настраивать S3 совместимое хранилище через общий конфигурационный файл платформы.</p>
+
 <h2 id="загрузка-данных">Загрузка данных</h2>
+
 <p>Для загрузки данных через интерфейс используйте компонент <a href="https://samples-demo.devision.io/page?p=4201&amp;a=35">me-input type=attach</a></p>
+
 <p>Если вам нужно загрузить данные программно, то используйте метод upload в <a href="https://metasdk.readthedocs.io/ru/latest/rpc.html#mediaservice">MediaService</a> в python metasdk.</p>
+
 <p>При загрузке файлов желательно, но необязательно устанавливать значения для <code>entityId</code> и <code>objectId</code>.
 Это нужно, чтобы семантически привязать медиафайл к какому-либо объекту меты.
 Например, установив entityId=190 и objectId=42, вы привяжете загружаемый медиафайл к сущности Клиент с primary key = 42.</p>
+
 <p>Для оптимизации хранения очень полезно устанавливать ttl хранения для временных данных и результатов,
 которые можно автоматически стирать через время. Если его не устанавливать, то хранение будет вечным,
 что может негативно сказаться на стоимости вашего решения.</p>
+
 <h2 id="хранение">Хранение</h2>
+
 <p>Таблица для хранения: <code>meta.media</code></p>
+
 <p>Данные записываются ядром меты, не рекомендуется делать вставку данных в таблицу в ручную,
 так как это может негативно повлиять на систему.</p>
+
 <p>При этом можно делать UPDATE в поле info, чтобы далее с ним работать в режиме чтения.
 Это удобно, если вам нужно после загрузки файла обработать его через <a href="https://developers.devision.io/meta/meta/compoments/event_bus/">Шину сообщений</a>
 и сложить результат в таблицу, чтобы не размазывать данные между разными таблицами и
 получать эти данные даже через metasdk в <a href="https://metasdk.readthedocs.io/ru/latest/rpc.html#mediaservice">MediaService</a>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">meta_db<span style="color:#f92672">.</span>update(
-    <span style="color:#e6db74">&#34;&#34;&#34;
-</span><span style="color:#e6db74">    UPDATE meta.media 
-</span><span style="color:#e6db74">    SET info = jsonb_strip_nulls(info || :check_res::jsonb)
-</span><span style="color:#e6db74">    WHERE id=:media_id::uuid
-</span><span style="color:#e6db74">&#34;&#34;&#34;</span>,
-    {<span style="color:#e6db74">&#34;media_id&#34;</span>: media_id, <span style="color:#e6db74">&#34;check_res&#34;</span>: json<span style="color:#f92672">.</span>dumps(check_res)},
+
+<pre><code class="language-python">meta_db.update(
+    &quot;&quot;&quot;
+    UPDATE meta.media 
+    SET info = jsonb_strip_nulls(info || :check_res::jsonb)
+    WHERE id=:media_id::uuid
+&quot;&quot;&quot;,
+    {&quot;media_id&quot;: media_id, &quot;check_res&quot;: json.dumps(check_res)},
 )
-</code></pre></div><h2 id="markdown">Markdown</h2>
+</code></pre>
+
+<h2 id="markdown">Markdown</h2>
+
 <p>В полях типа MARKDOWN или при использовании <a href="https://developers.devision.io/meta/meta/reference/java_api/markdownservice/">MarkdownService</a> вы можете достаточно просто
 сгенерировать полную ссылку на скачивание или просмотр медиафайла.</p>
+
 <ul>
 <li><code>[~media_view:41d1d840-5055-4852-84d1-7edd8497e41a]</code> - ссылка на просмотр медиафайла</li>
 <li><code>[~media_download:41d1d840-5055-4852-84d1-7edd8497e41a]</code> - ссылка на загрузку медиафайла</li>
 </ul>
+
 <p>В этих случаях сгенерируется абсолютная ссылка с каноническим именем медиафайла.
 Это очень удобно при работе с рассылками через сервис Feeds.</p>
+
 <h2 id="работа-через-metasdk">Работа через metasdk</h2>
+
 <p>Ознакомьтесь с <a href="https://metasdk.readthedocs.io/ru/latest/rpc.html#mediaservice">основным описанием</a></p>
+
 <h3 id="локальная-разработка">Локальная разработка</h3>
-<p>Когда вы разрабатываете фичу на локальной мете &ldquo;http://localhost:9999&rdquo;,
+
+<p>Когда вы разрабатываете фичу на локальной мете &ldquo;<a href="http://localhost:9999&quot;">http://localhost:9999&quot;</a>,
 прикладываемые там файлы так же как и в production среде записываются
 в БД в таблицу meta.media, но складываются к вам на локальный диск.</p>
+
 <p>Если в скриптах вам надо с ними поработать, то надо перенастроить SDK на работу с локальной метой:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">META <span style="color:#f92672">=</span> MetaApp(meta_url<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://localhost:9999&#34;</span>)
-</code></pre></div><p>Важно и стоит помнить, что если вы прикладывали файл в локальной мете, то и sdk должна работать с локальной метой.
+
+<pre><code class="language-python">META = MetaApp(meta_url=&quot;http://localhost:9999&quot;)
+</code></pre>
+
+<p>Важно и стоит помнить, что если вы прикладывали файл в локальной мете, то и sdk должна работать с локальной метой.
 А если файл прикладывался в продакшене, то и sdk должна работать с продакшн метой.</p>
+
 <p>В принципе этот подход применим и при других изменениях, которые есть только локально у вас на компьютере.</p>
+
 <h3 id="пример">Пример</h3>
+
 <p>Простой пример кода, который загружает файл в хранилище и скачивает его.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> os
-<span style="color:#f92672">import</span> shutil
-<span style="color:#f92672">from</span> tempfile <span style="color:#f92672">import</span> NamedTemporaryFile
 
-<span style="color:#f92672">from</span> metasdk <span style="color:#f92672">import</span> MetaApp
+<pre><code class="language-python">import os
+import shutil
+from tempfile import NamedTemporaryFile
 
-META <span style="color:#f92672">=</span> MetaApp()
-log <span style="color:#f92672">=</span> META<span style="color:#f92672">.</span>log
+from metasdk import MetaApp
 
-<span style="color:#75715e"># Загрузка файла может происходить через API как показано ниже или через интерфейс</span>
-<span style="color:#75715e"># как в примере http://localhost:9999/page?p=4201&amp;a=35</span>
-<span style="color:#75715e"># Сути дела это не поменяет, в итоге файл попадает в хранилище, а также получает запись в таблице meta.media</span>
-upload_file <span style="color:#f92672">=</span> open(<span style="color:#e6db74">&#39;myfile.yml&#39;</span>, <span style="color:#e6db74">&#39;rb&#39;</span>)
-upload_result <span style="color:#f92672">=</span> META<span style="color:#f92672">.</span>MediaService<span style="color:#f92672">.</span>upload(upload_file, {
-    <span style="color:#e6db74">&#34;isPrivate&#34;</span>: True,  <span style="color:#75715e"># Файл будет доступен только для пользователя, работающего с api</span>
-    <span style="color:#e6db74">&#34;ttlInSec&#34;</span>: <span style="color:#ae81ff">9999</span>,  <span style="color:#75715e"># Обязательно для временных файлов. Кол-во секунд через которые мета автоматически удалит файл</span>
-    <span style="color:#e6db74">&#34;entityId&#34;</span>: <span style="color:#ae81ff">2770</span>,
-    <span style="color:#e6db74">&#34;objectId&#34;</span>: <span style="color:#e6db74">&#34;114aecf5-04f1-44fa-8ad1-842b7f31a2df&#34;</span>,
-    <span style="color:#e6db74">&#34;info&#34;</span>: {<span style="color:#e6db74">&#34;test&#34;</span>: True}  <span style="color:#75715e"># Метаданные файла</span>
+META = MetaApp()
+log = META.log
+
+# Загрузка файла может происходить через API как показано ниже или через интерфейс
+# как в примере http://localhost:9999/page?p=4201&amp;a=35
+# Сути дела это не поменяет, в итоге файл попадает в хранилище, а также получает запись в таблице meta.media
+upload_file = open('myfile.yml', 'rb')
+upload_result = META.MediaService.upload(upload_file, {
+    &quot;isPrivate&quot;: True,  # Файл будет доступен только для пользователя, работающего с api
+    &quot;ttlInSec&quot;: 9999,  # Обязательно для временных файлов. Кол-во секунд через которые мета автоматически удалит файл
+    &quot;entityId&quot;: 2770,
+    &quot;objectId&quot;: &quot;114aecf5-04f1-44fa-8ad1-842b7f31a2df&quot;,
+    &quot;info&quot;: {&quot;test&quot;: True}  # Метаданные файла
 })
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;upload_result = </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> str(upload_result))
-media_id <span style="color:#f92672">=</span> upload_result[<span style="color:#e6db74">&#39;id&#39;</span>]
+print(&quot;upload_result = %s&quot; % str(upload_result))
+media_id = upload_result['id']
 
-info_response <span style="color:#f92672">=</span> META<span style="color:#f92672">.</span>MediaService<span style="color:#f92672">.</span>info(media_id)
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;info_response = </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> str(info_response))
+info_response = META.MediaService.info(media_id)
+print(&quot;info_response = %s&quot; % str(info_response))
 
-<span style="color:#75715e"># Для больших файлов важно скачивать их as_stream, чтобы экономить память на сервере и на клиенте</span>
-dwn_response <span style="color:#f92672">=</span> META<span style="color:#f92672">.</span>MediaService<span style="color:#f92672">.</span>download(media_id, as_stream<span style="color:#f92672">=</span>True)
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;response = </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> str(dwn_response))
+# Для больших файлов важно скачивать их as_stream, чтобы экономить память на сервере и на клиенте
+dwn_response = META.MediaService.download(media_id, as_stream=True)
+print(&quot;response = %s&quot; % str(dwn_response))
 
-<span style="color:#75715e"># мета старается сжимать ответы через gzip, поэтому</span>
-<span style="color:#75715e"># для текстовых файлов часто очень важно устанавливать decode_content=True</span>
-<span style="color:#75715e"># например для mime application/json плохо скачиваются</span>
-<span style="color:#75715e"># response.raw.decode_content = True</span>
-dwn_response<span style="color:#f92672">.</span>raw<span style="color:#f92672">.</span>decode_content <span style="color:#f92672">=</span> True
+# мета старается сжимать ответы через gzip, поэтому
+# для текстовых файлов часто очень важно устанавливать decode_content=True
+# например для mime application/json плохо скачиваются
+# response.raw.decode_content = True
+dwn_response.raw.decode_content = True
 
-source_file <span style="color:#f92672">=</span> NamedTemporaryFile(delete<span style="color:#f92672">=</span>False)
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;source_file.name = </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> str(source_file<span style="color:#f92672">.</span>name))
-<span style="color:#66d9ef">with</span> open(source_file<span style="color:#f92672">.</span>name, <span style="color:#e6db74">&#34;wb&#34;</span>) <span style="color:#66d9ef">as</span> out_file:
-    shutil<span style="color:#f92672">.</span>copyfileobj(dwn_response<span style="color:#f92672">.</span>raw, out_file)
-</code></pre></div><h2 id="работа-от-лица-пользователя">Работа от лица пользователя</h2>
+source_file = NamedTemporaryFile(delete=False)
+print(&quot;source_file.name = %s&quot; % str(source_file.name))
+with open(source_file.name, &quot;wb&quot;) as out_file:
+    shutil.copyfileobj(dwn_response.raw, out_file)
+</code></pre>
+
+<h2 id="работа-от-лица-пользователя">Работа от лица пользователя</h2>
+
 <p>Иногда надо работать с файлами от имени пользователя, например если пользователь заказал фоновую обработку.
 В этом случае надо устанавливать, а потом убирать параметр <code>META.auth_user_id</code></p>
+
 <pre><code>try:
     META.auth_user_id = {{NEED_USER_ID}}
 
@@ -1775,12 +1811,18 @@ source_file <span style="color:#f92672">=</span> NamedTemporaryFile(delete<span 
 finally:
     META.auth_user_id = None
 
-</code></pre><h2 id="пример-1">Пример</h2>
+</code></pre>
+
+<h2 id="пример-1">Пример</h2>
+
 <p>Пример показывает с чего можно начать, если у вас есть задача загрузить в интерфейсе файл
 через форму и отправить его на обработку в фоновый скрипт.</p>
+
 <h3 id="страница-в-интерфейсе">Страница в интерфейсе</h3>
+
 <p>Рисует форму, куда в данном примере прикладывается только файл, но как и любая lego-форма она может
 содержать любые другие доступные контролы.</p>
+
 <pre><code>&lt;elem span=&quot;12&quot; states=&quot;default&quot;&gt;
   &lt;tpl&gt;
     &lt;form name=&quot;editGroupForm&quot; ng-submit=&quot;changeState('run_parsing', {obj:env.sp.obj})&quot;&gt;
@@ -1889,61 +1931,65 @@ FROM api.meta_starter_submit_task('your_parser_script_name', jsonb_build_object(
    ORDER BY ${sort}, t.creation_time DESC
    ${pager}
 &lt;/script&gt;
-</code></pre><h3 id="пример-фонового-скрипта-для-страницы">Пример фонового скрипта для страницы</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> os
-<span style="color:#f92672">import</span> shutil
-<span style="color:#f92672">from</span> tempfile <span style="color:#f92672">import</span> NamedTemporaryFile
+</code></pre>
 
-<span style="color:#f92672">from</span> metasdk <span style="color:#f92672">import</span> MetaApp
+<h3 id="пример-фонового-скрипта-для-страницы">Пример фонового скрипта для страницы</h3>
 
-META <span style="color:#f92672">=</span> MetaApp()
-log <span style="color:#f92672">=</span> META<span style="color:#f92672">.</span>log
+<pre><code class="language-python">import os
+import shutil
+from tempfile import NamedTemporaryFile
 
+from metasdk import MetaApp
 
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">download_file</span>(media_id):
-    dwn_response <span style="color:#f92672">=</span> META<span style="color:#f92672">.</span>MediaService<span style="color:#f92672">.</span>download(media_id, as_stream<span style="color:#f92672">=</span>True)
-    dwn_response<span style="color:#f92672">.</span>raw<span style="color:#f92672">.</span>decode_content <span style="color:#f92672">=</span> True
-    source_file <span style="color:#f92672">=</span> NamedTemporaryFile(delete<span style="color:#f92672">=</span>False)
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;source_file.name = </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> str(source_file<span style="color:#f92672">.</span>name))
-    <span style="color:#66d9ef">with</span> open(source_file<span style="color:#f92672">.</span>name, <span style="color:#e6db74">&#34;wb&#34;</span>) <span style="color:#66d9ef">as</span> out_file:
-        shutil<span style="color:#f92672">.</span>copyfileobj(dwn_response<span style="color:#f92672">.</span>raw, out_file)
-    <span style="color:#66d9ef">return</span> source_file<span style="color:#f92672">.</span>name
+META = MetaApp()
+log = META.log
 
 
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">process_file</span>(filepath):
-    log<span style="color:#f92672">.</span>info(<span style="color:#e6db74">&#34;Start process file&#34;</span>)
+def download_file(media_id):
+    dwn_response = META.MediaService.download(media_id, as_stream=True)
+    dwn_response.raw.decode_content = True
+    source_file = NamedTemporaryFile(delete=False)
+    print(&quot;source_file.name = %s&quot; % str(source_file.name))
+    with open(source_file.name, &quot;wb&quot;) as out_file:
+        shutil.copyfileobj(dwn_response.raw, out_file)
+    return source_file.name
 
 
-<span style="color:#75715e"># Запуск таски для отладки</span>
-META<span style="color:#f92672">.</span>worker<span style="color:#f92672">.</span>debug_tasks <span style="color:#f92672">=</span> [
+def process_file(filepath):
+    log.info(&quot;Start process file&quot;)
+
+
+# Запуск таски для отладки
+META.worker.debug_tasks = [
     {
-        <span style="color:#e6db74">&#34;taskId&#34;</span>: <span style="color:#e6db74">&#34;3bab8c75-4603-4b33-8aa6-5c22f76e4a5c&#34;</span>,
-        <span style="color:#e6db74">&#34;data&#34;</span>: {
-            <span style="color:#e6db74">&#34;user_id&#34;</span>: <span style="color:#ae81ff">10468</span>,
-            <span style="color:#e6db74">&#34;media_id&#34;</span>: <span style="color:#e6db74">&#34;3bab8c75-4603-4b33-8aa6-5c22f76e4a5c&#34;</span>,
+        &quot;taskId&quot;: &quot;3bab8c75-4603-4b33-8aa6-5c22f76e4a5c&quot;,
+        &quot;data&quot;: {
+            &quot;user_id&quot;: 10468,
+            &quot;media_id&quot;: &quot;3bab8c75-4603-4b33-8aa6-5c22f76e4a5c&quot;,
         }
     }
 ]
 
 
-<span style="color:#a6e22e">@META.worker.single_task</span>
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>(task):
-    task_id <span style="color:#f92672">=</span> task[<span style="color:#e6db74">&#34;taskId&#34;</span>]
+@META.worker.single_task
+def main(task):
+    task_id = task[&quot;taskId&quot;]
 
-    user_id <span style="color:#f92672">=</span> task[<span style="color:#e6db74">&#34;data&#34;</span>][<span style="color:#e6db74">&#34;user_id&#34;</span>]
-    media_id <span style="color:#f92672">=</span> task[<span style="color:#e6db74">&#34;data&#34;</span>][<span style="color:#e6db74">&#34;media_id&#34;</span>]
-    log<span style="color:#f92672">.</span>set_entity(<span style="color:#e6db74">&#34;user_id&#34;</span>, user_id)
-    log<span style="color:#f92672">.</span>set_entity(<span style="color:#e6db74">&#34;media_id&#34;</span>, media_id)
+    user_id = task[&quot;data&quot;][&quot;user_id&quot;]
+    media_id = task[&quot;data&quot;][&quot;media_id&quot;]
+    log.set_entity(&quot;user_id&quot;, user_id)
+    log.set_entity(&quot;media_id&quot;, media_id)
 
-    filepath <span style="color:#f92672">=</span> None
-    <span style="color:#66d9ef">try</span>:
-        filepath <span style="color:#f92672">=</span> download_file(media_id)
+    filepath = None
+    try:
+        filepath = download_file(media_id)
         process_file(filepath)
-    <span style="color:#66d9ef">finally</span>:
-        <span style="color:#66d9ef">if</span> filepath <span style="color:#f92672">and</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>exists(filepath):
-            os<span style="color:#f92672">.</span>remove(filepath)
+    finally:
+        if filepath and os.path.exists(filepath):
+            os.remove(filepath)
 
-</code></pre></div>
+</code></pre>
+
 
 
 
@@ -1955,25 +2001,26 @@ META<span style="color:#f92672">.</span>worker<span style="color:#f92672">.</spa
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
     <nav id="TableOfContents">
-  <ul>
-    <li><a href="#что-такое-и-где-используются">Что такое и где используются?</a></li>
-    <li><a href="#загрузка-данных">Загрузка данных</a></li>
-    <li><a href="#хранение">Хранение</a></li>
-    <li><a href="#markdown">Markdown</a></li>
-    <li><a href="#работа-через-metasdk">Работа через metasdk</a>
-      <ul>
-        <li><a href="#локальная-разработка">Локальная разработка</a></li>
-        <li><a href="#пример">Пример</a></li>
-      </ul>
-    </li>
-    <li><a href="#работа-от-лица-пользователя">Работа от лица пользователя</a></li>
-    <li><a href="#пример-1">Пример</a>
-      <ul>
-        <li><a href="#страница-в-интерфейсе">Страница в интерфейсе</a></li>
-        <li><a href="#пример-фонового-скрипта-для-страницы">Пример фонового скрипта для страницы</a></li>
-      </ul>
-    </li>
-  </ul>
+<ul>
+<li>
+<ul>
+<li><a href="#что-такое-и-где-используются">Что такое и где используются?</a></li>
+<li><a href="#загрузка-данных">Загрузка данных</a></li>
+<li><a href="#хранение">Хранение</a></li>
+<li><a href="#markdown">Markdown</a></li>
+<li><a href="#работа-через-metasdk">Работа через metasdk</a>
+<ul>
+<li><a href="#локальная-разработка">Локальная разработка</a></li>
+<li><a href="#пример">Пример</a></li>
+</ul></li>
+<li><a href="#работа-от-лица-пользователя">Работа от лица пользователя</a></li>
+<li><a href="#пример-1">Пример</a>
+<ul>
+<li><a href="#страница-в-интерфейсе">Страница в интерфейсе</a></li>
+<li><a href="#пример-фонового-скрипта-для-страницы">Пример фонового скрипта для страницы</a></li>
+</ul></li>
+</ul></li>
+</ul>
 </nav>
 </div>
 

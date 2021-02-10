@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.68.1" />
+    <meta name="generator" content="Hugo 0.59.1" />
     <meta name="description" content="">
 
 
@@ -1661,32 +1661,53 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
+
+
 <h2 id="мотивация">Мотивация</h2>
+
 <p>Иногда пользователи хотят управлять отчетами через интеграцию с Google Sheets</p>
+
 <p>Документация по query language: <a href="https://developers.google.com/chart/interactive/docs/querylanguage#language-clauses">https://developers.google.com/chart/interactive/docs/querylanguage#language-clauses</a></p>
+
 <h1 id="административные-настройки-сервера">Административные настройки сервера</h1>
+
 <p>Для того, чтобы это заработало в основном конфигурационном файле меты должен быть заполнен блок googleShareAccount,
 где нужно вписать google service account настройки из формата json в формате yaml.
 После указания ваши пользователи смогут расшаривать файлы на ваш сервисный аккаунт и мета будет получать к ним доступ.</p>
-<p>например у нас это аккаунт - <a href="mailto:robot-valera@devision-io.iam.gserviceaccount.com">robot-valera@devision-io.iam.gserviceaccount.com</a></p>
+
+<p>например у нас это аккаунт - robot-valera@devision-io.iam.gserviceaccount.com</p>
+
 <h1 id="что-нужно-сделать">Что нужно сделать</h1>
+
 <p>Вы должны использовать БД &ldquo;gsheet&rdquo;.
 В ShardKey укажите id документа, через решетку имя листа, если имя листа не указано, то скорее всго будет взят первый созданный лист gid=0.
 Будте аккуратны, так как МЕТА не гарантирует, что google не изменит api и не станет отдавать другой лист по умолчанию.</p>
+
 <p>Не забудьте, что пользователь должен либо сделать документ публичным, либо расшарить его на ваш сервисный аккаунт.</p>
+
 <h1 id="ограничения">Ограничения</h1>
+
 <p>${pager}, ${sort} и комментирование строк как в БД не работают в скриптах google sheet</p>
+
 <h1 id="частые-проблемы">Частые проблемы</h1>
+
 <h2 id="дата-в-мете-выводится-неверно">Дата в мете выводится неверно</h2>
+
 <p>Примените формат даты в google sheet к нужной колонке</p>
+
 <h2 id="в-мете-пустота-вместо-числа-из-ячейки-или-число-нет-то-хотя-в-google-sheet-все-ок">В мете пустота вместо числа из ячейки или число нет то, хотя в google sheet все ок</h2>
+
 <p>Примените форма числа к нужным ячейкам и замените точки на запятые, если у у вас ru локаль</p>
+
 <h1 id="пример">Пример</h1>
+
 <p>Получение всего контента листа с названием &ldquo;Мой лист&rdquo;</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;res&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;gsheet&#34;</span> <span style="color:#a6e22e">shard-key</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1Wn2mET2s5hkhMvEJHXAXJu20wahJFgf11HxXYfBos8c#Мой лист&#34;</span>&gt;
-<span style="color:#a6e22e">select</span> <span style="color:#f92672">*</span>
-&lt;/<span style="color:#f92672">script</span>&gt;
-</code></pre></div>
+
+<pre><code class="language-html">&lt;script id=&quot;res&quot; type=&quot;meta/sql&quot; db-alias=&quot;gsheet&quot; shard-key=&quot;1Wn2mET2s5hkhMvEJHXAXJu20wahJFgf11HxXYfBos8c#Мой лист&quot;&gt;
+select *
+&lt;/script&gt;
+</code></pre>
+
 
 
 
@@ -1698,14 +1719,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
     <nav id="TableOfContents">
-  <ul>
-    <li><a href="#мотивация">Мотивация</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#дата-в-мете-выводится-неверно">Дата в мете выводится неверно</a></li>
-    <li><a href="#в-мете-пустота-вместо-числа-из-ячейки-или-число-нет-то-хотя-в-google-sheet-все-ок">В мете пустота вместо числа из ячейки или число нет то, хотя в google sheet все ок</a></li>
-  </ul>
+<ul>
+<li>
+<ul>
+<li><a href="#мотивация">Мотивация</a></li>
+</ul></li>
+<li><a href="#административные-настройки-сервера">Административные настройки сервера</a></li>
+<li><a href="#что-нужно-сделать">Что нужно сделать</a></li>
+<li><a href="#ограничения">Ограничения</a></li>
+<li><a href="#частые-проблемы">Частые проблемы</a>
+<ul>
+<li><a href="#дата-в-мете-выводится-неверно">Дата в мете выводится неверно</a></li>
+<li><a href="#в-мете-пустота-вместо-числа-из-ячейки-или-число-нет-то-хотя-в-google-sheet-все-ок">В мете пустота вместо числа из ячейки или число нет то, хотя в google sheet все ок</a></li>
+</ul></li>
+<li><a href="#пример">Пример</a></li>
+</ul>
 </nav>
 </div>
 

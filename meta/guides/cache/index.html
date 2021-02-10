@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.68.1" />
+    <meta name="generator" content="Hugo 0.59.1" />
     <meta name="description" content="">
 
 
@@ -1661,31 +1661,48 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
+
+
 <p>Многие системы имеют встроенные механизмы кеширование и META не исключение.</p>
+
 <p>В META есть два вида кеша - пользовательский и глобальный.</p>
+
 <p>У скрипта есть два атрибута:</p>
+
 <ol>
 <li>&ldquo;cache&rdquo; - время жизни кеша в формате 10s - секунды, 10m - минуты, 10h часы.</li>
 <li>&ldquo;cache-company&rdquo; - добавляется к настройке &ldquo;cache&rdquo; и говорит о том, что кеш не зависит от пользователя, но зависит от env.companyId. Без &ldquo;cache&rdquo; не работает. Не может принимать значения true/false</li>
 <li>&ldquo;cache-global&rdquo; - добавляется к настройке &ldquo;cache&rdquo; и говорит о том, что кеш глобальный и не зависит от пользователя. Без &ldquo;cache&rdquo; не работает. Не может принимать значения true/false</li>
 </ol>
+
 <h3 id="пользовательский-кеш">Пользовательский кеш</h3>
+
 <p>В примере указан только атрибут &ldquo;cache&rdquo;, что говорит, что кеш есть, он на 5 минут и он зависит от пользователя
 Зависит от: applicationId, objectId, objectId, stateParams, state, limit/offset и userId</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;res&#34;</span> <span style="color:#a6e22e">cache</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;5m&#34;</span>&gt;
-<span style="color:#a6e22e">SELECT</span> ...
-&lt;/<span style="color:#f92672">script</span>&gt;
-</code></pre></div><h3 id="кеш-уровня-companyid">Кеш уровня companyId</h3>
+
+<pre><code class="language-html">&lt;script type=&quot;meta/sql&quot; id=&quot;res&quot; cache=&quot;5m&quot;&gt;
+SELECT ...
+&lt;/script&gt;
+</code></pre>
+
+<h3 id="кеш-уровня-companyid">Кеш уровня companyId</h3>
+
 <p>Зависит от: applicationId, objectId, objectId, stateParams, state, limit/offset и companyId</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;res&#34;</span> <span style="color:#a6e22e">cache</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;5m&#34;</span> <span style="color:#a6e22e">cache-company</span>&gt;
-<span style="color:#a6e22e">SELECT</span> ...
-&lt;/<span style="color:#f92672">script</span>&gt;
-</code></pre></div><h3 id="глобальный-кеш">Глобальный кеш</h3>
+
+<pre><code class="language-html">&lt;script type=&quot;meta/sql&quot; id=&quot;res&quot; cache=&quot;5m&quot; cache-company&gt;
+SELECT ...
+&lt;/script&gt;
+</code></pre>
+
+<h3 id="глобальный-кеш">Глобальный кеш</h3>
+
 <p>Зависит от: applicationId, objectId, objectId, stateParams, state, limit/offset</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;res&#34;</span> <span style="color:#a6e22e">cache</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;5m&#34;</span> <span style="color:#a6e22e">cache-global</span>&gt;
-<span style="color:#a6e22e">SELECT</span> ...
-&lt;/<span style="color:#f92672">script</span>&gt;
-</code></pre></div>
+
+<pre><code class="language-html">&lt;script type=&quot;meta/sql&quot; id=&quot;res&quot; cache=&quot;5m&quot; cache-global&gt;
+SELECT ...
+&lt;/script&gt;
+</code></pre>
+
 
 
 
@@ -1697,15 +1714,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
     <nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#пользовательский-кеш">Пользовательский кеш</a></li>
-        <li><a href="#кеш-уровня-companyid">Кеш уровня companyId</a></li>
-        <li><a href="#глобальный-кеш">Глобальный кеш</a></li>
-      </ul>
-    </li>
-  </ul>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#пользовательский-кеш">Пользовательский кеш</a></li>
+<li><a href="#кеш-уровня-companyid">Кеш уровня companyId</a></li>
+<li><a href="#глобальный-кеш">Глобальный кеш</a></li>
+</ul></li>
+</ul></li>
+</ul>
 </nav>
 </div>
 

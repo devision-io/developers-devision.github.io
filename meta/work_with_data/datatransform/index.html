@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.68.1" />
+    <meta name="generator" content="Hugo 0.59.1" />
     <meta name="description" content="">
 
 
@@ -1661,108 +1661,118 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
+
+
 <h2 id="мотивация">Мотивация</h2>
+
 <p>Когда надо выбрать много данных один раз и потом немного доагрегировать в разных плоскостях и пофильтровать, например для графиков или дашбордах данных из bigquery.</p>
+
 <p>Пример использования:
 <a href="https://samples-demo.devision.io/page?p=4959&amp;a=35">https://samples-demo.devision.io/page?p=4959&amp;a=35</a></p>
+
 <p>Принципиально все достаточно просто - у вас есть DataResult и вы хотите его перегруппировать.
 Для этого сперва получаем данные, например sql запросом в скрипте <strong>res</strong>, а потом в отдельном meta/js скрипте делаем вызов DataTransformService.pivot
 с необходимыми параметрами.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta_samples&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;res&#34;</span> <span style="color:#a6e22e">entity-id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;2629&#34;</span> <span style="color:#a6e22e">label</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Исходные данные. Можно не выводить на интерфейс, тут просто для понимания исходных данных&#34;</span> <span style="color:#a6e22e">order</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;10&#34;</span>&gt;
-<span style="color:#a6e22e">SELECT</span> 
+
+<pre><code class="language-html">&lt;script type=&quot;meta/sql&quot; db-alias=&quot;meta_samples&quot; id=&quot;res&quot; entity-id=&quot;2629&quot; label=&quot;Исходные данные. Можно не выводить на интерфейс, тут просто для понимания исходных данных&quot; order=&quot;10&quot;&gt;
+SELECT 
 ...
-<span style="color:#a6e22e">json_build_object</span>(
-  <span style="color:#e6db74">&#39;pager&#39;</span>, <span style="color:#a6e22e">json_build_object</span>(<span style="color:#e6db74">&#39;total&#39;</span>, <span style="color:#a6e22e">count</span>(<span style="color:#f92672">*</span>) <span style="color:#a6e22e">over</span>()),
-  <span style="color:#e6db74">&#39;headers&#39;</span>, <span style="color:#a6e22e">json_build_array</span>(
+json_build_object(
+  'pager', json_build_object('total', count(*) over()),
+  'headers', json_build_array(
       ...
   )
-) <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">table_props_field</span>
-<span style="color:#a6e22e">FROM</span> <span style="color:#e6db74">&#34;public&#34;</span>.<span style="color:#e6db74">&#34;employee&#34;</span>
-&lt;/<span style="color:#f92672">script</span>&gt;
+) as table_props_field
+FROM &quot;public&quot;.&quot;employee&quot;
+&lt;/script&gt;
 
-&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;res_rows_cols&#34;</span> <span style="color:#a6e22e">span</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;6&#34;</span> <span style="color:#a6e22e">label</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Rows and Cols&#34;</span> <span style="color:#a6e22e">order</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;20&#34;</span>&gt;
-<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>(<span style="color:#a6e22e">pvm</span>, <span style="color:#a6e22e">DataTransformService</span>) {
-<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">DataTransformService</span>.<span style="color:#a6e22e">pivot</span>(<span style="color:#a6e22e">pvm</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">res</span>, {
-  <span style="color:#a6e22e">rows</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;isActive&#34;</span>],
-  <span style="color:#a6e22e">cols</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;first_name&#34;</span>],
+&lt;script type=&quot;meta/js&quot; id=&quot;res_rows_cols&quot; span=&quot;6&quot; label=&quot;Rows and Cols&quot; order=&quot;20&quot;&gt;
+function main(pvm, DataTransformService) {
+return DataTransformService.pivot(pvm.data.res, {
+  rows: [&quot;isActive&quot;],
+  cols: [&quot;first_name&quot;],
 
-  <span style="color:#a6e22e">metrics</span><span style="color:#f92672">:</span> [
-    {<span style="color:#a6e22e">expression</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;salary&#34;</span>},
+  metrics: [
+    {expression: &quot;salary&quot;},
   ],
 
-  <span style="color:#a6e22e">dimensionFilterClauses</span><span style="color:#f92672">:</span> [
+  dimensionFilterClauses: [
     {
-      <span style="color:#a6e22e">operator</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;AND&#34;</span>,
-      <span style="color:#a6e22e">filters</span><span style="color:#f92672">:</span> [
+      operator: &quot;AND&quot;,
+      filters: [
         {
-          <span style="color:#a6e22e">dimensionName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;name&#34;</span>,
-          <span style="color:#a6e22e">operator</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;IN_LIST&#34;</span>,
-          <span style="color:#a6e22e">expressions</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;Юрий Гагарин&#34;</span>, <span style="color:#e6db74">&#34;Дмитрий Медведев&#34;</span>, <span style="color:#e6db74">&#34;Дмитрий Менделеев&#34;</span>]
+          dimensionName: &quot;name&quot;,
+          operator: &quot;IN_LIST&quot;,
+          expressions: [&quot;Юрий Гагарин&quot;, &quot;Дмитрий Медведев&quot;, &quot;Дмитрий Менделеев&quot;]
         }
       ]
     }
   ]
 });
 }
-&lt;/<span style="color:#f92672">script</span>&gt;
-</code></pre></div><h3 id="pivotconfig">PivotConfig</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">то,</span> <span style="color:#960050;background-color:#1e0010">что</span> <span style="color:#960050;background-color:#1e0010">группируется</span> <span style="color:#960050;background-color:#1e0010">по</span> <span style="color:#960050;background-color:#1e0010">строкам</span>
-  <span style="color:#f92672">&#34;rows&#34;</span>: [<span style="color:#e6db74">&#34;name&#34;</span>],
+&lt;/script&gt;
+</code></pre>
+
+<h3 id="pivotconfig">PivotConfig</h3>
+
+<pre><code class="language-json">{
+  // то, что группируется по строкам
+  &quot;rows&quot;: [&quot;name&quot;],
   
-  <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">группировка</span> <span style="color:#960050;background-color:#1e0010">по</span> <span style="color:#960050;background-color:#1e0010">колонкам.</span> <span style="color:#960050;background-color:#1e0010">(Не</span> <span style="color:#960050;background-color:#1e0010">обязательно)</span>
-  <span style="color:#f92672">&#34;cols&#34;</span>: [<span style="color:#e6db74">&#34;isActive&#34;</span>],
+  // группировка по колонкам. (Не обязательно)
+  &quot;cols&quot;: [&quot;isActive&quot;],
 
-  <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">ограничение</span> <span style="color:#960050;background-color:#1e0010">по</span> <span style="color:#960050;background-color:#1e0010">строкам</span> <span style="color:#960050;background-color:#1e0010">после</span> <span style="color:#960050;background-color:#1e0010">группировки</span> <span style="color:#960050;background-color:#1e0010">(Не</span> <span style="color:#960050;background-color:#1e0010">обязательно).</span> <span style="color:#960050;background-color:#1e0010">По</span> <span style="color:#960050;background-color:#1e0010">умолчанию</span> <span style="color:#960050;background-color:#1e0010">0</span> <span style="color:#960050;background-color:#1e0010">-</span> <span style="color:#960050;background-color:#1e0010">не</span> <span style="color:#960050;background-color:#1e0010">заадано</span>
-  <span style="color:#f92672">&#34;limit&#34;</span>: <span style="color:#ae81ff">10</span>, 
+  // ограничение по строкам после группировки (Не обязательно). По умолчанию 0 - не заадано
+  &quot;limit&quot;: 10, 
       
-  <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">Можно</span> <span style="color:#960050;background-color:#1e0010">группировать</span> <span style="color:#960050;background-color:#1e0010">существующие</span> <span style="color:#960050;background-color:#1e0010">поля</span> <span style="color:#960050;background-color:#1e0010">и</span> <span style="color:#960050;background-color:#1e0010">описывать</span> <span style="color:#960050;background-color:#1e0010">расчетные</span> 
-  <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">За</span> <span style="color:#960050;background-color:#1e0010">основу</span> <span style="color:#960050;background-color:#1e0010">взято</span> <span style="color:#960050;background-color:#1e0010">https://developers.google.com/analytics/devguides/reporting/core/v4/rest/v4/reports/batchGet#Metric</span>
-  <span style="color:#f92672">&#34;metrics&#34;</span>: [
-    {<span style="color:#f92672">&#34;expression&#34;</span>: <span style="color:#e6db74">&#34;salary&#34;</span>},
-    {<span style="color:#f92672">&#34;expression&#34;</span>: <span style="color:#e6db74">&#34;bigDecimal&#34;</span>},
-    {<span style="color:#f92672">&#34;expression&#34;</span>: <span style="color:#e6db74">&#34;[metric:salary] / 10&#34;</span>, <span style="color:#f92672">&#34;alias&#34;</span>: <span style="color:#e6db74">&#34;new_salary&#34;</span>},
-    {<span style="color:#f92672">&#34;expression&#34;</span>: <span style="color:#e6db74">&#34;[metric:salary] * [metric:salary] * [metric:organizationId]&#34;</span>, <span style="color:#f92672">&#34;alias&#34;</span>: <span style="color:#e6db74">&#34;multi_mul&#34;</span>},
+  // Можно группировать существующие поля и описывать расчетные 
+  // За основу взято https://developers.google.com/analytics/devguides/reporting/core/v4/rest/v4/reports/batchGet#Metric
+  &quot;metrics&quot;: [
+    {&quot;expression&quot;: &quot;salary&quot;},
+    {&quot;expression&quot;: &quot;bigDecimal&quot;},
+    {&quot;expression&quot;: &quot;[metric:salary] / 10&quot;, &quot;alias&quot;: &quot;new_salary&quot;},
+    {&quot;expression&quot;: &quot;[metric:salary] * [metric:salary] * [metric:organizationId]&quot;, &quot;alias&quot;: &quot;multi_mul&quot;},
   ],
 
-  <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">Сортировка</span> <span style="color:#960050;background-color:#1e0010">(Не</span> <span style="color:#960050;background-color:#1e0010">обязательно)</span>
-  <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">Идет</span> <span style="color:#960050;background-color:#1e0010">после</span> <span style="color:#960050;background-color:#1e0010">группировки</span>
-  <span style="color:#f92672">&#34;orderBys&#34;</span>: [
-    {<span style="color:#f92672">&#34;fieldName&#34;</span>: <span style="color:#e6db74">&#34;salary&#34;</span>, <span style="color:#f92672">&#34;sortOrder&#34;</span>: <span style="color:#e6db74">&#34;DESC&#34;</span>}
+  // Сортировка (Не обязательно)
+  // Идет после группировки
+  &quot;orderBys&quot;: [
+    {&quot;fieldName&quot;: &quot;salary&quot;, &quot;sortOrder&quot;: &quot;DESC&quot;}
   ],
 
-  <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">ограничение</span> <span style="color:#960050;background-color:#1e0010">по</span> <span style="color:#960050;background-color:#1e0010">строкам</span> <span style="color:#960050;background-color:#1e0010">после</span> <span style="color:#960050;background-color:#1e0010">группировки</span> <span style="color:#960050;background-color:#1e0010">(Не</span> <span style="color:#960050;background-color:#1e0010">обязательно).</span> <span style="color:#960050;background-color:#1e0010">По</span> <span style="color:#960050;background-color:#1e0010">умолчанию</span> <span style="color:#960050;background-color:#1e0010">false</span>
-  <span style="color:#f92672">&#34;includeEmptyRows&#34;</span>: <span style="color:#66d9ef">false</span>, 
+  // ограничение по строкам после группировки (Не обязательно). По умолчанию false
+  &quot;includeEmptyRows&quot;: false, 
 
-  <span style="color:#f92672">&#34;dimensionFilterClauses&#34;</span>: [
+  &quot;dimensionFilterClauses&quot;: [
     {
-      <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">Обязательно.</span> <span style="color:#960050;background-color:#1e0010">Пока</span> <span style="color:#960050;background-color:#1e0010">поддерживается</span> <span style="color:#960050;background-color:#1e0010">только</span> <span style="color:#960050;background-color:#1e0010">AND</span>
-      <span style="color:#f92672">&#34;operator&#34;</span>: <span style="color:#e6db74">&#34;AND&#34;</span>,
-      <span style="color:#f92672">&#34;filters&#34;</span>: [
+      // Обязательно. Пока поддерживается только AND
+      &quot;operator&quot;: &quot;AND&quot;,
+      &quot;filters&quot;: [
         {
-          <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">Делает</span> <span style="color:#960050;background-color:#1e0010">условие</span> <span style="color:#960050;background-color:#1e0010">обратным</span> <span style="color:#960050;background-color:#1e0010">(Не</span> <span style="color:#960050;background-color:#1e0010">обязательно)</span>
-          <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">По</span> <span style="color:#960050;background-color:#1e0010">умолчанию</span> <span style="color:#960050;background-color:#1e0010">-</span> <span style="color:#960050;background-color:#1e0010">false</span>
-          <span style="color:#f92672">&#34;not&#34;</span>: <span style="color:#66d9ef">false</span>, 
+          // Делает условие обратным (Не обязательно)
+          // По умолчанию - false
+          &quot;not&quot;: false, 
 
-          <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">поле</span> <span style="color:#960050;background-color:#1e0010">для</span> <span style="color:#960050;background-color:#1e0010">фильров</span>
-          <span style="color:#f92672">&#34;dimensionName&#34;</span>: <span style="color:#e6db74">&#34;name&#34;</span>,
+          // поле для фильров
+          &quot;dimensionName&quot;: &quot;name&quot;,
 
-          <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">Поддерживаются</span> <span style="color:#960050;background-color:#1e0010">операторы</span> <span style="color:#960050;background-color:#1e0010">IS_NULL,</span> <span style="color:#960050;background-color:#1e0010">EXACT,</span> <span style="color:#960050;background-color:#1e0010">PARTIAL,</span> <span style="color:#960050;background-color:#1e0010">IN_LIST,</span> <span style="color:#960050;background-color:#1e0010">BEGINS_WITH,</span> <span style="color:#960050;background-color:#1e0010">ENDS_WITH</span>
-          <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">за</span> <span style="color:#960050;background-color:#1e0010">основу</span> <span style="color:#960050;background-color:#1e0010">взят</span> <span style="color:#960050;background-color:#1e0010">https://developers.google.com/analytics/devguides/reporting/core/v4/rest/v4/reports/batchGet#Operator</span>
-          <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">По</span> <span style="color:#960050;background-color:#1e0010">умолчанию</span> <span style="color:#960050;background-color:#1e0010">EXACT</span>
-          <span style="color:#f92672">&#34;operator&#34;</span>: <span style="color:#e6db74">&#34;IN_LIST&#34;</span>,
+          // Поддерживаются операторы IS_NULL, EXACT, PARTIAL, IN_LIST, BEGINS_WITH, ENDS_WITH
+          // за основу взят https://developers.google.com/analytics/devguides/reporting/core/v4/rest/v4/reports/batchGet#Operator
+          // По умолчанию EXACT
+          &quot;operator&quot;: &quot;IN_LIST&quot;,
 
-          <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">Строки</span> <span style="color:#960050;background-color:#1e0010">и</span> <span style="color:#960050;background-color:#1e0010">регулярные</span> <span style="color:#960050;background-color:#1e0010">выражения</span> <span style="color:#960050;background-color:#1e0010">для</span> <span style="color:#960050;background-color:#1e0010">сопоставления.</span>
-          <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">В</span> <span style="color:#960050;background-color:#1e0010">целях</span> <span style="color:#960050;background-color:#1e0010">сравнения</span> <span style="color:#960050;background-color:#1e0010">используется</span> <span style="color:#960050;background-color:#1e0010">только</span> <span style="color:#960050;background-color:#1e0010">первое</span> <span style="color:#960050;background-color:#1e0010">значение</span> <span style="color:#960050;background-color:#1e0010">списка</span> <span style="color:#960050;background-color:#1e0010">(кроме</span> <span style="color:#960050;background-color:#1e0010">случаев,</span> <span style="color:#960050;background-color:#1e0010">когда</span> <span style="color:#960050;background-color:#1e0010">применяется</span> <span style="color:#960050;background-color:#1e0010">оператор</span> <span style="color:#960050;background-color:#1e0010">IN_LIST).</span>
-          <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">Если</span> <span style="color:#960050;background-color:#1e0010">применяется</span> <span style="color:#960050;background-color:#1e0010">оператор</span> <span style="color:#960050;background-color:#1e0010">IN_LIST,</span> <span style="color:#960050;background-color:#1e0010">фильтрация</span> <span style="color:#960050;background-color:#1e0010">параметров</span> <span style="color:#960050;background-color:#1e0010">выполняется</span> <span style="color:#960050;background-color:#1e0010">по</span> <span style="color:#960050;background-color:#1e0010">всему</span> <span style="color:#960050;background-color:#1e0010">списку</span> <span style="color:#960050;background-color:#1e0010">фильтров,</span> <span style="color:#960050;background-color:#1e0010">согласно</span> <span style="color:#960050;background-color:#1e0010">описанию</span> <span style="color:#960050;background-color:#1e0010">оператора</span> <span style="color:#960050;background-color:#1e0010">IN_LIST.</span>
-          <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">Для</span> <span style="color:#960050;background-color:#1e0010">IS_NULL</span> <span style="color:#960050;background-color:#1e0010">передавать</span> <span style="color:#960050;background-color:#1e0010">не</span> <span style="color:#960050;background-color:#1e0010">обязательно</span>
-          <span style="color:#f92672">&#34;expresions&#34;</span>: [<span style="color:#e6db74">&#34;Юрий Гагарин&#34;</span>, <span style="color:#e6db74">&#34;Дмитрий Медведев&#34;</span>, <span style="color:#e6db74">&#34;Дмитрий Менделеев&#34;</span>]
+          // Строки и регулярные выражения для сопоставления.
+          // В целях сравнения используется только первое значение списка (кроме случаев, когда применяется оператор IN_LIST).
+          // Если применяется оператор IN_LIST, фильтрация параметров выполняется по всему списку фильтров, согласно описанию оператора IN_LIST.
+          // Для IS_NULL передавать не обязательно
+          &quot;expresions&quot;: [&quot;Юрий Гагарин&quot;, &quot;Дмитрий Медведев&quot;, &quot;Дмитрий Менделеев&quot;]
         }
       ]
     }
   ]
 }
-</code></pre></div>
+</code></pre>
+
 
 
 
@@ -1774,13 +1784,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
     <nav id="TableOfContents">
-  <ul>
-    <li><a href="#мотивация">Мотивация</a>
-      <ul>
-        <li><a href="#pivotconfig">PivotConfig</a></li>
-      </ul>
-    </li>
-  </ul>
+<ul>
+<li>
+<ul>
+<li><a href="#мотивация">Мотивация</a>
+<ul>
+<li><a href="#pivotconfig">PivotConfig</a></li>
+</ul></li>
+</ul></li>
+</ul>
 </nav>
 </div>
 

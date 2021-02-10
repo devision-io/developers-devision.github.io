@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.68.1" />
+    <meta name="generator" content="Hugo 0.59.1" />
     <meta name="description" content="">
 
 
@@ -1661,9 +1661,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
+
+
 <p>Настраиваются на nginx при проксировании запосов в Java приложение, или через Chrome плагин ModHeader (<a href="https://chrome.google.com/webstore/detail/modheader/idgpnmonknjnojddfkpgkljpfnnfcklj">https://chrome.google.com/webstore/detail/modheader/idgpnmonknjnojddfkpgkljpfnnfcklj</a>) для разработки</p>
+
 <h2 id="x-meta-appid">X-META-AppID</h2>
+
 <p>Говорит о том, что МЕТА должна отвечать пользователю как конкретное приложение с установленным лого, css и пр</p>
+
 <pre><code>server {
   listen *:80;
   server_name example.com;
@@ -1675,10 +1680,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     proxy_pass http://127.0.0.1:8083;
   }
 }
-</code></pre><h2 id="x-meta-allowed-apps">X-META-Allowed-Apps</h2>
+</code></pre>
+
+<h2 id="x-meta-allowed-apps">X-META-Allowed-Apps</h2>
+
 <p>Говорит о том, что МЕТА должна отвечать пользователю как конкретное приложение с установленным лого, css и пр
 Отличается от HEADER_X_META_APP_ID тем, что это будет работать как просто meta.realweb.ru, но не будет показывать
 главную страницу без указания приложения, т.е. будет работать только как embed вариант</p>
+
 <pre><code>server {
     listen *:80;
     server_name example.com;
@@ -1690,9 +1699,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       proxy_pass http://127.0.0.1:8083;
     }
 }
-</code></pre><h2 id="x-meta-dev-restrict-roles">X-META-Dev-Restrict-Roles</h2>
+</code></pre>
+
+<h2 id="x-meta-dev-restrict-roles">X-META-Dev-Restrict-Roles</h2>
+
 <p>Разделенный через запятую список ролей, которым доступно нахождение не сайте.
 Обычно это разработчики и саппорт</p>
+
 <pre><code>server {
     listen *:80;
     server_name example.com;
@@ -1712,15 +1725,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
+
 </section>
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
     <nav id="TableOfContents">
-  <ul>
-    <li><a href="#x-meta-appid">X-META-AppID</a></li>
-    <li><a href="#x-meta-allowed-apps">X-META-Allowed-Apps</a></li>
-    <li><a href="#x-meta-dev-restrict-roles">X-META-Dev-Restrict-Roles</a></li>
-  </ul>
+<ul>
+<li>
+<ul>
+<li><a href="#x-meta-appid">X-META-AppID</a></li>
+<li><a href="#x-meta-allowed-apps">X-META-Allowed-Apps</a></li>
+<li><a href="#x-meta-dev-restrict-roles">X-META-Dev-Restrict-Roles</a></li>
+</ul></li>
+</ul>
 </nav>
 </div>
 

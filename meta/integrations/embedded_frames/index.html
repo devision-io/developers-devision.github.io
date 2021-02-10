@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.68.1" />
+    <meta name="generator" content="Hugo 0.59.1" />
     <meta name="description" content="">
 
 
@@ -1662,68 +1662,74 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 <p>Пример на основе интеграции старого Garpun в новое META-приложение</p>
+
 <p>В Garpun мы разместили код</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span>&gt;
-  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">inIframe</span>() {
-    <span style="color:#66d9ef">try</span> {
-  <span style="color:#66d9ef">return</span> window.<span style="color:#a6e22e">self</span> <span style="color:#f92672">!==</span> window.<span style="color:#a6e22e">top</span>;
-    } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">e</span>) {
-  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>;
+
+<pre><code class="language-html">&lt;script type=&quot;text/javascript&quot;&gt;
+  function inIframe() {
+    try {
+  return window.self !== window.top;
+    } catch (e) {
+  return true;
     }
   }
-  document.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#34;DOMContentLoaded&#34;</span>, <span style="color:#66d9ef">function</span> () {
-    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">inIframe</span>()) {
-  <span style="color:#75715e">// Это мы использовали чтобы убрать ненужные кнопки
-</span><span style="color:#75715e"></span>  document.<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">classList</span>.<span style="color:#a6e22e">add</span>(<span style="color:#e6db74">&#34;garpunEmbedded&#34;</span>);
+  document.addEventListener(&quot;DOMContentLoaded&quot;, function () {
+    if (inIframe()) {
+  // Это мы использовали чтобы убрать ненужные кнопки
+  document.body.classList.add(&quot;garpunEmbedded&quot;);
     }
-    document.<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">classList</span>.<span style="color:#a6e22e">remove</span>(<span style="color:#e6db74">&#34;garpunLoading&#34;</span>);
+    document.body.classList.remove(&quot;garpunLoading&quot;);
   });
 
-  <span style="color:#75715e">// 
-</span><span style="color:#75715e"></span>  (<span style="color:#a6e22e">metaframewatcher</span> <span style="color:#f92672">=</span> window.<span style="color:#a6e22e">metaframewatcher</span> <span style="color:#f92672">||</span> []).<span style="color:#a6e22e">push</span>({
-    <span style="color:#a6e22e">height_classes</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;t_window&#39;</span>, <span style="color:#e6db74">&#39;cover&#39;</span>, <span style="color:#e6db74">&#39;stickyWrap&#39;</span>, <span style="color:#e6db74">&#39;mainBox&#39;</span>]
+  // 
+  (metaframewatcher = window.metaframewatcher || []).push({
+    height_classes: ['t_window', 'cover', 'stickyWrap', 'mainBox']
   });
 
-  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">inIframe</span>()) {
-    <span style="color:#75715e">// Это не относится к задаче встраивания напрямую, но наверняка будет полезно для GTM для отключения виджетов поддержки и пр
-</span><span style="color:#75715e"></span>    window[<span style="color:#e6db74">&#39;IS_EMBED_MODE&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+  if (inIframe()) {
+    // Это не относится к задаче встраивания напрямую, но наверняка будет полезно для GTM для отключения виджетов поддержки и пр
+    window['IS_EMBED_MODE'] = true;
  
-    <span style="color:#75715e">// Размещаем загрузки интеграционного скрипта
-</span><span style="color:#75715e"></span>    (<span style="color:#66d9ef">function</span>() {
-  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">lt</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">createElement</span>(<span style="color:#e6db74">&#39;script&#39;</span>);
-  <span style="color:#a6e22e">lt</span>.<span style="color:#a6e22e">type</span> <span style="color:#f92672">=</span><span style="color:#e6db74">&#39;text/javascript&#39;</span>;
-  <span style="color:#a6e22e">lt</span>.<span style="color:#a6e22e">src</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;https://app.garpun.com/_b/meta-element/iframe-content-watcher.js&#39;</span>;
-  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">sc</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementsByTagName</span>(<span style="color:#e6db74">&#39;script&#39;</span>)[<span style="color:#ae81ff">0</span>];
-  <span style="color:#66d9ef">if</span> ( <span style="color:#a6e22e">sc</span> ) <span style="color:#a6e22e">sc</span>.<span style="color:#a6e22e">parentNode</span>.<span style="color:#a6e22e">insertBefore</span>(<span style="color:#a6e22e">lt</span>, <span style="color:#a6e22e">sc</span>);
-  <span style="color:#66d9ef">else</span> document.<span style="color:#a6e22e">documentElement</span>.<span style="color:#a6e22e">firstChild</span>.<span style="color:#a6e22e">appendChild</span>(<span style="color:#a6e22e">lt</span>);
+    // Размещаем загрузки интеграционного скрипта
+    (function() {
+  var lt = document.createElement('script');
+  lt.type ='text/javascript';
+  lt.src = 'https://app.garpun.com/_b/meta-element/iframe-content-watcher.js';
+  var sc = document.getElementsByTagName('script')[0];
+  if ( sc ) sc.parentNode.insertBefore(lt, sc);
+  else document.documentElement.firstChild.appendChild(lt);
     })();
   }
-&lt;/<span style="color:#f92672">script</span>&gt;
-</code></pre></div><p>На странице META размещаем такой код</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;token&#34;</span> <span style="color:#a6e22e">internal</span>&gt;
-<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>(<span style="color:#a6e22e">env</span>, <span style="color:#a6e22e">vm</span>, <span style="color:#a6e22e">OAuthService</span>) {
-  <span style="color:#75715e">// генерируем токен авторизации
-</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">vm</span>.<span style="color:#a6e22e">accessToken</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">OAuthService</span>.<span style="color:#a6e22e">getAccessToken</span>(<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">userId</span>, [<span style="color:#e6db74">&#39;userinfo.profile&#39;</span>]);
-}
-&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;/script&gt;
+</code></pre>
 
-<span style="color:#75715e">&lt;!--
-</span><span style="color:#75715e">baseUrl - посадочная
-</span><span style="color:#75715e">accessToken - токен авторизации, доступен в amp.garpun.com так как он переведен на общую авторизацию account.garpun.com
-</span><span style="color:#75715e">minAbsHeightDiff - минимальное изменение высоты на которое сработает ресайз iframe. Будет зависеть от вашего случая
-</span><span style="color:#75715e">handleUrls - набор правил переадресации, чтобы например при клите со списка алгоритмов внутри iframe мы могли открыть алгоритм не внутри iframe, а как url меты, т.е. карточку алгоритма в meta приложении 
-</span><span style="color:#75715e">--&gt;</span>
-&lt;<span style="color:#f92672">elem</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;garpunUrl&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;me-iframe&#34;</span>  <span style="color:#a6e22e">order</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0&#34;</span>
-  <span style="color:#a6e22e">attrs</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;{
-</span><span style="color:#e6db74">     &#34;baseUrl&#34;:&#34;https://amp.garpun.com/interface/clients/algorithms/?adHandsClientId=${env.objectId}&#34;,
-</span><span style="color:#e6db74">     &#34;accessToken&#34;:&#34;${pvm.data.token.vm.accessToken}&#34;,
-</span><span style="color:#e6db74">     &#34;minAbsHeightDiff&#34;: 90,
-</span><span style="color:#e6db74">     &#34;handleUrls&#34;: [
-</span><span style="color:#e6db74">      {&#34;regexp&#34;: &#34;add-algorithm\\?algorithmId=(\\d+)&#34;, &#34;goTo&#34;: &#34;/card?e=182&amp;o=$1&amp;a=${env.applicationId}&#34;}
-</span><span style="color:#e6db74">     ]
-</span><span style="color:#e6db74">     }&#39;</span>
-&gt;&lt;/<span style="color:#f92672">elem</span>&gt;
-</code></pre></div>
+<p>На странице META размещаем такой код</p>
+
+<pre><code class="language-html">&lt;script type=&quot;meta/js&quot; id=&quot;token&quot; internal&gt;
+function main(env, vm, OAuthService) {
+  // генерируем токен авторизации
+  vm.accessToken = OAuthService.getAccessToken(env.userId, ['userinfo.profile']);
+}
+&lt;/script&gt;
+
+&lt;!--
+baseUrl - посадочная
+accessToken - токен авторизации, доступен в amp.garpun.com так как он переведен на общую авторизацию account.garpun.com
+minAbsHeightDiff - минимальное изменение высоты на которое сработает ресайз iframe. Будет зависеть от вашего случая
+handleUrls - набор правил переадресации, чтобы например при клите со списка алгоритмов внутри iframe мы могли открыть алгоритм не внутри iframe, а как url меты, т.е. карточку алгоритма в meta приложении 
+--&gt;
+&lt;elem id=&quot;garpunUrl&quot; name=&quot;me-iframe&quot;  order=&quot;0&quot;
+  attrs='{
+     &quot;baseUrl&quot;:&quot;https://amp.garpun.com/interface/clients/algorithms/?adHandsClientId=${env.objectId}&quot;,
+     &quot;accessToken&quot;:&quot;${pvm.data.token.vm.accessToken}&quot;,
+     &quot;minAbsHeightDiff&quot;: 90,
+     &quot;handleUrls&quot;: [
+      {&quot;regexp&quot;: &quot;add-algorithm\\?algorithmId=(\\d+)&quot;, &quot;goTo&quot;: &quot;/card?e=182&amp;o=$1&amp;a=${env.applicationId}&quot;}
+     ]
+     }'
+&gt;&lt;/elem&gt;
+</code></pre>
+
 
 
 
@@ -1734,7 +1740,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
-    <nav id="TableOfContents"></nav>
+    
 </div>
 
 </div>

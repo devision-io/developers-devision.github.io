@@ -16,9 +16,9 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/samples/pages/report_with_filters/</guid>
-      <description>Для начала ознакомьтесь со статьей [Жизненный цикл запроса](../../../guides/request_life_cycle)  Типичная задача META - вывод списка объектов в виде отчета с фильтрами.
+      <description>Типичная задача META - вывод списка объектов в виде отчета с фильтрами.
 Обычно отчет представляет из себя одну таблицу с фильтрами. Script id такой основной таблицы рекомендуется называть &amp;ldquo;res&amp;rdquo;, чтобы другим разработчикам было привычнее читать ваш код.
-Код примера &amp;lt;!-- Фильтрация Атрибут page-search объединяет эти фильтры в общий блок пресетов. Это позволяет пользователю быстрее находить фильтры и сохранять пресеты фильтров --&amp;gt; &amp;lt;script type=&amp;quot;meta/sql&amp;quot; db-alias=&amp;quot;meta_samples&amp;quot; label=&amp;quot;Организация&amp;quot; id=&amp;quot;org_ids&amp;quot; elem=&amp;quot;me-select&amp;quot; order=&amp;quot;1&amp;quot; span=&amp;quot;4&amp;quot; elem-attrs=&#39;{&amp;quot;multiple&amp;quot;:true}&#39; page-search&amp;gt; SELECT &amp;quot;organizationId&amp;quot; as id, name as name FROM &amp;quot;organization&amp;quot; order by name &amp;lt;/script&amp;gt; &amp;lt;script type=&amp;quot;meta/sql&amp;quot; db-alias=&amp;quot;meta_samples&amp;quot; label=&amp;quot;Статус&amp;quot; id=&amp;quot;active_mode&amp;quot; elem=&amp;quot;me-select&amp;quot; default=&amp;quot;all&amp;quot; order=&amp;quot;1&amp;quot; span=&amp;quot;4&amp;quot; page-search&amp;gt; SELECT t.</description>
+Код примера &amp;lt;!-- Фильтрация Атрибут page-search объединяет эти фильтры в общий блок пресетов. Это позволяет пользователю быстрее находить фильтры и сохранять пресеты фильтров --&amp;gt; &amp;lt;script type=&amp;#34;meta/sql&amp;#34; db-alias=&amp;#34;meta_samples&amp;#34; label=&amp;#34;Организация&amp;#34; id=&amp;#34;org_ids&amp;#34; elem=&amp;#34;me-select&amp;#34; order=&amp;#34;1&amp;#34; span=&amp;#34;4&amp;#34; elem-attrs=&amp;#39;{&amp;#34;multiple&amp;#34;:true}&amp;#39; page-search&amp;gt; SELECT &amp;#34;organizationId&amp;#34; as id, name as name FROM &amp;#34;organization&amp;#34; order by name &amp;lt;/script&amp;gt; &amp;lt;script type=&amp;#34;meta/sql&amp;#34; db-alias=&amp;#34;meta_samples&amp;#34; label=&amp;#34;Статус&amp;#34; id=&amp;#34;active_mode&amp;#34; elem=&amp;#34;me-select&amp;#34; default=&amp;#34;all&amp;#34; order=&amp;#34;1&amp;#34; span=&amp;#34;4&amp;#34; page-search&amp;gt; SELECT t.</description>
     </item>
     
     <item>
@@ -41,7 +41,8 @@
       
       <guid>https://developers.devision.io/meta/samples/pages/open_modal/</guid>
       <description>В таблице списке объектов сущности вывести страницу в контекстное меню Например у вас есть список пользователей и на карточке пользователя есть страница проектов, доступных пользователю.
- Включите режим разработчика, если он не ключен Зайдите на интресующую вас страницу Откройте меню радактирования настроек приложения в поле &amp;ldquo;Вид в контекстном меню&amp;rdquo; выберите &amp;ldquo;Модальное окно&amp;rdquo; или &amp;ldquo;Выезжающее справа окно&amp;rdquo; Сохраните Сбросьте кеш меты Обновите страницу через F5  Пример такой страницы: https://samples-demo.devision.io/card?e=example_entity&amp;amp;o=08f3395b-31f2-42c9-917e-a5f2b7bd4a95&amp;amp;p=5183&amp;amp;a=35</description>
+ Включите режим разработчика, если он не ключен Зайдите на интресующую вас страницу Откройте меню радактирования настроек приложения в поле &amp;ldquo;Вид в контекстном меню&amp;rdquo; выберите &amp;ldquo;Модальное окно&amp;rdquo; или &amp;ldquo;Выезжающее справа окно&amp;rdquo; Сохраните Сбросьте кеш меты Обновите страницу через F5  Пример такой страницы: https://samples-demo.devision.io/card?e=example_entity&amp;amp;o=08f3395b-31f2-42c9-917e-a5f2b7bd4a95&amp;amp;p=5183&amp;amp;a=35
+На карточке объекта сущности нужно вывести меню действия над объектом Например вы хотите сделать какое-то кастоное действие - выставить счет контагенту, по особенному удалить или что-то другое, не связанное просто с отображением таблиц и другой информации.</description>
     </item>
     
   </channel>

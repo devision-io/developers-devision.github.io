@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.68.1" />
     <meta name="description" content="">
 
 
@@ -1661,57 +1661,42 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-
-
 <h2 id="отладка-асинхронных-запросов">Отладка асинхронных запросов</h2>
-
 <p>Раздел касается низкоуровневой отладки любых http-запросов на бекенд:</p>
-
 <ul>
 <li>от refPvmData</li>
 <li>от refPvmValidators</li>
 <li>refPvmData + depends</li>
 <li>и т.д. По сути везде, где данные передаются на бекенд или принимаются с него</li>
 </ul>
-
 <p>Для этого рекомендуется использовать отладчик браузера, например Chrome, смотреть вкладку с запросами по сети и
 фильтровать данные по нужной вам странице.</p>
-
 <p>Более поробное описание процесса с примерами в этом видео:</p>
-
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
   <iframe src="https://www.youtube.com/embed/xRwfIiyXiDI" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
 </div>
 
-
 <h2 id="логирование">Логирование</h2>
-
 <p>Логирование доступно в meta/js скриптах. Чтобы начать логировать вам надо получить (заинжектить) инстанс логера через параметр вашей main функции.
 Для логирования используется slf4j тут можно посмотреть его интерфейсы <a href="http://www.slf4j.org/api/org/slf4j/Logger.html">http://www.slf4j.org/api/org/slf4j/Logger.html</a></p>
-
 <p>На текущий момент известны некоторые проблемы с логированием:</p>
-
 <ul>
 <li>Логов вообще нет: соединение с бекэндом по websocket-ам было потеряно и не смогло восстановится. F5 скорее всего решит проблему</li>
 <li>Нет конкретного лога: Не все объекты, прикладываемые в качестве интерполируего аргумента лога могут быть приведены к строке и из-за этого весь лог может пропадать. Попробуйте в этом месте исключить аргументы и посмотреть что будет.</li>
 </ul>
-
 <p>А вот примеры вызова</p>
-
-<pre><code class="language-html">&lt;script type=&quot;meta/js&quot; id=&quot;my_src&quot; &gt;
-function main(log) {
-  log.info('test info');
-  log.warn('test warning');
-  log.error('test error');
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;my_src&#34;</span> &gt;
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>(<span style="color:#a6e22e">log</span>) {
+  <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">info</span>(<span style="color:#e6db74">&#39;test info&#39;</span>);
+  <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">warn</span>(<span style="color:#e6db74">&#39;test warning&#39;</span>);
+  <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#39;test error&#39;</span>);
   
-  var myvar = {a:1};
-  log.info('lalala {}', myvar);
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">myvar</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">a</span><span style="color:#f92672">:</span><span style="color:#ae81ff">1</span>};
+  <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">info</span>(<span style="color:#e6db74">&#39;lalala {}&#39;</span>, <span style="color:#a6e22e">myvar</span>);
 }
-&lt;/script&gt;
-</code></pre>
-
-<p>Из нюансов стоит выделить, что логи запросов к БД будут пренесены в фильтр дебаг-логов в браузере.</p>
+&lt;/<span style="color:#f92672">script</span>&gt;
+</code></pre></div><p>Из нюансов стоит выделить, что логи запросов к БД будут пренесены в фильтр дебаг-логов в браузере.</p>
 
 
 
@@ -1724,13 +1709,10 @@ function main(log) {
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#отладка-асинхронных-запросов">Отладка асинхронных запросов</a></li>
-<li><a href="#логирование">Логирование</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#отладка-асинхронных-запросов">Отладка асинхронных запросов</a></li>
+    <li><a href="#логирование">Логирование</a></li>
+  </ul>
 </nav>
 </div>
 

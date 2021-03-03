@@ -29,7 +29,7 @@
       <description>Мотивация Когда надо выбрать много данных один раз и потом немного доагрегировать в разных плоскостях и пофильтровать, например для графиков или дашбордах данных из bigquery.
 Пример использования: https://samples-demo.devision.io/page?p=4959&amp;amp;a=35
 Принципиально все достаточно просто - у вас есть DataResult и вы хотите его перегруппировать. Для этого сперва получаем данные, например sql запросом в скрипте res, а потом в отдельном meta/js скрипте делаем вызов DataTransformService.pivot с необходимыми параметрами.
-&amp;lt;script type=&amp;quot;meta/sql&amp;quot; db-alias=&amp;quot;meta_samples&amp;quot; id=&amp;quot;res&amp;quot; entity-id=&amp;quot;2629&amp;quot; label=&amp;quot;Исходные данные.</description>
+&amp;lt;script type=&amp;#34;meta/sql&amp;#34; db-alias=&amp;#34;meta_samples&amp;#34; id=&amp;#34;res&amp;#34; entity-id=&amp;#34;2629&amp;#34; label=&amp;#34;Исходные данные.</description>
     </item>
     
     <item>
@@ -51,7 +51,7 @@
       
       <guid>https://developers.devision.io/meta/work_with_data/metaql/</guid>
       <description>METAQL - Это защищенный SQL для запросов к данным меты. Основан на синтаксисах Oracle + PostgreSQL. Призван дать хороший и безопасный API к данным таблиц или views ваших БД.
-Особенности  SELECT * FROM ... не поддерживается Нельзя называть поля или алясы зарезарвированными именами: date Добавлен оператор ILIKE для регистронезависимного сравнения строк Поддерживаются только SELECT запросы JOIN не поддерживаются Работает ограниченный набор функций, описанных ниже OR в условиях не поддерживается.</description>
+Особенности  SELECT * FROM ... не поддерживается Нельзя называть поля или алясы зарезарвированными именами: date Добавлен оператор ILIKE для регистронезависимного сравнения строк Поддерживаются только SELECT запросы JOIN не поддерживаются Работает ограниченный набор функций, описанных ниже OR в условиях не поддерживается. Используется AND с отицанием или IN ( &amp;hellip; )  Функции Работают функции агрегации:</description>
     </item>
     
   </channel>

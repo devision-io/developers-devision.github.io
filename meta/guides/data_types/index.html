@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.68.1" />
     <meta name="description" content="">
 
 
@@ -1661,10 +1661,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-
-
 <h2 id="основные">Основные</h2>
-
 <table>
 <thead>
 <tr>
@@ -1672,72 +1669,58 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <th>Описание</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>UNKNOWN</td>
 <td>Неизвестный тип, часто бывает текстовым в действительности. Но иногда БД не может отдать тип и мы не рискуем предполагать. В этих случаях используйте type cast средствами БД</td>
 </tr>
-
 <tr>
 <td>BOOLEAN</td>
 <td>Булев тип (true/false)</td>
 </tr>
-
 <tr>
 <td>TEXT</td>
 <td>Текстовое поле без существенных ограничений длины.</td>
 </tr>
-
 <tr>
 <td>INT</td>
 <td>32х битное целое число. Диапазон от -2,147,483,648 до +2,147,483,647</td>
 </tr>
-
 <tr>
 <td>LONG</td>
 <td>64х битное целое число. Диапазон от -9,223,372,036,854,775,808 до +9,223,372,036,854,775,807</td>
 </tr>
-
 <tr>
 <td>DECIMAL</td>
 <td>Вещественное число с указанной точностью. Тип DECIMAL позволяет хранить числа с очень большим количеством цифр. Он особенно рекомендуется для хранения денежных сумм и других величин, где важна точность.</td>
 </tr>
-
 <tr>
 <td>DATE</td>
 <td>Дата по часовому поясу сервера</td>
 </tr>
-
 <tr>
 <td>TIME</td>
 <td>Время (без даты). Очень редкий тип</td>
 </tr>
-
 <tr>
 <td>DATETIME</td>
 <td>Дата и время по часовому поясу сервера. Рекомендуется использовать в БД тип данных с указанимаем часового пояса. Для Postgres timestamptz</td>
 </tr>
-
 <tr>
 <td>RECORD</td>
 <td>Означает, что колонка содержит вложенную типизированную структуру данных</td>
 </tr>
-
 <tr>
 <td>INTERVAL</td>
 <td>Целочисленное значение секундах</td>
 </tr>
-
 <tr>
 <td>PERCENT</td>
 <td>Число с плавающей точкой для хранения процентов, с базисом 1. Что значит, что 50% = 0.5</td>
 </tr>
 </tbody>
 </table>
-
 <h2 id="спицифические">Спицифические</h2>
-
 <table>
 <thead>
 <tr>
@@ -1745,47 +1728,38 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <th>Описание</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>ARRAY</td>
 <td>Обычно не указывается, но возвращается, если например вы сделали операцию ARRAY_AGG. При этом тип значений массива неизвестен. Лучше использовать RECORD структуры</td>
 </tr>
-
 <tr>
 <td>I18N</td>
 <td>Значение ячейки такой колонки будет пропущено через <code>translateService.i18n</code> для попытки перевода. Применяется для колонок с префиксом <code>i18n_field_</code> в названии.</td>
 </tr>
-
 <tr>
 <td>HTML</td>
 <td>Указывает формат рендеринга html-разметки (данные в виде строки). Применяется для колонок с префиксом <code>html_field_</code> в названии.</td>
 </tr>
-
 <tr>
 <td>HREF</td>
 <td>Указывает формат данных для отрисовки ссылки (данные в виде json). Применяется для колонок с префиксом <code>href_field_</code> в названии.</td>
 </tr>
-
 <tr>
 <td>ENTITY_LINK</td>
 <td>Указывает формат данных для отрисовки ссылки на сущность (данные в виде json). Применяется для колонок с префиксом <code>entity_link_field_</code> в названии.</td>
 </tr>
-
 <tr>
 <td>JSON</td>
 <td>Применяется для колонок с префиксом <code>json_field_</code> в названии.</td>
 </tr>
-
 <tr>
 <td>MARKDOWN</td>
 <td>Значение ячейки такой колонки будет пропущено через <code>markdownService.render</code> шаблонизации в html Применяется для колонок с префиксом <code>markdown_field_</code> в названии.</td>
 </tr>
 </tbody>
 </table>
-
 <h2 id="deprecated">Deprecated</h2>
-
 <table>
 <thead>
 <tr>
@@ -1793,18 +1767,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <th>Описание</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>JSON_LABEL</td>
 <td>Применяется для колонок с префиксом <code>json_label_</code> в названии.</td>
 </tr>
-
 <tr>
 <td>JSON_GRAPH</td>
 <td>Применяется для колонок с префиксом <code>json_graph_</code> в названии.</td>
 </tr>
-
 <tr>
 <td>JSON_TREE_LABEL</td>
 <td>Применяется для колонок с префиксом <code>json_tree_label_</code> в названии.</td>
@@ -1823,14 +1794,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#основные">Основные</a></li>
-<li><a href="#спицифические">Спицифические</a></li>
-<li><a href="#deprecated">Deprecated</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#основные">Основные</a></li>
+    <li><a href="#спицифические">Спицифические</a></li>
+    <li><a href="#deprecated">Deprecated</a></li>
+  </ul>
 </nav>
 </div>
 

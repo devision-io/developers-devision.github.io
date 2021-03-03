@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.68.1" />
     <meta name="description" content="">
 
 
@@ -1661,29 +1661,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-
-
 <h2 id="что-такое-и-где-используются">Что такое и где используются?</h2>
-
 <p>Сразу скажем, что это не совсем роли, это скорее что-то вроде списка тегов или аудиторий.
 Роли используются как обычно для фильтрации доступного функционала.</p>
-
 <p>Они пересчитываются при авторизации и помещаются в <code>env.roles</code></p>
-
 <p>Чтобы обновить данные по текущему пользователю мы можете использовать код на meta/js:</p>
-
-<pre><code class="language-javascript">CurrentUserService.reload();
-</code></pre>
-
-<p>Чтобы обновить данные по любому пользователю мы можете использовать код на meta/js:</p>
-
-<pre><code class="language-javascript">PubSubService.pubReloadUser(userId);
-</code></pre>
-
-<h2 id="какие-бывают">Какие бывают</h2>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">CurrentUserService</span>.<span style="color:#a6e22e">reload</span>();
+</code></pre></div><p>Чтобы обновить данные по любому пользователю мы можете использовать код на meta/js:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">PubSubService</span>.<span style="color:#a6e22e">pubReloadUser</span>(<span style="color:#a6e22e">userId</span>);
+</code></pre></div><h2 id="какие-бывают">Какие бывают</h2>
 <h3 id="системные-роли">Системные роли</h3>
-
 <ul>
 <li>meta.role.all - все пользователи - с авторизацией и без</li>
 <li>meta.role.anon - неавторизованные пользователи</li>
@@ -1692,52 +1679,38 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li>meta.role.support - техническая поддержка</li>
 <li>meta.role.preset_admin - администратор созраненых фильтров (пресетов) страниц</li>
 </ul>
-
 <h3 id="динамические-роли">Динамические роли</h3>
-
 <p>Выдаются при авторизации</p>
-
 <ul>
 <li>c{COMPANY_ID} - имеют все пользователи, входящие в company. Если надо выдать доступ к чему-то всем пользователям одной компании</li>
 <li>u{USER_ID} -  Если надо выдать доступ к чему-то конкретному пользователю</li>
 </ul>
-
 <h3 id="adhands-роли">AdHands роли</h3>
-
-<p>Выдается из данных поля users.roles[0]
- - adhands.role.{ADHANDS_ROLE_ID} - у кадого пользователя есть одна роль из-за наследственности от adhands</p>
-
+<p>Выдается из данных поля users.roles[0]</p>
+<ul>
+<li>adhands.role.{ADHANDS_ROLE_ID} - у кадого пользователя есть одна роль из-за наследственности от adhands</li>
+</ul>
 <h2 id="пример-использования">Пример использования</h2>
-
 <h3 id="для-фильтрации-данных">Для фильтрации данных</h3>
-
 <p>Типичный случай использования фильтров данных, который отлично себя зарекомендовал:</p>
-
-<pre><code class="language-sql">AND allowed_roles &amp;&amp; ARRAY[ :env.roles ]::text[]
-</code></pre>
-
-<p>В таблице создается поле allowed_roles text[] и туда по надобности добавляются нужные роли.</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">AND</span> allowed_roles <span style="color:#f92672">&amp;&amp;</span> ARRAY[ :env.roles ]::text[]
+</code></pre></div><p>В таблице создается поле allowed_roles text[] и туда по надобности добавляются нужные роли.</p>
 <p>Это круто и удобно потому, что:</p>
-
 <ul>
 <li>У вас всего одно поле и с ним проще работать и меньше кода</li>
 <li>Поле можно проиндексировать и опять же оно одно и расширяется очень легко</li>
 <li>Поиск пересечений в одном поле лучше чем OR на разные поля</li>
 <li>Добавляя это поле вы перестаете парится вопросами:
-
 <ul>
 <li>как ограничить доступ конкретной компании или группе</li>
 <li>а что если надо добавить еще конкретного пользователя или более одного</li>
 <li>нужно добавлять группу пользователей, при этоу управление группой - отдельная песня и не является ACL напрямую</li>
-</ul></li>
 </ul>
-
-<h3 id="использование-в-meta-js">Использование в meta/js</h3>
-
-<p>Обратите внимание, что в meta/js env является не внутренним объектов меты, а иеент тип Map<String, Object> и
+</li>
+</ul>
+<h3 id="использование-в-metajs">Использование в meta/js</h3>
+<p>Обратите внимание, что в meta/js env является не внутренним объектов меты, а иеент тип Map&lt;String, Object&gt; и
 для того, чтобы работать с реальным env надо использовать originalEnv:</p>
-
 <ul>
 <li>originalEnv.hasRoleAnon() - быстро-фильтр на проверку неавторозованных пользователей</li>
 <li>originalEnv.hasRoleDev() - быстро-фильтр на проверку пользователей-разработчиков</li>
@@ -1757,23 +1730,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#что-такое-и-где-используются">Что такое и где используются?</a></li>
-<li><a href="#какие-бывают">Какие бывают</a>
-<ul>
-<li><a href="#системные-роли">Системные роли</a></li>
-<li><a href="#динамические-роли">Динамические роли</a></li>
-<li><a href="#adhands-роли">AdHands роли</a></li>
-</ul></li>
-<li><a href="#пример-использования">Пример использования</a>
-<ul>
-<li><a href="#для-фильтрации-данных">Для фильтрации данных</a></li>
-<li><a href="#использование-в-meta-js">Использование в meta/js</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#что-такое-и-где-используются">Что такое и где используются?</a></li>
+    <li><a href="#какие-бывают">Какие бывают</a>
+      <ul>
+        <li><a href="#системные-роли">Системные роли</a></li>
+        <li><a href="#динамические-роли">Динамические роли</a></li>
+        <li><a href="#adhands-роли">AdHands роли</a></li>
+      </ul>
+    </li>
+    <li><a href="#пример-использования">Пример использования</a>
+      <ul>
+        <li><a href="#для-фильтрации-данных">Для фильтрации данных</a></li>
+        <li><a href="#использование-в-metajs">Использование в meta/js</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
 </div>
 

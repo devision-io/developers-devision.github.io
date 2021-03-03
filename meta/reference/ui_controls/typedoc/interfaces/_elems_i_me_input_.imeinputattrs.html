@@ -84,6 +84,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_elems_i_me_input_.imeinputattrs.html#addobjectbutton" class="tsd-kind-icon">add<wbr>Object<wbr>Button</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_elems_i_me_input_.imeinputattrs.html#align" class="tsd-kind-icon">align</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_elems_i_me_input_.imeinputattrs.html#authparams" class="tsd-kind-icon">auth<wbr>Params</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_elems_i_me_input_.imeinputattrs.html#autoselect" class="tsd-kind-icon">auto<wbr>Select</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_elems_i_me_input_.imeinputattrs.html#contextualclass" class="tsd-kind-icon">contextual<wbr>Class</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_elems_i_me_input_.imeinputattrs.html#create" class="tsd-kind-icon">create</a></li>
@@ -110,9 +111,15 @@
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_elems_i_me_input_.imeinputattrs.html#multiple" class="tsd-kind-icon">multiple</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_elems_i_me_input_.imeinputattrs.html#native" class="tsd-kind-icon">native</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_elems_i_me_input_.imeinputattrs.html#objectid" class="tsd-kind-icon">object<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_elems_i_me_input_.imeinputattrs.html#onblur" class="tsd-kind-icon">on<wbr>Blur</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_elems_i_me_input_.imeinputattrs.html#onchange" class="tsd-kind-icon">on<wbr>Change</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_elems_i_me_input_.imeinputattrs.html#ondataload" class="tsd-kind-icon">on<wbr>Data<wbr>Load</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_elems_i_me_input_.imeinputattrs.html#onfocus" class="tsd-kind-icon">on<wbr>Focus</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_elems_i_me_input_.imeinputattrs.html#oninitialize" class="tsd-kind-icon">on<wbr>Initialize</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_elems_i_me_input_.imeinputattrs.html#options" class="tsd-kind-icon">options</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_elems_i_me_input_.imeinputattrs.html#pattern" class="tsd-kind-icon">pattern</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_elems_i_me_input_.imeinputattrs.html#placeholder" class="tsd-kind-icon">placeholder</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_elems_i_me_input_.imeinputattrs.html#preplegoform" class="tsd-kind-icon">prep<wbr>Lego<wbr>Form</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_elems_i_me_input_.imeinputattrs.html#readonly" class="tsd-kind-icon">readonly</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_elems_i_me_input_.imeinputattrs.html#refreshoptionsbutton" class="tsd-kind-icon">refresh<wbr>Options<wbr>Button</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_elems_i_me_input_.imeinputattrs.html#required" class="tsd-kind-icon">required</a></li>
@@ -174,6 +181,42 @@
 						<dl class="tsd-comment-tags">
 							<dt>enums</dt>
 							<dd><p>( left | right )</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="authparams" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> auth<wbr>Params</h3>
+					<div class="tsd-signature tsd-kind-icon">auth<wbr>Params<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in elems/i.me-input.ts:367</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Настройки oauth2 подключения.
+								Например:
+								CryptService.encode(json.to({
+								scopes: [
+								&quot;ads_management&quot;,
+								&quot;ads_read&quot;,
+								&quot;business_management&quot;,
+								&quot;manage_pages&quot;,
+								&quot;public_profile&quot;,
+								&quot;email&quot;
+								],
+								clientId: &quot;meta_conf#api_proxy.facebook.client_id&quot;,
+								clientSecret: &quot;meta_conf#api_proxy.facebook.client_secret&quot;
+							}))</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>link</dt>
+							<dd><p><a href="https://apps.devision.io/page?p=4530&amp;a=35">https://apps.devision.io/page?p=4530&amp;a=35</a></p>
+							</dd>
+							<dt>inputtypes</dt>
+							<dd><p>[ oauth2 ]</p>
 							</dd>
 						</dl>
 					</div>
@@ -703,6 +746,81 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="onblur" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> on<wbr>Blur</h3>
+					<div class="tsd-signature tsd-kind-icon">on<wbr>Blur<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Function</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in elems/i.me-input.ts:394</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Системное поле</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="onchange" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> on<wbr>Change</h3>
+					<div class="tsd-signature tsd-kind-icon">on<wbr>Change<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Function</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in elems/i.me-input.ts:386</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Системное поле</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="ondataload" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> on<wbr>Data<wbr>Load</h3>
+					<div class="tsd-signature tsd-kind-icon">on<wbr>Data<wbr>Load<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Function</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in elems/i.me-input.ts:378</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Системное поле</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="onfocus" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> on<wbr>Focus</h3>
+					<div class="tsd-signature tsd-kind-icon">on<wbr>Focus<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Function</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in elems/i.me-input.ts:390</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Системное поле</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="oninitialize" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> on<wbr>Initialize</h3>
+					<div class="tsd-signature tsd-kind-icon">on<wbr>Initialize<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Function</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in elems/i.me-input.ts:382</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Системное поле</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
 					<a name="options" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> options</h3>
 					<div class="tsd-signature tsd-kind-icon">options<span class="tsd-signature-symbol">:</span> <a href="_elems_i_me_input_.imeinputoption.html" class="tsd-signature-type">IMeInputOption</a><span class="tsd-signature-symbol">[]</span></div>
@@ -746,6 +864,26 @@
 							<p>Выводит текст внутри текстового поля, который исчезает при получении фокуса
 							Поддерживается не всеми типами</p>
 						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="preplegoform" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> prep<wbr>Lego<wbr>Form</h3>
+					<div class="tsd-signature tsd-kind-icon">prep<wbr>Lego<wbr>Form<span class="tsd-signature-symbol">:</span> <a href="_i_me_elem_.imeelemcontainer.html" class="tsd-signature-type">IMeElemContainer</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in elems/i.me-input.ts:373</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Передача доп. формы перед oauth подключением</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>inputtypes</dt>
+							<dd><p>[ oauth2 ]</p>
+							</dd>
+						</dl>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
@@ -1125,6 +1263,9 @@
 								<a href="_elems_i_me_input_.imeinputattrs.html#align" class="tsd-kind-icon">align</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="_elems_i_me_input_.imeinputattrs.html#authparams" class="tsd-kind-icon">auth<wbr>Params</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
 								<a href="_elems_i_me_input_.imeinputattrs.html#autoselect" class="tsd-kind-icon">auto<wbr>Select</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
@@ -1203,6 +1344,21 @@
 								<a href="_elems_i_me_input_.imeinputattrs.html#objectid" class="tsd-kind-icon">object<wbr>Id</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="_elems_i_me_input_.imeinputattrs.html#onblur" class="tsd-kind-icon">on<wbr>Blur</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="_elems_i_me_input_.imeinputattrs.html#onchange" class="tsd-kind-icon">on<wbr>Change</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="_elems_i_me_input_.imeinputattrs.html#ondataload" class="tsd-kind-icon">on<wbr>Data<wbr>Load</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="_elems_i_me_input_.imeinputattrs.html#onfocus" class="tsd-kind-icon">on<wbr>Focus</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="_elems_i_me_input_.imeinputattrs.html#oninitialize" class="tsd-kind-icon">on<wbr>Initialize</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
 								<a href="_elems_i_me_input_.imeinputattrs.html#options" class="tsd-kind-icon">options</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
@@ -1210,6 +1366,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
 								<a href="_elems_i_me_input_.imeinputattrs.html#placeholder" class="tsd-kind-icon">placeholder</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="_elems_i_me_input_.imeinputattrs.html#preplegoform" class="tsd-kind-icon">prep<wbr>Lego<wbr>Form</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
 								<a href="_elems_i_me_input_.imeinputattrs.html#readonly" class="tsd-kind-icon">readonly</a>

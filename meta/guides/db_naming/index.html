@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.68.1" />
     <meta name="description" content="">
 
 
@@ -1661,10 +1661,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-
-
 <p>При разработке новой БД предлагается придерживаться следующих правил. При этом, если у вас есть готовая БД, то вы не должны хотеть полностью переделать ее соглашения, так как это бесполезная работа. Просто продолжайте использовать то, что у вас есть.</p>
-
 <ul>
 <li>Все таблицы должны иметь несоставной первичный ключ, который должен называться id</li>
 <li>Все таблицы, представления, функции, триггерные функции и типы должны иметь комментарий</li>
@@ -1674,57 +1671,38 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li>Параметры и переменные в хранимых процедурах должны начинаться с &ldquo;_&rdquo; чтобы не перепутать их с полями таблиц и пр.</li>
 <li>Все схемы, таблицы, предстваления, поля, функции, триггеры и пр. должны иметь нотацию lower_camelcase. По возможность избегайте использования зарезервированных имен типа user, domain, table и пр</li>
 </ul>
-
 <h2 id="таблицы-сущностей">Таблицы сущностей</h2>
-
 <p>Должны иметь свой PK, желательно id</p>
-
 <p>Единственное число. Например client, entity, &ldquo;user&rdquo;, campaign, company, &hellip;</p>
-
 <h2 id="таблицы-связей">Таблицы связей</h2>
-
 <p>Должны иметь свой PK, желательно id</p>
-
 <p>Один ко многим: единственое_множественное. Например: client_managers</p>
-
 <p>Многие ко многим: client_manager, client_manager_link</p>
-
 <h2 id="дата-время-без-tz">Дата время (без TZ)</h2>
-
 <p>Постфикс &ldquo;_time&rdquo;</p>
-
 <p>Например: creation_time, modification_time</p>
-
 <h2 id="только-дата">Только дата</h2>
-
 <p>Если не предполагается хранить время, то поле обязательно должно иметь тип DATE, т.е. не содержать никаких меток времени и не должно быть сохранено в формате unix timestamp.
 Постфикс &ldquo;_date&rdquo;</p>
-
 <p>Например: creation_date</p>
-
 <h2 id="последний-редактировавший-пользователь">Последний редактировавший пользователь</h2>
-
 <p>Почти всегда нужен, чтобы триггеры могли писать логи</p>
-
 <p>Например: last_user_id</p>
-
 <h2 id="ddl">DDL</h2>
-
-<pre><code class="language-sql">CREATE TABLE my_table (
-    id text primary key,
-    name text NOT NULL,
-    creation_time timestamptz NOT NULL DEFAULT NOW(),
-    modification_time timestamptz NOT NULL DEFAULT NOW(),
-    last_user_id bigint NOT NULL
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> my_table (
+    id text <span style="color:#66d9ef">primary</span> <span style="color:#66d9ef">key</span>,
+    name text <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+    creation_time timestamptz <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">DEFAULT</span> NOW(),
+    modification_time timestamptz <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">DEFAULT</span> NOW(),
+    last_user_id bigint <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>
 );
 
-CREATE TRIGGER update_modification_time_my_table
-  BEFORE UPDATE
-  ON public.my_table
-  FOR EACH ROW
-  EXECUTE PROCEDURE public.update_modification_time();
-</code></pre>
-
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TRIGGER</span> update_modification_time_my_table
+  <span style="color:#66d9ef">BEFORE</span> <span style="color:#66d9ef">UPDATE</span>
+  <span style="color:#66d9ef">ON</span> <span style="color:#66d9ef">public</span>.my_table
+  <span style="color:#66d9ef">FOR</span> <span style="color:#66d9ef">EACH</span> <span style="color:#66d9ef">ROW</span>
+  <span style="color:#66d9ef">EXECUTE</span> <span style="color:#66d9ef">PROCEDURE</span> <span style="color:#66d9ef">public</span>.update_modification_time();
+</code></pre></div>
 
 
 
@@ -1736,17 +1714,14 @@ CREATE TRIGGER update_modification_time_my_table
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#таблицы-сущностей">Таблицы сущностей</a></li>
-<li><a href="#таблицы-связей">Таблицы связей</a></li>
-<li><a href="#дата-время-без-tz">Дата время (без TZ)</a></li>
-<li><a href="#только-дата">Только дата</a></li>
-<li><a href="#последний-редактировавший-пользователь">Последний редактировавший пользователь</a></li>
-<li><a href="#ddl">DDL</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#таблицы-сущностей">Таблицы сущностей</a></li>
+    <li><a href="#таблицы-связей">Таблицы связей</a></li>
+    <li><a href="#дата-время-без-tz">Дата время (без TZ)</a></li>
+    <li><a href="#только-дата">Только дата</a></li>
+    <li><a href="#последний-редактировавший-пользователь">Последний редактировавший пользователь</a></li>
+    <li><a href="#ddl">DDL</a></li>
+  </ul>
 </nav>
 </div>
 

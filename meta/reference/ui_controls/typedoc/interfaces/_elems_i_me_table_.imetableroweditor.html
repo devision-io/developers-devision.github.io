@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IMeTablePluginEditable | META UI Components</title>
+	<title>IMeTableRowEditor | META UI Components</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -57,10 +57,10 @@
 					<a href="../modules/_elems_i_me_table_.html">&quot;elems/i.me-table&quot;</a>
 				</li>
 				<li>
-					<a href="_elems_i_me_table_.imetableplugineditable.html">IMeTablePluginEditable</a>
+					<a href="_elems_i_me_table_.imetableroweditor.html">IMeTableRowEditor</a>
 				</li>
 			</ul>
-			<h1>Interface IMeTablePluginEditable</h1>
+			<h1>Interface IMeTableRowEditor</h1>
 		</div>
 	</div>
 </header>
@@ -71,7 +71,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">IMeTablePluginEditable</span>
+						<span class="target">IMeTableRowEditor</span>
 					</li>
 				</ul>
 			</section>
@@ -82,7 +82,7 @@
 						<section class="tsd-index-section tsd-is-not-exported">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_elems_i_me_table_.imetableplugineditable.html#hideaddrowbutton" class="tsd-kind-icon">hide<wbr>Add<wbr>Row<wbr>Button</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_elems_i_me_table_.imetableroweditor.html#rejectdeleterow" class="tsd-kind-icon">reject<wbr>Delete<wbr>Row</a></li>
 							</ul>
 						</section>
 					</div>
@@ -91,23 +91,18 @@
 			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-					<a name="hideaddrowbutton" class="tsd-anchor"></a>
-					<h3>hide<wbr>Add<wbr>Row<wbr>Button</h3>
-					<div class="tsd-signature tsd-kind-icon">hide<wbr>Add<wbr>Row<wbr>Button<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">true</span></div>
+					<a name="rejectdeleterow" class="tsd-anchor"></a>
+					<h3>reject<wbr>Delete<wbr>Row</h3>
+					<div class="tsd-signature tsd-kind-icon">reject<wbr>Delete<wbr>Row<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in elems/i.me-table.ts:98</li>
+							<li>Defined in elems/i.me-table.ts:363</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Скрыть кнопку добавления строки</p>
+							<p>Если true, то строку будет нельзя удалить через контекстное меню таблицы</p>
 						</div>
-						<dl class="tsd-comment-tags">
-							<dt>default</dt>
-							<dd><p>false</p>
-							</dd>
-						</dl>
 					</div>
 				</section>
 			</section>
@@ -233,18 +228,9 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
 						<a href="_elems_i_me_table_.imetablepager.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Pager</a>
 					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
 						<a href="_elems_i_me_table_.imetableplugineditable.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Plugin<wbr>Editable</a>
-						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-								<a href="_elems_i_me_table_.imetableplugineditable.html#hideaddrowbutton" class="tsd-kind-icon">hide<wbr>Add<wbr>Row<wbr>Button</a>
-							</li>
-						</ul>
 					</li>
-				</ul>
-				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
 						<a href="_elems_i_me_table_.imetableplugingoalseek.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Plugin<wbr>Goal<wbr>Seek</a>
 					</li>
@@ -260,9 +246,18 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
 						<a href="_elems_i_me_table_.imetableprops.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Props</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
 						<a href="_elems_i_me_table_.imetableroweditor.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Row<wbr>Editor</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="_elems_i_me_table_.imetableroweditor.html#rejectdeleterow" class="tsd-kind-icon">reject<wbr>Delete<wbr>Row</a>
+							</li>
+						</ul>
 					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
 						<a href="_elems_i_me_table_.imetablerowprops.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Row<wbr>Props</a>
 					</li>

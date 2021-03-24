@@ -1687,6 +1687,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 Это удобно, если вам нужно после загрузки файла обработать его через <a href="https://developers.devision.io/meta/meta/compoments/event_bus/">Шину сообщений</a>
 и сложить результат в таблицу, чтобы не размазывать данные между разными таблицами и
 получать эти данные даже через metasdk в <a href="https://metasdk.readthedocs.io/ru/latest/rpc.html#mediaservice">MediaService</a>.</p>
+<h2 id="управление-доступом-к-файлам">Управление доступом к файлам</h2>
+<p>Мета обращается к функции БД <code>meta.get_media_with_access</code>, но чтобы поправить условия, вам надо исправляет другую функцию - <code>meta.get_media_private_access</code></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">meta_db<span style="color:#f92672">.</span>update(
     <span style="color:#e6db74">&#34;&#34;&#34;
 </span><span style="color:#e6db74">    UPDATE meta.media 
@@ -1959,6 +1961,7 @@ META<span style="color:#f92672">.</span>worker<span style="color:#f92672">.</spa
     <li><a href="#что-такое-и-где-используются">Что такое и где используются?</a></li>
     <li><a href="#загрузка-данных">Загрузка данных</a></li>
     <li><a href="#хранение">Хранение</a></li>
+    <li><a href="#управление-доступом-к-файлам">Управление доступом к файлам</a></li>
     <li><a href="#markdown">Markdown</a></li>
     <li><a href="#работа-через-metasdk">Работа через metasdk</a>
       <ul>

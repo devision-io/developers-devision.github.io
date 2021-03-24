@@ -9,7 +9,7 @@
     <meta name="description" content="">
 
 
-    <title>header :: META | Devision Developers</title>
+    <title>RequestEnvironmentService :: META | Devision Developers</title>
     <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/_header/">
+  <body class="" data-url="/reference/java_api/requestenvironmentservice/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -949,7 +949,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="/reference/" class="devsite-nav-item devsite-nav-item-main
-                        
+                        parent
                         
                         parent
                         ">
@@ -1203,7 +1203,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="/reference/java_api/" class="devsite-nav-item devsite-nav-item-main
-                        
+                        parent
                         
                         
                         ">
@@ -1522,7 +1522,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/reference/java_api/requestenvironmentservice/" class="devsite-nav-item dd-item ">
+            <li data-nav-id="/reference/java_api/requestenvironmentservice/" class="devsite-nav-item dd-item active">
                 <a href="https://developers.devision.io/meta/reference/java_api/requestenvironmentservice/" class="devsite-nav-title">
                     <span>RequestEnvironmentService</span>
                 </a>
@@ -1657,7 +1657,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
- <a href='https://developers.devision.io/meta/'>META</a> > header
+
+
+
+
+
+
+ <a href='https://developers.devision.io/meta/'>META</a> > <a href='https://developers.devision.io/meta/reference/'>Справочник по API</a> > <a href='https://developers.devision.io/meta/reference/java_api/'>Java API</a> > RequestEnvironmentService
+
+
+
+
 
 
 
@@ -1669,12 +1679,189 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <div id="body-inner">
           
-            <h1>header</h1>
+            <h1>RequestEnvironmentService</h1>
           
 
 
 
-<p>META</p>
+<table>
+<thead>
+<tr>
+<th>Метод и описание</th>
+<th>Возвращаемый тип</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>canAuthByOAuth ( )</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td>checkAllowAppForUser ( env: Env)</td>
+<td>void</td>
+</tr>
+<tr>
+<td>currentUser ( )</td>
+<td>CurrentUserService</td>
+</tr>
+<tr>
+<td>encodeUrl ( url: String)</td>
+<td>String</td>
+</tr>
+<tr>
+<td>encodeUrlPart ( url: String)</td>
+<td>String</td>
+</tr>
+<tr>
+<td>fillRetPath ( )</td>
+<td>void</td>
+</tr>
+<tr>
+<td>getAllowedApps ( )</td>
+<td>Set</td>
+</tr>
+<tr>
+<td>getAppHost ( )</td>
+<td>String</td>
+</tr>
+<tr>
+<td>getAppRealDomainUrl ( appId: String, urlPartPath: String)</td>
+<td>String</td>
+</tr>
+<tr>
+<td>getAppSchemaHost ( )</td>
+<td>String</td>
+</tr>
+<tr>
+<td>getAppSchemaPort ( )</td>
+<td>String</td>
+</tr>
+<tr>
+<td>getAppUrl ( urlPartPath: String)</td>
+<td>String</td>
+</tr>
+<tr>
+<td>getCurrentApp ( )</td>
+<td>CApp</td>
+</tr>
+<tr>
+<td>getCurrentOAuthServer ( )</td>
+<td>OAuthServer</td>
+</tr>
+<tr>
+<td>getDefaultLanguage ( )</td>
+<td>String</td>
+</tr>
+<tr>
+<td>getDevRestrictRoles ( )</td>
+<td>Set</td>
+</tr>
+<tr>
+<td>getEnv ( )</td>
+<td>Env</td>
+</tr>
+<tr>
+<td>getFullRedirectUrl ( )</td>
+<td>String</td>
+</tr>
+<tr>
+<td>getFullRequestUrl ( )</td>
+<td>String</td>
+</tr>
+<tr>
+<td>getHttpMethod ( )</td>
+<td>String</td>
+</tr>
+<tr>
+<td>getHttpResponseCode ( )</td>
+<td>int</td>
+</tr>
+<tr>
+<td>getLoginAfterLogout ( )</td>
+<td>String</td>
+</tr>
+<tr>
+<td>getLoginWithErrorAndRetPathUrl ( error: String)</td>
+<td>String</td>
+</tr>
+<tr>
+<td>getLoginWithRetPathUrl ( )</td>
+<td>String</td>
+</tr>
+<tr>
+<td>getPubEntityLogs ( )</td>
+<td>List</td>
+</tr>
+<tr>
+<td>getRemoteId ( )</td>
+<td>String</td>
+</tr>
+<tr>
+<td>getRequestDispatcher ( )</td>
+<td>String</td>
+</tr>
+<tr>
+<td>getRequestInfo ( )</td>
+<td>RequestInfo</td>
+</tr>
+<tr>
+<td>getRetPath ( )</td>
+<td>String</td>
+</tr>
+<tr>
+<td>getSelfAppId ( )</td>
+<td>String</td>
+</tr>
+<tr>
+<td>getStrSet ( headerName: String)</td>
+<td>Set</td>
+</tr>
+<tr>
+<td>getTrueLogReferer ( )</td>
+<td>String</td>
+</tr>
+<tr>
+<td>getUrlWithGA ( path: String)</td>
+<td>String</td>
+</tr>
+<tr>
+<td>getUserAgent ( )</td>
+<td>String</td>
+</tr>
+<tr>
+<td>getXRequestId ( )</td>
+<td>String</td>
+</tr>
+<tr>
+<td>hasAllowedApps ( )</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td>isAjax ( )</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td>isAjaxRequest ( request: HttpServletRequest)</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td>isAllowLanguage ( lang: String)</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td>isFastGoogleAuthEnabled ( )</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td>publishLog ( log: PubEntityLog)</td>
+<td>void</td>
+</tr>
+<tr>
+<td>setEnv ( env: Env)</td>
+<td>void</td>
+</tr>
+</tbody>
+</table>
 
 
 

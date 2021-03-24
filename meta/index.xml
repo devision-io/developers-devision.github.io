@@ -548,6 +548,15 @@ server { listen *:80; server_name example.com; charset utf8; location / { proxy_
     </item>
     
     <item>
+      <title>RequestEnvironmentService</title>
+      <link>https://developers.devision.io/meta/reference/java_api/requestenvironmentservice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/reference/java_api/requestenvironmentservice/</guid>
+      <description>   Метод и описание Возвращаемый тип     canAuthByOAuth ( ) boolean   checkAllowAppForUser ( env: Env) void   currentUser ( ) CurrentUserService   encodeUrl ( url: String) String   encodeUrlPart ( url: String) String   fillRetPath ( ) void   getAllowedApps ( ) Set   getAppHost ( ) String   getAppRealDomainUrl ( appId: String, urlPartPath: String) String   getAppSchemaHost ( ) String   getAppSchemaPort ( ) String   getAppUrl ( urlPartPath: String) String   getCurrentApp ( ) CApp   getCurrentOAuthServer ( ) OAuthServer   getDefaultLanguage ( ) String   getDevRestrictRoles ( ) Set   getEnv ( ) Env   getFullRedirectUrl ( ) String   getFullRequestUrl ( ) String   getHttpMethod ( ) String   getHttpResponseCode ( ) int   getLoginAfterLogout ( ) String   getLoginWithErrorAndRetPathUrl ( error: String) String   getLoginWithRetPathUrl ( ) String   getPubEntityLogs ( ) List   getRemoteId ( ) String   getRequestDispatcher ( ) String   getRequestInfo ( ) RequestInfo   getRetPath ( ) String   getSelfAppId ( ) String   getStrSet ( headerName: String) Set   getTrueLogReferer ( ) String   getUrlWithGA ( path: String) String   getUserAgent ( ) String   getXRequestId ( ) String   hasAllowedApps ( ) boolean   isAjax ( ) boolean   isAjaxRequest ( request: HttpServletRequest) boolean   isAllowLanguage ( lang: String) boolean   isFastGoogleAuthEnabled ( ) boolean   publishLog ( log: PubEntityLog) void   setEnv ( env: Env) void    </description>
+    </item>
+    
+    <item>
       <title>SmartFormService</title>
       <link>https://developers.devision.io/meta/reference/java_api/smartformservice/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

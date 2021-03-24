@@ -1522,6 +1522,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
+            <li data-nav-id="/reference/java_api/requestenvironmentservice/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/meta/reference/java_api/requestenvironmentservice/" class="devsite-nav-title">
+                    <span>RequestEnvironmentService</span>
+                </a>
+            </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+            
+            
+            
+            
+            
             <li data-nav-id="/reference/java_api/smartformservice/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/reference/java_api/smartformservice/" class="devsite-nav-title">
                     <span>SmartFormService</span>
@@ -1669,6 +1687,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li><strong>vm</strong> - объект для удобной работы с ответом клиенту. На лего странцах отдельный vm на каждый script.</li>
 <li><strong>pvm</strong> - только на LEGO-страницах. Отвечает за хранение данных на всех странце, содержит в себе vm script.</li>
 <li><strong>DataResult</strong> - низкоуровневый класс, отвечающий за ответ с данными по EntityPage. Его нельзя получить так как он никуда не передается,  существует вне script - над ним. Создается вручную при необходимости только в meta/js скриптах. Содержит в себе pvm, который в свою очередь и передается в страницы. В общем случае не рекомендуетсяим пользоваться без крайней необходимости, хотя он может быть полезен для построении таблиз из js на основе данных какого-либо api без сохранения в БД.</li>
+<li><strong>RequestEnvironmentService</strong> - сервис получение системной информации о запросе. Например RequestEnvironmentService.getRequestInfo() для получения полной системной информации о запросе</li>
 </ul>
 <h3 id="состояния-страниц">Состояния страниц</h3>
 <ul>

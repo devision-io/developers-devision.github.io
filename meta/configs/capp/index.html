@@ -1698,6 +1698,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span style="color:#66d9ef">is_fast_google_auth_enabled</span>: string <span style="color:#75715e"># Включена ли функция быстрого входа через Google - https://developers.google.com/identity/one-tap/web</span>
     <span style="color:#66d9ef">is_global_search_enabled</span>: bool <span style="color:#75715e"># Доступен ли интерфейс глобального поиска</span>
     <span style="color:#66d9ef">is_hide_first_item_in_top_menu</span>: bool <span style="color:#75715e"># Некоторые приложения нуждаются в скрытии первого элемента меню, но при этом клик по лого приложния все также должен перенаправлять пользователя на эту страницу.</span>
+    <span style="color:#66d9ef">theme</span>:
+      <span style="color:#66d9ef">topMenu</span>:
+        <span style="color:#66d9ef">backgroundColor</span>: string <span style="color:#75715e"># фоновый цвет меню</span>
+        <span style="color:#66d9ef">fontColor</span>: string <span style="color:#75715e"># цвет текста меню</span>
+        <span style="color:#66d9ef">fontColorHover</span>: string <span style="color:#75715e"># цвет теста меню при наведении мышкой</span>
     <span style="color:#66d9ef">oauth_server</span>:
       <span style="color:#66d9ef">server_url</span>: string <span style="color:#75715e"># Schema + host. Например https://account.devision.io</span>
       <span style="color:#66d9ef">client_id</span>: string <span style="color:#75715e"># ClientID полученый через Cloud. Записан в id в meta.oauth_client</span>

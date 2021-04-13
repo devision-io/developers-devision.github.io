@@ -1721,6 +1721,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 Это можно сделать через настройку параметра insert_query в yaml, нужной entity.
 Данные формы придут как обычно в <code>:env.sp.obj.*</code></p>
 <p>ВАЖНО! Вы будете <strong>обязаны</strong> вернуть одну строку с одним полем с названием <code>id</code>.</p>
+<h2 id="default_value">default_value</h2>
+<p>Значение default_value шаблонизируется через freemarker так же как и любой шаблон и скрипт в мете.
+Из этого следует, что вы можете рассчитывать динамические значения, например дату по умолчанию.
+Вот пример одного поля:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#66d9ef">name</span>: <span style="color:#e6db74">&#34;pay_date&#34;</span>
+  <span style="color:#66d9ef">db_type</span>: <span style="color:#e6db74">&#34;date&#34;</span>
+  <span style="color:#66d9ef">default_value</span>: <span style="color:#e6db74">&#34;${ref.now.plusMonths(1)?date}&#34;</span>
+  <span style="color:#66d9ef">display_name</span>: <span style="color:#e6db74">&#34;Дата оплаты&#34;</span>
+  <span style="color:#66d9ef">i18n</span>: <span style="color:#66d9ef">true</span>
+</code></pre></div><p>Пример и документация использования Java API для работы с датами:
+<a href="https://samples-demo.devision.io/page?p=3750&amp;a=35">https://samples-demo.devision.io/page?p=3750&amp;a=35</a></p>
 <h2 id="параметры-add_expression-и-set_expression">Параметры add_expression и set_expression</h2>
 <p>Иногда при insert или update записи надо иметь высчитываемые поля, но часто они зависят от контекста, например <code>userId</code>.
 В примере нише рассматривается простейший случай, когда нам надо просто взять и вставить id пользователя (используется prepared statement), но
@@ -1885,6 +1896,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <li><a href="#мотивация">Мотивация</a></li>
     <li><a href="#автоматическая-генерация-формы">Автоматическая генерация формы</a></li>
     <li><a href="#настройка-insert_query">Настройка insert_query</a></li>
+    <li><a href="#default_value">default_value</a></li>
     <li><a href="#параметры-add_expression-и-set_expression">Параметры add_expression и set_expression</a></li>
     <li><a href="#связанный-enum">Связанный enum</a></li>
     <li><a href="#практический-пример">Практический пример</a>

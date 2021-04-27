@@ -1703,6 +1703,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 Есть простой способ привести переменную-объект из env.sp к json строке.
 Обрабатываются такие случаи: &ldquo;:env.sp.obj.schedules$to_json::jsonb&rdquo;, эта запись эквивалентна &lsquo;${pg_quote_literal(to_json(env.sp.obj.schedules))}'::jsonb.
 Данные из pvm пока не обрабатывается таким образом.</p>
+<h2 id="markdown">Markdown</h2>
+<p>Есть спец. средства вывода ссылок или имен объектов в markdown строках.
+Вот примеры:</p>
+<p>Имена и ссылки на объект сущности:</p>
+<ul>
+<li>[~elink:{YOUR_ENTITY_ID}:{YOUR_OBJECT_ID}] - Вывод ссылки на объект. Например [~elink:2654:4501] делает ссылку на пользователя</li>
+<li>[~ename:{YOUR_ENTITY_ID}:{YOUR_OBJECT_ID}] - Вывод имени объекта на основе размеченого title из настроек Entity.</li>
+</ul>
+<p>Ссылки на медиафайлы:</p>
+<p>41d1d840-5055-4852-84d1-7edd8497e41a - тут пример media_id. У вас он будет свой</p>
+<ul>
+<li>[~media_view:41d1d840-5055-4852-84d1-7edd8497e41a] - ссылка на просмотр медиафайла</li>
+<li>[~media_download:41d1d840-5055-4852-84d1-7edd8497e41a] - ссылка на загрузку медиафайла</li>
+</ul>
 <h2 id="работа-с-таблицами">Работа с таблицами</h2>
 <h3 id="pager">${pager}</h3>
 <p>Добавляет limit/offset в запрос и пагинатор на страницу</p>
@@ -1754,6 +1768,7 @@ ${to_date('1988-07-03')?date?string.medium}
   <ul>
     <li><a href="#условия-do-if">Условия do-if</a></li>
     <li><a href="#функции">Функции</a></li>
+    <li><a href="#markdown">Markdown</a></li>
     <li><a href="#работа-с-таблицами">Работа с таблицами</a>
       <ul>
         <li><a href="#pager">${pager}</a></li>

@@ -75,12 +75,11 @@ PubSubService.pubReloadUser(userId); Какие бывают Системные 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/guides/entity_handlers/</guid>
-      <description>Мотивация Часто хочется иметь middleware функцию проверки доступа к конкретному объекту на карточке объекта для того, чтобы не делать проверку досупа на каждой странице сущности.
+      <description>Мотивация Часто хочется иметь middleware функцию проверки доступа к конкретному объекту на карточке объекта для того, чтобы не делать проверку доступа на каждой странице сущности.
+Для одной entity может быть несколько страниц с Ролью &amp;ldquo;Обработчики событий сущностей&amp;rdquo;, но мета никак не проверяет, что на них есть только один скрипт с нужным вам state (например check_access)
 Чтобы сделать обработчик вам нужно:
   Сделать страницы с ролью &amp;ldquo;Обработчики событий сущности&amp;rdquo;
-  Сделать скрипт cо state и id равному типу обработчика.
-  Например:
-&amp;lt;script type=&amp;#34;...&amp;#34; id=&amp;#34;check_access&amp;#34; state=&amp;#34;check_access&amp;#34;&amp;gt; SELECT (CASE WHEN author_user_id = :env.userId THEN 200 ELSE 403 END) as status_code FROM pubic.</description>
+  Сделать скрипт cо state и id равному типу обработчика.</description>
     </item>
     
     <item>

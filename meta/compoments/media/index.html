@@ -1086,24 +1086,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/reference/ui_controls/me-lego-modal/" class="devsite-nav-item dd-item ">
-                <a href="https://developers.devision.io/meta/reference/ui_controls/me-lego-modal/" class="devsite-nav-title">
-                    <span>Элемент me-lego-modal</span>
-                </a>
-            </li>
-            
-            
-            
-            
-                    
-                    
-                    
-                    
-            
-            
-            
-            
-            
             <li data-nav-id="/reference/ui_controls/me-pivot/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/reference/ui_controls/me-pivot/" class="devsite-nav-title">
                     <span>Элемент me-pivot</span>
@@ -1688,6 +1670,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 а потом на интерфейсе их показать или получить на бекенде.</p>
 <p>Мета может хранить данные просто в расшаренной папке,
 но рекомендуется настраивать S3 совместимое хранилище через общий конфигурационный файл платформы.</p>
+<h2 id="конфигурация">Конфигурация</h2>
+<p>В конфиге самой меты могут быть зарегистрированы несколько s3 стораджей.
+При авторизации юзера из храники БД meta.get_user мета получает конфиг для настройки хранения медиаданных юзера</p>
+<p>Например такую конфигурацию раздела <code>mediaData</code> из общего конфига <code>meta.yaml</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">...
+<span style="color:#66d9ef">mediaData</span>:
+  <span style="color:#66d9ef">s3</span>:
+    <span style="color:#66d9ef">bucketName</span>: example-default
+    <span style="color:#66d9ef">serviceEndpoint</span>: storage.yandexcloud.net
+    <span style="color:#66d9ef">signingRegion</span>: ru-central1
+    <span style="color:#66d9ef">accessKey</span>: XXXXXXXX
+    <span style="color:#66d9ef">secretKey</span>: XXXXXXXXXXX
+  <span style="color:#66d9ef">additionalStorages</span>:
+    - <span style="color:#66d9ef">id</span>: test
+      <span style="color:#66d9ef">s3</span>:
+        <span style="color:#66d9ef">bucketName</span>: example-meta-test
+        <span style="color:#66d9ef">serviceEndpoint</span>: storage.yandexcloud.net
+        <span style="color:#66d9ef">signingRegion</span>: ru-central1
+        <span style="color:#66d9ef">accessKey</span>: ZZZZZZZZ
+        <span style="color:#66d9ef">secretKey</span>: ZZZZZZZZZZZ
+...
+</code></pre></div><p>нужно читать так:</p>
+<ul>
+<li>По умолчанию файлы будут складываться в Яндекс.Облако в бакет <code>example-default</code>. Внутренний сторадж id = <code>default</code></li>
+<li>Также зарегистрирован сторадж с внутренним id = <code>test</code>, который также будет размещен в Яндекс.Облаке в бакете <code>example-meta-test</code></li>
+</ul>
 <h2 id="загрузка-данных">Загрузка данных</h2>
 <p>Для загрузки данных через интерфейс используйте компонент <a href="https://samples-demo.devision.io/page?p=4201&amp;a=35">me-input type=attach</a></p>
 <p>Если вам нужно загрузить данные программно, то используйте метод upload в <a href="https://metasdk.readthedocs.io/ru/latest/rpc.html#mediaservice">MediaService</a> в python metasdk.</p>
@@ -1708,6 +1716,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 Это удобно, если вам нужно после загрузки файла обработать его через <a href="https://developers.devision.io/meta/meta/compoments/event_bus/">Шину сообщений</a>
 и сложить результат в таблицу, чтобы не размазывать данные между разными таблицами и
 получать эти данные даже через metasdk в <a href="https://metasdk.readthedocs.io/ru/latest/rpc.html#mediaservice">MediaService</a>.</p>
+<p>В таблице <code>meta.media</code> для s3 хранения используются следующая нотация записи пути:</p>
+<p><code>s3://{S3_STORAGE_ID}/{S3_PATH}</code></p>
+<p>S3_STORAGE_ID - id стораджа из конфигурации меты. По умолчанию <code>default</code></p>
+<p>Например в поле disk_path в таблице <code>meta.media</code> мы увидим такие записи:</p>
+<ul>
+<li>
+<p>Хранилище по умолчанию: <code>s3://default/9514/10191/9514e1c6-8e29-47d2-ae0f-741adfaf8d41.png</code>. Эквивалентной записью для этого файла будет строка без указания префикса <code>s3://default/</code>, а конкретно <code>9514/10191/9514e1c6-8e29-47d2-ae0f-741adfaf8d41.png</code>. Это работает только для <code>default</code> хранилище и будет упразднено в будущем</p>
+</li>
+<li>
+<p>Отдельное хранилище <code>test</code>: <code>s3://test/30fb/4501/30fbbb73-dc75-42d7-be67-9fda5e29f18e.png</code></p>
+</li>
+</ul>
 <h2 id="управление-доступом-к-файлам">Управление доступом к файлам</h2>
 <p>Мета обращается к функции БД <code>meta.get_media_with_access</code>, но чтобы поправить условия, вам надо исправляет другую функцию - <code>meta.get_media_private_access</code></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">meta_db<span style="color:#f92672">.</span>update(
@@ -1980,6 +2000,7 @@ META<span style="color:#f92672">.</span>worker<span style="color:#f92672">.</spa
     <nav id="TableOfContents">
   <ul>
     <li><a href="#что-такое-и-где-используются">Что такое и где используются?</a></li>
+    <li><a href="#конфигурация">Конфигурация</a></li>
     <li><a href="#загрузка-данных">Загрузка данных</a></li>
     <li><a href="#хранение">Хранение</a></li>
     <li><a href="#управление-доступом-к-файлам">Управление доступом к файлам</a></li>

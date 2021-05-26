@@ -1086,24 +1086,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/reference/ui_controls/me-lego-modal/" class="devsite-nav-item dd-item ">
-                <a href="https://developers.devision.io/meta/reference/ui_controls/me-lego-modal/" class="devsite-nav-title">
-                    <span>Элемент me-lego-modal</span>
-                </a>
-            </li>
-            
-            
-            
-            
-                    
-                    
-                    
-                    
-            
-            
-            
-            
-            
             <li data-nav-id="/reference/ui_controls/me-pivot/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/reference/ui_controls/me-pivot/" class="devsite-nav-title">
                     <span>Элемент me-pivot</span>
@@ -1682,10 +1664,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p>Являются элементами me-chart. Работают на основе google charts. Примеры тут: <a href="http://samples-demo.devision.io/page?a=35&amp;p=3623">http://samples-demo.devision.io/page?a=35&amp;p=3623</a></p>
 <h2 id="ограничения">Ограничения</h2>
 <ul>
-<li>Поддерживаются не все типы графиков гугла, новый тип нужно прописывать и настраивать в ядре платформы мета.</li>
-<li>Поддердиваются не все параметры графиков. Мета старается выводить графики &ldquo;по-умолчанию&rdquo; более менее приемлимо как может для общего случая.</li>
+<li>Поддерживаются не все типы графиков гугла, новый тип нужно прописывать и настраивать в ядре платформы мета. Но есть вариант нативного вывода.</li>
+<li>Поддерживаются не все параметры графиков. Мета старается выводить графики &ldquo;по-умолчанию&rdquo; более менее приемлимо как может для общего случая.</li>
 </ul>
-<h2 id="атрибуты">Атрибуты</h2>
+<p>Однако есть вариант попытаться вывести график полу-нативно:</p>
+<h2 id="нативный-вывод">Нативный вывод</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">meu-native-google-charts</span> <span style="color:#a6e22e">chart</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;{
+</span><span style="color:#e6db74">              &#34;type&#34;: &#34;OrgChart&#34;,
+</span><span style="color:#e6db74">              &#34;data&#34;: pvm.data.acl_role1.rows[0].data,
+</span><span style="color:#e6db74">              &#34;options&#34;: {&#34;width&#34;: &#34;100%&#34;,	&#34;pieHole&#34;: &#34;4/9&#34;, &#34;explorer&#34;:{},
+</span><span style="color:#e6db74">              &#34;sliceVisibilityThreshold&#34;: &#34;.2&#34;, &#34;showRowNumber&#34;: true,
+</span><span style="color:#e6db74">              &#34;pageSize&#34;:15, &#34;pagingButtons&#34;:&#34;auto&#34;, &#34;page&#34;:&#34;enable&#34;, &#34;allowCollapse&#34;:true, &#34;size&#34;:&#34;small&#34;}
+</span><span style="color:#e6db74">              }&#39;</span>&gt;
+&lt;/<span style="color:#f92672">meu-native-google-charts</span>&gt;
+</code></pre></div><h3 id="структура">Структура</h3>
+<pre><code>style?: CSSStyleDeclaration; - стиль блока. Например: {&quot;width&quot;: &quot;100%&quot;, &quot;height&quot;:&quot;400px&quot;}
+data?: any[] - в этом случае данные, которые были выбраны в meta/sql или meta/js коде.
+options?: any - параметры графика в нотации Google Chart
+type: string - тип графика в нотации Google Chart
+package?: string - пакет для типа графика в нотации Google Chart. По умолчанию старается посчитаться автоматически на основе type
+</code></pre><h2 id="атрибуты">Атрибуты</h2>
 <p>У графиков есть общие <a href="https://developers.devision.io/meta/meta/reference/ui_controls/typedoc/interfaces/_elems_i_me_chart_.imechartattrs.html">мета-атрибуты</a>
 и обычно настройка графика заканчивается именно ими.</p>
 <p>И нативные Google - например для <a href="https://developers.google.com/chart/interactive/docs/gallery/columnchart#configuration-options">column chart</a>
@@ -1705,6 +1703,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <nav id="TableOfContents">
   <ul>
     <li><a href="#ограничения">Ограничения</a></li>
+    <li><a href="#нативный-вывод">Нативный вывод</a>
+      <ul>
+        <li><a href="#структура">Структура</a></li>
+      </ul>
+    </li>
     <li><a href="#атрибуты">Атрибуты</a></li>
   </ul>
 </nav>

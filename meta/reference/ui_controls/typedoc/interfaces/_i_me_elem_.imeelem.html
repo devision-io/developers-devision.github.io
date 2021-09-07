@@ -161,7 +161,7 @@
 					<div class="tsd-signature tsd-kind-icon">__tid<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in i.me-elem.ts:185</li>
+							<li>Defined in i.me-elem.ts:188</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -196,7 +196,7 @@
 					<div class="tsd-signature tsd-kind-icon">attrs<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> | </span><a href="_elems_i_me_input_.imeinputattrs.html" class="tsd-signature-type">IMeInputAttrs</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in i.me-elem.ts:190</li>
+							<li>Defined in i.me-elem.ts:193</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -211,7 +211,7 @@
 					<div class="tsd-signature tsd-kind-icon">bind<wbr>Attrs<span class="tsd-signature-symbol">:</span> <a href="_i_me_elem_.imeelembindattrs.html" class="tsd-signature-type">IMeElemBindAttrs</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in i.me-elem.ts:170</li>
+							<li>Defined in i.me-elem.ts:173</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -294,7 +294,7 @@
 					<div class="tsd-signature tsd-kind-icon">errors<span class="tsd-signature-symbol">:</span> <a href="_i_me_elem_.imeelemerror.html" class="tsd-signature-type">IMeElemError</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in i.me-elem.ts:200</li>
+							<li>Defined in i.me-elem.ts:203</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -309,12 +309,12 @@
 					<div class="tsd-signature tsd-kind-icon">exist<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><a href="_i_me_elem_.imeelemexistsetting.html" class="tsd-signature-type">IMeElemExistSetting</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in i.me-elem.ts:156</li>
+							<li>Defined in i.me-elem.ts:159</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Angular expression от рута vm страницы. Обратите внимание, что пути абсотюлтные, в отличие от &quot;depends&quot; в элементах
+							<p>AngularJs expression от рута vm страницы. Обратите внимание, что пути абсотюлтные, в отличие от &quot;depends&quot; в элементах
 								Расчет идет на стороне браузера
 								Например: &#39;editGroup.card.name == &quot;exist&quot; || editGroup.card.name == &quot;exist23&quot;&#39;
 								Для me-lego-list можно использовать нотацию [] для получения доступа в элементу списка,
@@ -329,6 +329,8 @@
 						<p>Условия типа такого:
 							env.sp.obj.metric_elem[].kpi_indicator == &quot;visit&quot; || env.sp.obj.metric_elem[].kpi_indicator == &quot;goal_completions&quot;
 						где дважды используется [] не будут работать из-за внутренней реализации</p>
+						<p>Так же сущетсвует возможность как в depends указывать относительные пути:
+						Например: [ &quot;@.orgId != 42&quot; ] - Для ссылки на текущую вложенность, например при динамической загрузки формы</p>
 						<dl class="tsd-comment-tags">
 							<dt>example</dt>
 							<dd><p><a href="https://apps.devision.io/page?p=3570&amp;a=35">https://apps.devision.io/page?p=3570&amp;a=35</a></p>
@@ -345,7 +347,7 @@
 					<div class="tsd-signature tsd-kind-icon">exportable<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in i.me-elem.ts:232</li>
+							<li>Defined in i.me-elem.ts:235</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -391,7 +393,7 @@
 					<div class="tsd-signature tsd-kind-icon">i18n<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in i.me-elem.ts:227</li>
+							<li>Defined in i.me-elem.ts:230</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -488,7 +490,7 @@
 					<div class="tsd-signature tsd-kind-icon">listen<span class="tsd-signature-symbol">:</span> <a href="_i_me_elem_.imeelemlistenitem.html" class="tsd-signature-type">IMeElemListenItem</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in i.me-elem.ts:179</li>
+							<li>Defined in i.me-elem.ts:182</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -552,7 +554,7 @@
 					<div class="tsd-signature tsd-kind-icon">persist<wbr>Value<wbr>View<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in i.me-elem.ts:216</li>
+							<li>Defined in i.me-elem.ts:219</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -611,7 +613,7 @@
 					<div class="tsd-signature tsd-kind-icon">selected<wbr>Value<wbr>View<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in i.me-elem.ts:221</li>
+							<li>Defined in i.me-elem.ts:224</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -661,7 +663,7 @@
 					<div class="tsd-signature tsd-kind-icon">tooltip<span class="tsd-signature-symbol">:</span> <a href="_helpers_i_common_.itooltip.html" class="tsd-signature-type">ITooltip</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in i.me-elem.ts:195</li>
+							<li>Defined in i.me-elem.ts:198</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -676,7 +678,7 @@
 					<div class="tsd-signature tsd-kind-icon">valid<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in i.me-elem.ts:210</li>
+							<li>Defined in i.me-elem.ts:213</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -691,7 +693,7 @@
 					<div class="tsd-signature tsd-kind-icon">validate<wbr>InProgress<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in i.me-elem.ts:205</li>
+							<li>Defined in i.me-elem.ts:208</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -721,12 +723,12 @@
 					<div class="tsd-signature tsd-kind-icon">visible<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in i.me-elem.ts:164</li>
+							<li>Defined in i.me-elem.ts:167</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Angular expression от рута vm страницы. Обратите внимание, что пути абсотюлтные, в отличие от &quot;depends&quot; в элементах
+							<p>AngularJs expression от рута vm страницы. Обратите внимание, что пути абсотюлтные, в отличие от &quot;depends&quot; в элементах
 								Расчет идет на стороне браузера
 							Например: &#39;editGroup.card.name == &quot;visible&quot;&#39;</p>
 						</div>

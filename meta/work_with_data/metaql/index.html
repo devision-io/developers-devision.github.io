@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.68.1" />
+    <meta name="generator" content="Hugo 0.88.1" />
     <meta name="description" content="">
 
 
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/work_with_data/metaql/">
+  <body class="" data-url="https://developers.devision.io/meta/work_with_data/metaql/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -1690,9 +1690,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <h2 id="экранирование">Экранирование</h2>
 <p>Одинарная кавычка экранируется одинарной кавычкой.
 Например, еси вам нужно поискать все кампании, в названии которых есть одинарная кавычка, то вам необходимо выполнить такой запрос:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">select</span> id, remote_id, name, engine <span style="color:#66d9ef">from</span> adplatform.campaign <span style="color:#66d9ef">where</span> name <span style="color:#66d9ef">like</span> <span style="color:#e6db74">&#39;%&#39;&#39;%&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">select</span> id, remote_id, name, engine <span style="color:#66d9ef">from</span> adplatform.campaign <span style="color:#66d9ef">where</span> name <span style="color:#66d9ef">like</span> <span style="color:#e6db74">&#39;%&#39;&#39;%&#39;</span>
 </code></pre></div><p>Ели нужно поискать клиента по точному совпадению, то принцип будет такой же:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">select</span> id, name <span style="color:#66d9ef">from</span> adplatform.client <span style="color:#66d9ef">where</span> name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Тестовый &#39;&#39; проект&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">select</span> id, name <span style="color:#66d9ef">from</span> adplatform.client <span style="color:#66d9ef">where</span> name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Тестовый &#39;&#39; проект&#39;</span>
 </code></pre></div><h2 id="как-сделать-таблицу-доступной-через-metaql-api-">Как сделать таблицу доступной через METAQL API ?</h2>
 <p>Выполните следующие действия:</p>
 <p><strong>1) Добавьте новую Сущность для своей таблицы (если нужно)</strong></p>
@@ -1701,7 +1701,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p>Опционально укажите metaql_where
 Это поле отвечает за безусловную фильтрацию данных при любом запросе к METAQL.
 Например для статистики хорошо фильтровать по доступным клиентам:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#f92672">#</span><span style="color:#66d9ef">table</span>.client_id <span style="color:#66d9ef">in</span> (<span style="color:#66d9ef">select</span> client_id <span style="color:#66d9ef">from</span> get_user_clients(<span style="color:#960050;background-color:#1e0010">${</span>env.userId<span style="color:#f92672">?</span>number<span style="color:#960050;background-color:#1e0010">}</span>) )
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#f92672">#</span><span style="color:#66d9ef">table</span>.client_id <span style="color:#66d9ef">in</span> (<span style="color:#66d9ef">select</span> client_id <span style="color:#66d9ef">from</span> get_user_clients(<span style="color:#960050;background-color:#1e0010">${</span>env.userId<span style="color:#f92672">?</span>number<span style="color:#960050;background-color:#1e0010">}</span>) )
 </code></pre></div><p>&lsquo;#table&rsquo; - это плейсхолдер metaql таблицы. он будет заменен на реальное имы при компиляции запроса</p>
 <p><strong>2) Заполните поля Сущности</strong></p>
 <p>Обязательно укажите alias. Alias должен быть указан в формате lower_camel_case.</p>
@@ -1711,7 +1711,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p>Например это активно используется в тикетной системе, где из-за высокого уровня абстракции нет возможности хардкодить отдельные script-ы для получения данных</p>
 <p>Обратите внимание, что доступна фильтрация metaql по depends (&ldquo;env.sp.org_id&rdquo; из примера).
 Пример тут: <a href="https://samples-demo.devision.io/page?p=4528&amp;a=35">https://samples-demo.devision.io/page?p=4528&amp;a=35</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">elems</span> <span style="color:#f92672">=</span> [
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">elems</span> <span style="color:#f92672">=</span> [
     <span style="color:#75715e">// ...
 </span><span style="color:#75715e"></span>    {
         <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#34;epl_list&#34;</span>,
@@ -1751,7 +1751,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </span><span style="color:#75715e"></span>]
 </code></pre></div><h3 id="sdk">SDK</h3>
 <h3 id="запрос-к-статистике">Запрос к статистике</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span>
   engine <span style="color:#66d9ef">as</span> platform,
   campaign_remote_id,
   <span style="color:#66d9ef">SUM</span>(impressions) <span style="color:#66d9ef">as</span> impressions,
@@ -1764,11 +1764,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> platform, campaign_remote_id
 <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> platform, campaign_remote_id
 </code></pre></div><h3 id="запрос-к-шардированным-данным-системы-garpun">Запрос к шардированным данным системы Garpun</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> match_type, <span style="color:#66d9ef">count</span>(id) <span style="color:#66d9ef">as</span> cnt
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> match_type, <span style="color:#66d9ef">count</span>(id) <span style="color:#66d9ef">as</span> cnt
 <span style="color:#66d9ef">FROM</span> garpun_storage.keyword<span style="color:#f92672">#</span><span style="color:#960050;background-color:#1e0010">{</span>account_id<span style="color:#960050;background-color:#1e0010">}</span>
 <span style="color:#66d9ef">group</span> <span style="color:#66d9ef">by</span> match_type
 </code></pre></div><h3 id="получение-изменившихся-клиентов">Получение изменившихся клиентов</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> id, name, modification_time
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> id, name, modification_time
 <span style="color:#66d9ef">FROM</span> adplatform.client
 <span style="color:#66d9ef">WHERE</span> modification_time <span style="color:#f92672">&gt;</span> <span style="color:#e6db74">&#39;2020-03-31T12:21:46+0300&#39;</span>
 </code></pre></div>

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.68.1" />
+    <meta name="generator" content="Hugo 0.88.1" />
     <meta name="description" content="">
 
 
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/guides/build_url/">
+  <body class="" data-url="https://developers.devision.io/meta/guides/build_url/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -1681,7 +1681,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <h3 id="linkbuildservice-пример">LinkBuildService пример</h3>
 <p>Пример как использовать билдер урл вместе с me-lego, стилизованную под прямоугольную карточку дашборда</p>
 <h4 id="для-ссылки-на-page">Для ссылки на /page</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">elem</span> <span style="color:#f92672">=</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">elem</span> <span style="color:#f92672">=</span> {
   <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;me-lego&#34;</span>,
   <span style="color:#a6e22e">label</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Эффективность рекламы&#34;</span>,
   <span style="color:#a6e22e">span</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">12</span>,
@@ -1709,9 +1709,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 }
 </code></pre></div><p>Для email рассылок хорошо подходит вариант генерации ссылки с env на абсолютный урл с основным доменом приложения.
 Для этого надо указать <code>applicationId</code> кроме других параметров.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">[#assign url = get_bean(&#39;LinkBuildService&#39;).getPageFullUrl({&#34;pageId&#34;: &#39;4552&#39;, &#34;sp&#34;: {&#34;ds_state&#34;:[&#34;PENDING_PROCESSING&#34;]}, &#34;applicationId&#34;: &#34;58&#34;}) /]
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">[#assign url = get_bean(&#39;LinkBuildService&#39;).getPageFullUrl({&#34;pageId&#34;: &#39;4552&#39;, &#34;sp&#34;: {&#34;ds_state&#34;:[&#34;PENDING_PROCESSING&#34;]}, &#34;applicationId&#34;: &#34;58&#34;}) /]
 </code></pre></div><h4 id="для-ссылки-на-card">Для ссылки на /card</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">elem</span> <span style="color:#f92672">=</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">elem</span> <span style="color:#f92672">=</span> {
   <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;me-lego&#34;</span>,
   <span style="color:#a6e22e">label</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Эффективность рекламы&#34;</span>,
   <span style="color:#a6e22e">span</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">12</span>,
@@ -1751,13 +1751,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p>Когда вам нужно построить правильную ссылку на страницу Меты из другого проекта
 и эта ссылка должна содержать фильтры или параметры страниц вы должны следовать этому алгоритму генерации.</p>
 <p>Например у нас есть ссылка:</p>
-<pre><code>/page?p=onec_doc_info&amp;env=eyJwX29uZWNfZG9jX2luZm8iOnsic3AiOnsiYWN0aXZlX21vZGUiOiJhbGwiLCJvcmdfaWRzIjpbM119fX0&amp;a=58
+<pre tabindex="0"><code>/page?p=onec_doc_info&amp;env=eyJwX29uZWNfZG9jX2luZm8iOnsic3AiOnsiYWN0aXZlX21vZGUiOiJhbGwiLCJvcmdfaWRzIjpbM119fX0&amp;a=58
 </code></pre><ul>
 <li>onec_doc_info - будет означать вполне конкретную страницу. Вы должны знать этот ID</li>
 <li>a - будет означать id приложения. Вы должны знать этот ID</li>
 </ul>
 <p>Раскодированный env будет выглядеть так:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#f92672">&#34;p_onec_doc_info&#34;</span>: {
     <span style="color:#f92672">&#34;sp&#34;</span>: { <span style="color:#960050;background-color:#1e0010">/*</span> <span style="color:#960050;background-color:#1e0010">StateParams.</span> <span style="color:#960050;background-color:#1e0010">Фактически</span> <span style="color:#960050;background-color:#1e0010">параметры</span> <span style="color:#960050;background-color:#1e0010">страницы.</span> <span style="color:#960050;background-color:#1e0010">Зависят</span> <span style="color:#960050;background-color:#1e0010">от</span> <span style="color:#960050;background-color:#1e0010">конкретной</span> <span style="color:#960050;background-color:#1e0010">страницы</span> <span style="color:#960050;background-color:#1e0010">*/</span>
       <span style="color:#f92672">&#34;active_mode&#34;</span>: <span style="color:#e6db74">&#34;all&#34;</span>,
@@ -1773,10 +1773,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
   }
 }
-</code></pre></div><p>Ключ в словаре строится по шаблону &ldquo;p_{PAGE_ID}$e_{ENTIRY_ID}$o_{OBJECT_ID}&quot;.
+</code></pre></div><p>Ключ в словаре строится по шаблону &ldquo;p_{PAGE_ID}$e_{ENTIRY_ID}$o_{OBJECT_ID}&rdquo;.
 При этом если entityId или objectId нет, то и $e_* b $o_* не должны присутствовать в url.
 Скорее, лучше всего алгоритм пояснит код на JavaScript:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getPageUrlKey</span>(<span style="color:#a6e22e">data</span>) {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getPageUrlKey</span>(<span style="color:#a6e22e">data</span>) {
   <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">key</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;p_&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">pageId</span>;
   <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">entityId</span>) {
       <span style="color:#a6e22e">key</span> <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#39;$e_&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">entityId</span>;

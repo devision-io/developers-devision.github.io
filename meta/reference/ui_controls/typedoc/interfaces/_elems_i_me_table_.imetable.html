@@ -103,6 +103,8 @@
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_elems_i_me_table_.imetable.html#analyzable" class="tsd-kind-icon">analyzable</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite tsd-is-not-exported"><a href="_elems_i_me_table_.imetable.html#attrs" class="tsd-kind-icon">attrs</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_elems_i_me_table_.imetable.html#bindattrs" class="tsd-kind-icon">bind<wbr>Attrs</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_elems_i_me_table_.imetable.html#cells" class="tsd-kind-icon">cells</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_elems_i_me_table_.imetable.html#changestate" class="tsd-kind-icon">change<wbr>State</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_elems_i_me_table_.imetable.html#defaultvalue" class="tsd-kind-icon">default<wbr>Value</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_elems_i_me_table_.imetable.html#depends" class="tsd-kind-icon">depends</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported"><a href="_elems_i_me_table_.imetable.html#entityid" class="tsd-kind-icon">entity<wbr>Id</a></li>
@@ -146,7 +148,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_i_me_elem_.imeelem.html">IMeElem</a>.<a href="_i_me_elem_.imeelem.html#__tid">__tid</a></p>
 						<ul>
-							<li>Defined in i.me-elem.ts:185</li>
+							<li>Defined in i.me-elem.ts:188</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -209,7 +211,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_i_me_elem_.imeelem.html">IMeElem</a>.<a href="_i_me_elem_.imeelem.html#bindattrs">bindAttrs</a></p>
 						<ul>
-							<li>Defined in i.me-elem.ts:170</li>
+							<li>Defined in i.me-elem.ts:173</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -218,6 +220,26 @@
 							Например, менять elems в me-lego динамически или запонять me-input[type=text] расчетным значением</p>
 						</div>
 					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="cells" class="tsd-anchor"></a>
+					<h3>cells</h3>
+					<div class="tsd-signature tsd-kind-icon">cells<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in elems/i.me-table.ts:27</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="changestate" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> change<wbr>State</h3>
+					<div class="tsd-signature tsd-kind-icon">change<wbr>State<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in elems/i.me-table.ts:24</li>
+						</ul>
+					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported">
 					<a name="defaultvalue" class="tsd-anchor"></a>
@@ -296,7 +318,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_i_me_elem_.imeelem.html">IMeElem</a>.<a href="_i_me_elem_.imeelem.html#errors">errors</a></p>
 						<ul>
-							<li>Defined in i.me-elem.ts:200</li>
+							<li>Defined in i.me-elem.ts:203</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -312,12 +334,12 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_i_me_elem_.imeelem.html">IMeElem</a>.<a href="_i_me_elem_.imeelem.html#exist">exist</a></p>
 						<ul>
-							<li>Defined in i.me-elem.ts:156</li>
+							<li>Defined in i.me-elem.ts:159</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Angular expression от рута vm страницы. Обратите внимание, что пути абсотюлтные, в отличие от &quot;depends&quot; в элементах
+							<p>AngularJs expression от рута vm страницы. Обратите внимание, что пути абсотюлтные, в отличие от &quot;depends&quot; в элементах
 								Расчет идет на стороне браузера
 								Например: &#39;editGroup.card.name == &quot;exist&quot; || editGroup.card.name == &quot;exist23&quot;&#39;
 								Для me-lego-list можно использовать нотацию [] для получения доступа в элементу списка,
@@ -332,6 +354,8 @@
 						<p>Условия типа такого:
 							env.sp.obj.metric_elem[].kpi_indicator == &quot;visit&quot; || env.sp.obj.metric_elem[].kpi_indicator == &quot;goal_completions&quot;
 						где дважды используется [] не будут работать из-за внутренней реализации</p>
+						<p>Так же сущетсвует возможность как в depends указывать относительные пути:
+						Например: [ &quot;@.orgId != 42&quot; ] - Для ссылки на текущую вложенность, например при динамической загрузки формы</p>
 						<dl class="tsd-comment-tags">
 							<dt>example</dt>
 							<dd><p><a href="https://apps.devision.io/page?p=3570&amp;a=35">https://apps.devision.io/page?p=3570&amp;a=35</a></p>
@@ -414,7 +438,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_i_me_elem_.imeelem.html">IMeElem</a>.<a href="_i_me_elem_.imeelem.html#i18n">i18n</a></p>
 						<ul>
-							<li>Defined in i.me-elem.ts:227</li>
+							<li>Defined in i.me-elem.ts:230</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -516,7 +540,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_i_me_elem_.imeelem.html">IMeElem</a>.<a href="_i_me_elem_.imeelem.html#listen">listen</a></p>
 						<ul>
-							<li>Defined in i.me-elem.ts:179</li>
+							<li>Defined in i.me-elem.ts:182</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -584,7 +608,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_i_me_elem_.imeelem.html">IMeElem</a>.<a href="_i_me_elem_.imeelem.html#persistvalueview">persistValueView</a></p>
 						<ul>
-							<li>Defined in i.me-elem.ts:216</li>
+							<li>Defined in i.me-elem.ts:219</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -646,7 +670,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_i_me_elem_.imeelem.html">IMeElem</a>.<a href="_i_me_elem_.imeelem.html#selectedvalueview">selectedValueView</a></p>
 						<ul>
-							<li>Defined in i.me-elem.ts:221</li>
+							<li>Defined in i.me-elem.ts:224</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -699,7 +723,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_i_me_elem_.imeelem.html">IMeElem</a>.<a href="_i_me_elem_.imeelem.html#tooltip">tooltip</a></p>
 						<ul>
-							<li>Defined in i.me-elem.ts:195</li>
+							<li>Defined in i.me-elem.ts:198</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -715,7 +739,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_i_me_elem_.imeelem.html">IMeElem</a>.<a href="_i_me_elem_.imeelem.html#valid">valid</a></p>
 						<ul>
-							<li>Defined in i.me-elem.ts:210</li>
+							<li>Defined in i.me-elem.ts:213</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -731,7 +755,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_i_me_elem_.imeelem.html">IMeElem</a>.<a href="_i_me_elem_.imeelem.html#validateinprogress">validateInProgress</a></p>
 						<ul>
-							<li>Defined in i.me-elem.ts:205</li>
+							<li>Defined in i.me-elem.ts:208</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -763,12 +787,12 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_i_me_elem_.imeelem.html">IMeElem</a>.<a href="_i_me_elem_.imeelem.html#visible">visible</a></p>
 						<ul>
-							<li>Defined in i.me-elem.ts:164</li>
+							<li>Defined in i.me-elem.ts:167</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Angular expression от рута vm страницы. Обратите внимание, что пути абсотюлтные, в отличие от &quot;depends&quot; в элементах
+							<p>AngularJs expression от рута vm страницы. Обратите внимание, что пути абсотюлтные, в отличие от &quot;depends&quot; в элементах
 								Расчет идет на стороне браузера
 							Например: &#39;editGroup.card.name == &quot;visible&quot;&#39;</p>
 						</div>
@@ -852,6 +876,12 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported">
 								<a href="_elems_i_me_table_.imetable.html#bindattrs" class="tsd-kind-icon">bind<wbr>Attrs</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="_elems_i_me_table_.imetable.html#cells" class="tsd-kind-icon">cells</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="_elems_i_me_table_.imetable.html#changestate" class="tsd-kind-icon">change<wbr>State</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-not-exported">
 								<a href="_elems_i_me_table_.imetable.html#defaultvalue" class="tsd-kind-icon">default<wbr>Value</a>
@@ -969,13 +999,13 @@
 						<a href="_elems_i_me_table_.imetablecelleditor.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Cell<wbr>Editor</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
+						<a href="_elems_i_me_table_.imetablecellexpand.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Cell<wbr>Expand</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
 						<a href="_elems_i_me_table_.imetablecellkpistatus.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Cell<wbr>Kpi<wbr>Status</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
 						<a href="_elems_i_me_table_.imetablecellkpitrend.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Cell<wbr>Kpi<wbr>Trend</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_elems_i_me_table_.imetablecelllego.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Cell<wbr>Lego</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
 						<a href="_elems_i_me_table_.imetablecelllineclamp.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Cell<wbr>Line<wbr>Clamp</a>
@@ -1006,6 +1036,9 @@
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
 						<a href="_elems_i_me_table_.imetablepager.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Pager</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
+						<a href="_elems_i_me_table_.imetableplugincellsum.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Plugin<wbr>Cell<wbr>Sum</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
 						<a href="_elems_i_me_table_.imetableplugineditable.html" class="tsd-kind-icon">IMe<wbr>Table<wbr>Plugin<wbr>Editable</a>

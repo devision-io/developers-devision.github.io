@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.68.1" />
+    <meta name="generator" content="Hugo 0.88.1" />
     <meta name="description" content="">
 
 
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/guides/request_life_cycle/">
+  <body class="" data-url="https://developers.devision.io/meta/guides/request_life_cycle/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -1693,7 +1693,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li>После получения данных me-page начинает рисовать root lego страницы. Это то, что страница вернула через описание через <strong>script</strong> и <strong>elem</strong></li>
 <li>Надо  сразу упомянуть, что после отрисовки root lego, если он имеет зависимости refPvmData, me-page по аналогиис первичным запуском будет пытаться разрешить и их до тех пор, пока все не будет разрешено или не вернется ошибка или пустой ответ</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- 
 </span><span style="color:#75715e">Это скрипт с типом sql, который:
 </span><span style="color:#75715e"> - имеет id=period (т.е. будет доступен в env.sp.period)
 </span><span style="color:#75715e"> - запрашивает данные из БД с альясом meta_samples
@@ -1771,7 +1771,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 при клике правой клавишей мыши на строке объекта.</p>
 <p>На странице редактирования объекта описано все поведение меты для выполнения запроса
 <a href="https://samples-demo.devision.io/card?e=example_entity&amp;o=08f3395b-31f2-42c9-917e-a5f2b7bd4a95&amp;a=35">https://samples-demo.devision.io/card?e=example_entity&amp;o=08f3395b-31f2-42c9-917e-a5f2b7bd4a95&amp;a=35</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- 
 </span><span style="color:#75715e">Объявляем валидатор с depends от name. Параметр name в случае этой конкретной формы будет приходить как имя объекта.
 </span><span style="color:#75715e">Такая валидация не обяъательна, это будет зависеть от конкретной формы. Часто это просто не надо.
 </span><span style="color:#75715e">--&gt;</span>
@@ -1893,7 +1893,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p>Вот простой код для примера. Тут три ссылки, которые меняют состояние страницы.
 В script-ах указаны states, в которых script будет участвовать (будет выполняться).
 Если states для script или elem не указан, то script или elem участвует во всех state.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">elem</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">elem</span>&gt;
 &lt;<span style="color:#f92672">tpl</span>&gt;
   &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">ng-click</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;changeState(&#39;first&#39;, {&#39;foo&#39;:1})&#34;</span>&gt;to first&lt;/<span style="color:#f92672">a</span>&gt; | 
   &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">ng-click</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;changeState(&#39;two&#39;, {&#39;bar&#39;:2})&#34;</span>&gt;to two&lt;/<span style="color:#f92672">a</span>&gt; |

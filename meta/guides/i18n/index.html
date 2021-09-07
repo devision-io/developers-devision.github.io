@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.68.1" />
+    <meta name="generator" content="Hugo 0.88.1" />
     <meta name="description" content="">
 
 
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/guides/i18n/">
+  <body class="" data-url="https://developers.devision.io/meta/guides/i18n/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -1684,78 +1684,78 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li><strong>${i18n_sql_ofield(String tableAlias, String key)}</strong> - Получение перевода поля в случае, если у вас больше одной таблицы в запросе и вам нужно указать альяс таблицы</li>
 </ul>
 <h3 id="разметка-entity">Разметка entity</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">id</span>: <span style="color:#e6db74">&#39;2701&#39;</span>
-<span style="color:#66d9ef">name</span>: Тикет
-<span style="color:#66d9ef">i18n</span>: <span style="color:#66d9ef">true</span> &lt;---------- Указываем, что имя entity будет подвергаться переводу
-<span style="color:#66d9ef">db_alias</span>: meta
-<span style="color:#66d9ef">schema</span>: meta
-<span style="color:#66d9ef">table</span>: issue
-<span style="color:#66d9ef">search_order</span>: <span style="color:#ae81ff">100</span>
-<span style="color:#66d9ef">object_list_base_page_id</span>: <span style="color:#e6db74">&#39;4176&#39;</span>
-<span style="color:#66d9ef">fields</span>:
-- <span style="color:#66d9ef">alias</span>: application_id
-  <span style="color:#66d9ef">db_type</span>: text
-  <span style="color:#66d9ef">name</span>: application_id
-- <span style="color:#66d9ef">alias</span>: assignee_user_id
-  <span style="color:#66d9ef">db_type</span>: int8
-  <span style="color:#66d9ef">name</span>: assignee_user_id
-  <span style="color:#66d9ef">display_name</span>: Исполнитель
-  <span style="color:#66d9ef">i18n</span>: <span style="color:#66d9ef">true</span>
-- <span style="color:#66d9ef">alias</span>: creation_time
-  <span style="color:#66d9ef">db_type</span>: timestamp
-  <span style="color:#66d9ef">display_name</span>: Создано &lt;---------- Указываем на базовом языке компонента
-  <span style="color:#66d9ef">i18n</span>: <span style="color:#66d9ef">true</span>            &lt;---------- Указываем, для сбора на перевод указанного display_name
-  <span style="color:#66d9ef">is_disabled</span>: <span style="color:#66d9ef">true</span>
-  <span style="color:#66d9ef">name</span>: creation_time
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">id</span>: <span style="color:#e6db74">&#39;45&#39;</span>
-<span style="color:#66d9ef">name</span>: Продукт
-<span style="color:#66d9ef">i18n</span>: <span style="color:#66d9ef">true</span>    &lt;---------- Указываем, что имя entity будет подвергаться переводу
-<span style="color:#66d9ef">i18n_object</span>:  &lt;---------- Указываем для сбора записей из БД на перевод
-  <span style="color:#66d9ef">sql_where_clause</span>: allowed_roles <span style="color:#75715e">&amp;&amp;</span> ARRAY[<span style="color:#e6db74">&#39;meta.role.auth&#39;</span>, <span style="color:#e6db74">&#39;adhands.role.can_view_all_clients_yes&#39;</span>] &lt;---------- Условие WHERE по которому будут отсекаться строки для перевода 
-  <span style="color:#66d9ef">fields</span>:
-    - <span style="color:#66d9ef">name</span>: name        &lt;---------- Указываем для сбора записей из БД на перевод
-    - <span style="color:#66d9ef">name</span>: description &lt;---------- Указываем для сбора записей из БД на перевод
-<span style="color:#66d9ef">db_alias</span>: billing
-<span style="color:#66d9ef">schema</span>: public
-<span style="color:#66d9ef">table</span>: product
-<span style="color:#66d9ef">search_order</span>: <span style="color:#ae81ff">100</span>
-<span style="color:#66d9ef">fields</span>:
-- <span style="color:#66d9ef">db_type</span>: integer
-  <span style="color:#66d9ef">is_primary</span>: <span style="color:#66d9ef">true</span>
-  <span style="color:#66d9ef">is_disabled</span>: <span style="color:#66d9ef">true</span>
-  <span style="color:#66d9ef">name</span>: id
-- <span style="color:#66d9ef">db_type</span>: text
-  <span style="color:#66d9ef">name</span>: key
-- <span style="color:#66d9ef">db_type</span>: text
-  <span style="color:#66d9ef">is_required</span>: <span style="color:#66d9ef">true</span>
-  <span style="color:#66d9ef">is_title</span>: <span style="color:#66d9ef">true</span>
-  <span style="color:#66d9ef">name</span>: name
-- <span style="color:#66d9ef">db_type</span>: description
-  <span style="color:#66d9ef">name</span>: description
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">id</span>: <span style="color:#e6db74">&#39;2701&#39;</span>
+<span style="color:#f92672">name</span>: <span style="color:#ae81ff">Тикет</span>
+<span style="color:#f92672">i18n</span>: <span style="color:#66d9ef">true</span> <span style="color:#ae81ff">&lt;---------- Указываем, что имя entity будет подвергаться переводу</span>
+<span style="color:#f92672">db_alias</span>: <span style="color:#ae81ff">meta</span>
+<span style="color:#f92672">schema</span>: <span style="color:#ae81ff">meta</span>
+<span style="color:#f92672">table</span>: <span style="color:#ae81ff">issue</span>
+<span style="color:#f92672">search_order</span>: <span style="color:#ae81ff">100</span>
+<span style="color:#f92672">object_list_base_page_id</span>: <span style="color:#e6db74">&#39;4176&#39;</span>
+<span style="color:#f92672">fields</span>:
+- <span style="color:#f92672">alias</span>: <span style="color:#ae81ff">application_id</span>
+  <span style="color:#f92672">db_type</span>: <span style="color:#ae81ff">text</span>
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">application_id</span>
+- <span style="color:#f92672">alias</span>: <span style="color:#ae81ff">assignee_user_id</span>
+  <span style="color:#f92672">db_type</span>: <span style="color:#ae81ff">int8</span>
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">assignee_user_id</span>
+  <span style="color:#f92672">display_name</span>: <span style="color:#ae81ff">Исполнитель</span>
+  <span style="color:#f92672">i18n</span>: <span style="color:#66d9ef">true</span>
+- <span style="color:#f92672">alias</span>: <span style="color:#ae81ff">creation_time</span>
+  <span style="color:#f92672">db_type</span>: <span style="color:#ae81ff">timestamp</span>
+  <span style="color:#f92672">display_name</span>: <span style="color:#ae81ff">Создано &lt;---------- Указываем на базовом языке компонента</span>
+  <span style="color:#f92672">i18n</span>: <span style="color:#66d9ef">true</span>            <span style="color:#ae81ff">&lt;---------- Указываем, для сбора на перевод указанного display_name</span>
+  <span style="color:#f92672">is_disabled</span>: <span style="color:#66d9ef">true</span>
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">creation_time</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">id</span>: <span style="color:#e6db74">&#39;45&#39;</span>
+<span style="color:#f92672">name</span>: <span style="color:#ae81ff">Продукт</span>
+<span style="color:#f92672">i18n</span>: <span style="color:#66d9ef">true</span>    <span style="color:#ae81ff">&lt;---------- Указываем, что имя entity будет подвергаться переводу</span>
+<span style="color:#f92672">i18n_object</span>:  <span style="color:#ae81ff">&lt;---------- Указываем для сбора записей из БД на перевод</span>
+  <span style="color:#f92672">sql_where_clause</span>: <span style="color:#ae81ff">allowed_roles &amp;&amp; ARRAY[&#39;meta.role.auth&#39;, &#39;adhands.role.can_view_all_clients_yes&#39;] &lt;---------- Условие WHERE по которому будут отсекаться строки для перевода </span>
+  <span style="color:#f92672">fields</span>:
+    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">name        &lt;---------- Указываем для сбора записей из БД на перевод</span>
+    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">description &lt;---------- Указываем для сбора записей из БД на перевод</span>
+<span style="color:#f92672">db_alias</span>: <span style="color:#ae81ff">billing</span>
+<span style="color:#f92672">schema</span>: <span style="color:#ae81ff">public</span>
+<span style="color:#f92672">table</span>: <span style="color:#ae81ff">product</span>
+<span style="color:#f92672">search_order</span>: <span style="color:#ae81ff">100</span>
+<span style="color:#f92672">fields</span>:
+- <span style="color:#f92672">db_type</span>: <span style="color:#ae81ff">integer</span>
+  <span style="color:#f92672">is_primary</span>: <span style="color:#66d9ef">true</span>
+  <span style="color:#f92672">is_disabled</span>: <span style="color:#66d9ef">true</span>
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">id</span>
+- <span style="color:#f92672">db_type</span>: <span style="color:#ae81ff">text</span>
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">key</span>
+- <span style="color:#f92672">db_type</span>: <span style="color:#ae81ff">text</span>
+  <span style="color:#f92672">is_required</span>: <span style="color:#66d9ef">true</span>
+  <span style="color:#f92672">is_title</span>: <span style="color:#66d9ef">true</span>
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">name</span>
+- <span style="color:#f92672">db_type</span>: <span style="color:#ae81ff">description</span>
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">description</span>
 </code></pre></div><h3 id="перевод-имени-сущности">Перевод имени сущности</h3>
 <p>Используется для lego или в label скриптов. Например перевод имени таблицы issue</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">{
     &#34;label&#34;: &#34;${i18n_ename(&#39;2773&#39;)}&#34;,
     &#34;name&#34;: &#34;me-select&#34;
 }
 </code></pre></div><h3 id="перевод-поля-сущности">Перевод поля сущности</h3>
 <p>Используется для lego или в label скриптов. Это например перевод имени поля таблицы issue</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">{
     &#34;label&#34;: &#34;${i18n_efield(&#34;2701&#34;, &#34;assignee_user_id&#34;)}&#34;,
     &#34;name&#34;: &#34;me-select&#34;
 }
 </code></pre></div><h3 id="перевод-поля-объекта-сущности">Перевод поля объекта сущности</h3>
 <p>Используется для перевода записей в таблицах, например, если вам нужно перевести список типов тикетов.
 Данные будут браться из поля me_i18n этой таблицы</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;issue_status_ids&#34;</span> <span style="color:#a6e22e">elem</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;me-select&#34;</span> <span style="color:#a6e22e">label</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta&#34;</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;issue_status_ids&#34;</span> <span style="color:#a6e22e">elem</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;me-select&#34;</span> <span style="color:#a6e22e">label</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta&#34;</span>&gt;
     <span style="color:#a6e22e">SELECT</span> <span style="color:#a6e22e">id</span>, <span style="color:#a6e22e">$</span>{<span style="color:#a6e22e">i18n_sql_ofield</span>(<span style="color:#e6db74">&#39;name&#39;</span>)} <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">name</span> <span style="color:#a6e22e">FROM</span> <span style="color:#a6e22e">meta</span>.<span style="color:#a6e22e">issue_status</span> <span style="color:#a6e22e">WHERE</span> <span style="color:#a6e22e">is_allowed</span> <span style="color:#a6e22e">ORDER</span> <span style="color:#a6e22e">BY</span> <span style="color:#ae81ff">2</span>
 &lt;/<span style="color:#f92672">script</span>&gt;
 </code></pre></div><h3 id="перевод-страниц-компонента-на-уровне-компонента">Перевод страниц компонента на уровне компонента</h3>
 <p>Парсер соберет данные на уровне компонента. Это нужно использовать когда этот текст не является названием Сущности или Поля сущности</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">${i18n(&#34;#.youCanceledChangeTariff&#34;, &#34;Вы отменили переход на тариф&#34;)}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">${i18n(&#34;#.youCanceledChangeTariff&#34;, &#34;Вы отменили переход на тариф&#34;)}
 </code></pre></div><h2 id="функции-frontend-шаблонизации">Функции frontend шаблонизации</h2>
 <p>На уровне LEGO элемента, используются параметр i18n.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
   {
     <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;login&#34;</span>,
     <span style="color:#f92672">&#34;i18n&#34;</span>: {

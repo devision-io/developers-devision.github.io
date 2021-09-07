@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.68.1" />
+    <meta name="generator" content="Hugo 0.88.1" />
     <meta name="description" content="">
 
 
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/integrations/login_with_meta/">
+  <body class="" data-url="https://developers.devision.io/meta/integrations/login_with_meta/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -1674,7 +1674,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <h2 id="регистрируете-приложение">Регистрируете приложение</h2>
 <p>Вы можете добавить доверенное приложение, в таком случае мета не станет спрашивать у пользователя подтверждения в выдаче токена. Это полезно, когда вы делаете вход для своих внутренних сервисов.</p>
 <h2 id="запрос-кода-подтверждения">Запрос кода подтверждения</h2>
-<pre><code>http://YOUR-META-URL/oauth2/authorize?response_type=code
+<pre tabindex="0"><code>http://YOUR-META-URL/oauth2/authorize?response_type=code
 
   client_id=&lt;идентификатор приложения&gt;
   &amp; redirect_uri=&lt;адрес перенаправления&gt;
@@ -1684,7 +1684,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p>Когда пользователь разрешает доступ к своим данным META.OAuth перенаправляет пользователя на указанный вами redirect_uri с добавлением GET параметра code</p>
 <h2 id="обмен-кода-подтверждения-на-токен">Обмен кода подтверждения на токен</h2>
 <p>Приложение отправляет код, а также свой идентификатор и пароль в POST-запросе.</p>
-<pre><code>POST /oauth2/token HTTP/1.1
+<pre tabindex="0"><code>POST /oauth2/token HTTP/1.1
 Host: YOUR-META-URL
 Content-type: application/x-www-form-urlencoded
 Content-Length: &lt;длина тела запроса&gt;
@@ -1694,7 +1694,7 @@ Content-Length: &lt;длина тела запроса&gt;
   &amp; client_id=&lt;идентификатор приложения&gt;
   &amp; client_secret=&lt;пароль приложения&gt;
 </code></pre><h2 id="формат-ответа-с-токеном">Формат ответа с токеном</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#f92672">&#34;scopes&#34;</span>: [
     <span style="color:#e6db74">&#34;userinfo.profile&#34;</span>
   ],
@@ -1710,11 +1710,11 @@ Content-Length: &lt;длина тела запроса&gt;
 <li>token_type: Тип выданного токена. Всегда принимает значение «bearer»</li>
 <li>expires: Время жизни токена в секундах</li>
 <li>access_token: OAuth-токен с запрошенными правами</li>
-<li>refresh_token: Токен, который можно использовать <strong>только</strong> для продления срока жизни соответствующего OAuth-токена&rdquo;&rsquo;</li>
+<li>refresh_token: Токен, который можно использовать <strong>только</strong> для продления срока жизни соответствующего OAuth-токена&quot;'</li>
 </ul>
 <p>Время жизни refresh-токена совпадает с временем жизни OAuth-токена.</p>
 <p>Если выдать токен не удалось, то ответ содержит описание ошибки:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#f92672">&#34;token_type&#34;</span>: <span style="color:#e6db74">&#34;bearer&#34;</span>,
   <span style="color:#f92672">&#34;error&#34;</span>: <span style="color:#e6db74">&#34;&lt;код ошибки&gt;&#34;</span>,
   <span style="color:#f92672">&#34;error_description&#34;</span>: <span style="color:#e6db74">&#34;&lt;описание ошибки&gt;&#34;</span>
@@ -1725,7 +1725,7 @@ Content-Length: &lt;длина тела запроса&gt;
 <li>Приложение отправляет POST-запрос с refresh-токеном.</li>
 <li>META.OAuth возвращает новый access_token в теле ответа.</li>
 </ul>
-<pre><code>POST /oauth2/token HTTP/1.1
+<pre tabindex="0"><code>POST /oauth2/token HTTP/1.1
 Host: YOUR-META-URL
 Content-type: application/x-www-form-urlencoded
 Content-Length: &lt;длина тела запроса&gt;

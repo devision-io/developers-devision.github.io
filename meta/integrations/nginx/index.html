@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.68.1" />
+    <meta name="generator" content="Hugo 0.88.1" />
     <meta name="description" content="">
 
 
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/integrations/nginx/">
+  <body class="" data-url="https://developers.devision.io/meta/integrations/nginx/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -1664,7 +1664,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p>Настраиваются на nginx при проксировании запосов в Java приложение, или через Chrome плагин ModHeader (<a href="https://chrome.google.com/webstore/detail/modheader/idgpnmonknjnojddfkpgkljpfnnfcklj">https://chrome.google.com/webstore/detail/modheader/idgpnmonknjnojddfkpgkljpfnnfcklj</a>) для разработки</p>
 <h2 id="x-meta-appid">X-META-AppID</h2>
 <p>Говорит о том, что МЕТА должна отвечать пользователю как конкретное приложение с установленным лого, css и пр</p>
-<pre><code>server {
+<pre tabindex="0"><code>server {
   listen *:80;
   server_name example.com;
   charset utf8;
@@ -1679,7 +1679,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p>Говорит о том, что МЕТА должна отвечать пользователю как конкретное приложение с установленным лого, css и пр
 Отличается от HEADER_X_META_APP_ID тем, что это будет работать как просто meta.realweb.ru, но не будет показывать
 главную страницу без указания приложения, т.е. будет работать только как embed вариант</p>
-<pre><code>server {
+<pre tabindex="0"><code>server {
     listen *:80;
     server_name example.com;
     charset utf8;
@@ -1693,7 +1693,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </code></pre><h2 id="x-meta-dev-restrict-roles">X-META-Dev-Restrict-Roles</h2>
 <p>Разделенный через запятую список ролей, которым доступно нахождение не сайте.
 Обычно это разработчики и саппорт</p>
-<pre><code>server {
+<pre tabindex="0"><code>server {
     listen *:80;
     server_name example.com;
     charset utf8;

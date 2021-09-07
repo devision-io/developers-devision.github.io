@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.68.1" />
+    <meta name="generator" content="Hugo 0.88.1" />
     <meta name="description" content="">
 
 
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/samples/pages/simple_entity/">
+  <body class="" data-url="https://developers.devision.io/meta/samples/pages/simple_entity/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -1676,22 +1676,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p>Такое название файла надо читать так: {ENTITY_ID}___{DB_SCHEMA}.{DB_TABLE}.yaml
 Это именование позволяет быстро и легко искать файлы через IDE поиском по имени файла и пока что не влияет на парсер конфига, но будет влиять.</p>
 <p>Контент файла:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">id</span>: <span style="color:#e6db74">&#39;example_entity&#39;</span>
-<span style="color:#66d9ef">name</span>: Пример
-<span style="color:#66d9ef">db_alias</span>: meta_samples
-<span style="color:#66d9ef">schema</span>: public
-<span style="color:#66d9ef">table</span>: example_entity
-<span style="color:#66d9ef">fields</span>:
-- <span style="color:#66d9ef">alias</span>: id <span style="color:#75715e"># для metaql</span>
-  <span style="color:#66d9ef">db_type</span>: uuid
-  <span style="color:#66d9ef">is_primary</span>: <span style="color:#66d9ef">true</span> <span style="color:#75715e"># говорит, что поле - первичный ключ</span>
-  <span style="color:#66d9ef">name</span>: id <span style="color:#75715e"># название поля в БД</span>
-- <span style="color:#66d9ef">alias</span>: name
-  <span style="color:#66d9ef">db_type</span>: text
-  <span style="color:#66d9ef">is_title</span>: <span style="color:#66d9ef">true</span> <span style="color:#75715e"># говорит, что поле - является именем объекта сущности, например как users.full_name будет использовано для автоматического получения для названия объекта в хлебных крошках</span>
-  <span style="color:#66d9ef">name</span>: name
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">id</span>: <span style="color:#e6db74">&#39;example_entity&#39;</span>
+<span style="color:#f92672">name</span>: <span style="color:#ae81ff">Пример</span>
+<span style="color:#f92672">db_alias</span>: <span style="color:#ae81ff">meta_samples</span>
+<span style="color:#f92672">schema</span>: <span style="color:#ae81ff">public</span>
+<span style="color:#f92672">table</span>: <span style="color:#ae81ff">example_entity</span>
+<span style="color:#f92672">fields</span>:
+- <span style="color:#f92672">alias</span>: <span style="color:#ae81ff">id</span> <span style="color:#75715e"># для metaql</span>
+  <span style="color:#f92672">db_type</span>: <span style="color:#ae81ff">uuid</span>
+  <span style="color:#f92672">is_primary</span>: <span style="color:#66d9ef">true</span> <span style="color:#75715e"># говорит, что поле - первичный ключ</span>
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">id</span> <span style="color:#75715e"># название поля в БД</span>
+- <span style="color:#f92672">alias</span>: <span style="color:#ae81ff">name</span>
+  <span style="color:#f92672">db_type</span>: <span style="color:#ae81ff">text</span>
+  <span style="color:#f92672">is_title</span>: <span style="color:#66d9ef">true</span> <span style="color:#75715e"># говорит, что поле - является именем объекта сущности, например как users.full_name будет использовано для автоматического получения для названия объекта в хлебных крошках</span>
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">name</span>
 </code></pre></div><h2 id="добавьте-новую-страницу-список-сущностей-в-таблице">Добавьте новую страницу: Список сущностей в таблице</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta_samples&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;res&#34;</span> <span style="color:#a6e22e">entity-id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;example_entity&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta_samples&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;res&#34;</span> <span style="color:#a6e22e">entity-id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;example_entity&#34;</span>
   <span style="color:#a6e22e">elem-attrs</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;{&#34;addObjectButton&#34;:{&#34;title&#34;:&#34;Entity&#34;, &#34;mode&#34;:&#34;modal&#34;, &#34;modalSize&#34;:&#34;lg&#34;, &#34;env&#34;:{&#34;sp&#34;:{&#34;obj&#34;:{&#34;name&#34;:&#34;test&#34;}}} }}&#39;</span> <span style="color:#a6e22e">order</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1000&#34;</span>&gt;
 <span style="color:#a6e22e">SELECT</span>
   <span style="color:#a6e22e">ee</span>.<span style="color:#a6e22e">id</span>,
@@ -1728,7 +1728,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li>Замените db-alias на свой</li>
 <li>Замените название таблицы и список полей на свои</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;name_validator&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta_samples&#34;</span> <span style="color:#a6e22e">depends</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;name&#34;</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;name_validator&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta_samples&#34;</span> <span style="color:#a6e22e">depends</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;name&#34;</span>&gt;
 <span style="color:#a6e22e">SELECT</span> <span style="color:#e6db74">&#39;name_validator_unique&#39;</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">id</span>, <span style="color:#e6db74">&#39;Имя уже используется&#39;</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">name</span> <span style="color:#a6e22e">FROM</span> <span style="color:#66d9ef">public</span>.<span style="color:#a6e22e">example_entity</span> <span style="color:#a6e22e">WHERE</span> <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#f92672">:</span><span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">sp</span>.<span style="color:#a6e22e">name</span> <span style="color:#a6e22e">LIMIT</span> <span style="color:#ae81ff">1</span>
 &lt;/<span style="color:#f92672">script</span>&gt;
 

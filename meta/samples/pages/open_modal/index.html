@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.68.1" />
+    <meta name="generator" content="Hugo 0.88.1" />
     <meta name="description" content="">
 
 
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/samples/pages/open_modal/">
+  <body class="" data-url="https://developers.devision.io/meta/samples/pages/open_modal/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -1693,7 +1693,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p>Приведу пример из биллинга - подача заявки для перехода на дргой тариф.
 Заявка выполнена в виде <a href="https://developers.devision.io/meta/compoments/ticket/">тикета</a> с типом согласование
 Тут мы видем использование технологии разметки перевода &ldquo;i18n&rdquo; в кнопке добавления новых объектов для entityId=2701 с заранее установленным env.sp</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">elem</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">elem</span>&gt;
 &lt;<span style="color:#f92672">tpl</span>&gt;
   &lt;<span style="color:#f92672">me-add-obj-btn</span> <span style="color:#a6e22e">attrs</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;{&#34;addObjectButton&#34;:{
 </span><span style="color:#e6db74">    &#34;mode&#34;: &#34;sidenav&#34;,
@@ -1720,7 +1720,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p>Обязательно изучите документацию документацию по <a href="https://developers.devision.io/meta/reference/ui_controls/typedoc/interfaces/_helpers_i_common_.ientitycardlink.html">IEntityCardLink</a>
 и изучите возможные <a href="https://developers.devision.io/meta/reference/ui_controls/typedoc/interfaces/_elems_i_me_table_.imetableattrs.html">атрибуты таблицы</a>.</p>
 <p>В данном примере код entityCardLink говорит, что при клике на название объекта будет происходить не переход на новую страницу, а будет открываться модальное окно с карточкой объекта.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;adplatform&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;res&#34;</span> <span style="color:#a6e22e">entity-id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;2876&#34;</span> <span style="color:#a6e22e">order</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;100500&#34;</span> 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;adplatform&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;res&#34;</span> <span style="color:#a6e22e">entity-id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;2876&#34;</span> <span style="color:#a6e22e">order</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;100500&#34;</span> 
     <span style="color:#a6e22e">elem-attrs</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;{&#34;addObjectButton&#34;:{&#34;title&#34;:&#34;Группа&#34;, &#34;mode&#34;:&#34;modal&#34;, &#34;env&#34;:{&#34;sp&#34;:{&#34;obj&#34;:{&#34;entity_id&#34;:2876}}} }}&#39;</span>
          <span style="color:#a6e22e">elem-attrs</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">entityCardLink</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">mode</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;modal&#39;</span> 
         &gt;
@@ -1729,7 +1729,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p>Например у вас сложная форма, где много инпутов и вам надо дать возможность быстро посмотреть карточку выбранного в одном из инпутов клиента.
 Для это используется атрибут элемента <a href="https://developers.devision.io/meta/reference/ui_controls/typedoc/interfaces/_elems_i_me_input_.imeinputattrs.html#fastviewobjectbutton">fastViewObjectButton</a>.</p>
 <p>Так же обратите внимание на параметр <em>addObjectButton</em> он позволяет настроить поведение инпута для добавления объекта в список, например удобно там открывать страницу добавления клиента.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#960050;background-color:#1e0010">id:</span> <span style="color:#f92672">&#34;ex_access_id&#34;</span>,
   <span style="color:#960050;background-color:#1e0010">label:</span> <span style="color:#f92672">&#34;Доступ&#34;</span>,
   <span style="color:#960050;background-color:#1e0010">name:</span> <span style="color:#f92672">&#34;me-input&#34;</span>,

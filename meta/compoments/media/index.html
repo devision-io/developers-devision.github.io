@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.68.1" />
+    <meta name="generator" content="Hugo 0.88.1" />
     <meta name="description" content="">
 
 
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/compoments/media/">
+  <body class="" data-url="https://developers.devision.io/meta/compoments/media/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -1674,22 +1674,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p>В конфиге самой меты могут быть зарегистрированы несколько s3 стораджей.
 При авторизации юзера из храники БД meta.get_user мета получает конфиг для настройки хранения медиаданных юзера</p>
 <p>Например такую конфигурацию раздела <code>mediaData</code> из общего конфига <code>meta.yaml</code>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">...
-<span style="color:#66d9ef">mediaData</span>:
-  <span style="color:#66d9ef">s3</span>:
-    <span style="color:#66d9ef">bucketName</span>: example-default
-    <span style="color:#66d9ef">serviceEndpoint</span>: storage.yandexcloud.net
-    <span style="color:#66d9ef">signingRegion</span>: ru-central1
-    <span style="color:#66d9ef">accessKey</span>: XXXXXXXX
-    <span style="color:#66d9ef">secretKey</span>: XXXXXXXXXXX
-  <span style="color:#66d9ef">additionalStorages</span>:
-    - <span style="color:#66d9ef">id</span>: test
-      <span style="color:#66d9ef">s3</span>:
-        <span style="color:#66d9ef">bucketName</span>: example-meta-test
-        <span style="color:#66d9ef">serviceEndpoint</span>: storage.yandexcloud.net
-        <span style="color:#66d9ef">signingRegion</span>: ru-central1
-        <span style="color:#66d9ef">accessKey</span>: ZZZZZZZZ
-        <span style="color:#66d9ef">secretKey</span>: ZZZZZZZZZZZ
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">...
+<span style="color:#f92672">mediaData</span>:
+  <span style="color:#f92672">s3</span>:
+    <span style="color:#f92672">bucketName</span>: <span style="color:#ae81ff">example-default</span>
+    <span style="color:#f92672">serviceEndpoint</span>: <span style="color:#ae81ff">storage.yandexcloud.net</span>
+    <span style="color:#f92672">signingRegion</span>: <span style="color:#ae81ff">ru-central1</span>
+    <span style="color:#f92672">accessKey</span>: <span style="color:#ae81ff">XXXXXXXX</span>
+    <span style="color:#f92672">secretKey</span>: <span style="color:#ae81ff">XXXXXXXXXXX</span>
+  <span style="color:#f92672">additionalStorages</span>:
+    - <span style="color:#f92672">id</span>: <span style="color:#ae81ff">test</span>
+      <span style="color:#f92672">s3</span>:
+        <span style="color:#f92672">bucketName</span>: <span style="color:#ae81ff">example-meta-test</span>
+        <span style="color:#f92672">serviceEndpoint</span>: <span style="color:#ae81ff">storage.yandexcloud.net</span>
+        <span style="color:#f92672">signingRegion</span>: <span style="color:#ae81ff">ru-central1</span>
+        <span style="color:#f92672">accessKey</span>: <span style="color:#ae81ff">ZZZZZZZZ</span>
+        <span style="color:#f92672">secretKey</span>: <span style="color:#ae81ff">ZZZZZZZZZZZ</span>
 ...
 </code></pre></div><p>нужно читать так:</p>
 <ul>
@@ -1730,7 +1730,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </ul>
 <h2 id="управление-доступом-к-файлам">Управление доступом к файлам</h2>
 <p>Мета обращается к функции БД <code>meta.get_media_with_access</code>, но чтобы поправить условия, вам надо исправляет другую функцию - <code>meta.get_media_private_access</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">meta_db<span style="color:#f92672">.</span>update(
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">meta_db<span style="color:#f92672">.</span>update(
     <span style="color:#e6db74">&#34;&#34;&#34;
 </span><span style="color:#e6db74">    UPDATE meta.media 
 </span><span style="color:#e6db74">    SET info = jsonb_strip_nulls(info || :check_res::jsonb)
@@ -1754,13 +1754,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 прикладываемые там файлы так же как и в production среде записываются
 в БД в таблицу meta.media, но складываются к вам на локальный диск.</p>
 <p>Если в скриптах вам надо с ними поработать, то надо перенастроить SDK на работу с локальной метой:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">META <span style="color:#f92672">=</span> MetaApp(meta_url<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://localhost:9999&#34;</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">META <span style="color:#f92672">=</span> MetaApp(meta_url<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://localhost:9999&#34;</span>)
 </code></pre></div><p>Важно и стоит помнить, что если вы прикладывали файл в локальной мете, то и sdk должна работать с локальной метой.
 А если файл прикладывался в продакшене, то и sdk должна работать с продакшн метой.</p>
 <p>В принципе этот подход применим и при других изменениях, которые есть только локально у вас на компьютере.</p>
 <h3 id="пример">Пример</h3>
 <p>Простой пример кода, который загружает файл в хранилище и скачивает его.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> os
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> os
 <span style="color:#f92672">import</span> shutil
 <span style="color:#f92672">from</span> tempfile <span style="color:#f92672">import</span> NamedTemporaryFile
 
@@ -1774,36 +1774,36 @@ log <span style="color:#f92672">=</span> META<span style="color:#f92672">.</span
 <span style="color:#75715e"># Сути дела это не поменяет, в итоге файл попадает в хранилище, а также получает запись в таблице meta.media</span>
 upload_file <span style="color:#f92672">=</span> open(<span style="color:#e6db74">&#39;myfile.yml&#39;</span>, <span style="color:#e6db74">&#39;rb&#39;</span>)
 upload_result <span style="color:#f92672">=</span> META<span style="color:#f92672">.</span>MediaService<span style="color:#f92672">.</span>upload(upload_file, {
-    <span style="color:#e6db74">&#34;isPrivate&#34;</span>: True,  <span style="color:#75715e"># Файл будет доступен только для пользователя, работающего с api</span>
+    <span style="color:#e6db74">&#34;isPrivate&#34;</span>: <span style="color:#66d9ef">True</span>,  <span style="color:#75715e"># Файл будет доступен только для пользователя, работающего с api</span>
     <span style="color:#e6db74">&#34;ttlInSec&#34;</span>: <span style="color:#ae81ff">9999</span>,  <span style="color:#75715e"># Обязательно для временных файлов. Кол-во секунд через которые мета автоматически удалит файл</span>
     <span style="color:#e6db74">&#34;entityId&#34;</span>: <span style="color:#ae81ff">2770</span>,
     <span style="color:#e6db74">&#34;objectId&#34;</span>: <span style="color:#e6db74">&#34;114aecf5-04f1-44fa-8ad1-842b7f31a2df&#34;</span>,
-    <span style="color:#e6db74">&#34;info&#34;</span>: {<span style="color:#e6db74">&#34;test&#34;</span>: True}  <span style="color:#75715e"># Метаданные файла</span>
+    <span style="color:#e6db74">&#34;info&#34;</span>: {<span style="color:#e6db74">&#34;test&#34;</span>: <span style="color:#66d9ef">True</span>}  <span style="color:#75715e"># Метаданные файла</span>
 })
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;upload_result = </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> str(upload_result))
+print(<span style="color:#e6db74">&#34;upload_result = </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> str(upload_result))
 media_id <span style="color:#f92672">=</span> upload_result[<span style="color:#e6db74">&#39;id&#39;</span>]
 
 info_response <span style="color:#f92672">=</span> META<span style="color:#f92672">.</span>MediaService<span style="color:#f92672">.</span>info(media_id)
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;info_response = </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> str(info_response))
+print(<span style="color:#e6db74">&#34;info_response = </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> str(info_response))
 
 <span style="color:#75715e"># Для больших файлов важно скачивать их as_stream, чтобы экономить память на сервере и на клиенте</span>
-dwn_response <span style="color:#f92672">=</span> META<span style="color:#f92672">.</span>MediaService<span style="color:#f92672">.</span>download(media_id, as_stream<span style="color:#f92672">=</span>True)
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;response = </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> str(dwn_response))
+dwn_response <span style="color:#f92672">=</span> META<span style="color:#f92672">.</span>MediaService<span style="color:#f92672">.</span>download(media_id, as_stream<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+print(<span style="color:#e6db74">&#34;response = </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> str(dwn_response))
 
 <span style="color:#75715e"># мета старается сжимать ответы через gzip, поэтому</span>
 <span style="color:#75715e"># для текстовых файлов часто очень важно устанавливать decode_content=True</span>
 <span style="color:#75715e"># например для mime application/json плохо скачиваются</span>
 <span style="color:#75715e"># response.raw.decode_content = True</span>
-dwn_response<span style="color:#f92672">.</span>raw<span style="color:#f92672">.</span>decode_content <span style="color:#f92672">=</span> True
+dwn_response<span style="color:#f92672">.</span>raw<span style="color:#f92672">.</span>decode_content <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
 
-source_file <span style="color:#f92672">=</span> NamedTemporaryFile(delete<span style="color:#f92672">=</span>False)
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;source_file.name = </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> str(source_file<span style="color:#f92672">.</span>name))
+source_file <span style="color:#f92672">=</span> NamedTemporaryFile(delete<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+print(<span style="color:#e6db74">&#34;source_file.name = </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> str(source_file<span style="color:#f92672">.</span>name))
 <span style="color:#66d9ef">with</span> open(source_file<span style="color:#f92672">.</span>name, <span style="color:#e6db74">&#34;wb&#34;</span>) <span style="color:#66d9ef">as</span> out_file:
     shutil<span style="color:#f92672">.</span>copyfileobj(dwn_response<span style="color:#f92672">.</span>raw, out_file)
 </code></pre></div><h2 id="работа-от-лица-пользователя">Работа от лица пользователя</h2>
 <p>Иногда надо работать с файлами от имени пользователя, например если пользователь заказал фоновую обработку.
 В этом случае надо устанавливать, а потом убирать параметр <code>META.auth_user_id</code></p>
-<pre><code>try:
+<pre tabindex="0"><code>try:
     META.auth_user_id = {{NEED_USER_ID}}
 
     upload_file = open('/Users/arturgspb/PycharmProjects/metaappscriptworkers/1.yml', 'rb')
@@ -1824,7 +1824,7 @@ finally:
 <h3 id="страница-в-интерфейсе">Страница в интерфейсе</h3>
 <p>Рисует форму, куда в данном примере прикладывается только файл, но как и любая lego-форма она может
 содержать любые другие доступные контролы.</p>
-<pre><code>&lt;elem span=&quot;12&quot; states=&quot;default&quot;&gt;
+<pre tabindex="0"><code>&lt;elem span=&quot;12&quot; states=&quot;default&quot;&gt;
   &lt;tpl&gt;
     &lt;form name=&quot;editGroupForm&quot; ng-submit=&quot;changeState('run_parsing', {obj:env.sp.obj})&quot;&gt;
       &lt;me-lego elems=&quot;editGroup.legoForm.elems&quot; output=&quot;env.sp.obj&quot;&gt;&lt;/me-lego&gt;
@@ -1933,7 +1933,7 @@ FROM api.meta_starter_submit_task('your_parser_script_name', jsonb_build_object(
    ${pager}
 &lt;/script&gt;
 </code></pre><h3 id="пример-фонового-скрипта-для-страницы">Пример фонового скрипта для страницы</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> os
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> os
 <span style="color:#f92672">import</span> shutil
 <span style="color:#f92672">from</span> tempfile <span style="color:#f92672">import</span> NamedTemporaryFile
 
@@ -1944,10 +1944,10 @@ log <span style="color:#f92672">=</span> META<span style="color:#f92672">.</span
 
 
 <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">download_file</span>(media_id):
-    dwn_response <span style="color:#f92672">=</span> META<span style="color:#f92672">.</span>MediaService<span style="color:#f92672">.</span>download(media_id, as_stream<span style="color:#f92672">=</span>True)
-    dwn_response<span style="color:#f92672">.</span>raw<span style="color:#f92672">.</span>decode_content <span style="color:#f92672">=</span> True
-    source_file <span style="color:#f92672">=</span> NamedTemporaryFile(delete<span style="color:#f92672">=</span>False)
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;source_file.name = </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> str(source_file<span style="color:#f92672">.</span>name))
+    dwn_response <span style="color:#f92672">=</span> META<span style="color:#f92672">.</span>MediaService<span style="color:#f92672">.</span>download(media_id, as_stream<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+    dwn_response<span style="color:#f92672">.</span>raw<span style="color:#f92672">.</span>decode_content <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
+    source_file <span style="color:#f92672">=</span> NamedTemporaryFile(delete<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+    print(<span style="color:#e6db74">&#34;source_file.name = </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> str(source_file<span style="color:#f92672">.</span>name))
     <span style="color:#66d9ef">with</span> open(source_file<span style="color:#f92672">.</span>name, <span style="color:#e6db74">&#34;wb&#34;</span>) <span style="color:#66d9ef">as</span> out_file:
         shutil<span style="color:#f92672">.</span>copyfileobj(dwn_response<span style="color:#f92672">.</span>raw, out_file)
     <span style="color:#66d9ef">return</span> source_file<span style="color:#f92672">.</span>name
@@ -1969,7 +1969,7 @@ META<span style="color:#f92672">.</span>worker<span style="color:#f92672">.</spa
 ]
 
 
-<span style="color:#a6e22e">@META.worker.single_task</span>
+<span style="color:#a6e22e">@META</span><span style="color:#f92672">.</span>worker<span style="color:#f92672">.</span>single_task
 <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>(task):
     task_id <span style="color:#f92672">=</span> task[<span style="color:#e6db74">&#34;taskId&#34;</span>]
 
@@ -1978,7 +1978,7 @@ META<span style="color:#f92672">.</span>worker<span style="color:#f92672">.</spa
     log<span style="color:#f92672">.</span>set_entity(<span style="color:#e6db74">&#34;user_id&#34;</span>, user_id)
     log<span style="color:#f92672">.</span>set_entity(<span style="color:#e6db74">&#34;media_id&#34;</span>, media_id)
 
-    filepath <span style="color:#f92672">=</span> None
+    filepath <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>
     <span style="color:#66d9ef">try</span>:
         filepath <span style="color:#f92672">=</span> download_file(media_id)
         process_file(filepath)

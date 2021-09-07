@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.68.1" />
+    <meta name="generator" content="Hugo 0.88.1" />
     <meta name="description" content="">
 
 
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/guides/script_types/">
+  <body class="" data-url="https://developers.devision.io/meta/guides/script_types/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -1671,11 +1671,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <h2 id="атрибуты-elem-attrs">Атрибуты elem-attrs</h2>
 <p>Конфигурируют элемент, указанный в атрибуте elem. Для каждого elem они могут быть разными - ищите нужную документацию в <a href="https://developers.devision.io/meta/reference/ui_controls/typedoc/">структуре всех классов</a>.</p>
 <p>Чаще всего вы будете использовать атрибуты, указывая их в виде json-обекта как в этом примере:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;adplatform&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;issues&#34;</span> <span style="color:#a6e22e">order</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;100500&#34;</span> <span style="color:#a6e22e">entity-id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;2701&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;adplatform&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;issues&#34;</span> <span style="color:#a6e22e">order</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;100500&#34;</span> <span style="color:#a6e22e">entity-id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;2701&#34;</span>
 		<span style="color:#a6e22e">elem-attrs</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;{&#34;addObjectButton&#34;:{ &#34;mode&#34;:&#34;sidenav&#34;}}&#39;</span>&gt;
 ...
 </code></pre></div><p>(beta) Для атрибутов типа строка и число вы можете использовать inline стиль написания, это удобно для более простой шаблонизации или боее ясного написания сложных объектов</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">order</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;400&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;res&#34;</span> <span style="color:#a6e22e">entity-id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;2830&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta&#34;</span> <span style="color:#a6e22e">entity-id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ex_system&#34;</span> 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">order</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;400&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;res&#34;</span> <span style="color:#a6e22e">entity-id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;2830&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta&#34;</span> <span style="color:#a6e22e">entity-id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ex_system&#34;</span> 
   <span style="color:#a6e22e">elem</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;me-card-list&#34;</span>
   <span style="color:#a6e22e">elem-attrs</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">entityCardLink</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">mode</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;sidenav&#39;</span>
   <span style="color:#a6e22e">elem-attrs</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">entityCardLink</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">drawTopMenu</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;false&#39;</span>
@@ -1690,25 +1690,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </code></pre></div><h2 id="отображение-элементов-в-сетке">Отображение элементов в сетке</h2>
 <p>UI сетка состоит из 12 столбцов, ячейки сетки не используют flex, идут слева направо и естественным образом переносятся на новую строку.
 Если нужно сделать новую строку используйте элемент с именем <strong>newrow</strong>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">elem</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;newrow&#34;</span>&gt;&lt;/<span style="color:#f92672">elem</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">elem</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;newrow&#34;</span>&gt;&lt;/<span style="color:#f92672">elem</span>&gt;
 </code></pre></div><p>Или если вы описываете LEGO на json, то это выглядит так (<a href="https://developers.devision.io/meta/samples/pages/simple_entity/">полный пример</a>):</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;newrow&#34;</span>
 }
 </code></pre></div><h3 id="атрибут-order">Атрибут order</h3>
 <p>Атрибут <strong>Не влияет</strong> на порядов исполенения скриптов на backend, а только определяет спорядов в сетке.
 Чем больше значение, тем правее и ниже будет элемент.</p>
 <h3 id="атрибут-span">Атрибут span</h3>
-<p>Определяет ширину элемента в сетке. Например если будет span=&quot;12&rdquo; (значение по-умолчанию) то элемент будет занимать всю ширину страницы,
-span=&quot;6&rdquo; - только половину.</p>
+<p>Определяет ширину элемента в сетке. Например если будет span=&ldquo;12&rdquo; (значение по-умолчанию) то элемент будет занимать всю ширину страницы,
+span=&ldquo;6&rdquo; - только половину.</p>
 <h3 id="атрибут-offset">Атрибут offset</h3>
-<p>Работае как и span по ширине в сетке, но отвечает за левый отступ. Например, если у нас span=&quot;4&rdquo; и offset=&quot;4&rdquo;,
+<p>Работае как и span по ширине в сетке, но отвечает за левый отступ. Например, если у нас span=&ldquo;4&rdquo; и offset=&ldquo;4&rdquo;,
 то наш элемент будет занимать 1/3 ширины страницы и на 1/3 будет сдвинут слева, т.е. будет находится примерно по середине.</p>
 <h3 id="атрибут-align">Атрибут align</h3>
 <p>Центрирует контент элемента. Может быть: left (по умолчанию), right или center.</p>
 <h2 id="ключевое-слово-internal">Ключевое слово internal</h2>
 <p>Используется для того, чтобы получить данные на серверной стороне и не отправлять их на клиент. Это ускоряет страницу и позволяет 100% защитить программиста от случайно передачи секретной информации на клиент.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;my_data&#34;</span> <span style="color:#a6e22e">internal</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;my_data&#34;</span> <span style="color:#a6e22e">internal</span>&gt;
   <span style="color:#a6e22e">SELECT</span> <span style="color:#ae81ff">1</span>
 &lt;/<span style="color:#f92672">script</span>&gt;
 </code></pre></div><h2 id="ключевое-слово-async">Ключевое слово async</h2>
@@ -1721,7 +1721,7 @@ span=&quot;6&rdquo; - только половину.</p>
 <p>Используется для условной фильтрации скриптов и элементов на бекенде.
 Скрипты не будет исполняться и будет предотвращать отрисовку связанных элементов. Элементы, при установки do-if на них не будут приходить на фронтенд</p>
 <p>Пример: <a href="https://samples-demo.devision.io/page?p=4551&amp;a=35">https://samples-demo.devision.io/page?p=4551&amp;a=35</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;all_activity&#34;</span> <span style="color:#a6e22e">do-if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;env.sp.activity_mode==&#39;all&#39;&#34;</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;all_activity&#34;</span> <span style="color:#a6e22e">do-if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;env.sp.activity_mode==&#39;all&#39;&#34;</span>&gt;
 <span style="color:#a6e22e">select</span> <span style="color:#a6e22e">now</span>()
 &lt;/<span style="color:#f92672">script</span>&gt;
 
@@ -1736,7 +1736,7 @@ span=&quot;6&rdquo; - только половину.</p>
 <p>Существуют макросы для упрощения жизни разработчика:</p>
 <p><strong>${pager}</strong> - для вставки пагинатора</p>
 <p><strong>${sort}</strong> - для вставки сортировки</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta_samples&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tableWithFooterWithoutPagerTotal&#34;</span> 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta_samples&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tableWithFooterWithoutPagerTotal&#34;</span> 
     <span style="color:#a6e22e">label</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Таблица с футером, но без расширенного пагинатора&#34;</span> <span style="color:#a6e22e">span</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;4&#34;</span> <span style="color:#a6e22e">order</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;71&#34;</span>&gt;
 <span style="color:#a6e22e">WITH</span> <span style="color:#a6e22e">empls</span> <span style="color:#a6e22e">AS</span> (
 <span style="color:#a6e22e">SELECT</span> (<span style="color:#a6e22e">generate_series</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">employee</span>.<span style="color:#e6db74">&#34;employeeId&#34;</span><span style="color:#f92672">::</span><span style="color:#a6e22e">text</span>)<span style="color:#f92672">::</span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">seq</span>,
@@ -1759,7 +1759,7 @@ span=&quot;6&rdquo; - только половину.</p>
 <p>По-умолчанию 50 000 строк данных будет нормально возвращаться для скрипта или любого другого запроса в БД.
 Если строк придет больше, то скрипт вернет ошибку и не вернет результатов.
 Если вам не хватает значения 50к - вы можете увеличить его атрибутом скрипта</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#960050;background-color:#1e0010">...</span> <span style="color:#a6e22e">max-rows</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;999999&#34;</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#960050;background-color:#1e0010">...</span> <span style="color:#a6e22e">max-rows</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;999999&#34;</span>&gt;
 ...
 </code></pre></div><h3 id="чтение-и-обновление-данных-атрибут-no-result">Чтение и Обновление данных (атрибут no-result)</h3>
 <p>По-умолчанию script выполняет функция query() в сервисе запросов к БД.
@@ -1767,7 +1767,7 @@ span=&quot;6&rdquo; - только половину.</p>
 нужно делать RETURNING если это Postgres, либо ставить no-result на скрипте. Это будет вызывать функцию update(),
 которая ждет, что ничего не будет возвращено и будет ругаться, если что-то вернется</p>
 <p>Пример: <a href="https://samples-demo.devision.io/page?p=4105&amp;a=35">https://samples-demo.devision.io/page?p=4105&amp;a=35</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta_samples&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;upd&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta_samples&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;upd&#34;</span>
   <span style="color:#a6e22e">no-result</span>&gt;
 <span style="color:#a6e22e">UPDATE</span> <span style="color:#a6e22e">counters</span> <span style="color:#a6e22e">SET</span> <span style="color:#a6e22e">inc</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">inc</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span> <span style="color:#a6e22e">WHERE</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;md_source_update&#39;</span>
 &lt;/<span style="color:#f92672">script</span>&gt;
@@ -1778,7 +1778,7 @@ PostgreSQL очень хорошо справляется почти со все
 <!-- raw HTML omitted -->
 <p>Обрабатывается через <a href="https://ru.wikipedia.org/wiki/Nashorn_(%D0%B4%D0%B2%D0%B8%D0%B6%D0%BE%D0%BA_JavaScript)">Nashorn</a> поэтому работает не всегда так же как обычный JavaScript</p>
 <p>В скриптах выглядит следующим образом:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta_samples&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tbl_with_js_footer&#34;</span> &gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta_samples&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tbl_with_js_footer&#34;</span> &gt;
 <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>() {
   <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">DataResult</span>.<span style="color:#a6e22e">newBuilder</span>()
     .<span style="color:#a6e22e">field</span>(<span style="color:#e6db74">&#39;id&#39;</span>, <span style="color:#e6db74">&#39;id&#39;</span>, <span style="color:#e6db74">&#39;TEXT&#39;</span>)
@@ -1821,7 +1821,7 @@ PostgreSQL очень хорошо справляется почти со все
 <h2 id="popup-changestate">Popup, ChangeState</h2>
 <p>Типичный код после UPDATE/INSERT в карточке объекта. Кидает попап, переводит состояние страницы в default с очисткой параметров env.sp
 А так же логирует действие с объектом.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span> <span style="color:#a6e22e">elem</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hidden&#34;</span> <span style="color:#a6e22e">states</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;save&#34;</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span> <span style="color:#a6e22e">elem</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hidden&#34;</span> <span style="color:#a6e22e">states</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;save&#34;</span>&gt;
 <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>(<span style="color:#a6e22e">pvm</span>, <span style="color:#a6e22e">vm</span>, <span style="color:#a6e22e">env</span>, <span style="color:#a6e22e">ObjectLogService</span>) {
   <span style="color:#66d9ef">var</span>  <span style="color:#a6e22e">objectId</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">MetaUtils</span>.<span style="color:#a6e22e">convert</span>.<span style="color:#a6e22e">toLong</span>(<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">object_id</span>);
 
@@ -1836,9 +1836,9 @@ PostgreSQL очень хорошо справляется почти со все
 <p>Например, вы хотите реализовать такую логику: &ldquo;Пользователь на форме ввел ИНН в поле, бекенд вернул часть value данных для формы и Мета все заполнила. Поля после этого можно изменять, но если ИНН изменят опять - данные перезаполняются.&rdquo;</p>
 <p>Делается через механизм серверной валидации, так как скорее всего мы заходите проверить ввод данных, перед заполнением других полей.
 Механизм refPvmValidator позволяет изменять env.sp, если вы вызовите <strong>pvm.patchEnvSp</strong>. Если в refPvmValidator вам нужны данные из БД, используйте additionalPartialLoad, например так:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">refPvmValidator: {id: &#34;my_validator&#34;, sp: {}, additionalPartialLoad: [&#34;my_external_sql_data&#34;, &#34;my_data_loader&#34;]},
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">refPvmValidator: {id: &#34;my_validator&#34;, sp: {}, additionalPartialLoad: [&#34;my_external_sql_data&#34;, &#34;my_data_loader&#34;]},
 </code></pre></div><!-- raw HTML omitted -->
-<p>role=&quot;alert&quot;&gt;
+<p>role=&ldquo;alert&rdquo;&gt;
 Обратите внимание, что patchEnvSp перечает частичные данные и мета делает deep merge и перезаписывает только те данные, которые вы передали.</p>
 <p><strong>Пример 1:</strong></p>
 <ul>
@@ -1860,7 +1860,7 @@ PostgreSQL очень хорошо справляется почти со все
 </ul>
 <!-- raw HTML omitted -->
 <p>Для полной перезаписи env.sp используйте pvm.setEnvSp()</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;my_validator&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta_samples&#34;</span> <span style="color:#a6e22e">depends</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;name&#34;</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;my_validator&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta_samples&#34;</span> <span style="color:#a6e22e">depends</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;name&#34;</span>&gt;
 <span style="color:#a6e22e">SELECT</span> <span style="color:#e6db74">&#39;unique_client&#39;</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">id</span>, <span style="color:#e6db74">&#39;Клиент не может присутствовать в списке больше одного раза: &#39;</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">name</span>
 <span style="color:#a6e22e">LIMIT</span> <span style="color:#ae81ff">0</span>
 &lt;/<span style="color:#f92672">script</span>&gt;
@@ -1946,7 +1946,7 @@ PostgreSQL очень хорошо справляется почти со все
 </code></pre></div><h2 id="заполнение-env-при-первоначальной-загрузке-страницы">Заполнение Env при первоначальной загрузке страницы</h2>
 <p>pvm.initEnvSp заполняет env.sp со стороны сервера первый раз при загрузке страницы.</p>
 <h3 id="пример-заполнения-на-константами">Пример заполнения на константами</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;my_init_script&#34;</span> &gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;my_init_script&#34;</span> &gt;
   <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>(<span style="color:#a6e22e">env</span>, <span style="color:#a6e22e">pvm</span>) {
     <span style="color:#a6e22e">pvm</span>.<span style="color:#a6e22e">initEnvSp</span>(<span style="color:#a6e22e">env</span>, {
       <span style="color:#e6db74">&#34;period&#34;</span><span style="color:#f92672">:</span> {<span style="color:#e6db74">&#34;from&#34;</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#34;${ref.now.withDayOfMonth(1)?date}&#34;</span>, <span style="color:#e6db74">&#34;to&#34;</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#34;${ref.now?date}&#34;</span>}
@@ -1954,7 +1954,7 @@ PostgreSQL очень хорошо справляется почти со все
   }
 &lt;/<span style="color:#f92672">script</span>&gt;
 </code></pre></div><h3 id="пример-заполнения-envsp-из-запроса">Пример заполнения env.sp из запроса</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;my_init_info&#34;</span> <span style="color:#a6e22e">internal</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;my_init_info&#34;</span> <span style="color:#a6e22e">internal</span>&gt;
 <span style="color:#a6e22e">SELECT</span> ........
 &lt;/<span style="color:#f92672">script</span>&gt;
   

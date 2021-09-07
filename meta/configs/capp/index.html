@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.68.1" />
+    <meta name="generator" content="Hugo 0.88.1" />
     <meta name="description" content="">
 
 
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/configs/capp/">
+  <body class="" data-url="https://developers.devision.io/meta/configs/capp/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -1664,41 +1664,41 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <h2 id="конфигурация-приложений">Конфигурация приложений</h2>
 <p>Конфигурация приложений расположена в файле <strong>apps.yaml</strong> в корне app-content.</p>
 <p>Файл содержит в себе структуру:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">apps</span>:
-  - <span style="color:#66d9ef">id</span>: string <span style="color:#75715e"># ID приложения</span>
-    <span style="color:#66d9ef">name</span>: string <span style="color:#75715e"># Имя приложения. Выводится везде для всех</span>
-    <span style="color:#66d9ef">alias</span>: string <span style="color:#75715e"># для тикетов и мета страницы и для фидов</span>
-    <span style="color:#66d9ef">description</span>: string <span style="color:#75715e"># Для вывода разработчикам</span>
-    <span style="color:#66d9ef">category</span>: string <span style="color:#75715e"># Название категории для разработчиков</span>
-    <span style="color:#66d9ef">site_url</span>: string <span style="color:#75715e"># Для редиректа на логин, скачивание файлов и пр.</span>
-    <span style="color:#66d9ef">favicon_url</span>: string <span style="color:#75715e"># Ссылка на favicon</span>
-    <span style="color:#66d9ef">picture_url</span>: string <span style="color:#75715e"># Основная нормальная иконка приложения</span>
-    <span style="color:#66d9ef">middle_picture_url</span>: string <span style="color:#75715e"># Если указано - выводится на иконке внутри приложения, если нет - то picture_url</span>
-    <span style="color:#66d9ef">login_picture_url</span>: string <span style="color:#75715e"># Если указано - выводится на форме логина, если нет - то picture_url</span>
-    <span style="color:#66d9ef">help_url</span>: string <span style="color:#75715e"># Ссылка на хелп в приложении</span>
-    <span style="color:#66d9ef">is_join_user_enabled</span>: string <span style="color:#75715e"># Можно ли зарегистрироваться через это приложение</span>
-    <span style="color:#66d9ef">is_fast_google_auth_enabled</span>: string <span style="color:#75715e"># Включена ли функция быстрого входа через Google - https://developers.google.com/identity/one-tap/web</span>
-    <span style="color:#66d9ef">is_global_search_enabled</span>: bool <span style="color:#75715e"># Доступен ли интерфейс глобального поиска</span>
-    <span style="color:#66d9ef">is_hide_first_item_in_top_menu</span>: bool <span style="color:#75715e"># Некоторые приложения нуждаются в скрытии первого элемента меню, но при этом клик по лого приложния все также должен перенаправлять пользователя на эту страницу.</span>
-    <span style="color:#66d9ef">theme</span>:
-      <span style="color:#66d9ef">topMenu</span>:
-        <span style="color:#66d9ef">backgroundColor</span>: string <span style="color:#75715e"># фоновый цвет меню</span>
-        <span style="color:#66d9ef">fontColor</span>: string <span style="color:#75715e"># цвет текста меню</span>
-        <span style="color:#66d9ef">fontColorHover</span>: string <span style="color:#75715e"># цвет теста меню при наведении мышкой</span>
-    <span style="color:#66d9ef">oauth_server</span>:
-      <span style="color:#66d9ef">server_url</span>: string <span style="color:#75715e"># Schema + host. Например https://account.devision.io</span>
-      <span style="color:#66d9ef">client_id</span>: string <span style="color:#75715e"># ClientID полученый через Cloud. Записан в id в meta.oauth_client</span>
-      <span style="color:#66d9ef">client_secret</span>: string <span style="color:#75715e"># ClientSecret полученый через Cloud. Записан в secret в meta.oauth_client</span>
-    <span style="color:#66d9ef">acl</span>: map <span style="color:#75715e"># Map ключ значение. Повторяет схему acl для страниц. Смотрите в примерах</span>
-    <span style="color:#66d9ef">i18n</span>:
-      <span style="color:#66d9ef">ru</span>:
-        <span style="color:#66d9ef">join_app_name</span>: string <span style="color:#75715e"># Имя приложения при регистрации</span>
-        <span style="color:#66d9ef">public_offer_url</span>: string <span style="color:#75715e"># Ссылка на подтверждение оферты при регистрации</span>
-        <span style="color:#66d9ef">privacy_policy_url</span>: string <span style="color:#75715e"># Ссылка на документацию по работе с персональными данными</span>
-      <span style="color:#66d9ef">en</span>: 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">apps</span>:
+  - <span style="color:#f92672">id</span>: <span style="color:#ae81ff">string</span> <span style="color:#75715e"># ID приложения</span>
+    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">string</span> <span style="color:#75715e"># Имя приложения. Выводится везде для всех</span>
+    <span style="color:#f92672">alias</span>: <span style="color:#ae81ff">string</span> <span style="color:#75715e"># для тикетов и мета страницы и для фидов</span>
+    <span style="color:#f92672">description</span>: <span style="color:#ae81ff">string</span> <span style="color:#75715e"># Для вывода разработчикам</span>
+    <span style="color:#f92672">category</span>: <span style="color:#ae81ff">string</span> <span style="color:#75715e"># Название категории для разработчиков</span>
+    <span style="color:#f92672">site_url</span>: <span style="color:#ae81ff">string</span> <span style="color:#75715e"># Для редиректа на логин, скачивание файлов и пр.</span>
+    <span style="color:#f92672">favicon_url</span>: <span style="color:#ae81ff">string</span> <span style="color:#75715e"># Ссылка на favicon</span>
+    <span style="color:#f92672">picture_url</span>: <span style="color:#ae81ff">string</span> <span style="color:#75715e"># Основная нормальная иконка приложения</span>
+    <span style="color:#f92672">middle_picture_url</span>: <span style="color:#ae81ff">string</span> <span style="color:#75715e"># Если указано - выводится на иконке внутри приложения, если нет - то picture_url</span>
+    <span style="color:#f92672">login_picture_url</span>: <span style="color:#ae81ff">string</span> <span style="color:#75715e"># Если указано - выводится на форме логина, если нет - то picture_url</span>
+    <span style="color:#f92672">help_url</span>: <span style="color:#ae81ff">string</span> <span style="color:#75715e"># Ссылка на хелп в приложении</span>
+    <span style="color:#f92672">is_join_user_enabled</span>: <span style="color:#ae81ff">string</span> <span style="color:#75715e"># Можно ли зарегистрироваться через это приложение</span>
+    <span style="color:#f92672">is_fast_google_auth_enabled</span>: <span style="color:#ae81ff">string</span> <span style="color:#75715e"># Включена ли функция быстрого входа через Google - https://developers.google.com/identity/one-tap/web</span>
+    <span style="color:#f92672">is_global_search_enabled</span>: <span style="color:#ae81ff">bool</span> <span style="color:#75715e"># Доступен ли интерфейс глобального поиска</span>
+    <span style="color:#f92672">is_hide_first_item_in_top_menu</span>: <span style="color:#ae81ff">bool</span> <span style="color:#75715e"># Некоторые приложения нуждаются в скрытии первого элемента меню, но при этом клик по лого приложния все также должен перенаправлять пользователя на эту страницу.</span>
+    <span style="color:#f92672">theme</span>:
+      <span style="color:#f92672">topMenu</span>:
+        <span style="color:#f92672">backgroundColor</span>: <span style="color:#ae81ff">string</span> <span style="color:#75715e"># фоновый цвет меню</span>
+        <span style="color:#f92672">fontColor</span>: <span style="color:#ae81ff">string</span> <span style="color:#75715e"># цвет текста меню</span>
+        <span style="color:#f92672">fontColorHover</span>: <span style="color:#ae81ff">string</span> <span style="color:#75715e"># цвет теста меню при наведении мышкой</span>
+    <span style="color:#f92672">oauth_server</span>:
+      <span style="color:#f92672">server_url</span>: <span style="color:#ae81ff">string</span> <span style="color:#75715e"># Schema + host. Например https://account.devision.io</span>
+      <span style="color:#f92672">client_id</span>: <span style="color:#ae81ff">string</span> <span style="color:#75715e"># ClientID полученый через Cloud. Записан в id в meta.oauth_client</span>
+      <span style="color:#f92672">client_secret</span>: <span style="color:#ae81ff">string</span> <span style="color:#75715e"># ClientSecret полученый через Cloud. Записан в secret в meta.oauth_client</span>
+    <span style="color:#f92672">acl</span>: <span style="color:#ae81ff">map</span> <span style="color:#75715e"># Map ключ значение. Повторяет схему acl для страниц. Смотрите в примерах</span>
+    <span style="color:#f92672">i18n</span>:
+      <span style="color:#f92672">ru</span>:
+        <span style="color:#f92672">join_app_name</span>: <span style="color:#ae81ff">string</span> <span style="color:#75715e"># Имя приложения при регистрации</span>
+        <span style="color:#f92672">public_offer_url</span>: <span style="color:#ae81ff">string</span> <span style="color:#75715e"># Ссылка на подтверждение оферты при регистрации</span>
+        <span style="color:#f92672">privacy_policy_url</span>: <span style="color:#ae81ff">string</span> <span style="color:#75715e"># Ссылка на документацию по работе с персональными данными</span>
+      <span style="color:#f92672">en</span>: 
         <span style="color:#75715e"># по аналогии ...</span>
       <span style="color:#75715e"># любой язык по аналогии ...</span>
-  - <span style="color:#66d9ef">id</span>: string <span style="color:#75715e"># ID приложения 2</span>
+  - <span style="color:#f92672">id</span>: <span style="color:#ae81ff">string</span> <span style="color:#75715e"># ID приложения 2</span>
     <span style="color:#75715e"># ....</span>
 </code></pre></div><p>Параметры bool по умолчанию принимают значения false</p>
 

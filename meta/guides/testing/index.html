@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.68.1" />
+    <meta name="generator" content="Hugo 0.88.1" />
     <meta name="description" content="">
 
 
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/guides/testing/">
+  <body class="" data-url="https://developers.devision.io/meta/guides/testing/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -1663,14 +1663,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <p>Для того, чтобы на локальной мете можно было войти из под какого-то юзера или запустить тестирование
 сделана возможность просто указать user_id из-под которого нужно далать авторизоваться&amp;</p>
-<pre><code>http://localhost:9999/?local_auth_user_id=XXX
+<pre tabindex="0"><code>http://localhost:9999/?local_auth_user_id=XXX
 
 где XXX - user_id
 </code></pre><p>Это работает только на тех сборках, где в глобальном конфиге указан <code>isDevMode: true</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">isDevMode</span>: <span style="color:#66d9ef">true</span> &lt;-------------  Это нелья устанавливать в Production окружении
-<span style="color:#66d9ef">isFetchDbsFromApi</span>: <span style="color:#66d9ef">true</span>
-<span style="color:#66d9ef">name</span>: dev
-.....
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">isDevMode</span>: <span style="color:#66d9ef">true</span> <span style="color:#ae81ff">&lt;-------------  Это нелья устанавливать в Production окружении</span>
+<span style="color:#f92672">isFetchDbsFromApi</span>: <span style="color:#66d9ef">true</span>
+<span style="color:#f92672">name</span>: <span style="color:#ae81ff">dev</span>
+...<span style="color:#ae81ff">..</span>
 </code></pre></div>
 
 

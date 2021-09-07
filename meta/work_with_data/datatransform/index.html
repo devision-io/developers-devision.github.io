@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.68.1" />
+    <meta name="generator" content="Hugo 0.88.1" />
     <meta name="description" content="">
 
 
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/work_with_data/datatransform/">
+  <body class="" data-url="https://developers.devision.io/meta/work_with_data/datatransform/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -1668,7 +1668,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p>Принципиально все достаточно просто - у вас есть DataResult и вы хотите его перегруппировать.
 Для этого сперва получаем данные, например sql запросом в скрипте <strong>res</strong>, а потом в отдельном meta/js скрипте делаем вызов DataTransformService.pivot
 с необходимыми параметрами.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta_samples&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;res&#34;</span> <span style="color:#a6e22e">entity-id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;2629&#34;</span> <span style="color:#a6e22e">label</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Исходные данные. Можно не выводить на интерфейс, тут просто для понимания исходных данных&#34;</span> <span style="color:#a6e22e">order</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;10&#34;</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta_samples&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;res&#34;</span> <span style="color:#a6e22e">entity-id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;2629&#34;</span> <span style="color:#a6e22e">label</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Исходные данные. Можно не выводить на интерфейс, тут просто для понимания исходных данных&#34;</span> <span style="color:#a6e22e">order</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;10&#34;</span>&gt;
 <span style="color:#a6e22e">SELECT</span> 
 ...
 <span style="color:#a6e22e">json_build_object</span>(
@@ -1706,7 +1706,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 }
 &lt;/<span style="color:#f92672">script</span>&gt;
 </code></pre></div><h3 id="pivotconfig">PivotConfig</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">то,</span> <span style="color:#960050;background-color:#1e0010">что</span> <span style="color:#960050;background-color:#1e0010">группируется</span> <span style="color:#960050;background-color:#1e0010">по</span> <span style="color:#960050;background-color:#1e0010">строкам</span>
   <span style="color:#f92672">&#34;rows&#34;</span>: [<span style="color:#e6db74">&#34;name&#34;</span>],
   

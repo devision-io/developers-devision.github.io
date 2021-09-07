@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.68.1" />
+    <meta name="generator" content="Hugo 0.88.1" />
     <meta name="description" content="">
 
 
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/guides/debug_and_logging/">
+  <body class="" data-url="https://developers.devision.io/meta/guides/debug_and_logging/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -1686,7 +1686,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li>Нет конкретного лога: Не все объекты, прикладываемые в качестве интерполируего аргумента лога могут быть приведены к строке и из-за этого весь лог может пропадать. Попробуйте в этом месте исключить аргументы и посмотреть что будет.</li>
 </ul>
 <p>А вот примеры вызова</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;my_src&#34;</span> &gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;my_src&#34;</span> &gt;
 <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>(<span style="color:#a6e22e">log</span>) {
   <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">info</span>(<span style="color:#e6db74">&#39;test info&#39;</span>);
   <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">warn</span>(<span style="color:#e6db74">&#39;test warning&#39;</span>);

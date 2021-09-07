@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.68.1" />
+    <meta name="generator" content="Hugo 0.88.1" />
     <meta name="description" content="">
 
 
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/compoments/smart_forms/">
+  <body class="" data-url="https://developers.devision.io/meta/compoments/smart_forms/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -1682,21 +1682,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 По сути там пишется все то, что можно писать в обычных ручных lego формах, но не обязательно описывать вообще все -
 впишите только то, что нужно переопределить по отношению к автосгенерированным свойствам.</p>
 <p>Например:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">...
-- <span style="color:#66d9ef">alias</span>: name
-  <span style="color:#66d9ef">db_type</span>: text
-  <span style="color:#66d9ef">is_title</span>: <span style="color:#66d9ef">true</span>
-  <span style="color:#66d9ef">display_name</span>: Название клиента
-  <span style="color:#66d9ef">name</span>: name
-  <span style="color:#66d9ef">semantic_role</span>: DIMENSION
-  <span style="color:#66d9ef">order</span>: <span style="color:#ae81ff">100</span> &lt;---------- сортировка, заданная вручную и не через само положение относительно других полей entity
-  <span style="color:#66d9ef">data_type</span>: TEXT
-  <span style="color:#66d9ef">is_required</span>: <span style="color:#66d9ef">true</span>
-  <span style="color:#66d9ef">lego_elem</span>:  &lt;---- Все то, что рабоатет в lego формах (НЕ ОЯЗАТЕЛЬНО полное описание всего elem). Перетирается важными сгенерированными параметрами, например id, label, entityId, required и пр 
-    <span style="color:#66d9ef">name</span>: me-input
-    <span style="color:#66d9ef">span</span>: <span style="color:#ae81ff">4</span>
-    <span style="color:#66d9ef">attrs</span>:
-      <span style="color:#66d9ef">type</span>: textarea
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">...
+- <span style="color:#f92672">alias</span>: <span style="color:#ae81ff">name</span>
+  <span style="color:#f92672">db_type</span>: <span style="color:#ae81ff">text</span>
+  <span style="color:#f92672">is_title</span>: <span style="color:#66d9ef">true</span>
+  <span style="color:#f92672">display_name</span>: <span style="color:#ae81ff">Название клиента</span>
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">name</span>
+  <span style="color:#f92672">semantic_role</span>: <span style="color:#ae81ff">DIMENSION</span>
+  <span style="color:#f92672">order</span>: <span style="color:#ae81ff">100</span> <span style="color:#ae81ff">&lt;---------- сортировка, заданная вручную и не через само положение относительно других полей entity</span>
+  <span style="color:#f92672">data_type</span>: <span style="color:#ae81ff">TEXT</span>
+  <span style="color:#f92672">is_required</span>: <span style="color:#66d9ef">true</span>
+  <span style="color:#f92672">lego_elem</span>:  <span style="color:#ae81ff">&lt;---- Все то, что рабоатет в lego формах (НЕ ОЯЗАТЕЛЬНО полное описание всего elem). Перетирается важными сгенерированными параметрами, например id, label, entityId, required и пр </span>
+    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">me-input</span>
+    <span style="color:#f92672">span</span>: <span style="color:#ae81ff">4</span>
+    <span style="color:#f92672">attrs</span>:
+      <span style="color:#f92672">type</span>: <span style="color:#ae81ff">textarea</span>
 ...
 </code></pre></div><h2 id="настройка-insert_query">Настройка insert_query</h2>
 <p>Иногда бывает, что надо вызвать хранимую процедуру для вставки объекта.
@@ -1707,137 +1707,137 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p>Значение default_value шаблонизируется через freemarker так же как и любой шаблон и скрипт в мете.
 Из этого следует, что вы можете рассчитывать динамические значения, например дату по умолчанию.
 Вот пример одного поля:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#66d9ef">name</span>: <span style="color:#e6db74">&#34;pay_date&#34;</span>
-  <span style="color:#66d9ef">db_type</span>: <span style="color:#e6db74">&#34;date&#34;</span>
-  <span style="color:#66d9ef">default_value</span>: <span style="color:#e6db74">&#34;${ref.now.plusMonths(1)?date}&#34;</span>
-  <span style="color:#66d9ef">display_name</span>: <span style="color:#e6db74">&#34;Дата оплаты&#34;</span>
-  <span style="color:#66d9ef">i18n</span>: <span style="color:#66d9ef">true</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;pay_date&#34;</span>
+  <span style="color:#f92672">db_type</span>: <span style="color:#e6db74">&#34;date&#34;</span>
+  <span style="color:#f92672">default_value</span>: <span style="color:#e6db74">&#34;${ref.now.plusMonths(1)?date}&#34;</span>
+  <span style="color:#f92672">display_name</span>: <span style="color:#e6db74">&#34;Дата оплаты&#34;</span>
+  <span style="color:#f92672">i18n</span>: <span style="color:#66d9ef">true</span>
 </code></pre></div><p>Пример и документация использования Java API для работы с датами:
 <a href="https://samples-demo.devision.io/page?p=3750&amp;a=35">https://samples-demo.devision.io/page?p=3750&amp;a=35</a></p>
 <h2 id="параметры-add_expression-и-set_expression">Параметры add_expression и set_expression</h2>
 <p>Иногда при insert или update записи надо иметь высчитываемые поля, но часто они зависят от контекста, например <code>userId</code>.
 В примере нише рассматривается простейший случай, когда нам надо просто взять и вставить id пользователя (используется prepared statement), но
 тут можно написать и более сложный sql expression</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#66d9ef">name</span>: author_user_id
-  <span style="color:#66d9ef">db_type</span>: bigint
-  <span style="color:#66d9ef">display_name</span>: Добавлено
-  <span style="color:#66d9ef">i18n</span>: <span style="color:#66d9ef">true</span>
-  <span style="color:#66d9ef">foreign_entity_id</span>: <span style="color:#ae81ff">2654</span>
-  <span style="color:#66d9ef">is_readonly</span>: <span style="color:#66d9ef">true</span>
-  <span style="color:#66d9ef">add_expression</span>: :env.userId
-- <span style="color:#66d9ef">name</span>: last_user_id
-  <span style="color:#66d9ef">db_type</span>: bigint
-  <span style="color:#66d9ef">display_name</span>: Изменено
-  <span style="color:#66d9ef">i18n</span>: <span style="color:#66d9ef">true</span>
-  <span style="color:#66d9ef">foreign_entity_id</span>: <span style="color:#ae81ff">2654</span>
-  <span style="color:#66d9ef">is_readonly</span>: <span style="color:#66d9ef">true</span>
-  <span style="color:#66d9ef">add_expression</span>: :env.userId
-  <span style="color:#66d9ef">set_expression</span>: :env.userId
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">author_user_id</span>
+  <span style="color:#f92672">db_type</span>: <span style="color:#ae81ff">bigint</span>
+  <span style="color:#f92672">display_name</span>: <span style="color:#ae81ff">Добавлено</span>
+  <span style="color:#f92672">i18n</span>: <span style="color:#66d9ef">true</span>
+  <span style="color:#f92672">foreign_entity_id</span>: <span style="color:#ae81ff">2654</span>
+  <span style="color:#f92672">is_readonly</span>: <span style="color:#66d9ef">true</span>
+  <span style="color:#f92672">add_expression</span>: :<span style="color:#ae81ff">env.userId</span>
+- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">last_user_id</span>
+  <span style="color:#f92672">db_type</span>: <span style="color:#ae81ff">bigint</span>
+  <span style="color:#f92672">display_name</span>: <span style="color:#ae81ff">Изменено</span>
+  <span style="color:#f92672">i18n</span>: <span style="color:#66d9ef">true</span>
+  <span style="color:#f92672">foreign_entity_id</span>: <span style="color:#ae81ff">2654</span>
+  <span style="color:#f92672">is_readonly</span>: <span style="color:#66d9ef">true</span>
+  <span style="color:#f92672">add_expression</span>: :<span style="color:#ae81ff">env.userId</span>
+  <span style="color:#f92672">set_expression</span>: :<span style="color:#ae81ff">env.userId</span>
 </code></pre></div><h2 id="связанный-enum">Связанный enum</h2>
 <p>Enum-ы хранятся в таблице meta.enum и являются простыми справочниками, для которых не хочется заводить отдельные таблицы.</p>
 <p>В смарт-формах можно очень легко автоматически получить контрол me-select для таких полей просто сделав ссылку на нужный вам справочник.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">...
-- <span style="color:#66d9ef">db_type</span>: text
-  <span style="color:#66d9ef">name</span>: state
-  <span style="color:#66d9ef">foreign_enum_kind</span>: <span style="color:#e6db74">&#39;billing_state&#39;</span> &lt;-------- эта настройка управляет ссылкой на enum 
-  <span style="color:#66d9ef">lego_elem</span>:
-    <span style="color:#66d9ef">span</span>: <span style="color:#ae81ff">4</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">...
+- <span style="color:#f92672">db_type</span>: <span style="color:#ae81ff">text</span>
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">state</span>
+  <span style="color:#f92672">foreign_enum_kind</span>: <span style="color:#e6db74">&#39;billing_state&#39;</span> <span style="color:#ae81ff">&lt;-------- эта настройка управляет ссылкой на enum </span>
+  <span style="color:#f92672">lego_elem</span>:
+    <span style="color:#f92672">span</span>: <span style="color:#ae81ff">4</span>
 ...
 </code></pre></div><p>Мета внутри себя для такого поля сделает запрос:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> meta.enum_options_view <span style="color:#66d9ef">WHERE</span> kind<span style="color:#f92672">=</span>:kind <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> name
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> meta.enum_options_view <span style="color:#66d9ef">WHERE</span> kind<span style="color:#f92672">=</span>:kind <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> name
 </code></pre></div><p>В плейсхолдер <code>:kind</code> будет подставлено значение из <code>foreign_enum_kind</code>, в этом конкретном примере - <code>billing_state</code>.</p>
 <h2 id="практический-пример">Практический пример</h2>
 <h3 id="пример-настройки-entity">Пример настройки entity</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">id</span>: <span style="color:#e6db74">&#39;190&#39;</span>
-<span style="color:#66d9ef">name</span>: Клиент
-<span style="color:#66d9ef">db_alias</span>: adplatform
-<span style="color:#66d9ef">schema</span>: public
-<span style="color:#66d9ef">table</span>: client
-<span style="color:#66d9ef">alias</span>: client
-<span style="color:#66d9ef">kind</span>: DICT
-<span style="color:#66d9ef">metaql_where</span>: <span style="color:#e6db74">&#39;#table.id in (select client_id from get_user_clients(${env.userId?number}))&#39;</span>
-<span style="color:#66d9ef">input_options_query</span>: <span style="color:#e6db74">&gt;
-</span><span style="color:#e6db74">  select</span>
-    client.id,
-    client.name,
-    categories.name as description
-  from client
-    left join company on company_id = company.id
-    left join client_category as categories on categories.id = client.category_id
-  where client.is_enabled
-  AND client.company_id=:env.companyId::bigint
-  AND client.id in (select client_id from get_user_clients(:env.userId::bigint) )
-  ORDER BY <span style="color:#ae81ff">2</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">id</span>: <span style="color:#e6db74">&#39;190&#39;</span>
+<span style="color:#f92672">name</span>: <span style="color:#ae81ff">Клиент</span>
+<span style="color:#f92672">db_alias</span>: <span style="color:#ae81ff">adplatform</span>
+<span style="color:#f92672">schema</span>: <span style="color:#ae81ff">public</span>
+<span style="color:#f92672">table</span>: <span style="color:#ae81ff">client</span>
+<span style="color:#f92672">alias</span>: <span style="color:#ae81ff">client</span>
+<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">DICT</span>
+<span style="color:#f92672">metaql_where</span>: <span style="color:#e6db74">&#39;#table.id in (select client_id from get_user_clients(${env.userId?number}))&#39;</span>
+<span style="color:#f92672">input_options_query</span>: &gt;<span style="color:#e6db74">
+</span><span style="color:#e6db74">  select
+</span><span style="color:#e6db74">    client.id,
+</span><span style="color:#e6db74">    client.name,
+</span><span style="color:#e6db74">    categories.name as description
+</span><span style="color:#e6db74">  from client
+</span><span style="color:#e6db74">    left join company on company_id = company.id
+</span><span style="color:#e6db74">    left join client_category as categories on categories.id = client.category_id
+</span><span style="color:#e6db74">  where client.is_enabled
+</span><span style="color:#e6db74">  AND client.company_id=:env.companyId::bigint
+</span><span style="color:#e6db74">  AND client.id in (select client_id from get_user_clients(:env.userId::bigint) )
+</span><span style="color:#e6db74">  ORDER BY 2</span>  
 
-<span style="color:#66d9ef">insert_query</span>: <span style="color:#e6db74">&gt;
-</span><span style="color:#e6db74">  SELECT client_id as id FROM ext_garpun_main.&#34;api_addClient&#34;(</span>
-    :env.userId::bigint, :env.companyId::bigint,
-    :env.sp.obj.name::text, <span style="color:#ae81ff">11</span>
-  );
-<span style="color:#66d9ef">search_order</span>: <span style="color:#ae81ff">1</span>
-<span style="color:#66d9ef">object_list_base_page_id</span>: <span style="color:#e6db74">&#39;2176&#39;</span>
-<span style="color:#66d9ef">acl</span>: 
-  <span style="color:#66d9ef">view</span>:   /* Не забывайте про ACL. У вас он может быть другой  <span style="color:#75715e">*/</span>
-    <span style="color:#66d9ef">roles</span>:
-    - meta.role.auth
-<span style="color:#66d9ef">fields</span>:
-- <span style="color:#66d9ef">alias</span>: id
-  <span style="color:#66d9ef">db_type</span>: bigint
-  <span style="color:#66d9ef">is_primary</span>: <span style="color:#66d9ef">true</span>
-  <span style="color:#66d9ef">name</span>: id
-  <span style="color:#66d9ef">display_name</span>: ID
-  <span style="color:#66d9ef">semantic_role</span>: DIMENSION
-  <span style="color:#66d9ef">data_type</span>: LONG
-  <span style="color:#66d9ef">is_disabled</span>: <span style="color:#66d9ef">true</span>
-- <span style="color:#66d9ef">alias</span>: name
-  <span style="color:#66d9ef">db_type</span>: text
-  <span style="color:#66d9ef">is_title</span>: <span style="color:#66d9ef">true</span>
-  <span style="color:#66d9ef">display_name</span>: Название клиента
-  <span style="color:#66d9ef">name</span>: name
-  <span style="color:#66d9ef">semantic_role</span>: DIMENSION
-  <span style="color:#66d9ef">data_type</span>: TEXT
-  <span style="color:#66d9ef">is_required</span>: <span style="color:#66d9ef">true</span>
-- <span style="color:#66d9ef">alias</span>: is_enabled
-  <span style="color:#66d9ef">db_type</span>: bool
-  <span style="color:#66d9ef">name</span>: is_enabled
-  <span style="color:#66d9ef">display_name</span>: Активный
-  <span style="color:#66d9ef">semantic_role</span>: DIMENSION
-  <span style="color:#66d9ef">data_type</span>: BOOLEAN
-- <span style="color:#66d9ef">alias</span>: is_archived
-  <span style="color:#66d9ef">db_type</span>: bool
-  <span style="color:#66d9ef">name</span>: archive
-  <span style="color:#66d9ef">display_name</span>: Архивный
-  <span style="color:#66d9ef">semantic_role</span>: DIMENSION
-  <span style="color:#66d9ef">data_type</span>: BOOLEAN
-- <span style="color:#66d9ef">alias</span>: category_id
-  <span style="color:#66d9ef">db_type</span>: int8
-  <span style="color:#66d9ef">name</span>: category_id
-  <span style="color:#66d9ef">data_type</span>: LONG
-  <span style="color:#66d9ef">foreign_entity_id</span>: <span style="color:#ae81ff">2768</span>
-  <span style="color:#66d9ef">semantic_role</span>: DIMENSION
-  <span style="color:#66d9ef">default_value</span>: <span style="color:#ae81ff">11</span>
-- <span style="color:#66d9ef">alias</span>: creation_time
-  <span style="color:#66d9ef">db_type</span>: timestamp(<span style="color:#ae81ff">0</span>)
-  <span style="color:#66d9ef">name</span>: creation_time
-  <span style="color:#66d9ef">display_name</span>: Дата создания
-  <span style="color:#66d9ef">i18n</span>: <span style="color:#66d9ef">true</span>
-  <span style="color:#66d9ef">data_type</span>: DATETIME
-  <span style="color:#66d9ef">semantic_role</span>: DIMENSION
-  <span style="color:#66d9ef">is_disabled</span>: <span style="color:#66d9ef">true</span>
-- <span style="color:#66d9ef">alias</span>: modification_time
-  <span style="color:#66d9ef">db_type</span>: timestamp(<span style="color:#ae81ff">0</span>)
-  <span style="color:#66d9ef">name</span>: modification_time
-  <span style="color:#66d9ef">display_name</span>: Дата изменения
-  <span style="color:#66d9ef">i18n</span>: <span style="color:#66d9ef">true</span>
-  <span style="color:#66d9ef">data_type</span>: DATETIME
-  <span style="color:#66d9ef">semantic_role</span>: DIMENSION
-  <span style="color:#66d9ef">is_disabled</span>: <span style="color:#66d9ef">true</span>
+<span style="color:#f92672">insert_query</span>: &gt;<span style="color:#e6db74">
+</span><span style="color:#e6db74">  SELECT client_id as id FROM ext_garpun_main.&#34;api_addClient&#34;(
+</span><span style="color:#e6db74">    :env.userId::bigint, :env.companyId::bigint,
+</span><span style="color:#e6db74">    :env.sp.obj.name::text, 11
+</span><span style="color:#e6db74">  );</span>  
+<span style="color:#f92672">search_order</span>: <span style="color:#ae81ff">1</span>
+<span style="color:#f92672">object_list_base_page_id</span>: <span style="color:#e6db74">&#39;2176&#39;</span>
+<span style="color:#f92672">acl</span>: 
+  <span style="color:#f92672">view</span>:   <span style="color:#ae81ff">/* Не забывайте про ACL. У вас он может быть другой  */</span>
+    <span style="color:#f92672">roles</span>:
+    - <span style="color:#ae81ff">meta.role.auth</span>
+<span style="color:#f92672">fields</span>:
+- <span style="color:#f92672">alias</span>: <span style="color:#ae81ff">id</span>
+  <span style="color:#f92672">db_type</span>: <span style="color:#ae81ff">bigint</span>
+  <span style="color:#f92672">is_primary</span>: <span style="color:#66d9ef">true</span>
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">id</span>
+  <span style="color:#f92672">display_name</span>: <span style="color:#ae81ff">ID</span>
+  <span style="color:#f92672">semantic_role</span>: <span style="color:#ae81ff">DIMENSION</span>
+  <span style="color:#f92672">data_type</span>: <span style="color:#ae81ff">LONG</span>
+  <span style="color:#f92672">is_disabled</span>: <span style="color:#66d9ef">true</span>
+- <span style="color:#f92672">alias</span>: <span style="color:#ae81ff">name</span>
+  <span style="color:#f92672">db_type</span>: <span style="color:#ae81ff">text</span>
+  <span style="color:#f92672">is_title</span>: <span style="color:#66d9ef">true</span>
+  <span style="color:#f92672">display_name</span>: <span style="color:#ae81ff">Название клиента</span>
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">name</span>
+  <span style="color:#f92672">semantic_role</span>: <span style="color:#ae81ff">DIMENSION</span>
+  <span style="color:#f92672">data_type</span>: <span style="color:#ae81ff">TEXT</span>
+  <span style="color:#f92672">is_required</span>: <span style="color:#66d9ef">true</span>
+- <span style="color:#f92672">alias</span>: <span style="color:#ae81ff">is_enabled</span>
+  <span style="color:#f92672">db_type</span>: <span style="color:#ae81ff">bool</span>
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">is_enabled</span>
+  <span style="color:#f92672">display_name</span>: <span style="color:#ae81ff">Активный</span>
+  <span style="color:#f92672">semantic_role</span>: <span style="color:#ae81ff">DIMENSION</span>
+  <span style="color:#f92672">data_type</span>: <span style="color:#ae81ff">BOOLEAN</span>
+- <span style="color:#f92672">alias</span>: <span style="color:#ae81ff">is_archived</span>
+  <span style="color:#f92672">db_type</span>: <span style="color:#ae81ff">bool</span>
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">archive</span>
+  <span style="color:#f92672">display_name</span>: <span style="color:#ae81ff">Архивный</span>
+  <span style="color:#f92672">semantic_role</span>: <span style="color:#ae81ff">DIMENSION</span>
+  <span style="color:#f92672">data_type</span>: <span style="color:#ae81ff">BOOLEAN</span>
+- <span style="color:#f92672">alias</span>: <span style="color:#ae81ff">category_id</span>
+  <span style="color:#f92672">db_type</span>: <span style="color:#ae81ff">int8</span>
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">category_id</span>
+  <span style="color:#f92672">data_type</span>: <span style="color:#ae81ff">LONG</span>
+  <span style="color:#f92672">foreign_entity_id</span>: <span style="color:#ae81ff">2768</span>
+  <span style="color:#f92672">semantic_role</span>: <span style="color:#ae81ff">DIMENSION</span>
+  <span style="color:#f92672">default_value</span>: <span style="color:#ae81ff">11</span>
+- <span style="color:#f92672">alias</span>: <span style="color:#ae81ff">creation_time</span>
+  <span style="color:#f92672">db_type</span>: <span style="color:#ae81ff">timestamp(0)</span>
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">creation_time</span>
+  <span style="color:#f92672">display_name</span>: <span style="color:#ae81ff">Дата создания</span>
+  <span style="color:#f92672">i18n</span>: <span style="color:#66d9ef">true</span>
+  <span style="color:#f92672">data_type</span>: <span style="color:#ae81ff">DATETIME</span>
+  <span style="color:#f92672">semantic_role</span>: <span style="color:#ae81ff">DIMENSION</span>
+  <span style="color:#f92672">is_disabled</span>: <span style="color:#66d9ef">true</span>
+- <span style="color:#f92672">alias</span>: <span style="color:#ae81ff">modification_time</span>
+  <span style="color:#f92672">db_type</span>: <span style="color:#ae81ff">timestamp(0)</span>
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">modification_time</span>
+  <span style="color:#f92672">display_name</span>: <span style="color:#ae81ff">Дата изменения</span>
+  <span style="color:#f92672">i18n</span>: <span style="color:#66d9ef">true</span>
+  <span style="color:#f92672">data_type</span>: <span style="color:#ae81ff">DATETIME</span>
+  <span style="color:#f92672">semantic_role</span>: <span style="color:#ae81ff">DIMENSION</span>
+  <span style="color:#f92672">is_disabled</span>: <span style="color:#66d9ef">true</span>
 </code></pre></div><h3 id="пример-1">Пример 1</h3>
 <p>Например мы хотим получить форму редактирования всех полей нужной entity_id.
 Добавляем страницу в рамках нужной entity.
 В нашем случае для примера 190. Url меты должен быть примерно таким, когда вы работаете со страницей - <code>/card?e=190&amp;o={ТУТ_ID_ОБЪЕКТА}</code>
 Это все, что надо на странице:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span> <span style="color:#a6e22e">elem</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;me-smart-form&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;smart_form&#34;</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span> <span style="color:#a6e22e">elem</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;me-smart-form&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;smart_form&#34;</span>&gt;
 <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>(<span style="color:#a6e22e">SmartFormService</span>, <span style="color:#a6e22e">pvm</span>, <span style="color:#a6e22e">vm</span>, <span style="color:#a6e22e">env</span>, <span style="color:#a6e22e">originalEnv</span>) {
   <span style="color:#a6e22e">SmartFormService</span>.<span style="color:#a6e22e">handle</span>(<span style="color:#a6e22e">env</span>, <span style="color:#a6e22e">originalEnv</span>, <span style="color:#a6e22e">vm</span>, <span style="color:#a6e22e">pvm</span>);
 }
@@ -1848,7 +1848,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p>Мы хотели получить редактор записи клиента, но так, чтобы при добавлении было только поле name,
 а при редактировании к нему добавлялся бы выбор category_id</p>
 <p>Это все, что надо на странице:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span> <span style="color:#a6e22e">elem</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;me-smart-form&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;smart_form&#34;</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span> <span style="color:#a6e22e">elem</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;me-smart-form&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;smart_form&#34;</span>&gt;
 <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>(<span style="color:#a6e22e">SmartFormService</span>, <span style="color:#a6e22e">pvm</span>, <span style="color:#a6e22e">vm</span>, <span style="color:#a6e22e">env</span>, <span style="color:#a6e22e">originalEnv</span>) {
   <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">fieldNames</span> <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;name&#39;</span>];
   <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">hasObjectId</span>) {

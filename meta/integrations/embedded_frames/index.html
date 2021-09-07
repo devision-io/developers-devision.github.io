@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.68.1" />
+    <meta name="generator" content="Hugo 0.88.1" />
     <meta name="description" content="">
 
 
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/integrations/embedded_frames/">
+  <body class="" data-url="https://developers.devision.io/meta/integrations/embedded_frames/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -1663,7 +1663,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <p>Пример на основе интеграции старого Garpun в новое META-приложение</p>
 <p>В Garpun мы разместили код</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span>&gt;
   <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">inIframe</span>() {
     <span style="color:#66d9ef">try</span> {
   <span style="color:#66d9ef">return</span> window.<span style="color:#a6e22e">self</span> <span style="color:#f92672">!==</span> window.<span style="color:#a6e22e">top</span>;
@@ -1700,7 +1700,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   }
 &lt;/<span style="color:#f92672">script</span>&gt;
 </code></pre></div><p>На странице META размещаем такой код</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;token&#34;</span> <span style="color:#a6e22e">internal</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;token&#34;</span> <span style="color:#a6e22e">internal</span>&gt;
 <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>(<span style="color:#a6e22e">env</span>, <span style="color:#a6e22e">vm</span>, <span style="color:#a6e22e">OAuthService</span>) {
   <span style="color:#75715e">// генерируем токен авторизации
 </span><span style="color:#75715e"></span>  <span style="color:#a6e22e">vm</span>.<span style="color:#a6e22e">accessToken</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">OAuthService</span>.<span style="color:#a6e22e">getAccessToken</span>(<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">userId</span>, [<span style="color:#e6db74">&#39;userinfo.profile&#39;</span>]);

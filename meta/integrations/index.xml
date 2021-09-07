@@ -5,11 +5,7 @@
     <link>https://developers.devision.io/meta/integrations/</link>
     <description>Recent content in Интеграции on META | Devision Developers</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ru-ru</language>
-    
-	<atom:link href="https://developers.devision.io/meta/integrations/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>ru-ru</language><atom:link href="https://developers.devision.io/meta/integrations/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Billing</title>
       <link>https://developers.devision.io/meta/integrations/billing/</link>

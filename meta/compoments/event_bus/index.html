@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.68.1" />
+    <meta name="generator" content="Hugo 0.88.1" />
     <meta name="description" content="">
 
 
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/compoments/event_bus/">
+  <body class="" data-url="https://developers.devision.io/meta/compoments/event_bus/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -1676,7 +1676,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 Он же обеспечивает перезапуск при падениях, ограничение очереди выполнения, логи и пр. вещи нужные для обработки очередей</p>
 <h3 id="meta-страницы">META Страницы</h3>
 <p>В коде страниц редактирования карточек объектов в принципе вседа есть похожий код, который занимается журналированием изменений:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span> <span style="color:#a6e22e">elem</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hidden&#34;</span> <span style="color:#a6e22e">states</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;save&#34;</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span> <span style="color:#a6e22e">elem</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hidden&#34;</span> <span style="color:#a6e22e">states</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;save&#34;</span>&gt;
   <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>(<span style="color:#a6e22e">pvm</span>, <span style="color:#a6e22e">vm</span>, <span style="color:#a6e22e">env</span>, <span style="color:#a6e22e">ObjectLogService</span>) {
     <span style="color:#75715e">// тут обычное сохранение вашего объекта или списка объектов
 </span><span style="color:#75715e"></span>
@@ -1698,20 +1698,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li>apiservice.{SERVICE_ID} - http апи сервисы</li>
 </ul>
 <h3 id="python-worker-listener">Python worker (Listener)</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> metasdk <span style="color:#f92672">import</span> MetaApp
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> metasdk <span style="color:#f92672">import</span> MetaApp
 <span style="color:#f92672">from</span> metasdk.event_bus <span style="color:#f92672">import</span> Event
 
 META <span style="color:#f92672">=</span> MetaApp()
 log <span style="color:#f92672">=</span> META<span style="color:#f92672">.</span>log
 
 <span style="color:#75715e"># в декораторе вы долэны указать на какие типу уведомлений подписываетесь и начать обработку события</span>
-<span style="color:#a6e22e">@META.event_bus.listener</span>(entity_id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;2830&#34;</span>, code<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;ADD&#34;</span>, <span style="color:#e6db74">&#34;SET&#34;</span>], form_pattern<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;*&#34;</span>], dispatcher_pattern<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;meta.garpun_feeds&#34;</span>])
+<span style="color:#a6e22e">@META</span><span style="color:#f92672">.</span>event_bus<span style="color:#f92672">.</span>listener(entity_id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;2830&#34;</span>, code<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;ADD&#34;</span>, <span style="color:#e6db74">&#34;SET&#34;</span>], form_pattern<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;*&#34;</span>], dispatcher_pattern<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;meta.garpun_feeds&#34;</span>])
 <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">on_upsert_ex_access</span>(event: Event):
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">u</span><span style="color:#e6db74">&#34;on_upsert_ex_access = </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> str(event))
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">u</span><span style="color:#e6db74">&#34;event.value = </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> str(event<span style="color:#f92672">.</span>value)) <span style="color:#75715e"># для получения value нужено делать receive_value=True, но не делайте это всегда, часто это не нужно, но создает большую доп. нагрузку</span>
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">u</span><span style="color:#e6db74">&#34;event.object_id = </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> str(event<span style="color:#f92672">.</span>object_id))
+    print(<span style="color:#e6db74">u</span><span style="color:#e6db74">&#34;on_upsert_ex_access = </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> str(event))
+    print(<span style="color:#e6db74">u</span><span style="color:#e6db74">&#34;event.value = </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> str(event<span style="color:#f92672">.</span>value)) <span style="color:#75715e"># для получения value нужено делать receive_value=True, но не делайте это всегда, часто это не нужно, но создает большую доп. нагрузку</span>
+    print(<span style="color:#e6db74">u</span><span style="color:#e6db74">&#34;event.object_id = </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> str(event<span style="color:#f92672">.</span>object_id))
     <span style="color:#f92672">import</span> time
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;sleep...&#34;</span>)
+    print(<span style="color:#e6db74">&#34;sleep...&#34;</span>)
     time<span style="color:#f92672">.</span>sleep(<span style="color:#ae81ff">60</span>)
 
 
@@ -1732,13 +1732,13 @@ META<span style="color:#f92672">.</span>worker<span style="color:#f92672">.</spa
 }]
 
 <span style="color:#75715e"># Бойлерплейт, который запускает обработку</span>
-<span style="color:#a6e22e">@META.worker.single_task</span>
+<span style="color:#a6e22e">@META</span><span style="color:#f92672">.</span>worker<span style="color:#f92672">.</span>single_task
 <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>(task):
     META<span style="color:#f92672">.</span>event_bus<span style="color:#f92672">.</span>accept(task)
 </code></pre></div><h3 id="python-client">Python Client</h3>
 <p>Если вам надо спровоцировать запись в журнал с записью в Шину Событий.
 Вы должны вызвать журналирование, а в app-content вы должны иметь настроенные обработчики (listeners)</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> metasdk <span style="color:#f92672">import</span> MetaApp
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> metasdk <span style="color:#f92672">import</span> MetaApp
 
 META <span style="color:#f92672">=</span> MetaApp()
 

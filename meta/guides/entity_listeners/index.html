@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.68.1" />
+    <meta name="generator" content="Hugo 0.88.1" />
     <meta name="description" content="">
 
 
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/guides/entity_listeners/">
+  <body class="" data-url="https://developers.devision.io/meta/guides/entity_listeners/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -1673,7 +1673,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li>attrs.addObjectButton</li>
 <li>listen</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;mylego&#34;</span>,
   <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;me-lego&#34;</span>,
   <span style="color:#f92672">&#34;elems&#34;</span>: [
@@ -1732,13 +1732,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li>entityId: укажите id сущности, которую будете прослушивать</li>
 <li>reload: говорит, что надо сделать reload страницы при получении уведомления об изменении данных</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">order</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;400&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;res&#34;</span> <span style="color:#a6e22e">entity-id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;2830&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta&#34;</span> <span style="color:#a6e22e">entity-id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ex_system&#34;</span> 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">order</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;400&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;res&#34;</span> <span style="color:#a6e22e">entity-id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;2830&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta&#34;</span> <span style="color:#a6e22e">entity-id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ex_system&#34;</span> 
   <span style="color:#a6e22e">listen</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;[{&#34;code&#34;: [&#34;ADD&#34;, &#34;REMOVE&#34;, &#34;SET&#34;], &#34;reload&#34;:{},&#34;entityId&#34;: &#34;2830&#34;}]&#39;</span>
 <span style="color:#960050;background-color:#1e0010">...</span>
 </code></pre></div><h3 id="на-стороне-модального-окна">На стороне модального окна</h3>
 <p>На стороне страницы создания/редактирования объекта сущности нужно обязательно залогировать добавление или изменение вызовом ObjectLogService.logValue.
 Эти данные пойдут в лог и смогут быть использованы для подписки на события через артрибут <strong>listen</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span> <span style="color:#a6e22e">elem</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hidden&#34;</span> <span style="color:#a6e22e">states</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;save&#34;</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span> <span style="color:#a6e22e">elem</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hidden&#34;</span> <span style="color:#a6e22e">states</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;save&#34;</span>&gt;
 <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>(<span style="color:#a6e22e">pvm</span>, <span style="color:#a6e22e">vm</span>, <span style="color:#a6e22e">env</span>, <span style="color:#a6e22e">ObjectLogService</span>) {
   <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">isNew</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
   <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">objectId</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">object_id</span>;

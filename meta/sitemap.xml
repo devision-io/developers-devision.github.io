@@ -1,329 +1,171 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>https://developers.devision.io/meta/guides/request_life_cycle/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/guides/roles/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/guides/script_types/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/integrations/billing/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/guides/</loc>
     <lastmod>2017-04-24T18:36:24+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/integrations/api_client/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/configs/capp/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/work_with_data/datadiff/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/work_with_data/datatransform/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/integrations/google_analytics/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/work_with_data/google_sheets/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/guides/validation/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/guides/entity_listeners/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/guides/entity_handlers/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/guides/data_types/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/compoments/oauth/</loc>
     <lastmod>2017-04-24T18:36:24+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/compoments/event_bus/</loc>
     <lastmod>2017-04-24T18:36:24+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/samples/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/compoments/</loc>
     <lastmod>2017-04-24T18:36:24+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/compoments/media/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/work_with_data/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/reference/ui_controls/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/guides/template_engines/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/guides/charts/</loc>
     <lastmod>2017-04-24T18:36:24+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/guides/cache/</loc>
     <lastmod>2017-04-24T18:36:24+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/integrations/login_with_meta/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/guides/debug_and_logging/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/guides/build_url/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/samples/pages/report_with_filters/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/samples/pages/simple_entity/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/work_with_data/metaql/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/guides/testing/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/guides/i18n/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/integrations/embedded_frames/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/integrations/nginx/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/integrations/sdk/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/guides/db_naming/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/integrations/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/samples/pages/open_modal/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/compoments/ticket/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/configs/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/compoments/smart_forms/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/reference/java_api/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/reference/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/_header/</loc>
     <lastmod>2017-04-24T18:36:24+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/</loc>
     <lastmod>2017-04-24T18:36:24+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/reference/java_api/apiclientservice/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/reference/java_api/billingservice/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/categories/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/reference/java_api/cryptservice/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/reference/java_api/currentuserservice/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/reference/java_api/datadiffservice/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/reference/java_api/datatransformservice/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/reference/java_api/entityservice/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/reference/java_api/gaservice/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/reference/java_api/htmlservice/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/reference/java_api/legotomarkdownservice/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/reference/java_api/linkbuildservice/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/reference/java_api/markdownservice/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/reference/java_api/mediaservice/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/reference/java_api/metadatabaseservice/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/reference/java_api/mutatetableservice/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/reference/java_api/objectlogservice/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/reference/java_api/requestenvironmentservice/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/reference/java_api/smartformservice/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/reference/java_api/smartqueryservice/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/reference/java_api/tablecolumnservice/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/tags/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/reference/java_api/translateservice/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/reference/java_api/userrecoveryservice/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/reference/ui_controls/me-chart/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/reference/ui_controls/me-input/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/reference/ui_controls/me-lego/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/reference/ui_controls/me-lego-list/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/reference/ui_controls/me-pivot/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/reference/ui_controls/me-submit/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/reference/ui_controls/me-table/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/reference/ui_controls/me-tabs/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/meta/reference/ui_controls/me-wizard/</loc>
   </url>
-  
 </urlset>

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IMeElemBindAttrs | META UI Components</title>
+	<title>DataResultMetaData | META UI Components</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,43 +54,24 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_i_me_elem_.html">&quot;i.me-elem&quot;</a>
+					<a href="../modules/_helpers_i_backend_.html">&quot;helpers/i.backend&quot;</a>
 				</li>
 				<li>
-					<a href="_i_me_elem_.imeelembindattrs.html">IMeElemBindAttrs</a>
+					<a href="_helpers_i_backend_.dataresultmetadata.html">DataResultMetaData</a>
 				</li>
 			</ul>
-			<h1>Interface IMeElemBindAttrs</h1>
+			<h1>Interface DataResultMetaData</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Когда нужно подписаться на изменение данные в pvm и заполнять какие-то поля элемента</p>
-					</div>
-					<p>{
-						id: &quot;share_settings_form_data&quot;,
-						name:&quot;me-lego&quot;,
-						data: [],
-						elems: [],
-						bindAttrs: [
-						{
-						&quot;source&quot;: &quot;pvm.data.share_type_settings_form.rows[0].settings_form&quot;,
-						&quot;target&quot;: &quot;elems&quot;
-						}
-						]
-					},</p>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">IMeElemBindAttrs</span>
+						<span class="target">DataResultMetaData</span>
 					</li>
 				</ul>
 			</section>
@@ -101,8 +82,9 @@
 						<section class="tsd-index-section tsd-is-not-exported">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_i_me_elem_.imeelembindattrs.html#source" class="tsd-kind-icon">source</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_i_me_elem_.imeelembindattrs.html#target" class="tsd-kind-icon">target</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_helpers_i_backend_.dataresultmetadata.html#orderbyavailable" class="tsd-kind-icon">order<wbr>ByAvailable</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_helpers_i_backend_.dataresultmetadata.html#pageravailable" class="tsd-kind-icon">pager<wbr>Available</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="_helpers_i_backend_.dataresultmetadata.html#searchtextavailable" class="tsd-kind-icon">search<wbr>Text<wbr>Available</a></li>
 							</ul>
 						</section>
 					</div>
@@ -111,42 +93,34 @@
 			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-					<a name="source" class="tsd-anchor"></a>
-					<h3>source</h3>
-					<div class="tsd-signature tsd-kind-icon">source<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="orderbyavailable" class="tsd-anchor"></a>
+					<h3>order<wbr>ByAvailable</h3>
+					<div class="tsd-signature tsd-kind-icon">order<wbr>ByAvailable<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in i.me-elem.ts:340</li>
+							<li>Defined in helpers/i.backend.ts:49</li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>На какие данные подписаться
-								Например: &quot;pvm.data.share_type_settings_form.rows[0].settings_form&quot; - абсолютная ссылка
-							Например: &quot;@.column&quot; - относительная ссылка</p>
-						</div>
-						<p>Далее пользовательские поля
-							Знак @ использовать необязательно, но он может помочь вам не писать полный путь зависимости, а просто указать,
-							что зависимость на том же уровне LEGO иерархии
-						Подробнее <a href="https://developers.devision.io/meta/reference/ui_controls/typedoc/interfaces/_elems_i_me_input_.imeinput.html#depends">https://developers.devision.io/meta/reference/ui_controls/typedoc/interfaces/_elems_i_me_input_.imeinput.html#depends</a></p>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-					<a name="target" class="tsd-anchor"></a>
-					<h3>target</h3>
-					<div class="tsd-signature tsd-kind-icon">target<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="pageravailable" class="tsd-anchor"></a>
+					<h3>pager<wbr>Available</h3>
+					<div class="tsd-signature tsd-kind-icon">pager<wbr>Available<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in i.me-elem.ts:347</li>
+							<li>Defined in helpers/i.backend.ts:48</li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>В какое поле элемента записать данные
-								Например: &quot;elems&quot;
-							Например &quot;refPvmData.sp.entityId</p>
-						</div>
-					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="searchtextavailable" class="tsd-anchor"></a>
+					<h3>search<wbr>Text<wbr>Available</h3>
+					<div class="tsd-signature tsd-kind-icon">search<wbr>Text<wbr>Available<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in helpers/i.backend.ts:47</li>
+						</ul>
+					</aside>
 				</section>
 			</section>
 		</div>
@@ -189,13 +163,13 @@
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_elems_i_me_table_.html">"elems/i.me-<wbr>table"</a>
 					</li>
-					<li class=" tsd-kind-external-module">
+					<li class="current tsd-kind-external-module">
 						<a href="../modules/_helpers_i_backend_.html">"helpers/i.backend"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_helpers_i_common_.html">"helpers/i.common"</a>
 					</li>
-					<li class="current tsd-kind-external-module">
+					<li class=" tsd-kind-external-module">
 						<a href="../modules/_i_me_elem_.html">"i.me-<wbr>elem"</a>
 					</li>
 				</ul>
@@ -203,49 +177,34 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_i_me_elem_.dbquery.html" class="tsd-kind-icon">Db<wbr>Query</a>
+						<a href="_helpers_i_backend_.dataresult.html" class="tsd-kind-icon">Data<wbr>Result</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_i_me_elem_.imeelem.html" class="tsd-kind-icon">IMe<wbr>Elem</a>
+						<a href="_helpers_i_backend_.dataresultcolumn.html" class="tsd-kind-icon">Data<wbr>Result<wbr>Column</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
+						<a href="_helpers_i_backend_.dataresultdebugdata.html" class="tsd-kind-icon">Data<wbr>Result<wbr>Debug<wbr>Data</a>
 					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_i_me_elem_.imeelembindattrs.html" class="tsd-kind-icon">IMe<wbr>Elem<wbr>Bind<wbr>Attrs</a>
+						<a href="_helpers_i_backend_.dataresultmetadata.html" class="tsd-kind-icon">Data<wbr>Result<wbr>Meta<wbr>Data</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-								<a href="_i_me_elem_.imeelembindattrs.html#source" class="tsd-kind-icon">source</a>
+								<a href="_helpers_i_backend_.dataresultmetadata.html#orderbyavailable" class="tsd-kind-icon">order<wbr>ByAvailable</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-								<a href="_i_me_elem_.imeelembindattrs.html#target" class="tsd-kind-icon">target</a>
+								<a href="_helpers_i_backend_.dataresultmetadata.html#pageravailable" class="tsd-kind-icon">pager<wbr>Available</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="_helpers_i_backend_.dataresultmetadata.html#searchtextavailable" class="tsd-kind-icon">search<wbr>Text<wbr>Available</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_i_me_elem_.imeelemcontainer.html" class="tsd-kind-icon">IMe<wbr>Elem<wbr>Container</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_i_me_elem_.imeelemerror.html" class="tsd-kind-icon">IMe<wbr>Elem<wbr>Error</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_i_me_elem_.imeelemexistsetting.html" class="tsd-kind-icon">IMe<wbr>Elem<wbr>Exist<wbr>Setting</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_i_me_elem_.imeelemlistenitem.html" class="tsd-kind-icon">IMe<wbr>Elem<wbr>Listen<wbr>Item</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_i_me_elem_.irefpvmvalues.html" class="tsd-kind-icon">IRef<wbr>Pvm<wbr>Values</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_i_me_elem_.irefpvmvaluesmetaql.html" class="tsd-kind-icon">IRef<wbr>Pvm<wbr>Values<wbr>MetaQL</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_i_me_elem_.irefpvmvaluespagepreset.html" class="tsd-kind-icon">IRef<wbr>Pvm<wbr>Values<wbr>Page<wbr>Preset</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="_i_me_elem_.pagepresetref.html" class="tsd-kind-icon">Page<wbr>Preset<wbr>Ref</a>
+						<a href="_helpers_i_backend_.dataresultpager.html" class="tsd-kind-icon">Data<wbr>Result<wbr>Pager</a>
 					</li>
 				</ul>
 			</nav>

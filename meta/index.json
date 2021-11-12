@@ -462,6 +462,13 @@
 	"content": "   Метод и описание Возвращаемый тип     extractAndCheckMetrics ( reportConfig: SmartQueryConfig, entityKind: EntityKind) List   generateMetaQLRequest ( config: Config, queryConfig: SmartQueryConfig) String   replaceSqlPlaceholdersToEscapedValues ( queryConfig: SmartQueryConfig, sql: String) String   valueToStrValue ( value: Object) String    "
 },
 {
+	"uri": "https://developers.devision.io/meta/reference/java_api/starterservice/",
+	"title": "StarterService",
+	"tags": [],
+	"description": "",
+	"content": "   Метод и описание Возвращаемый тип     addAdvice ( ) void   addAdvice ( ) void   addAdvisor ( ) void   addAdvisor ( ) void   CGLIB$findMethodProxy ( ) MethodProxy   CGLIB$SET_STATIC_CALLBACKS ( ) void   CGLIB$SET_THREAD_CALLBACKS ( ) void   equals ( ) boolean   getAdvisors ( ) Advisor[]   getCallback ( ) Callback   getCallbacks ( ) Callback[]   getProxiedInterfaces ( ) Class[]   getTargetClass ( ) Class   getTargetSource ( ) TargetSource   hashCode ( ) int   indexOf ( ) int   indexOf ( ) int   isExposeProxy ( ) boolean   isFrozen ( ) boolean   isInterfaceProxied ( ) boolean   isPreFiltered ( ) boolean   isProxyTargetClass ( ) boolean   newInstance ( ) Object   newInstance ( ) Object   newInstance ( ) Object   removeAdvice ( ) boolean   removeAdvisor ( ) boolean   removeAdvisor ( ) void   replaceAdvisor ( ) boolean   setCallback ( ) void   setCallbacks ( ) void   setExposeProxy ( ) void   setPreFiltered ( ) void   setTargetSource ( ) void   submit ( ) void   toProxyConfigString ( ) String   toString ( ) String    "
+},
+{
 	"uri": "https://developers.devision.io/meta/reference/java_api/tablecolumnservice/",
 	"title": "TableColumnService",
 	"tags": [],

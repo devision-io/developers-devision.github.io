@@ -178,6 +178,15 @@
     </item>
     
     <item>
+      <title>StarterService</title>
+      <link>https://developers.devision.io/meta/reference/java_api/starterservice/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/reference/java_api/starterservice/</guid>
+      <description>   Метод и описание Возвращаемый тип     addAdvice ( ) void   addAdvice ( ) void   addAdvisor ( ) void   addAdvisor ( ) void   CGLIB$findMethodProxy ( ) MethodProxy   CGLIB$SET_STATIC_CALLBACKS ( ) void   CGLIB$SET_THREAD_CALLBACKS ( ) void   equals ( ) boolean   getAdvisors ( ) Advisor[]   getCallback ( ) Callback   getCallbacks ( ) Callback[]   getProxiedInterfaces ( ) Class[]   getTargetClass ( ) Class   getTargetSource ( ) TargetSource   hashCode ( ) int   indexOf ( ) int   indexOf ( ) int   isExposeProxy ( ) boolean   isFrozen ( ) boolean   isInterfaceProxied ( ) boolean   isPreFiltered ( ) boolean   isProxyTargetClass ( ) boolean   newInstance ( ) Object   newInstance ( ) Object   newInstance ( ) Object   removeAdvice ( ) boolean   removeAdvisor ( ) boolean   removeAdvisor ( ) void   replaceAdvisor ( ) boolean   setCallback ( ) void   setCallbacks ( ) void   setExposeProxy ( ) void   setPreFiltered ( ) void   setTargetSource ( ) void   submit ( ) void   toProxyConfigString ( ) String   toString ( ) String    </description>
+    </item>
+    
+    <item>
       <title>TableColumnService</title>
       <link>https://developers.devision.io/meta/reference/java_api/tablecolumnservice/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

@@ -1,79 +1,53 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
+    <loc>https://developers.devision.io/apiproxy/engine/adriver/</loc>
+  </url><url>
+    <loc>https://developers.devision.io/apiproxy/engine/amocrm/</loc>
+  </url><url>
     <loc>https://developers.devision.io/apiproxy/engine/calltouch/</loc>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://developers.devision.io/apiproxy/engine/chat2desk/</loc>
+  </url><url>
     <loc>https://developers.devision.io/apiproxy/engine/comagic/</loc>
-  </url>
-  
-  <url>
-    <loc>https://developers.devision.io/apiproxy/engine/criteo/</loc>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://developers.devision.io/apiproxy/engine/facebook/</loc>
+  </url><url>
     <loc>https://developers.devision.io/apiproxy/engine/facebook_ads/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/apiproxy/engine/google_adwords/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/apiproxy/engine/google_analytics/</loc>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://developers.devision.io/apiproxy/engine/mailchimp/</loc>
+  </url><url>
+    <loc>https://developers.devision.io/apiproxy/engine/mytarget/</loc>
+  </url><url>
     <loc>https://developers.devision.io/apiproxy/helpers/queue_manager/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/apiproxy/helpers/save_call/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/apiproxy/engine/yandex_direct/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/apiproxy/engine/yandex_direct_report/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/apiproxy/engine/yandex_market/</loc>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://developers.devision.io/apiproxy/engine/yandex_metrika/</loc>
+  </url><url>
     <loc>https://developers.devision.io/apiproxy/_header/</loc>
     <lastmod>2018-04-24T18:36:24+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/apiproxy/</loc>
     <lastmod>2017-04-24T18:36:24+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/apiproxy/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/apiproxy/engine/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/apiproxy/helpers/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://developers.devision.io/apiproxy/tags/</loc>
-    <priority>0</priority>
   </url>
-  
 </urlset>

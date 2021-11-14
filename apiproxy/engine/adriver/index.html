@@ -9,7 +9,7 @@
     <meta name="description" content="">
 
 
-    <title>Yandex Market :: ApiProxy | Devision Developers</title>
+    <title>Adriver :: ApiProxy | Devision Developers</title>
     <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="https://developers.devision.io/apiproxy/engine/yandex_market/">
+  <body class="" data-url="https://developers.devision.io/apiproxy/engine/adriver/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -122,7 +122,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/engine/adriver/" class="devsite-nav-item dd-item ">
+            <li data-nav-id="/engine/adriver/" class="devsite-nav-item dd-item active">
                 <a href="https://developers.devision.io/apiproxy/engine/adriver/" class="devsite-nav-title">
                     <span>Adriver</span>
                 </a>
@@ -356,7 +356,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="/engine/yandex_market/" class="devsite-nav-item dd-item active">
+            <li data-nav-id="/engine/yandex_market/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/apiproxy/engine/yandex_market/" class="devsite-nav-title">
                     <span>Yandex Market</span>
                 </a>
@@ -488,7 +488,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
- <a href='https://developers.devision.io/apiproxy/'>Api Proxy</a> > <a href='https://developers.devision.io/apiproxy/engine/'>Engines</a> > Yandex Market
+ <a href='https://developers.devision.io/apiproxy/'>Api Proxy</a> > <a href='https://developers.devision.io/apiproxy/engine/'>Engines</a> > Adriver
 
 
 
@@ -502,38 +502,79 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <div id="body-inner">
           
-            <h1>Yandex Market</h1>
+            <h1>Adriver</h1>
           
 
 
 
 <h2 id="общее">Общее</h2>
-<p>Этот engine предоставляет доступ к справочникам Яндект Директа (ЯМ).
-<a href="https://tech.yandex.ru/market/partner/doc/dg/concepts/about-docpage/">Дока Маркета</a></p>
+<p>Этот engine предоставляет доступ к статистике сервиса Adriver
+<a href="https://www.adriver.ru/doc/restapi/">Документация</a></p>
 <h2 id="payload">payload</h2>
-<ul>
-<li>access_token - токен ЯМ.</li>
-<li>version - версия апи ЯМ. Новое пишется с v2</li>
-<li>method - метод апи. Например <a href="https://tech.yandex.ru/market/partner/doc/dg/reference/get-campaigns-id-stats-offers-docpage/">get</a></li>
-<li>method_params - параметры метода апи</li>
-</ul>
+<p>&ldquo;method&rdquo; - запрос который будет использоваться. По факту представляет собой часть строки в урле которая идет после адреса и до &ldquo;?&rdquo; включительно.      <br>
+&ldquo;method_params&rdquo; - Параметры которые передаются, в урле всё что после &ldquo;?&rdquo;. Тип данных словарь.</p>
 <h2 id="примеры">Примеры</h2>
 <h3 id="пример-1">Пример 1</h3>
-<p>Получить список кампаний</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> requests
-<span style="color:#f92672">import</span> json
+<p>Получение статистики за период c авторизацией</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+    <span style="color:#f92672">import</span> json
+    <span style="color:#f92672">import</span> requests
+    <span style="color:#f92672">import</span> xml.etree.ElementTree <span style="color:#66d9ef">as</span> ET
+    
+    <span style="color:#f92672">from</span> metasdk <span style="color:#f92672">import</span> MetaApp
+    
+    API_HOST <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;http://localhost:9998&#34;</span>
+    META <span style="color:#f92672">=</span> MetaApp()
+    log <span style="color:#f92672">=</span> META<span style="color:#f92672">.</span>log
+    
+    USER <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;MazdaDealersMS&#34;</span>
+    PASSWORD <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;test&#34;</span>
+    
+    nsmap <span style="color:#f92672">=</span> {
+            <span style="color:#e6db74">&#34;at&#34;</span>: <span style="color:#e6db74">&#34;http://www.w3.org/2005/Atom&#34;</span>,
+            <span style="color:#e6db74">&#34;adr&#34;</span>: <span style="color:#e6db74">&#34;http://adriver.ru/ns/restapi/atom&#34;</span>
+        }
+    
+    to_proxy <span style="color:#f92672">=</span> json<span style="color:#f92672">.</span>dumps({
+        <span style="color:#e6db74">&#34;engine&#34;</span>: <span style="color:#e6db74">&#34;adriver&#34;</span>,
+        <span style="color:#e6db74">&#34;payload&#34;</span>: {
+            <span style="color:#e6db74">&#34;user&#34;</span>: USER,
+            <span style="color:#e6db74">&#34;password&#34;</span>: PASSWORD,
+            <span style="color:#e6db74">&#34;method&#34;</span>: <span style="color:#e6db74">&#34;/login&#34;</span>,
+            <span style="color:#e6db74">&#34;method_params&#34;</span>: {}
+        }
+    })
+    
+    res <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>post(API_HOST <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;/native_call&#34;</span>, to_proxy)
+    
+    print(res<span style="color:#f92672">.</span>json())
+    
+    res <span style="color:#f92672">=</span> res<span style="color:#f92672">.</span>json()[<span style="color:#e6db74">&#34;result&#34;</span>]
+    
+    xml_root <span style="color:#f92672">=</span> ET<span style="color:#f92672">.</span>fromstring(res)
+    
+    adriver_user_id <span style="color:#f92672">=</span> xml_root<span style="color:#f92672">.</span>find(<span style="color:#e6db74">&#34;adr:userId&#34;</span>, namespaces<span style="color:#f92672">=</span>nsmap)<span style="color:#f92672">.</span>text
+    adriver_token <span style="color:#f92672">=</span> xml_root<span style="color:#f92672">.</span>find(<span style="color:#e6db74">&#34;adr:token&#34;</span>, namespaces<span style="color:#f92672">=</span>nsmap)<span style="color:#f92672">.</span>text
+    
+    print(adriver_user_id)
+    print(adriver_token)
+    
+    to_proxy <span style="color:#f92672">=</span> json<span style="color:#f92672">.</span>dumps({
+        <span style="color:#e6db74">&#34;engine&#34;</span>: <span style="color:#e6db74">&#34;adriver&#34;</span>,
+        <span style="color:#e6db74">&#34;payload&#34;</span>: {
+            <span style="color:#e6db74">&#34;user_id&#34;</span>: adriver_user_id,
+            <span style="color:#e6db74">&#34;auth_token&#34;</span>: adriver_token,
+            <span style="color:#e6db74">&#34;method&#34;</span>: <span style="color:#e6db74">&#34;/monitoring/traffic_period&#34;</span>,
+            <span style="color:#e6db74">&#34;method_params&#34;</span>: {<span style="color:#e6db74">&#34;start_date&#34;</span>: <span style="color:#e6db74">&#34;2019-01-14&#34;</span>,
+                            <span style="color:#e6db74">&#34;stop_date&#34;</span>: <span style="color:#e6db74">&#34;2019-01-14&#34;</span>,
+                            <span style="color:#e6db74">&#34;granularity&#34;</span>: <span style="color:#e6db74">&#34;daily&#34;</span>}
+        }
+    })
+    
+    res <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>post(API_HOST <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;/native_call&#34;</span>, to_proxy)
+    
+    print(res<span style="color:#f92672">.</span>json())
 
-rsp <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>post(<span style="color:#e6db74">&#34;http://localhost:9998/native_call&#34;</span>, json<span style="color:#f92672">.</span>dumps({
-    <span style="color:#e6db74">&#34;engine&#34;</span>: <span style="color:#e6db74">&#34;yandex_market_partner&#34;</span>,
-    <span style="color:#e6db74">&#34;payload&#34;</span>: {
-        <span style="color:#e6db74">&#34;version&#34;</span>: <span style="color:#e6db74">&#34;2&#34;</span>,
-        <span style="color:#e6db74">&#34;access_token&#34;</span>: <span style="color:#e6db74">&#34;AQAAAAAVDLtlAAHkQafBUG5pQU99s6_sWNG_nHg&#34;</span>,
-        <span style="color:#e6db74">&#34;method&#34;</span>: <span style="color:#e6db74">&#34;campaigns&#34;</span>,
-        <span style="color:#e6db74">&#34;method_params&#34;</span>: {}
-    }
-}))
-
-print(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(rsp<span style="color:#f92672">.</span>status_code, rsp<span style="color:#f92672">.</span>text))
 </code></pre></div>
 
 

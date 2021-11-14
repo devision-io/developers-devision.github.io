@@ -1,15 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Helpers on ApiProxy | Devision Developers</title>
     <link>https://developers.devision.io/apiproxy/helpers/</link>
     <description>Recent content in Helpers on ApiProxy | Devision Developers</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ru-ru</language>
-    
-	<atom:link href="https://developers.devision.io/apiproxy/helpers/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>ru-ru</language><atom:link href="https://developers.devision.io/apiproxy/helpers/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Queue Manager</title>
       <link>https://developers.devision.io/apiproxy/helpers/queue_manager/</link>
@@ -18,7 +14,7 @@
       <guid>https://developers.devision.io/apiproxy/helpers/queue_manager/</guid>
       <description>Общее Простой менеджер очереди для редис который умеет ставить в очередь по уникальным параметрам запроса.
 Параметры  size - размер очереди unique_keys - список путей до уникальных ключей в параметрах (формата &amp;lsquo;method_params.account_id&amp;rsquo;) wait_time - максимальное время ожидание постановки задачи в очередь (по умолчанию 5 секунд)  Примеры Пример 1 Использование в коде
-@redis_queue(5, [&#39;refresh_token&#39;]) def google_analytics_nc(META: MetaApp, version, refresh_token, method, method_params, data_format=None, http_response=None):  Пример 2 Использование в коде с другим временем ожидания</description>
+@redis_queue(5, [&amp;#39;refresh_token&amp;#39;]) def google_analytics_nc(META: MetaApp, version, refresh_token, method, method_params, data_format=None, http_response=None): Пример 2 Использование в коде с другим временем ожидания</description>
     </item>
     
     <item>

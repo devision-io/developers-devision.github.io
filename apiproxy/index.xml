@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Api Proxy on ApiProxy | Devision Developers</title>
@@ -6,10 +6,28 @@
     <description>Recent content in Api Proxy on ApiProxy | Devision Developers</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
-    <lastBuildDate>Mon, 24 Apr 2017 18:36:24 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 24 Apr 2017 18:36:24 +0200</lastBuildDate><atom:link href="https://developers.devision.io/apiproxy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Adriver</title>
+      <link>https://developers.devision.io/apiproxy/engine/adriver/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/apiproxy/engine/adriver/</guid>
+      <description>Общее Этот engine предоставляет доступ к статистике сервиса Adriver Документация
+payload &amp;ldquo;method&amp;rdquo; - запрос который будет использоваться. По факту представляет собой часть строки в урле которая идет после адреса и до &amp;ldquo;?&amp;rdquo; включительно. &amp;ldquo;method_params&amp;rdquo; - Параметры которые передаются, в урле всё что после &amp;ldquo;?&amp;rdquo;. Тип данных словарь.
+Примеры Пример 1 Получение статистики за период c авторизацией
+import json import requests import xml.etree.ElementTree as ET from metasdk import MetaApp API_HOST = &amp;#34;http://localhost:9998&amp;#34; META = MetaApp() log = META.</description>
+    </item>
     
-	<atom:link href="https://developers.devision.io/apiproxy/index.xml" rel="self" type="application/rss+xml" />
-    
+    <item>
+      <title>AmoCRM</title>
+      <link>https://developers.devision.io/apiproxy/engine/amocrm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/apiproxy/engine/amocrm/</guid>
+      <description>Общее Engine для работы с api amocrm.ru v4 Документация
+Payload http_method: str - обязательно, http метод запроса. Как правило, для получения данных из апи это &amp;ldquo;GET&amp;rdquo;, а для загрузки в апи - &amp;ldquo;POST&amp;rdquo;, подробнее см. описание метода в документации url_path: str - url-путь к запрашиваемой сущности, например &amp;ldquo;leads&amp;rdquo;, &amp;ldquo;users&amp;rdquo; и т.д. Согласно документации, подставляется в конец url () version: str - необязательно, версия апи (по умолчанию - &amp;ldquo;v4&amp;rdquo;) ex_access_id: str - обязательно, id из таблицы meta.</description>
+    </item>
     
     <item>
       <title>Calltouch</title>
@@ -23,6 +41,17 @@ payload &amp;ldquo;method&amp;rdquo; - запрос который будет и
     </item>
     
     <item>
+      <title>Chat2Desk</title>
+      <link>https://developers.devision.io/apiproxy/engine/chat2desk/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/apiproxy/engine/chat2desk/</guid>
+      <description>Общее Этот engine предоставляет доступ к API Chat2Desk.
+[Документация Chat2Desk] https://web.chat2desk.com/wiki/api
+payload  META: ссылка на объект класса MetaApp method: метод запроса (get, post и т.д.) access_token: токен доступа к API version: номер версии API (v1 и т.д.) url_path: весь url между version и знаком &amp;ldquo;?&amp;rdquo; method_params: параметры в url (после знака &amp;ldquo;?&amp;quot;) body: тело запроса для post headers: заголовки запроса paging: параметры для поддержки пагинации  Примеры Пример 1 Получить список клиентов</description>
+    </item>
+    
+    <item>
       <title>Comagic</title>
       <link>https://developers.devision.io/apiproxy/engine/comagic/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -33,17 +62,19 @@ payload &amp;ldquo;method&amp;rdquo; - Метод из документации 
 &amp;ldquo;method_params&amp;rdquo; - Параметры которые в метод.
 &amp;ldquo;session_id&amp;rdquo; - ID сессии, генерируется на нашей стороне, должно быть числом. Решил сделать передаваемым параметром, чтобы можно было работать с пагинацией ответа.
 Примеры Пример 1 Получение статистики за месяц.
-import json import random import requests API_HOST = &amp;quot;http://localhost:9998&amp;quot; headers = {&amp;quot;Content-Type&amp;quot;: &amp;quot;application/json; charset=UTF-8&amp;quot;} method_params = {&amp;quot;login&amp;quot;: &amp;quot;apiproxi&amp;quot;, &amp;quot;password&amp;quot;: &amp;quot;xxxx&amp;quot;} body = { &amp;quot;engine&amp;quot;: &amp;quot;comagic&amp;quot;, &amp;quot;payload&amp;quot;: { &amp;quot;method&amp;quot;: &#39;login.</description>
+import json import random import requests API_HOST = &amp;#34;http://localhost:9998&amp;#34; headers = {&amp;#34;Content-Type&amp;#34;: &amp;#34;application/json; charset=UTF-8&amp;#34;} method_params = {&amp;#34;login&amp;#34;: &amp;#34;apiproxi&amp;#34;, &amp;#34;password&amp;#34;: &amp;#34;xxxx&amp;#34;} body = { &amp;#34;engine&amp;#34;: &amp;#34;comagic&amp;#34;, &amp;#34;payload&amp;#34;: { &amp;#34;method&amp;#34;: &amp;#39;login.</description>
     </item>
     
     <item>
-      <title>Criteo Report</title>
-      <link>https://developers.devision.io/apiproxy/engine/criteo/</link>
+      <title>Facebook</title>
+      <link>https://developers.devision.io/apiproxy/engine/facebook/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://developers.devision.io/apiproxy/engine/criteo/</guid>
-      <description>Общее Этот engine предоставляет доступ к статистике сервиса criteo.com Дока
-payload &amp;ldquo;user&amp;rdquo; - пользователь, нужен для авторизации и получения auth_token &amp;ldquo;password&amp;rdquo; - аналогично пользователю &amp;ldquo;app_token&amp;rdquo; - токен приложения &amp;ldquo;auth_token&amp;rdquo; - используется для отправки запросов &amp;ldquo;factory_type&amp;rdquo; - тип wsdl-объекта, используется не всегда, посмотреть нужный тип можно в доке, в зависимости от используемого запроса. &amp;ldquo;method&amp;rdquo; - запрос который будет использоваться &amp;ldquo;method_params&amp;rdquo; - данные которыми заполняется wsdl-объект, и которые передаються в criteo</description>
+      <guid>https://developers.devision.io/apiproxy/engine/facebook/</guid>
+      <description>Общее Этот engine предоставляет доступ к API facebook.
+[Дока Facebook] https://developers.facebook.com/docs/apis-and-sdks?locale=ru_RU Тест запросов: https://developers.facebook.com/tools/explorer/
+payload  method - метод запроса (get, post) access_token: токен доступа с наличием доступа к API Facebook version: номер версии API (v1 и т.д.) url_path: весь url между version и знаком &amp;ldquo;?&amp;rdquo; method_params: параметры в url (после знака &amp;ldquo;?&amp;quot;) body: тело запроса для post  Примеры Пример 1 Получить список страниц доступных под логином пользователя
+import json import requests API_HOST = &amp;#34;http://0.</description>
     </item>
     
     <item>
@@ -64,8 +95,7 @@ payload  access_token - токен facebook service - серсис апи. На�
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/apiproxy/engine/google_adwords/</guid>
-      <description>Общее Этот engine предоставляет доступ к статистике сервиса criteo.com Дока
-payload &amp;ldquo;version&amp;rdquo; - Версия API AdWords. Например v201806 &amp;ldquo;refresh_token&amp;rdquo; - refresh токен гугла &amp;ldquo;customer_id&amp;rdquo; - ID клиента Google Ads &amp;ldquo;service&amp;rdquo; - Имя службы. Например AdGroupService &amp;ldquo;method&amp;rdquo; - Имя метода службы: get, mutate и пр. Например mutate &amp;ldquo;method_params&amp;rdquo; - параметры метода апи &amp;ldquo;partial_failure&amp;rdquo; - По умолчанию False. Включает функцию частичного отказа операций. Например при добавлении 10 объявлений 2 из них могут не добавиться, но это не вызовет проблем с добавленим остальных 8-ми.</description>
+      <description>payload &amp;ldquo;version&amp;rdquo; - Версия API AdWords. Например v201806 &amp;ldquo;refresh_token&amp;rdquo; - refresh токен гугла &amp;ldquo;customer_id&amp;rdquo; - ID клиента Google Ads &amp;ldquo;service&amp;rdquo; - Имя службы. Например AdGroupService &amp;ldquo;method&amp;rdquo; - Имя метода службы: get, mutate и пр. Например mutate &amp;ldquo;method_params&amp;rdquo; - параметры метода апи &amp;ldquo;partial_failure&amp;rdquo; - По умолчанию False. Включает функцию частичного отказа операций. Например при добавлении 10 объявлений 2 из них могут не добавиться, но это не вызовет проблем с добавленим остальных 8-ми.</description>
     </item>
     
     <item>
@@ -77,7 +107,30 @@ payload &amp;ldquo;version&amp;rdquo; - Версия API AdWords. Наприме
       <description>Общее Этот engine предоставляет доступ к отчетам Google Analytics(GA) и загрузке собственной статистики.
 Дока Google
 payload  share_refresh_token - токен GA version - версия апи GA. Новое пишется с v4, для загрузки статичтики v3 method - метод апи. Например management.uploads.list method_params - параметры метода апи. Для загрузки статистики нужно передать media_id, это идентификатор файла загруженного в мету.  Примеры Пример 1 Получение отчетов
-import json import pprint import requests from metaappscriptsdk import MetaApp META = MetaApp() db_adp = META.</description>
+import json import pprint import requests from metasdk import MetaApp META = MetaApp() db_adp = META.</description>
+    </item>
+    
+    <item>
+      <title>Mailchimp</title>
+      <link>https://developers.devision.io/apiproxy/engine/mailchimp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/apiproxy/engine/mailchimp/</guid>
+      <description>Общее Этот engine предоставляет доступ к API Mailchimp.
+[Документация Mailchimp] https://mailchimp.com/developer/guides/get-started-with-mailchimp-api-3/ https://mailchimp.com/developer/reference/
+payload  META: ссылка на объект класса MetaApp method: метод запроса (get, post и т.д.) access_token: токен доступа к API api_endpoint: url enpoint&amp;rsquo;a (есть в данных при oAuth авторизации: acc[&amp;lsquo;token_info&amp;rsquo;][&amp;lsquo;extUserInfo&amp;rsquo;][&amp;lsquo;metadata&amp;rsquo;][&amp;lsquo;api_endpoint&amp;rsquo;], например: &amp;ldquo;https://us11.api.mailchimp.com&amp;rdquo; version: номер версии API (v3.0 и т.д.) url_path: весь url между version и знаком &amp;ldquo;?&amp;rdquo; method_params: параметры в url (после знака &amp;ldquo;?&amp;quot;) body: тело запроса для post  Примеры Пример 1 Получить список доступных списков рассылки (списки аудиторий) https://mailchimp.</description>
+    </item>
+    
+    <item>
+      <title>Mytarget</title>
+      <link>https://developers.devision.io/apiproxy/engine/mytarget/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/apiproxy/engine/mytarget/</guid>
+      <description>Общее Этот engine предоставляет доступ к статистике сервиса Mytarget Документация API Как авторизоваться в API
+payload &amp;ldquo;version&amp;rdquo; - текущая версия API внешней системы. Например v2. &amp;ldquo;refresh_token&amp;rdquo; - рефреш токен клиента Mytarget.
+&amp;ldquo;method&amp;rdquo; - Часть урла из документации между &amp;lt;версия&amp;gt;/ и .json Например если в документации указан урл /api/v2/ok/lead_ads/forms.json то &amp;ldquo;method&amp;rdquo; = ok/lead_ads/forms
+&amp;ldquo;method_params&amp;rdquo; - Параметры для передачи в Mytarget. Если вы получаете ошибку валидации &amp;ldquo;bad json&amp;rdquo;, то параметры необходимо передать через json_params &amp;ldquo;json_params&amp;rdquo; - Дублирует method_params, но по другому передается в Mytarget.</description>
     </item>
     
     <item>
@@ -88,7 +141,7 @@ import json import pprint import requests from metaappscriptsdk import MetaApp M
       <guid>https://developers.devision.io/apiproxy/helpers/queue_manager/</guid>
       <description>Общее Простой менеджер очереди для редис который умеет ставить в очередь по уникальным параметрам запроса.
 Параметры  size - размер очереди unique_keys - список путей до уникальных ключей в параметрах (формата &amp;lsquo;method_params.account_id&amp;rsquo;) wait_time - максимальное время ожидание постановки задачи в очередь (по умолчанию 5 секунд)  Примеры Пример 1 Использование в коде
-@redis_queue(5, [&#39;refresh_token&#39;]) def google_analytics_nc(META: MetaApp, version, refresh_token, method, method_params, data_format=None, http_response=None):  Пример 2 Использование в коде с другим временем ожидания</description>
+@redis_queue(5, [&amp;#39;refresh_token&amp;#39;]) def google_analytics_nc(META: MetaApp, version, refresh_token, method, method_params, data_format=None, http_response=None): Пример 2 Использование в коде с другим временем ожидания</description>
     </item>
     
     <item>
@@ -109,8 +162,7 @@ import json import pprint import requests from metaappscriptsdk import MetaApp M
       <guid>https://developers.devision.io/apiproxy/engine/yandex_direct/</guid>
       <description>Общее Этот engine предоставляет доступ к справочникам Яндект Директа (ЯД). Для отчетов существует отдельный engine apiproxy так как и у ЯД это отдельная служба.
 Дока Директа
-payload  access_token - токен ЯД version - версия апи ЯД. Новое пишется с v5 account_name - название аккаунта клиента ЯД. В некоторых методах, это необязательное поле. Например Clients.get
- service - серсис апи. Например Clients method - метод апи. Например get method_params - параметры метода апи  Примеры Пример 1 Получить список клиентов</description>
+payload  access_token - токен ЯД version - версия апи ЯД. Новое пишется с v5 account_name - название аккаунта клиента ЯД. В некоторых методах, это необязательное поле. Например Clients.get service - серсис апи. Например Clients method - метод апи. Например get method_params - параметры метода апи  Примеры Пример 1 Получить список клиентов</description>
     </item>
     
     <item>
@@ -121,8 +173,7 @@ payload  access_token - токен ЯД version - версия апи ЯД. Но
       <guid>https://developers.devision.io/apiproxy/engine/yandex_direct_report/</guid>
       <description>Общее Этот engine предоставляет доступ к отчетам Яндект Директа (ЯД). Для справочников существует отдельный engine apiproxy так как и у ЯД это отдельная служба.
 Дока Директа
-payload  access_token - токен ЯД version - версия апи ЯД. Новое пишется с v5 account_name - название аккаунта клиента ЯД. В некоторых методах, это необязательное поле. Например Clients.get
- method_params - параметры отчета апи request_headers - Смотреть тут return_as_is - False по умолчанию.</description>
+payload  access_token - токен ЯД version - версия апи ЯД. Новое пишется с v5 account_name - название аккаунта клиента ЯД. В некоторых методах, это необязательное поле. Например Clients.get method_params - параметры отчета апи request_headers - Смотреть тут return_as_is - False по умолчанию. Если True будет возвращены TSV данные  Примеры Пример 1 Получить отчет</description>
     </item>
     
     <item>
@@ -132,9 +183,18 @@ payload  access_token - токен ЯД version - версия апи ЯД. Но
       
       <guid>https://developers.devision.io/apiproxy/engine/yandex_market/</guid>
       <description>Общее Этот engine предоставляет доступ к справочникам Яндект Директа (ЯМ). Дока Маркета
-payload  access_token - токен ЯМ. version - версия апи ЯМ. Новое пишется с v2 method - метод апи. Например get method_params - параметры метода апи
-Примеры  Пример 1 Получить список кампаний
-import requests import json rsp = requests.post(&amp;quot;http://localhost:9998/native_call&amp;quot;, json.dumps({ &amp;quot;engine&amp;quot;: &amp;quot;yandex_market_partner&amp;quot;, &amp;quot;payload&amp;quot;: { &amp;quot;version&amp;quot;: &amp;quot;2&amp;quot;, &amp;quot;access_token&amp;quot;: &amp;quot;AQAAAAAVDLtlAAHkQafBUG5pQU99s6_sWNG_nHg&amp;quot;, &amp;quot;method&amp;quot;: &amp;quot;campaigns&amp;quot;, &amp;quot;method_params&amp;quot;: {} } })) print(&amp;quot;{} {}&amp;quot;.format(rsp.status_code, rsp.</description>
+payload  access_token - токен ЯМ. version - версия апи ЯМ. Новое пишется с v2 method - метод апи. Например get method_params - параметры метода апи  Примеры Пример 1 Получить список кампаний
+import requests import json rsp = requests.post(&amp;#34;http://localhost:9998/native_call&amp;#34;, json.dumps({ &amp;#34;engine&amp;#34;: &amp;#34;yandex_market_partner&amp;#34;, &amp;#34;payload&amp;#34;: { &amp;#34;version&amp;#34;: &amp;#34;2&amp;#34;, &amp;#34;access_token&amp;#34;: &amp;#34;AQAAAAAVDLtlAAHkQafBUG5pQU99s6_sWNG_nHg&amp;#34;, &amp;#34;method&amp;#34;: &amp;#34;campaigns&amp;#34;, &amp;#34;method_params&amp;#34;: {} } })) print(&amp;#34;{}{}&amp;#34;.format(rsp.status_code, rsp.text)) </description>
+    </item>
+    
+    <item>
+      <title>Yandex Metrika</title>
+      <link>https://developers.devision.io/apiproxy/engine/yandex_metrika/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/apiproxy/engine/yandex_metrika/</guid>
+      <description>Общее Этот engine предоставляет доступ к данным из Яндекс Метрики. Дока Метрики
+payload  access_token: токен доступа с наличием доступа к API Метрики version: номер версии API (v1 и т.д.) service: наименование сервиса в API Метрики (статистика - &amp;lsquo;stat&amp;rsquo;, управление - &amp;lsquo;management&amp;rsquo;) url_path: весь url между version и method_params без знака ? method_params: параметры в url (после знака &amp;ldquo;?&amp;quot;) method: метод запроса (get, post) body: тело запроса для post  Примеры Пример 1 Получить статистику</description>
     </item>
     
     <item>

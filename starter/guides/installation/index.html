@@ -5,12 +5,12 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.40.3" />
+    <meta name="generator" content="Hugo 0.88.1" />
     <meta name="description" content="">
 
 
     <title>Установка :: Запускатор | Devision Developers</title>
-    <link rel="shortcut icon" href="https://storage.googleapis.com/metawww/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/guides/installation/">
+  <body class="" data-url="https://developers.devision.io/starter/guides/installation/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -52,12 +52,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     Запускатор
                 </a>
             </span>
+
+            <div class="devsite-header-upper-tabs"></div>
+
+            <div class="devsite-search-form">
+                <div class="searchbox">
+                        <input class="devsite-search-field" type="text" data-search-input
+                               placeholder="Поиск"
+                               id="search-by">
+
+                        <div class="devsite-search-image material-icons" aria-hidden="true">search</div>
+                        <script type="text/javascript" src="https://developers.devision.io/starter/js/lunr.min.js"></script>
+                        <script type="text/javascript" src="https://developers.devision.io/starter/js/auto-complete.js"></script>
+                        <link href="https://developers.devision.io/starter/css/auto-complete.css" rel="stylesheet">
+                        <script type="text/javascript">
+                            
+                            var baseurl = "https:\/\/developers.devision.io\/starter";
+                            
+                        </script>
+                        <script type="text/javascript" src="https://developers.devision.io/starter/js/search.js"></script>
+                </div>
+            </div>
         </div>
     </header>
 
     <main class="mdl-layout__content">
         <div class="page-content">
             <div class="mdl-grid devsite-full-site-width">
+
                 <div class="devsite-nav mdl-cell mdl-cell--3-col mdl-cell--3-col-tablet mdl-cell--12-col-phone">
                     <nav class="devsite-section-nav">
                         <ul class="devsite-section-nav-main">
@@ -195,29 +217,46 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
+<p>Рекомендуется запуск с использованием <em>Docker</em>.</p>
+<h2 id="server">Server</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#34;3&#34;</span>
+
+<span style="color:#f92672">services</span>:
+  <span style="color:#f92672">starter-server</span>:
+    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">apisgarpun/apis:starter-server-20201111</span>
+    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+    <span style="color:#f92672">logging</span>:
+      <span style="color:#f92672">driver</span>: <span style="color:#e6db74">&#34;none&#34;</span>
+    <span style="color:#f92672">ports</span>:
+      - <span style="color:#e6db74">&#34;28341:28341&#34;</span>
+      - <span style="color:#e6db74">&#34;61616:61616&#34;</span>
+      - <span style="color:#e6db74">&#34;61613:61613&#34;</span>
+    <span style="color:#f92672">volumes</span>:
+      - <span style="color:#ae81ff">./activemq-data:/usr/app/activemq-data</span> <span style="color:#75715e"># папка для базы данных activemq</span>
+      - <span style="color:#ae81ff">./starter-server.conf.json:/usr/app/config/starter-server.conf.json</span> <span style="color:#75715e"># тут ваш конфиг</span>
+</code></pre></div><h2 id="agent">Agent</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#34;3&#34;</span>
+
+<span style="color:#f92672">services</span>:
+  <span style="color:#f92672">starter-agent</span>:
+    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">apisgarpun/apis:starter-agent-20201111</span>
+    <span style="color:#f92672">network_mode</span>: <span style="color:#e6db74">&#34;host&#34;</span>
+    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+    <span style="color:#f92672">logging</span>:
+      <span style="color:#f92672">driver</span>: <span style="color:#ae81ff">none</span>
+    <span style="color:#f92672">environment</span>:
+      <span style="color:#f92672">DEBUG_MODE</span>: <span style="color:#e6db74">&#39;true&#39;</span> <span style="color:#75715e"># Параметр включает расширенное логирование агента для облегчения отладки</span>
+    <span style="color:#f92672">volumes</span>:
+      - <span style="color:#ae81ff">/var/run/docker.sock:/var/run/docker.sock</span>
+      - <span style="color:#ae81ff">/:/rootfs</span>
+      - <span style="color:#ae81ff">/usr/bin/docker:/usr/bin/docker</span>
+      - <span style="color:#ae81ff">/var/run:/var/run</span>
+      - <span style="color:#ae81ff">/sys:/sys</span>
+      - <span style="color:#ae81ff">/var/lib/docker/:/var/lib/docker</span>
+      - <span style="color:#ae81ff">./agent-config.json:/usr/app/config/starter-agent.conf.json</span> <span style="color:#75715e"># тут ваш конфиг</span>
+</code></pre></div>
 
 
-<p>В данный момент проводятся работы по облегчению запуска Запускатора в Docker Swarm</p>
-
-<h2 id="ручная-установка">Ручная установка</h2>
-
-<p>По адресу <a href="http://starter.harpoon.lan/">http://starter.harpoon.lan/</a> расположены архивы с последними версиями приложения.
-Приведу пример с установкой сервера на prod и stagging серверах, для агента будет аналогично.</p>
-
-<ul>
-<li>Устанавливаем java8 от oracle или openjdk</li>
-<li>Качаем и разархивируем архив</li>
-<li>Файлы кладем в /opt/starter-server/2.0/* (учитываем номер версии)</li>
-<li>Для упрощения и стандартизации места хранения конфигов, делаем symlink папки /opt/starter-server/2.0/*/config на /etc/starter-server</li>
-<li>В папку конфигов кладем конфиг приложения с проставленными параметрами, даем конфигу имя например &ldquo;myapp.json&rdquo;. В проекте Гарпун конфиг находится в config/starter/server.json (для агента config/starter/agent.json). Порт Запускатора 28341. Параметр [BUILD_NAME] можно заменить на все, что угодно, это просто имя БД, которая создастся в монге</li>
-<li>Запускаем сервер /usr/bin/java -Duser.dir=/opt/starter-server/2.0 -Dstarter_logs=/opt/starter-server/2.0/logs/myapp -Dconfig=/opt/starter-server/2.0/config/myapp.json -jar /opt/starter-server/2.0/bin/starter-server.jar</li>
-<li>Запускаем агент /usr/bin/java -server -Xms16m -Xmx2g -XX:+UseParallelGC -XX:+AggressiveOpts -XX:+UseFastAccessorMethods -Duser.dir=/opt/starter-agent -Dstarter_logs=/var/log/starter-agent -Dconfig=/etc/starter-agent.conf.json -jar /opt/starter-agent/bin/starter-agent.jar</li>
-</ul>
-
-
-<footer class=" footline" >
-	
-</footer>
 
 
 
@@ -227,12 +266,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#ручная-установка">Ручная установка</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#server">Server</a></li>
+    <li><a href="#agent">Agent</a></li>
+  </ul>
 </nav>
 </div>
 

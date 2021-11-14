@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Руководства on Запускатор | Devision Developers</title>
@@ -6,20 +6,15 @@
     <description>Recent content in Руководства on Запускатор | Devision Developers</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
-    <lastBuildDate>Mon, 24 Apr 2017 18:36:24 +0200</lastBuildDate>
-    
-	<atom:link href="https://developers.devision.io/starter/guides/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 24 Apr 2017 18:36:24 +0200</lastBuildDate><atom:link href="https://developers.devision.io/starter/guides/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Установка</title>
       <link>https://developers.devision.io/starter/guides/installation/</link>
       <pubDate>Mon, 24 Apr 2017 18:36:24 +0200</pubDate>
       
       <guid>https://developers.devision.io/starter/guides/installation/</guid>
-      <description>В данный момент проводятся работы по облегчению запуска Запускатора в Docker Swarm
-Ручная установка По адресу http://starter.harpoon.lan/ расположены архивы с последними версиями приложения. Приведу пример с установкой сервера на prod и stagging серверах, для агента будет аналогично.
- Устанавливаем java8 от oracle или openjdk Качаем и разархивируем архив Файлы кладем в /opt/starter-server/2.0/* (учитываем номер версии) Для упрощения и стандартизации места хранения конфигов, делаем symlink папки /opt/starter-server/2.0/*/config на /etc/starter-server В папку конфигов кладем конфиг приложения с проставленными параметрами, даем конфигу имя например &amp;ldquo;myapp.</description>
+      <description>Рекомендуется запуск с использованием Docker.
+Server version: &amp;#34;3&amp;#34; services: starter-server: image: apisgarpun/apis:starter-server-20201111 restart: always logging: driver: &amp;#34;none&amp;#34; ports: - &amp;#34;28341:28341&amp;#34; - &amp;#34;61616:61616&amp;#34; - &amp;#34;61613:61613&amp;#34; volumes: - ./activemq-data:/usr/app/activemq-data # папка для базы данных activemq - ./starter-server.conf.json:/usr/app/config/starter-server.conf.json # тут ваш конфиг Agent version: &amp;#34;3&amp;#34; services: starter-agent: image: apisgarpun/apis:starter-agent-20201111 network_mode: &amp;#34;host&amp;#34; restart: always logging: driver: none environment: DEBUG_MODE: &amp;#39;true&amp;#39; # Параметр включает расширенное логирование агента для облегчения отладки volumes: - /var/run/docker.sock:/var/run/docker.sock - /:/rootfs - /usr/bin/docker:/usr/bin/docker - /var/run:/var/run - /sys:/sys - /var/lib/docker/:/var/lib/docker - .</description>
     </item>
     
     <item>
@@ -41,7 +36,7 @@
       <guid>https://developers.devision.io/starter/guides/public_api_methods/</guid>
       <description>POST /services/{serviceId}/tasks Добавляет задачу в очередь
 Пример вызова
-curl -X POST &#39;http://build.myapp.lan:28346/services/Core.ImportAccountAndCampaignsYandexDirect/tasks&#39; -H &#39;Accept: application/json&#39; -H &#39;Content-Type: application/json&#39; --data &#39;{&amp;quot;serviceId&amp;quot;:&amp;quot;Core.ImportAccountAndCampaignsYandexDirect&amp;quot;, &amp;quot;data&amp;quot;:{&amp;quot;agencyLocalId&amp;quot;:381}}&#39;  serviceId - имя зарегистрированного сервиса data - пользователький набор данных для задачи
+curl -X POST &amp;#39;http://build.myapp.lan:28346/services/Core.ImportAccountAndCampaignsYandexDirect/tasks&amp;#39; -H &amp;#39;Accept: application/json&amp;#39; -H &amp;#39;Content-Type: application/json&amp;#39; --data &amp;#39;{&amp;#34;serviceId&amp;#34;:&amp;#34;Core.ImportAccountAndCampaignsYandexDirect&amp;#34;, &amp;#34;data&amp;#34;:{&amp;#34;agencyLocalId&amp;#34;:381}}&amp;#39; serviceId - имя зарегистрированного сервиса data - пользователький набор данных для задачи
 GET /configurations Отдает все настройки сервисов
 POST /configurations Заставляет перезагрузить конфигурацию
 GET /services/{serviceId}/statistics Возвращает информацию по статистике использования сервиса с последнего запуска</description>

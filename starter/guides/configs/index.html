@@ -5,12 +5,12 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.40.3" />
+    <meta name="generator" content="Hugo 0.88.1" />
     <meta name="description" content="">
 
 
     <title>Конфигурационные файлы :: Запускатор | Devision Developers</title>
-    <link rel="shortcut icon" href="https://storage.googleapis.com/metawww/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/guides/configs/">
+  <body class="" data-url="https://developers.devision.io/starter/guides/configs/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -52,12 +52,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     Запускатор
                 </a>
             </span>
+
+            <div class="devsite-header-upper-tabs"></div>
+
+            <div class="devsite-search-form">
+                <div class="searchbox">
+                        <input class="devsite-search-field" type="text" data-search-input
+                               placeholder="Поиск"
+                               id="search-by">
+
+                        <div class="devsite-search-image material-icons" aria-hidden="true">search</div>
+                        <script type="text/javascript" src="https://developers.devision.io/starter/js/lunr.min.js"></script>
+                        <script type="text/javascript" src="https://developers.devision.io/starter/js/auto-complete.js"></script>
+                        <link href="https://developers.devision.io/starter/css/auto-complete.css" rel="stylesheet">
+                        <script type="text/javascript">
+                            
+                            var baseurl = "https:\/\/developers.devision.io\/starter";
+                            
+                        </script>
+                        <script type="text/javascript" src="https://developers.devision.io/starter/js/search.js"></script>
+                </div>
+            </div>
         </div>
     </header>
 
     <main class="mdl-layout__content">
         <div class="page-content">
             <div class="mdl-grid devsite-full-site-width">
+
                 <div class="devsite-nav mdl-cell mdl-cell--3-col mdl-cell--3-col-tablet mdl-cell--12-col-phone">
                     <nav class="devsite-section-nav">
                         <ul class="devsite-section-nav-main">
@@ -195,107 +217,121 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-
-
 <h2 id="сервер">Сервер</h2>
-
 <p><em>О Dedicated Agents</em></p>
-
 <p>Это не работает так, что мы сказали, что такой-то агент обрабатывает только это.
 По умолчанию все агенты выполняют все, но можно зароутить некоторые службы на конкретных агентов по лейблам агентов и по taskData признакам
 Это сделано для поддержки отказоустойчивости по умолчанию. Типа все везде в кластере, а если не так, то пишешь для чего конкретно и где.</p>
-
 <p>Однако можно создать последнюю секцию без servicePredicates но с роутом по лейблам агентов и там указать агента или группу агентов на которых будет запущено все то, что не подошло верхним роутам</p>
-
-<pre><code class="language-json">{
-  // то, что будет подставлено в заголовок дашборда. ОПЦИОНАЛЬНО
-  &quot;title&quot;: &quot;My App&quot;,
-  // порт, на котором запустится сервер запускатора
-  &quot;port&quot;: &quot;28341&quot;,
-  // порт брокера для связи агент-сервер. ОПЦИОНАЛЬНО. Если не указывать, будет выбран 61616 по умолчанию
-  &quot;brokerBackendPort&quot;: 61616,
-  // порт брокера для пользователей запускатора. ОПЦИОНАЛЬНО. Если не указывать, порт вообще не будет открыт. По сути это экспериментальный порт для сокетов через запускатор
-  &quot;brokerFrontendPort&quot;: 61613,
-  &quot;storage&quot;: {
-    // Админские права нужны, так как запускатор сам создает схемы, таблицы, индексы, хранимки, накладывает патчи на свои таблицы и т.д.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">то,</span> <span style="color:#960050;background-color:#1e0010">что</span> <span style="color:#960050;background-color:#1e0010">будет</span> <span style="color:#960050;background-color:#1e0010">подставлено</span> <span style="color:#960050;background-color:#1e0010">в</span> <span style="color:#960050;background-color:#1e0010">заголовок</span> <span style="color:#960050;background-color:#1e0010">дашборда.</span> <span style="color:#960050;background-color:#1e0010">ОПЦИОНАЛЬНО</span>
+  <span style="color:#f92672">&#34;title&#34;</span>: <span style="color:#e6db74">&#34;My App&#34;</span>,
+  <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">порт,</span> <span style="color:#960050;background-color:#1e0010">на</span> <span style="color:#960050;background-color:#1e0010">котором</span> <span style="color:#960050;background-color:#1e0010">запустится</span> <span style="color:#960050;background-color:#1e0010">сервер</span> <span style="color:#960050;background-color:#1e0010">запускатора</span>
+  <span style="color:#f92672">&#34;port&#34;</span>: <span style="color:#e6db74">&#34;28341&#34;</span>,
+  <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">порт</span> <span style="color:#960050;background-color:#1e0010">брокера</span> <span style="color:#960050;background-color:#1e0010">для</span> <span style="color:#960050;background-color:#1e0010">связи</span> <span style="color:#960050;background-color:#1e0010">агент-сервер.</span> <span style="color:#960050;background-color:#1e0010">ОПЦИОНАЛЬНО.</span> <span style="color:#960050;background-color:#1e0010">Если</span> <span style="color:#960050;background-color:#1e0010">не</span> <span style="color:#960050;background-color:#1e0010">указывать,</span> <span style="color:#960050;background-color:#1e0010">будет</span> <span style="color:#960050;background-color:#1e0010">выбран</span> <span style="color:#960050;background-color:#1e0010">61616</span> <span style="color:#960050;background-color:#1e0010">по</span> <span style="color:#960050;background-color:#1e0010">умолчанию</span>
+  <span style="color:#f92672">&#34;brokerBackendPort&#34;</span>: <span style="color:#ae81ff">61616</span>,
+  <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">порт</span> <span style="color:#960050;background-color:#1e0010">брокера</span> <span style="color:#960050;background-color:#1e0010">для</span> <span style="color:#960050;background-color:#1e0010">пользователей</span> <span style="color:#960050;background-color:#1e0010">запускатора.</span> <span style="color:#960050;background-color:#1e0010">ОПЦИОНАЛЬНО.</span> <span style="color:#960050;background-color:#1e0010">Если</span> <span style="color:#960050;background-color:#1e0010">не</span> <span style="color:#960050;background-color:#1e0010">указывать,</span> <span style="color:#960050;background-color:#1e0010">порт</span> <span style="color:#960050;background-color:#1e0010">вообще</span> <span style="color:#960050;background-color:#1e0010">не</span> <span style="color:#960050;background-color:#1e0010">будет</span> <span style="color:#960050;background-color:#1e0010">открыт.</span> <span style="color:#960050;background-color:#1e0010">По</span> <span style="color:#960050;background-color:#1e0010">сути</span> <span style="color:#960050;background-color:#1e0010">это</span> <span style="color:#960050;background-color:#1e0010">экспериментальный</span> <span style="color:#960050;background-color:#1e0010">порт</span> <span style="color:#960050;background-color:#1e0010">для</span> <span style="color:#960050;background-color:#1e0010">сокетов</span> <span style="color:#960050;background-color:#1e0010">через</span> <span style="color:#960050;background-color:#1e0010">запускатор</span>
+  <span style="color:#f92672">&#34;brokerFrontendPort&#34;</span>: <span style="color:#ae81ff">61613</span>,
+  <span style="color:#f92672">&#34;storage&#34;</span>: {
+    <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">Админские</span> <span style="color:#960050;background-color:#1e0010">права</span> <span style="color:#960050;background-color:#1e0010">нужны,</span> <span style="color:#960050;background-color:#1e0010">так</span> <span style="color:#960050;background-color:#1e0010">как</span> <span style="color:#960050;background-color:#1e0010">запускатор</span> <span style="color:#960050;background-color:#1e0010">сам</span> <span style="color:#960050;background-color:#1e0010">создает</span> <span style="color:#960050;background-color:#1e0010">схемы,</span> <span style="color:#960050;background-color:#1e0010">таблицы,</span> <span style="color:#960050;background-color:#1e0010">индексы,</span> <span style="color:#960050;background-color:#1e0010">хранимки,</span> <span style="color:#960050;background-color:#1e0010">накладывает</span> <span style="color:#960050;background-color:#1e0010">патчи</span> <span style="color:#960050;background-color:#1e0010">на</span> <span style="color:#960050;background-color:#1e0010">свои</span> <span style="color:#960050;background-color:#1e0010">таблицы</span> <span style="color:#960050;background-color:#1e0010">и</span> <span style="color:#960050;background-color:#1e0010">т.д.</span>
  
-    // Время ожидания подключения в БД. По умолчанию 30, даже если не задано. Если не сможет подключится, сервис выключается
-    &quot;readyWaitingSeconds&quot;: 30,
-    // имя БД. БД должна быть создана
-    &quot;databaseName&quot;: &quot;myapp.myapp_starter&quot;,
-    // Будет АВТОМАТИЧЕСКИ создана в БД если отсутствует Схема для хранения списка служб, задач и лога патчей.
-    &quot;schemaName&quot;: &quot;job&quot;,
-    // хост PG
-    &quot;host&quot;: &quot;build.myapp.lan&quot;,
-    // порт БД,
-    &quot;port&quot;: &quot;5432&quot;,
-    // логин/пароль СУПЕРПОЛЬЗОАВТЕЛЯ
-    &quot;username&quot;: &quot;myapp&quot;,
-    &quot;password&quot;: &quot;123&quot;
+    <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">Время</span> <span style="color:#960050;background-color:#1e0010">ожидания</span> <span style="color:#960050;background-color:#1e0010">подключения</span> <span style="color:#960050;background-color:#1e0010">в</span> <span style="color:#960050;background-color:#1e0010">БД.</span> <span style="color:#960050;background-color:#1e0010">По</span> <span style="color:#960050;background-color:#1e0010">умолчанию</span> <span style="color:#960050;background-color:#1e0010">30,</span> <span style="color:#960050;background-color:#1e0010">даже</span> <span style="color:#960050;background-color:#1e0010">если</span> <span style="color:#960050;background-color:#1e0010">не</span> <span style="color:#960050;background-color:#1e0010">задано.</span> <span style="color:#960050;background-color:#1e0010">Если</span> <span style="color:#960050;background-color:#1e0010">не</span> <span style="color:#960050;background-color:#1e0010">сможет</span> <span style="color:#960050;background-color:#1e0010">подключится,</span> <span style="color:#960050;background-color:#1e0010">сервис</span> <span style="color:#960050;background-color:#1e0010">выключается</span>
+    <span style="color:#f92672">&#34;readyWaitingSeconds&#34;</span>: <span style="color:#ae81ff">30</span>,
+    <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">имя</span> <span style="color:#960050;background-color:#1e0010">БД.</span> <span style="color:#960050;background-color:#1e0010">БД</span> <span style="color:#960050;background-color:#1e0010">должна</span> <span style="color:#960050;background-color:#1e0010">быть</span> <span style="color:#960050;background-color:#1e0010">создана</span>
+    <span style="color:#f92672">&#34;databaseName&#34;</span>: <span style="color:#e6db74">&#34;myapp.myapp_starter&#34;</span>,
+    <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">Будет</span> <span style="color:#960050;background-color:#1e0010">АВТОМАТИЧЕСКИ</span> <span style="color:#960050;background-color:#1e0010">создана</span> <span style="color:#960050;background-color:#1e0010">в</span> <span style="color:#960050;background-color:#1e0010">БД</span> <span style="color:#960050;background-color:#1e0010">если</span> <span style="color:#960050;background-color:#1e0010">отсутствует</span> <span style="color:#960050;background-color:#1e0010">Схема</span> <span style="color:#960050;background-color:#1e0010">для</span> <span style="color:#960050;background-color:#1e0010">хранения</span> <span style="color:#960050;background-color:#1e0010">списка</span> <span style="color:#960050;background-color:#1e0010">служб,</span> <span style="color:#960050;background-color:#1e0010">задач</span> <span style="color:#960050;background-color:#1e0010">и</span> <span style="color:#960050;background-color:#1e0010">лога</span> <span style="color:#960050;background-color:#1e0010">патчей.</span>
+    <span style="color:#f92672">&#34;schemaName&#34;</span>: <span style="color:#e6db74">&#34;job&#34;</span>,
+    <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">хост</span> <span style="color:#960050;background-color:#1e0010">PG</span>
+    <span style="color:#f92672">&#34;host&#34;</span>: <span style="color:#e6db74">&#34;build.myapp.lan&#34;</span>,
+    <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">порт</span> <span style="color:#960050;background-color:#1e0010">БД,</span>
+    <span style="color:#f92672">&#34;port&#34;</span>: <span style="color:#e6db74">&#34;5432&#34;</span>,
+    <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">логин/пароль</span> <span style="color:#960050;background-color:#1e0010">СУПЕРПОЛЬЗОАВТЕЛЯ</span>
+    <span style="color:#f92672">&#34;username&#34;</span>: <span style="color:#e6db74">&#34;myapp&#34;</span>,
+    <span style="color:#f92672">&#34;password&#34;</span>: <span style="color:#e6db74">&#34;123&#34;</span>
   },
-  &quot;services&quot;: [
+  <span style="color:#f92672">&#34;services&#34;</span>: [
     {
-      // информация по типу ServiceConfig (http://wiki.lan:8090/pages/viewpage.action?pageId=23298662#id-СправочникпоAPI-ServiceConfig)
-      &quot;serviceId&quot;: &quot;Core.LoadVkontakteSuggestions&quot;,
-      &quot;workersCount&quot;: 1,
-      &quot;tasksPerBlock&quot;: 1
+      <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">информация</span> <span style="color:#960050;background-color:#1e0010">по</span> <span style="color:#960050;background-color:#1e0010">типу</span> <span style="color:#960050;background-color:#1e0010">ServiceConfig</span> <span style="color:#960050;background-color:#1e0010">(http://wiki.lan:8090/pages/viewpage.action?pageId=23298662#id-СправочникпоAPI-ServiceConfig)</span>
+      <span style="color:#f92672">&#34;serviceId&#34;</span>: <span style="color:#e6db74">&#34;Core.LoadVkontakteSuggestions&#34;</span>,
+      <span style="color:#f92672">&#34;workersCount&#34;</span>: <span style="color:#ae81ff">1</span>,
+      <span style="color:#f92672">&#34;tasksPerBlock&#34;</span>: <span style="color:#ae81ff">1</span>,
+      <span style="color:#f92672">&#34;serviceDisplayName&#34;</span>: <span style="color:#e6db74">&#34;My Service DisplayName&#34;</span>,
+      <span style="color:#f92672">&#34;links&#34;</span>: [
+        {
+          <span style="color:#f92672">&#34;text&#34;</span>: <span style="color:#e6db74">&#34;Devision&#34;</span>,
+          <span style="color:#f92672">&#34;url&#34;</span>: <span style="color:#e6db74">&#34;https://devision.io&#34;</span>
+        }
+      ]
     },
     {
-      &quot;serviceId&quot;: &quot;Core.ImportAccountAndCampaignsYandexDirect&quot;,
-      &quot;workersCount&quot;: 20,
-      &quot;tasksPerBlock&quot;: 1,
-      // если нужно временно приостановить службу
-      &quot;status&quot;: &quot;STOPPED&quot;,
-      &quot;uniqueFields&quot;: [
-        &quot;agencyLocalId&quot;
+      <span style="color:#f92672">&#34;serviceId&#34;</span>: <span style="color:#e6db74">&#34;Core.ImportAccountAndCampaignsYandexDirect&#34;</span>,
+      <span style="color:#f92672">&#34;workersCount&#34;</span>: <span style="color:#ae81ff">20</span>,
+      <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">добавляет</span> <span style="color:#960050;background-color:#1e0010">в</span> <span style="color:#960050;background-color:#1e0010">очередь</span> <span style="color:#960050;background-color:#1e0010">пул</span> <span style="color:#960050;background-color:#1e0010">для</span> <span style="color:#960050;background-color:#1e0010">force</span> <span style="color:#960050;background-color:#1e0010">задач,</span> <span style="color:#960050;background-color:#1e0010">которые,</span> <span style="color:#960050;background-color:#1e0010">например,</span> <span style="color:#960050;background-color:#1e0010">надо</span> <span style="color:#960050;background-color:#1e0010">запускать</span> <span style="color:#960050;background-color:#1e0010">по</span> <span style="color:#960050;background-color:#1e0010">клику</span> <span style="color:#960050;background-color:#1e0010">пользователя</span>
+      <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">для</span> <span style="color:#960050;background-color:#1e0010">того,</span> <span style="color:#960050;background-color:#1e0010">чтобы</span> <span style="color:#960050;background-color:#1e0010">задачи</span> <span style="color:#960050;background-color:#1e0010">шли</span> <span style="color:#960050;background-color:#1e0010">в</span> <span style="color:#960050;background-color:#1e0010">force</span> <span style="color:#960050;background-color:#1e0010">очередь,</span> <span style="color:#960050;background-color:#1e0010">нужно</span> <span style="color:#960050;background-color:#1e0010">передавать</span> <span style="color:#960050;background-color:#1e0010">параметр</span> <span style="color:#960050;background-color:#1e0010">$force:</span> <span style="color:#960050;background-color:#1e0010">true</span> <span style="color:#960050;background-color:#1e0010">в</span> <span style="color:#960050;background-color:#1e0010">data</span> <span style="color:#960050;background-color:#1e0010">таска</span>
+      <span style="color:#f92672">&#34;forceWorkersCount&#34;</span>: <span style="color:#ae81ff">20</span>,
+      <span style="color:#f92672">&#34;tasksPerBlock&#34;</span>: <span style="color:#ae81ff">1</span>,
+      <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">если</span> <span style="color:#960050;background-color:#1e0010">нужно</span> <span style="color:#960050;background-color:#1e0010">временно</span> <span style="color:#960050;background-color:#1e0010">приостановить</span> <span style="color:#960050;background-color:#1e0010">службу</span>
+      <span style="color:#f92672">&#34;status&#34;</span>: <span style="color:#e6db74">&#34;STOPPED&#34;</span>,
+      <span style="color:#f92672">&#34;links&#34;</span>: [
+        {
+          <span style="color:#f92672">&#34;icon&#34;</span>: <span style="color:#e6db74">&#34;fa-search&#34;</span>,
+          <span style="color:#f92672">&#34;url&#34;</span>: <span style="color:#e6db74">&#34;https://devision.io/meta&#34;</span>
+        },
+        {
+          <span style="color:#f92672">&#34;icon&#34;</span>: <span style="color:#e6db74">&#34;fa-google&#34;</span>,
+          <span style="color:#f92672">&#34;url&#34;</span>: <span style="color:#e6db74">&#34;https://google.com&#34;</span>
+        }
       ],
-      // поддерживаются значения: auto, XXXs, XXXm, XXXh. Где XXX - кол-во, например 5s = 5 секунд. auto - формула разброса группы тасков так, чтобы они не стартанули в одно время
-      &quot;renewOnFailTimeout&quot;: &quot;5s&quot;,
-      // макс. кол-во попыток
-      &quot;renewOnFailMaxAttempts&quot;: 2,
-      &quot;subQueues&quot;: {
-        &quot;causes&quot;: [
+      <span style="color:#f92672">&#34;uniqueFields&#34;</span>: [
+        <span style="color:#e6db74">&#34;agencyLocalId&#34;</span>
+      ],
+      <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">поддерживаются</span> <span style="color:#960050;background-color:#1e0010">значения:</span> <span style="color:#960050;background-color:#1e0010">auto,</span> <span style="color:#960050;background-color:#1e0010">XXXs,</span> <span style="color:#960050;background-color:#1e0010">XXXm,</span> <span style="color:#960050;background-color:#1e0010">XXXh.</span> <span style="color:#960050;background-color:#1e0010">Где</span> <span style="color:#960050;background-color:#1e0010">XXX</span> <span style="color:#960050;background-color:#1e0010">-</span> <span style="color:#960050;background-color:#1e0010">кол-во,</span> <span style="color:#960050;background-color:#1e0010">например</span> <span style="color:#960050;background-color:#1e0010">5s</span> <span style="color:#960050;background-color:#1e0010">=</span> <span style="color:#960050;background-color:#1e0010">5</span> <span style="color:#960050;background-color:#1e0010">секунд.</span> <span style="color:#960050;background-color:#1e0010">auto</span> <span style="color:#960050;background-color:#1e0010">-</span> <span style="color:#960050;background-color:#1e0010">формула</span> <span style="color:#960050;background-color:#1e0010">разброса</span> <span style="color:#960050;background-color:#1e0010">группы</span> <span style="color:#960050;background-color:#1e0010">тасков</span> <span style="color:#960050;background-color:#1e0010">так,</span> <span style="color:#960050;background-color:#1e0010">чтобы</span> <span style="color:#960050;background-color:#1e0010">они</span> <span style="color:#960050;background-color:#1e0010">не</span> <span style="color:#960050;background-color:#1e0010">стартанули</span> <span style="color:#960050;background-color:#1e0010">в</span> <span style="color:#960050;background-color:#1e0010">одно</span> <span style="color:#960050;background-color:#1e0010">время</span>
+      <span style="color:#f92672">&#34;renewOnFailTimeout&#34;</span>: <span style="color:#e6db74">&#34;5s&#34;</span>,
+      <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">макс.</span> <span style="color:#960050;background-color:#1e0010">кол-во</span> <span style="color:#960050;background-color:#1e0010">попыток</span>
+      <span style="color:#f92672">&#34;renewOnFailMaxAttempts&#34;</span>: <span style="color:#ae81ff">2</span>,
+      <span style="color:#f92672">&#34;subQueues&#34;</span>: {
+        <span style="color:#f92672">&#34;causes&#34;</span>: [
           {
-            &quot;filters&quot;: [
+            <span style="color:#f92672">&#34;filters&#34;</span>: [
               {
-                &quot;taskDataPredicates&quot;: [
+                <span style="color:#f92672">&#34;taskDataPredicates&#34;</span>: [
                   {
-                    &quot;key&quot;: &quot;foo&quot;,
-                    &quot;operator&quot;: &quot;IN&quot;,
-                    &quot;values&quot;: [
-                      &quot;777&quot;
+                    <span style="color:#f92672">&#34;key&#34;</span>: <span style="color:#e6db74">&#34;foo&#34;</span>,
+                    <span style="color:#f92672">&#34;operator&#34;</span>: <span style="color:#e6db74">&#34;IN&#34;</span>,
+                    <span style="color:#f92672">&#34;values&#34;</span>: [
+                      <span style="color:#e6db74">&#34;777&#34;</span>
                     ]
                   }
                 ],
-                &quot;workersCount&quot;: 2 // где task.data-&gt;foo==777 максимум 2 параллельных потока
+                <span style="color:#f92672">&#34;workersCount&#34;</span>: <span style="color:#ae81ff">2</span> <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">где</span> <span style="color:#960050;background-color:#1e0010">task.data-&gt;foo==</span><span style="color:#ae81ff">777</span> <span style="color:#960050;background-color:#1e0010">максимум</span> <span style="color:#ae81ff">2</span> <span style="color:#960050;background-color:#1e0010">параллельных</span> <span style="color:#960050;background-color:#1e0010">потока</span>
               },
               {
-                &quot;taskDataPredicates&quot;: [
+                <span style="color:#f92672">&#34;taskDataPredicates&#34;</span>: [
                   {
-                    &quot;key&quot;: &quot;foo&quot;,
-                    &quot;operator&quot;: &quot;IN&quot;,
-                    &quot;values&quot;: [
-                      &quot;42&quot;
+                    <span style="color:#f92672">&#34;key&#34;</span>: <span style="color:#e6db74">&#34;foo&#34;</span>,
+                    <span style="color:#f92672">&#34;operator&#34;</span>: <span style="color:#e6db74">&#34;IN&#34;</span>,
+                    <span style="color:#f92672">&#34;values&#34;</span>: [
+                      <span style="color:#e6db74">&#34;42&#34;</span>
                     ]
                   }
                 ],
-                &quot;workersCount&quot;: 1 // где task.data-&gt;foo==42 максимум 1 параллельный поток
+                <span style="color:#f92672">&#34;workersCount&#34;</span>: <span style="color:#ae81ff">1</span> <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">где</span> <span style="color:#960050;background-color:#1e0010">task.data-&gt;foo==</span><span style="color:#ae81ff">42</span> <span style="color:#960050;background-color:#1e0010">максимум</span> <span style="color:#ae81ff">1</span> <span style="color:#960050;background-color:#1e0010">параллельный</span> <span style="color:#960050;background-color:#1e0010">поток</span>
               }
             ]
           },
           {
-            &quot;filters&quot;: [
+            <span style="color:#f92672">&#34;filters&#34;</span>: [
               {
-                &quot;taskDataPredicates&quot;: [
+                <span style="color:#f92672">&#34;taskDataPredicates&#34;</span>: [
                   {
-                    &quot;key&quot;: &quot;speed&quot;,
-                    &quot;operator&quot;: &quot;IN&quot;,
-                    &quot;values&quot;: [
-                      &quot;slow&quot;
+                    <span style="color:#f92672">&#34;key&#34;</span>: <span style="color:#e6db74">&#34;speed&#34;</span>,
+                    <span style="color:#f92672">&#34;operator&#34;</span>: <span style="color:#e6db74">&#34;IN&#34;</span>,
+                    <span style="color:#f92672">&#34;values&#34;</span>: [
+                      <span style="color:#e6db74">&#34;slow&#34;</span>
                     ]
                   }
                 ],
-                &quot;workersCount&quot;: 10
+                <span style="color:#f92672">&#34;workersCount&#34;</span>: <span style="color:#ae81ff">10</span>
               }
             ]
           }
@@ -303,58 +339,58 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       }
     }
   ],
-  &quot;agents&quot;: {
-    // Раздел про выделенные серверы для выполенения отдельного стека задач
-    &quot;dedicatedRoutes&quot;: [
+  <span style="color:#f92672">&#34;agents&#34;</span>: {
+    <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">Раздел</span> <span style="color:#960050;background-color:#1e0010">про</span> <span style="color:#960050;background-color:#1e0010">выделенные</span> <span style="color:#960050;background-color:#1e0010">серверы</span> <span style="color:#960050;background-color:#1e0010">для</span> <span style="color:#960050;background-color:#1e0010">выполенения</span> <span style="color:#960050;background-color:#1e0010">отдельного</span> <span style="color:#960050;background-color:#1e0010">стека</span> <span style="color:#960050;background-color:#1e0010">задач</span>
+    <span style="color:#f92672">&#34;dedicatedRoutes&#34;</span>: [
       {
-        &quot;description&quot;: &quot;Например мы делаем тяжелые долгие задачи одного агентства на отдельных тачках, но все остальные задачи службы делаем на всех остальных тачках&quot;,
-        &quot;servicePredicates&quot;: [
+        <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;Например мы делаем тяжелые долгие задачи одного агентства на отдельных тачках, но все остальные задачи службы делаем на всех остальных тачках&#34;</span>,
+        <span style="color:#f92672">&#34;servicePredicates&#34;</span>: [
           {
-            &quot;key&quot;: &quot;serviceId&quot;,
-            &quot;operator&quot;: &quot;IN&quot;,
-            &quot;values&quot;: [
-              &quot;service0&quot;,
-              &quot;service2&quot;
+            <span style="color:#f92672">&#34;key&#34;</span>: <span style="color:#e6db74">&#34;serviceId&#34;</span>,
+            <span style="color:#f92672">&#34;operator&#34;</span>: <span style="color:#e6db74">&#34;IN&#34;</span>,
+            <span style="color:#f92672">&#34;values&#34;</span>: [
+              <span style="color:#e6db74">&#34;service0&#34;</span>,
+              <span style="color:#e6db74">&#34;service2&#34;</span>
             ]
           }
         ],
-        &quot;routes&quot;: [
+        <span style="color:#f92672">&#34;routes&#34;</span>: [
           {
-            &quot;agentLabelPredicates&quot;: [
+            <span style="color:#f92672">&#34;agentLabelPredicates&#34;</span>: [
               {
-                &quot;key&quot;: &quot;dedict_company&quot;,
-                &quot;operator&quot;: &quot;IN&quot;,
-                &quot;values&quot;: [
-                  &quot;rw&quot;
+                <span style="color:#f92672">&#34;key&#34;</span>: <span style="color:#e6db74">&#34;dedict_company&#34;</span>,
+                <span style="color:#f92672">&#34;operator&#34;</span>: <span style="color:#e6db74">&#34;IN&#34;</span>,
+                <span style="color:#f92672">&#34;values&#34;</span>: [
+                  <span style="color:#e6db74">&#34;rw&#34;</span>
                 ]
               }
             ],
-            &quot;taskDataPredicates&quot;: [
+            <span style="color:#f92672">&#34;taskDataPredicates&#34;</span>: [
               {
-                &quot;key&quot;: &quot;company_id&quot;,
-                &quot;operator&quot;: &quot;IN&quot;,
-                &quot;values&quot;: [
-                  &quot;42&quot;
+                <span style="color:#f92672">&#34;key&#34;</span>: <span style="color:#e6db74">&#34;company_id&#34;</span>,
+                <span style="color:#f92672">&#34;operator&#34;</span>: <span style="color:#e6db74">&#34;IN&#34;</span>,
+                <span style="color:#f92672">&#34;values&#34;</span>: [
+                  <span style="color:#e6db74">&#34;42&#34;</span>
                 ]
               }
             ]
           },
           {
-            &quot;agentLabelPredicates&quot;: [
+            <span style="color:#f92672">&#34;agentLabelPredicates&#34;</span>: [
               {
-                &quot;key&quot;: &quot;dedict_company&quot;,
-                &quot;operator&quot;: &quot;IN&quot;,
-                &quot;values&quot;: [
-                  &quot;efimov&quot;
+                <span style="color:#f92672">&#34;key&#34;</span>: <span style="color:#e6db74">&#34;dedict_company&#34;</span>,
+                <span style="color:#f92672">&#34;operator&#34;</span>: <span style="color:#e6db74">&#34;IN&#34;</span>,
+                <span style="color:#f92672">&#34;values&#34;</span>: [
+                  <span style="color:#e6db74">&#34;efimov&#34;</span>
                 ]
               }
             ],
-            &quot;taskDataPredicates&quot;: [
+            <span style="color:#f92672">&#34;taskDataPredicates&#34;</span>: [
               {
-                &quot;key&quot;: &quot;company_id&quot;,
-                &quot;operator&quot;: &quot;IN&quot;,
-                &quot;values&quot;: [
-                  &quot;111111&quot;
+                <span style="color:#f92672">&#34;key&#34;</span>: <span style="color:#e6db74">&#34;company_id&#34;</span>,
+                <span style="color:#f92672">&#34;operator&#34;</span>: <span style="color:#e6db74">&#34;IN&#34;</span>,
+                <span style="color:#f92672">&#34;values&#34;</span>: [
+                  <span style="color:#e6db74">&#34;111111&#34;</span>
                 ]
               }
             ]
@@ -362,24 +398,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         ]
       },
       {
-        &quot;description&quot;: &quot;Например мы выделяем под отдульную задачу целый стек машин&quot;,
-        &quot;servicePredicates&quot;: [
+        <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;Например мы выделяем под отдульную задачу целый стек машин&#34;</span>,
+        <span style="color:#f92672">&#34;servicePredicates&#34;</span>: [
           {
-            &quot;key&quot;: &quot;serviceId&quot;,
-            &quot;operator&quot;: &quot;IN&quot;,
-            &quot;values&quot;: [
-              &quot;renew_on_fail&quot;
+            <span style="color:#f92672">&#34;key&#34;</span>: <span style="color:#e6db74">&#34;serviceId&#34;</span>,
+            <span style="color:#f92672">&#34;operator&#34;</span>: <span style="color:#e6db74">&#34;IN&#34;</span>,
+            <span style="color:#f92672">&#34;values&#34;</span>: [
+              <span style="color:#e6db74">&#34;renew_on_fail&#34;</span>
             ]
           }
         ],
-        &quot;routes&quot;: [
+        <span style="color:#f92672">&#34;routes&#34;</span>: [
           {
-            &quot;agentLabelPredicates&quot;: [
+            <span style="color:#f92672">&#34;agentLabelPredicates&#34;</span>: [
               {
-                &quot;key&quot;: &quot;dedict_renew_on_fail&quot;,
-                &quot;operator&quot;: &quot;IN&quot;,
-                &quot;values&quot;: [
-                  &quot;renew_on_fail&quot;
+                <span style="color:#f92672">&#34;key&#34;</span>: <span style="color:#e6db74">&#34;dedict_renew_on_fail&#34;</span>,
+                <span style="color:#f92672">&#34;operator&#34;</span>: <span style="color:#e6db74">&#34;IN&#34;</span>,
+                <span style="color:#f92672">&#34;values&#34;</span>: [
+                  <span style="color:#e6db74">&#34;renew_on_fail&#34;</span>
                 ]
               }
             ]
@@ -387,15 +423,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         ]
       },
       {
-        &quot;description&quot;: &quot;Например мы не хотим засорять выделенные сервера мелкими задачами любых других агентств&quot;,
-        &quot;routes&quot;: [
+        <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;Например мы не хотим засорять выделенные сервера мелкими задачами любых других агентств&#34;</span>,
+        <span style="color:#f92672">&#34;routes&#34;</span>: [
           {
-            &quot;agentLabelPredicates&quot;: [
+            <span style="color:#f92672">&#34;agentLabelPredicates&#34;</span>: [
               {
-                &quot;key&quot;: &quot;dedict_company&quot;,
-                &quot;operator&quot;: &quot;IN&quot;,
-                &quot;values&quot;: [
-                  &quot;all&quot;
+                <span style="color:#f92672">&#34;key&#34;</span>: <span style="color:#e6db74">&#34;dedict_company&#34;</span>,
+                <span style="color:#f92672">&#34;operator&#34;</span>: <span style="color:#e6db74">&#34;IN&#34;</span>,
+                <span style="color:#f92672">&#34;values&#34;</span>: [
+                  <span style="color:#e6db74">&#34;all&#34;</span>
                 ]
               }
             ]
@@ -405,34 +441,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     ]
   }
 }
-</code></pre>
-
-<h2 id="агент">Агент</h2>
-
-<pre><code class="language-json">{
-  &quot;agentName&quot;: &quot;PHP Agent&quot;,
-  // адрес сервера запускатора
-  &quot;server&quot;: &quot;http://127.0.0.1:28341/&quot;,
-  // скрипт, который будет вызывать агент для выполнения задач,
-  &quot;script&quot;: &quot;php /var/www/myapp/WorkerStarter.php&quot;,
-  // метки для определение dedicated routes
-  &quot;labels&quot;: {
-    &quot;mylabel&quot;: &quot;qwerty&quot;,
-    &quot;dedict_company&quot;: &quot;all&quot;,
-    &quot;dedict_renew_on_fail&quot;: &quot;renew_on_fail&quot;
-  },
-  // правила пулинга docker images
-  //  агент будет пытаться пулить их каждую минуту
-  &quot;pullImages&quot;: {
-    &quot;images&quot;: [&quot;apisgarpun/apis:garpun-worker-latest&quot;]
+</code></pre></div><h2 id="агент">Агент</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;agentName&#34;</span>: <span style="color:#e6db74">&#34;PHP Agent&#34;</span>,
+  <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">адрес</span> <span style="color:#960050;background-color:#1e0010">сервера</span> <span style="color:#960050;background-color:#1e0010">запускатора</span>
+  <span style="color:#f92672">&#34;server&#34;</span>: <span style="color:#e6db74">&#34;http://127.0.0.1:28341/&#34;</span>,
+  <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">скрипт,</span> <span style="color:#960050;background-color:#1e0010">который</span> <span style="color:#960050;background-color:#1e0010">будет</span> <span style="color:#960050;background-color:#1e0010">вызывать</span> <span style="color:#960050;background-color:#1e0010">агент</span> <span style="color:#960050;background-color:#1e0010">для</span> <span style="color:#960050;background-color:#1e0010">выполнения</span> <span style="color:#960050;background-color:#1e0010">задач,</span>
+  <span style="color:#f92672">&#34;script&#34;</span>: <span style="color:#e6db74">&#34;php /var/www/myapp/WorkerStarter.php&#34;</span>,
+  <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">метки</span> <span style="color:#960050;background-color:#1e0010">для</span> <span style="color:#960050;background-color:#1e0010">определение</span> <span style="color:#960050;background-color:#1e0010">dedicated</span> <span style="color:#960050;background-color:#1e0010">routes</span>
+  <span style="color:#f92672">&#34;labels&#34;</span>: {
+    <span style="color:#f92672">&#34;mylabel&#34;</span>: <span style="color:#e6db74">&#34;qwerty&#34;</span>,
+    <span style="color:#f92672">&#34;dedict_company&#34;</span>: <span style="color:#e6db74">&#34;all&#34;</span>,
+    <span style="color:#f92672">&#34;dedict_renew_on_fail&#34;</span>: <span style="color:#e6db74">&#34;renew_on_fail&#34;</span>
   }
 }
-</code></pre>
+</code></pre></div>
 
 
-<footer class=" footline" >
-	
-</footer>
 
 
 
@@ -442,13 +467,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#сервер">Сервер</a></li>
-<li><a href="#агент">Агент</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#сервер">Сервер</a></li>
+    <li><a href="#агент">Агент</a></li>
+  </ul>
 </nav>
 </div>
 

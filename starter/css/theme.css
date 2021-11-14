@@ -153,7 +153,7 @@ h1 {
     font-family: 'Open Sans', sans-serif;
     color: #222;
     font-weight: 200;
-    font-size: 1.8rem;
+    font-size: 1.9rem;
     margin-bottom: 1.5rem;
 }
 
@@ -161,6 +161,7 @@ h2 {
     font-size: 1.5rem;
     line-height: 110% !important;
     margin: 2rem 0 1rem 0;
+    font-weight: 600;
 }
 
 h3 {
@@ -171,21 +172,26 @@ h3 {
 }
 
 h4 {
-    font-size: 0.5rem;
+    font-size: 1.2rem;
     line-height: 110% !important;
     margin: 1.5rem 0 0.75rem 0;
 }
 
 h5 {
-    font-size: 0.3rem;
+    font-size: 1.1rem;
     line-height: 110% !important;
     margin: 1rem 0 0.2rem 0;
 }
 
 h6 {
-    font-size: 0.2rem;
+    font-size: 1.0rem;
     line-height: 110% !important;
     margin: 0.5rem 0 0.2rem 0;
+}
+
+em {
+    font-style: normal;
+    font-weight: 600;
 }
 
 p {
@@ -517,7 +523,7 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
 }
 
 #sidebar ul li.active > a {
-    background: #FFEBA0!important;
+    background: #FFEBA0 !important;
     margin-left: -1rem;
     margin-right: -1rem;
     padding-left: 1rem;
@@ -717,7 +723,6 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
     margin: 0;
 }
 
-
 blockquote {
     border-left: 10px solid #F0F2F4;
 }
@@ -891,18 +896,40 @@ hr {
 }
 
 table {
-    border: 1px solid #eaeaea;
-    table-layout: auto;
+    /*border: 1px solid #eaeaea;*/
+    /*table-layout: auto;*/
+
+    border: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font: 14px/20px Roboto, sans-serif;
+    margin: 16px 0;
+    width: 100%;
+}
+
+tr {
+    background: #78909c;
+    border: 0;
+    border-top: 1px solid #cfd8dc;
 }
 
 th {
-    background: #f7f7f7;
-    padding: 0.5rem;
+    background: #78909c;
+    color: #ffffff;
+    text-align: left;
+    height: 48px;
+    padding: 8px;
+    vertical-align: middle;
 }
 
 td {
-    padding: 0.5rem;
-    border: 1px solid #eaeaea;
+    background: rgba(255, 255, 255, .95);
+    vertical-align: top;
+    color: #212121;
+    padding: 7px 8px 8px;
+    border: 0;
+    margin: 0;
+    text-align: left;
 }
 
 .button {
@@ -1469,4 +1496,91 @@ pre .copy-to-clipboard:hover {
     #body {
         margin-left: 0px;
     }
+}
+
+
+.swagger-ui .info {
+    display: none;
+}
+
+.swagger-ui .wrapper {
+    width: 100%!important;
+    max-width: none!important;
+    padding: 0!important;
+}
+
+.swagger-ui .model .model span.prop span {
+    display: none;
+}
+
+.swagger-ui .model .model span.prop span.prop-type {
+    display: block;
+}
+
+.swagger-ui .model-title {
+    font-size: 13px!important;
+}
+
+
+
+.devsite-header-upper-tabs {
+    display: inline-block;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 0px;
+    flex: 1 1 0;
+    overflow-y: auto;
+    vertical-align: top;
+    -webkit-transition: margin .2s,width .2s,-webkit-box-flex .2s;
+    transition: margin .2s,width .2s,-webkit-box-flex .2s;
+    transition: flex .2s,margin .2s,width .2s;
+    transition: flex .2s,margin .2s,width .2s,-webkit-box-flex .2s,-ms-flex .2s;
+}
+
+.devsite-search-form {
+    background: #fbfbfbba;
+    border-radius: 2px;
+    display: inline-block;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    height: 36px;
+    margin: 6px 0 6px 24px;
+    opacity: 1;
+    position: relative;
+    text-align: left;
+    -webkit-transition: background .2s,opacity .2s,width .2s,-webkit-box-flex .2s;
+    transition: background .2s,opacity .2s,width .2s,-webkit-box-flex .2s;
+    transition: background .2s,flex .2s,opacity .2s,width .2s;
+    transition: background .2s,flex .2s,opacity .2s,width .2s,-webkit-box-flex .2s,-ms-flex .2s;
+    vertical-align: top;
+    width: 400px;
+}
+
+input.devsite-search-field {
+    background: 0;
+    border: 0;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: left;
+    color: rgba(0,0,0,.54);
+    height: 20px;
+    padding: 8px 8px 8px 72px;
+    -webkit-transition: color .2s;
+    transition: color .2s;
+    width: 80%;
+}
+
+input.devsite-search-field:focus {
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+.devsite-search-image {
+    color: rgba(0,0,0,.54);
+    left: 24px;
+    position: absolute;
+    top: 6px;
+    -webkit-transition: color .2s;
+    transition: color .2s;
 }

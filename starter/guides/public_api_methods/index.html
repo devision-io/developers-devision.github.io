@@ -5,12 +5,12 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.40.3" />
+    <meta name="generator" content="Hugo 0.88.1" />
     <meta name="description" content="">
 
 
     <title>Публичное API :: Запускатор | Devision Developers</title>
-    <link rel="shortcut icon" href="https://storage.googleapis.com/metawww/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/guides/public_api_methods/">
+  <body class="" data-url="https://developers.devision.io/starter/guides/public_api_methods/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -52,12 +52,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     Запускатор
                 </a>
             </span>
+
+            <div class="devsite-header-upper-tabs"></div>
+
+            <div class="devsite-search-form">
+                <div class="searchbox">
+                        <input class="devsite-search-field" type="text" data-search-input
+                               placeholder="Поиск"
+                               id="search-by">
+
+                        <div class="devsite-search-image material-icons" aria-hidden="true">search</div>
+                        <script type="text/javascript" src="https://developers.devision.io/starter/js/lunr.min.js"></script>
+                        <script type="text/javascript" src="https://developers.devision.io/starter/js/auto-complete.js"></script>
+                        <link href="https://developers.devision.io/starter/css/auto-complete.css" rel="stylesheet">
+                        <script type="text/javascript">
+                            
+                            var baseurl = "https:\/\/developers.devision.io\/starter";
+                            
+                        </script>
+                        <script type="text/javascript" src="https://developers.devision.io/starter/js/search.js"></script>
+                </div>
+            </div>
         </div>
     </header>
 
     <main class="mdl-layout__content">
         <div class="page-content">
             <div class="mdl-grid devsite-full-site-width">
+
                 <div class="devsite-nav mdl-cell mdl-cell--3-col mdl-cell--3-col-tablet mdl-cell--12-col-phone">
                     <nav class="devsite-section-nav">
                         <ul class="devsite-section-nav-main">
@@ -195,36 +217,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-
-
-<h2 id="post-services-serviceid-tasks">POST /services/{serviceId}/tasks</h2>
-
+<h2 id="post-servicesserviceidtasks">POST /services/{serviceId}/tasks</h2>
 <p>Добавляет задачу в очередь</p>
-
 <p><strong>Пример вызова</strong></p>
-
-<pre><code class="language-bash">curl -X POST 'http://build.myapp.lan:28346/services/Core.ImportAccountAndCampaignsYandexDirect/tasks' -H 'Accept: application/json' -H 'Content-Type: application/json' --data '{&quot;serviceId&quot;:&quot;Core.ImportAccountAndCampaignsYandexDirect&quot;, &quot;data&quot;:{&quot;agencyLocalId&quot;:381}}'
-</code></pre>
-
-<p>serviceId - имя зарегистрированного сервиса
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl -X POST <span style="color:#e6db74">&#39;http://build.myapp.lan:28346/services/Core.ImportAccountAndCampaignsYandexDirect/tasks&#39;</span> -H <span style="color:#e6db74">&#39;Accept: application/json&#39;</span> -H <span style="color:#e6db74">&#39;Content-Type: application/json&#39;</span> --data <span style="color:#e6db74">&#39;{&#34;serviceId&#34;:&#34;Core.ImportAccountAndCampaignsYandexDirect&#34;, &#34;data&#34;:{&#34;agencyLocalId&#34;:381}}&#39;</span>
+</code></pre></div><p>serviceId - имя зарегистрированного сервиса
 data - пользователький набор данных для задачи</p>
-
 <h2 id="get-configurations">GET /configurations</h2>
-
 <p>Отдает все настройки сервисов</p>
-
 <h2 id="post-configurations">POST /configurations</h2>
-
 <p>Заставляет перезагрузить конфигурацию</p>
-
-<h2 id="get-services-serviceid-statistics">GET /services/{serviceId}/statistics</h2>
-
+<h2 id="get-servicesserviceidstatistics">GET /services/{serviceId}/statistics</h2>
 <p>Возвращает информацию по статистике использования сервиса с последнего запуска</p>
 
 
-<footer class=" footline" >
-	
-</footer>
+
 
 
 
@@ -234,15 +241,12 @@ data - пользователький набор данных для задач�
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#post-services-serviceid-tasks">POST /services/{serviceId}/tasks</a></li>
-<li><a href="#get-configurations">GET /configurations</a></li>
-<li><a href="#post-configurations">POST /configurations</a></li>
-<li><a href="#get-services-serviceid-statistics">GET /services/{serviceId}/statistics</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#post-servicesserviceidtasks">POST /services/{serviceId}/tasks</a></li>
+    <li><a href="#get-configurations">GET /configurations</a></li>
+    <li><a href="#post-configurations">POST /configurations</a></li>
+    <li><a href="#get-servicesserviceidstatistics">GET /services/{serviceId}/statistics</a></li>
+  </ul>
 </nav>
 </div>
 

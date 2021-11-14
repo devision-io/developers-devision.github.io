@@ -5,12 +5,12 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.40.3" />
+    <meta name="generator" content="Hugo 0.88.1" />
     <meta name="description" content="">
 
 
     <title>Руководства :: Запускатор | Devision Developers</title>
-    <link rel="shortcut icon" href="https://storage.googleapis.com/metawww/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="/guides/">
+  <body class="" data-url="https://developers.devision.io/starter/guides/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -52,12 +52,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     Запускатор
                 </a>
             </span>
+
+            <div class="devsite-header-upper-tabs"></div>
+
+            <div class="devsite-search-form">
+                <div class="searchbox">
+                        <input class="devsite-search-field" type="text" data-search-input
+                               placeholder="Поиск"
+                               id="search-by">
+
+                        <div class="devsite-search-image material-icons" aria-hidden="true">search</div>
+                        <script type="text/javascript" src="https://developers.devision.io/starter/js/lunr.min.js"></script>
+                        <script type="text/javascript" src="https://developers.devision.io/starter/js/auto-complete.js"></script>
+                        <link href="https://developers.devision.io/starter/css/auto-complete.css" rel="stylesheet">
+                        <script type="text/javascript">
+                            
+                            var baseurl = "https:\/\/developers.devision.io\/starter";
+                            
+                        </script>
+                        <script type="text/javascript" src="https://developers.devision.io/starter/js/search.js"></script>
+                </div>
+            </div>
         </div>
     </header>
 
     <main class="mdl-layout__content">
         <div class="page-content">
             <div class="mdl-grid devsite-full-site-width">
+
                 <div class="devsite-nav mdl-cell mdl-cell--3-col mdl-cell--3-col-tablet mdl-cell--12-col-phone">
                     <nav class="devsite-section-nav">
                         <ul class="devsite-section-nav-main">
@@ -192,41 +214,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-<footer class=" footline" >
-	
-</footer>
-
 
 
 	
-
-	<div class="extra-pagination inner">
-	<nav class="pagination" role="navigation">
-	
-	<span class="page-number"> 1  1</span>
-	
-</nav>
-
-	</div>
 
 	
 	   <article class="post guides">
     <header class="post-header">
         <h2 class="post-title"><a href="https://developers.devision.io/starter/guides/installation/">Установка</a></h2>
     </header>
-    <section class="post-excerpt">
-        <p>В данный момент проводятся работы по облегчению запуска Запускатора в Docker Swarm
-Ручная установка По адресу http://starter.harpoon.lan/ расположены архивы с последними версиями приложения. Приведу пример с установкой сервера на prod и stagging серверах, для агента будет аналогично.
- Устанавливаем java8 от oracle или openjdk Качаем и разархивируем архив Файлы кладем в /opt/starter-server/2.0/* (учитываем номер версии) Для упрощения и стандартизации места хранения конфигов, делаем symlink папки /opt/starter-server/2.0/*/config на /etc/starter-server В папку конфигов кладем конфиг приложения с проставленными параметрами, даем конфигу имя например &ldquo;myapp. </p>
-    </section>
-    <footer class=" footline" >
-         
-        
 
-        
-        
+    
 
-    </footer>
+
+    
 </article>
 
 
@@ -237,19 +238,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <header class="post-header">
         <h2 class="post-title"><a href="https://developers.devision.io/starter/guides/configs/">Конфигурационные файлы</a></h2>
     </header>
-    <section class="post-excerpt">
-        <p>Сервер О Dedicated Agents
-Это не работает так, что мы сказали, что такой-то агент обрабатывает только это. По умолчанию все агенты выполняют все, но можно зароутить некоторые службы на конкретных агентов по лейблам агентов и по taskData признакам Это сделано для поддержки отказоустойчивости по умолчанию. Типа все везде в кластере, а если не так, то пишешь для чего конкретно и где.
-Однако можно создать последнюю секцию без servicePredicates но с роутом по лейблам агентов и там указать агента или группу агентов на которых будет запущено все то, что не подошло верхним роутам </p>
-    </section>
-    <footer class=" footline" >
-         
-        
 
-        
-        
+    
 
-    </footer>
+
+    
 </article>
 
 
@@ -260,22 +253,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <header class="post-header">
         <h2 class="post-title"><a href="https://developers.devision.io/starter/guides/public_api_methods/">Публичное API</a></h2>
     </header>
-    <section class="post-excerpt">
-        <p>POST /services/{serviceId}/tasks Добавляет задачу в очередь
-Пример вызова
-curl -X POST 'http://build.myapp.lan:28346/services/Core.ImportAccountAndCampaignsYandexDirect/tasks' -H 'Accept: application/json' -H 'Content-Type: application/json' --data '{&quot;serviceId&quot;:&quot;Core.ImportAccountAndCampaignsYandexDirect&quot;, &quot;data&quot;:{&quot;agencyLocalId&quot;:381}}'  serviceId - имя зарегистрированного сервиса data - пользователький набор данных для задачи
-GET /configurations Отдает все настройки сервисов
-POST /configurations Заставляет перезагрузить конфигурацию
-GET /services/{serviceId}/statistics Возвращает информацию по статистике использования сервиса с последнего запуска </p>
-    </section>
-    <footer class=" footline" >
-         
-        
 
-        
-        
+    
 
-    </footer>
+
+    
 </article>
 
 
@@ -285,12 +267,7 @@ GET /services/{serviceId}/statistics Возвращает информацию �
 
 	<div style="margin-bottom:2rem"></div>
 
-	<nav class="pagination" role="navigation">
 	
-	<span class="page-number"> 1  1</span>
-	
-</nav>
-
 
 
 
@@ -299,7 +276,7 @@ GET /services/{serviceId}/statistics Возвращает информацию �
 </section>
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
-    
+    <nav id="TableOfContents"></nav>
 </div>
 
 </div>

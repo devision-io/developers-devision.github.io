@@ -34,7 +34,7 @@ Example
       
       <guid>https://developers.devision.io/meta/integrations/google_analytics/</guid>
       <description>Google Analytics уже глубоко интегрирован в платформу и многие нужные вам события с интерфейса и backend зачастую автоматически будут поступать в GA.
-Автоматически собираемые действия  Открытия страниц Открытие модальных окон (в т.ч. sidenav) Регистрация События ADD из ObjectLogService Клик на кнопку добавление объекта в me-select Выбор пункта меню в me-input type=menu-btn  Отправка событий через Measurement Protocol В скриптах meta/js или meta/sql (с помощью шаблонизатора) вы можете отправлять нужные вам события в GA.</description>
+Автоматически собираемые действия Открытия страниц Открытие модальных окон (в т.ч. sidenav) Регистрация События ADD из ObjectLogService Клик на кнопку добавление объекта в me-select Выбор пункта меню в me-input type=menu-btn Отправка событий через Measurement Protocol В скриптах meta/js или meta/sql (с помощью шаблонизатора) вы можете отправлять нужные вам события в GA.</description>
     </item>
     
     <item>
@@ -44,7 +44,7 @@ Example
       
       <guid>https://developers.devision.io/meta/integrations/login_with_meta/</guid>
       <description>Приложение запрашивает код Получение токена в обмен на код, извлеченный из URL:
- Приложение направляет пользователя на страницу META.OAuth, где он может разрешить доступ к своим данным. Пользователь разрешает доступ приложению. META.OAuth перенаправляет пользователя на адрес, указанный в поле Callback URL при регистрации приложения. Код подтверждения (или описание ошибки) передается в параметре URL перенаправления. Приложение получает адрес перенаправления и извлекает код подтверждения. Приложение отправляет POST-запрос с кодом. META.OAuth возвращает токен или ошибку в теле ответа.</description>
+Приложение направляет пользователя на страницу META.OAuth, где он может разрешить доступ к своим данным. Пользователь разрешает доступ приложению. META.OAuth перенаправляет пользователя на адрес, указанный в поле Callback URL при регистрации приложения. Код подтверждения (или описание ошибки) передается в параметре URL перенаправления. Приложение получает адрес перенаправления и извлекает код подтверждения. Приложение отправляет POST-запрос с кодом. META.OAuth возвращает токен или ошибку в теле ответа.</description>
     </item>
     
     <item>
@@ -55,7 +55,7 @@ Example
       <guid>https://developers.devision.io/meta/integrations/embedded_frames/</guid>
       <description>Пример на основе интеграции старого Garpun в новое META-приложение
 В Garpun мы разместили код
-&amp;lt;script type=&amp;#34;text/javascript&amp;#34;&amp;gt; function inIframe() { try { return window.self !== window.top; } catch (e) { return true; } } document.addEventListener(&amp;#34;DOMContentLoaded&amp;#34;, function () { if (inIframe()) { // Это мы использовали чтобы убрать ненужные кнопки  document.body.classList.add(&amp;#34;garpunEmbedded&amp;#34;); } document.body.classList.remove(&amp;#34;garpunLoading&amp;#34;); }); //  (metaframewatcher = window.metaframewatcher || []).push({ height_classes: [&amp;#39;t_window&amp;#39;, &amp;#39;cover&amp;#39;, &amp;#39;stickyWrap&amp;#39;, &amp;#39;mainBox&amp;#39;] }); if (inIframe()) { // Это не относится к задаче встраивания напрямую, но наверняка будет полезно для GTM для отключения виджетов поддержки и пр  window[&amp;#39;IS_EMBED_MODE&amp;#39;] = true; // Размещаем загрузки интеграционного скрипта  (function() { var lt = document.</description>
+&amp;lt;script type=&amp;#34;text/javascript&amp;#34;&amp;gt; function inIframe() { try { return window.self !== window.top; } catch (e) { return true; } } document.addEventListener(&amp;#34;DOMContentLoaded&amp;#34;, function () { if (inIframe()) { // Это мы использовали чтобы убрать ненужные кнопки document.body.classList.add(&amp;#34;garpunEmbedded&amp;#34;); } document.body.classList.remove(&amp;#34;garpunLoading&amp;#34;); }); // (metaframewatcher = window.metaframewatcher || []).push({ height_classes: [&amp;#39;t_window&amp;#39;, &amp;#39;cover&amp;#39;, &amp;#39;stickyWrap&amp;#39;, &amp;#39;mainBox&amp;#39;] }); if (inIframe()) { // Это не относится к задаче встраивания напрямую, но наверняка будет полезно для GTM для отключения виджетов поддержки и пр window[&amp;#39;IS_EMBED_MODE&amp;#39;] = true; // Размещаем загрузки интеграционного скрипта (function() { var lt = document.</description>
     </item>
     
     <item>

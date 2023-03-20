@@ -12,7 +12,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/reference/java_api/apiclientservice/</guid>
-      <description>   Метод и описание Возвращаемый тип     buildClient ( apiName: String, apiVersion: String, userId: long, scopes: List) ApiClient   buildClient ( schemaHostPostVersion: String, userId: long, scopes: List) ApiClient    </description>
+      <description> Метод и описание Возвращаемый тип buildClient ( apiName: String, apiVersion: String, userId: long, scopes: List) ApiClient buildClient ( schemaHostPostVersion: String, userId: long, scopes: List) ApiClient </description>
     </item>
     
     <item>
@@ -21,7 +21,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/reference/java_api/billingservice/</guid>
-      <description>   Метод и описание Возвращаемый тип     checkAddSkuUsage ( productId: String, skuId: String, plannedAddUsageAmount: long) void   getSkuUsage ( productId: String, skuId: String) UsageRecordCheckResponse   init ( ) void    </description>
+      <description> Метод и описание Возвращаемый тип checkAddSkuUsage ( productId: String, skuId: String, plannedAddUsageAmount: long) void getSkuUsage ( productId: String, skuId: String) UsageRecordCheckResponse init ( ) void </description>
     </item>
     
     <item>
@@ -30,7 +30,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/reference/java_api/cryptservice/</guid>
-      <description>   Метод и описание Возвращаемый тип     byteToHex ( num: byte) String   checkJWTExpire ( decodedJWT: DecodedJWT) void   decode ( str: String) String   decodeJSONObj ( str: String, clazz: Class) Object   encode ( str: String) String   encode ( str: String, expiresAt: Date) String   encodeHexString ( byteArray: byte[]) String   encodeJSONObj ( obj: Object) String   encodeJSONObj ( obj: Object, validTime: String) String   hMacSha512 ( data: String, secretKey: String) String    </description>
+      <description> Метод и описание Возвращаемый тип byteToHex ( num: byte) String checkJWTExpire ( decodedJWT: DecodedJWT) void decode ( str: String) String decodeJSONObj ( str: String, clazz: Class) Object encode ( str: String) String encode ( str: String, expiresAt: Date) String encodeHexString ( byteArray: byte[]) String encodeJSONObj ( obj: Object) String encodeJSONObj ( obj: Object, validTime: String) String hMacSha512 ( data: String, secretKey: String) String </description>
     </item>
     
     <item>
@@ -39,7 +39,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/reference/java_api/currentuserservice/</guid>
-      <description>   Метод и описание Возвращаемый тип     get ( ) MetaUser   getAuthentication ( ) Authentication   getCompanyId ( ) long   getId ( ) long   getIp ( ) String   getLanguage ( ) String   getLanguageId ( ) Integer   hasAuthentication ( ) boolean   hasRole ( role: String) boolean   isAnonymous ( ) boolean   isDebugMode ( ) boolean   isDeveloper ( ) boolean   isNotDeveloper ( ) boolean   reload ( ) void   rememberMe ( ) void   rememberMeIfTokenExistsInUrl ( ) void   setAuthenticate ( user: MetaUser) UsernamePasswordAuthenticationToken   userHasRole ( role: String) boolean    </description>
+      <description> Метод и описание Возвращаемый тип get ( ) MetaUser getAuthentication ( ) Authentication getCompanyId ( ) long getId ( ) long getIp ( ) String getLanguage ( ) String getLanguageId ( ) Integer hasAuthentication ( ) boolean hasRole ( role: String) boolean isAnonymous ( ) boolean isDebugMode ( ) boolean isDeveloper ( ) boolean isNotDeveloper ( ) boolean reload ( ) void rememberMe ( ) void rememberMeIfTokenExistsInUrl ( ) void setAuthenticate ( user: MetaUser) UsernamePasswordAuthenticationToken userHasRole ( role: String) boolean </description>
     </item>
     
     <item>
@@ -48,7 +48,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/reference/java_api/datadiffservice/</guid>
-      <description>   Метод и описание Возвращаемый тип     diff ( a: DataResult, b: DataResult, config: ScriptObjectMirror) DataResult   diff ( oldV: DataResult, newV: DataResult, conf: DiffConfig) DataResult    </description>
+      <description> Метод и описание Возвращаемый тип diff ( a: DataResult, b: DataResult, config: ScriptObjectMirror) DataResult diff ( oldV: DataResult, newV: DataResult, conf: DiffConfig) DataResult </description>
     </item>
     
     <item>
@@ -57,7 +57,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/reference/java_api/datatransformservice/</guid>
-      <description>   Метод и описание Возвращаемый тип     pivot ( in: DataResult, conf: PivotConfig) DataResult   pivot ( in: DataResult, conf: ScriptObjectMirror) DataResult   sum ( o1: Object, o2: Object) Object    </description>
+      <description> Метод и описание Возвращаемый тип pivot ( in: DataResult, conf: PivotConfig) DataResult pivot ( in: DataResult, conf: ScriptObjectMirror) DataResult sum ( o1: Object, o2: Object) Object </description>
     </item>
     
     <item>
@@ -66,7 +66,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/reference/java_api/entityservice/</guid>
-      <description>   Метод и описание Возвращаемый тип     buildForm ( entityId: String, entityFields: List, formMode: FormMode, config: SmartFormConfig) LegoElem   getObject ( entityId: String, objectId: String) DataResult    </description>
+      <description> Метод и описание Возвращаемый тип buildForm ( entityId: String, entityFields: List, formMode: FormMode, config: SmartFormConfig) LegoElem getObject ( entityId: String, objectId: String) DataResult </description>
     </item>
     
     <item>
@@ -75,7 +75,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/reference/java_api/gaservice/</guid>
-      <description>   Метод и описание Возвращаемый тип     eventTrack ( category: String, action: String) void   eventTrack ( category: String, action: String, label: String) void   eventTrack ( category: String, action: String, label: String, value: Long) void   send ( parameters: Map) void    </description>
+      <description> Метод и описание Возвращаемый тип eventTrack ( category: String, action: String) void eventTrack ( category: String, action: String, label: String) void eventTrack ( category: String, action: String, label: String, value: Long) void send ( parameters: Map) void </description>
     </item>
     
     <item>
@@ -84,7 +84,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/reference/java_api/htmlservice/</guid>
-      <description>   Метод и описание Возвращаемый тип     html2text ( html: String) String    </description>
+      <description> Метод и описание Возвращаемый тип html2text ( html: String) String </description>
     </item>
     
     <item>
@@ -93,7 +93,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/reference/java_api/legotomarkdownservice/</guid>
-      <description>   Метод и описание Возвращаемый тип     init ( ) void   toMarkdown ( legoForm: Object, formData: Object) String    </description>
+      <description> Метод и описание Возвращаемый тип init ( ) void toMarkdown ( legoForm: Object, formData: Object) String </description>
     </item>
     
     <item>
@@ -102,7 +102,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/reference/java_api/linkbuildservice/</guid>
-      <description>   Метод и описание Возвращаемый тип     build ( href: String, content: String) String   getCardFullUrl ( config: CardFullUrlConfig) String   getCardFullUrl ( config: Object) String   getCardFullUrl ( entityId: String, objectId: String, pageId: String) String   getCardFullUrl ( entityId: String, objectId: String, pageId: String, sp: Map) String   getCardFullUrl ( entityId: String, objectId: String, pageId: String, sp: Map, search: Map) String   getFullUrl ( entityId: String, objectId: String, pageId: String) String   getHtmlLink ( content: String, entityId: String, objectId: String) String   getHtmlLink ( content: String, entityId: String, objectId: String, pageId: String) String   getPageFullUrl ( config: Object) String   getPageFullUrl ( config: PageFullUrlConfig) String   getPageFullUrl ( config: ScriptObjectMirror) String   getPageFullUrl ( pageId: String, sp: Map) String   getPageFullUrl ( pageId: String, sp: Map, search: Map) String   getPageFullUrl ( pageId: String, sp: Map, search: ScriptObjectMirror) String    </description>
+      <description> Метод и описание Возвращаемый тип build ( href: String, content: String) String getCardFullUrl ( config: CardFullUrlConfig) String getCardFullUrl ( config: Object) String getCardFullUrl ( entityId: String, objectId: String, pageId: String) String getCardFullUrl ( entityId: String, objectId: String, pageId: String, sp: Map) String getCardFullUrl ( entityId: String, objectId: String, pageId: String, sp: Map, search: Map) String getFullUrl ( entityId: String, objectId: String, pageId: String) String getHtmlLink ( content: String, entityId: String, objectId: String) String getHtmlLink ( content: String, entityId: String, objectId: String, pageId: String) String getPageFullUrl ( config: Object) String getPageFullUrl ( config: PageFullUrlConfig) String getPageFullUrl ( config: ScriptObjectMirror) String getPageFullUrl ( pageId: String, sp: Map) String getPageFullUrl ( pageId: String, sp: Map, search: Map) String getPageFullUrl ( pageId: String, sp: Map, search: ScriptObjectMirror) String </description>
     </item>
     
     <item>
@@ -111,7 +111,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/reference/java_api/markdownservice/</guid>
-      <description>   Метод и описание Возвращаемый тип     render ( markdownText: Object) String   render ( markdownText: Object, siteUrl: String) String   render ( markdownText: String) String   render ( markdownText: String, siteUrl: String) String    </description>
+      <description> Метод и описание Возвращаемый тип render ( markdownText: Object) String render ( markdownText: Object, siteUrl: String) String render ( markdownText: String) String render ( markdownText: String, siteUrl: String) String </description>
     </item>
     
     <item>
@@ -120,7 +120,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/reference/java_api/mediaservice/</guid>
-      <description>   Метод и описание Возвращаемый тип     deleteExpired ( env: Env, mediaId: String) void   get ( env: Env, mediaId: String) MediaFile   getDownloadUrlPart ( id: String) String   getFilesBase64ZipArchive ( files: List) String   getViewUrlPart ( id: String) String   persist ( env: Env, fileBase64Content: String, filename: String, extension: String, mime: String, isPrivate: boolean) MediaFile   persist ( env: Env, fileBase64Content: String, filename: String, extension: String, mime: String, isPrivate: boolean, origin: String) MediaFile   persist ( env: Env, fileBase64Content: String, filename: String, extension: String, mime: String, isPrivate: boolean, ttlInSec: long) MediaFile   persist ( env: Env, fileBase64Content: String, filename: String, extension: String, mime: String, isPrivate: boolean, ttlInSec: long, folderId: String) MediaFile   prepareFileName ( env: Env, filename: String) String   sendFileToResponse ( response: HttpServletResponse, media: MediaFile, fname: String, addHeadersForDownload: boolean) void   sendHeaders ( response: HttpServletResponse, contentType: String, fname: String, addHeadersForDownload: boolean) void   upsert ( req: UpsertRequest) MediaFile    </description>
+      <description> Метод и описание Возвращаемый тип deleteExpired ( env: Env, mediaId: String) void get ( env: Env, mediaId: String) MediaFile getDownloadUrlPart ( id: String) String getFilesBase64ZipArchive ( files: List) String getViewUrlPart ( id: String) String persist ( env: Env, fileBase64Content: String, filename: String, extension: String, mime: String, isPrivate: boolean) MediaFile persist ( env: Env, fileBase64Content: String, filename: String, extension: String, mime: String, isPrivate: boolean, origin: String) MediaFile persist ( env: Env, fileBase64Content: String, filename: String, extension: String, mime: String, isPrivate: boolean, ttlInSec: long) MediaFile persist ( env: Env, fileBase64Content: String, filename: String, extension: String, mime: String, isPrivate: boolean, ttlInSec: long, folderId: String) MediaFile prepareFileName ( env: Env, filename: String) String sendFileToResponse ( response: HttpServletResponse, media: MediaFile, fname: String, addHeadersForDownload: boolean) void sendHeaders ( response: HttpServletResponse, contentType: String, fname: String, addHeadersForDownload: boolean) void upsert ( req: UpsertRequest) MediaFile </description>
     </item>
     
     <item>
@@ -129,7 +129,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/reference/java_api/metadatabaseservice/</guid>
-      <description>   Метод и описание Возвращаемый тип     createMetaDataSourceInstance ( db: CDatabase) MetaDataSource   eraseDBPool ( ) void   getAppCacheRedis ( ) RedissonClient   getDatabaseType ( dbAlias: String) DatabaseType   getMDSource ( dbAlias: String) MetaDataSource   getMetaDS ( ) JdbcMetaDataSource   getMetaJdbcTemplate ( ) JdbcTemplate   getRedis ( ) RedissonClient    </description>
+      <description> Метод и описание Возвращаемый тип createMetaDataSourceInstance ( db: CDatabase) MetaDataSource eraseDBPool ( ) void getAppCacheRedis ( ) RedissonClient getDatabaseType ( dbAlias: String) DatabaseType getDatabaseTypeByExAccessId ( exAccessId: String) DatabaseType getDatabaseTypeCommon ( dbAlias: String, exAccessId: String) DatabaseType getMDSource ( dbAlias: String) MetaDataSource getMDSourceByExAccessId ( exAccessId: String) MetaDataSource getMDSourceByExAccessId ( exAccessId: String, env: Env) MetaDataSource getMDSourceCommon ( dbAlias: String, exAccessId: String, env: Env) MetaDataSource getMetaDS ( ) JdbcMetaDataSource getMetaJdbcTemplate ( ) JdbcTemplate getRedis ( ) RedissonClient </description>
     </item>
     
     <item>
@@ -138,7 +138,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/reference/java_api/mutatetableservice/</guid>
-      <description>   Метод и описание Возвращаемый тип     mutate ( mutateJob: MutateJob) void   mutate ( request: MutateJobRequest) MutateJobResponse   mutate ( request: ScriptObjectMirror) MutateJobResponse    </description>
+      <description> Метод и описание Возвращаемый тип mutate ( mutateJob: MutateJob) void mutate ( request: MutateJobRequest) MutateJobResponse mutate ( request: ScriptObjectMirror) MutateJobResponse </description>
     </item>
     
     <item>
@@ -147,7 +147,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/reference/java_api/objectlogservice/</guid>
-      <description>   Метод и описание Возвращаемый тип     buildLog ( ) Log   coreErrorEventTrack ( action: String, label: String, value: Long) void   coreEventTrack ( action: String, label: String) void   coreEventTrack ( action: String, label: String, value: Long) void   log ( entityId: String, objectId: Object, code: Code) void   log ( entityId: String, objectId: Object, code: String) void   log ( objectLog: Log) void   logValue ( entityId: String, objectId: Object, code: Code, value: Object) void   logValue ( entityId: String, objectId: Object, code: Code, value: Object, form: String) void   logValue ( entityId: String, objectId: Object, code: String, value: Object) void   logValue ( entityId: String, objectId: Object, code: String, value: Object, form: String) void    </description>
+      <description> Метод и описание Возвращаемый тип buildLog ( ) Log coreErrorEventTrack ( action: String, label: String, value: Long) void coreEventTrack ( action: String, label: String) void coreEventTrack ( action: String, label: String, value: Long) void log ( entityId: String, objectId: Object, code: Code) void log ( entityId: String, objectId: Object, code: String) void log ( objectLog: Log) void logValue ( entityId: String, objectId: Object, code: Code, value: Object) void logValue ( entityId: String, objectId: Object, code: Code, value: Object, form: String) void logValue ( entityId: String, objectId: Object, code: String, value: Object) void logValue ( entityId: String, objectId: Object, code: String, value: Object, form: String) void </description>
     </item>
     
     <item>
@@ -156,7 +156,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/reference/java_api/requestenvironmentservice/</guid>
-      <description>   Метод и описание Возвращаемый тип     canAuthByOAuth ( ) boolean   checkAllowAppForUser ( env: Env) void   currentUser ( ) CurrentUserService   encodeUrl ( url: String) String   encodeUrlPart ( url: String) String   fillRetPath ( ) void   getAllowedApps ( ) Set   getAppHost ( ) String   getAppRealDomainUrl ( appId: String, urlPartPath: String) String   getAppSchemaHost ( ) String   getAppSchemaPort ( ) String   getAppUrl ( urlPartPath: String) String   getCurrentApp ( ) CApp   getCurrentOAuthServer ( ) OAuthServer   getDefaultLanguage ( ) String   getDevRestrictRoles ( ) Set   getEnv ( ) Env   getFullRedirectUrl ( ) String   getFullRequestUrl ( ) String   getHttpMethod ( ) String   getHttpResponseCode ( ) int   getLoginAfterLogout ( ) String   getLoginWithErrorAndRetPathUrl ( error: String) String   getLoginWithRetPathUrl ( ) String   getPubEntityLogs ( ) List   getRemoteId ( ) String   getRequestDispatcher ( ) String   getRequestInfo ( ) RequestInfo   getRetPath ( ) String   getSelfAppId ( ) String   getStrSet ( headerName: String) Set   getTrueLogReferer ( ) String   getUrlWithGA ( path: String) String   getUserAgent ( ) String   getXRequestId ( ) String   hasAllowedApps ( ) boolean   isAjax ( ) boolean   isAjaxRequest ( request: HttpServletRequest) boolean   isAllowLanguage ( lang: String) boolean   isFastGoogleAuthEnabled ( ) boolean   publishLog ( log: PubEntityLog) void   setEnv ( env: Env) void    </description>
+      <description> Метод и описание Возвращаемый тип canAuthByOAuth ( ) boolean checkAllowAppForUser ( env: Env) void currentUser ( ) CurrentUserService encodeUrl ( url: String) String encodeUrlPart ( url: String) String fillRetPath ( ) void getAllowedApps ( ) Set getAppHost ( ) String getAppRealDomainUrl ( appId: String, urlPartPath: String) String getAppSchemaHost ( ) String getAppSchemaPort ( ) String getAppUrl ( urlPartPath: String) String getCurrentApp ( ) CApp getCurrentOAuthServer ( ) OAuthServer getDefaultLanguage ( ) String getDevRestrictRoles ( ) Set getEnv ( ) Env getFullRedirectUrl ( ) String getFullRequestUrl ( ) String getHttpMethod ( ) String getHttpResponseCode ( ) int getLoginAfterLogout ( ) String getLoginWithErrorAndRetPathUrl ( error: String) String getLoginWithRetPathUrl ( ) String getPubEntityLogs ( ) List getRemoteId ( ) String getRequestDispatcher ( ) String getRequestInfo ( ) RequestInfo getRequestReferer ( ) String getRetPath ( ) String getSelfAppId ( ) String getStrSet ( headerName: String) Set getTrueLogReferer ( ) String getUrlWithGA ( path: String) String getUserAgent ( ) String getXRequestId ( ) String hasAllowedApps ( ) boolean isAjax ( ) boolean isAjaxRequest ( request: HttpServletRequest) boolean isAllowLanguage ( lang: String) boolean isFastGoogleAuthEnabled ( ) boolean publishLog ( log: PubEntityLog) void setEnv ( env: Env) void </description>
     </item>
     
     <item>
@@ -165,7 +165,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/reference/java_api/smartformservice/</guid>
-      <description>   Метод и описание Возвращаемый тип     handle ( env: Map, originalEnv: Env, vm: ViewModel, pvm: ViewModel) void   handle ( env: Map, originalEnv: Env, vm: ViewModel, pvm: ViewModel, config: ScriptObjectMirror) void   handle ( env: Map, originalEnv: Env, vm: ViewModel, pvm: ViewModel, config: SmartFormConfig) void    </description>
+      <description> Метод и описание Возвращаемый тип handle ( env: Map, originalEnv: Env, vm: ViewModel, pvm: ViewModel) void handle ( env: Map, originalEnv: Env, vm: ViewModel, pvm: ViewModel, config: ScriptObjectMirror) void handle ( env: Map, originalEnv: Env, vm: ViewModel, pvm: ViewModel, config: SmartFormConfig) void </description>
     </item>
     
     <item>
@@ -174,7 +174,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/reference/java_api/smartqueryservice/</guid>
-      <description>   Метод и описание Возвращаемый тип     extractAndCheckMetrics ( reportConfig: SmartQueryConfig, entityKind: EntityKind) List   generateMetaQLRequest ( config: Config, queryConfig: SmartQueryConfig) String   replaceSqlPlaceholdersToEscapedValues ( queryConfig: SmartQueryConfig, sql: String) String   valueToStrValue ( value: Object) String    </description>
+      <description> Метод и описание Возвращаемый тип extractAndCheckMetrics ( reportConfig: SmartQueryConfig, entityKind: EntityKind) List generateMetaQLRequest ( config: Config, queryConfig: SmartQueryConfig) String replaceSqlPlaceholdersToEscapedValues ( queryConfig: SmartQueryConfig, sql: String) String valueToStrValue ( value: Object) String </description>
     </item>
     
     <item>
@@ -183,7 +183,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/reference/java_api/starterservice/</guid>
-      <description>   Метод и описание Возвращаемый тип     addAdvice ( ) void   addAdvice ( ) void   addAdvisor ( ) void   addAdvisor ( ) void   CGLIB$findMethodProxy ( ) MethodProxy   CGLIB$SET_STATIC_CALLBACKS ( ) void   CGLIB$SET_THREAD_CALLBACKS ( ) void   equals ( ) boolean   getAdvisors ( ) Advisor[]   getCallback ( ) Callback   getCallbacks ( ) Callback[]   getProxiedInterfaces ( ) Class[]   getTargetClass ( ) Class   getTargetSource ( ) TargetSource   hashCode ( ) int   indexOf ( ) int   indexOf ( ) int   isExposeProxy ( ) boolean   isFrozen ( ) boolean   isInterfaceProxied ( ) boolean   isPreFiltered ( ) boolean   isProxyTargetClass ( ) boolean   newInstance ( ) Object   newInstance ( ) Object   newInstance ( ) Object   removeAdvice ( ) boolean   removeAdvisor ( ) boolean   removeAdvisor ( ) void   replaceAdvisor ( ) boolean   setCallback ( ) void   setCallbacks ( ) void   setExposeProxy ( ) void   setPreFiltered ( ) void   setTargetSource ( ) void   submit ( ) void   toProxyConfigString ( ) String   toString ( ) String    </description>
+      <description> Метод и описание Возвращаемый тип addAdvice ( ) void addAdvice ( ) void addAdvisor ( ) void addAdvisor ( ) void CGLIB$findMethodProxy ( ) MethodProxy CGLIB$SET_STATIC_CALLBACKS ( ) void CGLIB$SET_THREAD_CALLBACKS ( ) void equals ( ) boolean getAdvisors ( ) Advisor[] getCallback ( ) Callback getCallbacks ( ) Callback[] getProxiedInterfaces ( ) Class[] getTargetClass ( ) Class getTargetSource ( ) TargetSource hashCode ( ) int indexOf ( ) int indexOf ( ) int isExposeProxy ( ) boolean isFrozen ( ) boolean isInterfaceProxied ( ) boolean isPreFiltered ( ) boolean isProxyTargetClass ( ) boolean newInstance ( ) Object newInstance ( ) Object newInstance ( ) Object removeAdvice ( ) boolean removeAdvisor ( ) boolean removeAdvisor ( ) void replaceAdvisor ( ) boolean setCallback ( ) void setCallbacks ( ) void setExposeProxy ( ) void setPreFiltered ( ) void setTargetSource ( ) void submit ( ) void toProxyConfigString ( ) String toString ( ) String </description>
     </item>
     
     <item>
@@ -192,7 +192,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/reference/java_api/tablecolumnservice/</guid>
-      <description>   Метод и описание Возвращаемый тип     buildAggFn ( aggFn: AggFn, expr: String) String   buildFilters ( outputPlaceholderVarName: String, columns: DataResult, data: AdvancedFilterData) GeneratedFilter   buildFilters ( outputPlaceholderVarName: String, columns: DataResult, data: AdvancedFilterData, databaseType: DatabaseType) GeneratedFilter   buildFilters ( outputPlaceholderVarName: String, columns: DataResult, data: Object) GeneratedFilter   buildFilters ( outputPlaceholderVarName: String, columns: DataResult, data: Object, databaseType: String) GeneratedFilter   escapeDivisionByZero ( text: String, escapePrefix: String, escapePostfix: String) String   extractTableParams ( columns: DataResult, dimensions: List, metrics: List) TableSettings   extractTableParams ( headers: List, dimensions: List, metrics: List, entityKind: EntityKind, strict: boolean) TableSettings   getMetricsFromExpr ( in: String) Set    </description>
+      <description> Метод и описание Возвращаемый тип buildAggFn ( aggFn: AggFn, expr: String) String buildFilters ( outputPlaceholderVarName: String, columns: DataResult, data: AdvancedFilterData) GeneratedFilter buildFilters ( outputPlaceholderVarName: String, columns: DataResult, data: AdvancedFilterData, databaseType: DatabaseType) GeneratedFilter buildFilters ( outputPlaceholderVarName: String, columns: DataResult, data: Object) GeneratedFilter buildFilters ( outputPlaceholderVarName: String, columns: DataResult, data: Object, databaseType: String) GeneratedFilter escapeDivisionByZero ( text: String, escapePrefix: String, escapePostfix: String) String extractTableParams ( columns: DataResult, dimensions: List, metrics: List) TableSettings extractTableParams ( headers: List, dimensions: List, metrics: List, entityKind: EntityKind, strict: boolean) TableSettings getMetricsFromExpr ( in: String) Set </description>
     </item>
     
     <item>
@@ -201,7 +201,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/reference/java_api/translateservice/</guid>
-      <description>   Метод и описание Возвращаемый тип     getAllPlaceholders ( language: String) Map   i18n ( language: String, text: String, args: Object[], defaultText: String) String   i18n ( placeholder: String) String   i18n ( placeholder: String, args: Object[]) String   i18n ( placeholder: String, args: Object[], defaultText: String) String   i18n ( placeholder: String, defaultText: String) String   i18nEntityFieldName ( entityId: String, fieldName: String) String   i18nEntityName ( entity: CEntity) String   i18nEntityName ( entityId: String) String   i18nPageName ( page: CPage, language: String) String   i18nSqlField ( placeholder: String) String   i18nSqlField ( tableAlias: String, placeholder: String) String   i18nSqlField ( tableAlias: String, placeholder: String, lang: String) String    </description>
+      <description> Метод и описание Возвращаемый тип getAllPlaceholders ( language: String) Map i18n ( language: String, text: String, args: Object[], defaultText: String) String i18n ( placeholder: String) String i18n ( placeholder: String, args: Object[]) String i18n ( placeholder: String, args: Object[], defaultText: String) String i18n ( placeholder: String, defaultText: String) String i18nEntityFieldName ( entityId: String, fieldName: String) String i18nEntityName ( entity: CEntity) String i18nEntityName ( entityId: String) String i18nPageName ( page: CPage, language: String) String i18nSqlField ( placeholder: String) String i18nSqlField ( tableAlias: String, placeholder: String) String i18nSqlField ( tableAlias: String, placeholder: String, lang: String) String </description>
     </item>
     
     <item>
@@ -210,7 +210,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://developers.devision.io/meta/reference/java_api/userrecoveryservice/</guid>
-      <description>   Метод и описание Возвращаемый тип     getDoublePasswordHash ( login: String) String   sendNotice ( login: String, appAlias: String, state: String) SendNoticeResponse    </description>
+      <description> Метод и описание Возвращаемый тип getDoublePasswordHash ( login: String) String sendNotice ( login: String, appAlias: String, state: String) SendNoticeResponse </description>
     </item>
     
   </channel>

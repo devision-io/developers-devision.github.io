@@ -390,6 +390,16 @@ server { listen *:80; server_name example.com; charset utf8; location / { proxy_
     </item>
     
     <item>
+      <title>Управление выводом `хлебных крошек`</title>
+      <link>https://developers.devision.io/meta/samples/pages/breadcrumbs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/samples/pages/breadcrumbs/</guid>
+      <description>Способ 1 Этот способ имеет наивысший приоритет. Т.е. если настройка произведена одновременно двумя способами, Мета при выводе хлебных крошек будет использовать именно настройку первым способом. Он предполагает создание для entity страницы с ролью &amp;ldquo;Обработчики событий сущности&amp;rdquo; с размещение там блока с id=&amp;ldquo;breadcrumbs&amp;rdquo;, возвращающего список элементов дерева &amp;ldquo;хлебных крошек&amp;rdquo;. Например:
+&amp;lt;script type=&amp;#34;meta/sql&amp;#34; db=&amp;#34;adplatform&amp;#34; id=&amp;#34;breadcrumbs&amp;#34; state=&amp;#34;default&amp;#34;&amp;gt; SELECT json_build_object(&amp;#39;pageId&amp;#39;, &amp;#39;app_clients&amp;#39;) as parent_page &amp;lt;/script&amp;gt; Данный пример сгенерирует &amp;ldquo;хлебные крошки&amp;rdquo; из одной ссылки, ведущей на страницу с id=app_clients</description>
+    </item>
+    
+    <item>
       <title>header</title>
       <link>https://developers.devision.io/meta/_header/</link>
       <pubDate>Mon, 24 Apr 2017 18:36:24 +0200</pubDate>

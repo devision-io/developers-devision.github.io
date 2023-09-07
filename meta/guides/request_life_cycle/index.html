@@ -477,24 +477,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
                     
                     
-                    
-                    
-            
-            
-            
-            
-            
-            <li data-nav-id="https://developers.devision.io/meta/samples/pages/breadcrumbs/" class="devsite-nav-item dd-item ">
-                <a href="https://developers.devision.io/meta/samples/pages/breadcrumbs/" class="devsite-nav-title">
-                    <span>Управление выводом `хлебных крошек`</span>
-                </a>
-            </li>
-            
-            
-            
-            
-                    
-                    
                 </ul>
                 
             </li>
@@ -1721,9 +1703,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <ul>
 <li><strong>env</strong> - объект-окружение запроса к серверу.</li>
 <li><strong>vm</strong> - объект для удобной работы с ответом клиенту. На лего странцах отдельный vm на каждый script.</li>
-<li><strong>pvm</strong> - только на LEGO-страницах. Отвечает за хранение данных на всех странце, содержит в себе vm script.</li>
-<li><strong>DataResult</strong> - низкоуровневый класс, отвечающий за ответ с данными по EntityPage. Его нельзя получить так как он никуда не передается,  существует вне script - над ним. Создается вручную при необходимости только в meta/js скриптах. Содержит в себе pvm, который в свою очередь и передается в страницы. В общем случае не рекомендуетсяим пользоваться без крайней необходимости, хотя он может быть полезен для построении таблиз из js на основе данных какого-либо api без сохранения в БД.</li>
-<li><strong>RequestEnvironmentService</strong> - сервис получение системной информации о запросе. Например RequestEnvironmentService.getRequestInfo() для получения полной системной информации о запросе</li>
+<li><strong>pvm</strong> - только на LEGO-страницах. Отвечает за хранение данных на всех странцах, содержит в себе vm script.</li>
+<li><strong>DataResult</strong> - низкоуровневый класс, отвечающий за ответ с данными по EntityPage. Его нельзя получить так как он никуда не передается,  существует вне script - над ним. Создается вручную при необходимости только в meta/js скриптах. Содержит в себе pvm, который в свою очередь и передается в страницы. В общем случае не рекомендуетсяим пользоваться без крайней необходимости, хотя он может быть полезен для построении таблиц из js на основе данных какого-либо api без сохранения в БД.</li>
+<li><strong>RequestEnvironmentService</strong> - сервис получения системной информации о запросе. Например RequestEnvironmentService.getRequestInfo() для получения полной системной информации о запросе</li>
 </ul>
 <h3 id="состояния-страниц">Состояния страниц</h3>
 <ul>
@@ -1732,7 +1714,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </ul>
 <h2 id="выполенение-url-типа-page-пример-для-envsp">Выполенение url типа /page. Пример для env.sp</h2>
 <p>Рассмотрим жизненный цикл на основе примера с обычной странице с таблицей и фильтром - <a href="https://samples-demo.devision.io/page?p=3398&amp;a=35">https://samples-demo.devision.io/page?p=3398&amp;a=35</a></p>
-<p>Итак, что происходит, когда пользоатель заходит на страницу:</p>
+<p>Итак, что происходит, когда пользователь заходит на страницу:</p>
 <ul>
 <li>Backend получает указание загрузить pageId=3398 и applicationId=35 (Мы можем видеть это из url - параметры <strong>p</strong> и <strong>a</strong> соответственно /page?p=3398&amp;a=35)</li>
 <li>Backend проверяет соответствие ACL страницы и текущего пользователя
@@ -1745,17 +1727,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li>UI инициализирует компонент me-page с pageId и пр</li>
 <li>me-page начинает разрешать зависимости по текущему env и запрашивает данные путем вызова backend api /api/meta/page (вы можете наблюдать вызовы в chrome debugger)</li>
 <li>После получения данных me-page начинает рисовать root lego страницы. Это то, что страница вернула через описание через <strong>script</strong> и <strong>elem</strong></li>
-<li>Надо  сразу упомянуть, что после отрисовки root lego, если он имеет зависимости refPvmData, me-page по аналогиис первичным запуском будет пытаться разрешить и их до тех пор, пока все не будет разрешено или не вернется ошибка или пустой ответ</li>
+<li>Надо  сразу упомянуть, что после отрисовки root lego, если он имеет зависимости refPvmData, me-page по аналогии с первичным запуском будет пытаться разрешить и их до тех пор, пока все не будет разрешено или не вернется ошибка или пустой ответ</li>
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- 
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">Это скрипт с типом sql, который:
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> - имеет id=period (т.е. будет доступен в env.sp.period)
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> - запрашивает данные из БД с альясом meta_samples
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> - будет оторажаться как me-input с типом daterange (elem=&#34;me-input&#34; elem-attrs=&#39;{&#34;type&#34;:&#34;daterange&#34;}&#39;) - это элемент пользовательского ввода в виде периода дат
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> - будет отражаться как me-input с типом daterange (elem=&#34;me-input&#34; elem-attrs=&#39;{&#34;type&#34;:&#34;daterange&#34;}&#39;) - это элемент пользовательского ввода в виде периода дат
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> - имеет дефолт {&#34;from&#34;:&#34;2014-12-01&#34;, &#34;to&#34;:&#34;2015-03-01&#34;} . Т.е. при первоначальной загрузке страницы уже будет иметь значение. Это очень удобно для отчетов
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> - Имеет приоритет вывода 10 (order)
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> - Занимает 4 ячейки в горизонтальной сетке (span)
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> - live-reload говорит о том, что при изменении значения инмупа страница будет обновлена с новым значением env.sp.period. Обычно это заменятеся атрибутом page-search, но для этой страницы он не нужен
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> - live-reload говорит о том, что при изменении значения инпута страница будет обновлена с новым значением env.sp.period. Обычно это заменятеся атрибутом page-search, но для этой страницы он не нужен
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">--&gt;</span>
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;period&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta_samples&#34;</span> 
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">default</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;{&#34;from&#34;:&#34;2014-12-01&#34;, &#34;to&#34;:&#34;2015-03-01&#34;}&#39;</span> <span style="color:#a6e22e">elem</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;me-input&#34;</span> <span style="color:#a6e22e">order</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;10&#34;</span> <span style="color:#a6e22e">span</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;4&#34;</span>
@@ -1827,14 +1809,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <a href="https://samples-demo.devision.io/card?e=example_entity&amp;o=08f3395b-31f2-42c9-917e-a5f2b7bd4a95&amp;a=35">https://samples-demo.devision.io/card?e=example_entity&amp;o=08f3395b-31f2-42c9-917e-a5f2b7bd4a95&amp;a=35</a></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- 
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">Объявляем валидатор с depends от name. Параметр name в случае этой конкретной формы будет приходить как имя объекта.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">Такая валидация не обяъательна, это будет зависеть от конкретной формы. Часто это просто не надо.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">Такая валидация не обязательна, это будет зависеть от конкретной формы. Часто это просто не надо.
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">--&gt;</span>
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;name_validator&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta_samples&#34;</span> <span style="color:#a6e22e">depends</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;name&#34;</span>&gt;
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">SELECT</span> <span style="color:#e6db74">&#39;name_validator_unique&#39;</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">id</span>, <span style="color:#e6db74">&#39;Имя уже используется&#39;</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">name</span> <span style="color:#a6e22e">FROM</span> <span style="color:#66d9ef">public</span>.<span style="color:#a6e22e">example_entity</span> <span style="color:#a6e22e">WHERE</span> <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#f92672">:</span><span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">sp</span>.<span style="color:#a6e22e">name</span> <span style="color:#a6e22e">LIMIT</span> <span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- 
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">Для упрощения разработки форм мы договорились, что данные объекта сужности мы всегда извлеваем в скрипте с id=info с атрибутом internal (данный атрибут не дает данным уходить на frontend) 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">Для упрощения разработки форм мы договорились, что данные объекта сущности мы всегда извлекаем в скрипте с id=info с атрибутом internal (данный атрибут не дает данным уходить на frontend) 
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">--&gt;</span>
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/sql&#34;</span> <span style="color:#a6e22e">db-alias</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta_samples&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;info&#34;</span> <span style="color:#a6e22e">internal</span> <span style="color:#a6e22e">states</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;default&#34;</span>&gt;
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">SELECT</span> <span style="color:#a6e22e">id</span>, <span style="color:#a6e22e">name</span>, <span style="color:#a6e22e">creation_time</span>, <span style="color:#a6e22e">last_user_id</span>
@@ -1845,7 +1827,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">elem</span> <span style="color:#a6e22e">states</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;default&#34;</span> <span style="color:#a6e22e">order</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;190&#34;</span>&gt;
 </span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">tpl</span>&gt;
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;!-- Форма при отправке будет метять env.state на save и поэтому будут исполняться скрипты6 которые описаны ниже и имеют states=&#34;save&#34; --&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;!-- Форма при отправке будет менять env.state на save и поэтому будут исполняться скрипты, которые описаны ниже и имеют states=&#34;save&#34; --&gt;</span>
 </span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;editGroupForm&#34;</span> <span style="color:#a6e22e">ng-submit</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;changeState(&#39;save&#39;, {obj:env.sp.obj})&#34;</span>&gt;
 </span></span><span style="display:flex;"><span>            <span style="color:#75715e">&lt;!-- 
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">            Атрибут формы output важно делать именно env.sp.obj. 
@@ -1912,7 +1894,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">elem=&#34;hidden&#34; делает скрипт невидимым
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">states может содержать список стейтов разделенных запятой, в нашем случае и обычно это не нужно. Если states не указан, что скрипт работает на всех стейтах
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">states=&#34;save&#34; говорит о том, что скрипт будет выполнятся только при выполнении условия, что env.state IN (states)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">states=&#34;save&#34; говорит о том, что скрипт будет выполняться только при выполнении условия, что env.state IN (states)
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">--&gt;</span>
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span> <span style="color:#a6e22e">elem</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hidden&#34;</span> <span style="color:#a6e22e">states</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;save&#34;</span>&gt;
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>(<span style="color:#a6e22e">pvm</span>, <span style="color:#a6e22e">vm</span>, <span style="color:#a6e22e">env</span>, <span style="color:#a6e22e">ObjectLogService</span>) {
@@ -1932,7 +1914,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// state=default
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// firstLoading = true
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">pvm</span>.<span style="color:#a6e22e">toInitialState</span>();
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Если страница будет открыта в модальном окне эта инструкция будет указывть мете, что окно надо закрыть
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Если страница будет открыта в модальном окне эта инструкция будет указывать мете, что окно надо закрыть
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">pvm</span>.<span style="color:#a6e22e">closeModal</span>();
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Показать popup. В принципе popup, как и все эти инструкции кроме ObjectLogService.logValue можно ставить в любом порядке, 
@@ -1943,7 +1925,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
 </span></span></code></pre></div><h3 id="код-примера">Код примера</h3>
-<p>Надо сказать, что обычно state меняется при сабмите формы, просто через html yе меняем, но этот пример может показать что происходит.</p>
+<p>Надо сказать, что обычно state меняется при сабмите формы, просто через html не меняем, но этот пример может показать что происходит.</p>
 <p>Вот простой код для примера. Тут три ссылки, которые меняют состояние страницы.
 В script-ах указаны states, в которых script будет участвовать (будет выполняться).
 Если states для script или elem не указан, то script или elem участвует во всех state.</p>

@@ -9,7 +9,7 @@
     <meta name="description" content="">
 
 
-    <title>ObjectLogService :: META | Devision Developers</title>
+    <title>Управление выводом страниц в меню :: META | Devision Developers</title>
     <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="https://developers.devision.io/meta/reference/java_api/objectlogservice/">
+  <body class="" data-url="https://developers.devision.io/meta/samples/pages/page_positioning/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -399,7 +399,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="https://developers.devision.io/meta/samples/" class="devsite-nav-item devsite-nav-item-main
-                        
+                        parent
                         
                         parent
                         ">
@@ -502,7 +502,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="https://developers.devision.io/meta/samples/pages/page_positioning/" class="devsite-nav-item dd-item ">
+            <li data-nav-id="https://developers.devision.io/meta/samples/pages/page_positioning/" class="devsite-nav-item dd-item active">
                 <a href="https://developers.devision.io/meta/samples/pages/page_positioning/" class="devsite-nav-title">
                     <span>Управление выводом страниц в меню</span>
                 </a>
@@ -985,7 +985,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="https://developers.devision.io/meta/reference/" class="devsite-nav-item devsite-nav-item-main
-                        parent
+                        
                         
                         parent
                         ">
@@ -1239,7 +1239,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             <li data-nav-id="https://developers.devision.io/meta/reference/java_api/" class="devsite-nav-item devsite-nav-item-main
-                        parent
+                        
                         
                         
                         ">
@@ -1540,7 +1540,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="https://developers.devision.io/meta/reference/java_api/objectlogservice/" class="devsite-nav-item dd-item active">
+            <li data-nav-id="https://developers.devision.io/meta/reference/java_api/objectlogservice/" class="devsite-nav-item dd-item ">
                 <a href="https://developers.devision.io/meta/reference/java_api/objectlogservice/" class="devsite-nav-title">
                     <span>ObjectLogService</span>
                 </a>
@@ -1714,12 +1714,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-
-
-
- <a href='https://developers.devision.io/meta/'>META</a> > <a href='https://developers.devision.io/meta/reference/'>Справочник по API</a> > <a href='https://developers.devision.io/meta/reference/java_api/'>Java API</a> > ObjectLogService
-
-
+ <a href='https://developers.devision.io/meta/'>META</a> > <a href='https://developers.devision.io/meta/samples/'>Примеры</a> > Управление выводом страниц в меню
 
 
 
@@ -1733,65 +1728,66 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <div id="body-inner">
           
-            <h1>ObjectLogService</h1>
+            <h1>Управление выводом страниц в меню</h1>
           
 
 
 
-<table>
-<thead>
-<tr>
-<th>Метод и описание</th>
-<th>Возвращаемый тип</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>buildLog ( )</td>
-<td>Log</td>
-</tr>
-<tr>
-<td>coreErrorEventTrack ( action: String, label: String, value: Long)</td>
-<td>void</td>
-</tr>
-<tr>
-<td>coreEventTrack ( action: String, label: String)</td>
-<td>void</td>
-</tr>
-<tr>
-<td>coreEventTrack ( action: String, label: String, value: Long)</td>
-<td>void</td>
-</tr>
-<tr>
-<td>log ( entityId: String, objectId: Object, code: Code)</td>
-<td>void</td>
-</tr>
-<tr>
-<td>log ( entityId: String, objectId: Object, code: String)</td>
-<td>void</td>
-</tr>
-<tr>
-<td>log ( objectLog: Log)</td>
-<td>void</td>
-</tr>
-<tr>
-<td>logValue ( entityId: String, objectId: Object, code: Code, value: Object)</td>
-<td>void</td>
-</tr>
-<tr>
-<td>logValue ( entityId: String, objectId: Object, code: Code, value: Object, form: String)</td>
-<td>void</td>
-</tr>
-<tr>
-<td>logValue ( entityId: String, objectId: Object, code: String, value: Object)</td>
-<td>void</td>
-</tr>
-<tr>
-<td>logValue ( entityId: String, objectId: Object, code: String, value: Object, form: String)</td>
-<td>void</td>
-</tr>
-</tbody>
-</table>
+<p>Независимо от желаемого местоположения страницы, часть свойств должны быть указаны всегда:</p>
+<ul>
+<li>Приложения: список приложений, в которых необходимо вывести страницу</li>
+</ul>
+<h2 id="верхнее-меню-главный-разделы-приложения">Верхнее меню (главный разделы приложения)</h2>
+<ul>
+<li>Page role: PAGE_GROUP</li>
+<li>Сущность: application</li>
+<li>Родительская страница: &lt;отсутствует&gt;</li>
+</ul>
+<h2 id="левое-меню-выпадающий-список-страниц">Левое меню (выпадающий список страниц)</h2>
+<ul>
+<li>Page role: PAGE_GROUP</li>
+<li>Сущность: application</li>
+<li>Родительская страница: &lt;id страницы в верхнем меню&gt;</li>
+</ul>
+<h2 id="левое-меню-сама-страница">Левое меню (сама страница)</h2>
+<ul>
+<li>Page role: PAGE</li>
+<li>Сущность: application</li>
+<li>Родительская страница: &lt;id страницы в верхнем меню или id страницы типа PAGE_GROUP в левом меню&gt;</li>
+</ul>
+<h2 id="левое-меню-внутри-entity-выпадающий-список-страниц">Левое меню внутри entity (выпадающий список страниц)</h2>
+<ul>
+<li>Page role: PAGE_GROUP</li>
+<li>Сущность: &lt;необходимая сущность&gt;</li>
+<li>Родительская страница: &lt;отсутствует&gt;</li>
+</ul>
+<h2 id="левое-меню-внутри-entity-сама-страница">Левое меню внутри entity (сама страница)</h2>
+<ul>
+<li>Page role: PAGE</li>
+<li>Сущность: &lt;необходимая сущность&gt;</li>
+<li>Родительская страница: &lt;id страницы типа PAGE_GROUP в левом меню&gt;</li>
+</ul>
+<h2 id="размещение-страницы-через-entity-sharing">Размещение страницы через entity sharing</h2>
+<p>Помимо указания основного места размещения страницы можно заставить её отображаться и в других местах. Например, в разных разделах нескольких приложений или внутри нескольких entity.</p>
+<h2 id="размещение-в-меню-акторов-у-entity">Размещение в меню акторов у entity</h2>
+<ul>
+<li>Page role: PAGE</li>
+<li>Роль: Актор объекта</li>
+<li>Сущность: &lt;необходимая сущность&gt;</li>
+</ul>
+<h3 id="чтобы-отобразить-страницу-в-другой-entity">Чтобы отобразить страницу в другой entity</h3>
+<p>В разделе Entity sharing создаём запись:</p>
+<ul>
+<li>entity: &lt;необходимая сущность&gt;</li>
+<li>parent_id: &lt;id родительской страницы в левом меню, если требуется&gt;</li>
+</ul>
+<h3 id="чтобы-отобразить-страницу-в-другом-приложении">Чтобы отобразить страницу в другом приложении</h3>
+<p>В разделе Entity sharing создаём запись:</p>
+<ul>
+<li>entity: 244 (application)</li>
+<li>Приложения: &lt;список необходимых приложений&gt;</li>
+<li>parent_id: &lt;id страницы в верхнем меню или id страницы типа PAGE_GROUP в левом меню&gt;</li>
+</ul>
 
 
 
@@ -1803,7 +1799,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 </div>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#верхнее-меню-главный-разделы-приложения">Верхнее меню (главный разделы приложения)</a></li>
+    <li><a href="#левое-меню-выпадающий-список-страниц">Левое меню (выпадающий список страниц)</a></li>
+    <li><a href="#левое-меню-сама-страница">Левое меню (сама страница)</a></li>
+    <li><a href="#левое-меню-внутри-entity-выпадающий-список-страниц">Левое меню внутри entity (выпадающий список страниц)</a></li>
+    <li><a href="#левое-меню-внутри-entity-сама-страница">Левое меню внутри entity (сама страница)</a></li>
+    <li><a href="#размещение-страницы-через-entity-sharing">Размещение страницы через entity sharing</a></li>
+    <li><a href="#размещение-в-меню-акторов-у-entity">Размещение в меню акторов у entity</a>
+      <ul>
+        <li><a href="#чтобы-отобразить-страницу-в-другой-entity">Чтобы отобразить страницу в другой entity</a></li>
+        <li><a href="#чтобы-отобразить-страницу-в-другом-приложении">Чтобы отобразить страницу в другом приложении</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 </div>
 
 </div>

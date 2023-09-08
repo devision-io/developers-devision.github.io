@@ -400,6 +400,16 @@ server { listen *:80; server_name example.com; charset utf8; location / { proxy_
     </item>
     
     <item>
+      <title>Управление выводом страниц в меню</title>
+      <link>https://developers.devision.io/meta/samples/pages/page_positioning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://developers.devision.io/meta/samples/pages/page_positioning/</guid>
+      <description>Независимо от желаемого местоположения страницы, часть свойств должны быть указаны всегда:
+Приложения: список приложений, в которых необходимо вывести страницу Верхнее меню (главный разделы приложения) Page role: PAGE_GROUP Сущность: application Родительская страница: &amp;lt;отсутствует&amp;gt; Левое меню (выпадающий список страниц) Page role: PAGE_GROUP Сущность: application Родительская страница: &amp;lt;id страницы в верхнем меню&amp;gt; Левое меню (сама страница) Page role: PAGE Сущность: application Родительская страница: &amp;lt;id страницы в верхнем меню или id страницы типа PAGE_GROUP в левом меню&amp;gt; Левое меню внутри entity (выпадающий список страниц) Page role: PAGE_GROUP Сущность: &amp;lt;необходимая сущность&amp;gt; Родительская страница: &amp;lt;отсутствует&amp;gt; Левое меню внутри entity (сама страница) Page role: PAGE Сущность: &amp;lt;необходимая сущность&amp;gt; Родительская страница: &amp;lt;id страницы типа PAGE_GROUP в левом меню&amp;gt; Размещение страницы через entity sharing Помимо указания основного места размещения страницы можно заставить её отображаться и в других местах.</description>
+    </item>
+    
+    <item>
       <title>header</title>
       <link>https://developers.devision.io/meta/_header/</link>
       <pubDate>Mon, 24 Apr 2017 18:36:24 +0200</pubDate>

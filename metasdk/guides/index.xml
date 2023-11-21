@@ -5,38 +5,12 @@
     <link>https://developers.devision.io/metasdk/guides/</link>
     <description>Recent content in Руководства on META | Devision Developers</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ru-ru</language><atom:link href="https://developers.devision.io/metasdk/guides/index.xml" rel="self" type="application/rss+xml" />
+    <language>ru-ru</language>
+    <lastBuildDate>Mon, 24 Apr 2017 18:36:24 +0200</lastBuildDate><atom:link href="https://developers.devision.io/metasdk/guides/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title></title>
-      <link>https://developers.devision.io/metasdk/guides/exceptions/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://developers.devision.io/metasdk/guides/exceptions/</guid>
-      <description>Exceptions Описание исключений в какой момент их использовать.
-Ошибки могут приходить не только в статус коде ответа, но и внутри корректного ответа, в зависимочти от документации самого сервиса, либо детектированы самостоятельно по каким другим признакам
-SDKError Корневая ошибка для SDK, создана для ветвления дерева исключений. В коде не используется.
-AuthError Ошибка авторизации, используется если нам пришел 401 HTTP ответ, или были выявлены проблемы с авторизацией
-ServerError Ошибка серверва, используется если пришел любой 500 HTTP ответ, кроме 502 и 503, или были выявлены проблемы работы с сервером</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://developers.devision.io/metasdk/guides/introduction/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://developers.devision.io/metasdk/guides/introduction/</guid>
-      <description>Введение Install Для metasdk и для локальной меты
-Установите токен разработчика Получите файл токен разработчика Установите developer_settings.json в домашнюю директорию в папку .rwmeta Например:
-MacOS: /Users/arturgspb/.rwmeta/developer_settings.json Windows: C:\Users\userXXXXXX\.rwmeta\developer_settings.json Linux: ~/.rwmeta/developer_settings.json Установите metasdk Для разработки скриптов на python. Для локальной меты это не надо.
-Поддерживается Python 3.6+
-pip3 install metasdk --upgrade --no-cache Full Examples Полный список примеров
-Usage import logging from metasdk import MetaApp # Инициализация приложения # конфигурирует логгер и пр.</description>
-    </item>
-    
-    <item>
-      <title></title>
+      <title>LockService</title>
       <link>https://developers.devision.io/metasdk/guides/lock_service/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 24 Apr 2017 18:36:24 +0200</pubDate>
       
       <guid>https://developers.devision.io/metasdk/guides/lock_service/</guid>
       <description>LockService Используется для ограничения одновременно запущенных участков кода. Это бывает необходимо в ситуациях когда есть жесткие лимиты от внешнего апи на количество одновременных обращений, или в ситуациях когда мы работаем с объектом для которого чувствительны одновременные изменения, например бюджет аккаунта.
@@ -45,19 +19,20 @@ ttl_in_sec: Сколько времени ключ будет жить в Redis&
     </item>
     
     <item>
-      <title></title>
-      <link>https://developers.devision.io/metasdk/guides/logging/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>Meta Services</title>
+      <link>https://developers.devision.io/metasdk/guides/rpc/</link>
+      <pubDate>Mon, 24 Apr 2017 18:36:24 +0200</pubDate>
       
-      <guid>https://developers.devision.io/metasdk/guides/logging/</guid>
-      <description>Логирование Тут мы рассмотрим обычный логгер и Bulk-логгер, который нужен, чтобы не спамить большим кол-вом логов, при обработке больших массиов данных с неизвестным временем на обработку одного элемента
-Logger log = META.log # Объявите глобальный контекст, чтобы не писать это каждый раз log.set_entity(&amp;#39;campaign_id&amp;#39;, -1) # По сути это просто хранилище глобавльных переменных контекста log.set_entity(&amp;#39;test&amp;#39;, True) log.warning(&amp;#39;Do warning log&amp;#39;, {&amp;#34;count&amp;#34;: 1, &amp;#34;mycontextParam&amp;#34;: [1, 3, 4]}) log.info(&amp;#39;Info log&amp;#39;) logging.info(&amp;#39;Default logging&amp;#39;) # удалите глобальный контекст, когда он вам больше не нужен log.</description>
+      <guid>https://developers.devision.io/metasdk/guides/rpc/</guid>
+      <description>RPC Meta Services Это API внутренних функций Меты, все эти функции доступны вам через редактор в Web-интерфейсе
+Примеры Список примеров
+CacheService from metasdk import MetaApp META = MetaApp() log = META.log META.auth_user_id = 11790 # Пример прогрева кеша result = META.CacheService.warm_page_cache( &amp;#39;88&amp;#39;, &amp;#39;4993&amp;#39;, None, None, { &amp;#34;stateParams&amp;#34;: { &amp;#34;firstLoading&amp;#34;: True } } ) print(u&amp;#34;export_res = %s&amp;#34; % str(result)) MediaService import os from metasdk import MetaApp META = MetaApp() log = META.</description>
     </item>
     
     <item>
-      <title></title>
+      <title>METASQL</title>
       <link>https://developers.devision.io/metasdk/guides/metaql/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 24 Apr 2017 18:36:24 +0200</pubDate>
       
       <guid>https://developers.devision.io/metasdk/guides/metaql/</guid>
       <description>METAQL Основан на синтаксисе Oracle METAQL - Это защищенный SQL для запросов к данным меты.
@@ -69,14 +44,40 @@ import os from metasdk import MetaApp META = MetaApp() log = META.</description>
     </item>
     
     <item>
-      <title></title>
-      <link>https://developers.devision.io/metasdk/guides/rpc/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>Исключения</title>
+      <link>https://developers.devision.io/metasdk/guides/exceptions/</link>
+      <pubDate>Mon, 24 Apr 2017 18:36:24 +0200</pubDate>
       
-      <guid>https://developers.devision.io/metasdk/guides/rpc/</guid>
-      <description>RPC Meta Services Это API внутренних функций Меты, все эти функции доступны вам через редактор в Web-интерфейсе
-Примеры Список примеров
-CacheService from metasdk import MetaApp META = MetaApp() log = META.log META.auth_user_id = 11790 # Пример прогрева кеша result = META.CacheService.warm_page_cache( &amp;#39;88&amp;#39;, &amp;#39;4993&amp;#39;, None, None, { &amp;#34;stateParams&amp;#34;: { &amp;#34;firstLoading&amp;#34;: True } } ) print(u&amp;#34;export_res = %s&amp;#34; % str(result)) MediaService import os from metasdk import MetaApp META = MetaApp() log = META.</description>
+      <guid>https://developers.devision.io/metasdk/guides/exceptions/</guid>
+      <description>Exceptions Описание исключений в какой момент их использовать.
+Ошибки могут приходить не только в статус коде ответа, но и внутри корректного ответа, в зависимочти от документации самого сервиса, либо детектированы самостоятельно по каким другим признакам
+SDKError Корневая ошибка для SDK, создана для ветвления дерева исключений. В коде не используется.
+AuthError Ошибка авторизации, используется если нам пришел 401 HTTP ответ, или были выявлены проблемы с авторизацией
+ServerError Ошибка серверва, используется если пришел любой 500 HTTP ответ, кроме 502 и 503, или были выявлены проблемы работы с сервером</description>
+    </item>
+    
+    <item>
+      <title>Логирование</title>
+      <link>https://developers.devision.io/metasdk/guides/logging/</link>
+      <pubDate>Mon, 24 Apr 2017 18:36:24 +0200</pubDate>
+      
+      <guid>https://developers.devision.io/metasdk/guides/logging/</guid>
+      <description>Логирование Тут мы рассмотрим обычный логгер и Bulk-логгер, который нужен, чтобы не спамить большим кол-вом логов, при обработке больших массиов данных с неизвестным временем на обработку одного элемента
+Logger log = META.log # Объявите глобальный контекст, чтобы не писать это каждый раз log.set_entity(&amp;#39;campaign_id&amp;#39;, -1) # По сути это просто хранилище глобавльных переменных контекста log.set_entity(&amp;#39;test&amp;#39;, True) log.warning(&amp;#39;Do warning log&amp;#39;, {&amp;#34;count&amp;#34;: 1, &amp;#34;mycontextParam&amp;#34;: [1, 3, 4]}) log.info(&amp;#39;Info log&amp;#39;) logging.info(&amp;#39;Default logging&amp;#39;) # удалите глобальный контекст, когда он вам больше не нужен log.</description>
+    </item>
+    
+    <item>
+      <title>Введение</title>
+      <link>https://developers.devision.io/metasdk/guides/introduction/</link>
+      <pubDate>Mon, 24 Apr 2017 18:36:24 +0200</pubDate>
+      
+      <guid>https://developers.devision.io/metasdk/guides/introduction/</guid>
+      <description>Введение Install Для metasdk и для локальной меты
+Установите токен разработчика Получите файл токен разработчика Установите developer_settings.json в домашнюю директорию в папку .rwmeta Например:
+MacOS: /Users/arturgspb/.rwmeta/developer_settings.json Windows: C:\Users\userXXXXXX\.rwmeta\developer_settings.json Linux: ~/.rwmeta/developer_settings.json Установите metasdk Для разработки скриптов на python. Для локальной меты это не надо.
+Поддерживается Python 3.6+
+pip3 install metasdk --upgrade --no-cache Full Examples Полный список примеров
+Usage import logging from metasdk import MetaApp # Инициализация приложения # конфигурирует логгер и пр.</description>
     </item>
     
   </channel>

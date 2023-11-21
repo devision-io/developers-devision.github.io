@@ -1,0 +1,202 @@
+
+
+<!DOCTYPE html>
+<html lang="ru" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.111.3">
+    <meta name="description" content="">
+
+
+    <title> :: META | Devision Developers</title>
+    <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue_grey-pink.min.css" />
+
+      <link href="https://developers.devision.io/metasdk/css/hybrid.css" rel="stylesheet">
+    <link href="https://developers.devision.io/metasdk/css/horsey.css" rel="stylesheet">
+    <link href="https://developers.devision.io/metasdk/css/theme.css" rel="stylesheet">
+    <link href="https://developers.devision.io/metasdk/css/dev-theme.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+    
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
+
+  </head>
+  <body class="" data-url="https://developers.devision.io/metasdk/lock_service/">
+    
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+
+    
+
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+            
+            <span class="mdl-layout-title">
+                <a href='https://developers.devision.io/metasdk/' class="header-logo-link">
+                    <img src="https://metastatic.devision.io/avatar.png" width="30" />
+                    META
+                </a>
+            </span>
+
+            <div class="devsite-header-upper-tabs"></div>
+
+            <div class="devsite-search-form">
+                <div class="searchbox">
+                        <input class="devsite-search-field" type="text" data-search-input
+                               placeholder="Поиск"
+                               id="search-by">
+
+                        <div class="devsite-search-image material-icons" aria-hidden="true">search</div>
+                        <script type="text/javascript" src="https://developers.devision.io/metasdk/js/lunr.min.js"></script>
+                        <script type="text/javascript" src="https://developers.devision.io/metasdk/js/auto-complete.js"></script>
+                        <link href="https://developers.devision.io/metasdk/css/auto-complete.css" rel="stylesheet">
+                        <script type="text/javascript">
+                            
+                            var baseurl = "https:\/\/developers.devision.io\/metasdk";
+                            
+                        </script>
+                        <script type="text/javascript" src="https://developers.devision.io/metasdk/js/search.js"></script>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="mdl-layout__content">
+        <div class="page-content">
+            <div class="mdl-grid devsite-full-site-width">
+
+                <div class="devsite-nav mdl-cell mdl-cell--3-col mdl-cell--3-col-tablet mdl-cell--12-col-phone">
+                    <nav class="devsite-section-nav">
+                        <ul class="devsite-section-nav-main">
+                            
+                        </ul>
+                    </nav>
+            
+            
+
+    </div>
+    <div class="mdl-cell mdl-cell--7-col mdl-cell--9-col-tablet mdl-cell--12-col-phone">
+        <section>
+        <div id="overlay"></div>
+        <div class=" ">
+        
+          <div>
+            <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                <span class="links">
+                
+
+
+
+
+ <a href='https://developers.devision.io/metasdk/'>META SDK</a> > 
+
+
+
+
+                </span>
+            </div>
+          </div>
+        
+        
+        <div id="body-inner">
+          
+            <h1></h1>
+          
+
+
+
+<h1 id="lockservice">LockService</h1>
+<p>Используется для ограничения одновременно запущенных участков кода.
+Это бывает необходимо в ситуациях когда есть жесткие лимиты от внешнего апи на количество одновременных обращений,
+или в ситуациях когда мы работаем с объектом для которого чувствительны одновременные изменения, например бюджет аккаунта.</p>
+<h2 id="описание-параметров">Описание параметров</h2>
+<p>key: Ключ, который определяет уникальность выполняемого участка кода.</p>
+<p>ttl_in_sec: Сколько времени ключ будет жить в Redis&rsquo;e. По истечении времени ключ удалится и начнется выполнение следующего участка кода. Если указать слишком маленькое значение, код не успеет выполниться за это время и начнется выполнение следующего скрипта.</p>
+<p>timeout_in_sec: Сколько времени функция lock будет пытаться поставить участок кода на выполнение. По истечении времени вызовется исключение. Слишком большое значение может привести к зависанию кода.</p>
+<p>queue_width: Максимально возможное количество одновременно запущенных участков кода</p>
+<p>field_to_uniq: добавляет к ключу в редисе значение аргумента переданного в функции. Например вы передали в функцию x=666, к ключу добавится 666.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> time
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> threading
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> metasdk <span style="color:#f92672">import</span> MetaApp
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Meta <span style="color:#f92672">=</span> MetaApp()
+</span></span><span style="display:flex;"><span>lock <span style="color:#f92672">=</span> Meta<span style="color:#f92672">.</span>LockService<span style="color:#f92672">.</span>lock
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>TIME_TO_SLEEP <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span>
+</span></span><span style="display:flex;"><span>TIMEOUT <span style="color:#f92672">=</span> <span style="color:#ae81ff">50</span>
+</span></span><span style="display:flex;"><span>TTL <span style="color:#f92672">=</span> <span style="color:#ae81ff">50</span>
+</span></span><span style="display:flex;"><span>KEY <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;gogo&#34;</span>
+</span></span><span style="display:flex;"><span>WIDTH <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>FIELD_TO_UNIQUE_DECORATOR <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;x&#34;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">lock_via_with</span>(name):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">with</span> lock(timeout_in_sec<span style="color:#f92672">=</span>TIMEOUT, ttl_in_sec<span style="color:#f92672">=</span>TTL, key<span style="color:#f92672">=</span>KEY, queue_width<span style="color:#f92672">=</span>WIDTH):
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%s</span><span style="color:#e6db74"> is running&#34;</span> <span style="color:#f92672">%</span> name)
+</span></span><span style="display:flex;"><span>        time<span style="color:#f92672">.</span>sleep(TIME_TO_SLEEP)
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%s</span><span style="color:#e6db74"> is stop&#34;</span> <span style="color:#f92672">%</span> name)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Meta.LockService.lock_decorator</span>(timeout_in_sec<span style="color:#f92672">=</span>TIMEOUT, ttl_in_sec<span style="color:#f92672">=</span>TTL, key<span style="color:#f92672">=</span>KEY, queue_width<span style="color:#f92672">=</span>WIDTH, field_to_uniq<span style="color:#f92672">=</span>FIELD_TO_UNIQUE_DECORATOR)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">lock_via_decorator</span>(name, x):
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%s</span><span style="color:#e6db74"> is running&#34;</span> <span style="color:#f92672">%</span> name)
+</span></span><span style="display:flex;"><span>    time<span style="color:#f92672">.</span>sleep(TIME_TO_SLEEP)
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%s</span><span style="color:#e6db74"> is stop&#34;</span> <span style="color:#f92672">%</span> name)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Меняем target, если нужно</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">4</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># t = threading.Thread(target=lock_via_with, kwargs={&#34;name&#34;: &#34;go&#34; + str(i)})</span>
+</span></span><span style="display:flex;"><span>    t <span style="color:#f92672">=</span> threading<span style="color:#f92672">.</span>Thread(target<span style="color:#f92672">=</span>lock_via_decorator, kwargs<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;go&#34;</span> <span style="color:#f92672">+</span> str(i), <span style="color:#e6db74">&#34;x&#34;</span>: <span style="color:#ae81ff">666</span>})
+</span></span><span style="display:flex;"><span>    t<span style="color:#f92672">.</span>start()
+</span></span></code></pre></div>
+
+
+
+
+
+
+
+</section>
+</div>
+<div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#описание-параметров">Описание параметров</a></li>
+  </ul>
+</nav>
+</div>
+
+</div>
+</main>
+
+
+</div>
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="https://developers.devision.io/metasdk/js/clipboard.min.js"></script>
+    <script src="https://developers.devision.io/metasdk/js/html5shiv-printshiv.min.js"></script>
+    <script src="https://developers.devision.io/metasdk/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="https://developers.devision.io/metasdk/js/modernizr.custom.71422.js"></script>
+    <script src="https://developers.devision.io/metasdk/js/learn.js"></script>
+    <script src="https://developers.devision.io/metasdk/js/hugo-learn.js"></script>
+
+  </body>
+</html>
+

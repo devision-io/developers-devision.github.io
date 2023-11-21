@@ -6,10 +6,10 @@
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Hugo 0.111.3">
-    <meta name="description" content="META SDK - доступ к сервисам Меты">
+    <meta name="description" content="">
 
 
-    <title>META SDK :: META | Devision Developers</title>
+    <title> :: META | Devision Developers</title>
     <link rel="shortcut icon" href="https://rwstatic.ru/h/meta/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T3H3XF7');</script>
 
   </head>
-  <body class="" data-url="https://developers.devision.io/metasdk/">
+  <body class="" data-url="https://developers.devision.io/metasdk/exceptions/">
     
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3H3XF7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -95,30 +95,64 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div id="overlay"></div>
         <div class=" ">
         
+          <div>
+            <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                <span class="links">
+                
+
+
+
+
+ <a href='https://developers.devision.io/metasdk/'>META SDK</a> > 
+
+
+
+
+                </span>
+            </div>
+          </div>
+        
         
         <div id="body-inner">
           
+            <h1></h1>
+          
 
 
-<span id="sidebar-toggle-span">
-<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fa fa-bars"></i> navigation</a>
-</span>
 
- 
-<h1 id="meta-sdk">META SDK</h1>
-<p>Дает http интрефейс для запросов в рекламные и нерекламные api</p>
-<h2 id="мотривация">Мотривация</h2>
-<p>Это удобно, если нужно:</p>
-<ul>
-<li>Что-то залогировать</li>
-<li>Получить данные из БД</li>
-</ul>
-<h2 id="первый-вызов">Первый вызов</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>META <span style="color:#f92672">=</span> metasdk<span style="color:#f92672">.</span>MetaApp()
-</span></span><span style="display:flex;"><span>log <span style="color:#f92672">=</span> META<span style="color:#f92672">.</span>log
-</span></span><span style="display:flex;"><span>MediaService <span style="color:#f92672">=</span> META<span style="color:#f92672">.</span>MediaService
-</span></span></code></pre></div>	
-  
+<h1 id="exceptions">Exceptions</h1>
+<p>Описание исключений в какой момент их использовать.</p>
+<p>Ошибки могут приходить не только в статус коде ответа, но и внутри корректного ответа,
+в зависимочти от документации самого сервиса, либо детектированы самостоятельно по каким другим признакам</p>
+<h2 id="sdkerror">SDKError</h2>
+<p>Корневая ошибка для SDK, создана для ветвления дерева исключений. В коде не используется.</p>
+<h2 id="autherror">AuthError</h2>
+<p>Ошибка авторизации, используется если нам пришел 401 HTTP ответ, или были выявлены проблемы с авторизацией</p>
+<h2 id="servererror">ServerError</h2>
+<p>Ошибка серверва, используется если пришел любой 500 HTTP ответ, кроме 502 и 503, или были выявлены проблемы работы с сервером</p>
+<h2 id="nocontenterror">NoContentError</h2>
+<p>Ошибка отсутсвия контента, используется если пришел 204 HTTP ответ, или были выявлены проблемы c отсутсвием данных в ответе</p>
+<h2 id="requesterror">RequestError</h2>
+<p>Ошибка исполнения запроса, используется если пришел любой 400 HTTP ответ, или были выялены проблемы работы запроса</p>
+<h2 id="retryhttprequesterror">RetryHttpRequestError</h2>
+<p>Ошибка исполнения запроса, используется если пришел 502, 503, 504 HTTP ответ, или были выялены проблемы к переподключения к серверу</p>
+<h2 id="dbqueryerror">DbQueryError</h2>
+<p>Ошибка работы с базой данных, используется если были выявлены любые проблемы работы с базой данных</p>
+<h2 id="apiproxyerror">ApiProxyError</h2>
+<p>Ошибка работы с прокси, используется если были выявлены любые проблемы работы с прокси</p>
+<h2 id="endoftrieserror">EndOfTriesError</h2>
+<p>Ошибка лимита колличества попвторных попыток, используется если был достигнут лимит количества повторных запросов на получениях данных, которые не привели к положителдьному исходу</p>
+<h2 id="unexpectederror">UnexpectedError</h2>
+<p>Непредвиденная ошибка, используется если пришел любой HTTP ответ кроме 200 и описанных выше, или были выявлены проблемы которые не возможно описать другими исключениями</p>
+<h2 id="lockserviceerror">LockServiceError</h2>
+<p>Ошибка возникает если место в очереди блокировки не освобождается за отведенное время.</p>
+<h2 id="badparameterserror">BadParametersError</h2>
+<p>Ошибка возникает при неправильной настройке запросов API или фидов</p>
+
+
+
+
+
 
 
 
@@ -127,8 +161,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#мотривация">Мотривация</a></li>
-    <li><a href="#первый-вызов">Первый вызов</a></li>
+    <li><a href="#sdkerror">SDKError</a></li>
+    <li><a href="#autherror">AuthError</a></li>
+    <li><a href="#servererror">ServerError</a></li>
+    <li><a href="#nocontenterror">NoContentError</a></li>
+    <li><a href="#requesterror">RequestError</a></li>
+    <li><a href="#retryhttprequesterror">RetryHttpRequestError</a></li>
+    <li><a href="#dbqueryerror">DbQueryError</a></li>
+    <li><a href="#apiproxyerror">ApiProxyError</a></li>
+    <li><a href="#endoftrieserror">EndOfTriesError</a></li>
+    <li><a href="#unexpectederror">UnexpectedError</a></li>
+    <li><a href="#lockserviceerror">LockServiceError</a></li>
+    <li><a href="#badparameterserror">BadParametersError</a></li>
   </ul>
 </nav>
 </div>

@@ -2,25 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://developers.devision.io/metasdk/guides/introduction/</loc>
+    <loc>https://developers.devision.io/metasdk/services/introduction/</loc>
     <lastmod>2017-04-24T18:36:24+02:00</lastmod>
   </url><url>
-    <loc>https://developers.devision.io/metasdk/guides/</loc>
+    <loc>https://developers.devision.io/metasdk/services/</loc>
     <lastmod>2017-04-24T18:36:24+02:00</lastmod>
   </url><url>
-    <loc>https://developers.devision.io/metasdk/guides/lock_service/</loc>
+    <loc>https://developers.devision.io/metasdk/services/lock_service/</loc>
     <lastmod>2017-04-24T18:36:24+02:00</lastmod>
   </url><url>
-    <loc>https://developers.devision.io/metasdk/guides/rpc/</loc>
+    <loc>https://developers.devision.io/metasdk/services/rpc/</loc>
     <lastmod>2017-04-24T18:36:24+02:00</lastmod>
   </url><url>
-    <loc>https://developers.devision.io/metasdk/guides/metaql/</loc>
+    <loc>https://developers.devision.io/metasdk/services/metaql/</loc>
     <lastmod>2017-04-24T18:36:24+02:00</lastmod>
   </url><url>
-    <loc>https://developers.devision.io/metasdk/guides/exceptions/</loc>
+    <loc>https://developers.devision.io/metasdk/services/exceptions/</loc>
     <lastmod>2017-04-24T18:36:24+02:00</lastmod>
   </url><url>
-    <loc>https://developers.devision.io/metasdk/guides/logging/</loc>
+    <loc>https://developers.devision.io/metasdk/services/logging/</loc>
     <lastmod>2017-04-24T18:36:24+02:00</lastmod>
   </url><url>
     <loc>https://developers.devision.io/metasdk/</loc>

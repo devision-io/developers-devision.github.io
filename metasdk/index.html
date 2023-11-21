@@ -90,13 +90,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="https://developers.devision.io/metasdk/guides/" class="devsite-nav-item devsite-nav-item-main
+            <li data-nav-id="https://developers.devision.io/metasdk/services/" class="devsite-nav-item devsite-nav-item-main
                         
                         
                         parent
                         ">
-                <a href="https://developers.devision.io/metasdk/guides/" class="devsite-nav-title devsite-nav-item-main-title">
-                    <span>Руководства</span>
+                <a href="https://developers.devision.io/metasdk/services/" class="devsite-nav-title devsite-nav-item-main-title">
+                    <span>Сервисы</span>
 
                     
                     
@@ -122,8 +122,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="https://developers.devision.io/metasdk/guides/introduction/" class="devsite-nav-item dd-item ">
-                <a href="https://developers.devision.io/metasdk/guides/introduction/" class="devsite-nav-title">
+            <li data-nav-id="https://developers.devision.io/metasdk/services/introduction/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/metasdk/services/introduction/" class="devsite-nav-title">
                     <span>Введение</span>
                 </a>
             </li>
@@ -140,8 +140,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="https://developers.devision.io/metasdk/guides/lock_service/" class="devsite-nav-item dd-item ">
-                <a href="https://developers.devision.io/metasdk/guides/lock_service/" class="devsite-nav-title">
+            <li data-nav-id="https://developers.devision.io/metasdk/services/lock_service/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/metasdk/services/lock_service/" class="devsite-nav-title">
                     <span>LockService</span>
                 </a>
             </li>
@@ -158,8 +158,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="https://developers.devision.io/metasdk/guides/rpc/" class="devsite-nav-item dd-item ">
-                <a href="https://developers.devision.io/metasdk/guides/rpc/" class="devsite-nav-title">
+            <li data-nav-id="https://developers.devision.io/metasdk/services/rpc/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/metasdk/services/rpc/" class="devsite-nav-title">
                     <span>Meta Services</span>
                 </a>
             </li>
@@ -176,8 +176,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="https://developers.devision.io/metasdk/guides/metaql/" class="devsite-nav-item dd-item ">
-                <a href="https://developers.devision.io/metasdk/guides/metaql/" class="devsite-nav-title">
+            <li data-nav-id="https://developers.devision.io/metasdk/services/metaql/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/metasdk/services/metaql/" class="devsite-nav-title">
                     <span>METAQL</span>
                 </a>
             </li>
@@ -194,8 +194,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="https://developers.devision.io/metasdk/guides/exceptions/" class="devsite-nav-item dd-item ">
-                <a href="https://developers.devision.io/metasdk/guides/exceptions/" class="devsite-nav-title">
+            <li data-nav-id="https://developers.devision.io/metasdk/services/exceptions/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/metasdk/services/exceptions/" class="devsite-nav-title">
                     <span>Исключения</span>
                 </a>
             </li>
@@ -212,8 +212,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             
             
-            <li data-nav-id="https://developers.devision.io/metasdk/guides/logging/" class="devsite-nav-item dd-item ">
-                <a href="https://developers.devision.io/metasdk/guides/logging/" class="devsite-nav-title">
+            <li data-nav-id="https://developers.devision.io/metasdk/services/logging/" class="devsite-nav-item dd-item ">
+                <a href="https://developers.devision.io/metasdk/services/logging/" class="devsite-nav-title">
                     <span>Логирование</span>
                 </a>
             </li>
@@ -252,17 +252,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
  
 <h1 id="meta-sdk">META SDK</h1>
-<p>Дает http интерфейс для запросов в рекламные и нерекламные api</p>
-<h2 id="мотивация">Мотивация</h2>
-<p>Это удобно, если нужно:</p>
-<ul>
-<li>Что-то залогировать</li>
-<li>Получить данные из БД</li>
-</ul>
-<h2 id="первый-вызов">Первый вызов</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>META <span style="color:#f92672">=</span> metasdk<span style="color:#f92672">.</span>MetaApp()
+<p>Интерфейс к сервисам Меты</p>
+<h2 id="установка">Установка</h2>
+<pre tabindex="0"><code class="language-terminal" data-lang="terminal">pip install metasdk --upgrade --no-cache
+</code></pre><h2 id="первый-вызов">Первый вызов</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> metasdk <span style="color:#f92672">import</span> MetaApp
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>META <span style="color:#f92672">=</span> MetaApp()
 </span></span><span style="display:flex;"><span>log <span style="color:#f92672">=</span> META<span style="color:#f92672">.</span>log
-</span></span><span style="display:flex;"><span>MediaService <span style="color:#f92672">=</span> META<span style="color:#f92672">.</span>MediaService
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>log<span style="color:#f92672">.</span>info(<span style="color:#e6db74">&#34;Hello, from Meta App Script!&#34;</span>, {<span style="color:#e6db74">&#34;param&#34;</span>: <span style="color:#e6db74">&#34;🙂&#34;</span>})
 </span></span></code></pre></div>	
   
 
@@ -273,7 +272,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="mdl-cell mdl-cell--2-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#мотивация">Мотивация</a></li>
+    <li><a href="#установка">Установка</a></li>
     <li><a href="#первый-вызов">Первый вызов</a></li>
   </ul>
 </nav>

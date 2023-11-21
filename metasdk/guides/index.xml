@@ -44,7 +44,7 @@ CacheService from metasdk import MetaApp META = MetaApp() log = META.log META.au
     </item>
     
     <item>
-      <title>METASQL</title>
+      <title>METAQL</title>
       <link>https://developers.devision.io/metasdk/guides/metaql/</link>
       <pubDate>Mon, 24 Apr 2017 18:36:24 +0200</pubDate>
       

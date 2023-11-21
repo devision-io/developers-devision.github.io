@@ -29,7 +29,7 @@
 },
 {
 	"uri": "https://developers.devision.io/metasdk/guides/metaql/",
-	"title": "METASQL",
+	"title": "METAQL",
 	"tags": [],
 	"description": "",
 	"content": "METAQL Основан на синтаксисе Oracle METAQL - Это защищенный SQL для запросов к данным меты.\nОсобенности Нельзя называть поля или алясы зарезарвированными именами: date Добавлен оператор ILIKE для регистронезависимного сравнения строк Пока нет прообразований типов Поддерживаются только SELECT запросы JOIN пока не поддерживаются Функции Работают функции агрегации:\nMIN, MAX, SUM, AGV COUNT(*), COUNT(DISTINCT поле) Функции преобразований:\nROUND CONCAT NULLIF COALESCE Примеры Полный список metaql примеров\nСписок отчетов\nimport os from metasdk import MetaApp META = MetaApp() log = META.log os.chdir(os.path.dirname(os.path.abspath(__file__))) __DIR__ = os.getcwd() + \u0026#34;/\u0026#34; q = \u0026#34;\u0026#34;\u0026#34; SELECT engine as platform, campaign_remote_id, SUM(impressions) as impressions, SUM(clicks) as clicks, ROUND(SUM(cost), 3) as cost FROM adplatform.campaign_stats_report WHERE stat_date BETWEEN \u0026#39;2017-02-01\u0026#39; AND \u0026#39;2017-03-31\u0026#39; AND engine = \u0026#39;banner\u0026#39; GROUP BY platform, campaign_remote_id ORDER BY platform, campaign_remote_id \u0026#34;\u0026#34;\u0026#34; configuration = { \u0026#34;download\u0026#34;: { # \u0026#34;skipHeaders\u0026#34;: True, \u0026#34;dbQuery\u0026#34;: { \u0026#34;command\u0026#34;: q, } } } metaql = META.MetaqlService resp = metaql.download_data(configuration, output_file=__DIR__ + \u0026#39;assets/stat.tsv\u0026#39;) log.info(\u0026#34;end\u0026#34;) "

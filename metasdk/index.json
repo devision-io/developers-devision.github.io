@@ -1,5 +1,12 @@
 [
 {
+	"uri": "https://developers.devision.io/metasdk/guides/",
+	"title": "Руководства",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
 	"uri": "https://developers.devision.io/metasdk/",
 	"title": "META SDK",
 	"tags": [],
@@ -7,42 +14,42 @@
 	"content": "META SDK Дает http интрефейс для запросов в рекламные и нерекламные api\nМотривация Это удобно, если нужно:\nЧто-то залогировать Получить данные из БД Первый вызов META = metasdk.MetaApp() log = META.log MediaService = META.MediaService "
 },
 {
-	"uri": "https://developers.devision.io/metasdk/exceptions/",
+	"uri": "https://developers.devision.io/metasdk/guides/exceptions/",
 	"title": "",
 	"tags": [],
 	"description": "",
 	"content": "Exceptions Описание исключений в какой момент их использовать.\nОшибки могут приходить не только в статус коде ответа, но и внутри корректного ответа, в зависимочти от документации самого сервиса, либо детектированы самостоятельно по каким другим признакам\nSDKError Корневая ошибка для SDK, создана для ветвления дерева исключений. В коде не используется.\nAuthError Ошибка авторизации, используется если нам пришел 401 HTTP ответ, или были выявлены проблемы с авторизацией\nServerError Ошибка серверва, используется если пришел любой 500 HTTP ответ, кроме 502 и 503, или были выявлены проблемы работы с сервером\nNoContentError Ошибка отсутсвия контента, используется если пришел 204 HTTP ответ, или были выявлены проблемы c отсутсвием данных в ответе\nRequestError Ошибка исполнения запроса, используется если пришел любой 400 HTTP ответ, или были выялены проблемы работы запроса\nRetryHttpRequestError Ошибка исполнения запроса, используется если пришел 502, 503, 504 HTTP ответ, или были выялены проблемы к переподключения к серверу\nDbQueryError Ошибка работы с базой данных, используется если были выявлены любые проблемы работы с базой данных\nApiProxyError Ошибка работы с прокси, используется если были выявлены любые проблемы работы с прокси\nEndOfTriesError Ошибка лимита колличества попвторных попыток, используется если был достигнут лимит количества повторных запросов на получениях данных, которые не привели к положителдьному исходу\nUnexpectedError Непредвиденная ошибка, используется если пришел любой HTTP ответ кроме 200 и описанных выше, или были выявлены проблемы которые не возможно описать другими исключениями\nLockServiceError Ошибка возникает если место в очереди блокировки не освобождается за отведенное время.\nBadParametersError Ошибка возникает при неправильной настройке запросов API или фидов\n"
 },
 {
-	"uri": "https://developers.devision.io/metasdk/introduction/",
+	"uri": "https://developers.devision.io/metasdk/guides/introduction/",
 	"title": "",
 	"tags": [],
 	"description": "",
 	"content": "Введение Install Для metasdk и для локальной меты\nУстановите токен разработчика Получите файл токен разработчика Установите developer_settings.json в домашнюю директорию в папку .rwmeta Например:\nMacOS: /Users/arturgspb/.rwmeta/developer_settings.json Windows: C:\\Users\\userXXXXXX\\.rwmeta\\developer_settings.json Linux: ~/.rwmeta/developer_settings.json Установите metasdk Для разработки скриптов на python. Для локальной меты это не надо.\nПоддерживается Python 3.6+\npip3 install metasdk --upgrade --no-cache Full Examples Полный список примеров\nUsage import logging from metasdk import MetaApp # Инициализация приложения # конфигурирует логгер и пр. META = MetaApp() # Проверьте работоспособность установки r = META.db(\u0026#34;meta\u0026#34;).one(\u0026#34;SELECT NOW() as now\u0026#34;) print(r) # работает стандартный логгер logging.info(\u0026#39;Hello, from Meta App Script!\u0026#39;) # Можно получить экземпляр логгера с улучшеным интерфейсом для более удобного прикладывания контекста log = META.log log.warning(\u0026#39;Do warning log\u0026#39;, {\u0026#34;count\u0026#34;: 1, \u0026#34;mycontextParam\u0026#34;: [1, 3, 4]}) "
 },
 {
-	"uri": "https://developers.devision.io/metasdk/lock_service/",
+	"uri": "https://developers.devision.io/metasdk/guides/lock_service/",
 	"title": "",
 	"tags": [],
 	"description": "",
 	"content": "LockService Используется для ограничения одновременно запущенных участков кода. Это бывает необходимо в ситуациях когда есть жесткие лимиты от внешнего апи на количество одновременных обращений, или в ситуациях когда мы работаем с объектом для которого чувствительны одновременные изменения, например бюджет аккаунта.\nОписание параметров key: Ключ, который определяет уникальность выполняемого участка кода.\nttl_in_sec: Сколько времени ключ будет жить в Redis\u0026rsquo;e. По истечении времени ключ удалится и начнется выполнение следующего участка кода. Если указать слишком маленькое значение, код не успеет выполниться за это время и начнется выполнение следующего скрипта.\ntimeout_in_sec: Сколько времени функция lock будет пытаться поставить участок кода на выполнение. По истечении времени вызовется исключение. Слишком большое значение может привести к зависанию кода.\nqueue_width: Максимально возможное количество одновременно запущенных участков кода\nfield_to_uniq: добавляет к ключу в редисе значение аргумента переданного в функции. Например вы передали в функцию x=666, к ключу добавится 666.\nimport time import threading from metasdk import MetaApp Meta = MetaApp() lock = Meta.LockService.lock TIME_TO_SLEEP = 20 TIMEOUT = 50 TTL = 50 KEY = \u0026#34;gogo\u0026#34; WIDTH = 2 FIELD_TO_UNIQUE_DECORATOR = [\u0026#34;x\u0026#34;] def lock_via_with(name): with lock(timeout_in_sec=TIMEOUT, ttl_in_sec=TTL, key=KEY, queue_width=WIDTH): print(\u0026#34;%s is running\u0026#34; % name) time.sleep(TIME_TO_SLEEP) print(\u0026#34;%s is stop\u0026#34; % name) @Meta.LockService.lock_decorator(timeout_in_sec=TIMEOUT, ttl_in_sec=TTL, key=KEY, queue_width=WIDTH, field_to_uniq=FIELD_TO_UNIQUE_DECORATOR) def lock_via_decorator(name, x): print(\u0026#34;%s is running\u0026#34; % name) time.sleep(TIME_TO_SLEEP) print(\u0026#34;%s is stop\u0026#34; % name) # Меняем target, если нужно for i in range(1, 4): # t = threading.Thread(target=lock_via_with, kwargs={\u0026#34;name\u0026#34;: \u0026#34;go\u0026#34; + str(i)}) t = threading.Thread(target=lock_via_decorator, kwargs={\u0026#34;name\u0026#34;: \u0026#34;go\u0026#34; + str(i), \u0026#34;x\u0026#34;: 666}) t.start() "
 },
 {
-	"uri": "https://developers.devision.io/metasdk/logging/",
+	"uri": "https://developers.devision.io/metasdk/guides/logging/",
 	"title": "",
 	"tags": [],
 	"description": "",
 	"content": "Логирование Тут мы рассмотрим обычный логгер и Bulk-логгер, который нужен, чтобы не спамить большим кол-вом логов, при обработке больших массиов данных с неизвестным временем на обработку одного элемента\nLogger log = META.log # Объявите глобальный контекст, чтобы не писать это каждый раз log.set_entity(\u0026#39;campaign_id\u0026#39;, -1) # По сути это просто хранилище глобавльных переменных контекста log.set_entity(\u0026#39;test\u0026#39;, True) log.warning(\u0026#39;Do warning log\u0026#39;, {\u0026#34;count\u0026#34;: 1, \u0026#34;mycontextParam\u0026#34;: [1, 3, 4]}) log.info(\u0026#39;Info log\u0026#39;) logging.info(\u0026#39;Default logging\u0026#39;) # удалите глобальный контекст, когда он вам больше не нужен log.remove_entity(\u0026#39;test\u0026#39;) log.info(\u0026#39;Info log2\u0026#39;) Это выведет вам что-то вроде такого:\n# 00:03:11:WARNING: Do warning log {\u0026#39;count\u0026#39;: 1, \u0026#39;mycontextParam\u0026#39;: [1, 3, 4], \u0026#39;test\u0026#39;: True, \u0026#39;campaign_id\u0026#39;: -1} # 00:03:11:INFO: Info log {\u0026#39;test\u0026#39;: True, \u0026#39;campaign_id\u0026#39;: -1} # 00:03:11:INFO: Default logging {\u0026#39;test\u0026#39;: True, \u0026#39;campaign_id\u0026#39;: -1} # 00:03:11:INFO: Info log2 {\u0026#39;campaign_id\u0026#39;: -1} Bulk Logger Используется для логирования пачек из обрабатываемого списка.\nДелает запись в лог только если прошло определенное кол-во времени\ntotal = 125 # Получаете инстанс bulk-логгера через объект приложения # Список параметров вам подскажет IDE bulk_log = META.bulk_log(u\u0026#39;Моя пачка\u0026#39;, total, 1) for idx in xrange(total): # Первый вызов всегда try_log_part, чтобы ознаменовать начало выполнения цикла bulk_log.try_log_part() # На ЧАСТЫХ, но возможно БЫСТРЫХ процессах можете использовать параметр with_start_message=False # Это исключит запись надписи о начале работы над пачкой и, если пачка сделается до # мин. время логирования, то записи не произойдет вообще # bulk_log.try_log_part(with_start_message=False) # далее ваша бизнес-логика time.sleep(1) # finish вызывать необязательно, но часто нужно, # чтобы точно сказать, что обработка выполнена bulk_log.finish() Это выведет вам что-то вроде такого:\n# 23:55:31:INFO: Начали цикл: Моя пачка {} # 23:56:31:INFO: Моя пачка {\u0026#39;counter\u0026#39;: 61, \u0026#39;percentDone\u0026#39;: 48, \u0026#39;maxCount\u0026#39;: 125} # 23:57:31:INFO: Моя пачка {\u0026#39;counter\u0026#39;: 121, \u0026#39;percentDone\u0026#39;: 96, \u0026#39;maxCount\u0026#39;: 125} # 23:57:36:INFO: Закончили цикл: Моя пачка {} Bulk Logger Thread Pool Используется для логирования пачек из обрабатываемого списка. Делает запись в лог только если прошло определенное кол-во времени\nimport time from functools import partial from multiprocessing.pool import ThreadPool from metasdk import MetaApp META = MetaApp() def my_thread_fn(bulk_log, job_item): bulk_log.try_log_part() # Бизнес логика # работа с job_item time.sleep(1) def my_main_fn(): total = 125 * 2 thread_cnt = 2 bulk_log = META.bulk_log(u\u0026#39;Моя пачка\u0026#39;, total, 1) bulk_log.try_log_part() all_data = range(1, total) pool = ThreadPool(thread_cnt) # Чтобы работать в многопоточном режиме с bulk_log вы # должны передать его как аргумент вызываемой функции таким образом func = partial(my_thread_fn, bulk_log) results = pool.map(func, all_data) bulk_log.finish() pool.close() pool.join() #print(results) my_main_fn() Это выведет вам что-то вроде такого:\n# 16:25:08:INFO: Начали цикл: Моя пачка {} # 16:26:08:INFO: Моя пачка {\u0026#39;counter\u0026#39;: 122, \u0026#39;percentDone\u0026#39;: 48, \u0026#39;maxCount\u0026#39;: 250} # 16:27:09:INFO: Моя пачка {\u0026#39;counter\u0026#39;: 242, \u0026#39;percentDone\u0026#39;: 96, \u0026#39;maxCount\u0026#39;: 250} # 16:27:17:INFO: Закончили цикл: Моя пачка {} "
 },
 {
-	"uri": "https://developers.devision.io/metasdk/metaql/",
+	"uri": "https://developers.devision.io/metasdk/guides/metaql/",
 	"title": "",
 	"tags": [],
 	"description": "",
 	"content": "METAQL Основан на синтаксисе Oracle METAQL - Это защищенный SQL для запросов к данным меты.\nОсобенности Нельзя называть поля или алясы зарезарвированными именами: date Добавлен оператор ILIKE для регистронезависимного сравнения строк Пока нет прообразований типов Поддерживаются только SELECT запросы JOIN пока не поддерживаются Функции Работают функции агрегации:\nMIN, MAX, SUM, AGV COUNT(*), COUNT(DISTINCT поле) Функции преобразований:\nROUND CONCAT NULLIF COALESCE Примеры Полный список metaql примеров\nСписок отчетов\nimport os from metasdk import MetaApp META = MetaApp() log = META.log os.chdir(os.path.dirname(os.path.abspath(__file__))) __DIR__ = os.getcwd() + \u0026#34;/\u0026#34; q = \u0026#34;\u0026#34;\u0026#34; SELECT engine as platform, campaign_remote_id, SUM(impressions) as impressions, SUM(clicks) as clicks, ROUND(SUM(cost), 3) as cost FROM adplatform.campaign_stats_report WHERE stat_date BETWEEN \u0026#39;2017-02-01\u0026#39; AND \u0026#39;2017-03-31\u0026#39; AND engine = \u0026#39;banner\u0026#39; GROUP BY platform, campaign_remote_id ORDER BY platform, campaign_remote_id \u0026#34;\u0026#34;\u0026#34; configuration = { \u0026#34;download\u0026#34;: { # \u0026#34;skipHeaders\u0026#34;: True, \u0026#34;dbQuery\u0026#34;: { \u0026#34;command\u0026#34;: q, } } } metaql = META.MetaqlService resp = metaql.download_data(configuration, output_file=__DIR__ + \u0026#39;assets/stat.tsv\u0026#39;) log.info(\u0026#34;end\u0026#34;) "
 },
 {
-	"uri": "https://developers.devision.io/metasdk/rpc/",
+	"uri": "https://developers.devision.io/metasdk/guides/rpc/",
 	"title": "",
 	"tags": [],
 	"description": "",

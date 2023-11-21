@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://developers.devision.io/metasdk/guides/introduction/</loc>
+    <lastmod>2017-04-24T18:36:24+02:00</lastmod>
+  </url><url>
     <loc>https://developers.devision.io/metasdk/guides/</loc>
     <lastmod>2017-04-24T18:36:24+02:00</lastmod>
   </url><url>
@@ -18,9 +21,6 @@
     <lastmod>2017-04-24T18:36:24+02:00</lastmod>
   </url><url>
     <loc>https://developers.devision.io/metasdk/guides/logging/</loc>
-    <lastmod>2017-04-24T18:36:24+02:00</lastmod>
-  </url><url>
-    <loc>https://developers.devision.io/metasdk/guides/introduction/</loc>
     <lastmod>2017-04-24T18:36:24+02:00</lastmod>
   </url><url>
     <loc>https://developers.devision.io/metasdk/</loc>

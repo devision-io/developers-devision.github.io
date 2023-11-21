@@ -8,6 +8,20 @@
     <language>ru-ru</language>
     <lastBuildDate>Mon, 24 Apr 2017 18:36:24 +0200</lastBuildDate><atom:link href="https://developers.devision.io/metasdk/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Введение</title>
+      <link>https://developers.devision.io/metasdk/guides/introduction/</link>
+      <pubDate>Mon, 24 Apr 2017 18:36:24 +0200</pubDate>
+      
+      <guid>https://developers.devision.io/metasdk/guides/introduction/</guid>
+      <description>Введение Install Для metasdk и для локальной меты
+Установите токен разработчика Получите файл токен разработчика Установите developer_settings.json в домашнюю директорию в папку .rwmeta Например:
+MacOS: /Users/arturgspb/.rwmeta/developer_settings.json Windows: C:\Users\userXXXXXX\.rwmeta\developer_settings.json Linux: ~/.rwmeta/developer_settings.json Установите metasdk Для разработки скриптов на python. Для локальной меты это не надо.
+Поддерживается Python 3.6+
+pip3 install metasdk --upgrade --no-cache Full Examples Полный список примеров
+Usage import logging from metasdk import MetaApp # Инициализация приложения # конфигурирует логгер и пр.</description>
+    </item>
+    
+    <item>
       <title>LockService</title>
       <link>https://developers.devision.io/metasdk/guides/lock_service/</link>
       <pubDate>Mon, 24 Apr 2017 18:36:24 +0200</pubDate>
@@ -64,20 +78,6 @@ ServerError Ошибка серверва, используется если п�
       <guid>https://developers.devision.io/metasdk/guides/logging/</guid>
       <description>Логирование Тут мы рассмотрим обычный логгер и Bulk-логгер, который нужен, чтобы не спамить большим кол-вом логов, при обработке больших массиов данных с неизвестным временем на обработку одного элемента
 Logger log = META.log # Объявите глобальный контекст, чтобы не писать это каждый раз log.set_entity(&amp;#39;campaign_id&amp;#39;, -1) # По сути это просто хранилище глобавльных переменных контекста log.set_entity(&amp;#39;test&amp;#39;, True) log.warning(&amp;#39;Do warning log&amp;#39;, {&amp;#34;count&amp;#34;: 1, &amp;#34;mycontextParam&amp;#34;: [1, 3, 4]}) log.info(&amp;#39;Info log&amp;#39;) logging.info(&amp;#39;Default logging&amp;#39;) # удалите глобальный контекст, когда он вам больше не нужен log.</description>
-    </item>
-    
-    <item>
-      <title>Введение</title>
-      <link>https://developers.devision.io/metasdk/guides/introduction/</link>
-      <pubDate>Mon, 24 Apr 2017 18:36:24 +0200</pubDate>
-      
-      <guid>https://developers.devision.io/metasdk/guides/introduction/</guid>
-      <description>Введение Install Для metasdk и для локальной меты
-Установите токен разработчика Получите файл токен разработчика Установите developer_settings.json в домашнюю директорию в папку .rwmeta Например:
-MacOS: /Users/arturgspb/.rwmeta/developer_settings.json Windows: C:\Users\userXXXXXX\.rwmeta\developer_settings.json Linux: ~/.rwmeta/developer_settings.json Установите metasdk Для разработки скриптов на python. Для локальной меты это не надо.
-Поддерживается Python 3.6+
-pip3 install metasdk --upgrade --no-cache Full Examples Полный список примеров
-Usage import logging from metasdk import MetaApp # Инициализация приложения # конфигурирует логгер и пр.</description>
     </item>
     
   </channel>

@@ -1734,7 +1734,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 <h2 id="что-такое-и-где-используются">Что такое и где используются?</h2>
-<p>Контент любых файлов как правило плохо хранить прямо в базе данных,
+<p>Контент любых файлов, как правило, плохо хранить прямо в базе данных,
 так как это вызывает дополнительную нагрузку на хранение, репликацию,
 очистку, vacuum (для postgres), выборку данных (если у вас БД не с колоночным хранением).</p>
 <p>Поэтому в мете есть специальное API для работы с файлами.
@@ -1744,8 +1744,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 но рекомендуется настраивать S3 совместимое хранилище через общий конфигурационный файл платформы.</p>
 <h2 id="конфигурация">Конфигурация</h2>
 <p>В конфиге самой меты могут быть зарегистрированы несколько s3 стораджей.
-При авторизации юзера из храники БД meta.get_user мета получает конфиг для настройки хранения медиаданных юзера</p>
-<p>Например такую конфигурацию раздела <code>mediaData</code> из общего конфига <code>meta.yaml</code>:</p>
+При авторизации юзера из хранимой процедуры БД meta.get_user мета получает конфиг для настройки хранения медиаданных юзера</p>
+<p>Например, такую конфигурацию раздела <code>mediaData</code> из общего конфига <code>meta.yaml</code>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>...
 </span></span><span style="display:flex;"><span><span style="color:#f92672">mediaData</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">s3</span>:
@@ -1765,7 +1765,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </span></span><span style="display:flex;"><span>...
 </span></span></code></pre></div><p>нужно читать так:</p>
 <ul>
-<li>По умолчанию файлы будут складываться в Яндекс.Облако в бакет <code>example-default</code>. Внутренний сторадж id = <code>default</code></li>
+<li>По умолчанию файлы будут складываться в Яндекс. Облако в бакет <code>example-default</code>. Внутренний сторадж id = <code>default</code></li>
 <li>Также зарегистрирован сторадж с внутренним id = <code>test</code>, который также будет размещен в Яндекс.Облаке в бакете <code>example-meta-test</code></li>
 </ul>
 <h2 id="загрузка-данных">Загрузка данных</h2>
@@ -1791,13 +1791,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p>В таблице <code>meta.media</code> для s3 хранения используются следующая нотация записи пути:</p>
 <p><code>s3://{S3_STORAGE_ID}/{S3_PATH}</code></p>
 <p>S3_STORAGE_ID - id стораджа из конфигурации меты. По умолчанию <code>default</code></p>
-<p>Например в поле disk_path в таблице <code>meta.media</code> мы увидим такие записи:</p>
+<p>Например, в поле disk_path в таблице <code>meta.media</code> мы увидим такие записи:</p>
 <ul>
 <li>
-<p>Хранилище по умолчанию: <code>s3://default/9514/10191/9514e1c6-8e29-47d2-ae0f-741adfaf8d41.png</code>. Эквивалентной записью для этого файла будет строка без указания префикса <code>s3://default/</code>, а конкретно <code>9514/10191/9514e1c6-8e29-47d2-ae0f-741adfaf8d41.png</code>. Это работает только для <code>default</code> хранилище и будет упразднено в будущем</p>
+<p>Хранилище по умолчанию: <code>s3://default/9514/9999/9514e1c6-8e29-47d2-ae0f-741adfaf8d41.png</code>. Эквивалентной записью для этого файла будет строка без указания префикса <code>s3://default/</code>, а конкретно <code>9514/10191/9514e1c6-8e29-47d2-ae0f-741adfaf8d41.png</code>. Это работает только для <code>default</code> хранилище и будет упразднено в будущем</p>
 </li>
 <li>
-<p>Отдельное хранилище <code>test</code>: <code>s3://test/30fb/4501/30fbbb73-dc75-42d7-be67-9fda5e29f18e.png</code></p>
+<p>Отдельное хранилище <code>test</code>: <code>s3://test/30fb/9999/30fbbb73-dc75-42d7-be67-9fda5e29f18e.png</code></p>
 </li>
 </ul>
 <h2 id="управление-доступом-к-файлам">Управление доступом к файлам</h2>
@@ -1893,7 +1893,7 @@ finally:
 <p>Пример показывает с чего можно начать, если у вас есть задача загрузить в интерфейсе файл
 через форму и отправить его на обработку в фоновый скрипт.</p>
 <h3 id="страница-в-интерфейсе">Страница в интерфейсе</h3>
-<p>Рисует форму, куда в данном примере прикладывается только файл, но как и любая lego-форма она может
+<p>Рисует форму, куда в данном примере прикладывается только файл, но, как и любая lego-форма она может
 содержать любые другие доступные контролы.</p>
 <pre tabindex="0"><code>&lt;elem span=&#34;12&#34; states=&#34;default&#34;&gt;
   &lt;tpl&gt;

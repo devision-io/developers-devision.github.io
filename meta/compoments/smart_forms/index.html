@@ -1735,7 +1735,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <h2 id="мотивация">Мотивация</h2>
 <p>Довольно часто нужно нарисовать типовую форму для добавления или редактирования строки таблицы
-Логированиче через ObjectLogService будет выполнено автоматически, а значит и <a href="./event_bus/">Шина</a> сможет принять
+Логирование через ObjectLogService будет выполнено автоматически, а значит и <a href="../event_bus/">Шина</a> сможет принять
 событие, если будет нужно.</p>
 <h2 id="автоматическая-генерация-формы">Автоматическая генерация формы</h2>
 <p>Форма генерируется по внутреннним правилам, но подвигать контролы можно
@@ -1764,7 +1764,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">order</span>: <span style="color:#ae81ff">100</span> <span style="color:#ae81ff">&lt;---------- сортировка, заданная вручную и не через само положение относительно других полей entity</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">data_type</span>: <span style="color:#ae81ff">TEXT</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">is_required</span>: <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">lego_elem</span>:  <span style="color:#ae81ff">&lt;---- Все то, что рабоатет в lego формах (НЕ ОЯЗАТЕЛЬНО полное описание всего elem). Перетирается важными сгенерированными параметрами, например id, label, entityId, required и пр </span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">lego_elem</span>:  <span style="color:#ae81ff">&lt;---- Все то, что работает в lego формах (НЕ ОЯЗАТЕЛЬНО полное описание всего elem). Перетирается важными сгенерированными параметрами, например id, label, entityId, required и пр </span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">me-input</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">span</span>: <span style="color:#ae81ff">4</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">attrs</span>:
@@ -1905,7 +1905,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">semantic_role</span>: <span style="color:#ae81ff">DIMENSION</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">is_disabled</span>: <span style="color:#66d9ef">true</span>
 </span></span></code></pre></div><h3 id="пример-1">Пример 1</h3>
-<p>Например мы хотим получить форму редактирования всех полей нужной entity_id.
+<p>Например, мы хотим получить форму редактирования всех полей нужной entity_id.
 Добавляем страницу в рамках нужной entity.
 В нашем случае для примера 190. Url меты должен быть примерно таким, когда вы работаете со страницей - <code>/card?e=190&amp;o={ТУТ_ID_ОБЪЕКТА}</code>
 Это все, что надо на странице:</p>
@@ -1914,7 +1914,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">SmartFormService</span>.<span style="color:#a6e22e">handle</span>(<span style="color:#a6e22e">env</span>, <span style="color:#a6e22e">originalEnv</span>, <span style="color:#a6e22e">vm</span>, <span style="color:#a6e22e">pvm</span>);
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
-</span></span></code></pre></div><p>Мета автоматически нарисует текствые поля для ввода текстовых значений, чекбоксы для boolean,
+</span></span></code></pre></div><p>Мета автоматически нарисует текстовые поля для ввода текстовых значений, чекбоксы для boolean,
 нарисует выпадашки для полей, с указанным foreign_entity_id</p>
 <h3 id="пример-2">Пример 2</h3>
 <p>Мы хотели получить редактор записи клиента, но так, чтобы при добавлении было только поле name,

@@ -82,6 +82,7 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_elems_i_me_input_.imeinputattrs.html#adddollarsign" class="tsd-kind-icon">add<wbr>Dollar<wbr>Sign</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_elems_i_me_input_.imeinputattrs.html#addobjectbutton" class="tsd-kind-icon">add<wbr>Object<wbr>Button</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_elems_i_me_input_.imeinputattrs.html#align" class="tsd-kind-icon">align</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_elems_i_me_input_.imeinputattrs.html#applyvalueonselectinmultiple" class="tsd-kind-icon">apply<wbr>Value<wbr>OnSelect<wbr>InMultiple</a></li>
@@ -157,6 +158,22 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="adddollarsign" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> add<wbr>Dollar<wbr>Sign</h3>
+					<div class="tsd-signature tsd-kind-icon">add<wbr>Dollar<wbr>Sign<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in elems/i.me-input.ts:445</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Когда количество некоторых инпутов 0, иногда нам приходится к 0 добавить $. Например: <a href="http://localhost:8080/page?p=493c9084-85b8-4a00-a478-43ca056541a0&amp;a=sp">http://localhost:8080/page?p=493c9084-85b8-4a00-a478-43ca056541a0&amp;a=sp</a>.
+							Потенциальный доход денежный показатель и к нему надо добавить $</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="addobjectbutton" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> add<wbr>Object<wbr>Button</h3>
 					<div class="tsd-signature tsd-kind-icon">add<wbr>Object<wbr>Button<span class="tsd-signature-symbol">:</span> <a href="_helpers_i_common_.iaddobjectbutton.html" class="tsd-signature-type">IAddObjectButton</a></div>
@@ -211,7 +228,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>По умолчанию мульти контролы долэны стараться не делать onChange при выборе значния,
+							<p>По умолчанию мульти контролы должны стараться не делать onChange при выборе значения,
 								а дожидаться пока пользователь закончит, например уведя фокус или нажав Enter и пр.
 							Этот параметр добавляется для случаев, когда value надо применять с каждым выбором</p>
 						</div>
@@ -325,7 +342,7 @@
 						<div class="lead">
 							<p>Ультимативная установка параметра clearable. Важна для редактируемой таблицы.
 								Работает не во всех типах me-input.
-								auto - автоматически высчитывается элементом. Как правило на основе параметра required
+								auto - автоматически высчитывается элементом. Как правило, на основе параметра required
 								yes - всегда показывать стиратель
 							no - всегда скрывать стиратель</p>
 						</div>
@@ -615,7 +632,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Для me-input type=attach данные, которые без изменений будут записаны в прле info в БД к файлу</p>
+							<p>Для me-input type=attach данные, которые без изменений будут записаны в поле info в БД к файлу</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt>inputtypes</dt>
@@ -726,7 +743,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Максимальный размер прикладываемого файла в мебагайтах.
+							<p>Максимальный размер прикладываемого файла в мегабайтах.
 								Работает maxUploadTotalSizeMB, maxUploadSizePerFileMB
 								Применяется для кожного конкретного файла даже в multiple режиме.
 							Если вам надо ограничить размер всей &quot;пачки&quot; на multiple, то используйте параметр maxTotalSizeMB.</p>
@@ -753,7 +770,7 @@
 							<p>Максимальный общий размер всех приложенных в me-input файлов в мебагайтах в режиме multiple.
 							Для ограничения на каждый файл используйте параметр maxSizeMB.</p>
 						</div>
-						<p>Не может быть выше, чем общее ограничение maxUploadTotalSizeMB из конфигаруции меты.</p>
+						<p>Не может быть выше, чем общее ограничение maxUploadTotalSizeMB из конфигурации меты.</p>
 						<dl class="tsd-comment-tags">
 							<dt>inputtypes</dt>
 							<dd><p>[ attach ]</p>
@@ -803,7 +820,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Минимальные размер прикладываемого файла в мебагайтах</p>
+							<p>Минимальный размер прикладываемого файла в мегабайтах</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt>inputtypes</dt>
@@ -823,8 +840,8 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>mode JSON - используйте еслиу вас на вход и выход строка
-							mode JSON_OBJECT - используйте еслиу вас на вход и выход объект</p>
+							<p>mode JSON - используйте если у вас на вход и выход строка
+							mode JSON_OBJECT - используйте если у вас на вход и выход объект</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt>enums</dt>
@@ -847,7 +864,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Управляет настройкой возможности множествкенного выбора.
+							<p>Управляет настройкой возможности множественного выбора.
 							Поддерживается не всеми типами</p>
 						</div>
 					</div>
@@ -1009,11 +1026,11 @@
 						<div class="lead">
 							<p>Если не null - то будет нарисована</p>
 						</div>
-						<p>Нарисовать кнопку перезагрзки списка options</p>
+						<p>Нарисовать кнопку перезагрузки списка options</p>
 						<p>Работает ТОЛЬКО с элементами содержащими refPvmData</p>
 						<p>Результат backend-запросов будет загружен на фронтенд (если не помечен как internal),
 							но сейчас мы не ожидаем, что вы будете его использовать - это поведение может поменяться
-						popup и пр. инструменты не ьудут работать</p>
+						popup и пр. инструменты не будут работать</p>
 						<dl class="tsd-comment-tags">
 							<dt>inputtypes</dt>
 							<dd><p>[ select ]</p>
@@ -1051,7 +1068,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Кол-во строк в элемента</p>
+							<p>Кол-во строк в элементах</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt>inputtypes</dt>
@@ -1171,7 +1188,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Стандартный мета тултип
+							<p>Стандартный мета-тултип
 							Будет переведен на уровень <a href="_i_me_elem_.imeelem.html">IMeElem</a></p>
 						</div>
 					</div>
@@ -1320,7 +1337,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in elems/i.me-input.ts:467</li>
+									<li>Defined in elems/i.me-input.ts:473</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1342,7 +1359,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in elems/i.me-input.ts:457</li>
+									<li>Defined in elems/i.me-input.ts:463</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1370,14 +1387,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in elems/i.me-input.ts:452</li>
+									<li>Defined in elems/i.me-input.ts:458</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Системное поле
 										Клик по элементу. Пока только для кнопок.
-									Нужно, чтобы использовать лего, с системных местах, но иметь возможность отловить браузерные события</p>
+									Нужно, чтобы использовать лего, в системных местах, но иметь возможность отловить браузерные события</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1400,13 +1417,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in elems/i.me-input.ts:445</li>
+									<li>Defined in elems/i.me-input.ts:451</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Системное поле
-									Реальный элемент стартунул и загрузил данные. Использоуется в me-select для редактируемой таблицы</p>
+									Реальный элемент стартанул и загрузил данные. Используется в me-select для редактируемой таблицы</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
@@ -1423,7 +1440,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in elems/i.me-input.ts:462</li>
+									<li>Defined in elems/i.me-input.ts:468</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1500,6 +1517,9 @@
 					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
 						<a href="_elems_i_me_input_.imeinputattrs.html" class="tsd-kind-icon">IMe<wbr>Input<wbr>Attrs</a>
 						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_elems_i_me_input_.imeinputattrs.html#adddollarsign" class="tsd-kind-icon">add<wbr>Dollar<wbr>Sign</a>
+							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="_elems_i_me_input_.imeinputattrs.html#addobjectbutton" class="tsd-kind-icon">add<wbr>Object<wbr>Button</a>
 							</li>

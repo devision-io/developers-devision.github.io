@@ -90,7 +90,9 @@
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_helpers_i_common_.itooltip.html#content" class="tsd-kind-icon">content</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_helpers_i_common_.itooltip.html#jsoncontent" class="tsd-kind-icon">json<wbr>Content</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_helpers_i_common_.itooltip.html#label" class="tsd-kind-icon">label</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_helpers_i_common_.itooltip.html#output" class="tsd-kind-icon">output</a></li>
 							</ul>
 						</section>
 					</div>
@@ -114,6 +116,26 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="jsoncontent" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> json<wbr>Content</h3>
+					<div class="tsd-signature tsd-kind-icon">json<wbr>Content<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in helpers/i.common.ts:19</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Здесь мы получаем json для отображения MeLego. На странице передается Json (me-lego), которого мы передаем  компоненте MeLego</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>link</dt>
+							<dd><p><a href="http://localhost:8080/page?p=3647&amp;a=35">http://localhost:8080/page?p=3647&amp;a=35</a></p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="label" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> label</h3>
 					<div class="tsd-signature tsd-kind-icon">label<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
@@ -126,6 +148,26 @@
 						<div class="lead">
 							<p>Заголовок тултипа</p>
 						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="output" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> output</h3>
+					<div class="tsd-signature tsd-kind-icon">output<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in helpers/i.common.ts:25</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Для MeLego нужно указать outputPath, здесь получаем output (которое указано в meta-appcontent в свойстве output для expand). К нему добавляем id элемента и передаем к компоненту MeLego</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>link</dt>
+							<dd><p><a href="http://localhost:8080/page?p=3647&amp;a=35">http://localhost:8080/page?p=3647&amp;a=35</a></p>
+							</dd>
+						</dl>
 					</div>
 				</section>
 			</section>
@@ -218,7 +260,13 @@
 								<a href="_helpers_i_common_.itooltip.html#content" class="tsd-kind-icon">content</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_helpers_i_common_.itooltip.html#jsoncontent" class="tsd-kind-icon">json<wbr>Content</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="_helpers_i_common_.itooltip.html#label" class="tsd-kind-icon">label</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_helpers_i_common_.itooltip.html#output" class="tsd-kind-icon">output</a>
 							</li>
 						</ul>
 					</li>

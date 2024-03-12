@@ -1749,14 +1749,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">login_picture_url</span>: <span style="color:#ae81ff">string</span> <span style="color:#75715e"># Если указано - выводится на форме логина, если нет - то picture_url</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">help_url</span>: <span style="color:#ae81ff">string</span> <span style="color:#75715e"># Ссылка на хелп в приложении</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">is_join_user_enabled</span>: <span style="color:#ae81ff">string</span> <span style="color:#75715e"># Можно ли зарегистрироваться через это приложение</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">oauth_engines</span>: <span style="color:#75715e"># Список разрешенных для oauth входа в приложение внешних систем</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">google</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">twitch</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">join_role_id</span>: <span style="color:#75715e"># Роль, которую получает свежезарегистрировавшимся пользователь в рамках своей созданной компании. По умолчанию - 6 (Руководитель РА)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">join_promo_code_enabled</span>: <span style="color:#75715e"># Разрешено ли использование промо кодов при регистрации</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">is_fast_google_auth_enabled</span>: <span style="color:#ae81ff">string</span> <span style="color:#75715e"># Включена ли функция быстрого входа через Google - https://developers.google.com/identity/one-tap/web</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">is_global_search_enabled</span>: <span style="color:#ae81ff">bool</span> <span style="color:#75715e"># Доступен ли интерфейс глобального поиска</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">is_hide_first_item_in_top_menu</span>: <span style="color:#ae81ff">bool</span> <span style="color:#75715e"># Некоторые приложения нуждаются в скрытии первого элемента меню, но при этом клик по лого приложния все также должен перенаправлять пользователя на эту страницу.</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">theme</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">theme</span>: <span style="color:#75715e"># Дает возможность раскрашивать интерфейс меты в фиксированных местах</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">topMenu</span>:
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">backgroundColor</span>: <span style="color:#ae81ff">string</span> <span style="color:#75715e"># фоновый цвет меню</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">fontColor</span>: <span style="color:#ae81ff">string</span> <span style="color:#75715e"># цвет текста меню</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">fontColorHover</span>: <span style="color:#ae81ff">string</span> <span style="color:#75715e"># цвет теста меню при наведении мышкой</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">theme_list</span>: <span style="color:#75715e"># Список доступных приложению тем, кроме дефолтной</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;По умолчанию&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">alias</span>: <span style="color:#e6db74">&#34;default&#34;</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;Тёмная тема&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">alias</span>: <span style="color:#e6db74">&#34;dark&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">is_hide_first_item_in_top_menu</span>: <span style="color:#ae81ff">bool</span> <span style="color:#75715e"># Некоторые приложения нуждаются в скрытии первого элемента меню, но при этом клик по лого приложния все также должен перенаправлять пользователя на эту страницу.</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">oauth_server</span>:
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">server_url</span>: <span style="color:#ae81ff">string</span> <span style="color:#75715e"># Schema + host. Например https://account.devision.io</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">client_id</span>: <span style="color:#ae81ff">string</span> <span style="color:#75715e"># ClientID полученый через Cloud. Записан в id в meta.oauth_client</span>

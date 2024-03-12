@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://developers.devision.io/metasdk/services/introduction/</loc>
+    <lastmod>2017-04-24T18:36:24+02:00</lastmod>
+  </url><url>
+    <loc>https://developers.devision.io/metasdk/services/</loc>
+    <lastmod>2017-04-24T18:36:24+02:00</lastmod>
+  </url><url>
+    <loc>https://developers.devision.io/metasdk/services/lock_service/</loc>
+    <lastmod>2017-04-24T18:36:24+02:00</lastmod>
+  </url><url>
+    <loc>https://developers.devision.io/metasdk/services/rpc/</loc>
+    <lastmod>2017-04-24T18:36:24+02:00</lastmod>
+  </url><url>
+    <loc>https://developers.devision.io/metasdk/services/metaql/</loc>
+    <lastmod>2017-04-24T18:36:24+02:00</lastmod>
+  </url><url>
+    <loc>https://developers.devision.io/metasdk/services/exceptions/</loc>
+    <lastmod>2017-04-24T18:36:24+02:00</lastmod>
+  </url><url>
+    <loc>https://developers.devision.io/metasdk/services/logging/</loc>
+    <lastmod>2017-04-24T18:36:24+02:00</lastmod>
+  </url><url>
+    <loc>https://developers.devision.io/metasdk/</loc>
+    <lastmod>2017-04-24T18:36:24+02:00</lastmod>
+  </url><url>
+    <loc>https://developers.devision.io/metasdk/categories/</loc>
+  </url><url>
+    <loc>https://developers.devision.io/metasdk/tags/</loc>
+  </url>
+</urlset>

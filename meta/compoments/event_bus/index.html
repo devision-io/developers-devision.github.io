@@ -1738,16 +1738,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p>Идеально, если при сохранении чего-то смотреть изменившиеся поля и понимать что именно надо выполнить по бизнес-процессу, если, например изменился только статус
 объекта, однако пока что это невозможно. Однако мы хотели сделать возможность подписываться на изменения объектов, чтобы не добавлять логику оповещения
 внутренних подсистем предприятия прямо в код страниц META.</p>
-<p>Пример: на карточке клиента при сохранении списка главных пользователей клиента надо записывать изменения в сторонюю CRM.
-В простейшем случае все тривиально - в код страницы вставляется вызов апи CRM, например даже через какое-то наше внутрее API.
-Однако список таких систем может расти и вам просто сложно будет за этим всем следить, а так же параллелить и перезапускать при недостуности внешних API,
+<p>Пример: на карточке клиента при сохранении списка главных пользователей клиента надо записывать изменения в стороннюю CRM.
+В простейшем случае все тривиально - в код страницы вставляется вызов апи CRM, например даже через какое-то наше внутреннее API.
+Однако список таких систем может расти и вам просто сложно будет за этим всем следить, а так же параллелить и перезапускать при недоступности внешних API,
 код будет ухудшаться и не будет соблюдаться принцип единой ответственности (SRP).</p>
-<p>Кроме того, если вы или с вами будут делиться модулями меты, вы врядли захотите менять эти страницы, чтобы уведомить какие-то части своей подсистемы.</p>
+<p>Кроме того, если вы или с вами будут делиться модулями меты, вы вряд ли захотите менять эти страницы, чтобы уведомить какие-то части своей подсистемы.</p>
 <h2 id="как-работает">Как работает</h2>
 <p>На основе <a href="../starter/">Starter</a> в качестве backend для распределенного запуска скриптов.
 Он же обеспечивает перезапуск при падениях, ограничение очереди выполнения, логи и пр. вещи нужные для обработки очередей</p>
 <h3 id="meta-страницы">META Страницы</h3>
-<p>В коде страниц редактирования карточек объектов в принципе вседа есть похожий код, который занимается журналированием изменений:</p>
+<p>В коде страниц редактирования карточек объектов в принципе всегда есть похожий код, который занимается журналированием изменений:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;meta/js&#34;</span> <span style="color:#a6e22e">elem</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hidden&#34;</span> <span style="color:#a6e22e">states</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;save&#34;</span>&gt;
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>(<span style="color:#a6e22e">pvm</span>, <span style="color:#a6e22e">vm</span>, <span style="color:#a6e22e">env</span>, <span style="color:#a6e22e">ObjectLogService</span>) {
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// тут обычное сохранение вашего объекта или списка объектов
@@ -1755,18 +1755,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Это стандартная запись в журнал изменений по объекту
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">ObjectLogService</span>.<span style="color:#a6e22e">logValue</span>(<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">entityId</span>, <span style="color:#a6e22e">objectId</span>, <span style="color:#a6e22e">isNew</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">&#39;ADD&#39;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;SET&#39;</span>, <span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">sp</span>.<span style="color:#a6e22e">obj</span>);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// или с пятым параметром, который укажет на некую &#34;форму&#34;, которая менала объект
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">//  например тут придумано название main_user_list, которое именно у нас в приложении будет означать форму со списоком главных пользователей 
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// или с пятым параметром, который укажет на некую &#34;форму&#34;, которая меняла объект
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">//  например тут придумано название main_user_list, которое именно у нас в приложении будет означать форму со списком главных пользователей 
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">ObjectLogService</span>.<span style="color:#a6e22e">logValue</span>(<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">entityId</span>, <span style="color:#a6e22e">objectId</span>, <span style="color:#a6e22e">isNew</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">&#39;ADD&#39;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;SET&#39;</span>, <span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">sp</span>.<span style="color:#a6e22e">obj</span>, <span style="color:#e6db74">&#39;main_user_list&#39;</span>);
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt; 
 </span></span></code></pre></div><h3 id="dispatchers">Dispatchers</h3>
 <p>Содержится в параметре dispatcher</p>
-<p>Будет использоваться для шины событий как клиент, который продуцирует полезную работу: запускает фоновые процессы, записыват логи, генерирует события в шину</p>
+<p>Будет использоваться для шины событий как клиент, который продуцирует полезную работу: запускает фоновые процессы, записывает логи, генерирует события в шину</p>
 <p>Примеры:</p>
 <ul>
 <li>meta.{META_APP_ALIAS} - мета-приложение</li>
-<li>appscript.{SERVICE_ID} - фоновый скрипт (включает в сещя обработчики шины событий)</li>
+<li>appscript.{SERVICE_ID} - фоновый скрипт (включает в себя обработчики шины событий)</li>
 <li>apiservice.{SERVICE_ID} - http апи сервисы</li>
 </ul>
 <h3 id="python-worker-listener">Python worker (Listener)</h3>
@@ -1776,11 +1776,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </span></span><span style="display:flex;"><span>META <span style="color:#f92672">=</span> MetaApp()
 </span></span><span style="display:flex;"><span>log <span style="color:#f92672">=</span> META<span style="color:#f92672">.</span>log
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># в декораторе вы долэны указать на какие типу уведомлений подписываетесь и начать обработку события</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># в декораторе вы должны указать на какие типу уведомлений подписываетесь и начать обработку события</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">@META.event_bus.listener</span>(entity_id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;2830&#34;</span>, code<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;ADD&#34;</span>, <span style="color:#e6db74">&#34;SET&#34;</span>], form_pattern<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;*&#34;</span>], dispatcher_pattern<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;meta.garpun_feeds&#34;</span>])
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">on_upsert_ex_access</span>(event: Event):
 </span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">u</span><span style="color:#e6db74">&#34;on_upsert_ex_access = </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> str(event))
-</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">u</span><span style="color:#e6db74">&#34;event.value = </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> str(event<span style="color:#f92672">.</span>value)) <span style="color:#75715e"># для получения value нужено делать receive_value=True, но не делайте это всегда, часто это не нужно, но создает большую доп. нагрузку</span>
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">u</span><span style="color:#e6db74">&#34;event.value = </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> str(event<span style="color:#f92672">.</span>value)) <span style="color:#75715e"># для получения value нужно делать receive_value=True, но не делайте это всегда, часто это не нужно, но создает большую доп. нагрузку</span>
 </span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">u</span><span style="color:#e6db74">&#34;event.object_id = </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> str(event<span style="color:#f92672">.</span>object_id))
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">import</span> time
 </span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;sleep...&#34;</span>)
@@ -1830,7 +1830,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </span></span></code></pre></div><h2 id="добавление-нового-обработчика">Добавление нового обработчика</h2>
 <p>Выбираете нужный бандл. Обычно бандл уже есть у страниц, для которых делается обработчик,
 но в целом это не обязательно делать именно в нем. Например в случае, если вам надо обработать
-событие изменения пользователя для какой-то бизнес фичи вы врядли должны добалять обработчик в пакет <code>io.devision.meta</code>.
+событие изменения пользователя для какой-то бизнес фичи вы вряд ли должны добавлять обработчик в пакет <code>io.devision.meta</code>.
 Скорее вам надо добавлять обработчик в пакет вашего приложения или крупной бизнес функциональности.</p>
 <p>В корень папки бандла добавьте папку <code>event_listener</code> если ее нет.
 В папку <code>event_listener</code> добавьте папку с названием своего обработчика, например <code>myfirst_hanlder</code>.</p>
@@ -1838,15 +1838,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 В <code>requirements.txt</code> обязательно должна быть зависимость <code>metasdk</code>.</p>
 <h2 id="ограничения">Ограничения</h2>
 <ul>
-<li>Звездочка в паттерне формы &ldquo;*&rdquo; может стоять или в начале или в конце, но НЕ в середине выражения</li>
+<li>Звездочка в паттерне формы &ldquo;*&rdquo; может стоять или в начале, или в конце, но НЕ в середине выражения</li>
 <li>Если нет подписчиков события, событие будет записано в журнал, но не уйдет в Starter</li>
 <li>По-умолчанию value лога не прокидывается в таски для шины. Для того, чтобы получать его делайте receive_value=True</li>
 </ul>
 <h2 id="отказоустойчивость">Отказоустойчивость</h2>
 <p>Мы стараемся делать все надежно, однако все ломается (например падение сети или выключение электричества) и событие может не уйти и вы <strong>должны</strong> иметь механизмы перепроверки.
-Желательно подумать о них примо при проектировании своей подсистемы.
-Работать они могут сильно реже - напирмер раз в час перепроеряют, что все сработало как надо и если что-то не так - делают нужные задачи.
-Мы будем улучшать надежность Шины, однако все же надо помнить, что только вы знаете как правильно ореагировать на серьезные ошибки в вашем продукте.</p>
+Желательно подумать о них прямо при проектировании своей подсистемы.
+Работать они могут сильно реже - например раз в час перепроверяют, что все сработало как надо и если что-то не так - делают нужные задачи.
+Мы будем улучшать надежность Шины, однако все же надо помнить, что только вы знаете как правильно отреагировать на серьезные ошибки в вашем продукте.</p>
 <h2 id="roadmap">ROADMAP</h2>
 <ul>
 <li>попытаться очень быстро обрабатывать события с минимальными накладными расходами на запуск питона, например</li>
